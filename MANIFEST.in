@@ -1,0 +1,5 @@
+include requirements.txt
+include optional-requirements.txt
+include README.md
+recursive-include device_detector/regexes *
+global-exclude *~

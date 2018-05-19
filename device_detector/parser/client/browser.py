@@ -1,0 +1,295 @@
+try:
+    import regex as re
+except ImportError:
+    import re
+from . import BaseClientParser
+from ...settings import BOUNDED_REGEX
+
+
+AVAILABLE_ENGINES = {
+    'WebKit',
+    'Blink',
+    'Trident',
+    'Text-based',
+    'Dillo',
+    'iCab',
+    'Elektra',
+    'Presto',
+    'Gecko',
+    'KHTML',
+    'NetFront',
+    'Edge',
+    'NetSurf'
+}
+AVAILABLE_ENGINES_LOWER_CASE = {engine.lower(): engine for engine in AVAILABLE_ENGINES}
+
+AVAILABLE_BROWSERS = {
+    '36': '360 Phone Browser',
+    '3B': '360 Browser',
+    'AA': 'Avant Browser',
+    'AB': 'ABrowse',
+    'AF': 'ANT Fresco',
+    'AG': 'ANTGalio',
+    'AL': 'Aloha Browser',
+    'AM': 'Amaya',
+    'AO': 'Amigo',
+    'AN': 'Android Browser',
+    'AR': 'Arora',
+    'AV': 'Amiga Voyager',
+    'AW': 'Amiga Aweb',
+    'AT': 'Atomic Web Browser',
+    'BB': 'BlackBerry Browser',
+    'BD': 'Baidu Browser',
+    'BS': 'Baidu Spark',
+    'BE': 'Beonex',
+    'BJ': 'Bunjalloo',
+    'BL': 'B-Line',
+    'BR': 'Brave',
+    'BK': 'BriskBard',
+    'BX': 'BrowseX',
+    'CA': 'Camino',
+    'CC': 'Coc Coc',
+    'CD': 'Comodo Dragon',
+    'C1': 'Coast',
+    'CX': 'Charon',
+    'CF': 'Chrome Frame',
+    'CH': 'Chrome',
+    'CI': 'Chrome Mobile iOS',
+    'CK': 'Conkeror',
+    'CM': 'Chrome Mobile',
+    'CN': 'CoolNovo',
+    'CO': 'CometBird',
+    'CP': 'ChromePlus',
+    'CR': 'Chromium',
+    'CY': 'Cyberfox',
+    'CS': 'Cheshire',
+    'DB': 'dbrowser',
+    'DE': 'Deepnet Explorer',
+    'DF': 'Dolphin',
+    'DO': 'Dorado',
+    'DL': 'Dooble',
+    'DI': 'Dillo',
+    'EI': 'Epic',
+    'EL': 'Elinks',
+    'EB': 'Element Browser',
+    'EP': 'GNOME Web',
+    'ES': 'Espial TV Browser',
+    'FB': 'Firebird',
+    'FD': 'Fluid',
+    'FE': 'Fennec',
+    'FF': 'Firefox',
+    'FK': 'Firefox Focus',
+    'FL': 'Flock',
+    'FM': 'Firefox Mobile',
+    'FW': 'Fireweb',
+    'FN': 'Fireweb Navigator',
+    'GA': 'Galeon',
+    'GE': 'Google Earth',
+    'HJ': 'HotJava',
+    'IA': 'Iceape',
+    'IB': 'IBrowse',
+    'IC': 'iCab',
+    'I2': 'iCab Mobile',
+    'I1': 'Iridium',
+    'ID': 'IceDragon',
+    'IV': 'Isivioo',
+    'IW': 'Iceweasel',
+    'IE': 'Internet Explorer',
+    'IM': 'IE Mobile',
+    'IR': 'Iron',
+    'JS': 'Jasmine',
+    'JI': 'Jig Browser',
+    'KI': 'Kindle Browser',
+    'KM': 'K-meleon',
+    'KO': 'Konqueror',
+    'KP': 'Kapiko',
+    'KY': 'Kylo',
+    'KZ': 'Kazehakase',
+    'LB': 'Liebao',
+    'LG': 'LG Browser',
+    'LI': 'Links',
+    'LU': 'LuaKit',
+    'LS': 'Lunascape',
+    'LX': 'Lynx',
+    'MB': 'MicroB',
+    'MC': 'NCSA Mosaic',
+    'ME': 'Mercury',
+    'MF': 'Mobile Safari',
+    'MI': 'Midori',
+    'MU': 'MIUI Browser',
+    'MS': 'Mobile Silk',
+    'MX': 'Maxthon',
+    'NB': 'Nokia Browser',
+    'NO': 'Nokia OSS Browser',
+    'NV': 'Nokia Ovi Browser',
+    'NE': 'NetSurf',
+    'NF': 'NetFront',
+    'NL': 'NetFront Life',
+    'NP': 'NetPositive',
+    'NS': 'Netscape',
+    'OB': 'Obigo',
+    'OD': 'Odyssey Web Browser',
+    'OF': 'Off By One',
+    'OE': 'ONE Browser',
+    'OI': 'Opera Mini',
+    'OM': 'Opera Mobile',
+    'OP': 'Opera',
+    'ON': 'Opera Next',
+    'OR': 'Oregano',
+    'OV': 'Openwave Mobile Browser',
+    'OW': 'OmniWeb',
+    'OT': 'Otter Browser',
+    'PL': 'Palm Blazer',
+    'PM': 'Pale Moon',
+    'PR': 'Palm Pre',
+    'PU': 'Puffin',
+    'PW': 'Palm WebPro',
+    'PA': 'Palmscape',
+    'PX': 'Phoenix',
+    'PO': 'Polaris',
+    'PT': 'Polarity',
+    'PS': 'Microsoft Edge',
+    'QQ': 'QQ Browser',
+    'QT': 'Qutebrowser',
+    'QZ': 'QupZilla',
+    'RK': 'Rekonq',
+    'RM': 'RockMelt',
+    'SB': 'Samsung Browser',
+    'SA': 'Sailfish Browser',
+    'SC': 'SEMC-Browser',
+    'SE': 'Sogou Explorer',
+    'SF': 'Safari',
+    'SH': 'Shiira',
+    'SK': 'Skyfire',
+    'SS': 'Seraphic Sraf',
+    'SL': 'Sleipnir',
+    'SM': 'SeaMonkey',
+    'SN': 'Snowshoe',
+    'SR': 'Sunrise',
+    'SP': 'SuperBird',
+    'ST': 'Streamy',
+    'SX': 'Swiftfox',
+    'TZ': 'Tizen Browser',
+    'TS': 'TweakStyle',
+    'UC': 'UC Browser',
+    'VI': 'Vivaldi',
+    'VB': 'Vision Mobile Browser',
+    'WE': 'WebPositive',
+    'WF': 'Waterfox',
+    'WO': 'wOSBrowser',
+    'WT': 'WeTab Browser',
+    'YA': 'Yandex Browser',
+    'XI': 'Xiino'
+}
+
+# flip Abbrev / Brand for fast membership testing
+BROWSER_TO_ABBREV = {browser.lower(): abbrev for abbrev, browser in AVAILABLE_BROWSERS.items()}
+
+BROWSER_FAMILIES = {
+    'Android Browser': ['AN', 'MU'],
+    'BlackBerry Browser': ['BB'],
+    'Baidu': ['BD', 'BS'],
+    'Amiga': ['AV', 'AW'],
+    'Chrome': (
+        'CH', 'BR', 'CC', 'CD', 'CM', 'CI', 'CF', 'CN',
+        'CR', 'CP', 'IR', 'RM', 'AO', 'TS', 'VI', 'PT'
+    ),
+    'Firefox': ['FF', 'FE', 'FM', 'SX', 'FB', 'PX', 'MB', 'EI', 'WF'],
+    'Internet Explorer': ['IE', 'IM', 'PS'],
+    'Konqueror': ['KO'],
+    'NetFront': ['NF'],
+    'NetSurf': ['NE'],
+    'Nokia Browser': ['NB', 'NO', 'NV', 'DO'],
+    'Opera': ['OP', 'OM', 'OI', 'ON'],
+    'Safari': ['SF', 'MF'],
+    'Sailfish Browser': ['SA'],
+}
+
+MOBILE_ONLY_BROWSERS = {
+    '36', 'PU', 'SK', 'MF', 'OI', 'OM', 'DB',
+    'ST', 'BL', 'IV', 'FM', 'C1', 'AL', 'SA',
+}
+
+class EngineVersion:
+
+    def __init__(self, user_agent):
+        self.user_agent = user_agent
+
+    def parse(self, engine) -> str:
+        if not engine:
+            return ''
+
+        regex = "{engine}\s*\/?\s*((?(?=\d+\.\d)\d+[.\d]*|\d{{1,7}}(?=(?:\D|$))))".format(
+            engine=engine
+        )
+        regex = BOUNDED_REGEX.format(regex)
+        match = re.search(regex, self.user_agent, re.IGNORECASE)
+        if match:
+            engine_version = self.user_agent[match.start():match.end()]
+            try:
+                return engine_version.split('/')[1]
+            except IndexError:
+                pass
+
+        return ''
+
+
+class Engine(BaseClientParser):
+
+    AVAILABLE_ENGINES = AVAILABLE_ENGINES
+
+    fixture_files = [
+        'client/browser_engine.yml',
+    ]
+
+    def parse(self):
+        super().parse()
+        if 'name' in self.ua_data:
+            self.ua_data['engine_version'] = EngineVersion(self.user_agent).parse(
+                engine=self.ua_data['name']
+            )
+
+        return self
+
+
+class Browser(BaseClientParser):
+
+    fixture_files = [
+        'client/browsers.yml',
+    ]
+
+    AVAILABLE_ENGINES = AVAILABLE_ENGINES
+    AVAILABLE_BROWSERS = AVAILABLE_BROWSERS
+    BROWSER_TO_ABBREV = BROWSER_TO_ABBREV
+    BROWSER_FAMILIES = BROWSER_FAMILIES
+    MOBILE_ONLY_BROWSERS = MOBILE_ONLY_BROWSERS
+
+
+    def set_details(self):
+        super().set_details()
+        if self.ua_data:
+            browser = self.ua_data.get('name', '')
+            self.ua_data.update({
+                'short_name': self.BROWSER_TO_ABBREV.get(browser.lower(), browser),
+            })
+
+            if 'engine' not in self.ua_data:
+                self.ua_data['engine'] = Engine(self.user_agent).parse().ua_data
+
+    def short_name(self) -> str:
+        return self.ua_data.get('short_name', None)
+
+    def engine(self):
+        if not self.ua_data.get('engine', ''):
+            return ''
+        if 'default' in self.ua_data['engine']:
+            return self.ua_data['engine']['default']
+        return self.ua_data['engine']['name']
+
+    def is_mobile_only(self):
+        return self.short_name() in self.MOBILE_ONLY_BROWSERS
+
+
+__all__ = (
+    'Browser', 'Engine',
+)

@@ -1,0 +1,11 @@
+*.pyc
+*.egg-info/
+.eggs/
+.cache/
+.tox/
+build/
+dist/
+tmp/
+regexes/
+cached_regexes/
+fixtures/
