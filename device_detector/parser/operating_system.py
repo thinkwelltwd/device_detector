@@ -192,4 +192,5 @@ class OS(Parser):
 
 __all__ = (
     'OS',
+    'DESKTOP_OS', 'OPERATING_SYSTEMS', 'OS_FAMILIES',
 )

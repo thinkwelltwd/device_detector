@@ -161,6 +161,9 @@ class Parser:
     def name(self) -> str:
         return self.ua_data.get('name', '')
 
+    def short_name(self) -> str:
+        return self.ua_data.get('short_name', '')
+
     def version(self) -> str:
         return self.ua_data.get('version', '')
 

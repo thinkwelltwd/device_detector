@@ -292,4 +292,6 @@ class Browser(BaseClientParser):
 
 __all__ = (
     'Browser', 'Engine',
+    'AVAILABLE_ENGINES', 'AVAILABLE_BROWSERS',
+    'BROWSER_FAMILIES', 'MOBILE_ONLY_BROWSERS',
 )

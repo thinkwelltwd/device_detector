@@ -13,6 +13,7 @@ from .parser import (
     Browser, FeedReader, Library,
     MediaPlayer, MobileApp, PIM,
 )
+from . import DDCache
 
 MAC_iOS = {'ATV', 'IOS', 'MAC'}
 
@@ -43,7 +44,6 @@ class DeviceDetector:
         self.os = None
         self.client = None
         self.device = None
-        self.brand = None
         self.model = None
 
         # Holds bot information if parsing the UA results in a bot
@@ -62,14 +62,24 @@ class DeviceDetector:
     def class_name(self) -> str:
         return self.__class__.__name__
 
+    def get_parse_cache(self):
+        if self.user_agent not in DDCache['user_agents']:
+            return None
+        return DDCache['user_agents'][self.user_agent].get('parsed', None)
+
+    def set_parse_cache(self):
+        if self.user_agent not in DDCache['user_agents']:
+            DDCache['user_agents'][self.user_agent] = {}
+        DDCache['user_agents'][self.user_agent]['parsed'] = self
+        return self
+
     # -----------------------------------------------------------------------------
     # UA parsing methods
     # -----------------------------------------------------------------------------
     def parse(self):
-        if self.parsed:
-            return self
-
-        self.parsed = True
+        parsed = self.get_parse_cache()
+        if parsed:
+            return parsed
 
         if not self.user_agent:
             return self
@@ -83,7 +93,7 @@ class DeviceDetector:
         self.parse_client()
         self.parse_device()
 
-        return self
+        return self.set_parse_cache()
 
     def parse_client(self) -> None:
         """
@@ -133,7 +143,7 @@ class DeviceDetector:
     # Data post-processing / analysis
     # -----------------------------------------------------------------------------
     def is_known(self) -> bool:
-        for section, data in self.all_details:
+        for section, data in self.all_details.items():
             if data:
                 return True
         return False
@@ -233,6 +243,12 @@ class DeviceDetector:
     def client_name(self) -> str:
         try:
             return self.client.name()
+        except AttributeError:
+            return ''
+
+    def client_short_name(self) -> str:
+        try:
+            return self.client.short_name()
         except AttributeError:
             return ''
 
