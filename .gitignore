@@ -6,6 +6,3 @@
 build/
 dist/
 tmp/
-regexes/
-cached_regexes/
-fixtures/
