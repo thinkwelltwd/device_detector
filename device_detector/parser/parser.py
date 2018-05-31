@@ -9,9 +9,14 @@ except ImportError:
     from yaml import SafeLoader
 
 import device_detector
+from functools import lru_cache
 from pathlib import Path
 from ..settings import BOUNDED_REGEX, DDCache, ROOT
 from .extractors import NameExtractor, ModelExtractor, VersionExtractor
+
+@lru_cache(None)
+def compiled_regex(regex):
+    return re.compile(BOUNDED_REGEX.format(regex), re.IGNORECASE)
 
 
 class Parser:
@@ -96,9 +101,9 @@ class Parser:
         return regexes
 
     def _check_regex(self, regex):
-        regex = BOUNDED_REGEX.format(regex)
         try:
-            return re.search(regex, self.user_agent, re.IGNORECASE)
+            cregex = compiled_regex(regex)
+            return cregex.search(self.user_agent)
         except Exception as e:
             print('{} fired an error {}'.format(regex, e))
             if re.__name__ == 're':
