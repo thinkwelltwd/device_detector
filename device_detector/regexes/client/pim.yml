@@ -44,3 +44,7 @@
 - regex: 'DAVdroid(?:/(\d+[\.\d]+))?'
   name: 'DAVdroid'
   version: '$1'
+
+- regex: 'mattermost/(\d+[\.\d]+)'
+  name: 'Mattermost'
+  version: '$1'

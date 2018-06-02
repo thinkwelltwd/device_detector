@@ -1,0 +1,23 @@
+- regex: 'windows-update-agent/(\d+[\.\d]+)'
+  name: 'Windows Update Agent'
+  version: '$1'
+
+- regex: 'windowsstore/(\d+[\.\d]+)'
+  name: 'Windows Store'
+  version: '$1'
+
+- regex: 'windowsshellclient/(\d+[\.\d]+)'
+  name: 'Windows Shell Client'
+  version: '$1'
+
+- regex: 'Microsoft-CryptoAPI/(\d+[\.\d]+)'
+  name: 'Microsoft CryptoAPI'
+  version: '$1'
+
+- regex: 'apt-http/(\d+[\.\d]+)'
+  name: 'Apt Updater'
+  version: '$1'
+
+- regex: 'yum/(\d+[\.\d]+)'
+  name: 'YUM Updater'
+  version: '$1'

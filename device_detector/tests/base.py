@@ -115,7 +115,7 @@ class ParserBaseTest(Base):
             data = parsed.ua_data
 
             for field in self.fields:
-                self.assertIn(field, data)
+                self.assertIn(field, data, msg='Parsed data does not have "{}" key'.format(field))
                 self.assertEqual(
                     str(expect[field]), str(data[field]),
                     msg='Error parsing {}. \n'

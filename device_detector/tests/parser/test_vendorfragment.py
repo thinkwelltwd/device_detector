@@ -15,7 +15,7 @@ class TestVendorFragment(ParserBaseTest):
             self.user_agent = fixture.pop('useragent')
             expect = fixture['vendor']
             parsed = VendorFragment(self.user_agent).parse()
-            self.assertEqual(expect, parsed.ua_data[['brand']])
+            self.assertEqual(expect, parsed.ua_data['brand'])
 
 
 

@@ -1,0 +1,36 @@
+-
+  user_agent: debian apt-http/1.3
+  client:
+    type: osutility
+    name: Apt Updater
+    version: "1.3"
+-
+  user_agent: urlgrabber/3.9.1 yum/3.2.29
+  client:
+    type: osutility
+    name: YUM Updater
+    version: "3.2.29"
+-
+  user_agent: windowsshellclient/9.0.40929.0
+  client:
+    type: osutility
+    name: Windows Shell Client
+    version: "9.0.40929.0"
+-
+  user_agent: windowsstore/11804.1001.10.0
+  client:
+    type: osutility
+    name: Windows Store
+    version: "11804.1001.10.0"
+-
+  user_agent: windows-update-agent/10.0.10011.16384 client-protocol/1.40
+  client:
+    type: osutility
+    name: Windows Update Agent
+    version: "10.0.10011.16384"
+-
+  user_agent: Microsoft-CryptoAPI/6.3
+  client:
+    type: osutility
+    name: Microsoft CryptoAPI
+    version: "6.3"

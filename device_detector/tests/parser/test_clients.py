@@ -1,6 +1,8 @@
 from ..base import ParserBaseTest
-from ...parser import Browser, FeedReader, Library, MediaPlayer, MobileApp, PIM
-
+from ...parser import (
+    Browser, FeedReader, Library, MediaPlayer, MobileApp,
+    OSUtility, PIM,
+)
 
 class TestBrowser(ParserBaseTest):
 
@@ -54,6 +56,15 @@ class TestPIM(ParserBaseTest):
     ]
     fields = ('name', 'type', 'version')
     Parser = PIM
+
+
+class TestOSUtility(ParserBaseTest):
+
+    fixture_files = [
+        'tests/parser/fixtures/client/osutility.yml',
+    ]
+    fields = ('name', 'type', 'version')
+    Parser = OSUtility
 
 
 __all__ = (

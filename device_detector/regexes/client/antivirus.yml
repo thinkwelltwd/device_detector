@@ -1,0 +1,14 @@
+- regex: 'clamav/(\d+[\.\d]+)'
+  name: 'ClamAV'
+  version: '$1'
+  type: 'av'
+
+- regex: 'SophosUpdateManager/(\d+[\.\d]+)'
+  name: 'Sophos'
+  version: '$1'
+  type: 'av'
+
+- regex: 'SophosAgent/(\d+[\.\d]+)'
+  name: 'Sophos'
+  version: '$1'
+  type: 'av'

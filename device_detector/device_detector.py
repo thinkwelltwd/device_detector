@@ -11,7 +11,7 @@ from .parser import (
 
     # Clients
     Browser, FeedReader, Library,
-    MediaPlayer, MobileApp, PIM,
+    MediaPlayer, MobileApp, OSUtility, PIM,
 )
 from . import DDCache
 
@@ -24,6 +24,7 @@ class DeviceDetector:
     client_types = []
 
     CLIENT_PARSERS = (
+        OSUtility,
         FeedReader,
         MobileApp,
         MediaPlayer,

@@ -1,0 +1,18 @@
+-
+  user_agent: 'clamav/0.99.4 (os: linux-gnu, arch: x86_64, cpu: x86_64)'
+  client:
+    type: av
+    name: ClamAV
+    version: "0.99.4"
+-
+  user_agent: SophosUpdateManager/1.5.7.50 SDDS/2.0 (u= EO2ANA123G c= 6342da15-f351-4ab7-9656-3f5f2d50885d )
+  client:
+    type: av
+    name: Sophos
+    version: "1.5.7.50"
+-
+  user_agent: SophosAgent/1.0 (type= spa )
+  client:
+    type: av
+    name: Sophos
+    version: "1.0"
