@@ -67,10 +67,22 @@
   name: 'Faraday'
   version: '$1'
 
-- regex: '(?:Go-http-client|Go )/?(?:(\d+[\.\d]+))?(?: package http)?'
+- regex: '(?:Go-http-client|Go )\/?(?:(\d+[\.\d]+))?(?: package http)?'
   name: 'Go-http-client'
   version: '$1'
 
-- regex: 'aws-sdk-([a-z]+)/(\d+[\.\d]+)'
+- regex: 'aws-sdk-([a-z]+)\/(\d+[\.\d]+)'
   name: 'Amazon Web Services SDK for $1'
   version: '$2'
+
+- regex: 'FB(Android|iOS)SDK\.(\d+[\.\d]+)'
+  name: 'Facebook SDK for $1'
+  version: '$2'
+
+- regex: 'xboxservicesapi/(\d+[\.\d]+)'
+  name: 'Xbox Services API'
+  version: '$1'
+
+- regex: 'zendesk-sdk/(\d+[\.\d]+)'
+  name: 'Zendesk SDK'
+  version: '$1'

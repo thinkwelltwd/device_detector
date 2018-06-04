@@ -37,6 +37,7 @@ AVAILABLE_BROWSERS = {
     'AR': 'Arora',
     'AV': 'Amiga Voyager',
     'AW': 'Amiga Aweb',
+    'AS': 'Avast SafeZone',
     'AT': 'Atomic Web Browser',
     'BB': 'BlackBerry Browser',
     'BD': 'Baidu Browser',

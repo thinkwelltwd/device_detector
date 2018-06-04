@@ -84,3 +84,7 @@
 - regex: 'Instacast(?:/([\d\.]+))? CFNetwork/([\d\.]+)'
   name: 'Instacast'
   version: '$1'
+
+- regex: 'Spotify\/(\d+)'
+  name: 'Spotify'
+  version: '$1'

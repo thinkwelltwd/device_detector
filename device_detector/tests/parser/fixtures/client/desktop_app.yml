@@ -1,0 +1,144 @@
+-
+  user_agent: Microsoft Excel 2013 (15.0.4693) Windows NT 6.2
+  client:
+    type: productivity
+    name: Microsoft Excel
+    version: 2013
+-
+  user_agent: Microsoft Office Excel 2013 (15.0.4693) Windows NT 6.2
+  client:
+    type: productivity
+    name: Microsoft Excel
+    version: 2013
+-
+  user_agent: Microsoft Access 2013 (15.0.4693) Windows NT 6.2
+  client:
+    type: productivity
+    name: Microsoft Access
+    version: 2013
+-
+  user_agent: Microsoft Office Access 2013 (15.0.4693) Windows NT 6.2
+  client:
+    type: productivity
+    name: Microsoft Access
+    version: 2013
+-
+  user_agent: Microsoft Office SyncProc 2013 (15.0.4693) Windows NT 6.2
+  client:
+    type: apputility
+    name: Microsoft Office SyncProc
+    version: 2013
+-
+  user_agent: Microsoft Office/15.0 (Windows NT 6.2; 15.0.4691; Pro)
+  client:
+    type: productivity
+    name: Microsoft Office
+    version: 15.0
+-
+  user_agent: Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.3; WOW64; Trident/7.0; .NET4.0E; .NET4.0C; .NET CLR 3.5.30729; .NET CLR 2.0.50727; .NET CLR 3.0.30729; Tablet PC 2.0; ms-office)
+  client:
+    type: productivity
+    name: Microsoft Office
+    version:
+-
+  user_agent: libreoffice 5.4.3.2 (92a7159f7e4af62137622921e809f8546db437e5; windows; x86; )
+  client:
+    type: productivity
+    name: LibreOffice
+    version: 5.4.3.2
+-
+  user_agent: openoffice.org 3.2 (320m18(build:9502); windows; x86; bundledlanguages=en-us)
+  client:
+    type: productivity
+    name: OpenOffice
+    version: 3.2
+-
+  user_agent: microsoftphotos/2018.18041.15210.0 (windows.desktop; 10.0.16299.431)
+  client:
+    type: desktop app
+    name: Microsoft Photos
+    version: 2018.18041.15210.0
+-
+  user_agent: microsoft skydrivesync 18.065.0329.0002 ship; windows nt 10.0 (16299)
+  client:
+    type: apputility
+    name: Microsoft OneDrive
+    version: 18.065.0329.0002
+-
+  user_agent: microsoft skydrivesync/18.065.0329.0002 ship; windows nt 10.0 (16299)
+  client:
+    type: apputility
+    name: Microsoft OneDrive
+    version: 18.065.0329.0002
+-
+  user_agent: microsoft settingssync (10.0.17134.1) windows nt 10.0 (0a00) mobile isnotaoac
+  client:
+    type: apputility
+    name: Microsoft OneDrive
+    version: 10.0.17134.1
+-
+  user_agent: microsoft windows network diagnostics
+  client:
+    type: osutility
+    name: Windows Network Diagnostics
+    version: ''
+-
+  user_agent: Picasa/3.9.139.161 (gzip)
+  client:
+    type: desktop app
+    name: Picasa
+    version: 3.9.139.161
+-
+  user_agent: PicasaUpdater/3.9.139.161 (gzip)
+  client:
+    type: apputility
+    name: Picasa Updater
+    version: 3.9.139.161
+-
+  user_agent: Get Flash Player version xml/1.0
+  client:
+    type: apputility
+    name: Flash Updater
+    version: 1.0
+-
+  user_agent: googlesoftwareupdateagent/1.2.10.105 cfnetwork/901.1 darwin/17.5.0 (x86_64)
+  client:
+    type: apputility
+    name: Google Updater
+    version: 1.2.10.105
+-
+  user_agent: QBUpdate/26.0/R13/pro
+  client:
+    type: apputility
+    name: Quickbooks Updater
+    version: 26.0
+-
+  user_agent: com.apple.Maps
+  client:
+    type: desktop app
+    name: Apple Maps
+    version: 
+-
+  user_agent: googleearth/7.3.1.4507(windows;microsoft windows (6.2.9200.0);en;kml:2.2;client:pro;type:default)
+  client:
+    type: desktop app
+    name: Google Earth
+    version: 7.3.1.4507
+-
+  user_agent: google maps/4.49.14 cfnetwork/887 darwin/17.0.0
+  client:
+    type: desktop app
+    name: Google Maps
+    version: 4.49.14
+-
+  user_agent: google photos/3.20.196522575 cfnetwork/897.15 darwin/17.5.0
+  client:
+    type: desktop app
+    name: Google Photos
+    version: 3.20.196522575
+-
+  user_agent: word/15.27.16101000 cfnetwork/889.9 darwin/17.2.0 (x86_64)
+  client:
+    type: productivity
+    name: Microsoft Word
+    version: 15.27.16101000

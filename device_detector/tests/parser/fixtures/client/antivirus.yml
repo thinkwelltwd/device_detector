@@ -16,3 +16,45 @@
     type: av
     name: Sophos
     version: "1.0"
+-
+  user_agent: SophosUpdate/5.12.85
+  client:
+    type: av
+    name: Sophos
+    version: "5.12.85"
+-
+  user_agent: 1.0,win/6.1.7601,AV/18.4.2338,avl/myavast/18.4.3895.325,ffl
+  client:
+    type: av
+    name: Avast
+    version: "18.4.3895.325"
+-
+  user_agent: avast! Antivirus (instup)
+  client:
+    type: av
+    name: Avast
+    version: ""
+-
+  user_agent: Avast Emergency Update Agent
+  client:
+    type: av
+    name: Avast
+    version: ""
+-
+  user_agent: CCleaner Update Agent
+  client:
+    type: av
+    name: CCleaner
+    version: ""
+-
+  user_agent: ZoneAlarm/14.1.48.0 (oem-1043; en-US) ZSP/2.2
+  client:
+    type: av
+    name: ZoneAlarm
+    version: "14.1.48.0"
+-
+  user_agent: ngc/22.14.0.54 mid/{00000000-0000-0000-0000-000000000000} sid/h4yvwwaaaaa lue/1.15.1.10 (windows;10.0;sp0.0;x64;enu)
+  client:
+    type: av
+    name: Norton Antivirus
+    version: "22.14.0.54"

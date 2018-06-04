@@ -1,5 +1,5 @@
 from ..base import ParserBaseTest
-from ...parser import OS
+from ...parser import OS, OSFragment
 
 
 class TestOS(ParserBaseTest):
@@ -12,6 +12,25 @@ class TestOS(ParserBaseTest):
     Parser = OS
 
 
+class TestOSFragment(ParserBaseTest):
+
+    fixture_files = [
+        'tests/parser/fixtures/osfragments.yml',
+    ]
+    fields = ('name',)
+    fixture_key = 'name'
+
+    def test_parsing(self):
+        fixtures = self.load_fixtures()
+
+        for fixture in fixtures:
+            self.user_agent = fixture.pop('user_agent')
+            expect = fixture['name']
+            parsed = OSFragment(self.user_agent).parse()
+            self.assertEqual(expect, parsed.ua_data['name'])
+
+
+
 __all__ = (
-    'TestOS',
+    'TestOS', 'TestOSFragment',
 )

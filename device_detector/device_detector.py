@@ -11,7 +11,7 @@ from .parser import (
 
     # Clients
     Browser, FeedReader, Library,
-    MediaPlayer, MobileApp, OSUtility, PIM,
+    MediaPlayer, MobileApp, DesktopApp, PIM,
 )
 from . import DDCache
 
@@ -24,11 +24,11 @@ class DeviceDetector:
     client_types = []
 
     CLIENT_PARSERS = (
-        OSUtility,
         FeedReader,
         MobileApp,
         MediaPlayer,
         PIM,
+        DesktopApp,
         Browser,
         Library,
     )
@@ -351,6 +351,21 @@ class DeviceDetector:
             'name': self.device_brand_name(),
         })
 
+    def pretty_print(self) -> str:
+        if not self.is_known():
+            return self.user_agent
+        os = client = device = 'N/A'
+        if self.os_name():
+            os = '{} {}'.format(self.os_name(), self.os_version())
+        if self.client_name():
+            client = '{} {} ({})'.format(
+                self.client_name(), self.client_version(), self.client_type().title(),
+            )
+        if self.device_model():
+            device = '{} ({})'.format(
+                self.device_brand_name(), self.device_model(), self.device_type().title(),
+            )
+        return 'Client: {} Device: {} OS: {}'.format(client, device, os).strip()
 
 
 __all__ = (

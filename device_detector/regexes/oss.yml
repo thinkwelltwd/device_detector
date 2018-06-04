@@ -249,7 +249,10 @@
 - regex: 'Windows'
   name: 'Windows'
   version: ''
-  
+
+- regex: 'Win10PC'
+  name: 'Windows'
+  version: '10'
   
   
 ##########

@@ -23,6 +23,12 @@
     name: Windows Store
     version: "11804.1001.10.0"
 -
+  user_agent: windows store/1.0
+  client:
+    type: osutility
+    name: Windows Store
+    version: "1.0"
+-
   user_agent: windows-update-agent/10.0.10011.16384 client-protocol/1.40
   client:
     type: osutility
@@ -34,3 +40,33 @@
     type: osutility
     name: Microsoft CryptoAPI
     version: "6.3"
+-
+  user_agent: Microsoft-NCSI
+  client:
+    type: osutility
+    name: Microsoft NCSI
+    version: ""
+-
+  user_agent: Microsoft-BITS/7.8
+  client:
+    type: osutility
+    name: Microsoft BITS
+    version: "7.8"
+-
+  user_agent: Microsoft-WNS/6.3
+  client:
+    type: osutility
+    name: Microsoft WNS
+    version: "6.3"
+-
+  user_agent: MICROSOFT_DEVICE_METADATA_RETRIEVAL_CLIENT
+  client:
+    type: osutility
+    name: Microsoft Device Metadata Retrieval Client
+    version: ""
+-
+  user_agent: Microsoft-Delivery-Optimization/10.0
+  client:
+    type: osutility
+    name: Microsoft Delivery Optimization
+    version: "10.0"

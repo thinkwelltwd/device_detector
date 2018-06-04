@@ -1,4 +1,5 @@
 from .parser import Parser
+from .os_fragment import OSFragment
 
 DESKTOP_OS = {
     'AmigaOS',
@@ -173,6 +174,12 @@ class OS(Parser):
         if self._check_regex('i[0-9]86|i86pc'):
             return 'x86'
         return ''
+
+    def _parse(self):
+        super()._parse()
+        if not self.ua_data:
+            OSFragment(self.user_agent).parse()
+        return self.ua_data or {}
 
     def set_details(self) -> None:
         super().set_details()

@@ -13,6 +13,10 @@
   name: 'Microsoft Outlook'
   version: '$1'
 
+- regex: 'outlook[ \/](\d+)'
+  name: 'Microsoft Outlook'
+  version: '$1'
+
 - regex: '(?:Thunderbird|Icedove|Shredder)(?:/(\d+[\.\d]+))?'
   name: 'Thunderbird'
   version: '$1'
@@ -45,6 +49,22 @@
   name: 'DAVdroid'
   version: '$1'
 
-- regex: 'mattermost/(\d+[\.\d]+)'
+- regex: 'mattermost\/(\d+[\.\d]+)'
   name: 'Mattermost'
+  version: '$1'
+
+- regex: 'Microsoft (?:Office )?OneNote(?:[\/ ](\d+[\.\d]+))?'
+  name: 'Microsoft OneNote'
+  version: '$1'
+
+- regex: '(?:G-)?eM Client\/GOAuth2RequestFactory-CS-Version=(\d+[\.\d]+)'
+  name: 'eM Client'
+  version: '$1'
+
+- regex: 'gmail\/(\d+[\.\d]+)'
+  name: 'Gmail'
+  version: '$1'
+
+- regex: 'slack\/(\d+)'
+  name: 'Slack'
   version: '$1'
