@@ -9631,6 +9631,46 @@
   os_family: Android
   browser_family: Chrome
 - 
+  user_agent: Mozilla/5.0 (Linux; Android 7.0; RNE-L21 Build/HUAWEIRNE-L21) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.109 Mobile Safari/537.36
+  os:
+    name: Android
+    short_name: AND
+    version: "7.0"
+    platform: ""
+  client:
+    type: browser
+    name: Chrome Mobile
+    short_name: CM
+    version: "65.0.3325.109"
+    engine: Blink
+    engine_version: ""
+  device:
+    type: smartphone
+    brand: HU
+    model: Mate 10 Lite
+  os_family: Android
+  browser_family: Chrome
+-
+  user_agent: Mozilla/5.0 (Linux; Android 7.0; RNE-L03 Build/HUAWEIRNE-L03) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.158 Mobile Safari/537.36
+  os:
+    name: Android
+    short_name: AND
+    version: "7.0"
+    platform: ""
+  client:
+    type: browser
+    name: Chrome Mobile
+    short_name: CM
+    version: "66.0.3359.158"
+    engine: Blink
+    engine_version: ""
+  device:
+    type: smartphone
+    brand: HU
+    model: Mate 10 Lite
+  os_family: Android
+  browser_family: Chrome
+-
   user_agent: Mozilla/5.0 (Linux; Android 7.0; RNE-L22 Build/HONORRNE-L22) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.98 Mobile Safari/537.36
   os:
     name: Android
@@ -9650,7 +9690,7 @@
     model: Nova 2I
   os_family: Android
   browser_family: Chrome
-- 
+-
   user_agent: Mozilla/5.0 (Linux; Android 7.0; VTR-L09 Build/HUAWEIVTR-L09) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.116 Mobile Safari/537.36
   os:
     name: Android
@@ -9670,7 +9710,47 @@
     model: P10
   os_family: Android
   browser_family: Chrome
-- 
+-
+  user_agent: Mozilla/5.0 (Linux; Android 7.0; BAC-L23 Build/HUAWEIBAC-L23) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.137 Mobile Safari/537.36 mCent/0.13.1127
+  os:
+    name: Android
+    short_name: AND
+    version: "7.0"
+    platform: ""
+  client:
+    type: browser
+    name: Chrome Mobile
+    short_name: CM
+    version: "64.0.3282.137"
+    engine: Blink
+    engine_version: ""
+  device:
+    type: smartphone
+    brand: HU
+    model: P10 Selfie
+  os_family: Android
+  browser_family: Chrome
+-
+  user_agent: Mozilla/5.0 (Linux; Android 7.0; WAS-LX1 Build/HUAWEIWAS-LX1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.116 Mobile Safari/537.36
+  os:
+    name: Android
+    short_name: AND
+    version: "7.0"
+    platform: ""
+  client:
+    type: browser
+    name: Chrome Mobile
+    short_name: CM
+    version: "60.0.3112.116"
+    engine: Blink
+    engine_version: ""
+  device:
+    type: smartphone
+    brand: HU
+    model: P10 Lite
+  os_family: Android
+  browser_family: Chrome
+-
   user_agent: Mozilla/5.0 (Linux; U; Android 4.2.2; de-de; HUAWEI P6-U06 Build/HuaweiP6-U06) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30
   os:
     name: Android
@@ -9690,7 +9770,7 @@
     model: P6-U06
   os_family: Android
   browser_family: Android Browser
-- 
+-
   user_agent: Mozilla/5.0 (Linux; Android 6.0; HUAWEI GRA-L09 Build/HUAWEIGRA-L09) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.125 Mobile Safari/537.36
   os:
     name: Android
@@ -9710,7 +9790,7 @@
     model: P8
   os_family: Android
   browser_family: Chrome
-- 
+-
   user_agent: Mozilla/5.0 (Linux; Android 6.0; ALE-L21 Build/HuaweiALE-L21) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.84 Mobile Safari/537.36
   os:
     name: Android
@@ -9730,7 +9810,7 @@
     model: P8 Lite (2015)
   os_family: Android
   browser_family: Chrome
-- 
+-
   user_agent: Mozilla/5.0 (Linux; Android 7.0; PRA-LX1 Build/HONORPRA-LX1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.125 Mobile Safari/537.36
   os:
     name: Android
@@ -9750,7 +9830,7 @@
     model: P8 Lite (2017)
   os_family: Android
   browser_family: Chrome
-- 
+-
   user_agent: Mozilla/5.0 (Linux; Android 7.0; PRA-LX1 Build/HUAWEIPRA-LX1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.98 Mobile Safari/537.36
   os:
     name: Android
@@ -9770,7 +9850,7 @@
     model: P8 Lite (2017)
   os_family: Android
   browser_family: Chrome
-- 
+-
   user_agent: Mozilla/5.0 (Linux; Android 7.0; PRA-LA1 Build/HONORPRA-LA1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.84 Mobile Safari/537.36
   os:
     name: Android
@@ -9790,7 +9870,7 @@
     model: P8 Lite (2017)
   os_family: Android
   browser_family: Chrome
-- 
+-
   user_agent: Mozilla/5.0 (Linux; Android 7.0; EVA-L09 Build/HUAWEIEVA-L09) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Mobile Safari/537.36
   os:
     name: Android
@@ -9810,7 +9890,7 @@
     model: P9
   os_family: Android
   browser_family: Chrome
-- 
+-
   user_agent: Mozilla/5.0 (Linux; Android 7.0; HUAWEI VNS-L21 Build/HUAWEIVNS-L21) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.137 Mobile Safari/537.36
   os:
     name: Android
@@ -9830,7 +9910,44 @@
     model: P9 Lite
   os_family: Android
   browser_family: Chrome
-- 
+-
+  user_agent: Mozilla/5.0 (Linux; Android 8.1.0; CLT-L29 Build/HUAWEICLT-L29; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/66.0.3359.158 Mobile Safari/537.36 [FB_IAB/Orca-Android;FBAV/167.0.0.28.94;]
+  os:
+    name: Android
+    short_name: AND
+    version: "8.1.0"
+    platform: ""
+  client:
+    type: mobile app
+    name: Facebook
+    version: "167.0.0.28.94"
+  device:
+    type: smartphone
+    brand: HU
+    model: P20 Pro
+  os_family: Android
+  browser_family: Unknown
+-
+  user_agent: Mozilla/5.0 (Linux; Android 8.0.0; ANE-LX3 Build/HUAWEIANE-LX3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.158 Mobile Safari/537.36
+  os:
+    name: Android
+    short_name: AND
+    version: "8.0.0"
+    platform: ""
+  client:
+    type: browser
+    name: Chrome Mobile
+    short_name: CM
+    version: "66.0.3359.158"
+    engine: Blink
+    engine_version: ""
+  device:
+    type: smartphone
+    brand: HU
+    model: P20 Lite
+  os_family: Android
+  browser_family: Chrome
+-
   user_agent: HuaweiT8100_TD/1.0 Android/2.2 Release/12.25.2010 Browser/WAP2.0 Profile/MIDP-2.0 Configuration/CLDC-1.1 AppleWebKit/533.1
   os:
     name: Android
@@ -9850,7 +9967,7 @@
     model: T8100
   os_family: Android
   browser_family: Android Browser
-- 
+-
   user_agent: HUAWEI_T8300_TD/1.0 OPhone/2.5 (Linux;Android 2.2) Release/03.20.2011 Browser/WAP2.0(AppleWebKit/533.1) Profile/MIDP-2.1 Configuration/CLDC-1.1
   os:
     name: Android
@@ -9870,7 +9987,7 @@
     model: T8300
   os_family: Android
   browser_family: Android Browser
-- 
+-
   user_agent: Mozilla/5.0 (Linux; U; Android 2.3.6; es-mx; U8185 Build/HuaweiU8185) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1
   os:
     name: Android
@@ -9890,7 +10007,7 @@
     model: U8185
   os_family: Android
   browser_family: Android Browser
-- 
+-
   user_agent: Mozilla/5.0 (Linux; U; Android 1.5; da-dk; U8230 Build/CRB17) AppleWebKit/528.5+ (KHTML, like Gecko) Version/3.1.2 Mobile Safari/525.20.1
   os:
     name: Android
@@ -9910,7 +10027,7 @@
     model: U8230
   os_family: Android
   browser_family: Android Browser
-- 
+-
   user_agent: Mozilla/5.0 (Linux; U; Android 2.3.6; en-us; U8655-1 Build/HuaweiU8655) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1
   os:
     name: Android
@@ -9930,7 +10047,7 @@
     model: U8655
   os_family: Android
   browser_family: Android Browser
-- 
+-
   user_agent: Mozilla/5.0 (Linux; U; Android 2.3.6; es-us; U8655-51 Build/HuaweiU8655) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1
   os:
     name: Android
@@ -9950,7 +10067,7 @@
     model: U8655
   os_family: Android
   browser_family: Android Browser
-- 
+-
   user_agent: Mozilla/5.0 (Linux; U; Android 2.3.6; hr-hr; U8655-1 Build/HuaweiU8655) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1
   os:
     name: Android
@@ -9970,7 +10087,7 @@
     model: U8655
   os_family: Android
   browser_family: Android Browser
-- 
+-
   user_agent: Mozilla/5.0 (Linux; U; Android 2.3.6; en-us; Huawei-U8665 Build/HuaweiU8665B037) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1
   os:
     name: Android
