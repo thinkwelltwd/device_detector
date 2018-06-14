@@ -229,6 +229,7 @@ DEVICE_BRANDS = {
     'MX': 'MEU',
     'MI': 'MicroMax',
     'M5': 'MIXC',
+    'M6': 'Mobiistar',
     'MC': 'Mediacom',
     'MK': 'MediaTek',
     'MO': 'Mio',
