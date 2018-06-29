@@ -5,7 +5,7 @@ from ...parser import VendorFragment
 class TestVendorFragment(ParserBaseTest):
 
     fixture_files = [
-        'tests/parser/fixtures/vendorfragments.yml',
+        'tests/parser/fixtures/upstream/vendorfragments.yml',
     ]
 
     def test_parsing(self):

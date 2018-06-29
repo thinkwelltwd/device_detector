@@ -5,7 +5,7 @@ from ... import DeviceDetector
 class TestDetectBot(DetectorBaseTest):
 
     fixture_files = [
-        'tests/fixtures/bots.yml',
+        'tests/fixtures/upstream/bots.yml',
     ]
     Parser = DeviceDetector
 
@@ -13,7 +13,7 @@ class TestDetectBot(DetectorBaseTest):
 class TestDetectCamera(DetectorBaseTest):
 
     fixture_files = [
-        'tests/fixtures/camera.yml',
+        'tests/fixtures/upstream/camera.yml',
     ]
     Parser = DeviceDetector
 
@@ -21,7 +21,7 @@ class TestDetectCamera(DetectorBaseTest):
 class TestDetectCarBrowser(DetectorBaseTest):
 
     fixture_files = [
-        'tests/fixtures/car_browser.yml',
+        'tests/fixtures/upstream/car_browser.yml',
     ]
     Parser = DeviceDetector
 
@@ -29,7 +29,7 @@ class TestDetectCarBrowser(DetectorBaseTest):
 class TestDetectConsole(DetectorBaseTest):
 
     fixture_files = [
-        'tests/fixtures/console.yml',
+        'tests/fixtures/upstream/console.yml',
     ]
     Parser = DeviceDetector
 
@@ -37,7 +37,7 @@ class TestDetectConsole(DetectorBaseTest):
 class TestDetectDesktop(DetectorBaseTest):
 
     fixture_files = [
-        'tests/fixtures/desktop.yml',
+        'tests/fixtures/upstream/desktop.yml',
     ]
     Parser = DeviceDetector
 
@@ -45,7 +45,7 @@ class TestDetectDesktop(DetectorBaseTest):
 class TestDetectFeedReader(DetectorBaseTest):
 
     fixture_files = [
-        'tests/fixtures/feed_reader.yml',
+        'tests/fixtures/upstream/feed_reader.yml',
     ]
     Parser = DeviceDetector
 
@@ -53,7 +53,7 @@ class TestDetectFeedReader(DetectorBaseTest):
 class TestDetectFeaturePhone(DetectorBaseTest):
 
     fixture_files = [
-        'tests/fixtures/feature_phone.yml',
+        'tests/fixtures/upstream/feature_phone.yml',
     ]
     Parser = DeviceDetector
 
@@ -61,7 +61,7 @@ class TestDetectFeaturePhone(DetectorBaseTest):
 class TestDetectMediaPlayer(DetectorBaseTest):
 
     fixture_files = [
-        'tests/fixtures/mediaplayer.yml',
+        'tests/fixtures/upstream/mediaplayer.yml',
     ]
     Parser = DeviceDetector
 
@@ -69,7 +69,7 @@ class TestDetectMediaPlayer(DetectorBaseTest):
 class TestDetectMobileApps(DetectorBaseTest):
 
     fixture_files = [
-        'tests/fixtures/mobile_apps.yml',
+        'tests/fixtures/upstream/mobile_apps.yml',
     ]
     Parser = DeviceDetector
 
@@ -77,7 +77,7 @@ class TestDetectMobileApps(DetectorBaseTest):
 class TestDetectSmartPhone(DetectorBaseTest):
 
     fixture_files = [
-        'tests/fixtures/smartphone.yml',
+        'tests/fixtures/upstream/smartphone.yml',
     ]
     Parser = DeviceDetector
 
@@ -85,7 +85,7 @@ class TestDetectSmartPhone(DetectorBaseTest):
 class TestDetectSmartPhone1(DetectorBaseTest):
 
     fixture_files = [
-        'tests/fixtures/smartphone-1.yml',
+        'tests/fixtures/upstream/smartphone-1.yml',
     ]
     Parser = DeviceDetector
 
@@ -93,7 +93,7 @@ class TestDetectSmartPhone1(DetectorBaseTest):
 class TestDetectSmartPhone4(DetectorBaseTest):
 
     fixture_files = [
-        'tests/fixtures/smartphone-4.yml',
+        'tests/fixtures/upstream/smartphone-4.yml',
     ]
     Parser = DeviceDetector
 
@@ -101,7 +101,7 @@ class TestDetectSmartPhone4(DetectorBaseTest):
 class TestDetectSmartPhone5(DetectorBaseTest):
 
     fixture_files = [
-        'tests/fixtures/smartphone-5.yml',
+        'tests/fixtures/upstream/smartphone-5.yml',
     ]
     Parser = DeviceDetector
 
@@ -109,7 +109,7 @@ class TestDetectSmartPhone5(DetectorBaseTest):
 class TestDetectTablet(DetectorBaseTest):
 
     fixture_files = [
-        'tests/fixtures/tablet.yml',
+        'tests/fixtures/upstream/tablet.yml',
     ]
     Parser = DeviceDetector
 
@@ -117,7 +117,7 @@ class TestDetectTablet(DetectorBaseTest):
 class TestDetectTablet1(DetectorBaseTest):
 
     fixture_files = [
-        'tests/fixtures/tablet-1.yml',
+        'tests/fixtures/upstream/tablet-1.yml',
     ]
     Parser = DeviceDetector
 
@@ -125,7 +125,7 @@ class TestDetectTablet1(DetectorBaseTest):
 class TestDetectTablet2(DetectorBaseTest):
 
     fixture_files = [
-        'tests/fixtures/tablet-2.yml',
+        'tests/fixtures/upstream/tablet-2.yml',
     ]
     Parser = DeviceDetector
 
@@ -133,6 +133,6 @@ class TestDetectTablet2(DetectorBaseTest):
 class TestDetectTV(DetectorBaseTest):
 
     fixture_files = [
-        'tests/fixtures/tv.yml',
+        'tests/fixtures/upstream/tv.yml',
     ]
     Parser = DeviceDetector

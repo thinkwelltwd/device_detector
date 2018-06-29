@@ -4,7 +4,8 @@ from . import BaseClientParser
 class Library(BaseClientParser):
 
     fixture_files = [
-        'client/libraries.yml',
+        'local/client/libraries.yml',
+        'upstream/client/libraries.yml',
     ]
 
 

@@ -369,6 +369,7 @@ DEVICE_BRANDS = {
     'VV': 'Vivo',
     'V1': 'Voto',
     'VO': 'Voxtel',
+    'VR': 'Vernee',
     'VF': 'Vodafone',
     'VZ': 'Vizio',
     'VW': 'Videoweb',
@@ -427,5 +428,6 @@ class BaseDeviceParser(Parser):
 
 
 __all__ = (
-    'BaseDeviceParser', 'DEVICE_BRANDS',
+    'BaseDeviceParser',
+    'DEVICE_BRANDS',
 )

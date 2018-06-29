@@ -11,8 +11,16 @@ except ImportError:
 import device_detector
 from functools import lru_cache
 from pathlib import Path
-from ..settings import BOUNDED_REGEX, DDCache, ROOT
-from .extractors import NameExtractor, ModelExtractor, VersionExtractor
+from ..settings import (
+    BOUNDED_REGEX,
+    DDCache,
+    ROOT,
+)
+from .extractors import (
+    NameExtractor,
+    ModelExtractor,
+    VersionExtractor,
+)
 
 @lru_cache(None)
 def compiled_regex(regex):

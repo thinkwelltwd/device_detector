@@ -1,0 +1,22 @@
+###############
+# Supplemental regexes for Device Detector - The Universal Device Detection library for parsing User Agents
+#
+# Copyright (c) 2018 Dave Burkholder, Thinkwell Designs
+# @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
+###############
+
+- regex: 'aws-sdk-([a-z]+)\/(\d+[\.\d]+)'
+  name: 'Amazon Web Services SDK for $1'
+  version: '$2'
+
+- regex: 'FB(Android|iOS)SDK\.(\d+[\.\d]+)'
+  name: 'Facebook SDK for $1'
+  version: '$2'
+
+- regex: 'xboxservicesapi/(\d+[\.\d]+)'
+  name: 'Xbox Services API'
+  version: '$1'
+
+- regex: 'zendesk-sdk/(\d+[\.\d]+)'
+  name: 'Zendesk SDK'
+  version: '$1'

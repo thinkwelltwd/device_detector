@@ -7,15 +7,25 @@ from .parser import (
     OS,
 
     # Devices
-    Bot, Device,
+    Bot,
+    Device,
 
     # Clients
-    Browser, FeedReader, Library,
-    MediaPlayer, MobileApp, DesktopApp, PIM,
+    Browser,
+    FeedReader,
+    Library,
+    MediaPlayer,
+    MobileApp,
+    DesktopApp,
+    PIM,
 )
 from . import DDCache
 
-MAC_iOS = {'ATV', 'IOS', 'MAC'}
+MAC_iOS = {
+    'ATV',
+    'IOS',
+    'MAC',
+}
 
 
 class DeviceDetector:

@@ -140,7 +140,8 @@ for os, families in OS_FAMILIES.items():
 class OS(Parser):
 
     fixture_files = [
-        'oss.yml',
+        'local/oss.yml',
+        'upstream/oss.yml',
     ]
 
     DESKTOP_OS = DESKTOP_OS
@@ -198,6 +199,8 @@ class OS(Parser):
 
 
 __all__ = (
+    'DESKTOP_OS',
     'OS',
-    'DESKTOP_OS', 'OPERATING_SYSTEMS', 'OS_FAMILIES',
+    'OPERATING_SYSTEMS',
+    'OS_FAMILIES',
 )

@@ -6,9 +6,9 @@ from ...parser import Device
 class TestDevices(ParserBaseTest):
 
     fixture_files = [
-        'tests/parser/fixtures/device/console.yml',
-        'tests/parser/fixtures/device/car_browser.yml',
-        'tests/parser/fixtures/device/camera.yml',
+        'tests/parser/fixtures/upstream/device/console.yml',
+        'tests/parser/fixtures/upstream/device/car_browser.yml',
+        'tests/parser/fixtures/upstream/device/camera.yml',
     ]
     Parser = Device
 

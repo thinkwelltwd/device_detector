@@ -1,0 +1,156 @@
+###############
+# Supplemental regexes for Device Detector - The Universal Device Detection library for parsing User Agents
+#
+# Copyright (c) 2018 Dave Burkholder, Thinkwell Designs
+# @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
+###############
+# General Desktop Apps
+
+- regex: com.apple.Maps
+  name: Apple Maps
+  version: 
+
+- regex: google ?earth\/(\d+[\.\d]+)
+  name: Google Earth
+  version: '$1'
+
+- regex: google ?maps\/(\d+[\.\d]+)
+  name: Google Maps
+  version: '$1'
+
+- regex: google ?photos\/(\d+[\.\d]+)
+  name: Google Photos
+  version: '$1'
+
+- regex: microsoftphotos\/(\d+[\.\d]+)
+  name: Microsoft Photos
+  version: '$1'
+
+- regex: skydrivesync[ \/](\d+[\.\d]+)
+  name: Microsoft OneDrive
+  version: '$1'
+  type: apputility
+
+- regex: onedrive[ \/](\d+[\.\d]+)
+  name: Microsoft OneDrive
+  version: '$1'
+  type: apputility
+
+- regex: onenote[ \/](\d+[\.\d]+)
+  name: Microsoft OneNote
+  version: '$1'
+  type: productivity
+
+- regex: word[ \/](\d+[\.\d]+)
+  name: Microsoft Word
+  version: '$1'
+  type: productivity
+
+- regex: microsoft settingssync[ \/]\(?(\d+[\.\d]+)
+  name: Microsoft OneDrive
+  version: '$1'
+  type: apputility
+
+- regex: microsoft windows network diagnostics
+  name: Windows Network Diagnostics
+  version: 
+  type: osutility
+
+- regex: googlesoftwareupdateagent\/(\d+[\.\d]+)
+  name: Google Updater
+  version: '$1'
+  type: apputility
+
+
+- regex: Picasa\/(\d+[\.\d]+)
+  name: Picasa
+  version: '$1'
+
+- regex: PicasaUpdater\/(\d+[\.\d]+)
+  name: Picasa Updater
+  version: '$1'
+  type: apputility
+
+- regex: Get Flash Player version xml\/(\d+[\.\d]+)
+  name: Flash Updater
+  version: '$1'
+  type: apputility
+
+- regex: DellUpdate\/(\d+[\.\d]+)
+  name: Dell Updater
+  version: '$1'
+  type: osutility
+
+# Financial
+- regex: QBUpdate\/(\d+[\.\d]+)
+  name: Quickbooks Updater
+  version: '$1'
+  type: apputility
+
+
+# Office / Productivity Apps
+- regex: Microsoft Office\/(\d+[\.\d]+)?
+  name: Microsoft Office
+  version: '$1'
+  type: productivity
+
+- regex: Microsoft (?:Office )?Access(?:[\/ ](\d+[\.\d]+))?
+  name: Microsoft Access
+  version: '$1'
+  type: productivity
+
+- regex: Microsoft (?:Office )?Excel(?:[\/ ](\d+[\.\d]+))?
+  name: Microsoft Excel
+  version: '$1'
+  type: productivity
+
+- regex: Microsoft (?:Office )?Lync(?:[\/ ](\d+[\.\d]+))?
+  name: Microsoft Lync
+  version: '$1'
+  type: productivity
+
+- regex: Microsoft (?:Office )?Powerpoint(?:[\/ ](\d+[\.\d]+))?
+  name: Microsoft PowerPoint
+  version: '$1'
+  type: productivity
+
+- regex: Microsoft (?:Office )?Visio(?:[\/ ](\d+[\.\d]+))?
+  name: Microsoft Visio
+  version: '$1'
+  type: productivity
+
+- regex: Microsoft (?:Office )?Word(?:[\/ ](\d+[\.\d]+))?
+  name: Microsoft Word
+  version: '$1'
+  type: productivity
+
+- regex: Microsoft Office SyncProc(?:[\/ ](\d+[\.\d]+))?
+  name: Microsoft Office SyncProc
+  version: '$1'
+  type: apputility
+
+- regex: Microsoft (?:Office )?Upload Center(?:[\/ ](\d+[\.\d]+))?
+  name: Microsoft Upload Center
+  version: '$1'
+  type: apputility
+
+# Match last after other Office apps - Microsoft Office 2014 & Microsoft Office/2014
+- regex: Microsoft Office(?:[\/ ]+(\d+[\.\d]+))?
+  name: Microsoft Office
+  version: '$1'
+  type: productivity
+
+- regex: ms-office
+  name: Microsoft Office
+  type: productivity
+  version: 
+
+- regex: openoffice.org[\/ ](\d+[\.\d]+)
+  name: OpenOffice
+  version: '$1'
+  type: productivity
+
+- regex: libreoffice[\/ ](\d+[\.\d]+)
+  name: LibreOffice
+  version: '$1'
+  type: productivity

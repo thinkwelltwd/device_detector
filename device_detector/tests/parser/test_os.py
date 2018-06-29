@@ -5,7 +5,8 @@ from ...parser import OS, OSFragment
 class TestOS(ParserBaseTest):
 
     fixture_files = [
-        'tests/parser/fixtures/oss.yml',
+        'tests/parser/fixtures/local/oss.yml',
+        'tests/parser/fixtures/upstream/oss.yml',
     ]
     fields = ('name', 'short_name', 'version')
     fixture_key = 'os'
@@ -15,7 +16,7 @@ class TestOS(ParserBaseTest):
 class TestOSFragment(ParserBaseTest):
 
     fixture_files = [
-        'tests/parser/fixtures/osfragments.yml',
+        'tests/parser/fixtures/local/osfragments.yml',
     ]
     fields = ('name',)
     fixture_key = 'name'

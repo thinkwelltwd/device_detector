@@ -1,0 +1,14 @@
+###############
+# Supplemental regexes for Device Detector - The Universal Device Detection library for parsing User Agents
+#
+# Copyright (c) 2018 Dave Burkholder, Thinkwell Designs
+# @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
+###############
+
+-
+  user_agent: Viber/6.6.21745.1000 Win10PC/10.0.17134.48
+  os:
+    name: Windows
+    short_name: WIN
+    version: 10
+    platform:

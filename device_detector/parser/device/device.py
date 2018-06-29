@@ -13,11 +13,11 @@ class Device(BaseDeviceParser):
     # parser classes used in the matomo project, except for TVs
     # which are parsed separately
     fixture_files = [
-        'device/consoles.yml',
-        'device/car_browsers.yml',
-        'device/cameras.yml',
-        'device/portable_media_player.yml',
-        'device/mobiles.yml',
+        'upstream/device/consoles.yml',
+        'upstream/device/car_browsers.yml',
+        'upstream/device/cameras.yml',
+        'upstream/device/portable_media_player.yml',
+        'upstream/device/mobiles.yml',
     ]
 
     # -----------------------------------------------------------------------------
@@ -30,7 +30,7 @@ class Device(BaseDeviceParser):
         if regexes:
             return regexes
 
-        regexes = self.load_from_yaml('device/televisions.yml')
+        regexes = self.load_from_yaml('upstream/device/televisions.yml')
         if not regexes:
             return []
 

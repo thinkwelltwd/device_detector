@@ -1,0 +1,6 @@
+-
+  user_agent: Spotify/108000474
+  client:
+    type: mediaplayer
+    name: Spotify
+    version: "108000474"

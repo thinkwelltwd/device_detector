@@ -4,7 +4,8 @@ from . import BaseClientParser
 class MediaPlayer(BaseClientParser):
 
     fixture_files = [
-        'client/mediaplayers.yml',
+        'local/client/mediaplayers.yml',
+        'upstream/client/mediaplayers.yml',
     ]
 
 

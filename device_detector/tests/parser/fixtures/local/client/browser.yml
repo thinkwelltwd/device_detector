@@ -1,0 +1,22 @@
+---
+-
+  user_agent: Avastium Chrome/3.2987.1601(Win) (18.4.2338)
+  client:
+    type: browser
+    name: Avast SafeZone
+    short_name: "AS"
+    version: "3.2987.1601"
+-
+  user_agent: mozilla/5.0 applewebkit/537.36 (khtml, like gecko) chrome/57.3.2987.1601 safari/537.36 avastium (17.8.2527)
+  client:
+    type: browser
+    name: Avast SafeZone
+    short_name: "AS"
+    version: "17.8.2527"
+-
+  user_agent: mozilla/5.0 applewebkit/537.36 (khtml, like gecko) chrome/57.3.2987.1601 safari/537.36 avastium/17.8.2527
+  client:
+    type: browser
+    name: Avast SafeZone
+    short_name: "AS"
+    version: "17.8.2527"

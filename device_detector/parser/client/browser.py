@@ -240,7 +240,7 @@ class Engine(BaseClientParser):
     AVAILABLE_ENGINES = AVAILABLE_ENGINES
 
     fixture_files = [
-        'client/browser_engine.yml',
+        'upstream/client/browser_engine.yml',
     ]
 
     def parse(self):
@@ -256,7 +256,8 @@ class Engine(BaseClientParser):
 class Browser(BaseClientParser):
 
     fixture_files = [
-        'client/browsers.yml',
+        'local/client/browsers.yml',
+        'upstream/client/browsers.yml',
     ]
 
     AVAILABLE_ENGINES = AVAILABLE_ENGINES
@@ -292,7 +293,10 @@ class Browser(BaseClientParser):
 
 
 __all__ = (
-    'Browser', 'Engine',
-    'AVAILABLE_ENGINES', 'AVAILABLE_BROWSERS',
-    'BROWSER_FAMILIES', 'MOBILE_ONLY_BROWSERS',
+    'Browser',
+    'Engine',
+    'AVAILABLE_ENGINES',
+    'AVAILABLE_BROWSERS',
+    'BROWSER_FAMILIES',
+    'MOBILE_ONLY_BROWSERS',
 )

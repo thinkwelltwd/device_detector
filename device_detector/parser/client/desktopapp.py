@@ -4,9 +4,9 @@ from . import BaseClientParser
 class DesktopApp(BaseClientParser):
 
     fixture_files = [
-        'client/osutility.yml',
-        'client/antivirus.yml',
-        'client/desktop_apps.yml',
+        'local/client/osutility.yml',
+        'local/client/antivirus.yml',
+        'local/client/desktop_apps.yml',
     ]
 
     def dtype(self):

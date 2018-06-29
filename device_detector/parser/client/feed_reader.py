@@ -7,7 +7,7 @@ class FeedReader(BaseClientParser):
         return 'feed reader'
 
     fixture_files = [
-        'client/feed_readers.yml',
+        'upstream/client/feed_readers.yml',
     ]
 
 

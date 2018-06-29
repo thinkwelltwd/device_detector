@@ -4,7 +4,8 @@ from . import BaseClientParser
 class MobileApp(BaseClientParser):
 
     fixture_files = [
-        'client/mobile_apps.yml',
+        'local/client/mobile_apps.yml',
+        'upstream/client/mobile_apps.yml',
     ]
 
     def dtype(self):

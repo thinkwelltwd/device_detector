@@ -4,7 +4,7 @@ from .base import BaseDeviceParser
 class Bot(BaseDeviceParser):
 
     fixture_files = [
-        'bots.yml',
+        'upstream/bots.yml',
     ]
 
     def is_bot(self) -> bool:

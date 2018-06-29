@@ -1,0 +1,67 @@
+###############
+# Supplemental regexes for Device Detector - The Universal Device Detection library for parsing User Agents
+#
+# Copyright (c) 2018 Dave Burkholder, Thinkwell Designs
+# @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
+###############
+
+- regex: clamav/(\d+[\.\d]+)
+  name: ClamAV
+  version: '$1'
+  type: av
+
+- regex: SophosUpdate(?:Manager)?\/(\d+[\.\d]+)
+  name: Sophos
+  version: '$1'
+  type: av
+
+- regex: SophosAgent/(\d+[\.\d]+)
+  name: Sophos
+  version: '$1'
+  type: av
+
+- regex: McAfee CA Transmitter
+  name: McAfee
+  version: 
+  type: av
+
+- regex: (?:my)?avast\/(\d+[\.\d]+)
+  name: Avast
+  version: '$1'
+  type: av
+
+- regex: Avast!? (Antivirus|curl|SimpleHttp|NCC)
+  name: Avast
+  version: 
+  type: av
+
+- regex: Avast (Emergency|TUNEUP) Update Agent
+  name: Avast
+  version: 
+  type: av
+
+- regex: Avast SimpleHttp\/(\d+[\.\d]+)
+  name: Avast
+  version: '$1'
+  type: av
+
+- regex: avast! Antivirus
+  name: Avast
+  version: 
+  type: av
+
+- regex: CCleaner Update Agent
+  name: CCleaner
+  version: 
+  type: av
+
+- regex: ZoneAlarm\/(\d+[\.\d]+)
+  name: ZoneAlarm
+  version: '$1'
+  type: av
+
+
+- regex: ngc\/(\d+[\.\d]+)
+  name: Norton Antivirus
+  version: '$1'
+  type: av

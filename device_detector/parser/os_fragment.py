@@ -7,7 +7,7 @@ from . import BaseDeviceParser
 
 class OSFragment(BaseDeviceParser):
     fixture_files = [
-        'osfragments.yml',
+        'local/osfragments.yml',
     ]
 
     def yaml_to_list(self, yfile) -> list:

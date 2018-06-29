@@ -3,7 +3,7 @@ from . import BaseDeviceParser
 
 class VendorFragment(BaseDeviceParser):
     fixture_files = [
-        'vendorfragments.yml',
+        'upstream/vendorfragments.yml',
     ]
 
     def yaml_to_list(self, yfile) -> list:

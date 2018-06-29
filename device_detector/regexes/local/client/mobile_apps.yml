@@ -1,0 +1,471 @@
+###############
+# Supplemental regexes for Device Detector - The Universal Device Detection library for parsing User Agents
+#
+# Copyright (c) 2018 Dave Burkholder, Thinkwell Designs
+# @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
+###############
+
+- regex: 'youtube\/([\d\.]+)'
+  name: 'YouTube'
+  version: '$1'
+
+- regex: 'youtubemusic\/([\d\.]+)'
+  name: 'YouTube Music'
+  version: '$1'
+
+# AFNetworking generic
+- regex: '([^/]+)/(\d+(?:\.\d+)+) \((?:iPhone|iPad); iOS [0-9\.]+; Scale/[0-9\.]+\)'
+  name: '$1'
+  version: '$2'
+
+# WhatsApp
+- regex: 'WhatsApp(?:[ /]([\d\.]+))?'
+  name: 'WhatsApp'
+  version: '$1'
+
+# Line
+- regex: 'Line(?:[ /]([\d\.]+))'
+  name: 'Line'
+  version: '$1'
+
+# Instacast
+- regex: 'Instacast(?:HD)?/(\d\.[\d\.abc]+) CFNetwork/([\d\.]+) Darwin/([\d\.]+)'
+  name: 'Instacast'
+  version: '$1'
+-
+  regex: 'Podcasts/([\d\.]+)'
+  name: 'Podcasts'
+  version: '$1'
+-
+  regex: 'Pocket Casts(?:, (?:Android|iOS) v([\d\.]+))?'
+  name: 'Pocket Casts'
+  version: '$1'
+-
+  regex: 'Podcat/([\d\.]+)'
+  name: 'Podcat'
+  version: '$1'
+
+-
+  regex: 'BeyondPod'
+  name: 'BeyondPod'
+  version:
+-
+  regex: 'AntennaPod/?([\d\.]+)?'
+  name: 'AntennaPod'
+  version: '$1'
+-
+  regex: 'Overcast/([\d\.]+)'
+  name: 'Overcast'
+  version: '$1'
+-
+  regex: 'Player FM'
+  name: 'Player FM'
+  version: ''
+-
+  regex: 'Podkicker(?: Pro)?/([\d\.]+)'
+  name: 'Podkicker'
+  version: '$1'
+-
+  regex: 'Castro/(\d+)'
+  name: 'Castro'
+  version: '$1'
+-
+  regex: 'Castro 2 ([\d\.]+)/[\d]+ Like iTunes'
+  name: 'Castro 2'
+  version: '$1'
+-
+  regex: 'Castro 2'
+  name: 'Castro 2'
+  version: ''
+-
+  regex: 'DoggCatcher'
+  name: 'DoggCatcher'
+  version:
+-
+  regex: 'Podcat/([\d]+) CFNetwork/([\d\.]+) Darwin/([\d\.]+)'
+  name: 'Podcat'
+  version: '$1'
+-
+  regex: 'i[cC]atcher[^\d]+([\d\.]+)'
+  name: 'iCatcher'
+  version: '$1'
+-
+  regex: 'YelpApp/([\d\.]+)'
+  name: 'Yelp Mobile'
+  version: '$1'
+-
+  regex: 'GoogleAuth/([\d\.]+)'
+  name: 'Google Auth Engine'
+  version: '$1'
+-
+  regex: 'PinkyPie/([\d\.]+)'
+  name: 'Cequint Caller ID'
+  version: '$1'
+-
+  regex: 'eBayiPhone\/(\d+[\.\d]+)'
+  name: 'eBay for iOS'
+  version: '$1'
+-
+  regex: 'eBayiPhone\/(\d+[\.\d]+)'
+  name: 'eBay for iOS'
+  version: '$1'
+-
+  regex: 'Viber\/(\d+[\.\d]+)'
+  name: 'Viber'
+  version: '$1'
+-
+  regex: 'CloudVeilMessenger\/(\d+[\.\d]+)'
+  name: 'CloudVeil Messenger'
+  version: '$1'
+-
+  regex: 'Arcus-(iOS|Android)\/(\d+[\.\d]+)'
+  name: 'Arcus $1'
+  version: '$2'
+-
+  regex: 'krogerco\/(\d+[\.\d]+)\/(iOS|Android)'
+  name: 'Kroger for $2'
+  version: '$1'
+-
+  regex: 'VungleDroid\/(\d+[\.\d]+)'
+  name: 'VungleDroid'
+  version: '$1'
+-
+  regex: 'Vungle(Droid|Windows)\/(\d+[\.\d]+)'
+  name: 'Vungle$1'
+  version: '$2'
+-
+  regex: 'SafetyMap\/(\d+[\.\d]+)'
+  name: 'SafetyMap'
+  version: '$1'
+-
+  regex: 'Helpshift-(Android|iOS)\/(\d+[\.\d]+)'
+  name: 'Helpshift for $1'
+  version: '$2'
+-
+  regex: 'GroupMe-(Android|iOS)\/(\d+[\.\d]+)'
+  name: 'GroupMe for $1'
+  version: '$2'
+-
+  regex: 'Staples Mobile App'
+  name: 'Staples Mobile App'
+  version: ''
+-
+  regex: 'iMazing\/(\d+[\.\d]+)'
+  name: 'iMazing'
+  version: '$1'
+
+- regex: 'cbnnews\/(\d+)'
+  name: 'CBN News'
+  version: '$1'
+
+- regex: 'chase\/(\d+)'
+  name: 'Chase'
+  version: '$1'
+
+- regex: 'cheapoair\/(\d+[\.\d]+)'
+  name: 'Cheapo Air'
+  version: '$1'
+
+- regex: 'evernote/windows'
+  name: 'Evernote'
+  version: ''
+
+- regex: 'evernote windows\/(\d+[\.\d]+)'
+  name: 'Evernote'
+  version: '$1'
+
+- regex: 'foxnews\/(\d+)'
+  name: 'Fox News'
+  version: '$1'
+
+- regex: 'accuweather[ \/](\d+[\.\d]+)'
+  name: 'AccuWeather'
+  version: '$1'
+
+- regex: 'com.accuweather.android'
+  name: 'AccuWeather'
+  version: ''
+
+- regex: 'com.apalon.weatherradar.free'
+  name: 'NOAA Weather Radar'
+  version: ''
+
+- regex: 'jcpenney\/(\d+)'
+  name: 'JC Penney'
+  version: '$1'
+
+- regex: 'jetblue\/(\d+)'
+  name: 'Jet Blue'
+  version: '$1'
+
+- regex: 'MyRadarPro\/(\d+[\.\d]+)'
+  name: 'MyRadar Pro Weather Radar'
+  version: '$1'
+
+- regex: 'flightradar24\/(\d+)'
+  name: 'Flightradar24'
+  version: '$1'
+
+- regex: 'FlightRadarFree\/(\d+[\.\d]+)'
+  name: 'Flightradar24'
+  version: '$1'
+
+- regex: 'NOAA (?:Weather)? Radar\/(\d+[\.\d]+)'
+  name: 'NOAA Radar'
+  version: '$1'
+
+- regex: 'myradar\/(\d+[\.\d]+)'
+  name: 'MyRadar Weather Radar'
+  version: '$1'
+
+- regex: 'agweather\/(\d+[\.\d]+)'
+  name: 'DTN: Ag Weather Tools'
+  version: '$1'
+
+- regex: 'agweb\/(\d+)'
+  name: 'AgWeb News & Markets'
+  version: '$1'
+
+- regex: 'gaiagps\/(\d+[\.\d]+)'
+  name: 'GAIA GPS'
+  version: '$1'
+
+- regex: 'whitepages\/(\d+)'
+  name: 'Whitepages'
+  version: '$1'
+
+- regex: '1password\/(\d+)'
+  name: '1Password'
+  version: '$1'
+
+- regex: 'allrecipes\/(\d+)'
+  name: 'All Recipes'
+  version: '$1'
+
+- regex: 'airtickets\/(\d+)'
+  name: 'airtickets.com App'
+  version: '$1'
+
+- regex: 'airbnb\/(\d+)'
+  name: 'Airbnb'
+  version: '$1'
+
+- regex: 'americanairlines\/(\d+)'
+  name: 'American Airlines'
+  version: '$1'
+
+- regex: 'auctiontime\/(\d+)'
+  name: 'AuctionTime'
+  version: '$1'
+
+- regex: 'autotrader\/(\d+[\.\d]+)'
+  name: 'AutoTrader'
+  version: '$1'
+
+- regex: 'audible\/(\d+)'
+  name: 'Audible'
+  version: '$1'
+
+- regex: 'biblegateway\/(\d+)'
+  name: 'Zondervan Bible Gateway'
+  version: '$1'
+
+- regex: 'bible\+\/(\d+)'
+  name: 'Bible Plus'
+  version: '$1'
+
+- regex: 'burger ?king\/(\d+)'
+  name: 'Burger King'
+  version: '$1'
+
+- regex: 'cars\.com\/(\d+)'
+  name: 'Cars.com App'
+  version: '$1'
+
+- regex: 'ebay\/(\d+)'
+  name: 'eBay App'
+  version: '$1'
+
+- regex: 'ebaynotificationserviceextension\/(\d+)'
+  name: 'eBay'
+  version: '$1'
+
+- regex: 'expediabookings\/(\d+)'
+  name: 'Expedia'
+  version: '$1'
+
+- regex: 'fastline\/(\d+[\.\d]+)'
+  name: 'Fastline'
+  version: '$1'
+
+- regex: 'fly delta\/(\d+)'
+  name: 'Fly Delta'
+  version: '$1'
+
+- regex: 'foreflight\/(\d+)'
+  name: 'ForeFlight'
+  version: '$1'
+
+- regex: 'foxitmobilepdf\/(\d+[\.\d]+)'
+  name: 'Foxit Mobile PDF'
+  version: '$1'
+
+- regex: 'gasbuddy\/(\d+[\.\d]+)'
+  name: 'Gas Buddy'
+  version: '$1'
+
+- regex: 'flight board\/(\d+)'
+  name: 'Flight Board'
+  version: '$1'
+
+- regex: 'hobbylobby\/(\d+[\.\d]+)'
+  name: 'Hobby Lobby'
+  version: '$1'
+
+- regex: 'holy bible\/(\d+[\.\d]+)'
+  name: 'Holy Bible'
+  version: '$1'
+
+- regex: 'holybiblefree\/(\d+[\.\d]+)'
+  name: 'Holy Bible Free'
+  version: '$1'
+
+- regex: 'i-easydrive\/(\d+)'
+  name: 'i-Easy Drive'
+  version: '$1'
+
+- regex: 'iaa buyer\/(\d+)'
+  name: 'IAA Buyer App'
+  version: '$1'
+
+- regex: 'kayak\/(\d+)'
+  name: 'Kayak'
+  version: '$1'
+
+- regex: 'keeptruckin\/(\d+)'
+  name: 'KeepTruckin'
+  version: '$1'
+
+- regex: 'kjvbible\/(\d+)'
+  name: 'KJV Bible'
+  version: '$1'
+
+- regex: 'kjvstrongs\/(\d+)'
+  name: 'KJV Strongs Concordance'
+  version: '$1'
+
+- regex: 'lowes\/(\d+)'
+  name: 'Lowes'
+  version: '$1'
+
+- regex: 'merriam-?webster[a-z\-\. ]+\/(\d+[\.\d]+)'
+  name: 'Merriam Webster Dictionary'
+  version: '$1'
+
+- regex: 'metrofaxmobile\/(\d+[\.\d]+)'
+  name: 'MetroFax Mobile'
+  version: '$1'
+
+- regex: 'moneywiz\/(\d+)'
+  name: 'MoneyWiz'
+  version: '$1'
+
+- regex: 'my ?cricket\/((\d+[\.\d]+)|\d+)'
+  name: 'MyCricket'
+  version: '$1'
+
+- regex: 'ritchie ?bros\.\/(\d+)'
+  name: 'Ritchie Brothers'
+  version: '$1'
+
+- regex: 'roadtrippers\/((\d+[\.\d]+)|\d+)'
+  name: 'Road Trippers'
+  version: '$1'
+
+- regex: 'samsclub\/((\d+[\.\d]+)|\d+)'
+  name: 'Sams Club'
+  version: '$1'
+
+- regex: 'southwest\/(\d+[\.\d]+)'
+  name: 'Southwest'
+  version: '$1'
+
+- regex: 'snapfish\/(\d+)'
+  name: 'Snapfish'
+  version: '$1'
+
+- regex: 'theweather\/(\d+)'
+  name: 'The Weather'
+  version: '$1'
+
+- regex: 'thisoldhouse\/(\d+[\.\d]+)'
+  name: 'This Old House'
+  version: '$1'
+
+- regex: 'tractorhouse\/(\d+)'
+  name: 'Tractor House'
+  version: '$1'
+
+- regex: 'tripadvisor\/(\d+)'
+  name: 'Trip Advisor'
+  version: '$1'
+
+- regex: 'tripmode\/(\d+)'
+  name: 'Trip Mode'
+  version: '$1'
+
+- regex: 'truckmap\/(\d+[\.\d]+)'
+  name: 'Truck Map'
+  version: '$1'
+
+- regex: 'truckpaper\/(\d+)'
+  name: 'Truck Paper'
+  version: '$1'
+
+- regex: 'united\/(\d+[\.\d]+)'
+  name: 'United'
+  version: '$1'
+
+- regex: 'usatoday\/(\d+[\.\d]+)'
+  name: 'USA Today'
+  version: '$1'
+
+- regex: 'weatherbug\/(\d+)'
+  name: 'Weather Bug'
+  version: '$1'
+
+- regex: 'weather ?live\/(\d+[\.\d]+)'
+  name: 'Weather Live'
+  version: '$1'
+
+- regex: 'weathernerd\/(\d+[\.\d]+)'
+  name: 'Weather Nerd'
+  version: '$1'
+
+- regex: 'weather ?network\/(\d+)'
+  name: 'Weather Network'
+  version: '$1'
+
+- regex: 'wikipanion\/(\d+)'
+  name: 'Wikipanion'
+  version: '$1'
+
+- regex: 'wikipedia\/(\d+)'
+  name: 'Wikipedia'
+  version: '$1'
+
+- regex: 'wunderground\/(\d+)'
+  name: 'Wunderground'
+  version: '$1'
+
+- regex: 'wunderlist\/(\d+)'
+  name: 'Wunderlist'
+  version: '$1'
+
+- regex: 'wsj\/(\d+)'
+  name: 'Wall Street Journal'
+  version: '$1'
+
+- regex: 'zillow(?:map)?\/(\d+[\.\d]+)'
+  name: 'Zillow'
+  version: '$1'

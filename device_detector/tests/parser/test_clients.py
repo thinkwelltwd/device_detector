@@ -1,13 +1,19 @@
 from ..base import ParserBaseTest
 from ...parser import (
-    Browser, DesktopApp, FeedReader, Library, MediaPlayer, MobileApp,
-    DesktopApp, PIM,
+    Browser,
+    DesktopApp,
+    FeedReader,
+    Library,
+    MediaPlayer,
+    MobileApp,
+    PIM,
 )
 
 class TestBrowser(ParserBaseTest):
 
     fixture_files = [
-        'tests/parser/fixtures/client/browser.yml',
+        'tests/parser/fixtures/local/client/browser.yml',
+        'tests/parser/fixtures/upstream/client/browser.yml',
     ]
     fields = ('name', 'type', 'short_name', 'version')
     Parser = Browser
@@ -16,7 +22,7 @@ class TestBrowser(ParserBaseTest):
 class TestFeedReader(ParserBaseTest):
 
     fixture_files = [
-        'tests/parser/fixtures/client/feed_reader.yml',
+        'tests/parser/fixtures/upstream/client/feed_reader.yml',
     ]
     fields = ('name', 'type', 'version')
     Parser = FeedReader
@@ -25,7 +31,8 @@ class TestFeedReader(ParserBaseTest):
 class TestLibrary(ParserBaseTest):
 
     fixture_files = [
-        'tests/parser/fixtures/client/library.yml',
+        'tests/parser/fixtures/local/client/library.yml',
+        'tests/parser/fixtures/upstream/client/library.yml',
     ]
     fields = ('name', 'type', 'version')
     Parser = Library
@@ -34,7 +41,8 @@ class TestLibrary(ParserBaseTest):
 class TestMediaPlayer(ParserBaseTest):
 
     fixture_files = [
-        'tests/parser/fixtures/client/mediaplayer.yml',
+        'tests/parser/fixtures/local/client/mediaplayer.yml',
+        'tests/parser/fixtures/upstream/client/mediaplayer.yml',
     ]
     fields = ('name', 'type', 'version')
     Parser = MediaPlayer
@@ -43,7 +51,8 @@ class TestMediaPlayer(ParserBaseTest):
 class TestMobileApp(ParserBaseTest):
 
     fixture_files = [
-        'tests/parser/fixtures/client/mobile_app.yml',
+        'tests/parser/fixtures/local/client/mobile_app.yml',
+        'tests/parser/fixtures/upstream/client/mobile_app.yml',
     ]
     fields = ('name', 'type', 'version')
     Parser = MobileApp
@@ -52,7 +61,8 @@ class TestMobileApp(ParserBaseTest):
 class TestPIM(ParserBaseTest):
 
     fixture_files = [
-        'tests/parser/fixtures/client/pim.yml',
+        'tests/parser/fixtures/local/client/pim.yml',
+        'tests/parser/fixtures/upstream/client/pim.yml',
     ]
     fields = ('name', 'type', 'version')
     Parser = PIM
@@ -61,15 +71,20 @@ class TestPIM(ParserBaseTest):
 class TestDesktopApp(ParserBaseTest):
 
     fixture_files = [
-        'tests/parser/fixtures/client/antivirus.yml',
-        'tests/parser/fixtures/client/osutility.yml',
-        'tests/parser/fixtures/client/desktop_app.yml',
+        'tests/parser/fixtures/local/client/antivirus.yml',
+        'tests/parser/fixtures/local/client/osutility.yml',
+        'tests/parser/fixtures/local/client/desktop_app.yml',
     ]
     fields = ('name', 'type', 'version')
     Parser = DesktopApp
 
 
 __all__ = (
-    'TestBrowser', 'TestDesktopApp', 'TestFeedReader', 'TestLibrary',
-    'TestMediaPlayer', 'TestMobileApp', 'TestPIM',
+    'TestBrowser',
+    'TestDesktopApp',
+    'TestFeedReader',
+    'TestLibrary',
+    'TestMediaPlayer',
+    'TestMobileApp',
+    'TestPIM',
 )

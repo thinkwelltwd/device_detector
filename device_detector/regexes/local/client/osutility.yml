@@ -1,0 +1,65 @@
+###############
+# Supplemental regexes for Device Detector - The Universal Device Detection library for parsing User Agents
+#
+# Copyright (c) 2018 Dave Burkholder, Thinkwell Designs
+# @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
+###############
+- regex: 'windows-update-agent\/(\d+[\.\d]+)'
+  name: 'Windows Update Agent'
+  version: '$1'
+  type: osutility
+
+- regex: 'windows ?store\/(\d+[\.\d]+)'
+  name: 'Windows Store'
+  version: '$1'
+  type: osutility
+
+- regex: 'windowsshellclient\/(\d+[\.\d]+)'
+  name: 'Windows Shell Client'
+  version: '$1'
+  type: osutility
+
+- regex: 'Microsoft-CryptoAPI/(\d+[\.\d]+)'
+  name: 'Microsoft CryptoAPI'
+  version: '$1'
+  type: osutility
+
+- regex: 'Microsoft-WNS\/(\d+[\.\d]+)'
+  name: 'Microsoft WNS'
+  version: '$1'
+  type: osutility
+
+- regex: 'Microsoft-WNS\/(\d+[\.\d]+)'
+  name: 'Microsoft WNS'
+  version: '$1'
+  type: osutility
+
+- regex: 'Microsoft-BITS\/(\d+[\.\d]+)'
+  name: 'Microsoft BITS'
+  version: '$1'
+  type: osutility
+
+- regex: 'Microsoft-Delivery-Optimization\/(\d+[\.\d]+)'
+  name: 'Microsoft Delivery Optimization'
+  version: '$1'
+  type: osutility
+
+- regex: 'Microsoft-NCSI'
+  name: 'Microsoft NCSI'
+  version: ''
+  type: osutility
+
+- regex: 'MICROSOFT_DEVICE_METADATA_RETRIEVAL_CLIENT'
+  name: 'Microsoft Device Metadata Retrieval Client'
+  version: ''
+  type: osutility
+
+- regex: 'apt-http\/(\d+[\.\d]+)'
+  name: 'Apt Updater'
+  version: '$1'
+  type: osutility
+
+- regex: 'yum\/(\d+[\.\d]+)'
+  name: 'YUM Updater'
+  version: '$1'
+  type: osutility

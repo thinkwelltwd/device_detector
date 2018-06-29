@@ -33,7 +33,11 @@ class Base(unittest.TestCase):
             return
 
         if not msg and hasattr(self, 'user_agent'):
-            msg = '\n\nFailed to parse "{}"'.format(getattr(self, 'user_agent'))
+            msg = '\n\nFailed to parse "{}"\n' \
+                  'Parsed value {} != expected value {}'.format(
+                getattr(self, 'user_agent'), first, second,
+            )
+
         super().assertEqual(first, second, msg)
 
     def load_fixtures(self):

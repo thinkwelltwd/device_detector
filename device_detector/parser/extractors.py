@@ -108,6 +108,8 @@ class VersionExtractor(DataExtractor):
 
 
 __all__ = (
-    'DataExtractor', 'NameExtractor',
-    'ModelExtractor', 'VersionExtractor',
+    'DataExtractor',
+    'ModelExtractor',
+    'NameExtractor',
+    'VersionExtractor',
 )

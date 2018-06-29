@@ -4,7 +4,8 @@ from . import BaseClientParser
 class PIM(BaseClientParser):
 
     fixture_files = [
-        'client/pim.yml',
+        'local/client/pim.yml',
+        'upstream/client/pim.yml',
     ]
 
 
