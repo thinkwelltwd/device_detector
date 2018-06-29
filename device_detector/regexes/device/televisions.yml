@@ -8,7 +8,7 @@
 #
 ###############
 
-# \$Airties
+# Airties
 Airties:
   regex: 'Airties'
   device: 'tv'
