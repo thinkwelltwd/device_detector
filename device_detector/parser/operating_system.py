@@ -30,6 +30,7 @@ OPERATING_SYSTEMS = {
     'DEB': 'Debian',
     'DFB': 'DragonFly',
     'FED': 'Fedora',
+    'FIR': 'Fire OS',
     'FOS': 'Firefox OS',
     'BSD': 'FreeBSD',
     'GNT': 'Gentoo',
@@ -91,6 +92,7 @@ OPERATING_SYSTEMS = {
     'POS': 'palmOS',
     'WOS': 'webOS',
     'WIO': 'Windows IoT',
+    'UNK': 'Unknown',
 }
 
 # flip Abbrev / OS for fast membership testing
@@ -98,7 +100,7 @@ OS_TO_ABBREV = {os.lower(): abbrev for abbrev, os in OPERATING_SYSTEMS.items()}
 
 OS_FAMILIES = {
     'Android': [
-        'AND', 'CYN', 'REM', 'RZD', 'MLD', 'MCD', 'YNS',
+        'AND', 'CYN', 'REM', 'RZD', 'MLD', 'MCD', 'YNS', 'FIR',
     ],
     'AmigaOS': ['AMG', 'MOR'],
     'Apple TV': ['ATV'],
@@ -191,9 +193,9 @@ class OS(Parser):
             self.ua_data.update({
                 # Overwrite name for capitalization.
                 # insensitive regex match preserves original casing
-                'name': self.OPERATING_SYSTEMS[abbreviation],
+                'name': self.OPERATING_SYSTEMS.get(abbreviation),
                 'short_name': abbreviation,
-                'family': self.FAMILY_FROM_OS[abbreviation],
+                'family': self.FAMILY_FROM_OS.get(abbreviation),
                 'platform': self.platform(),
             })
 
