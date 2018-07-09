@@ -9,6 +9,10 @@
   name: 'Mattermost'
   version: '$1'
 
+- regex: 'outlook\/(\d+[\.\d]+)'
+  name: 'Microsoft Outlook'
+  version: '$1'
+
 - regex: 'Microsoft (?:Office )?OneNote(?:[\/ ](\d+[\.\d]+))?'
   name: 'Microsoft OneNote'
   version: '$1'

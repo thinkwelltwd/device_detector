@@ -90,6 +90,22 @@ class TestDetectSmartPhone1(DetectorBaseTest):
     Parser = DeviceDetector
 
 
+class TestDetectSmartPhone2(DetectorBaseTest):
+
+    fixture_files = [
+        'tests/fixtures/upstream/smartphone-2.yml',
+    ]
+    Parser = DeviceDetector
+
+
+class TestDetectSmartPhone3(DetectorBaseTest):
+
+    fixture_files = [
+        'tests/fixtures/upstream/smartphone-3.yml',
+    ]
+    Parser = DeviceDetector
+
+
 class TestDetectSmartPhone4(DetectorBaseTest):
 
     fixture_files = [

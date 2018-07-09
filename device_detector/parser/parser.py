@@ -36,7 +36,13 @@ class Parser:
     UNKNOWN = 'UNK'
 
     def __init__(self, ua):
-        self.user_agent = ua
+        # sprd-Galaxy-S4/1.0 Linux/2.6.35.7 Android/4.2.2 Release/10.14.2013 Browser/AppleWebKit533.1 (KHTML, like Gecko) Mozilla/5.0 Mobile
+        # sprd-lingwin-U820S/1.0 Linux/2.6.35.7 Android/2.3.5 Release/10.15.2012 Browser/AppleWebKit533.1 (KHTML, like Gecko) Mozilla/5.0 Mobile
+        if ua.startswith('sprd-'):
+            self.user_agent = ua[5:]
+        else:
+            self.user_agent = ua
+
         self.ua_data = {}
         self.matched_regex = None
         self.known = False

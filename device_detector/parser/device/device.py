@@ -6,6 +6,10 @@ from .base import BaseDeviceParser
 from .vendor_fragment import VendorFragment
 from ...settings import DDCache
 
+tablet_fragment = re.compile('Android( [\.0-9]+)?; Tablet;', re.IGNORECASE)
+mobile_fragment = re.compile('Android( [\.0-9]+)?; Mobile;', re.IGNORECASE)
+opera_tablet = re.compile('Opera Tablet', re.IGNORECASE)
+
 
 class Device(BaseDeviceParser):
 
@@ -61,12 +65,7 @@ class Device(BaseDeviceParser):
                 continue
 
             self.matched_regex = matched_regex
-            self.ua_data = brand.copy()
-            for k, v in model.items():
-                if k in ('regex', 'models'):
-                    continue
-                self.ua_data[k] = v
-
+            self.ua_data.update(model)
             self.ua_data.pop('regex', None)
             self.ua_data.pop('models', None)
 
@@ -86,24 +85,30 @@ class Device(BaseDeviceParser):
 
         for brand in regex_list:
             self.matched_regex = self._check_regex(brand['regex'])
+            self.ua_data = brand.copy()
             if self.matched_regex:
                 if 'models' in brand:
                     self._get_model(brand)
-                else:
-                    self.ua_data = brand.copy()
                 return
 
         # If no brand info was found, check known fragments
         self.ua_data = VendorFragment(self.user_agent).parse().ua_data or {}
 
+    def get_model(self):
+        model = self.ua_data.get('model', None)
+        if model == 'Build':
+            return None
+        return model
+
     def set_details(self) -> None:
         super().set_details()
-        if self.ua_data:
+        dtype = self.dtype()
+        if self.ua_data or dtype:
             self.ua_data.update({
-                'type': self.dtype(),
+                'type': dtype,
                 'brand': self.brand_short_name(),
                 'device': self.ua_data.get('device', None),
-                'model': self.ua_data.get('model', None),
+                'model': self.get_model(),
             })
 
     # -----------------------------------------------------------------------------
@@ -119,19 +124,16 @@ class Device(BaseDeviceParser):
         """
         Returns if the parsed UA contains the 'Android; Tablet;' fragment
         """
-        regex = 'Android( [\.0-9]+)?; Tablet;'
-        return re.search(regex, self.user_agent, re.IGNORECASE) is not None
+        return tablet_fragment.search(self.user_agent) is not None
 
     def has_android_mobile_fragment(self) -> bool:
         """
         Returns if the parsed UA contains the 'Android; Mobile;' fragment
         """
-        regex = 'Android( [\.0-9]+)?; Mobile;'
-        return re.search(regex, self.user_agent, re.IGNORECASE) is not None
+        return mobile_fragment.search(self.user_agent) is not None
 
     def is_opera_tablet(self) -> bool:
-        regex = 'Opera Tablet'
-        return re.search(regex, self.user_agent, re.IGNORECASE) is not None
+        return opera_tablet.search(self.user_agent) is not None
 
     def check_android_device(self) -> str:
         """
