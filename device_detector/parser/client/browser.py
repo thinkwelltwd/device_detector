@@ -220,7 +220,7 @@ class EngineVersion:
         if not engine:
             return ''
 
-        regex = "{engine}\s*\/?\s*((?(?=\d+\.\d)\d+[.\d]*|\d{{1,7}}(?=(?:\D|$))))".format(
+        regex = "{engine}\s*\/?\s*((?=\d+\.\d)\d+[.\d]*|\d{{1,7}}(?=(?:\D|$)))".format(
             engine=engine
         )
         regex = BOUNDED_REGEX.format(regex)
