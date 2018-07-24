@@ -58,3 +58,15 @@
     type: av
     name: Norton Antivirus
     version: "22.14.0.54"
+-
+  user_agent: antivirus emergency update agent
+  client:
+    type: av
+    name: Antivirus Emergency Update Agent
+    version: ""
+-
+  user_agent: CIS_5.10.228257.2253_646E514C51BFF23DBBB5B9487F142670
+  client:
+    type: av
+    name: Comodo Internet Security
+    version: "5.10.228257.2253"

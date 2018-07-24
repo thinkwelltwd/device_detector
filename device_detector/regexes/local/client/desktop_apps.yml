@@ -154,3 +154,158 @@
   name: LibreOffice
   version: '$1'
   type: productivity
+
+- regex: aioremote_[a-z]*\/([\d\.]+)
+  name: AiO Remote
+  version: '$1'
+  type: desktop app
+
+- regex: airport utility\/([\d\.]+)
+  name: Apple AirPort Utility
+  version: '$1'
+  type: desktop app
+
+- regex: akamaidlm\/([\d\.]+)
+  name: Akamai Download Manager
+  version: '$1'
+  type: desktop app
+
+- regex: akamai netsession interface.+;([\d\.]+)
+  name: Akamai NetSession Interface
+  version: '$1'
+  type: desktop app
+
+- regex: AMD Catalyst Install Manager$
+  name: AMD Catalyst Install Manager
+  version: ''
+  type: desktop app
+
+- regex: AMD Radeon Analytics Utility$
+  name: AMD Radeon Analytics Utility
+  version: ''
+  type: desktop app
+
+- regex: AMD Radeon Installer Analytics$
+  name: AMD Radeon Installer Analytics
+  version: ''
+  type: desktop app
+
+- regex: ^Apple Software Update$
+  name: Apple Software Update
+  version: ''
+  type: desktop app
+
+- regex: app virt client\/([\d\.]+)
+  name: Application Virtualization Client
+  version: '$1'
+  type: desktop app
+
+- regex: ^apsdaemon\.exe
+  name: Apple Push Service Daemon
+  version: ''
+  type: desktop app
+
+- regex: arcsoft panorama maker (\d+)
+  name: ArcSoft Panorama Maker
+  version: '$1'
+  type: desktop app
+
+- regex: ^asana\/(\d+)
+  name: Asana
+  version: '$1'
+  type: desktop app
+
+- regex: ^ASUS Live Update$
+  name: ASUS Live Update
+  version: ''
+  type: desktop app
+
+- regex: autocad360\/(\d+)
+  name: Auto CAD 360
+  version: '$1'
+  type: desktop app
+
+- regex: ^avanquest liveupdate$
+  name: Avanquest LiveUpdate
+  version: ''
+  type: desktop app
+
+- regex: ^Avast
+  name: Avast
+  version: ''
+  type: desktop app
+
+- regex: ^bingbar ([\d\.]+)
+  name: BingBar
+  version: '$1'
+  type: desktop app
+
+- regex: ^broadcom windows 8 hal downloader$
+  name: Broadcom Windows 8 Downloader
+  version: ''
+  type: desktop app
+
+- regex: ^ByteFenceEngine$
+  name: Byte Fence Engine
+  version: ''
+  type: desktop app
+
+- regex: ^bzbmenu\/([\d\.]+)
+  name: BZB Menu
+  version: '$1'
+  type: desktop app
+
+- regex: ^captain ftp\/([\d\.]+)
+  name: Captain FTP
+  version: '$1'
+  type: desktop app
+
+- regex: ^captivenetworksupport-([(\d\.]+)
+  name: Captive Network Support
+  version: '$1'
+  type: desktop app
+
+- regex: ^carbonitedownloader ([\d\.]+)
+  name: Carbonite Downloader
+  version: '$1'
+  type: desktop app
+
+- regex: ^Carbonite Installer$
+  name: Carbonite Installer
+  version: ''
+  type: desktop app
+
+- regex: ^carboniteservice\/([\d\.]+)
+  name: Carbonite Service
+  version: '$1'
+  type: desktop app
+
+- regex: ^carboniteuploader ([\d\.]+)
+  name: Carbonite Uploader
+  version: '$1'
+  type: desktop app
+
+- regex: ^classic shell$
+  name: Classic Shell
+  version: ''
+  type: desktop app
+
+- regex: ^classic start menu ([\d\.]+)
+  name: Classic Start Menu
+  version: '$1'
+  type: desktop app
+
+- regex: ^cloudd\/([\d\.]+)
+  name: Cloudd
+  version: '$1'
+  type: desktop app
+
+- regex: ^cloudsdk$
+  name: CloudSDK
+  version: ''
+  type: desktop app
+
+- regex: ^CLS License Activation$
+  name: CLS License Activation
+  version: ''
+  type: desktop app

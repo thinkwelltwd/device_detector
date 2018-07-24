@@ -469,3 +469,752 @@
 - regex: 'zillow(?:map)?\/(\d+[\.\d]+)'
   name: 'Zillow'
   version: '$1'
+
+- regex: '1800LastBid\.com([\/ ]([\d\.]+))?'
+  name: '1800 Last Bid'
+  version: '$2'
+
+- regex: '5miles[\/ ]([\d\.]+)'
+  name: '5 Miles'
+  version: '$1'
+
+- regex: '\w+\.com\.wunderground\.storm'
+  name: 'Storm by Weather Underground'
+  version: ''
+
+- regex: '\w+\.com\.avast\.osx\.secureline\.[a-z]+[\/ ](\d+)'
+  name: 'Avast SecureLine VPN'
+  version: '$1'
+
+- regex: '\w+\.com\.aws\.weatherbug\.pro'
+  name: 'Weatherbug Pro'
+  version: ''
+
+- regex: '\w+\.me\.scan\.qrcodereader'
+  name: 'QR Code Reader by Scan'
+  version: ''
+
+- regex: '\w+\.com\.precisionplanting\.FieldView'
+  name: 'Precision Planting Fieldview'
+  version: ''
+
+- regex: 'aaairlines[ \/]([\d\.]+)'
+  name: 'American Airlines'
+  version: '$1'
+
+- regex: 'Abbyy\.Internet'
+  name: 'Abbyy'
+  version: ''
+
+- regex: 'abbyy\.lingvo\.(\d+)'
+  name: 'Abbyy Lingvo'
+  version: '$1'
+
+- regex: '^acrobat[a-z ]*\/([\d\. ]+)'
+  name: 'Acrobat'
+  version: '$1'
+
+- regex: 'acrobat viewer$'
+  name: 'Acrobat Viewer'
+  version: ''
+
+- regex: 'Active911\/(\d+)'
+  name: 'Active 911'
+  version: '$1'
+
+- regex: 'ActivityTracker\/(\d+)'
+  name: 'Activity Tracker'
+  version: '$1'
+
+- regex: 'addmusictovideo_V2\/([\d\.]+)'
+  name: 'AddMusicToVideo V2'
+  version: '$1'
+
+- regex: '^adobe acrobat[ a-z]*\/([\d\.]+)'
+  name: 'Adobe Acrobat'
+  version: '$1'
+
+- regex: 'Adobe Application Manager ([\d\.]+)'
+  name: 'Adobe Application Manager'
+  version: '$1'
+
+- regex: 'Adobe Downloader App$'
+  name: 'Adobe Downloader App'
+  version: ''
+
+- regex: 'Adobe Draw\/(\d+)'
+  name: 'Adobe Draw'
+  version: '$1'
+
+- regex: 'Adobe Flash Player (\d+)'
+  name: 'Adobe Flash Player'
+  version: '$1'
+
+- regex: 'Adobe Help Integration Library$'
+  name: 'Adobe Help Integration Library'
+  version: ''
+
+- regex: 'adobe_ial_client(_mac_|_win_)([\d\.]+)'
+  name: 'Adobe IAL Client'
+  version: '$2'
+
+- regex: 'Adobe Log Transport$'
+  name: 'Adobe Log Transport'
+  version: ''
+
+- regex: 'Adobe Online Services$'
+  name: 'Adobe Online Services'
+  version: ''
+
+- regex: 'Adobe Real Time$'
+  name: 'Adobe Real Time'
+  version: ''
+
+- regex: 'Adobe Scan\/([\d\.]+)'
+  name: 'Adobe Scan'
+  version: '$1'
+
+- regex: 'Adobe Sketch\/([\d]+)'
+  name: 'Adobe Sketch'
+  version: '$1'
+
+- regex: 'Adobe Update Manager (\d+)'
+  name: 'Adobe Update Manager'
+  version: '$1'
+
+- regex: 'adobe xd\/(\d+)'
+  name: 'Adobe XD'
+  version: '$1'
+
+- regex: 'Adore Me\/(\d+)'
+  name: 'Adore Me'
+  version: '$1'
+
+- regex: 'aeroplane wallpapers\/([\d\.]+)'
+  name: 'Aeroplane Wallpapers'
+  version: '$1'
+
+- regex: 'aeroplusweather2\/([\d\.]+)'
+  name: 'Aeroplus Weather 2'
+  version: '$1'
+
+- regex: 'AESMService$'
+  name: 'AESM Service'
+  version: ''
+
+- regex: 'agenda-widgetextension\/(\d+)'
+  name: 'Agenda Widget Extension'
+  version: '$1'
+
+- regex: '^agworld\/(\d+)'
+  name: 'Ag World'
+  version: '$1'
+
+- regex: 'airdroid\/(\d+)'
+  name: 'Air Droid'
+  version: '$1'
+
+- regex: 'AKLocationSignInAlert'
+  name: 'AK Location Sign In Alert'
+  version: ''
+
+- regex: '^alarmclockfree\/([\d\.]+)'
+  name: 'Alarm Clock Free'
+  version: '$1'
+
+- regex: '^alcatraz$'
+  name: 'Alcatraz'
+  version: ''
+
+- regex: 'algolia for swift \(([\d\.]+)\)'
+  name: 'Algolia for Swift'
+  version: '$1'
+
+- regex: 'allegiant\/(\d+)'
+  name: 'Allegiant'
+  version: '$1'
+
+- regex: 'alliesskyraidersfree'
+  name: 'Allies Sky Raiders Free'
+  version: ''
+
+- regex: '^alltrails\/(\d+)'
+  name: 'All Trails'
+  version: '$1'
+
+- regex: '^altimeter\/(\d)'
+  name: 'Altimeter'
+  version: '$1'
+
+- regex: 'altimeter pro a\.c\.t\/([\d\.]+)'
+  name: 'Altimeter Pro A.C.T'
+  version: '$1'
+
+- regex: 'amap_location_sdk_[a-z]+ ([\d\.]+)'
+  name: 'AMAP Location SDK'
+  version: '$1'
+
+- regex: 'amap_sdk_[a-z]+_search_([\d\.]+)'
+  name: 'AMAP SDK Search'
+  version: '$1'
+
+- regex: '^amazon\/([\d\.]+)'
+  name: 'Amazon'
+  version: '$1'
+
+- regex: 'amazoncloudplayer\/([\d\.]+)'
+  name: 'Amazon Cloud Player'
+  version: '$1'
+
+- regex: '^amex\/(\d+)'
+  name: 'Amex'
+  version: '$1'
+
+- regex: 'amp recover\/([\d\.]+)'
+  name: 'Amp Recover'
+  version: '$1'
+
+- regex: 'AMPVConnector$'
+  name: 'AMPV Connector'
+  version: ''
+
+- regex: '^amtrak\/(\d+)'
+  name: 'Amtrak'
+  version: '$1'
+
+- regex: 'analytics-android\/([\d\.]+)'
+  name: 'Android Analytics'
+  version: '$1'
+
+- regex: 'anbtx md\/(\d+)'
+  name: 'ANBTX MD'
+  version: '$1'
+
+- regex:
+    angie's list\/(\d+)
+  name: "Angie's List"
+  version: '$1'
+
+- regex: 'angle pro\/([\d\.]+)'
+  name: 'Angle Pro'
+  version: '$1'
+
+- regex: 'angry birds 2\/([\d\.]+)'
+  name: 'Angry Birds 2'
+  version: '$1'
+
+- regex: 'angrybirdsspace\/([\d\.]+)'
+  name: 'Angry Birds Space'
+  version: '$1'
+
+- regex: 'angusmobile\/([\d\.]+)'
+  name: 'Angus Mobile'
+  version: '$1'
+
+- regex: 'anothervoice(extension)*\/(\d+)'
+  name: 'Another Voice'
+  version: '$2'
+
+- regex: '^any\.do\/([\d\.]+)'
+  name: 'Any.do'
+  version: '$1'
+
+- regex: 'anylist\/(\d+)'
+  name: 'AnyList'
+  version: '$1'
+
+- regex: 'api-access-shop-([\d\.]+)'
+  name: 'API Access Shop'
+  version: '$1'
+
+- regex: 'ap mobile\/(\d+)'
+  name: 'AP Mobile'
+  version: '$1'
+
+- regex: 'ap news\/(\d+)'
+  name: 'AP News'
+  version: '$1'
+
+- regex: '^appbox$'
+  name: 'App Box'
+  version: ''
+
+- regex: '^appcore$'
+  name: 'App Core'
+  version: ''
+
+- regex: '^appex'
+  name: 'Appex'
+  version: ''
+
+- regex: 'applecoremedia\/([\w\.]+) '
+  name: 'Apple Core Media'
+  version: '$1'
+
+- regex: 'appledictionaryapplication\/(\d+)'
+  name: 'Apple Dictionary App'
+  version: '$1'
+
+- regex: 'appleidauthagent\/([\d\.]+)'
+  name: 'Apple ID Auth Agent'
+  version: '$1'
+
+- regex: 'applenewswidget\/.+version\/([\d\.]+)'
+  name: 'Apple News Widget'
+  version: '$1'
+
+- regex: 'apple support\/(\d+)'
+  name: 'Apple Support'
+  version: '$1'
+
+- regex: 'applib\/apps 4 you'
+  name: 'Apps 4 You'
+  version: ''
+
+- regex: 'app\.quiktrip\.com\.quiktrip'
+  name: 'QuickTrip'
+  version: ''
+
+- regex: '^appstore'
+  name: 'AppStore'
+  version: ''
+
+- regex: 'apptentiveconnect\/([\d\.]+)'
+  name: 'Apptentive Connect'
+  version: '$1'
+
+- regex: 'aquarium live hd free\/(\d+)'
+  name: 'Aquarium Live HD Free'
+  version: '$1'
+
+- regex: 'archeryking\/(\d+)'
+  name: 'Archery King'
+  version: '$1'
+
+- regex: '^arc-intouch$'
+  name: 'ARC Intouch'
+  version: ''
+
+- regex: '^areacodedirectory\/(\d+)'
+  name: 'Area Code Directory'
+  version: '$1'
+
+- regex: '^art and stitch ([\d\.]+)'
+  name: 'Art and Stitch'
+  version: '$1'
+
+- regex: '^at bat\/(\d+)'
+  name: 'At Bat'
+  version: '$1'
+
+- regex: 'atkins carb tracker.+\/([\d\.]+)'
+  name: 'Atkins Carb Tracker'
+  version: '$1'
+
+- regex: 'atube-music\/([\d\.]+)'
+  name: 'ATube Music'
+  version: '$1'
+
+- regex: 'auction\.com\/(\d+)'
+  name: 'Auction.com'
+  version: '$1'
+
+- regex: 'audiomack-[a-z]+\/([\d\.]+)'
+  name: 'Audiomack'
+  version: '$1'
+
+- regex: '^audubon\/(\d+)'
+  name: 'Audubon'
+  version: '$1'
+
+- regex: 'aurora hdr 2018\/([\d\.]+)'
+  name: 'Aurora HDR 2018'
+  version: '$1'
+
+- regex: '^auto agent\/([\d\.]+)'
+  name: 'Auto Agent'
+  version: '$1'
+
+- regex: '^autolist\/([\d\.]+)'
+  name: 'Auto List'
+  version: '$1'
+
+- regex: '^autosist\/([\d\.]+)'
+  name: 'AUTOsist'
+  version: '$1'
+
+- regex: '^autozone\/([\d\.]+)'
+  name: 'AutoZone'
+  version: '$1'
+
+- regex: '^avdroid$'
+  name: 'AvDroid'
+  version: ''
+
+- regex: '^avgsetup.+ver=([\d\.]+)'
+  name: 'AVG Setup'
+  version: '$1'
+
+- regex: '^avira$'
+  name: 'Avira'
+  version: ''
+
+- regex: '^baby names\/([\d\.]+)'
+  name: 'Baby Names'
+  version: '$1'
+
+- regex: '^backupassistantdaemon'
+  name: 'Backup Assistant Daemon'
+  version: ''
+
+- regex: '^backyard birds\/(\d+)'
+  name: 'Backyard Birds'
+  version: '$1'
+
+- regex: 'ballsvsblocks\/(\d+)'
+  name: 'Balls VS Blocks'
+  version: '$1'
+
+- regex: 'bbw loyalty\/(\d+)'
+  name: 'BBW Loyalty'
+  version: '$1'
+
+- regex: 'beacon appstore\/([\d\.]+)'
+  name: 'Beacon Appstore'
+  version: '$1'
+
+- regex: '^beam\/(\d+)'
+  name: 'Beam'
+  version: '$1'
+
+- regex: 'bee7advertiser\/([\d\.]+)'
+  name: 'Bee 7 Advertiser'
+  version: '$1'
+
+- regex: 'bee7publisher\/([\d\.]+)'
+  name: 'Bee 7 Publisher'
+  version: '$1'
+
+- regex: 'be positive daily inspiration\/([\d\.]+)'
+  name: 'Be Positive Daily Inspiration'
+  version: '$1'
+
+- regex: 'bestbuy-mapp\/([\d\.]+)'
+  name: 'Best Buy App'
+  version: '$1'
+
+- regex: 'better homes and gardens release\/(\d+)'
+  name: 'Better Homes and Gardens'
+  version: '$1'
+
+- regex: '^bible ?\/([\.\d]+)'
+  name: 'Bible'
+  version: '$1'
+
+- regex: '^bible dictionary\/(\d+)'
+  name: 'Bible Dictionary'
+  version: '$1'
+
+- regex: '^bible\.is\/(\d+)'
+  name: 'Bible.is'
+  version: '$1'
+
+- regex: '^bible  ?maps\/(\d+)'
+  name: 'Bible Maps'
+  version: '$1'
+
+- regex: '^bible memory\/(\d+)'
+  name: 'Bible Memory'
+  version: '$1'
+
+- regex: '^bible study\/(\d+)'
+  name: 'Bible Study'
+  version: '$1'
+
+- regex: 'bibleverses\.bibleverse\.bible\.biblia\.verse\.devotion\/([\d\.]+)'
+  name: 'Daily Bread Bible App'
+  version: '$1'
+
+- regex: '^bible votd\/(\d+)'
+  name: 'Bible VOTD'
+  version: '$1'
+
+- regex: 'bigben clock\/(\d+)'
+  name: 'BigBen Clock'
+  version: '$1'
+
+- regex: '^bigoven\/(\d+)'
+  name: 'BigOven'
+  version: '$1'
+
+- regex: '^bigroad\/([\d\.]+)'
+  name: 'BigRoad'
+  version: '$1'
+
+- regex: '^bill\.com\/(\d+)'
+  name: 'Bill.com'
+  version: '$1'
+
+- regex: '^bluedriver\/([\d.]+)'
+  name: 'Blue Driver'
+  version: '$1'
+
+- regex: '^bluemail\/(\d+)'
+  name: 'Blue Mail'
+  version: '$1'
+
+- regex: '^bmi calc\/(\d)'
+  name: 'BMI Calculator'
+  version: '$1'
+
+- regex: '^bofa\/(\d+)'
+  name: 'Bank of America'
+  version: '$1'
+
+- regex: '^books to go'
+  name: 'Books To Go'
+  version: ''
+
+- regex: '^braintree\/[a-z]+\/([\d\.]+)'
+  name: 'Braintree'
+  version: '$1'
+
+- regex: '^breakpad\/([\d\.]+)'
+  name: 'Breakpad'
+  version: '$1'
+
+- regex: '^breakr\/([\d\.]+)'
+  name: 'BreakR'
+  version: '$1'
+
+- regex: '^bubblelevel3d\/(\d+)'
+  name: 'Bubble Level 3D'
+  version: '$1'
+
+- regex: '^bubblelevel\/(\d+)'
+  name: 'Bubble Level'
+  version: '$1'
+
+- regex: '^budget planner\/([\d\.]+)'
+  name: 'Budget Planner'
+  version: '$1'
+
+- regex: '^bugfender-[a-z]+\/(\d+)'
+  name: 'Bugfender'
+  version: '$1'
+
+- regex: '^build it\/(\d+)'
+  name: 'Build It'
+  version: '$1'
+
+- regex: '^buyandsell\/(\d+)'
+  name: 'Buy and Sell'
+  version: '$1'
+
+- regex: '^cabelas\/([\d\.]+)'
+  name: 'Cabelas'
+  version: '$1'
+
+- regex: '^calcbot\/(\d+)'
+  name: 'Calcbot'
+  version: '$1'
+
+- regex: '^calculator\/([\d\.]+)'
+  name: 'Calculator'
+  version: '$1'
+
+- regex: '^calculator\.{3}\/(\d+)'
+  name: 'Calculator...'
+  version: '$1'
+
+- regex: '^calculator hd\/(\d+)'
+  name: 'Calculator HD'
+  version: '$1'
+
+- regex: '^calculator irocks\/([\d\.]+)'
+  name: 'Calculator iRocks'
+  version: '$1'
+
+- regex: '^calculator pro\/([\d\.]+)'
+  name: 'Calculator Pro'
+  version: '$1'
+
+- regex: '^calendars\/([\d\.]+)'
+  name: 'Calendars'
+  version: '$1'
+
+- regex: '^calenmob\/(\d+)'
+  name: 'CalenMob'
+  version: '$1'
+
+- regex: '^CAL FIRE\/([\d\.]+)'
+  name: 'CAL FIRE'
+  version: '$1'
+
+- regex: '^callrecorder\/(\d+)'
+  name: 'Call Recorder'
+  version: '$1'
+
+- regex: '^cambriaar\/(\d+)'
+  name: 'Cambria AR'
+  version: '$1'
+
+- regex: '^camera ?\/([\d\.]+)'
+  name: 'Camera'
+  version: '$1'
+
+- regex: '^camp&rv\/([\d\.]+)'
+  name: 'Camp & RV'
+  version: '$1'
+
+- regex: '^camscanner(_ad_\d)?_lite[\/@]([\.\d]+)'
+  name: 'CamScanner Lite'
+  version: '$2'
+
+- regex: '^camscannerhd_pro\/([\d\.]+)'
+  name: 'CamScanner HD Pro'
+  version: '$1'
+
+- regex: 'canine ?gestation ?calendar\/([\d\.]+)'
+  name: 'Canine Gestation Calendar'
+  version: '$1'
+
+- regex: '^canva\/(\d+)'
+  name: 'Canva'
+  version: '$1'
+
+- regex: '^capo\/([\d\.]+)'
+  name: 'Capo'
+  version: '$1'
+
+- regex: '^caponate\/([\d\.]+)'
+  name: 'Caponate'
+  version: '$1'
+
+- regex: '^carb tracker\/(\d+)'
+  name: 'Carb Tracker'
+  version: '$1'
+
+- regex: '^car buying\/(\d+)'
+  name: 'Car Buying'
+  version: '$1'
+
+- regex: '^cardcompanion\/(\d+)'
+  name: 'Card Companion'
+  version: '$1'
+
+- regex: '^carmax\/([\d\.]+)'
+  name: 'CarMax'
+  version: '$1'
+
+- regex: '^carmax\/([\d\.]+)'
+  name: 'CarMax'
+  version: '$1'
+
+- regex: '^car-part\.com\/([\d\.]+)'
+  name: 'Car-Part.com'
+  version: '$1'
+
+- regex: '^carsub\/([\d\.]+)'
+  name: 'Car Sub'
+  version: '$1'
+
+- regex: '^cartalk20\/([\d\.]+)'
+  name: 'Car Talk'
+  version: '$1'
+
+- regex: '^cascable\/(\d+)'
+  name: 'Cascable'
+  version: '$1'
+
+- regex: '^cash plus hd\/([\d\.]+)'
+  name: 'Cash Plus HD'
+  version: '$1'
+
+- regex: '^castsdk\/(\d+)'
+  name: 'Cast SDK'
+  version: '$1'
+
+- regex: '^cattletalkmobile2\/([\d\.]+)'
+  name: 'Cattle Talk Mobile'
+  version: '$1'
+
+- regex: '^c-calc\/(\d+)'
+  name: 'C-Calc'
+  version: '$1'
+
+- regex: '^c-calc pro free\/(\d+)'
+  name: 'C-Calc Pro Free'
+  version: '$1'
+
+- regex: 'celebrity voice changer lite\/(\d+)'
+  name: 'Celebrity Voice Changer Lite'
+  version: '$1'
+
+- regex: '^cex.io\/(\d+)'
+  name: 'cex.io'
+  version: '$1'
+
+- regex: '^chatter\/(\d+)'
+  name: 'Chatter'
+  version: '$1'
+
+- regex: '^cheaptickets\/([\d\.]+)'
+  name: 'Cheap Tickets'
+  version: '$1'
+
+- regex: '^christianaudio\/(\d+)'
+  name: 'Christian Audio'
+  version: '$1'
+
+- regex: '^citi mobile\/(\d+)'
+  name: 'Citi Mobile'
+  version: '$1'
+
+- regex: '^city market\/(\d+)'
+  name: 'City Market'
+  version: '$1'
+
+- regex: '^classifieds_free\/(\d+)'
+  name: 'Classifieds Free'
+  version: '$1'
+
+- regex: '^clips\/([\d\.]+)'
+  name: 'Clips'
+  version: '$1'
+
+- regex: '^cloudahoy\/([\d\.]+)'
+  name: 'Cloud Ahoy'
+  version: '$1'
+
+- regex: '^cloudinary[a-z]+\/([\d\.]+)'
+  name: 'Cloudinary'
+  version: '$1'
+
+- regex: '^cloudkit\/([\d\.]+)'
+  name: 'CloudKit'
+  version: '$1'
+
+- regex: '^cloudveil messenger\/([\d\.]+)'
+  name: 'CloudVeil Messenger'
+  version: '$1'
+
+- regex: '^clover® go\/'
+  name: 'Clover Go'
+  version: ''
+
+- regex: '^clue\/(\d+)'
+  name: 'Clue'
+  version: '$1'
+
+- regex: '^cmegroup_'
+  name: 'CME Group'
+  version: ''
+
+- regex: 'cnn today\/(\d+)'
+  name: 'CNN Today'
+  version: '$1'
+
+- regex: '^cocorahs\/([\d\.]+)'
+  name: 'CoCoRaHS'
+  version: '$1'

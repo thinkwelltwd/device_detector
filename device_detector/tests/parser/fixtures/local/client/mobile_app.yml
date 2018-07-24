@@ -1,4 +1,196 @@
 -
+  user_agent: Adobe Update Manager 5
+  client:
+    type: mobile app
+    name: Adobe Update Manager
+    version: 5
+-
+  user_agent: Adobe Sketch/125830 CFNetwork/901.1 Darwin/17.6.0
+  client:
+    type: mobile app
+    name: Adobe Sketch
+    version: 125830
+-
+  user_agent: Adobe Scan/20180223.13 CFNetwork/894 Darwin/17.4.0
+  client:
+    type: mobile app
+    name: Adobe Scan
+    version: 20180223.13
+-
+  user_agent: Adobe Real Time
+  client:
+    type: mobile app
+    name: Adobe Real Time
+    version:
+-
+  user_agent: Adobe Online Services
+  client:
+    type: mobile app
+    name: Adobe Online Services
+    version:
+-
+  user_agent: Adobe Log Transport
+  client:
+    type: mobile app
+    name: Adobe Log Transport
+    version:
+-
+  user_agent: ADOBE_IAL_CLIENT_WIN_1.0
+  client:
+    type: mobile app
+    name: Adobe IAL Client
+    version: 1.0
+-
+  user_agent: ADOBE_IAL_CLIENT_MAC_1.0
+  client:
+    type: mobile app
+    name: Adobe IAL Client
+    version: 1.0
+-
+  user_agent: Adobe Help Integration Library
+  client:
+    type: mobile app
+    name: Adobe Help Integration Library
+    version:
+-
+  user_agent: Adobe Flash Player 10
+  client:
+    type: mobile app
+    name: Adobe Flash Player
+    version: 10
+-
+  user_agent: Adobe Draw/125199 CFNetwork/897.15 Darwin/17.5.0
+  client:
+    type: mobile app
+    name: Adobe Draw
+    version: 125199
+-
+  user_agent: Adobe Downloader App
+  client:
+    type: mobile app
+    name: Adobe Downloader App
+    version:
+-
+  user_agent: Adobe Application Manager 2.0
+  client:
+    type: mobile app
+    name: Adobe Application Manager
+    version: 2.0
+-
+  user_agent: adobe acrobat updater helper/10.0.0 cfnetwork/520.5.3 darwin/11.4.2 (i386) (macpro1,1)
+  client:
+    type: mobile app
+    name: Adobe Acrobat
+    version: 10.0.0
+-
+  user_agent: adobe acrobat updater/10.0.0 cfnetwork/520.5.3 darwin/11.4.2 (i386) (macpro1,1)
+  client:
+    type: mobile app
+    name: Adobe Acrobat
+    version: 10.0.0
+-
+  user_agent: Adobe Acrobat/180561.62 CFNetwork/811.5.4 Darwin/16.6.0
+  client:
+    type: mobile app
+    name: Adobe Acrobat
+    version: 180561.62
+-
+  user_agent: AddMusicToVideo_V2/4.7.2 CFNetwork/897.15 Darwin/17.5.0
+  client:
+    type: mobile app
+    name: AddMusicToVideo V2
+    version: 4.7.2
+-
+  user_agent: ActivityTracker/158 CFNetwork/901.1 Darwin/17.6.0
+  client:
+    type: mobile app
+    name: Activity Tracker
+    version: 158
+-
+  user_agent: Active911/7068 CFNetwork/887 Darwin/17.0.0
+  client:
+    type: mobile app
+    name: Active 911
+    version: 7068
+-
+  user_agent: Acrobat viewer
+  client:
+    type: mobile app
+    name: Acrobat Viewer
+    version:
+-
+  user_agent: Acrobat Updater/1 . 0 . 15 CFNetwork/897.15 Darwin/17.5.0 (x86_64)
+  client:
+    type: mobile app
+    name: Acrobat
+    version: 1 . 0 . 15
+-
+  user_agent: acrobat update helper/1 . 0 . 15 cfnetwork/720.5.7 darwin/14.5.0 (x86_64)
+  client:
+    type: mobile app
+    name: Acrobat
+    version: 1 . 0 . 15
+-
+  user_agent: Acrobat/10.0.0 CFNetwork/720.5.7 Darwin/14.5.0 (x86_64)
+  client:
+    type: mobile app
+    name: Acrobat
+    version: 10.0.0
+-
+  user_agent: abbyy.lingvo.15
+  client:
+    type: mobile app
+    name: Abbyy Lingvo
+    version: 15
+-
+  user_agent: Abbyy.Internet
+  client:
+    type: mobile app
+    name: Abbyy
+    version:
+-
+  user_agent: aaairlines/1.0.4.201512231434 CFNetwork/887 Darwin/17.0.0
+  client:
+    type: mobile app
+    name: American Airlines
+    version: 1.0.4.201512231434
+-
+  user_agent: 8YJ6H75V7V.com.precisionplanting.FieldView
+  client:
+    type: mobile app
+    name: Precision Planting Fieldview
+    version:
+-
+  user_agent: 73YY4M3WYQ.me.scan.qrcodereader
+  client:
+    type: mobile app
+    name: QR Code Reader by Scan
+    version:
+-
+  user_agent: 6h4hrtu5e3.com.avast.osx.secureline.avastsecurelinehelper/47777
+  client:
+    type: mobile app
+    name: Avast SecureLine VPN
+    version: 47777
+-
+  user_agent: 5ZLLHQPJA8.com.wunderground.storm
+  client:
+    type: mobile app
+    name: Storm by Weather Underground
+    version:
+-
+  user_agent: 5miles/2737
+  client:
+    type: mobile app
+    name: 5 Miles
+    version: 2737
+-
+  user_agent: 1800LastBid.com/1.0
+  client:
+    type: mobile app
+    name: 1800 Last Bid
+    version: 1.0
+-
   user_agent: PinkyPie/1.0
   client:
     type: mobile app
@@ -196,6 +388,12 @@
     type: mobile app
     name: Bible Plus
     version: 42
+-
+  user_agent: Bible+/1392 CFNetwork/893.14.2 Darwin/17.3.0
+  client:
+    type: mobile app
+    name: Bible Plus
+    version: 1392
 -
   user_agent: biblegateway/42 (com.zonervan.biblegateway; build:56; ios 11.3.0) alamofire/4.6.0
   client:
@@ -538,4 +736,993 @@
     type: mobile app
     name: Zillow
     version: 11.0.413
-
+-
+  user_agent: Adobe XD/2373 CFNetwork/901.1 Darwin/17.6.0
+  client:
+    type: mobile app
+    name: Adobe XD
+    version: 2373
+-
+  user_agent: Adore Me/11 CFNetwork/897.15 Darwin/17.5.0
+  client:
+    type: mobile app
+    name: Adore Me
+    version: 11
+-
+  user_agent: Aeroplane Wallpapers/9.4.0 CFNetwork/897.15 Darwin/17.5.0
+  client:
+    type: mobile app
+    name: Aeroplane Wallpapers
+    version: 9.4.0
+-
+  user_agent: aeroplusweather2/5.0.9.4 cfnetwork/897.15 darwin/17.5.0
+  client:
+    type: mobile app
+    name: Aeroplus Weather 2
+    version: 5.0.9.4
+-
+  user_agent: AESMService
+  client:
+    type: mobile app
+    name: AESM Service
+    version:
+-
+  user_agent: agenda-widgetextension/32220 cfnetwork/901.1 darwin/17.6.0
+  client:
+    type: mobile app
+    name: Agenda Widget Extension
+    version: 32220
+-
+  user_agent: agworld/8391 CFNetwork/894 Darwin/17.4.0
+  client:
+    type: mobile app
+    name: Ag World
+    version: 8391
+-
+  user_agent: AirDroid/18061501 CFNetwork/901.1 Darwin/17.6.0
+  client:
+    type: mobile app
+    name: Air Droid
+    version: 18061501
+-
+  user_agent: AKLocationSignInAlert
+  client:
+    type: mobile app
+    name: AK Location Sign In Alert
+    version:
+-
+  user_agent: AlarmClockFree/3.3.2 CFNetwork/897.15 Darwin/17.5.0
+  client:
+    type: mobile app
+    name: Alarm Clock Free
+    version: 3.3.2
+-
+  user_agent: alcatraz
+  client:
+    type: mobile app
+    name: Alcatraz
+    version:
+-
+  user_agent: Algolia for Swift (5.1.0); iOS (11.3); AlgoliaSearchOfflineCore-iOS (1.2.1)
+  client:
+    type: mobile app
+    name: Algolia for Swift
+    version: 5.1.0
+-
+  user_agent: allegiant/2311 cfnetwork/893.14.2 darwin/17.3.0
+  client:
+    type: mobile app
+    name: Allegiant
+    version: 2311
+-
+  user_agent: AlliesSkyRaidersFree/0 CFNetwork/897.15 Darwin/17.5.0
+  client:
+    type: mobile app
+    name: Allies Sky Raiders Free
+    version:
+-
+  user_agent: AllTrails/3657 CFNetwork/897.15 Darwin/17.5.0
+  client:
+    type: mobile app
+    name: All Trails
+    version: 3657
+-
+  user_agent: Altimeter/1 CFNetwork/897.15 Darwin/17.5.0
+  client:
+    type: mobile app
+    name: Altimeter
+    version: 1
+-
+  user_agent: Altimeter Pro A.C.T/3.7 CFNetwork/901.1 Darwin/17.6.0
+  client:
+    type: mobile app
+    name: Altimeter Pro A.C.T
+    version: 3.7
+-
+  user_agent: AMAP_Location_SDK_Android 2.3.0
+  client:
+    type: mobile app
+    name: AMAP Location SDK
+    version: 2.3.0
+-
+  user_agent: AMAP_SDK_iOS_Search_5.2.1
+  client:
+    type: mobile app
+    name: AMAP SDK Search
+    version: 5.2.1
+-
+  user_agent: Amazon/200397.0 CFNetwork/901.1 Darwin/17.6.0
+  client:
+    type: mobile app
+    name: Amazon
+    version: 200397.0
+-
+  user_agent: AmazonCloudPlayer/5.3 (SM-J320P)
+  client:
+    type: mobile app
+    name: Amazon Cloud Player
+    version: 5.3
+-
+  user_agent: amazoncloudplayer/8.1.1.49630241 cfnetwork/897.15 darwin/17.5.0
+  client:
+    type: mobile app
+    name: Amazon Cloud Player
+    version: 8.1.1.49630241
+-
+  user_agent: Amex/10 CFNetwork/897.15 Darwin/17.5.0
+  client:
+    type: mobile app
+    name: Amex
+    version: 10
+-
+  user_agent: Amp Recover/0.0.11 CFNetwork/897.15 Darwin/17.5.0
+  client:
+    type: mobile app
+    name: Amp Recover
+    version: 0.0.11
+-
+  user_agent: AMPVConnector
+  client:
+    type: mobile app
+    name: AMPV Connector
+    version:
+-
+  user_agent: Amtrak/1374 CFNetwork/893.14.2 Darwin/17.3.0
+  client:
+    type: mobile app
+    name: Amtrak
+    version: 1374
+-
+  user_agent: analytics-android/4.3.2-SNAPSHOT
+  client:
+    type: mobile app
+    name: Android Analytics
+    version: 4.3.2
+-
+  user_agent: ANBTX MD/1002 CFNetwork/893.14.2 Darwin/17.3.0
+  client:
+    type: mobile app
+    name: ANBTX MD
+    version: 1002
+-
+  user_agent: Angie's List/3501 CFNetwork/893.14.2 Darwin/17.3.0
+  client:
+    type: mobile app
+    name: Angie's List
+    version: 3501
+-
+  user_agent: Angle Pro/2.3 CFNetwork/897.15 Darwin/17.5.0
+  client:
+    type: mobile app
+    name: Angle Pro
+    version: 2.3
+-
+  user_agent: Angry Birds 2/2.20.2 CFNetwork/901.1 Darwin/17.6.0
+  client:
+    type: mobile app
+    name: Angry Birds 2
+    version: 2.20.2
+-
+  user_agent: AngryBirdsSpace/2.2.13.1 CFNetwork/901.1 Darwin/17.6.0
+  client:
+    type: mobile app
+    name: Angry Birds Space
+    version: 2.2.13.1
+-
+  user_agent: AngusMobile/3.0.2.2 CFNetwork/901.1 Darwin/17.6.0
+  client:
+    type: mobile app
+    name: Angus Mobile
+    version: 3.0.2.2
+-
+  user_agent: AnotherVoice/1 CFNetwork/901.1 Darwin/17.6.0
+  client:
+    type: mobile app
+    name: Another Voice
+    version: 1
+-
+  user_agent: AnotherVoiceExtension/1 CFNetwork/901.1 Darwin/17.6.0
+  client:
+    type: mobile app
+    name: Another Voice
+    version: 1
+-
+  user_agent: Any.do/4.19.5.2 CFNetwork/901.1 Darwin/17.6.0
+  client:
+    type: mobile app
+    name: Any.do
+    version: 4.19.5.2
+-
+  user_agent: anylist/167 cfnetwork/894 darwin/17.4.0.0
+  client:
+    type: mobile app
+    name: AnyList
+    version: 167
+-
+  user_agent: Api-Access-Shop-1.27.1-prod-iOS-11.4
+  client:
+    type: mobile app
+    name: API Access Shop
+    version: 1.27.1
+-
+  user_agent: AP Mobile/3046 CFNetwork/897.15 Darwin/17.5.0
+  client:
+    type: mobile app
+    name: AP Mobile
+    version: 3046
+-
+  user_agent: ap news/216 cfnetwork/893.14.2 darwin/17.3.0
+  client:
+    type: mobile app
+    name: AP News
+    version: 216
+-
+  user_agent: appbox
+  client:
+    type: mobile app
+    name: App Box
+    version:
+-
+  user_agent: APPCORE
+  client:
+    type: mobile app
+    name: App Core
+    version:
+-
+  user_agent: AppexWin8Microsoft
+  client:
+    type: mobile app
+    name: Appex
+    version:
+-
+  user_agent: AppleCoreMedia/1.0.0.15G18013 (Macintosh; U; Intel Mac OS X 10_11_6; en_us)
+  client:
+    type: mobile app
+    name: Apple Core Media
+    version: 1.0.0.15G18013
+-
+  user_agent: AppleDictionaryApplication/203
+  client:
+    type: mobile app
+    name: Apple Dictionary App
+    version: 203
+-
+  user_agent: AppleIDAuthAgent/640.4 CFNetwork/720.5.7 Darwin/14.5.0 (x86_64)
+  client:
+    type: mobile app
+    name: Apple ID Auth Agent
+    version: 640.4
+-
+  user_agent: AppleNewsWidget/1470 Version/2.3
+  client:
+    type: mobile app
+    name: Apple News Widget
+    version: 2.3
+-
+  user_agent: Apple Support/200779 CFNetwork/897.15 Darwin/17.5.0
+  client:
+    type: mobile app
+    name: Apple Support
+    version: 200779
+-
+  user_agent: APPLIB/APPS 4 YOU
+  client:
+    type: mobile app
+    name: Apps 4 You
+    version:
+-
+  user_agent: app.quiktrip.com.quiktrip (SM-J327V; 7.0; UrbanAirshipLib-android/8.2.5; by6F8rXFS-uZn-SZILmFcA; en_US)
+  client:
+    type: mobile app
+    name: QuickTrip
+    version:
+-
+  user_agent: AppStore/1 CFNetwork/887 Darwin/17.0.0
+  client:
+    type: mobile app
+    name: AppStore
+    version:
+-
+  user_agent: ApptentiveConnect/1.6.0 (iOS)
+  client:
+    type: mobile app
+    name: Apptentive Connect
+    version: 1.6.0
+-
+  user_agent: Aquarium live HD free/2137 CFNetwork/897.15 Darwin/17.5.0
+  client:
+    type: mobile app
+    name: Aquarium Live HD Free
+    version: 2137
+-
+  user_agent: archeryking/86 CFNetwork/808.3 Darwin/16.3.0
+  client:
+    type: mobile app
+    name: Archery King
+    version: 86
+-
+  user_agent: arc-intouch
+  client:
+    type: mobile app
+    name: ARC Intouch
+    version:
+-
+  user_agent: AreaCodeDirectory/8 CFNetwork/811.5.4 Darwin/16.6.0
+  client:
+    type: mobile app
+    name: Area Code Directory
+    version: 8
+-
+  user_agent: Art and Stitch 4.0
+  client:
+    type: mobile app
+    name: Art and Stitch
+    version: 4.0
+-
+  user_agent: At Bat/28326 CFNetwork/901.1 Darwin/17.6.0
+  client:
+    type: mobile app
+    name: At Bat
+    version: 28326
+-
+  user_agent: Atkins Carb Tracker - ios/4.0.7
+  client:
+    type: mobile app
+    name: Atkins Carb Tracker
+    version: 4.0.7
+-
+  user_agent: ATube-Music/10 CFNetwork/901.1 Darwin/17.6.0
+  client:
+    type: mobile app
+    name: ATube Music
+    version: 10
+-
+  user_agent: ATube-Music/1.2 (com.xindong.iMusic; build:10; iOS 11.4.0) Alamofire/4.5.1
+  client:
+    type: mobile app
+    name: ATube Music
+    version: 1.2
+-
+  user_agent: Auction.com/21522 CFNetwork/897.15 Darwin/17.5.0
+  client:
+    type: mobile app
+    name: Auction.com
+    version: 21522
+-
+  user_agent: audiomack-android/3.9.6 (samsung SM-S327VL; 6.0.1)
+  client:
+    type: mobile app
+    name: Audiomack
+    version: 3.9.6
+-
+  user_agent: audubon/1216 CFNetwork/897.15 Darwin/17.5.0
+  client:
+    type: mobile app
+    name: Audubon
+    version: 1216
+-
+  user_agent: Aurora HDR 2018/1.1.2 Sparkle/1.13.1
+  client:
+    type: mobile app
+    name: Aurora HDR 2018
+    version: 1.1.2
+-
+  user_agent: Auto Agent/1.16.7 CFNetwork/902.2 Darwin/17.7.0
+  client:
+    type: mobile app
+    name: Auto Agent
+    version: 1.16.7
+-
+  user_agent: autolist/17121900 CFNetwork/889.9 Darwin/17.2.0
+  client:
+    type: mobile app
+    name: Auto List
+    version: 17121900
+-
+  user_agent: autolist/3.10.0 (com.autolist.autolist; build:18032716; iOS 11.3.1) Alamofire/4.5.0
+  client:
+    type: mobile app
+    name: Auto List
+    version: 3.10.0
+-
+  user_agent: AUTOsist/1.0 CFNetwork/901.1 Darwin/17.6.0
+  client:
+    type: mobile app
+    name: AUTOsist
+    version: 1.0
+-
+  user_agent: AutoZone/2.5.0.3 CFNetwork/901.1 Darwin/17.6.0
+  client:
+    type: mobile app
+    name: AutoZone
+    version: 2.5.0.3
+-
+  user_agent: avdroid
+  client:
+    type: mobile app
+    name: AvDroid
+    version:
+-
+  user_agent: AVGSETUP-W10HXX64 1.227.3.23284 OSLOC=1033 LOC=1033 PKG=1824 EDA=20180208125742 EVA=4 PROD=fmw VER=1.227.3.28206
+  client:
+    type: mobile app
+    name: AVG Setup
+    version: 1.227.3.28206
+-
+  user_agent: AVGSETUP-W10HXX64 1.227.3.31392 OSLOC=1033 LOC=1033 PKG=877 EDA=20180209205536 EVA=4 PROD=av VER=16008048 AVI=4793/15781 BUILD=8013 MSI=8048 LIC=4UIUU-J77JV-STZNP-QLXGX-LZKG9-Y LICCOO=0 DIAG=D040210 DIAG2=F
+  client:
+    type: mobile app
+    name: AVG Setup
+    version: 16008048
+-
+  user_agent: avira
+  client:
+    type: mobile app
+    name: Avira
+    version:
+-
+  user_agent: baby names/6.3.0.1 cfnetwork/897.15 darwin/17.5.0
+  client:
+    type: mobile app
+    name: Baby Names
+    version: 6.3.0.1
+-
+  user_agent: BackupAssistantDaemon (unknown version) CFNetwork/901.1 Darwin/17.6.0 (x86_64)
+  client:
+    type: mobile app
+    name: Backup Assistant Daemon
+    version:
+-
+  user_agent: Backyard Birds/29 CFNetwork/901.1 Darwin/17.6.0
+  client:
+    type: mobile app
+    name: Backyard Birds
+    version: 29
+-
+  user_agent: ballsvsblocks/37 CFNetwork/901.1 Darwin/17.6.0
+  client:
+    type: mobile app
+    name: Balls VS Blocks
+    version: 37
+-
+  user_agent: BBW Loyalty/5 CFNetwork/897.15 Darwin/17.5.0
+  client:
+    type: mobile app
+    name: BBW Loyalty
+    version: 5
+-
+  user_agent: Beacon Appstore/3.3.81 CFNetwork/897.15 Darwin/17.5.0
+  client:
+    type: mobile app
+    name: Beacon Appstore
+    version: 3.3.81
+-
+  user_agent: Beam/3480 CFNetwork/901.1 Darwin/17.6.0
+  client:
+    type: mobile app
+    name: Beam
+    version: 3480
+-
+  user_agent: Bee7Advertiser/4.2.1 gzip
+  client:
+    type: mobile app
+    name: Bee 7 Advertiser
+    version: 4.2.1
+-
+  user_agent: Bee7Publisher/4.2.1 gzip
+  client:
+    type: mobile app
+    name: Bee 7 Publisher
+    version: 4.2.1
+-
+  user_agent: Be Positive Daily Inspiration/1.3 CFNetwork/897.15 Darwin/17.5.0
+  client:
+    type: mobile app
+    name: Be Positive Daily Inspiration
+    version: 1.3
+-
+  user_agent: Bestbuy-mApp/11.1.0 (com.bestbuy.buyphone; build:201805291038; iOS 11.3.0) Alamofire/4.6.0
+  client:
+    type: mobile app
+    name: Best Buy App
+    version: 11.1.0
+-
+  user_agent: Better Homes and Gardens Release/3038 CFNetwork/897.15 Darwin/17.5.0
+  client:
+    type: mobile app
+    name: Better Homes and Gardens
+    version: 3038
+-
+  user_agent: Bible/1.0 CFNetwork/808.3 Darwin/16.3.0
+  client:
+    type: mobile app
+    name: Bible
+    version: 1.0
+-
+  user_agent: Bible /1308 CFNetwork/811.5.4 Darwin/16.6.0
+  client:
+    type: mobile app
+    name: Bible
+    version: 1308
+-
+  user_agent: Bible Dictionary/50 CFNetwork/887 Darwin/17.0.0
+  client:
+    type: mobile app
+    name: Bible Dictionary
+    version: 50
+-
+  user_agent: Bible.is/570 CFNetwork/897.15 Darwin/17.5.0
+  client:
+    type: mobile app
+    name: Bible.is
+    version: 570
+-
+  user_agent: Bible  Maps/1320 CFNetwork/897.15 Darwin/17.5.0
+  client:
+    type: mobile app
+    name: Bible Maps
+    version: 1320
+-
+  user_agent: Bible Memory/129 CFNetwork/897.15 Darwin/17.5.0
+  client:
+    type: mobile app
+    name: Bible Memory
+    version: 129
+-
+  user_agent: bible study/2094 cfnetwork/760.8 darwin/15.6.0 (x86_64)
+  client:
+    type: mobile app
+    name: Bible Study
+    version: 2094
+-
+  user_agent: bibleverses.bibleverse.bible.biblia.verse.devotion/3.1.2
+  client:
+    type: mobile app
+    name: Daily Bread Bible App
+    version: 3.1.2
+-
+  user_agent: Bible VOTD/1 CFNetwork/901.1 Darwin/17.6.0
+  client:
+    type: mobile app
+    name: Bible VOTD
+    version: 1
+-
+  user_agent: BigBen Clock/3 CFNetwork/901.1 Darwin/17.6.0
+  client:
+    type: mobile app
+    name: BigBen Clock
+    version: 3
+-
+  user_agent: bigoven/14 cfnetwork/893.14.2 darwin/17.3.0
+  client:
+    type: mobile app
+    name: BigOven
+    version: 14
+-
+  user_agent: bigroad/21.4.7 cfnetwork/894 darwin/17.4.0
+  client:
+    type: mobile app
+    name: BigRoad
+    version: 21.4.7
+-
+  user_agent: Bill.com/2 CFNetwork/901.1 Darwin/17.6.0
+  client:
+    type: mobile app
+    name: Bill.com
+    version: 2
+-
+  user_agent: BlueDriver/6.10.115 CFNetwork/897.15 Darwin/17.5.0
+  client:
+    type: mobile app
+    name: Blue Driver
+    version: 6.10.115
+-
+  user_agent: BlueMail/9207 CFNetwork/897.15 Darwin/17.5.0
+  client:
+    type: mobile app
+    name: Blue Mail
+    version: 9207
+-
+  user_agent: BMI Calc/1 CFNetwork/758.5.3 Darwin/15.6.0
+  client:
+    type: mobile app
+    name: BMI Calculator
+    version: 1
+-
+  user_agent: BofA/40 CFNetwork/811.5.4 Darwin/16.6.0
+  client:
+    type: mobile app
+    name: Bank of America
+    version: 40
+-
+  user_agent: Books To Go/0 CFNetwork/758.5.3 Darwin/15.6.0
+  client:
+    type: mobile app
+    name: Books To Go
+    version:
+-
+  user_agent: Braintree/iOS/4.9.4
+  client:
+    type: mobile app
+    name: Braintree
+    version: 4.9.4
+-
+  user_agent: Breakpad/1.0 (Windows)
+  client:
+    type: mobile app
+    name: Breakpad
+    version: 1.0
+-
+  user_agent: breakr/1.0.1 CFNetwork/897.15 Darwin/17.5.0
+  client:
+    type: mobile app
+    name: BreakR
+    version: 1.0.1
+-
+  user_agent: bubblelevel3d/3 CFNetwork/901.1 Darwin/17.6.0
+  client:
+    type: mobile app
+    name: Bubble Level 3D
+    version: 3
+-
+  user_agent: BubbleLevel/71 CFNetwork/897.15 Darwin/17.5.0
+  client:
+    type: mobile app
+    name: Bubble Level
+    version: 71
+-
+  user_agent: Budget Planner/1.1 CFNetwork/897.15 Darwin/17.5.0
+  client:
+    type: mobile app
+    name: Budget Planner
+    version: 1.1
+-
+  user_agent: bugfender-ios/39
+  client:
+    type: mobile app
+    name: Bugfender
+    version: 39
+-
+  user_agent: Build It/3038 CFNetwork/893.14.2 Darwin/17.3.0
+  client:
+    type: mobile app
+    name: Build It
+    version: 3038
+-
+  user_agent: buyandsell/4850 cfnetwork/758.2.8 darwin/15.0.0
+  client:
+    type: mobile app
+    name: Buy and Sell
+    version: 4850
+-
+  user_agent: Cabelas/18.1.2 CFNetwork/811.5.4 Darwin/16.6.0
+  client:
+    type: mobile app
+    name: Cabelas
+    version: 18.1.2
+-
+  user_agent: Calcbot/21200 CFNetwork/811.5.4 Darwin/16.7.0
+  client:
+    type: mobile app
+    name: Calcbot
+    version: 21200
+-
+  user_agent: Calculator.../1 CFNetwork/897.15 Darwin/17.5.0
+  client:
+    type: mobile app
+    name: Calculator...
+    version: 1
+-
+  user_agent: calculator/4.0 CFNetwork/889.9 Darwin/17.2.0
+  client:
+    type: mobile app
+    name: Calculator
+    version: 4.0
+-
+  user_agent: calculator hd/1 cfnetwork/811.5.4 darwin/16.7.0
+  client:
+    type: mobile app
+    name: Calculator HD
+    version: 1
+-
+  user_agent: Calculator iRocks/1.1.7 CFNetwork/897.15 Darwin/17.5.0
+  client:
+    type: mobile app
+    name: Calculator iRocks
+    version: 1.1.7
+-
+  user_agent: Calculator Pro/4.6.1 CFNetwork/897.15 Darwin/17.5.0
+  client:
+    type: mobile app
+    name: Calculator Pro
+    version: 4.6.1
+-
+  user_agent: Calendars/5.11.6.89 CFNetwork/893.14.2 Darwin/17.3.0
+  client:
+    type: mobile app
+    name: Calendars
+    version: 5.11.6.89
+-
+  user_agent: CalenMob/1 CFNetwork/901.1 Darwin/17.6.0
+  client:
+    type: mobile app
+    name: CalenMob
+    version: 1
+-
+  user_agent: CAL FIRE/1.7 CFNetwork/901.1 Darwin/17.6.0
+  client:
+    type: mobile app
+    name: CAL FIRE
+    version: 1.7
+-
+  user_agent: CallRecorder/5 CFNetwork/897.15 Darwin/17.5.0
+  client:
+    type: mobile app
+    name: Call Recorder
+    version: 5
+-
+  user_agent: cambriaar/74 CFNetwork/897.15 Darwin/17.5.0
+  client:
+    type: mobile app
+    name: Cambria AR
+    version: 74
+-
+  user_agent: Camera /20180525.155546 CFNetwork/901.1 Darwin/17.6.0
+  client:
+    type: mobile app
+    name: Camera
+    version: 20180525.155546
+-
+  user_agent: Camp&RV/5.6.3 CFNetwork/901.1 Darwin/17.6.0
+  client:
+    type: mobile app
+    name: Camp & RV
+    version: 5.6.3
+-
+  user_agent: CamScanner_Lite/5.6.6.1804201916 CFNetwork/897.15 Darwin/17.5.0
+  client:
+    type: mobile app
+    name: CamScanner Lite
+    version: 5.6.6.1804201916
+-
+  user_agent: CamScanner_AD_1_LITE@5.4.0.20171221
+  client:
+    type: mobile app
+    name: CamScanner Lite
+    version: 5.4.0.20171221
+-
+  user_agent: CamScannerHD_Pro/3.9.3.12573 CFNetwork/897.15 Darwin/17.5.0
+  client:
+    type: mobile app
+    name: CamScanner HD Pro
+    version: 3.9.3.12573
+-
+  user_agent: CanineGestationCalendar/1.4 (com.caninegestationcalendar.app; build:1.0; iOS 11.3.1) Alamofire/4.6.0
+  client:
+    type: mobile app
+    name: Canine Gestation Calendar
+    version: 1.4
+-
+  user_agent: Canva/4898 CFNetwork/901.1 Darwin/17.6.0
+  client:
+    type: mobile app
+    name: Canva
+    version: 4898
+-
+  user_agent: Capo/2058.1 CFNetwork/901.1 Darwin/17.6.0
+  client:
+    type: mobile app
+    name: Capo
+    version: 2058.1
+-
+  user_agent: caponate/34.0 cfnetwork/894 darwin/17.4.0
+  client:
+    type: mobile app
+    name: Caponate
+    version: 34.0
+-
+  user_agent: Carb Tracker/822 CFNetwork/897.15 Darwin/17.5.0
+  client:
+    type: mobile app
+    name: Carb Tracker
+    version: 822
+-
+  user_agent: Car Buying/5 CFNetwork/894 Darwin/17.4.0
+  client:
+    type: mobile app
+    name: Car Buying
+    version: 5
+-
+  user_agent: cardcompanion/2018031503 cfnetwork/894 darwin/17.4.0
+  client:
+    type: mobile app
+    name: Card Companion
+    version: 2018031503
+-
+  user_agent: CarMax/2.36.0.4 CFNetwork/887 Darwin/17.0.0
+  client:
+    type: mobile app
+    name: CarMax
+    version: 2.36.0.4
+-
+  user_agent: Car-Part.com/2.9.110 CFNetwork/893.14.2 Darwin/17.3.0
+  client:
+    type: mobile app
+    name: Car-Part.com
+    version: 2.9.110
+-
+  user_agent: CarSub/21.4.5 CFNetwork/901.1 Darwin/17.6.0
+  client:
+    type: mobile app
+    name: Car Sub
+    version: 21.4.5
+-
+  user_agent: CarTalk20/3.0 CFNetwork/811.5.4 Darwin/16.6.0
+  client:
+    type: mobile app
+    name: Car Talk
+    version: 3.0
+-
+  user_agent: Cascable/1874 CFNetwork/901.1 Darwin/17.6.0
+  client:
+    type: mobile app
+    name: Cascable
+    version: 1874
+-
+  user_agent: Cash Plus HD/1.0 CFNetwork/901.1 Darwin/17.6.0
+  client:
+    type: mobile app
+    name: Cash Plus HD
+    version: 1.0
+-
+  user_agent: CastSDK/11055436 (j3ltevzw NMF26X)
+  client:
+    type: mobile app
+    name: Cast SDK
+    version: 11055436
+-
+  user_agent: cattletalkmobile2/5.0.21 cfnetwork/811.5.4 darwin/16.7.0
+  client:
+    type: mobile app
+    name: Cattle Talk Mobile
+    version: 5.0.21
+-
+  user_agent: C-Calc/33 CFNetwork/897.15 Darwin/17.5.0
+  client:
+    type: mobile app
+    name: C-Calc
+    version: 33
+-
+  user_agent: C-Calc Pro Free/11 CFNetwork/897.15 Darwin/17.5.0
+  client:
+    type: mobile app
+    name: C-Calc Pro Free
+    version: 11
+-
+  user_agent: Celebrity Voice Changer Lite/38 CFNetwork/901.1 Darwin/17.6.0
+  client:
+    type: mobile app
+    name: Celebrity Voice Changer Lite
+    version: 38
+-
+  user_agent: cex.io/10191 cfnetwork/811.5.4 darwin/16.7.0
+  client:
+    type: mobile app
+    name: cex.io
+    version: 10191
+-
+  user_agent: Chatter/3037113 CFNetwork/897.15 Darwin/17.5.0
+  client:
+    type: mobile app
+    name: Chatter
+    version: 3037113
+-
+  user_agent: CheapTickets/18.24.0 (EHad; Mobiata)
+  client:
+    type: mobile app
+    name: Cheap Tickets
+    version: 18.24.0
+-
+  user_agent: christianaudio/44 CFNetwork/901.1 Darwin/17.6.0
+  client:
+    type: mobile app
+    name: Christian Audio
+    version: 44
+-
+  user_agent: Citi Mobile/6 CFNetwork/897.15 Darwin/17.5.0
+  client:
+    type: mobile app
+    name: Citi Mobile
+    version: 6
+-
+  user_agent: City Market/190229 CFNetwork/889.9 Darwin/17.2.0
+  client:
+    type: mobile app
+    name: City Market
+    version: 190229
+-
+  user_agent: classifieds_free/4726 cfnetwork/758.2.8 darwin/15.0.0
+  client:
+    type: mobile app
+    name: Classifieds Free
+    version: 4726
+-
+  user_agent: Clips/4170.3.90 CFNetwork/901.1 Darwin/17.6.0
+  client:
+    type: mobile app
+    name: Clips
+    version: 4170.3.90
+-
+  user_agent: CloudAhoy/5.04.7119 CFNetwork/894 Darwin/17.4.0
+  client:
+    type: mobile app
+    name: Cloud Ahoy
+    version: 5.04.7119
+-
+  user_agent: CloudinaryiOS/1.0.15
+  client:
+    type: mobile app
+    name: Cloudinary
+    version: 1.0.15
+-
+  user_agent: CloudKit/736.16 (15E216)
+  client:
+    type: mobile app
+    name: CloudKit
+    version: 736.16
+-
+  user_agent: cloudveil messenger/4.6.2 (com.cloudveil.cloudveilmessenger; build:67628; ios 11.2.5) alamofire/4.7.2
+  client:
+    type: mobile app
+    name: CloudVeil Messenger
+    version: 4.6.2
+-
+  user_agent: clover® go/0 cfnetwork/811.5.4 darwin/16.7.0
+  client:
+    type: mobile app
+    name: Clover Go
+    version:
+-
+  user_agent: Clue/11610/app_0Mhvi4kJTWHiBAvkiiBtRPf77xriWURftrKILyhnZsk/ios/2.0.5/iOS/11.4/p
+  client:
+    type: mobile app
+    name: Clue
+    version: 11610
+-
+  user_agent: cmegroup_android
+  client:
+    type: mobile app
+    name: CME Group
+    version:
+-
+  user_agent: cnn today/7789 cfnetwork/897.15 darwin/17.5.0
+  client:
+    type: mobile app
+    name: CNN Today
+    version: 7789
+-
+  user_agent: cocorahs/1.2.2.4 cfnetwork/901.1 darwin/17.6.0
+  client:
+    type: mobile app
+    name: CoCoRaHS
+    version: 1.2.2.4

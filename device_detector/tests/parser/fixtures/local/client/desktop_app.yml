@@ -142,3 +142,189 @@
     type: productivity
     name: Microsoft Word
     version: 15.27.16101000
+-
+  user_agent: AioRemote_win/85.1.379.0 PdsmqLib_win/6.0.1.30
+  client:
+    type: desktop app
+    name: AiO Remote
+    version: 85.1.379.0
+-
+  user_agent: AirPort Utility/638.9 CFNetwork/901.1 Darwin/17.6.0 (x86_64)
+  client:
+    type: desktop app
+    name: Apple AirPort Utility
+    version: 638.9
+-
+  user_agent: AkamaiDLM/2.2.4.9 ActiveX (<OS:<Unknown> Home Edition>-<Browser:9.11.9600.17207>)
+  client:
+    type: desktop app
+    name: Akamai Download Manager
+    version: 2.2.4.9
+-
+  user_agent: Akamai NetSession Interface (75752ca;win;1.9.5.6;Win8)
+  client:
+    type: desktop app
+    name: Akamai NetSession Interface
+    version: 1.9.5.6
+-
+  user_agent: AMD Catalyst Install Manager
+  client:
+    type: desktop app
+    name: AMD Catalyst Install Manager
+    version:
+-
+  user_agent: AMD Radeon Analytics Utility
+  client:
+    type: desktop app
+    name: AMD Radeon Analytics Utility
+    version:
+-
+  user_agent: AMD Radeon Installer Analytics
+  client:
+    type: desktop app
+    name: AMD Radeon Installer Analytics
+    version:
+-
+  user_agent: Apple Software Update
+  client:
+    type: desktop app
+    name: Apple Software Update
+    version:
+-
+  user_agent: App Virt Client/4.6.3.25281
+  client:
+    type: desktop app
+    name: Application Virtualization Client
+    version: 4.6.3.25281
+-
+  user_agent: APSDaemon.exe (unknown version) CFNetwork/28
+  client:
+    type: desktop app
+    name: Apple Push Service Daemon
+    version:
+-
+  user_agent: ArcSoft Panorama Maker 6 - Check Update
+  client:
+    type: desktop app
+    name: ArcSoft Panorama Maker
+    version: 6
+-
+  user_agent: asana/61700100 cfnetwork/894 darwin/17.4.0
+  client:
+    type: desktop app
+    name: Asana
+    version: 61700100
+-
+  user_agent: ASUS Live Update
+  client:
+    type: desktop app
+    name: ASUS Live Update
+    version:
+-
+  user_agent: AutoCAD360/201805221606 CFNetwork/894 Darwin/17.4.0
+  client:
+    type: desktop app
+    name: Auto CAD 360
+    version: 201805221606
+-
+  user_agent: Avanquest LiveUpdate
+  client:
+    type: desktop app
+    name: Avanquest LiveUpdate
+    version:
+-
+  user_agent: Avast
+  client:
+    type: desktop app
+    name: Avast
+    version:
+-
+  user_agent: BingBar 7.1.355.0
+  client:
+    type: desktop app
+    name: BingBar
+    version: 7.1.355.0
+-
+  user_agent: broadcom windows 8 hal downloader
+  client:
+    type: desktop app
+    name: Broadcom Windows 8 Downloader
+    version:
+-
+  user_agent: ByteFenceEngine
+  client:
+    type: desktop app
+    name: Byte Fence Engine
+    version:
+-
+  user_agent: bzbmenu/5.2.0.172 CFNetwork/901.1 Darwin/17.6.0 (x86_64)
+  client:
+    type: desktop app
+    name: BZB Menu
+    version: 5.2.0.172
+-
+  user_agent: Captain FTP/6.5092 CFNetwork/520.5.3 Darwin/11.4.2 (i386) (MacPro1,1)
+  client:
+    type: desktop app
+    name: Captain FTP
+    version: 6.5092
+-
+  user_agent: CaptiveNetworkSupport-325.10.1 wispr
+  client:
+    type: desktop app
+    name: Captive Network Support
+    version: 325.10.1
+-
+  user_agent: CarboniteDownloader 6.3.2 build 7466 (Sep-07-2017)
+  client:
+    type: desktop app
+    name: Carbonite Downloader
+    version: 6.3.2
+-
+  user_agent: Carbonite Installer
+  client:
+    type: desktop app
+    name: Carbonite Installer
+    version:
+-
+  user_agent: CarboniteService/1.0
+  client:
+    type: desktop app
+    name: Carbonite Service
+    version: 1.0
+-
+  user_agent: CarboniteUploader 6.3.3 build 7602 (Feb-02-2018)
+  client:
+    type: desktop app
+    name: Carbonite Uploader
+    version: 6.3.3
+-
+  user_agent: Classic Shell
+  client:
+    type: desktop app
+    name: Classic Shell
+    version:
+-
+  user_agent: Classic Start Menu 4.3.1 (Win 602)
+  client:
+    type: desktop app
+    name: Classic Start Menu
+    version: 4.3.1
+-
+  user_agent: cloudd/735.4 CFNetwork/894 Darwin/17.4.0
+  client:
+    type: desktop app
+    name: Cloudd
+    version: 735.4
+-
+  user_agent: CloudSDK
+  client:
+    type: desktop app
+    name: CloudSDK
+    version:
+-
+  user_agent: CLS License Activation
+  client:
+    type: desktop app
+    name: CLS License Activation
+    version:

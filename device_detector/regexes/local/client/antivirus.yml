@@ -60,8 +60,17 @@
   version: '$1'
   type: av
 
-
 - regex: ngc\/(\d+[\.\d]+)
   name: Norton Antivirus
+  version: '$1'
+  type: av
+
+- regex: antivirus emergency update agent$
+  name: Antivirus Emergency Update Agent
+  version: ''
+  type: av
+
+- regex: ^cis_([\d\.]+)_
+  name: Comodo Internet Security
   version: '$1'
   type: av
