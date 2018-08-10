@@ -827,9 +827,9 @@
   name: 'Audubon'
   version: '$1'
 
-- regex: 'aurora hdr 2018\/([\d\.]+)'
-  name: 'Aurora HDR 2018'
-  version: '$1'
+- regex: 'aurora hdr (\d+)\/([\d\.]+)'
+  name: 'Aurora HDR $1'
+  version: '$2'
 
 - regex: '^auto agent\/([\d\.]+)'
   name: 'Auto Agent'
@@ -1101,10 +1101,6 @@
 
 - regex: '^cardcompanion\/(\d+)'
   name: 'Card Companion'
-  version: '$1'
-
-- regex: '^carmax\/([\d\.]+)'
-  name: 'CarMax'
   version: '$1'
 
 - regex: '^carmax\/([\d\.]+)'
