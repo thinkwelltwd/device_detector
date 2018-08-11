@@ -37,7 +37,7 @@ AVAILABLE_BROWSERS = {
     'AR': 'Arora',
     'AV': 'Amiga Voyager',
     'AW': 'Amiga Aweb',
-    'AS': 'Avast SafeZone',
+    'AS': 'Avast Secure Browser',
     'AT': 'Atomic Web Browser',
     'BB': 'BlackBerry Browser',
     'BD': 'Baidu Browser',
@@ -129,6 +129,7 @@ AVAILABLE_BROWSERS = {
     'NL': 'NetFront Life',
     'NP': 'NetPositive',
     'NS': 'Netscape',
+    'NT': 'NTENT Browser',
     'OB': 'Obigo',
     'OD': 'Odyssey Web Browser',
     'OF': 'Off By One',
@@ -194,7 +195,7 @@ BROWSER_FAMILIES = {
     'Baidu': ['BD', 'BS'],
     'Amiga': ['AV', 'AW'],
     'Chrome': (
-        'CH', 'BR', 'CC', 'CD', 'CM', 'CI', 'CF', 'CN',
+        'AS', 'CH', 'BR', 'CC', 'CD', 'CM', 'CI', 'CF', 'CN',
         'CR', 'CP', 'IR', 'RM', 'AO', 'TS', 'VI', 'PT'
     ),
     'Firefox': ['FF', 'FE', 'FM', 'SX', 'FB', 'PX', 'MB', 'EI', 'WF', 'CU'],

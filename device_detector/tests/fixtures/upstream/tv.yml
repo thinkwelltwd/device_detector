@@ -1,5 +1,5 @@
 ---
--
+- 
   user_agent: Mozilla/5.0 (DTV) AppleWebKit/531.2+ (KHTML, like Gecko) Espial/6.0.4
   os: [ ]
   client:
@@ -15,7 +15,7 @@
     model: ""
   os_family: Unknown
   browser_family: Unknown
--
+- 
   user_agent: HbbTV/1.1.1 (;;;;) Mozilla/5.0 (compatible; ANTGalio/3.0.2.1.22.43.08; Linux2.6.18-7.1/7405d0-smp)
   os:
     name: GNU/Linux
@@ -35,7 +35,7 @@
     model: ""
   os_family: GNU/Linux
   browser_family: Unknown
--
+- 
   user_agent: Opera/9.80 (Linux sh4 ; U; HBBTV/1.0 (; LOH/1.00; -----;;;) CE-HTML/1.0 Config(L:de,CC:AT); en) Presto/2.5.21 Version/10.30
   os:
     name: GNU/Linux
@@ -55,7 +55,7 @@
     model: ""
   os_family: GNU/Linux
   browser_family: Opera
--
+- 
   user_agent: Opera/10.60 (Linux sh4 ; U; HBBTV/1.0 (; LOH/2.01; -----;;;) CE-HTML/1.0 Config(Hotel,L:de,CC:DE); en) Presto/2.6.33 Version/10.60
   os:
     name: GNU/Linux
@@ -75,7 +75,7 @@
     model: ""
   os_family: GNU/Linux
   browser_family: Opera
--
+- 
   user_agent: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.2) Gecko/20100222 Firefox/3.6 Kylo/0.6.1.70394
   os:
     name: Windows
@@ -95,7 +95,7 @@
     model: ""
   os_family: Windows
   browser_family: Unknown
--
+- 
   user_agent: Mozilla/3.0 WebTV/1.2 (compatible; MSIE 2.0)
   os:
     name: WebTV
@@ -115,7 +115,7 @@
     model: Web TV
   os_family: WebTV
   browser_family: Internet Explorer
--
+- 
   user_agent: Opera/9.80 (Linux mips; Opera TV Store/6162; HbbTV/1.2.1 (; Altech UEC; PVR9600; ; ; )) Presto/2.12.407 Version/12.51 Model/AltechMultimedia-TestingDevice
   os:
     name: GNU/Linux
@@ -135,7 +135,7 @@
     model: PVR9600
   os_family: GNU/Linux
   browser_family: Opera
--
+- 
   user_agent: Mozilla/4.0 (compatible; MSIE 5.23; Macintosh; PPC) Escape 5.1.8
   os:
     name: Mac
@@ -155,7 +155,7 @@
     model: ""
   os_family: Mac
   browser_family: Unknown
--
+- 
   user_agent: iTunes-AppleTV/4.1
   os: [ ]
   client:
@@ -168,7 +168,7 @@
     model: Apple TV
   os_family: Unknown
   browser_family: Unknown
--
+- 
   user_agent: XBMC/PRE-11.0 Git:20110623-62171b3 (iOS; 11.0.0 AppleTV2,1; http://www.xbmc.org)
   os:
     name: Apple TV
@@ -185,7 +185,7 @@
     model: Apple TV
   os_family: Apple TV
   browser_family: Unknown
--
+- 
   user_agent: 'OPR/22.0.1481.0 OMI/4.2.12.29, KreaTV/0.0.0.0 (ARRIS, IPC1100, wired)CM[00.01]'
   os: [ ]
   client:
@@ -201,7 +201,7 @@
     model: IPC1100
   os_family: Unknown
   browser_family: Opera
--
+- 
   user_agent: OPR/19.0.1325.0 OMI/4.1.4.54, KreaTV/15.99.2.1 (ARRIS, IPC1100P2, wired)
   os: [ ]
   client:
@@ -217,7 +217,7 @@
     model: IPC1100P2
   os_family: Unknown
   browser_family: Opera
--
+- 
   user_agent: Opera/9.80 (Linux mips) Presto/2.12.407 Version/12.50 , KreaTV/12.36.2.2 (ARRIS, VMS1100, wired)
   os:
     name: GNU/Linux
@@ -237,7 +237,7 @@
     model: VMS1100
   os_family: GNU/Linux
   browser_family: Opera
--
+- 
   user_agent: Opera/9.80 (Linux mips; U; HbbTV/1.1.1 (+PVR+RTSP;Airties;Air7210;16999168;;); xx) Presto/2.10.287 Version/12.00
   os:
     name: GNU/Linux
@@ -257,7 +257,7 @@
     model: Air7210
   os_family: GNU/Linux
   browser_family: Opera
--
+- 
   user_agent: Opera/9.80 (Linux i686; U; HbbTV/1.1.1 (+PVR+DL; BANGOLUFSEN; A3; ; ; ) CE-HTML/1.0 NETTV/1.0; en) Presto/2.10.287 Version/12.00 A3/1.0.3.30552 (BANGOLUFSEN, A3, wired)
   os:
     name: GNU/Linux
@@ -277,7 +277,7 @@
     model: BeoVision
   os_family: GNU/Linux
   browser_family: Opera
--
+- 
   user_agent: Opera/9.80 (Linux i686; U; HbbTV/1.1.1 (; BANGOLUFSEN; A3; ; ; ) CE-HTML/1.0 NETTV/1.0; en) Presto/2.10.287 Version/12.00 A3/1.0.2.28884 (BANGOLUFSEN, A3, wired)
   os:
     name: GNU/Linux
@@ -297,7 +297,7 @@
     model: BeoVision
   os_family: GNU/Linux
   browser_family: Opera
--
+- 
   user_agent: Opera/9.80 (Linux mips; Opera TV Store/5477) Presto/2.12.362 Version/12.10 Model/Changhong-MST6328
   os:
     name: GNU/Linux
@@ -317,7 +317,7 @@
     model: MST6328
   os_family: GNU/Linux
   browser_family: Opera
--
+- 
   user_agent: Mozilla/5.0 (Linux i686; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/30.0.1599.114 Safari/537.36 SRAF/3.0 HbbTV/1.1.1 (CHANGHONG; TV55; sw-v1.0;) CE-HTML/1.0 NETRANGEMMH
   os:
     name: GNU/Linux
@@ -337,7 +337,7 @@
     model: TV55
   os_family: GNU/Linux
   browser_family: Chrome
--
+- 
   user_agent: Opera/9.80 (Linux sh4; U; ; en; CreNova Build) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1 HbbTV/1.1.1 (;CreNova;CNV001;1.0;1.0; FXM-U2FsdGVkX1/VHpIx4++T5dr9nrGwg2lrTv3h0bv5wA819tf9ZWJf5kbW8psLCFgl-END; en) Presto/2.9.167 Ve
   os:
     name: GNU/Linux
@@ -357,7 +357,7 @@
     model: CNV001
   os_family: GNU/Linux
   browser_family: Opera
--
+- 
   user_agent: Opera/9.80 (Linux sh4; U; CNV001; en;) HbbTV/1.1.1 (;CreNova;CNV001;1.0;1.0; FXM-U2FsdGVkX1/Oiw1OD4kjnYIMtRrxMWUbzbPMsylGXvFEN7YI7l5UInvIDEkFxQa5-END; en) Presto/2.9.167 Version/11.50
   os:
     name: GNU/Linux
@@ -377,7 +377,7 @@
     model: CNV001
   os_family: GNU/Linux
   browser_family: Opera
--
+- 
   user_agent: Mozilla/5.0 (Linux mips; U;HbbTV/1.1.1 (+RTSP;DMM;Dreambox;0.1a;1.0;) CE-HTML/1.0; en) AppleWebKit/535.19 no/Volksbox QtWebkit/2.2
   os:
     name: GNU/Linux
@@ -391,7 +391,7 @@
     model: Dreambox
   os_family: GNU/Linux
   browser_family: Unknown
--
+- 
   user_agent: Opera/9.80 (Linux mips; U; xx) Presto/2.10.287 Version/12.00 DuneHD/1.0 (connect; 140223_0132_b6) CE-HTML/1.0 NETRANGEMMH
   os:
     name: GNU/Linux
@@ -411,7 +411,7 @@
     model: connect
   os_family: GNU/Linux
   browser_family: Opera
--
+- 
   user_agent: Opera/9.80 (Linux mips; U; xx) Presto/2.10.287 Version/12.00 DuneHD/1.0 (polskytv__tv102; 130527_1328_b5) CE-HTML/1.0 NETRANGEMMH
   os:
     name: GNU/Linux
@@ -431,7 +431,7 @@
     model: tv102
   os_family: GNU/Linux
   browser_family: Opera
--
+- 
   user_agent: Opera/9.80 (Linux mips; U; xx) Presto/2.10.287 Version/12.00 DuneHD/1.0 (tv102; 130515_2104_b6) CE-HTML/1.0 NETRANGEMMH
   os:
     name: GNU/Linux
@@ -451,7 +451,7 @@
     model: tv102
   os_family: GNU/Linux
   browser_family: Opera
--
+- 
   user_agent: Opera/9.80 (Linux mips; U; xx) Presto/2.10.287 Version/12.00 DuneHD/1.0 (tv303d; 130515_2104_b6) CE-HTML/1.0 NETRANGEMMH
   os:
     name: GNU/Linux
@@ -471,7 +471,7 @@
     model: tv303d
   os_family: GNU/Linux
   browser_family: Opera
--
+- 
   user_agent: Mozilla/5.0 (Linux; U; Android 4.2.2; cs-cz; EVOLVEO Smart TV box Q4 Build/JDQ39) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30 Maxthon/4.1.4.2000
   os:
     name: Android
@@ -491,7 +491,7 @@
     model: Smart TV box Q4
   os_family: Android
   browser_family: Unknown
--
+- 
   user_agent: Mozilla/5.0 (CrKey armv7l 1.4.15250) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.0 Safari/537.36
   os: [ ]
   client:
@@ -507,7 +507,7 @@
     model: Chromecast
   os_family: Unknown
   browser_family: Chrome
--
+- 
   user_agent: Mozilla/5.0 (Linux; Android 5.1.1; Build/LMY47V) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.75 Safari/537.36 CrKey/1.14.32904
   os:
     name: Android
@@ -527,7 +527,7 @@
     model: Chromecast
   os_family: Android
   browser_family: Chrome
--
+- 
   user_agent: Mozilla/5.0 (X11; Linux i686) AppleWebKit/534.24 (KHTML, like Gecko) Chrome/11.0.696.77 Large Screen Safari/534.24 GoogleTV/092754
   os:
     name: Google TV
@@ -547,7 +547,7 @@
     model: GoogleTV
   os_family: Google TV
   browser_family: Chrome
--
+- 
   user_agent: Opera/9.80 (Linux armv7l; HbbTV/1.2.1 (; Hisense; SmartTV_2015; V00.01.00a.G0816; HE65M7000UWTSG; )) Presto/2.12.407 Version/12.51 year/2016
   os:
     name: GNU/Linux
@@ -567,7 +567,7 @@
     model: HE65M7000UWTS
   os_family: GNU/Linux
   browser_family: Opera
--
+- 
   user_agent: Opera/9.80 (Linux armv7l; HbbTV/1.2.1 (; Hisense; SmartTV; V00.01.00a.E0923; LHD32K370WTEU; )) Presto/2.12.407 Version/12.51
   os:
     name: GNU/Linux
@@ -587,7 +587,7 @@
     model: LHD32K370WTEU
   os_family: GNU/Linux
   browser_family: Opera
--
+- 
   user_agent: Opera/9.80 (Linux armv7l; HbbTV/1.2.1 (; Hisense; SmartTV_2015; V00.01.00a.G0806; LTDN58K700XWTSEU3D_1; )) Presto/2.12.407 Version/12.51 year/2016
   os:
     name: GNU/Linux
@@ -607,7 +607,7 @@
     model: LTDN58K700XWTSEU3D
   os_family: GNU/Linux
   browser_family: Opera
--
+- 
   user_agent: Opera/9.80 (Linux 7405b0-smp; U; HbbTV/1.1.1 (; Humax; CXHD-5100C; 1.00.23; 1.0; ); ce-html/1.0; en) Presto/2.9.167 Version/11.50
   os:
     name: GNU/Linux
@@ -627,7 +627,7 @@
     model: CXHD-5100C
   os_family: GNU/Linux
   browser_family: Opera
--
+- 
   user_agent: HbbTV/1.1.1 (+PVR;Humax;HD FOX+;1.00.12;1.0)CE-HTML/1.0 ANTGalio/3.1.1.23.04.09
   os: [ ]
   client:
@@ -643,7 +643,7 @@
     model: HD FOX+
   os_family: Unknown
   browser_family: Unknown
--
+- 
   user_agent: Opera/9.80 (Linux 7325b0; U; HbbTV/1.1.1 (; Humax; HD NANO; 1.00.16; 1.0; ); ce-html/1.0; en) Presto/2.9.167 Version/11.50
   os:
     name: GNU/Linux
@@ -663,7 +663,7 @@
     model: HD NANO
   os_family: GNU/Linux
   browser_family: Opera
--
+- 
   user_agent: Opera/9.80 (Linux mips; U; HbbTV/1.1.1 (; Humax; hdr1000s; 1.0.0; 1.0.0; ); ce-html/1.0; xx) Presto/2.10.250 Version/11.60
   os:
     name: GNU/Linux
@@ -683,7 +683,7 @@
     model: hdr1000s
   os_family: GNU/Linux
   browser_family: Opera
--
+- 
   user_agent: Opera/9.80 (Linux mips; U; HbbTV/1.1.1 (; Humax; HM-9504HD; 0.01.06; 1.0; scrlgnnew; ); ce-html/1.0; xx) Presto/2.10.250 Version/11.60
   os:
     name: GNU/Linux
@@ -703,7 +703,7 @@
     model: HM-9504HD
   os_family: GNU/Linux
   browser_family: Opera
--
+- 
   user_agent: Opera/9.80 (Linux mips; U; HbbTV/1.1.1 (; Humax; hms1000s; 1.0.0; 1.0.0; ); ce-html/1.0; en) Presto/2.10.250 Version/11.60
   os:
     name: GNU/Linux
@@ -723,7 +723,7 @@
     model: HMS-1000S
   os_family: GNU/Linux
   browser_family: Opera
--
+- 
   user_agent: Opera/9.80 (Linux mips; Opera TV Store/5896; HbbTV/1.2.1 (PVR; freesat/1.0; hms1000sph2; 1.0.0; 1.0.0; UX-PRISM--OP-NONE); ce-html/1.0) Presto/2.12.407 Version/12.50 Model/Humax-TestingDevice
   os:
     name: GNU/Linux
@@ -743,7 +743,7 @@
     model: HMS-1000S
   os_family: GNU/Linux
   browser_family: Opera
--
+- 
   user_agent: HbbTV/1.1.1 (+PVR;Humax;iCord Cable;1.01.09;1.0)CE-HTML/1.0 ANTGalio/3.1.1.23.04.09
   os: [ ]
   client:
@@ -759,7 +759,7 @@
     model: iCord Cable
   os_family: Unknown
   browser_family: Unknown
--
+- 
   user_agent: HbbTV/1.1.1 (+PVR;Humax;iCord HD+;1.01.17;1.0)CE-HTML/1.0 ANTGalio/3.1.1.23.04
   os: [ ]
   client:
@@ -775,7 +775,7 @@
     model: iCord HD+
   os_family: Unknown
   browser_family: Unknown
--
+- 
   user_agent: Opera/9.80 (Linux mips; U; HbbTV/1.1.1 (; Humax; iCord HD+; 1.0.0; 1.0.0; ); ce-html/1.0; en) Presto/2.10.250 Version/11.60
   os:
     name: GNU/Linux
@@ -795,7 +795,7 @@
     model: iCord HD+
   os_family: GNU/Linux
   browser_family: Opera
--
+- 
   user_agent: Opera/9.80 (Linux 7335b0-smp; U; HbbTV/1.1.1 (; Humax; iCord MINI; 0.90.02; 1.0; ); ce-html/1.0; en) Presto/2.10.250 Version/11.60
   os:
     name: GNU/Linux
@@ -815,7 +815,7 @@
     model: iCord MINI
   os_family: GNU/Linux
   browser_family: Opera
--
+- 
   user_agent: Opera/9.80 (Linux 7325b0; U; HbbTV/1.1.1 (; Humax; IRHD-5100S; 1.01.26; 1.0; ); ce-html/1.0; en) Presto/2.9.167 Version/11.50
   os:
     name: GNU/Linux
@@ -835,7 +835,7 @@
     model: IRHD-5100S
   os_family: GNU/Linux
   browser_family: Opera
--
+- 
   user_agent: Opera/9.80 (Linux armv6l; U; NETRANGEMMH;HbbTV/1.1.1;CE-HTML/1.0;IKEA LF1V358; en) Presto/2.10.250 Version/11.60
   os:
     name: GNU/Linux
@@ -855,7 +855,7 @@
     model: LF1V358
   os_family: GNU/Linux
   browser_family: Opera
--
+- 
   user_agent: Opera/9.80 (Linux sh4; U; HbbTV/1.1.1 (; INTEK; Vantage Full HD Model;;;) hdplusSmartTV/1.0 (NETRANGEMMH;) Bee/3.2 CE-HTML/1.0; FXM-U2FsdGVkX19WaYSyGq70V2qt2C4bR92ULIOEtQrDKma1eRx3WQlWfuTO6eCHMYQm-END; en) Presto/2.10.250 Version/11.60
   os:
     name: GNU/Linux
@@ -875,7 +875,7 @@
     model: Vantage
   os_family: GNU/Linux
   browser_family: Opera
--
+- 
   user_agent: Opera/9.80 (Linux sh4; U; HbbTV/1.1.1 (; INTEK; VT-100 HD+;;;) hdplusSmartTV/1.0 (NETRANGEMMH;) Bee/3.2 CE-HTML/1.0; en) Presto/2.10.250 Version/11.60
   os:
     name: GNU/Linux
@@ -895,7 +895,7 @@
     model: VT-100
   os_family: GNU/Linux
   browser_family: Opera
--
+- 
   user_agent: Opera/9.80 (Linux sh4; U; HbbTV/1.1.1 (; INTEK; VT-100 HD+;;;) hdplusSmartTV/1.0 (NETRANGEMMH;) Bee/3.2 CE-HTML/1.0; FXM-U2FsdGVkX1+9IFast5+XgFhStntZ2aPC75KXhmr7DTyTjVYcbAaLpfmxnMmKiXRe-END; en) Presto/2.10.250 Version/11.60
   os:
     name: GNU/Linux
@@ -915,7 +915,7 @@
     model: VT-100
   os_family: GNU/Linux
   browser_family: Opera
--
+- 
   user_agent: 'Mozilla/5.0 (;;;) AppleWebKit/534.6 HbbTV/1.1.1 (+DL+PVR; inverto; IDL-6640N Volksbox Essential; 1.0; 1.0;) hdplusinteraktiv/1.0 (NETRANGEMMH;)  CE-HTML/1.0'
   os: [ ]
   client: null
@@ -925,7 +925,7 @@
     model: IDL-6640N Volksbox Essential
   os_family: Unknown
   browser_family: Unknown
--
+- 
   user_agent: 'Mozilla/5.0 (;;;) AppleWebKit/534.6 HbbTV/1.1.1 (+DL+PVR; inverto; IDL-6651N Volksbox Web Edition; 1.0; 1.0;) hdplusinteraktiv/1.0 (NETRANGEMMH;)  CE-HTML/1.0'
   os: [ ]
   client: null
@@ -935,7 +935,7 @@
     model: IDL-6651N Volksbox Web Edition
   os_family: Unknown
   browser_family: Unknown
--
+- 
   user_agent: 'Mozilla/5.0 (;;;) AppleWebKit/534.6 HbbTV/1.1.1 (+DL+PVR; inverto; IDL-6750N Volksbox II; 1.0; 1.0;) hdplusinteraktiv/1.0 (NETRANGEMMH;)  CE-HTML/1.0'
   os: [ ]
   client: null
@@ -945,7 +945,7 @@
     model: IDL-6750N Volksbox II
   os_family: Unknown
   browser_family: Unknown
--
+- 
   user_agent: 'Mozilla/5.0 (;;;) AppleWebKit/538.6 HbbTV/1.1.1 (+DL+PVR; inverto; QUANTUM - IDL9000; 1.0; 1.0;) CE-HTML/1.0 hdplusinteraktiv/1.0 (NETRANGEMMH;)'
   os: [ ]
   client: null
@@ -955,7 +955,7 @@
     model: 'QUANTUM - IDL9000'
   os_family: Unknown
   browser_family: Unknown
--
+- 
   user_agent: Mozilla/5.0 (Linux; Android 4.2.2; AFTB Build/JDQ39) AppleWebKit/537.22 (KHTML, like Gecko) Chrome/25.0.1364.173 Mobile Safari/537.22 cordova-amazon-fireos/3.4.0 AmazonWebAppPlatform/3.4.0;2.0
   os:
     name: Android
@@ -975,7 +975,7 @@
     model: Fire TV
   os_family: Android
   browser_family: Chrome
--
+- 
   user_agent: Mozilla/5.0 (Linux; Android 4.2.2; AFTM Build/JDQ39) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/34.0.0.0 Mobile Safari/537.36 cordova-amazon-fireos/3.4.0 AmazonWebAppPlatform/3.4.0;2.0
   os:
     name: Android
@@ -995,7 +995,47 @@
     model: Fire TV stick
   os_family: Android
   browser_family: Chrome
--
+- 
+  user_agent: Mozilla/5.0 (Linux; Android 5.1.1; AFTT Build/LVY48F; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/49.0.2623.10
+  os:
+    name: Android
+    short_name: AND
+    version: "5.1.1"
+    platform: ""
+  client:
+    type: browser
+    name: Chrome
+    short_name: CH
+    version: "49.0.2623.10"
+    engine: Blink
+    engine_version: ""
+  device:
+    type: tv
+    brand: KN
+    model: Fire TV stick
+  os_family: Android
+  browser_family: Chrome
+- 
+  user_agent: Mozilla/5.0 (Linux; Android 5.1.1; AFTS Build/LVY48F; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/55.0.28
+  os:
+    name: Android
+    short_name: AND
+    version: "5.1.1"
+    platform: ""
+  client:
+    type: browser
+    name: Chrome
+    short_name: CH
+    version: "55.0.28"
+    engine: Blink
+    engine_version: ""
+  device:
+    type: tv
+    brand: KN
+    model: Fire TV stick
+  os_family: Android
+  browser_family: Chrome
+- 
   user_agent: Mozilla/5.0 (Web0S; Linux/SmartTV) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.122 Safari/537.36 HbbTV/1.2.1 (+DRM; LGE; 49UH664V-ZC; WEBOS3.0 05.30.02; W3_M16;)
   os:
     name: webOS
@@ -1015,7 +1055,7 @@
     model: 49UH664V
   os_family: Other Mobile
   browser_family: Chrome
--
+- 
   user_agent: Mozilla/5.0 (Web0S; Linux/SmartTV) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.122 Safari/537.36 HbbTV/1.2.1 (+DRM; LGE; 55UJ6307-ZA; WEBOS3.5 04.70.45; W3_K3LP;)
   os:
     name: webOS
@@ -1035,7 +1075,7 @@
     model: 55UJ6307
   os_family: Other Mobile
   browser_family: Chrome
--
+- 
   user_agent: Mozilla/5.0 (DirectFB; U; Linux 7630; en) AppleWebKit/531.2+ (KHTML, like Gecko) Safari/531.2+ HbbTV/1.1.1 ( ;LGE ;GLOBAL_PLAT3 ;BR.8.97.067.B ;1.0.0.1 ;)
   os:
     name: GNU/Linux
@@ -1055,7 +1095,7 @@
     model: GLOBAL PLAT3
   os_family: GNU/Linux
   browser_family: Safari
--
+- 
   user_agent: Mozilla/5.0 (Linux; NetCast; U) AppleWwbKit/537.31 (KHTML, like Gecko) Chrome/26.0.1410.33 Safari/537.31 SmartTV/5.0
   os:
     name: GNU/Linux
@@ -1075,7 +1115,7 @@
     model: NetCast
   os_family: GNU/Linux
   browser_family: Chrome
--
+- 
   user_agent: Mozilla/5.0 (DirectFB; U; Linux mips; en) AppleWebKit/531.2+ (KHTML, like Gecko) Safari/531.2+ LG Browser/4.0.10(+SCREEN+TUNER; LGE; 42LE5500-SA; 04.02.02; 0x00000001;); LG NetCast.TV-2010
   os:
     name: GNU/Linux
@@ -1095,7 +1135,7 @@
     model: NetCast
   os_family: GNU/Linux
   browser_family: Unknown
--
+- 
   user_agent: Mozilla/5.0 (DirectFB; Linux armv7l) AppleWebKit/534.26+ (KHTML, like Gecko) Version/5.0 Safari/534.26+ LG Browser/5.00.00(+mouse+3D+SCREEN+TUNER; LGE; 47LM9600-NA; 06.00.00; 0x00000001;); LG NetCast.TV-2012 0
   os:
     name: GNU/Linux
@@ -1115,7 +1155,7 @@
     model: NetCast
   os_family: GNU/Linux
   browser_family: Unknown
--
+- 
   user_agent: Mozilla/5.0 (DirectFB; Linux armv7l) AppleWebKit/534.26+ (KHTML, like Gecko) Version/5.0 Safari/534.26+ HbbTV/1.1.1 ( ;LGE ;NetCast 3.0 ;1.0 ;1.0M ;)
   os:
     name: GNU/Linux
@@ -1135,7 +1175,7 @@
     model: NetCast 3.0
   os_family: GNU/Linux
   browser_family: Safari
--
+- 
   user_agent: Mozilla/5.0 (Unknown; Linux armv7l) AppleWebKit/537.1+ (KHTML, like Gecko) Safari/537.1+ HbbTV/1.1.1 ( ;LGE ;NetCast 4.0 ;03.10.81 ;1.0M ;)
   os:
     name: GNU/Linux
@@ -1155,7 +1195,7 @@
     model: NetCast 4.0
   os_family: GNU/Linux
   browser_family: Safari
--
+- 
   user_agent: Mozilla/5.0 (Web0S; Linux/SmartTV) AppleWebKit/537.36 (KHTML, like Gecko) QtWebEngine/5.2.1 Chrome/38.0.2125.122 Safari/537.36 HbbTV/1.2.1 (+DRM; LGE; OLED55B6J-Z; WEBOS3.0 04.30.65; W3_K2L;)
   os:
     name: webOS
@@ -1175,7 +1215,7 @@
     model: OLED55B6J
   os_family: Other Mobile
   browser_family: Chrome
--
+- 
   user_agent: Mozilla/5.0 (Web0S; Linux/SmartTV) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.122 Safari/537.36 HbbTV/1.2.1 (+DRM; LGE; OLED65C7V-Z; WEBOS3.5 04.70.30; W3_M16P;)
   os:
     name: webOS
@@ -1195,7 +1235,7 @@
     model: OLED65C7V
   os_family: Other Mobile
   browser_family: Chrome
--
+- 
   user_agent: LOEWE/TV HbbTV/1.1.1 (+PVR; Loewe; SL121; LOH;;) CE-HTML/1.0 SL121/16.16.0
   os: [ ]
   client: null
@@ -1205,7 +1245,7 @@
     model: SL121
   os_family: Unknown
   browser_family: Unknown
--
+- 
   user_agent: LOEWE/TV HbbTV/1.1.1 CE-HTML/1.0 SL121/16.16.0
   os: [ ]
   client: null
@@ -1215,7 +1255,7 @@
     model: SL121
   os_family: Unknown
   browser_family: Unknown
--
+- 
   user_agent: LOEWE/TV HBBTV/1.0 CE-HTML/1.0 SL150/14.16.0
   os: [ ]
   client: null
@@ -1225,7 +1265,7 @@
     model: SL150
   os_family: Unknown
   browser_family: Unknown
--
+- 
   user_agent: Opera/9.80 (Linux sh4; U; HbbTV/1.1.1 (+PVR; Loewe; SL150; LOH/3.10;;) CE-HTML/1.0 Config(L:slv,CC:DEU); en) Presto/2.10.250 Version/11.60
   os:
     name: GNU/Linux
@@ -1245,7 +1285,7 @@
     model: SL150
   os_family: GNU/Linux
   browser_family: Opera
--
+- 
   user_agent: LOEWE/TV HbbTV/1.2.1 (+PVR; Loewe; SL220; LOH/4.00;;) CE-HTML/1.0 SL220/
   os: [ ]
   client: null
@@ -1255,7 +1295,7 @@
     model: SL220
   os_family: Unknown
   browser_family: Unknown
--
+- 
   user_agent: Opera/9.80 (Linux sh4; U; HbbTV/1.2.1 (+PVR; Loewe; SL220; LOH/4.00;;) CE-HTML/1.0 Config(L:deu,CC:CHE) NETRANGEMMH; en) Presto/2.10.250 Version/11.60
   os:
     name: GNU/Linux
@@ -1275,7 +1315,7 @@
     model: SL220
   os_family: GNU/Linux
   browser_family: Opera
--
+- 
   user_agent: Mozilla/5.0 (DirectFB; U; Linux armv6l; c) AppleWebKit/531.2+ (KHTML, like Gecko) Safari/531.2+ HbbTV/1.1.1 (;Metz;MMS;;;)
   os:
     name: GNU/Linux
@@ -1295,7 +1335,7 @@
     model: ""
   os_family: GNU/Linux
   browser_family: Safari
--
+- 
   user_agent: HbbTV/1.1.1 (;MTK;MT5396;;;) ANTGalio/3.2.0.C341.06
   os:
     name: MTK / Nucleus
@@ -1315,7 +1355,7 @@
     model: MT5396
   os_family: Real-time OS
   browser_family: Unknown
--
+- 
   user_agent: HbbTV/1.2.1 (;MTK;MT5396;;;) ANTGalio/3.3.0.26.02.devel
   os:
     name: MTK / Nucleus
@@ -1335,7 +1375,7 @@
     model: MT5396
   os_family: Real-time OS
   browser_family: Unknown
--
+- 
   user_agent: Mozilla/5.0 (Linux; U; Android 3.2; en-us; GTV100 Build/MASTER) AppleWebKit/534.13 (KHTML, like Gecko) Version/4.0 Safari/534.13
   os:
     name: Android
@@ -1355,7 +1395,7 @@
     model: NeoTV Prime
   os_family: Android
   browser_family: Android Browser
--
+- 
   user_agent: Opera/9.80 (Linux i686; U; fr) Presto/2.10.287 Version/12.00 ; SC/IHD92 STB
   os:
     name: GNU/Linux
@@ -1375,7 +1415,7 @@
     model: Livebox Play
   os_family: GNU/Linux
   browser_family: Opera
--
+- 
   user_agent: Opera/9.80 (Linux mn10300; U; HbbTV/1.1.1 (+PVR; Panasonic; DIGA M9031; 3.030; ; ); en) Presto/2.9.167 Version/11.50
   os:
     name: GNU/Linux
@@ -1395,7 +1435,7 @@
     model: ""
   os_family: GNU/Linux
   browser_family: Opera
--
+- 
   user_agent: Hybridcast/1.0 (;008045;PANATV1308;2;2;)
   os: [ ]
   client: null
@@ -1405,7 +1445,7 @@
     model: Smart TV
   os_family: Unknown
   browser_family: Unknown
--
+- 
   user_agent: Mozilla/5.0 (FreeBSD; U; Viera; fr-FR) AppleWebKit/535.1 (KHTML, like Gecko) Viera/1.5.2 Chrome/14.0.835.202 Safari/535.1
   os:
     name: FreeBSD
@@ -1425,7 +1465,7 @@
     model: Smart TV
   os_family: Unix
   browser_family: Chrome
--
+- 
   user_agent: Mozilla/5.0 (X11; FreeBSD; U; Viera; de-DE) AppleWebKit/537.11 (KHTML, like Gecko) Viera/3.10.0 Chrome/23.0.1271.97 Safari/537.11
   os:
     name: FreeBSD
@@ -1445,7 +1485,7 @@
     model: Smart TV
   os_family: Unix
   browser_family: Chrome
--
+- 
   user_agent: HbbTV/1.1.1 (;Panasonic;VIERA 2011;1.805;0071-7702 2000-0000;)
   os: [ ]
   client: null
@@ -1455,7 +1495,7 @@
     model: VIERA 2011
   os_family: Unknown
   browser_family: Unknown
--
+- 
   user_agent: HbbTV/1.1.1 (;Panasonic;VIERA 2012;1.210;0071-3403 2000-0000;)
   os: [ ]
   client: null
@@ -1465,7 +1505,7 @@
     model: VIERA 2012
   os_family: Unknown
   browser_family: Unknown
--
+- 
   user_agent: HbbTV/1.2.1 (;Panasonic;VIERA 2013;3.838;1101-0003 0004-0000;)
   os: [ ]
   client: null
@@ -1475,7 +1515,7 @@
     model: VIERA 2013
   os_family: Unknown
   browser_family: Unknown
--
+- 
   user_agent: Opera/9.80 (Linux armv6l; U; NETRANGEMMH;HbbTV/1.1.1;CE-HTML/1.0;PEAQ LF1V350; en) Presto/2.8.115 Version/11.10
   os:
     name: GNU/Linux
@@ -1495,7 +1535,7 @@
     model: LF1V350
   os_family: GNU/Linux
   browser_family: Opera
--
+- 
   user_agent: 'Opera/9.80 (Linux armv7l; HbbTV/1.2.1 (; Philips; 28HFL5009D12; ; PHILIPSTV;  CE-HTML/1.0 NETTV/4.4.1 SmartTvA/3.0.0 Firmware/004.001.163.001 (PhilipsTV, 3.1.1,)en) ) Presto/2.12.407 Version/12.50'
   os:
     name: GNU/Linux
@@ -1515,7 +1555,7 @@
     model: 28HFL5009D12
   os_family: GNU/Linux
   browser_family: Opera
--
+- 
   user_agent: 'Opera/9.80 (Linux armv7l; HbbTV/1.2.1 (; Philips; 55PUS780912; ; PHILIPSTV;  CE-HTML/1.0 NETTV/4.4.1 SmartTvA/3.0.0 Firmware/014.002.026.129 (PhilipsTV, 3.1.1,)en) ) Presto/2.12.407 Version/12.50'
   os:
     name: GNU/Linux
@@ -1535,7 +1575,7 @@
     model: 55PUS780912
   os_family: GNU/Linux
   browser_family: Opera
--
+- 
   user_agent: Mozilla/5.0 (Linux; Android 4.2.2; AND1E TV Build/JDQ39) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/29.0.1547.80 Safari/537.36
   os:
     name: Android
@@ -1555,7 +1595,7 @@
     model: Android TV
   os_family: Android
   browser_family: Chrome
--
+- 
   user_agent: Mozilla/5.0 (Linux; Android 4.2.2; AND1E Build/JDQ39) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.2062.117 Mobile Safari/537.36
   os:
     name: Android
@@ -1575,7 +1615,7 @@
     model: Android TV
   os_family: Android
   browser_family: Chrome
--
+- 
   user_agent: WebKit/3.7.6, (CE-HTML/1.0 NETTV/3.3.0 NewB) PHILIPS-AVM-2013/2.19 (Philips, BDP5600, wired)
   os: [ ]
   client: null
@@ -1585,7 +1625,7 @@
     model: Blu-ray Player (BDP5600)
   os_family: Unknown
   browser_family: Unknown
--
+- 
   user_agent: HbbTV/1.2.1 (;Philips;MT5580;;;) ANTGalio/3.3.0.26.04
   os: [ ]
   client:
@@ -1601,7 +1641,7 @@
     model: MT5580
   os_family: Unknown
   browser_family: Unknown
--
+- 
   user_agent: Opera/9.70 (Linux armv6l ; U; CE-HTML/1.0 NETTV/2.0.2; en) Presto/2.2.1
   os:
     name: GNU/Linux
@@ -1621,7 +1661,7 @@
     model: NetTV Series
   os_family: GNU/Linux
   browser_family: Opera
--
+- 
   user_agent: Opera/9.80 (Linux armv6l ; U; CE-HTML/1.0 NETTV/3.0.1;; en) Presto/2.6.33 Version/10.60
   os:
     name: GNU/Linux
@@ -1641,7 +1681,7 @@
     model: NetTV Series
   os_family: GNU/Linux
   browser_family: Opera
--
+- 
   user_agent: Opera/9.80 (Linux armv7l; U; CE-HTML/1.0 NETTV/3.3.0; PHILIPS-AVM-2012; en) Presto/2.9.167 Version/11.50
   os:
     name: GNU/Linux
@@ -1661,7 +1701,7 @@
     model: NetTV Series
   os_family: GNU/Linux
   browser_family: Opera
--
+- 
   user_agent: Opera/9.80 (Linux i686; U; HbbTV/1.1.1 (; Philips; ; ; ; ) CE-HTML/1.0 NETTV/4.0.1; en) Presto/2.10.250 Version/11.60
   os:
     name: GNU/Linux
@@ -1681,7 +1721,7 @@
     model: NetTV Series
   os_family: GNU/Linux
   browser_family: Opera
--
+- 
   user_agent: Opera/9.80(Linux armv7l; U; CE-HTML/1.0 NETTV/3.0.1; PHILIPS-AVM-2012; xx) Presto/2.10.250 Version/11.6
   os:
     name: GNU/Linux
@@ -1701,7 +1741,7 @@
     model: NetTV Series
   os_family: GNU/Linux
   browser_family: Opera
--
+- 
   user_agent: 'Opera/9.80 (Linux armv7l; HbbTV/1.2.1 (; Philips; ; ; PHILIPSTV; )  CE-HTML/1.0 NETTV/4.4.1 SmartTvA/3.0.0 Firmware/010.001.072.040 (PhilipsTV, 3.1.1,)en) Presto/2.12.407 Version/12.50'
   os:
     name: GNU/Linux
@@ -1721,7 +1761,7 @@
     model: NetTV Series
   os_family: GNU/Linux
   browser_family: Opera
--
+- 
   user_agent: Mozilla/5.0 (Linux; U; Android 4.1.1; en-gb; POV_TV-HDMI-KB-01 Build/JRO03H) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30
   os:
     name: Android
@@ -1741,7 +1781,7 @@
     model: HDMI Smart TV Dongle
   os_family: Android
   browser_family: Android Browser
--
+- 
   user_agent: Mozilla/5.0 (Linux; U; Android 4.1.1; nl-nl; POV_TV-HDMI-200BT Build/JRO03H) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30
   os:
     name: Android
@@ -1761,7 +1801,7 @@
     model: Mini PC HDMI Dongle
   os_family: Android
   browser_family: Android Browser
--
+- 
   user_agent: Mozilla/5.0 (Linux; U; Android 4.1.1; tr-tr; MK808 Build/JRO03H) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30
   os:
     name: Android
@@ -1781,7 +1821,7 @@
     model: MK808
   os_family: Android
   browser_family: Android Browser
--
+- 
   user_agent: Mozilla/5.0 (Linux; U; Android 4.2.2; fr-fr; mk808b Build/JDQ39) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30
   os:
     name: Android
@@ -1801,7 +1841,7 @@
     model: MK808b
   os_family: Android
   browser_family: Android Browser
--
+- 
   user_agent: Roku/DVP-5.2 (025.02E03197A)
   os: [ ]
   client: null
@@ -1811,7 +1851,7 @@
     model: Digital Video Player
   os_family: Unknown
   browser_family: Unknown
--
+- 
   user_agent: Mozilla/4.0 (compatible; Gecko/20041115) Maple 5.0.0 Navi
   os: [ ]
   client: null
@@ -1821,7 +1861,7 @@
     model: ""
   os_family: Unknown
   browser_family: Unknown
--
+- 
   user_agent: Mozilla/5.0 (Linux; U; Android 4.2.2; ru-ru; GT-B9150 Build/JDQ39) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30
   os:
     name: Android
@@ -1841,7 +1881,7 @@
     model: Home Sync
   os_family: Android
   browser_family: Android Browser
--
+- 
   user_agent: Mozilla/5.0 (SmartHub; SMART-TV; U; Linux/SmartTV; Maple2012)
   os:
     name: GNU/Linux
@@ -1855,7 +1895,7 @@
     model: Smart TV
   os_family: GNU/Linux
   browser_family: Unknown
--
+- 
   user_agent: Mozilla/5.0 (SMART-TV; X11; Linux i686) AppleWebKit/535.20+ (KHTML, like Gecko) Version/5.0 Safari/535.20+
   os:
     name: GNU/Linux
@@ -1875,7 +1915,7 @@
     model: Smart TV
   os_family: GNU/Linux
   browser_family: Safari
--
+- 
   user_agent: Mozilla/5.0 (SMART-TV; Linux; Tizen 2.3) AppleWebkit/538.1 (KHTML, like Gecko) SamsungBrowser/1.0 TV Safari/538.1
   os:
     name: Tizen
@@ -1895,7 +1935,7 @@
     model: Smart TV
   os_family: Other Mobile
   browser_family: Unknown
--
+- 
   user_agent: HbbTV/1.1.1 (;;;;;) Maple_2011
   os: [ ]
   client: null
@@ -1905,7 +1945,7 @@
     model: Smart TV 2011
   os_family: Unknown
   browser_family: Unknown
--
+- 
   user_agent: HbbTV/1.1.1 (;Samsung;SmartTV2012;;;) WebKit
   os: [ ]
   client: null
@@ -1915,7 +1955,7 @@
     model: Smart TV 2012
   os_family: Unknown
   browser_family: Unknown
--
+- 
   user_agent: HbbTV/1.1.1 (;Samsung;SmartTV2013;BPH-F8509EUB-1003.2;;) WebKit
   os: [ ]
   client: null
@@ -1925,7 +1965,7 @@
     model: Smart TV 2013
   os_family: Unknown
   browser_family: Unknown
--
+- 
   user_agent: HbbTV/1.1.1 (;Samsung;SmartTV2014;T-MST14DEUC-1106.1;;) WebKit
   os: [ ]
   client: null
@@ -1935,7 +1975,7 @@
     model: Smart TV 2014
   os_family: Unknown
   browser_family: Unknown
--
+- 
   user_agent: HbbTV/1.2.1 (+DRM;Samsung;SmartTV2017;T-KTMDEUC-1151.1;;)+TVPLUS+SmartHubLink Chrome
   os: [ ]
   client:
@@ -1951,7 +1991,7 @@
     model: Smart TV 2017
   os_family: Unknown
   browser_family: Chrome
--
+- 
   user_agent: SmartTV/1.0.0 (SAMSUNG;OTV-SMT-E5015;0x01;BAC.2012.05.12)
   os: [ ]
   client: null
@@ -1961,7 +2001,7 @@
     model: SMT-E5015
   os_family: Unknown
   browser_family: Unknown
--
+- 
   user_agent: Mozilla/5.0 (Linux; olleh tv; U; xx; SMT-E5015) AppleWebKit/536.25 (KHTML, like Gecko) AltiBrowser/3.0.4 (olleh tv; Large Screen) Safari/536.25
   os:
     name: GNU/Linux
@@ -1981,7 +2021,7 @@
     model: SMT-E5015
   os_family: GNU/Linux
   browser_family: Safari
--
+- 
   user_agent: DLNADOC/1.50 SHARP-AQUOS-DMP/2.0W
   os: [ ]
   client: null
@@ -1991,7 +2031,7 @@
     model: Aquos Net Plus
   os_family: Unknown
   browser_family: Unknown
--
+- 
   user_agent: Mozilla/5.0 (DTV) AppleWebKit/531.2+ (KHTML, like Gecko) Espial/6.1.5 AQUOSBrowser/2.0 (US01DTV;V;0001;0001)
   os: [ ]
   client:
@@ -2007,7 +2047,7 @@
     model: Aquos Net Plus
   os_family: Unknown
   browser_family: Unknown
--
+- 
   user_agent: Opera/9.80 (Linux armv6l; U; en) Presto/2.8.115 Version/11.10 AQUOS-AS/1.0 LC-40LE835X
   os:
     name: GNU/Linux
@@ -2027,7 +2067,7 @@
     model: LC-40LE835X
   os_family: GNU/Linux
   browser_family: Opera
--
+- 
   user_agent: Mozilla/5.0 (DTV) AppleWebKit/531.2+ (KHTML, like Gecko) Espial/6.0.5 AQUOSBrowser/1.0 (AS00DTV;V;0001;0001) AQUOS-AS/2.0 LC-46LX840H
   os: [ ]
   client:
@@ -2043,7 +2083,7 @@
     model: LC-46LX840H
   os_family: Unknown
   browser_family: Unknown
--
+- 
   user_agent: Mozilla/5.0 (DTV) AppleWebKit/531.2+ (KHTML, like Gecko) Espial/6.1.6 AQUOSBrowser/1.0 (AS00DTV;V;0001;0001)AQUOS-AS/2.0 LC-60LX850H
   os: [ ]
   client:
@@ -2059,7 +2099,7 @@
     model: LC-60LX850H
   os_family: Unknown
   browser_family: Unknown
--
+- 
   user_agent: Mozilla/5.0 (DTV) AppleWebKit/531.2+ (KHTML, like Gecko) Espial/6.1.12 AQUOSBrowser/1.0 (AS00DTV;V;0001;0001)AQUOS-AS/2.0 LC-60UQ10E
   os: [ ]
   client:
@@ -2075,7 +2115,7 @@
     model: LC-60UQ10E
   os_family: Unknown
   browser_family: Unknown
--
+- 
   user_agent: Opera/9.80 (Linux mips; U; NETRANGEMMH; Sharp; HbbTV/1.1.1; CE-HTML/1.0; LE542E; FT; LC:deu; CC:che;; en) Presto/2.9.167 Version/11.50
   os:
     name: GNU/Linux
@@ -2095,7 +2135,7 @@
     model: LE542E
   os_family: GNU/Linux
   browser_family: Opera
--
+- 
   user_agent: Opera/9.80 (Linux sh4; HbbTV/1.2.1 (;Sharp;LE652;v0.1.43.5;;) CE-HTML/1.0 Config(L:deu,CC:DEU) NETRANGEMMH) Presto/2.12.362 Version/12.10
   os:
     name: GNU/Linux
@@ -2115,7 +2155,7 @@
     model: LE652
   os_family: GNU/Linux
   browser_family: Opera
--
+- 
   user_agent: Opera/9.80 (Linux mips; U; HbbTV/1.1.1 ( ; Sharp; LE737; 690.1; 1.32;); en) Presto/2.9.167 Version/11.50
   os:
     name: GNU/Linux
@@ -2135,7 +2175,7 @@
     model: LE737
   os_family: GNU/Linux
   browser_family: Opera
--
+- 
   user_agent: Opera/9.80 (Linux sh4; HbbTV/1.2.1 (;Sharp;LE750;v0.100;;) CE-HTML/1.0 Config(L:eng,CC:DEU) NETRANGEMMH) Presto/2.12.362 Version/12.10
   os:
     name: GNU/Linux
@@ -2155,7 +2195,7 @@
     model: LE750
   os_family: GNU/Linux
   browser_family: Opera
--
+- 
   user_agent: Opera/9.80 (Linux sh4; HbbTV/1.2.1 (;Sharp;LE752;v0.1.18.1;;) CE-HTML/1.0 Config(L:eng,CC:DEU) NETRANGEMMH) Presto/2.12.362 Version/12.10
   os:
     name: GNU/Linux
@@ -2175,7 +2215,7 @@
     model: LE752
   os_family: GNU/Linux
   browser_family: Opera
--
+- 
   user_agent: Opera/9.80 (Linux mips; U; ; xx) Presto/2.10.287 Version/12.00 HbbTV/1.1.1 (; CUS:SHARP; MB95; 2.1.9.o; 1.0;) CE-HTML/1.0 NETRANGEMMH iplayerV3
   os:
     name: GNU/Linux
@@ -2195,7 +2235,7 @@
     model: MB95
   os_family: GNU/Linux
   browser_family: Opera
--
+- 
   user_agent: Opera/9.80 (Linux mips; ) Presto/2.12.407 Version/12.51 MB90/3.3.8.e (SHARP, Si2156LG32, wired) HbbTV/1.1.1 (; CUS:SHARP; MB90; 3.3.8.e; 1.0;) CE-HTML/1.0 NETRANGEMMH iplayerV3
   os:
     name: GNU/Linux
@@ -2215,7 +2255,7 @@
     model: Si2156LG32
   os_family: GNU/Linux
   browser_family: Opera
--
+- 
   user_agent: Mozilla/5.0 (Linux; U; Android 4.0.4; zh-cn; Skyworth 8K55 E680 Build/IMM76L) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30
   os:
     name: Android
@@ -2235,7 +2275,7 @@
     model: 8K55 E680
   os_family: Android
   browser_family: Android Browser
--
+- 
   user_agent: HbbTV/1.1.1 (+PVR;Sky_worth;HC7620;2.07.12;1.0;)CE-HTML/1.0 Skykid/5.1.6.2.04
   os: [ ]
   client: null
@@ -2245,7 +2285,7 @@
     model: HC7620
   os_family: Unknown
   browser_family: Unknown
--
+- 
   user_agent: Opera/9.80 (Linux armv6l; Opera TV Store/5606) Presto/2.12.362 Version/12.11 Model/Sony-BDP9G_AXD SonyCEBrowser/1.0 (BDP9G_AXD; BDP2014/M20.R.0164; TWN)
   os:
     name: GNU/Linux
@@ -2265,7 +2305,7 @@
     model: BDP9G AXD
   os_family: GNU/Linux
   browser_family: Opera
--
+- 
   user_agent: Opera/9.80 (Linux armv6l; Opera TV Store/5599; (SonyBDP/BDV13)) Presto/2.12.362 Version/12.11
   os:
     name: GNU/Linux
@@ -2285,7 +2325,7 @@
     model: Blu-ray Player
   os_family: GNU/Linux
   browser_family: Opera
--
+- 
   user_agent: Opera/9.80 (Linux armv7l; Opera TV Store/6219) Presto/2.12.407 Version/12.50 Model/Sony-KD-55X8500B SonyCEBrowser/1.0 (KD-55X8500B; CTV2014/PKG2.263GAA; AUS)
   os:
     name: GNU/Linux
@@ -2305,7 +2345,7 @@
     model: KD-55X8500B
   os_family: GNU/Linux
   browser_family: Opera
--
+- 
   user_agent: Mozilla/5.0 (Linux armv7l) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.153 Safari/537.36 OPR/22.0.1481.0 OMI/4.2.12.48.ALSAN3.122 HbbTV/1.2.1 (; Sony; KD-55XD8577; v3.925; 2015;) sony.hbbtv.tv.2015HE
   os:
     name: GNU/Linux
@@ -2325,7 +2365,7 @@
     model: KD-55XD8577
   os_family: GNU/Linux
   browser_family: Opera
--
+- 
   user_agent: Mozilla/5.0 (Linux armv7l) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.152 Safari/537.36 OPR/29.0.1803.0 OMI/4.5.23.37.ALSAN5.131 HbbTV/1.2.1 (; Sony; KD-65ZD9; v1.602671100; 2016;) sony.hbbtv.tv.2016HE
   os:
     name: GNU/Linux
@@ -2345,7 +2385,7 @@
     model: KD-65ZD9
   os_family: GNU/Linux
   browser_family: Opera
--
+- 
   user_agent: Opera/9.80 (Linux mips; Opera TV Store/4510; U; en) Presto/2.10.250 Version/11.60 Model/Sony-KDL-32EX550 SonyCEBrowser/1.0 (KDL-32EX550; CTV/PKG2.120GAA; IND)
   os:
     name: GNU/Linux
@@ -2365,7 +2405,7 @@
     model: KDL-32EX550
   os_family: GNU/Linux
   browser_family: Opera
--
+- 
   user_agent: Mozilla/5.0 (Linux armv7l) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.153 Safari/537.36 OPR/22.0.1481.0 OMI/4.2.12.48.ALSAN3.122 HbbTV/1.2.1 (; Sony; KDL-65W859C; v3.925; 2015;) sony.hbbtv.tv.2015HE
   os:
     name: GNU/Linux
@@ -2385,7 +2425,7 @@
     model: KDL-65W859
   os_family: GNU/Linux
   browser_family: Opera
--
+- 
   user_agent: 'Opera/9.80 (Linux mips; U;  HbbTV/1.1.1 (; Sony; KDL32CX525; PKG4.008EUA; 2011;);; en) Presto/2.7.61 Version/11.00'
   os:
     name: GNU/Linux
@@ -2405,7 +2445,7 @@
     model: KDL32CX525
   os_family: GNU/Linux
   browser_family: Opera
--
+- 
   user_agent: 'Opera/9.80 (Linux armv7l; U;  HbbTV/1.1.1 (; Sony; KDL40HX758; PKG1.212EUA; 2013;);; en) Presto/2.10.287 Version/12.00'
   os:
     name: GNU/Linux
@@ -2425,7 +2465,7 @@
     model: KDL40HX758
   os_family: GNU/Linux
   browser_family: Opera
--
+- 
   user_agent: 'Opera/9.80 (Linux armv7l;  HbbTV/1.1.1 (; Sony; KDL42W805A; PKG3.105EUA; 2013;); ) Presto/2.12.362 Version/12.11'
   os:
     name: GNU/Linux
@@ -2445,7 +2485,7 @@
     model: KDL42W805
   os_family: GNU/Linux
   browser_family: Opera
--
+- 
   user_agent: Opera/9.80 (Linux armv7l; InettvBrowser/2.2 (00014A;SonyDTV115;0002;0100) KDL42W805A; CC/GBR) Presto/2.12.362 Version/12.11
   os:
     name: GNU/Linux
@@ -2465,7 +2505,7 @@
     model: KDL42W805A
   os_family: GNU/Linux
   browser_family: Opera
--
+- 
   user_agent: 'Opera/9.80 (Linux armv7l; U;  HbbTV/1.1.1 (; Sony; KDL46EX650; PKG0.002EUA; 2013;);; en) Presto/2.10.287 Version/12.00'
   os:
     name: GNU/Linux
@@ -2485,7 +2525,7 @@
     model: KDL46EX650
   os_family: GNU/Linux
   browser_family: Opera
--
+- 
   user_agent: 'Opera/9.80 (Linux mips; U;  HbbTV/1.1.1 (; Sony; KDL55NX725; PKG4.012EUA; 2011;);; en) Presto/2.7.61 Version/11.00'
   os:
     name: GNU/Linux
@@ -2505,7 +2545,7 @@
     model: KDL55NX725
   os_family: GNU/Linux
   browser_family: Opera
--
+- 
   user_agent: 'Mozilla/5.0 (;;;) AppleWebKit/534.6 HbbTV/1.1.1 (+DL+PVR; smart; CX10; 1.0; 1.0;)  CE-HTML/1.0'
   os: [ ]
   client: null
@@ -2515,7 +2555,7 @@
     model: CX10
   os_family: Unknown
   browser_family: Unknown
--
+- 
   user_agent: 'Mozilla/5.0 (;;;) AppleWebKit/534.6 HbbTV/1.1.1 (+DL+PVR; smart; VX10; 1.0; 1.0;)  CE-HTML/1.0'
   os: [ ]
   client: null
@@ -2525,7 +2565,7 @@
     model: VX10
   os_family: Unknown
   browser_family: Unknown
--
+- 
   user_agent: 'Mozilla/5.0 (;;;) AppleWebKit/534.6 HbbTV/1.1.1 (+DL+PVR; smart; ZAPPIX HD+; 1.0; 1.0;)  CE-HTML/1.0'
   os: [ ]
   client: null
@@ -2535,7 +2575,7 @@
     model: ZAPPIX HD+
   os_family: Unknown
   browser_family: Unknown
--
+- 
   user_agent: Mozilla/5.0 (Linux; U; Android 2.3.4; fr-fr; STOREX LinkBox Build/20120103) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1
   os:
     name: Android
@@ -2555,7 +2595,7 @@
     model: LinkBox
   os_family: Android
   browser_family: Android Browser
--
+- 
   user_agent: 'Mozilla/5.0 (;;;) AppleWebKit/534.6 HbbTV/1.1.1 (+DL+PVR; selevision; Selevision EMC1000i; 1.0; 1.0;)  CE-HTML/1.0'
   os: [ ]
   client: null
@@ -2565,7 +2605,7 @@
     model: EMC1000i
   os_family: Unknown
   browser_family: Unknown
--
+- 
   user_agent: 'Mozilla/5.0 (;;;) AppleWebKit/534.6 HbbTV/1.1.1 (+DL+PVR; selevision; Selevision EMC1000i; 1.0; 1.0;) hdplusinteraktiv/1.0 (NETRANGEMMH;)  CE-HTML/1.0'
   os: [ ]
   client: null
@@ -2575,7 +2615,7 @@
     model: EMC1000i
   os_family: Unknown
   browser_family: Unknown
--
+- 
   user_agent: Opera/9.80 (Linux mips; U; NETRANGEMMH;HbbTV/1.1.1;CE-HTML/1.0;TCL LF1V042; en) Presto/2.10.287 Version/12.00
   os:
     name: GNU/Linux
@@ -2595,7 +2635,7 @@
     model: LF1V042
   os_family: GNU/Linux
   browser_family: Opera
--
+- 
   user_agent: Opera/9.80 (Linux armv6l; U; NETRANGEMMH;HbbTV/1.1.1;CE-HTML/1.0;TCL LF1V349; en) Presto/2.8.115 Version/11.10
   os:
     name: GNU/Linux
@@ -2615,7 +2655,7 @@
     model: LF1V349
   os_family: GNU/Linux
   browser_family: Opera
--
+- 
   user_agent: Opera/9.80 (Linux mips; U; HbbTV/1.1.1 (; Vestel; MB95; 1.0; 1.0; ); en) Presto/2.10.287 Version/12.00 HbbTV/1.1.1 (; CUS:TELEFUNKEN; MB95; 2.1.4; 1.0;) CE-HTML/1.0 NETRANGEMMH iplayerV3
   os:
     name: GNU/Linux
@@ -2635,7 +2675,7 @@
     model: MB95
   os_family: GNU/Linux
   browser_family: Opera
--
+- 
   user_agent: Opera/9.80 (Linux armv6l; U; NETRANGEMMH;HbbTV/1.1.1;CE-HTML/1.0;THOMSON LF1V017; en) Presto/2.10.250 Version/11.60
   os:
     name: GNU/Linux
@@ -2655,7 +2695,7 @@
     model: LF1V017
   os_family: GNU/Linux
   browser_family: Opera
--
+- 
   user_agent: Opera/9.80 (Linux armv6l; U; NETRANGEMMH;HbbTV/1.1.1;CE-HTML/1.0;THOM LF1V375; en) Presto/2.10.250 Version/11.60
   os:
     name: GNU/Linux
@@ -2675,7 +2715,7 @@
     model: LF1V375
   os_family: GNU/Linux
   browser_family: Opera
--
+- 
   user_agent: Mozilla/5.0 (DTV; TSBNetTV/T32013713.0203.7DD; TVwithVideoPlayer; like Gecko) NetFront/4.1 DTVNetBrowser/2.2 (000039;T32013713;0203;7DD) InettvBrowser/2.2 (000039;T32013713;0203;7DD)
   os: [ ]
   client:
@@ -2691,7 +2731,7 @@
     model: ""
   os_family: Unknown
   browser_family: NetFront
--
+- 
   user_agent: Opera/9.80 (Linux armv7l ; U; HbbTV/1.1.1 (; TOSHIBA; 55WL863; 19.5.61.15; 3; ) ; ToshibaTP/1.3.0 (+VIDEO_X_MS_ASF+VIDEO_MP4+AUDIO_MPEG+AUDIO_MP4+DRM+3D) ; de) Presto/2.6.33 Version/10.60
   os:
     name: GNU/Linux
@@ -2711,7 +2751,7 @@
     model: 55WL863
   os_family: GNU/Linux
   browser_family: Opera
--
+- 
   user_agent: Opera/9.80 (Linux armv7l ; U; HbbTV/1.1.1 (; TOSHIBA; 55ZL1; 19.7.61.14; 3; ) ; ToshibaTP/1.3.0 (+VIDEO_MP4+AUDIO_MPEG+AUDIO_MP4) ; de) Presto/2.6.33 Version/10.60
   os:
     name: GNU/Linux
@@ -2731,7 +2771,7 @@
     model: 55ZL1
   os_family: GNU/Linux
   browser_family: Opera
--
+- 
   user_agent: HbbTV/1.1.1 (+DL;TechnoTrend Goerler;S-855;3.1.8.24.04.20.devel;;) CE-HTML/1.0 hdplusinteraktiv/1.0 (NETRANGEMMH;)
   os: [ ]
   client: null
@@ -2741,7 +2781,7 @@
     model: S-855
   os_family: Unknown
   browser_family: Unknown
--
+- 
   user_agent: Opera/9.80 (Linux sh4; U; HbbTV/1.1.1 (;;;;;); CE-HTML; TechniSat DigiCorder ISIO C; de) Presto/2.9.167 Version/11.50
   os:
     name: GNU/Linux
@@ -2761,7 +2801,7 @@
     model: DigiCorder ISIO C
   os_family: GNU/Linux
   browser_family: Opera
--
+- 
   user_agent: Opera/9.80 (Linux sh4; U; HbbTV/1.1.1 (;;;;;); CE-HTML; TechniSat DigiCorder ISIO S; de) Presto/2.9.167 Version/11.50
   os:
     name: GNU/Linux
@@ -2781,7 +2821,7 @@
     model: DigiCorder ISIO S
   os_family: GNU/Linux
   browser_family: Opera
--
+- 
   user_agent: Opera/9.80 (Linux sh4; U; HbbTV/1.1.1 (;;;;;); CE-HTML; TechniSat Digit ISIO C; de) Presto/2.9.167 Version/11.50
   os:
     name: GNU/Linux
@@ -2801,7 +2841,7 @@
     model: Digit ISIO C
   os_family: GNU/Linux
   browser_family: Opera
--
+- 
   user_agent: Opera/9.80 (Linux sh4; U; HbbTV/1.1.1 (;;;;;); CE-HTML; TechniSat Digit ISIO S; de) Presto/2.9.167 Version/11.50
   os:
     name: GNU/Linux
@@ -2821,7 +2861,7 @@
     model: Digit ISIO S
   os_family: GNU/Linux
   browser_family: Opera
--
+- 
   user_agent: Opera/9.80 (Linux i686; U; HbbTV/1.1.1 (;;;;;); CE-HTML; TechniSat MultyVision ISIO; de) Presto/2.9.167 Version/11.50
   os:
     name: GNU/Linux
@@ -2841,7 +2881,7 @@
     model: MultyVision ISIO
   os_family: GNU/Linux
   browser_family: Opera
--
+- 
   user_agent: HbbTV/1.1.1 (; Vestel; MB70; 1.0; 1.0;) NetFront/4.1
   os: [ ]
   client:
@@ -2857,7 +2897,7 @@
     model: MB70
   os_family: Unknown
   browser_family: NetFront
--
+- 
   user_agent: Opera/9.80 (Linux mips; U; HbbTV/1.1.1 (; Vestel; MB95; 1.0; 1.0; ); en) Presto/2.10.287 Version/12.00
   os:
     name: GNU/Linux
@@ -2877,7 +2917,7 @@
     model: MB95
   os_family: GNU/Linux
   browser_family: Opera
--
+- 
   user_agent: Opera/9.80 (Linux armv7l; U; HbbTV/1.1.1 (;tv2n;videoweb;1.0.0;1.0;); en) Presto/2.8.115 Version/11.10
   os:
     name: GNU/Linux
@@ -2897,7 +2937,7 @@
     model: tv2n
   os_family: GNU/Linux
   browser_family: Opera
--
+- 
   user_agent: Opera/9.80 (Linux mips; U; HbbTV/1.1.1 (; Opera Software; videowebtv; ; ; ); en) Presto/2.10.287 Version/12.00
   os:
     name: GNU/Linux
@@ -2917,7 +2957,7 @@
     model: VideoWeb TV
   os_family: GNU/Linux
   browser_family: Opera
--
+- 
   user_agent: Mozilla/5.0 (Linux; GoogleTV 3.2; VAP430 Build/MASTER) AppleWebKit/534.24 (KHTML, like Gecko) Chrome/11.0.696.77 Safari/534.24
   os:
     name: Google TV
