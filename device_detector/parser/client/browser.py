@@ -247,14 +247,12 @@ class Engine(BaseClientParser):
         'upstream/client/browser_engine.yml',
     ]
 
-    def parse(self):
-        super().parse()
+    def _parse(self):
+        super()._parse()
         if 'name' in self.ua_data:
             self.ua_data['engine_version'] = EngineVersion(self.user_agent).parse(
                 engine=self.ua_data['name']
             )
-
-        return self
 
 
 class Browser(BaseClientParser):

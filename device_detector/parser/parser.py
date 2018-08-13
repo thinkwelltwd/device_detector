@@ -144,9 +144,17 @@ class Parser:
             return self
 
         self._parse()
+        self.extract_details()
 
-        self.set_details()
         return self
+
+    def extract_details(self) -> dict:
+        """
+        Wrap set_details and call add_to_cache
+        """
+        self.set_details()
+        self.add_to_cache()
+        return self.ua_data
 
     def set_details(self) -> None:
         """
@@ -174,8 +182,6 @@ class Parser:
             self.ua_data.update({
                 'type': self.dtype(),
             })
-
-        self.add_to_cache()
 
     def name(self) -> str:
         return self.ua_data.get('name', '')

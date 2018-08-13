@@ -106,6 +106,7 @@ class DeviceDetector:
         if not self.skip_bot_detection:
             self.parse_bot()
             if self.is_bot():
+                self.set_parse_cache()
                 return self
 
         self.parse_os()
