@@ -1,3 +1,16 @@
+try:
+    import regex as re
+except ImportError:
+    import re
+
+APP_ID = re.compile('(com\.(?:[\w\d-_]+\.)+(?:[\w\d-_]+))', re.IGNORECASE)
+SECONDARY_APPIDS = {
+    'com.usebutton.sdk',
+}
+NORMALIZE_ID = {
+    'com.apple.configurator.xpc.deviceservice': 'com.apple.configurator',
+    'com.apple.configurator.xpc.internetservice': 'com.apple.configurator',
+}
 
 
 class DataExtractor(object):
@@ -67,10 +80,41 @@ class DataExtractor(object):
         return value.format(*group_values).strip()
 
     def extract(self) -> str:
-        value = self.metadata[self.key]
+        value = self.metadata.get(self.key, '')
         if value and '$' in value:
             return self.get_value_from_regex(value)
         return value
+
+
+class ApplicationIDExtractor:
+    """
+    Extract App Store IDs such as:
+
+    extract APP IDs such as
+    com.cloudveil.CloudVeilMessenger
+    com.houzz.app
+    com.google.Maps
+    """
+    key = 'app_id'
+
+    def __init__(self, user_agent):
+        self.user_agent = user_agent
+
+    def extract(self):
+        """
+        arse for "com.<string.<string>.<string>" value
+
+        In the (unlikely) event that multiple valid IDs
+        are found, just return the first one.
+        """
+        app_ids = set(APP_ID.findall(self.user_agent))
+        scrubbed_ids = sorted(list(app_ids.difference(SECONDARY_APPIDS)))
+
+        if scrubbed_ids:
+            app_id = scrubbed_ids[0]
+            return NORMALIZE_ID.get(app_id.lower(), app_id)
+
+        return ''
 
 
 class NameExtractor(DataExtractor):
@@ -108,6 +152,7 @@ class VersionExtractor(DataExtractor):
 
 
 __all__ = (
+    'ApplicationIDExtractor',
     'DataExtractor',
     'ModelExtractor',
     'NameExtractor',

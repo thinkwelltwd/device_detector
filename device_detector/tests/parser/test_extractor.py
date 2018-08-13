@@ -1,6 +1,34 @@
 from ..base import ParserBaseTest
-from ...parser import NameExtractor, ModelExtractor, VersionExtractor
+from ...parser import (
+    ApplicationIDExtractor,
+    NameExtractor,
+    ModelExtractor,
+    VersionExtractor,
+)
 
+
+class TestApplicationIDExtractor(ParserBaseTest):
+
+    fixture_files = [
+        'tests/parser/fixtures/local/extractor/applicationid.yml',
+    ]
+
+    def test_parsing(self):
+        fixtures = self.load_fixtures()
+
+        for fixture in fixtures:
+            self.user_agent = fixture.pop('user_agent')
+            expected = fixture['client']['app_id']
+            parsed = ApplicationIDExtractor(self.user_agent).extract()
+
+            self.assertEqual(
+                expected,
+                parsed,
+                msg='Error parsing {}.\n'
+                'Parsed value {} != expected value {}'.format(
+                    self.user_agent, parsed, expected
+                )
+            )
 
 
 class TestNameExtractor(ParserBaseTest):
@@ -42,5 +70,8 @@ class TestVersionExtractor(ParserBaseTest):
 
 
 __all__ = (
-    'TestNameExtractor', 'TestModelExtractor', 'TestVersionExtractor',
+    'TestApplicationIDExtractor',
+    'TestNameExtractor',
+    'TestModelExtractor',
+    'TestVersionExtractor',
 )

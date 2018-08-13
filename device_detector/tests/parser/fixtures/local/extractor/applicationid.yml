@@ -1,0 +1,168 @@
+-
+  user_agent: com.apple.Maps
+  client:
+    app_id: com.apple.Maps
+-
+  user_agent: com.apple.configurator.xpc.DeviceService/439 CFNetwork/901.1 Darwin/17.6.0 (x86_64)
+  client:
+    app_id: com.apple.configurator
+-
+  user_agent: com.apple.configurator.xpc.InternetService/439 CFNetwork/901.1 Darwin/17.6.0 (x86_64)
+  client:
+    app_id: com.apple.configurator
+-
+  user_agent: com.apple.geod/1077.0.18 cfnetwork/720.5.7 darwin/14.5.0 (x86_64)
+  client:
+    app_id: com.apple.geod
+-
+  user_agent: com.apple.trustd/1.0
+  client:
+    app_id: com.apple.trustd
+-
+  user_agent: com.apple.weatherkitservice/147 cfnetwork/720.5.7 darwin/14.5.0 (x86_64)
+  client:
+    app_id: com.apple.weatherkitservice
+-
+  user_agent: com.apple.webkit.networking/8604.5.6.0.1 cfnetwork/894 darwin/17.4.0
+  client:
+    app_id: com.apple.webkit.networking
+-
+  user_agent: 6h4hrtu5e3.com.avast.osx.secureline.avastsecurelinehelper/47777
+  client:
+    app_id: com.avast.osx.secureline.avastsecurelinehelper
+-
+  user_agent: 5ZLLHQPJA8.com.wunderground.storm
+  client:
+    app_id: com.wunderground.storm
+-
+  user_agent: 8YJ6H75V7V.com.precisionplanting.FieldView
+  client:
+    app_id: com.precisionplanting.FieldView
+-
+  user_agent: chickfila/5.16.3 (com.engauge.Chick-fil-A; build:756; iOS 11.4.0) Alamofire/4.7.2
+  client:
+    app_id: com.engauge.Chick-fil-A
+-
+  user_agent: com.cloudveil.CloudVeilMessenger/67634 (unknown, iOS unknown, iOS, Scale/2.000000)
+  client:
+    app_id: com.cloudveil.CloudVeilMessenger
+-
+  user_agent: com.accuweather.android (samsung-sm-g900a; 6.0.1; urbanairshiplib-android/8.8.4; e6whem5otciqyeogsf8rhg; en_us)
+  client:
+    app_id: com.accuweather.android
+-
+  user_agent: bible+/42 (com.zonervan.biblegateway; build:56; ios 11.3.0) alamofire/4.6.0
+  client:
+    app_id: com.zonervan.biblegateway
+-
+  user_agent: biblegateway/42 (com.zonervan.biblegateway; build:56; ios 11.3.0) alamofire/4.6.0
+  client:
+    app_id: com.zonervan.biblegateway
+-
+  user_agent: gasbuddy/5.15.0 (com.gasbuddymobile.gasbuddy; build:515.0.1; ios 11.3.1) alamofire/4.3.0
+  client:
+    app_id: com.gasbuddymobile.gasbuddy
+-
+  user_agent: my cricket/2.5.2 (com.aiowireless.myaio; build:2122317944; ios 11.3.1) alamofire/3.5.1
+  client:
+    app_id: com.aiowireless.myaio
+-
+  user_agent: samsclub/589 (com.samsclub.samsapp; build:9452; ios 11.3.0) alamofire/4.7.2
+  client:
+    app_id: com.samsclub.samsapp
+-
+  user_agent: com.agilebits.onepassword-ios.extension/70006002 cfnetwork/897.15 darwin/17.5.0
+  client:
+    app_id: com.agilebits.onepassword-ios.extension
+-
+  user_agent: com.amazon.mp3 (SM-J320P; 5.1.1; UrbanAirshipLib-android/6.1.3; cImJnecuQfi4GVqUzGpURg; en_US)
+  client:
+    app_id: com.amazon.mp3
+-
+  user_agent: com.apple.camera
+  client:
+    app_id: com.apple.camera
+-
+  user_agent: com.apple.invitation-registration [Mac OS X,10.11.6,15G18013,MacBookPro8,1]
+  client:
+    app_id: com.apple.invitation-registration
+-
+  user_agent: com.apple.mobilenotes.SharingExtension/1127.50 CFNetwork/808.3 Darwin/16.3.0
+  client:
+    app_id: com.apple.mobilenotes.SharingExtension
+-
+  user_agent: com.apple.mobilesafari
+  client:
+    app_id: com.apple.mobilesafari
+-
+  user_agent: com.apple.mobileslideshow
+  client:
+    app_id: com.apple.mobileslideshow
+-
+  user_agent: com.apple.MobileSMS
+  client:
+    app_id: com.apple.MobileSMS
+-
+  user_agent: com.apple.MobileSoftwareUpdate.UpdateBrainService/1 CFNetwork/811.5.4 Darwin/16.6.0
+  client:
+    app_id: com.apple.MobileSoftwareUpdate.UpdateBrainService
+-
+  user_agent: com.apple.Photos
+  client:
+    app_id: com.apple.Photos
+-
+  user_agent: com.apple.Safari.SearchHelper/13604.3.5 CFNetwork/889.9 Darwin/17.2.0 (x86_64)
+  client:
+    app_id: com.apple.Safari.SearchHelper
+-
+  user_agent: com.apple.siri-distributed-evaluation/1 CFNetwork/894 Darwin/17.4.0
+  client:
+    app_id: com.apple.siri-distributed-evaluation
+-
+  user_agent: com.equitybank.grip (samsung-sm-g800a; 5.1.1; urbanairshiplib-android/9.0.6; aldpk9qqsjujvbjf_geqca; en_us)
+  client:
+    app_id: com.equitybank.grip
+-
+  user_agent: com.google.hangouts_iOS/21.0.179146070 (gzip)
+  client:
+    app_id: com.google.hangouts_iOS
+-
+  user_agent: com.kohls.mcommerce.opal (samsung-sm-g920a; 6.0.1; urbanairshiplib-android/8.7.0; clr_iah1suqm9zn4dimqsa; en_us)
+  client:
+    app_id: com.kohls.mcommerce.opal
+-
+  user_agent: com.menards.mobile (samsung-sm-g891a; 7.0; urbanairshiplib-android/8.3.2; q8llfbrrthcupyijhsk79a; en_us)
+  client:
+    app_id: com.menards.mobile
+-
+  user_agent: Commerce/1.27.1 (com.underarmour.shop; build:7065; iOS 11.4.0) Alamofire/4.7.1
+  client:
+    app_id: com.underarmour.shop
+-
+  user_agent: com.mxtech.videoplayer.ad/1023
+  client:
+    app_id: com.mxtech.videoplayer.ad
+-
+  user_agent: com.ovbc.grip (SM-G900V; 6.0.1; UrbanAirshipLib-android/9.0.6; na0lwn2hQwarqjD8V4934Q; en_US)
+  client:
+    app_id: com.ovbc.grip
+-
+  user_agent: com.parrot.freeflight3
+  client:
+    app_id: com.parrot.freeflight3
+-
+  user_agent: com.Project100Pi.themusicplayer/104
+  client:
+    app_id: com.Project100Pi.themusicplayer
+-
+  user_agent: com.sonicomobile.itranslatemac 1.4.7 rv:1411 (Macmini7,1; Version 10.13.1 (Build 17B1003); en_US@currency=GTQ)
+  client:
+    app_id: com.sonicomobile.itranslatemac
+-
+  user_agent: com.starbucks.mobilecard (samsung-sm-g890a; 6.0.1; urbanairshiplib-android/8.9.6; n8pacvorrnedc1ykyopraa; es_us)
+  client:
+    app_id: com.starbucks.mobilecard
+-
+  user_agent: com.tgc.greatcoursesplus (SAMSUNG-SM-T377A; 6.0.1; UrbanAirshipLib-android/8.2.0; xChI0L29QJWk5fSapY56kw; en_US)
+  client:
+    app_id: com.tgc.greatcoursesplus

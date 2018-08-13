@@ -16,6 +16,13 @@ except ImportError:
 
 from ..settings import ROOT
 
+# App names -> Application ID map so that upstream
+# test fixtures can pass without modifications
+APPID_TO_NAME = {
+    'com.google.GooglePlus': 'Google Plus',
+    'com.google.android.youtube': 'YouTube',
+    'com.google.android.apps.magazines': 'Google Play Newsstand',
+}
 
 
 class Base(unittest.TestCase):
@@ -82,7 +89,9 @@ class DetectorBaseTest(Base):
             self.assertEqual(device.os_version(), self.get_value(fixture, 'os', 'version'))
 
             # Client properties
-            self.assertEqual(device.client_name(), self.get_value(fixture, 'client', 'name'))
+            parsed_name = device.client_name()
+            name = APPID_TO_NAME.get(parsed_name, parsed_name)
+            self.assertEqual(name, self.get_value(fixture, 'client', 'name'))
             self.assertEqual(device.client_type(), self.get_value(fixture, 'client', 'type'))
             self.assertEqual(str(device.client_version()), self.get_value(fixture, 'client', 'version'))
 
@@ -124,10 +133,10 @@ class ParserBaseTest(Base):
                     msg='Error parsing {}. '
                         'Parsed data does not have "{}" key'.format(self.user_agent, field))
                 self.assertEqual(
-                    str(expect[field]), str(data[field]),
+                    str(expect.get(field, '')), str(data.get(field, '')),
                     msg='Error parsing {}. \n'
                         'Field "{}" parsed value "{}" != expected value "{}"'.format(
-                        self.user_agent, field, data[field], expect[field]
+                        self.user_agent, field, data.get(field, ''), expect.get(field, '')
                     )
                 )
 

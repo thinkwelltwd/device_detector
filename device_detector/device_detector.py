@@ -22,6 +22,9 @@ from .parser import (
     P2P,
     PIM,
     VPNProxy,
+
+    # Extractors
+    ApplicationIDExtractor,
 )
 from . import DDCache
 
@@ -106,8 +109,7 @@ class DeviceDetector:
         if not self.skip_bot_detection:
             self.parse_bot()
             if self.is_bot():
-                self.set_parse_cache()
-                return self
+                return self.set_parse_cache()
 
         self.parse_os()
         self.parse_client()
@@ -122,12 +124,22 @@ class DeviceDetector:
         if self.client:
             return
 
+        app_id = ApplicationIDExtractor(self.user_agent).extract()
+
         for Parser in self.CLIENT_PARSERS:
             parser = Parser(self.user_agent).parse()
             if parser.ua_data:
                 self.client = parser
                 self.all_details['client'] = parser.ua_data
+                self.all_details['client']['app_id'] = app_id
                 return
+
+        # if no device matched, still add name / app_id values
+        if app_id:
+            self.all_details['client'] = {
+                'name': app_id,
+                'app_id': app_id,
+            }
 
     def parse_device(self) -> None:
         """
