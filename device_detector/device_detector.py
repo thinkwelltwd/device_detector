@@ -13,11 +13,15 @@ from .parser import (
     # Clients
     Browser,
     FeedReader,
+    Game,
     Library,
     MediaPlayer,
+    Messaging,
     MobileApp,
     DesktopApp,
+    P2P,
     PIM,
+    VPNProxy,
 )
 from . import DDCache
 
@@ -35,9 +39,13 @@ class DeviceDetector:
 
     CLIENT_PARSERS = (
         FeedReader,
+        Game,
+        Messaging,
         MobileApp,
         MediaPlayer,
+        P2P,
         PIM,
+        VPNProxy,
         DesktopApp,
         Browser,
         Library,

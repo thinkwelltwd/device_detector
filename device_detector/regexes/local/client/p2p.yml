@@ -1,0 +1,30 @@
+###############
+# Supplemental regexes for Device Detector - The Universal Device Detection library for parsing User Agents
+#
+# Copyright (c) 2018 Dave Burkholder, Thinkwell Designs
+# @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
+###############
+
+- regex: Azureus ([\d\.]+)
+  name: Vuze BitTorrent Client
+  version: '$1'
+
+- regex: Solid Core/([\d\.]+)
+  name: SolidCore P2P
+  version: '$1'
+
+- regex: (µ|u)torrent/([\d\.]+)
+  name: uTorrent
+  version: '$2'
+
+- regex: BTWebClient/([\w\d]+)
+  name: BitTorrent Client
+  version: '$1'
+
+- regex: bittorrent
+  name: Torrent
+  version: ''
+
+- regex: torrent
+  name: Torrent
+  version: ''

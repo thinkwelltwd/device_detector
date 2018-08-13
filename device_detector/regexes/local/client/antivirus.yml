@@ -20,9 +20,14 @@
   version: '$1'
   type: av
 
-- regex: McAfee CA Transmitter
+- regex: McAfee \w+ Transmitter
   name: McAfee
   version: 
+  type: av
+
+- regex: McAfee Agent
+  name: McAfee
+  version:
   type: av
 
 - regex: (?:my)?avast\/(\d+[\.\d]+)
@@ -50,6 +55,11 @@
   version: 
   type: av
 
+- regex: CCleaner, ?(\d+[\.\d]+)
+  name: CCleaner
+  version: '$1'
+  type: av
+
 - regex: CCleaner Update Agent
   name: CCleaner
   version: 
@@ -73,4 +83,24 @@
 - regex: ^cis_([\d\.]+)_
   name: Comodo Internet Security
   version: '$1'
+  type: av
+
+- regex: ^norton\/([\d\.]+)
+  name: Norton
+  version: '$1'
+  type: av
+
+- regex: panda ?security ?nano
+  name: Panda Security Nano
+  version: ''
+  type: av
+
+- regex: sophos autoupdate
+  name: Sophos Autoupdate
+  version: ''
+  type: av
+
+- regex: ^Webroot NCSI$
+  name: Webroot
+  version: ''
   type: av

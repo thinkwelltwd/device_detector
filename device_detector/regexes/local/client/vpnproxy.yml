@@ -1,0 +1,14 @@
+###############
+# Supplemental regexes for Device Detector - The Universal Device Detection library for parsing User Agents
+#
+# Copyright (c) 2018 Dave Burkholder, Thinkwell Designs
+# @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
+###############
+
+- regex: 'PxBroker/([\d\.]+)'
+  name: 'ProxyBroker'
+  version: '$1'
+
+- regex: '^Tor[\w\d]+/([\d\.]+)'
+  name: 'The Onion Router (TOR)'
+  version: '$1'

@@ -41,10 +41,34 @@
     name: Avast
     version: ""
 -
+  user_agent: Mozilla/4.0 (CCleaner, 5.21.5700)
+  client:
+    type: av
+    name: CCleaner
+    version: "5.21.5700"
+-
   user_agent: CCleaner Update Agent
   client:
     type: av
     name: CCleaner
+    version: ""
+-
+  user_agent: McAfee CA Transmitter
+  client:
+    type: av
+    name: McAfee
+    version: ""
+-
+  user_agent: McAfee ga_rest transmitter_{90DD38E0-111E-47EA-8E0A-B46F9D6B50D4}
+  client:
+    type: av
+    name: McAfee
+    version: ""
+-
+  user_agent: McAfee Agent
+  client:
+    type: av
+    name: McAfee
     version: ""
 -
   user_agent: ZoneAlarm/14.1.48.0 (oem-1043; en-US) ZSP/2.2
@@ -70,3 +94,27 @@
     type: av
     name: Comodo Internet Security
     version: "5.10.228257.2253"
+-
+  user_agent: Norton/1.0
+  client:
+    type: av
+    name: Norton
+    version: "1.0"
+-
+  user_agent: PandaSecurityNano (PID=4151;CID=181305;V=18.01.00.0000;SPID=4252;SVTID=8;MUID=2315AD38-5C23-527F-6B88-6C25A83506D5)
+  client:
+    type: av
+    name: Panda Security Nano
+    version: ""
+-
+  user_agent: sophos autoupdate/ cfnetwork/897.15 darwin/17.5.0 (x86_64)
+  client:
+    type: av
+    name: Sophos Autoupdate
+    version: ""
+-
+  user_agent: Webroot NCSI
+  client:
+    type: av
+    name: Webroot
+    version: ""

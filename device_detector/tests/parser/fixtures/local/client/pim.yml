@@ -1,10 +1,4 @@
 -
-  user_agent: mozilla/5.0 (windows nt 10.0; win64; x64) applewebkit/537.36 (khtml, like gecko) mattermost/3.6.0 chrome/53.0.2785.143 electron/1.4.13 safari/537.36
-  client:
-    type: pim
-    name: Mattermost
-    version: "3.6.0"
--
   user_agent: G-eM Client/GOAuth2RequestFactory-CS-Version=2.2.0.29859
   client:
     type: pim
@@ -22,9 +16,3 @@
     type: pim
     name: Microsoft Outlook
     version: 31007
--
-  user_agent: slack/397382 cfnetwork/901.1 darwin/17.6.0
-  client:
-    type: pim
-    name: Slack
-    version: 397382

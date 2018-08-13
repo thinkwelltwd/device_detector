@@ -4,3 +4,27 @@
     type: mediaplayer
     name: Spotify
     version: "108000474"
+-
+  user_agent: NeroInfo
+  client:
+    type: mediaplayer
+    name: Nero Info
+    version: ""
+-
+  user_agent: NeroUpdate/11.0.0042
+  client:
+    type: mediaplayer
+    name: Nero Update
+    version: "11.0.0042"
+-
+  user_agent: Pandora/2092 CFNetwork/901.1 Darwin/17.6.0
+  client:
+    type: mediaplayer
+    name: Pandora
+    version: "2092"
+-
+  user_agent: Windows Media Player
+  client:
+    type: mediaplayer
+    name: Windows Media Player
+    version: ""

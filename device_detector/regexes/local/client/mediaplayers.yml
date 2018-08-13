@@ -5,6 +5,22 @@
 # @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
 ###############
 
-- regex: 'Spotify\/(\d+)'
+- regex: 'Spotify\/([\d\.]+)'
   name: 'Spotify'
   version: '$1'
+
+- regex: '^neroinfo$'
+  name: 'Nero Info'
+  version: ''
+
+- regex: '^neroupdate\/([\d\.]+)'
+  name: 'Nero Update'
+  version: '$1'
+
+- regex: '^pandora\/([\d\.]+)'
+  name: 'Pandora'
+  version: '$1'
+
+- regex: '^Windows Media Player$'
+  name: 'Windows Media Player'
+  version: ''

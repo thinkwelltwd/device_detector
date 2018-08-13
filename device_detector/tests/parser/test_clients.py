@@ -3,10 +3,14 @@ from ...parser import (
     Browser,
     DesktopApp,
     FeedReader,
+    Game,
     Library,
     MediaPlayer,
+    Messaging,
     MobileApp,
+    P2P,
     PIM,
+    VPNProxy,
 )
 
 class TestBrowser(ParserBaseTest):
@@ -26,6 +30,15 @@ class TestFeedReader(ParserBaseTest):
     ]
     fields = ('name', 'type', 'version')
     Parser = FeedReader
+
+
+class TestGame(ParserBaseTest):
+
+    fixture_files = [
+        'tests/parser/fixtures/local/client/games.yml',
+    ]
+    fields = ('name', 'type', 'version')
+    Parser = Game
 
 
 class TestLibrary(ParserBaseTest):
@@ -48,6 +61,15 @@ class TestMediaPlayer(ParserBaseTest):
     Parser = MediaPlayer
 
 
+class TestMessaging(ParserBaseTest):
+
+    fixture_files = [
+        'tests/parser/fixtures/local/client/messaging.yml',
+    ]
+    fields = ('name', 'type', 'version')
+    Parser = Messaging
+
+
 class TestMobileApp(ParserBaseTest):
 
     fixture_files = [
@@ -56,6 +78,15 @@ class TestMobileApp(ParserBaseTest):
     ]
     fields = ('name', 'type', 'version')
     Parser = MobileApp
+
+
+class TestP2P(ParserBaseTest):
+
+    fixture_files = [
+        'tests/parser/fixtures/local/client/p2p.yml',
+    ]
+    fields = ('name', 'type', 'version')
+    Parser = P2P
 
 
 class TestPIM(ParserBaseTest):
@@ -79,12 +110,25 @@ class TestDesktopApp(ParserBaseTest):
     Parser = DesktopApp
 
 
+class TestVPNProxy(ParserBaseTest):
+
+    fixture_files = [
+        'tests/parser/fixtures/local/client/vpnproxy.yml',
+    ]
+    fields = ('name', 'type', 'version')
+    Parser = VPNProxy
+
+
 __all__ = (
     'TestBrowser',
     'TestDesktopApp',
     'TestFeedReader',
+    'TestGame',
     'TestLibrary',
     'TestMediaPlayer',
+    'TestMessaging',
     'TestMobileApp',
+    'TestP2P',
     'TestPIM',
+    'TestVPNProxy',
 )

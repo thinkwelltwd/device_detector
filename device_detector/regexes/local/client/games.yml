@@ -1,0 +1,18 @@
+###############
+# Supplemental regexes for Device Detector - The Universal Device Detection library for parsing User Agents
+#
+# Copyright (c) 2018 Dave Burkholder, Thinkwell Designs
+# @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
+###############
+
+- regex: 'angry ?birds ?([\w\d]+)\/([\d\.]+)'
+  name: 'Angry Birds $1'
+  version: '$2'
+
+- regex: 'Asphalt8\/([\d\.]+)'
+  name: 'Asphalt 8'
+  version: '$1'
+
+- regex: 'At Bat\/([\d\.]+)'
+  name: 'At Bat'
+  version: '$1'
