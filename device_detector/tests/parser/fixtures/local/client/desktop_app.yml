@@ -1,4 +1,10 @@
 -
+  user_agent: Adobe Photoshop Lightroom
+  client:
+    type: desktop app
+    name: Adobe Photoshop Lightroom
+    version: ''
+-
   user_agent: Microsoft Excel 2013 (15.0.4693) Windows NT 6.2
   client:
     type: productivity

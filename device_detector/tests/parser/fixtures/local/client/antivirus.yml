@@ -27,7 +27,25 @@
   client:
     type: av
     name: Avast
-    version: "18.4.3895.325"
+    version: "18.4.2338"
+-
+  user_agent: 1.0,win/10.0.16299,AV/18.5.2342,,ffl
+  client:
+    type: av
+    name: Avast
+    version: "18.5.2342"
+-
+  user_agent: 1.0,win/10.0.16299,AV/17.1.2286,avl/devcontrol/17.1.3394.0,ffl
+  client:
+    type: av
+    name: Avast
+    version: "17.1.2286"
+-
+  user_agent: 1.0,win/10.0.17134,av/,,ffl
+  client:
+    type: av
+    name: Avast
+    version: ""
 -
   user_agent: avast! Antivirus (instup)
   client:

@@ -11,6 +11,10 @@
   client:
     app_id: com.apple.configurator
 -
+  user_agent: AccuWeather/10.4.2 (com.yourcompany.TestWithCustomTabs; build:2; iOS 11.4.0) Alamofire/4.4.0
+  client:
+    app_id: ''
+-
   user_agent: com.apple.geod/1077.0.18 cfnetwork/720.5.7 darwin/14.5.0 (x86_64)
   client:
     app_id: com.apple.geod

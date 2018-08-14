@@ -6,6 +6,10 @@
 ###############
 # General Desktop Apps
 
+- regex: Adobe Photoshop Lightroom
+  name: Adobe Photoshop Lightroom
+  version: ''
+
 - regex: com.apple.Maps
   name: Apple Maps
   version:
@@ -432,6 +436,12 @@
 
 - regex: mirall\/([\d\.]+)
   name: ownCloud
+  version: '$1'
+  type: desktop app
+
+
+- regex: Nextcloud-\w+\/([\d\.]+)
+  name: Nextcloud
   version: '$1'
   type: desktop app
 

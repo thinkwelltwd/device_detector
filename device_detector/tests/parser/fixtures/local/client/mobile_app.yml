@@ -1,4 +1,10 @@
 -
+  user_agent: Mozilla/5.0 (iOS; U; en) AppleWebKit/533.19.4 (KHTML, like Gecko) AdobeAIR/21.0
+  client:
+    type: mobile app
+    name: AdobeAIR
+    version: 21.0
+-
   user_agent: Adobe Update Manager 5
   client:
     type: mobile app

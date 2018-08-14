@@ -4,6 +4,14 @@ except ImportError:
     import re
 
 APP_ID = re.compile('(com\.(?:[\w\d-_]+\.)+(?:[\w\d-_]+))', re.IGNORECASE)
+
+# If UA string contains App ID IGNORE_APPIDS, consider it not to have an App ID at all
+IGNORE_APPIDS = {
+    'com.yourcompany.testwithcustomtabs',
+    'com.yourcompany.speedboxlite',
+}
+
+# If UA string contains multiple App IDs, prefer any not in SECONDARY_APPIDS
 SECONDARY_APPIDS = {
     'com.usebutton.sdk',
 }
@@ -112,6 +120,8 @@ class ApplicationIDExtractor:
 
         if scrubbed_ids:
             app_id = scrubbed_ids[0]
+            if app_id.lower() in IGNORE_APPIDS:
+                return ''
             return NORMALIZE_ID.get(app_id.lower(), app_id)
 
         return ''

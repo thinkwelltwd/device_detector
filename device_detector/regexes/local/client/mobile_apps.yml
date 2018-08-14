@@ -538,6 +538,10 @@
   name: 'AddMusicToVideo V2'
   version: '$1'
 
+- regex: 'AdobeAIR\/([\d\.]+)'
+  name: 'AdobeAIR'
+  version: '$1'
+
 - regex: '^adobe acrobat[ a-z]*\/([\d\.]+)'
   name: 'Adobe Acrobat'
   version: '$1'

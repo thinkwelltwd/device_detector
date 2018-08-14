@@ -30,9 +30,14 @@
   version:
   type: av
 
-- regex: (?:my)?avast\/(\d+[\.\d]+)
+- regex: AV/(\d+[\.\d]+)(:?.*),ffl$
   name: Avast
   version: '$1'
+  type: av
+
+- regex: AV/,,ffl$
+  name: Avast
+  version: ''
   type: av
 
 - regex: Avast!? (Antivirus|curl|SimpleHttp|NCC)
