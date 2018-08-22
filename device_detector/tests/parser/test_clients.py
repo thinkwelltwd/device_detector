@@ -4,6 +4,7 @@ from ...parser import (
     DesktopApp,
     FeedReader,
     Game,
+    SlashedNameExtractor,
     Library,
     MediaPlayer,
     Messaging,
@@ -117,6 +118,15 @@ class TestVPNProxy(ParserBaseTest):
     ]
     fields = ('name', 'type', 'version')
     Parser = VPNProxy
+
+
+class TestSlashedNameExtractor(ParserBaseTest):
+
+    fixture_files = [
+        'tests/parser/fixtures/local/client/slashed_name_extractor.yml'
+    ]
+    fields = ('name', 'type', 'version')
+    Parser = SlashedNameExtractor
 
 
 __all__ = (

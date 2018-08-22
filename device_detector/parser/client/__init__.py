@@ -3,6 +3,7 @@ from .browser import *
 from .desktopapp import *
 from .feed_reader import *
 from .game import *
+from .slashed_name_extractor import *
 from .library import *
 from .mediaplayer import *
 from .messaging import *
