@@ -1,0 +1,18 @@
+-
+  user_agent: generic ua string/1.23.2
+  client:
+    type: generic
+    name: generic ua string
+    version: '1.23.2'
+-
+  user_agent: generic ua string 2/1.23.2 misc data that we don't want
+  client:
+    type: generic
+    name: generic ua string 2
+    version: '1.23.2'
+-
+  user_agent: Test-Case/1.23.2
+  client:
+    type: generic
+    name: Test Case
+    version: '1.23.2'
