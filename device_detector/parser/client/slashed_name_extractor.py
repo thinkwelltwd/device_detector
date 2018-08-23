@@ -1,5 +1,6 @@
 from . import BaseClientParser
 import string
+import re
 
 
 # Manually update this to map app IDs to a user friendly name.
@@ -38,8 +39,11 @@ UNWANTED_SUBSTRINGS = [
 ]
 
 
-# Characters that we want to strip from app ID
-STRIP_CHARS = '(){}$#'
+# Regexes that we use to remove unwanted app names
+REGEX_LIST = [
+    r'sm-\w+-android',
+    r'^4d531b',
+]
 
 
 class SlashedNameExtractor(BaseClientParser):
@@ -95,13 +99,13 @@ class SlashedNameExtractor(BaseClientParser):
         if self.app_name.lower().endswith(' (unknown version) cfnetwork'):
             self.app_name = self.app_name[:-28]
 
-        self.app_name = self.app_name.strip(STRIP_CHARS)
+        self.app_name = self.app_name.strip(string.punctuation)
 
     def discard_name(self) -> bool:
         """
         Determine if app name is of any value to us
 
-        :return: True if app should be discarded
+        Return True if app should be discarded
         """
 
         if not self.is_name_length_valid():
@@ -110,8 +114,11 @@ class SlashedNameExtractor(BaseClientParser):
         if self.app_name.lower() in DISCARD:
             return True
 
-        for substring in UNWANTED_SUBSTRINGS:
-            if substring in self.app_name.lower: return True
+        if self.is_substring_unwanted():
+            return True
+
+        if self.regex_match():
+            return True
 
         return self.is_name_int()
 
@@ -138,6 +145,17 @@ class SlashedNameExtractor(BaseClientParser):
 
         if 1 < len(self.app_name) < 26:
             return True
+
+    def is_substring_unwanted(self):
+        for substring in UNWANTED_SUBSTRINGS:
+            if substring in self.app_name.lower: return True
+
+    def regex_match(self) -> bool or None:
+        for regex in REGEX_LIST:
+            s = re.search(regex, self.app_name, re.IGNORECASE)
+
+            if s:
+                return True
 
     def dtype(self) -> str:
         return 'generic'
