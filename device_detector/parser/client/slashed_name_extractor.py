@@ -30,10 +30,11 @@ DISCARD = {
 
 # List of substrings that if found in the app name, we will
 # discard the entire app name
+# Should be lowercase
 UNWANTED_SUBSTRINGS = [
-    'AB_1.1.3011',
-    'DeviceId=',
-    'Timezone=',
+    'ab_1.1.3011',
+    'deviceid=',
+    'timezone=',
 ]
 
 
@@ -52,7 +53,7 @@ class SlashedNameExtractor(BaseClientParser):
     app_name = ''
     app_version = ''
 
-    def _parse(self):
+    def _parse(self) -> None:
 
         try:
             ua_segments = self.user_agent.split('/')
@@ -61,10 +62,8 @@ class SlashedNameExtractor(BaseClientParser):
         except ValueError:
             return
 
-        # Cleanup unwanted data in app_version
-        self.app_version = self.app_version.split(' ')[0]
-
         self.clean_name()
+        self.clean_version()
 
         if self.discard_name():
             return
@@ -81,7 +80,14 @@ class SlashedNameExtractor(BaseClientParser):
 
         self.known = True
 
-    def clean_name(self):
+    def clean_version(self) -> None:
+        """
+        Cleanup unwanted data in app version
+        """
+
+        self.app_version = self.app_version.split(' ')[0]
+
+    def clean_name(self) -> None:
         """
         Clean unwanted info and characters from app name
         """
@@ -91,7 +97,7 @@ class SlashedNameExtractor(BaseClientParser):
 
         self.app_name = self.app_name.strip(STRIP_CHARS)
 
-    def discard_name(self):
+    def discard_name(self) -> bool:
         """
         Determine if app name is of any value to us
 
@@ -105,12 +111,11 @@ class SlashedNameExtractor(BaseClientParser):
             return True
 
         for substring in UNWANTED_SUBSTRINGS:
-            if substring.lower() in self.app_name.lower: return True
+            if substring in self.app_name.lower: return True
 
-        if self.is_name_int():
-            return True
+        return self.is_name_int()
 
-    def is_name_int(self):
+    def is_name_int(self) -> bool:
         """
         Strip punctuation from app name and return True if
         it can be cast to int
@@ -126,7 +131,7 @@ class SlashedNameExtractor(BaseClientParser):
         except ValueError:
             return False
 
-    def is_name_length_valid(self):
+    def is_name_length_valid(self) -> None or bool:
         """
         Check if app name portion of UA is between 2 and 25 chars
         """
@@ -134,7 +139,7 @@ class SlashedNameExtractor(BaseClientParser):
         if 1 < len(self.app_name) < 26:
             return True
 
-    def dtype(self):
+    def dtype(self) -> str:
         return 'generic'
 
 
