@@ -10,6 +10,7 @@ NORMALIZE_ID = {
     'accu-weather': 'AccuWeather',
     'accuweather': 'AccuWeather',
     'test-case': 'Test Case',
+    'httpconnection symantec': 'Symantec',
 }
 
 
@@ -20,7 +21,6 @@ DISCARD = {
     'null',
     '4d531b86',
     '4d531b9a',
-    'httpconnection symantec',
     'httppostlib',
     'mozilla',
     'sm-g900p-android',
