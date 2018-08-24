@@ -49,13 +49,13 @@ REMOVE_UNWANTED_REGEX = [
 
 # Regexes that we use to parse UA's with a similar structure
 PARSE_GENERIC_REGEX = [
-    r'([\w ]+)\(unknown version\) cfnetwork$',
-    r'^samsung [\w-]+ (\w+)',
-    r'^(fbiossdk)',
-    r'(pubnub)-csharp',
-    r'(microsoft office)$',
-    r'^(windows assistant)',
-    r'^(liveupdateengine)'
+    (re.compile(r'([\w ]+)\(unknown version\) cfnetwork$', re.IGNORECASE), 1),
+    (re.compile(r'^(fbiossdk)', re.IGNORECASE), 1),
+    (re.compile(r'^samsung [\w-]+ (\w+)', re.IGNORECASE), 1),
+    (re.compile(r'(pubnub)-csharp', re.IGNORECASE), 1),
+    (re.compile(r'(microsoft office)$', re.IGNORECASE), 1),
+    (re.compile(r'^(windows assistant)', re.IGNORECASE), 1),
+    (re.compile(r'^(liveupdateengine)', re.IGNORECASE), 1),
 ]
 
 
@@ -79,17 +79,11 @@ class SlashedNameExtractor(BaseClientParser):
         except ValueError:
             return
 
-        generic_regex_match = self.generic_regex_match()
-        if generic_regex_match:
-            self.ua_data = {
-                'name': self.generic_regex_match(),
-                'version': ''
-            }
-            self.known = True
-            return
-
         self.clean_name()
         self.clean_version()
+
+        if self.known:
+            return
 
         if self.discard_name():
             return
@@ -115,8 +109,11 @@ class SlashedNameExtractor(BaseClientParser):
 
     def clean_name(self) -> None:
         """
-        Clean unwanted info and characters from app name
+        Call function to extract substring name and strip
+        punctuation from app name
         """
+
+        self.extract_substring_name()
 
         self.app_name = self.app_name.strip(string.punctuation)
 
@@ -180,19 +177,23 @@ class SlashedNameExtractor(BaseClientParser):
 
         return False
 
-    def generic_regex_match(self) -> str:
+    def extract_substring_name(self) -> None:
         """
         Check if the extracted name uses a known format that we can
-        extract helpful info from.  If so, return the app name.
+        extract helpful info from.  If so, update ua data and mark
+        as known.
         """
 
         for regex in PARSE_GENERIC_REGEX:
-            m = re.match(regex, self.app_name, re.IGNORECASE)
+            m = regex[0].match(self.app_name)
 
             if m:
-                return m.group(1).strip()
-
-        return ''
+                self.ua_data = {
+                    'name': m.group(1).strip(),
+                    'version': ''
+                }
+                self.known = True
+                return
 
     def dtype(self) -> str:
         return 'generic'
