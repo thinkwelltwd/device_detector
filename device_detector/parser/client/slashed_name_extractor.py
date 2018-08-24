@@ -40,9 +40,22 @@ UNWANTED_SUBSTRINGS = [
 
 
 # Regexes that we use to remove unwanted app names
-REGEX_LIST = [
+REMOVE_UNWANTED_REGEX = [
     r'sm-\w+-android',
     r'^4d531b',
+    r'^com\.'
+]
+
+
+# Regexes that we use to parse UA's with a similar structure
+PARSE_GENERIC_REGEX = [
+    r'([\w ]+)\(unknown version\) cfnetwork$',
+    r'^samsung [\w-]+ (\w+)',
+    r'^(fbiossdk)',
+    r'(pubnub)-csharp',
+    r'(microsoft office)$',
+    r'^(windows assistant)',
+    r'^(liveupdateengine)'
 ]
 
 
@@ -64,6 +77,15 @@ class SlashedNameExtractor(BaseClientParser):
             self.app_name, self.app_version, *_ = ua_segments
 
         except ValueError:
+            return
+
+        generic_regex_match = self.generic_regex_match()
+        if generic_regex_match:
+            self.ua_data = {
+                'name': self.generic_regex_match(),
+                'version': ''
+            }
+            self.known = True
             return
 
         self.clean_name()
@@ -96,9 +118,6 @@ class SlashedNameExtractor(BaseClientParser):
         Clean unwanted info and characters from app name
         """
 
-        if self.app_name.lower().endswith(' (unknown version) cfnetwork'):
-            self.app_name = self.app_name[:-28]
-
         self.app_name = self.app_name.strip(string.punctuation)
 
     def discard_name(self) -> bool:
@@ -117,7 +136,7 @@ class SlashedNameExtractor(BaseClientParser):
         if self.is_substring_unwanted():
             return True
 
-        if self.regex_match():
+        if self.unwanted_regex_match():
             return True
 
         return self.is_name_int()
@@ -138,24 +157,42 @@ class SlashedNameExtractor(BaseClientParser):
         except ValueError:
             return False
 
-    def is_name_length_valid(self) -> None or bool:
+    def is_name_length_valid(self) -> bool:
         """
-        Check if app name portion of UA is between 2 and 25 chars
+        Check if app name portion of UA is between 3 and 25 chars
         """
 
-        if 1 < len(self.app_name) < 26:
+        if 2 < len(self.app_name) < 26:
             return True
+
+        return False
 
     def is_substring_unwanted(self):
         for substring in UNWANTED_SUBSTRINGS:
             if substring in self.app_name.lower: return True
 
-    def regex_match(self) -> bool or None:
-        for regex in REGEX_LIST:
+    def unwanted_regex_match(self) -> bool:
+        for regex in REMOVE_UNWANTED_REGEX:
             s = re.search(regex, self.app_name, re.IGNORECASE)
 
             if s:
                 return True
+
+        return False
+
+    def generic_regex_match(self) -> str:
+        """
+        Check if the extracted name uses a known format that we can
+        extract helpful info from.  If so, return the app name.
+        """
+
+        for regex in PARSE_GENERIC_REGEX:
+            m = re.match(regex, self.app_name, re.IGNORECASE)
+
+            if m:
+                return m.group(1).strip()
+
+        return ''
 
     def dtype(self) -> str:
         return 'generic'
