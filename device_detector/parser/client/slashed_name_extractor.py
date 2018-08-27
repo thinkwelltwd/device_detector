@@ -82,9 +82,6 @@ class SlashedNameExtractor(BaseClientParser):
         self.clean_name()
         self.clean_version()
 
-        if self.known:
-            return
-
         if self.discard_name():
             return
 
@@ -188,11 +185,7 @@ class SlashedNameExtractor(BaseClientParser):
             m = regex[0].match(self.app_name)
 
             if m:
-                self.ua_data = {
-                    'name': m.group(1).strip(),
-                    'version': ''
-                }
-                self.known = True
+                self.app_name = m.group(1).strip()
                 return
 
     def dtype(self) -> str:
