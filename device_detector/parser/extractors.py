@@ -3,7 +3,7 @@ try:
 except ImportError:
     import re
 
-APP_ID = re.compile('(com\.(?:[\w\d-_]+\.)+(?:[\w\d-_]+))', re.IGNORECASE)
+APP_ID = re.compile('(com\.(?:[\w\d\-_]+\.)+(?:[\w\d\-_]+))', re.IGNORECASE)
 
 # If UA string contains App ID IGNORE_APPIDS, consider it not to have an App ID at all
 IGNORE_APPIDS = {
