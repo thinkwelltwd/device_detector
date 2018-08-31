@@ -163,7 +163,7 @@ class SlashedNameExtractor(BaseClientParser):
 
     def is_substring_unwanted(self):
         for substring in UNWANTED_SUBSTRINGS:
-            if substring in self.app_name.lower: return True
+            if substring in self.app_name.lower(): return True
 
     def unwanted_regex_match(self) -> bool:
         for regex in REMOVE_UNWANTED_REGEX:
