@@ -14,5 +14,5 @@
   user_agent: Test-Case/1.23.2
   client:
     type: generic
-    name: Test Case
+    name: TestCase
     version: '1.23.2'
