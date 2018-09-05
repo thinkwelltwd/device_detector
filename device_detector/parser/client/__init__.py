@@ -11,3 +11,4 @@ from .mobileapp import *
 from .p2p import *
 from .pim import *
 from .vpnproxy import *
+from .whole_name_extractor import *

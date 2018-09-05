@@ -1,0 +1,10 @@
+-
+  user_agent: Evernote Windows
+  client:
+    type: generic
+    name: Evernote Windows
+-
+  user_agent: toys::file
+  client:
+    type: generic
+    name: toysfile

@@ -4,15 +4,17 @@ from ...parser import (
     DesktopApp,
     FeedReader,
     Game,
-    SlashedNameExtractor,
     Library,
     MediaPlayer,
     Messaging,
     MobileApp,
     P2P,
     PIM,
+    SlashedNameExtractor,
     VPNProxy,
+    WholeNameExtractor
 )
+
 
 class TestBrowser(ParserBaseTest):
 
@@ -129,6 +131,15 @@ class TestSlashedNameExtractor(ParserBaseTest):
     Parser = SlashedNameExtractor
 
 
+class TestWholeNameExtractor(ParserBaseTest):
+
+    fixture_files = [
+        'tests/parser/fixtures/local/client/whole_name_extractor.yml'
+    ]
+    fields = ('name', 'type')
+    Parser = WholeNameExtractor
+
+
 __all__ = (
     'TestBrowser',
     'TestDesktopApp',
@@ -141,4 +152,6 @@ __all__ = (
     'TestP2P',
     'TestPIM',
     'TestVPNProxy',
+    'TestSlashedNameExtractor',
+    'TestWholeNameExtractor'
 )
