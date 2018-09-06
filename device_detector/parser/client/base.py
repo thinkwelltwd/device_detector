@@ -24,7 +24,7 @@ class BaseClientParser(Parser):
         if self.unwanted_regex_match():
             return True
 
-        return self.is_name_int()
+        return self.is_name_mostly_numeric()
 
     def is_name_length_valid(self) -> bool:
         """
@@ -49,10 +49,10 @@ class BaseClientParser(Parser):
 
         return False
 
-    def is_name_int(self) -> bool:
+    def is_name_mostly_numeric(self) -> bool:
         """
         Strip punctuation from app name and return True if
-        it can be cast to int
+        it has one or fewer alphabetic characters
         """
 
         s = self.remove_punctuation(self.app_name)
@@ -62,7 +62,17 @@ class BaseClientParser(Parser):
             return True
 
         except ValueError:
+            pass
+
+        counter = 0
+        for char in s:
+            if char in string.ascii_letters:
+                counter += 1
+
+        if counter > 1:
             return False
+
+        return True
 
     @staticmethod
     def remove_punctuation(string_with_punct: str) -> str:

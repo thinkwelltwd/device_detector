@@ -136,7 +136,7 @@ class TestWholeNameExtractor(ParserBaseTest):
     fixture_files = [
         'tests/parser/fixtures/local/client/whole_name_extractor.yml'
     ]
-    fields = ('name', 'type')
+    fields = ('name', 'type', 'version')
     Parser = WholeNameExtractor
 
 

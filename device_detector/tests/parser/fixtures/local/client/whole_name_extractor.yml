@@ -3,8 +3,16 @@
   client:
     type: generic
     name: Evernote Windows
+    version:
 -
   user_agent: toys::file
   client:
     type: generic
     name: toysfile
+    version:
+-
+  user_agent: Chicken Feeder v4.0 Turkey Barn Thermo 4.3.123.1
+  client:
+    type: generic
+    name: Chicken Feeder v40 Turkey Barn Thermo
+    version: 4.3.123.1
