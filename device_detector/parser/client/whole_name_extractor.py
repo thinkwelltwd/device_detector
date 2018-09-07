@@ -29,6 +29,12 @@ class WholeNameExtractor(BaseClientParser):
     ]
 
 # -------------------------------------------------------------------
+    # Regexes that we use to extract app versions
+    extract_version_regex = [
+        (re.compile(r'(v?[\.\d]+$)', re.IGNORECASE)),
+    ]
+
+# -------------------------------------------------------------------
     app_name = ''
     app_version = ''
 
@@ -56,16 +62,16 @@ class WholeNameExtractor(BaseClientParser):
         extract if it does.  Return the UA string without the suffix.
         """
 
-        regex = re.compile(r'([\.\d]+$)', re.IGNORECASE)
+        for regex in self.extract_version_regex:
 
-        match = regex.search(self.user_agent)
+            match = regex.search(self.user_agent)
 
-        if match:
-            self.app_version = match.group()
+            if match:
+                self.app_version = match.group()
 
-            return self.user_agent[:match.start()]
+                return self.user_agent[:match.start()]
 
-        return self.user_agent
+            return self.user_agent
 
     def is_name_length_valid(self) -> bool:
         """

@@ -11,8 +11,14 @@
     name: toysfile
     version:
 -
-  user_agent: Chicken Feeder v4.0 Turkey Barn Thermo 4.3.123.1
+  user_agent: Chicken Feeder v4.0
   client:
     type: generic
-    name: Chicken Feeder v40 Turkey Barn Thermo
+    name: Chicken Feeder
+    version: v4.0
+-
+  user_agent: Turkey Barn Thermo 4.3.123.1
+  client:
+    type: generic
+    name: Turkey Barn Thermo
     version: 4.3.123.1

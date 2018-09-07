@@ -66,7 +66,7 @@ class BaseClientParser(Parser):
 
         counter = 0
         for char in s:
-            if char in string.ascii_letters:
+            if not char.isnumeric():
                 counter += 1
 
         if counter > 1:
