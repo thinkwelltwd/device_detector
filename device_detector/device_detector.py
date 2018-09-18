@@ -220,8 +220,16 @@ class DeviceDetector:
         As most touch enabled devices are tablets and only a smaller part are desktops/notebooks
         we assume that all Windows 8 touch devices are tablets.
         """
+        
         has_touch = re.search('Touch', self.user_agent, re.IGNORECASE) is not None
-        return has_touch and self.os_short_name() in ('WRT', 'WIN')
+
+        if not has_touch:
+            return False
+
+        if 'WRT' not in self.os_short_name():
+            return False
+
+        return 8 <= float(self.os_version()) < 9
 
     def is_television(self) -> bool:
         """Devices running Kylo or Espital TV Browsers are assumed to be a TV"""
