@@ -1,6 +1,8 @@
 from ..parser import Parser
 import string
-import re
+
+keep = {'!', '@', '+'}
+table = str.maketrans(dict.fromkeys(''.join(c for c in string.punctuation if c not in keep)))
 
 
 class BaseClientParser(Parser):
@@ -30,21 +32,17 @@ class BaseClientParser(Parser):
         """
         Check if app name portion of UA is between 3 and 25 chars
         """
+        return 2 < len(self.app_name) < 26
 
-        if 2 < len(self.app_name) < 26:
-            return True
-
-        return False
 
     def is_substring_unwanted(self):
         for substring in self.unwanted_substrings:
-            if substring in self.app_name.lower(): return True
+            if substring in self.app_name.lower():
+                return True
 
     def unwanted_regex_match(self) -> bool:
         for regex in self.remove_unwanted_regex:
-            s = re.search(regex, self.app_name, re.IGNORECASE)
-
-            if s:
+            if regex.search(self.app_name):
                 return True
 
         return False
@@ -60,19 +58,15 @@ class BaseClientParser(Parser):
         try:
             int(s)
             return True
-
         except ValueError:
             pass
 
-        counter = 0
+        alphabetic_chars = 0
         for char in s:
             if not char.isnumeric():
-                counter += 1
+                alphabetic_chars += 1
 
-        if counter > 1:
-            return False
-
-        return True
+        return alphabetic_chars < 2
 
     @staticmethod
     def remove_punctuation(string_with_punct: str) -> str:
@@ -81,7 +75,6 @@ class BaseClientParser(Parser):
         the new string
         """
 
-        table = str.maketrans(dict.fromkeys(string.punctuation))
         return string_with_punct.translate(table)
 
     def dtype(self):

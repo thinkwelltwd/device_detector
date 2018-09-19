@@ -23,6 +23,7 @@ from .parser import (
     P2P,
     PIM,
     VPNProxy,
+    WholeNameExtractor,
 )
 from . import DDCache
 
@@ -50,7 +51,8 @@ class DeviceDetector:
         DesktopApp,
         Browser,
         Library,
-        SlashedNameExtractor,
+        # SlashedNameExtractor,
+        # WholeNameExtractor,
     )
 
     DEVICE_PARSERS = (
@@ -78,6 +80,7 @@ class DeviceDetector:
         self.skip_bot_detection = skip_bot_detection
         self.all_details = {}
         self.parsed = False
+        self.touch_fragment = re.compile('Touch', re.IGNORECASE)
 
     @property
     def class_name(self) -> str:
@@ -220,16 +223,12 @@ class DeviceDetector:
         As most touch enabled devices are tablets and only a smaller part are desktops/notebooks
         we assume that all Windows 8 touch devices are tablets.
         """
-        
-        has_touch = re.search('Touch', self.user_agent, re.IGNORECASE) is not None
+        touch_enabled = self.touch_fragment.search(self.user_agent) is not None
 
-        if not has_touch:
-            return False
+        if touch_enabled and not self.device_model():
+            return self.os_short_name() in ('WRT', 'WIN')
 
-        if 'WRT' not in self.os_short_name():
-            return False
-
-        return 8 <= float(self.os_version()) < 9
+        return False
 
     def is_television(self) -> bool:
         """Devices running Kylo or Espital TV Browsers are assumed to be a TV"""

@@ -1,5 +1,8 @@
 from . import BaseClientParser
-import re
+try:
+    import regex as re
+except ImportError:
+    import re
 
 
 class WholeNameExtractor(BaseClientParser):

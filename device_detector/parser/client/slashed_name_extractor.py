@@ -1,5 +1,8 @@
 from . import BaseClientParser
-import re
+try:
+    import regex as re
+except ImportError:
+    import re
 
 
 class SlashedNameExtractor(BaseClientParser):
@@ -49,9 +52,9 @@ class SlashedNameExtractor(BaseClientParser):
 # -------------------------------------------------------------------
     # Regexes that we use to remove unwanted app names
     remove_unwanted_regex = [
-        r'sm-\w+-android',
-        r'^4d531b',
-        r'^com\.'
+        re.compile(r'sm-\w+-android', re.IGNORECASE),
+        re.compile(r'^4d531b', re.IGNORECASE),
+        re.compile(r'^com\.', re.IGNORECASE),
     ]
 
 # -------------------------------------------------------------------
