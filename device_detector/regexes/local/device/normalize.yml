@@ -1,0 +1,46 @@
+# @0ji-uFfHoaGvxwqY8DTh
+# @0NFXk9WqajoaFy3D1PKB
+- regex: ^@([\d\w\-\|%\=]{20,})$
+  groups: Gibberish
+# %%92d381458c2b9fe3d436c7e9e21ce03cf0873c99aad261fc71e3af1159a42ea%%%
+- regex: ^^%([\d\w\-\|%]{20,})%$
+  groups: Gibberish
+  # *BkhBAAQAqpcr-X2cXpK9OlSjOYP1fppAz_54DhGqKw0ULQiEVp0AAYmAAAAAAABA
+- regex: ^\*([\d\w]{12}-[\d\w]{12,})
+  groups: Gibberish
+# NGC/22.14.0.54 MID/{00000000-0000-0000-0000-000000000000} SID/0UYYWwAAAAA LUE/1.15.1.10 (Windows;10.0;SP0.0;X64;ENU)
+# Symantec/3.00.10.2737 MID/{00000000-0000-0000-0000-000000000000} SID/zIRxWwAAAAA LUE/1.12.5.5 (Windows;6.2;SP0.0;X64;ENC)
+- regex: '([\w\d]+/[\d+\.]+) (?:MID\/.* SID\/.*) (\(Windows.*)'
+  groups: '\g<1> \g<2>'
+
+# N360/22.9.3.13 MID/{xCX4MyatyOnekxRFqX39bDtUkg4} SID/7jiIWwAAAAA SEQ/180829061
+# N360/22.9.3.13 MID/{xCX4MyatyOnekxRFqX39bDtUkg4} SID/7jiIWwAAAAA
+# NS/22.10.0.85 MID/{00000000-0000-0000-0000-000000000000} SID/Aoh4WwAAAAA SEQ/180818310
+- regex: '([\w\d]+/[\d+\.]+)( MID\/.+ SID\/.+)'
+  groups: '\g<1>'
+
+- regex: '(@AUVI@[\d+\.]+;\w+-\w+/[\d+\.]+) (\(\w+; \w+; \w+; (?:\w+ [\d+\.]+)?; (?:\w+ [\d+\.]+)?; )([\w ]+); ; ([\w ]+)(?:.*)'
+  groups: '\g<1> (\g<3>; \g<4>)'
+
+- regex: '((:?EIS|EAV) Update \(\w+; \w+; \w+)(?:.*)'
+  groups: '\g<1>)'
+
+- regex: '(AVG(?:INET16|SETUP|FMW)-WV?\d+H?X+\d+)(?:.*)'
+  groups: '\g<1>'
+
+# ACC_2.00.3019_10DCBCD54296E5C55D3
+# ALU_1.02.3502_1C882B536E6F02E3FCE
+- regex: '([A-Z]+_[\d+\.]+)_(?:.*)'
+  groups: '\g<1>'
+
+# A/6.0.1/samsung/SAMSUNG-SM-G930A/msm8996/unknown/QCX3/s182727395/35550207/4204296470/310|410+310|410/samsung/495892/-/-
+# A/5.1.1/kyocera/KYOCERA-E6560/E6560/AT&T
+# A/8.0.0/Sony/H3123/sdm660/unknown/QCX3/l15563066056580133316/35276709/1722758893/310|410 310|410/Sony/5612/5597/-/2.5/1/M
+# A/7.0/samsung/SM-G935V
+- regex: '^(A\/[\d\.]+\/\w+\/[\w\d\-\#\(\)]+)(?:\/(?:.*)|$)'
+  groups: '\g<1>'
+
+# Remove repeated characters like "baaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+# match 12+ repetitions to avoid UUIDs like "00000000-0000-0000-0000-000000000000"
+- regex: (?:.*)(.)\1{12,}(.*)
+  groups: Gibberish

@@ -15,6 +15,7 @@ except ImportError:
     from yaml import SafeLoader
 
 from ..settings import ROOT
+from .. import DeviceDetector
 
 # App names -> Application ID map so that upstream
 # test fixtures can pass without modifications
@@ -56,7 +57,7 @@ class Base(unittest.TestCase):
 
 
 class DetectorBaseTest(Base):
-    Parser = None
+    Parser = DeviceDetector
 
     def get_value(self, fixture, key1, key2):
         """

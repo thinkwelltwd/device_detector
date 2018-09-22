@@ -42,10 +42,12 @@ class Device(BaseDeviceParser):
         for brand, stats in regexes.items():
             brand_data = {
                 'name': brand,
-                'regex': stats['regex'],
+                'regex': re.compile(stats['regex'], re.IGNORECASE),
                 'device': stats['device'],
             }
             if 'models' in stats:
+                for model in stats['models']:
+                    model['regex'] = re.compile(model['regex'], re.IGNORECASE)
                 brand_data['models'] = stats['models']
             if 'model' in stats:
                 brand_data['model'] = stats['model']

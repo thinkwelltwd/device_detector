@@ -1,3 +1,8 @@
+try:
+    import regex as re
+except ImportError:
+    import re
+
 from . import BaseDeviceParser
 
 
@@ -16,7 +21,10 @@ class VendorFragment(BaseDeviceParser):
         reg_list = []
 
         for brand, regexes in new_regexes.items():
-            reg_list.append({'name': brand, 'regexes': regexes})
+            reg_list.append({
+                'name': brand,
+                'regexes': [re.compile(r, re.IGNORECASE) for r in regexes],
+            })
 
         return reg_list
 

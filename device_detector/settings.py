@@ -55,6 +55,7 @@ class Cache(dict):
 
     base = {
         'regexes': {},
+        'normalize_regexes': [],
         'user_agents': LRUDict(),
     }
 
@@ -71,7 +72,17 @@ ROOT = os.path.dirname(os.path.abspath(__file__))
 
 DDCache = Cache()
 
+WORTHLESS_UA_TYPES = {
+    'UUID',
+    'Numeric',
+    'Gibberish',
+}
+
 
 __all__ = (
-    'DDCache', 'ROOT', 'BOUNDED_REGEX', 'LRUDict',
+    'BOUNDED_REGEX',
+    'DDCache',
+    'LRUDict',
+    'ROOT',
+    'WORTHLESS_UA_TYPES',
 )

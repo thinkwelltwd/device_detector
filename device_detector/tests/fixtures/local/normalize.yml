@@ -1,0 +1,130 @@
+###############
+# Supplemental regexes for Device Detector - The Universal Device Detection library for parsing User Agents
+#
+# Copyright (c) 2018 Dave Burkholder, Thinkwell Designs
+# @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
+###############
+
+-
+  user_agent: '{1378F00B-BCEA-418F-B1AF-C343EA4F9417}'
+  normalized: UUID
+-
+  user_agent: A:08338459-4ca1-457f-a596-94c3a9037d20
+  normalized: UUID
+-
+  user_agent: I:5DFF6AEC-DCED-4BA0-B122-B1826C1CEB02
+  normalized: UUID
+-
+  user_agent: 815936c0-be80-11e8-a195-1c6f65d7e7c6
+  normalized: UUID
+-
+  user_agent: 21/4.35.1.2
+  normalized: Numeric
+-
+  user_agent: 5.0.6
+  normalized: Numeric
+-
+  user_agent: NGC/22.14.0.54 MID/{00000000-0000-0000-0000-000000000000} SID/0UYYWwAAAAA LUE/1.15.1.10 (Windows;10.0;SP0.0;X64;ENU)
+  normalized: NGC/22.14.0.54 (Windows;10.0;SP0.0;X64;ENU)
+-
+  user_agent: NGC/22.14.0.54 MID/{00000000-0000-0000-0000-000000000000} SID/0UYYWwAAAAA SEQ/180606309
+  normalized: NGC/22.14.0.54
+-
+  user_agent: NGC/22.14.0.54 MID/{00000000-0000-0000-0000-000000000000} SID/0UYYWwAAAAA
+  normalized: NGC/22.14.0.54
+-
+  user_agent: ACC_2.00.3019_10DCBCD54296E5C55D3
+  normalized: ACC_2.00.3019
+-
+  user_agent: NAT/1.10.0.9 MID/{bBTDTV9JPwsvxJuwTH PlZgQLqw} SID//ZAcWwAAAAA LUE/1.10.0.52 (Windows;6.3;SP0.0;X64;ENU)
+  normalized: NAT/1.10.0.9 (Windows;6.3;SP0.0;X64;ENU)
+-
+  user_agent: N360/22.9.3.13 MID/{xCX4MyatyOnekxRFqX39bDtUkg4} SID/7jiIWwAAAAA SEQ/180829061
+  normalized: N360/22.9.3.13
+-
+  user_agent: N360/22.9.3.13 MID/{xCX4MyatyOnekxRFqX39bDtUkg4} SID/7jiIWwAAAAA
+  normalized: N360/22.9.3.13
+-
+  user_agent: NS/22.10.0.85 MID/{00000000-0000-0000-0000-000000000000} SID/Aoh4WwAAAAA SEQ/180818310
+  normalized: NS/22.10.0.85
+-
+  user_agent: Symantec/3.00.10.2737 MID/{00000000-0000-0000-0000-000000000000} SID/zIRxWwAAAAA LUE/1.12.5.5 (Windows;6.2;SP0.0;X64;ENC)
+  normalized: Symantec/3.00.10.2737 (Windows;6.2;SP0.0;X64;ENC)
+-
+  user_agent: 'EAV Update (Windows; U; 64bit; BPC 11.2.49.0; OS: 6.1.7601 SP 1.0 NT; TDB 38379; CL 1.0.0; x64c; APP eav; ASP 0.0; PX 1; PUA 1; CD 1; RA 0; PEV 0; HWF: 0100CDD9-B875-9C8B-3107-CA8A12DC46E5; PLOC en_us; PCODE 106.0.0; PAR -1; ATH -1; DC 0; PLID 3AA-5RV-KST; SEAT db67f021; RET 2101)'
+  normalized: EAV Update (Windows; U; 64bit)
+-
+  user_agent: 'EIS Update (Windows; U; 64bit; BPC 11.2.49.0; OS: 10.0.17134 SP 0.0 NT; TDB 38369; CL 1.0.0; x64c; APP eis; ASP 0.0; FW 0.0; PX 0; PUA 0; CD 1; RA 0; PEV 0; HWF: 0100F974-1B7F-A872-91CE-68D1794B7C9E; PLOC en_us; PCODE 140.0.0; PAR 0; ATH 0; DC 0; PLID 3AB-9VF-9HJ; SEAT 8d911c02; RET 5003)'
+  normalized: EIS Update (Windows; U; 64bit)
+-
+  user_agent: 'AVGINET16-W10HX64 160FREE AVI=4793/15731 BUILD=8048 MSI=8048 LOC=1033 LIC=4UIUU-J77JV-STZNP-QLXGX-LZKG9-Y LICCOO=0 DIAG=D040210 OPF=0 PCA= BRD=1090-0-0 BRH=1090 PKG=877 PKP=0 DIAG2=F'
+  normalized: AVGINET16-W10HX64
+-
+  user_agent: AVGINET16-W10XX64 160FREE AVI=4793/15715 BUILD=8048 MSI=8048 LOC=1033 LIC=4UC6D-KRNF4-9HRXJ-AKTK3-LR6PQ-N LICCOO=0 DIAG=D040210 OPF=0 PCA= BRD=0-0-0 BRH=0 PKG=742 PKP=0 DIAG2=F
+  normalized: AVGINET16-W10XX64
+-
+  user_agent: AVGSETUP-WV7XXX64 1.227.3.23284 OSLOC=1033 LOC=1033 PKG=1292 PROD=zen VER=1.231.3.22591
+  normalized: AVGSETUP-WV7XXX64
+-
+  user_agent: AVGFMW-WV7HXX64 1.227.3.25300 OSLOC=1033 LOC=XX PKG=698 PROD=FMW
+  normalized: AVGFMW-WV7HXX64
+-
+  user_agent: AB_1.1.3011.0_1925BACAF1574AC709B/PushData_uKb0I3HR/pyOzpIGAAk276tINTPgb8Ta5hPtVdrTF6Vr1jYeC7M1fmumOJ8NkRvczwYSE281sq64S6J/W5U1FTgL5rSa/vC8MJAFO3eOMNUYNpnptEZ7yLOmhYFCjR3nv+V5br5A2BlBpiPaNc7IXUj3Wfv5zkYwKKZG16vOhl6xpfsJFVfGj2LrbRdU4XQ5
+  normalized: AB_1.1.3011.0
+-
+  user_agent: ALU_1.02.3502_1C882B536E6F02E3FCE
+  normalized: ALU_1.02.3502
+-
+  user_agent: A/6.0.1/samsung/SAMSUNG-SM-G930A/msm8996/unknown/QCX3/s182727395/35550207/4204296470/310|410+310|410/samsung/495892/-/-
+  normalized: A/6.0.1/samsung/SAMSUNG-SM-G930A
+-
+  user_agent: A/5.1.1/kyocera/KYOCERA-E6560/E6560/AT&T
+  normalized: A/5.1.1/kyocera/KYOCERA-E6560
+-
+  user_agent: A/8.0.0/Sony/H3123/sdm660/unknown/QCX3/l15563066056580133316/35276709/1722758893/310|410 310|410/Sony/5612/5597/-/2.5/1/M
+  normalized: A/8.0.0/Sony/H3123
+-
+  user_agent: A/7.0/samsung/SM-G935V
+  normalized: A/7.0/samsung/SM-G935V
+-
+  user_agent: A/6.0.1/motorola/Moto#G#(4)/msm8952/retus/QCX3/s554221053/35412407/-/-/motorola/100813/-/-
+  normalized: A/6.0.1/motorola/Moto#G#(4)
+-
+  user_agent: '@AUVI@1.3;AntiVir-NGUpd/15.0.36.170 (PERS; WKS; EN; AVE 8.3.50.58; VDF 8.14.59.118; Windows 10 Home; ; United States; 20fe64487419056114ac27eb3da04d8a58b66d97; 0000149996-AVHOE-0000001; US; BUILD 15.0.36.180; 0; 1; 1; iexplore; 1; e0eca918bb2243ebb8d93851db736af4f4bc2351; 0)'
+  normalized: '@AUVI@1.3;AntiVir-NGUpd/15.0.36.170 (Windows 10 Home; United States)'
+-
+  user_agent: '@AUVI@1.3;AntiVir-NGUpd/15.0.36.198 (PERS; WKS; EN; AVE 8.3.52.0; VDF 8.14.59.216; Windows 10 Enterprise; ; Canada; 2dd54f17404130352064111d00fd724c62c653bc; 0000149996-AVHOE-0000001; CA; BUILD 15.0.36.200; 0; 1; 1; iexplore; 1; a7f3f21bbe594bed9c8b0a9cfcb83f9b19c5ddef; 0)'
+  normalized: '@AUVI@1.3;AntiVir-NGUpd/15.0.36.198 (Windows 10 Enterprise; Canada)'
+-
+  user_agent: '@AUVI@1.0;GameBooster-NGUpd/1.0.0.26 (STD; GameBooster; EN; ; ; Windows 10; ; United States; d2743f38f76a4154a7936af2b73029afc691f4fd; ; US; BUILD 1.0.0.26; )'
+  normalized: '@AUVI@1.0;GameBooster-NGUpd/1.0.0.26 (Windows 10; United States)'
+-
+  user_agent: '@AUVI@1.0;Speedup-NGUpd/4.8.0.7455 (STD; Speedup; EN; ; ; Windows 10; ; United States; e0eca918bb2243ebb8d93851db736af4f4bc2351; ; US; BUILD 4.8.0.7455; )'
+  normalized: '@AUVI@1.0;Speedup-NGUpd/4.8.0.7455 (Windows 10; United States)'
+-
+  user_agent: baaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+  normalized: Gibberish
+-
+  user_agent: Boxcars/22.10.0.85 {00000000-0000-0000-0000-000000000000}
+  normalized: Boxcars/22.10.0.85 {00000000-0000-0000-0000-000000000000}
+-
+  user_agent: '@0ji-uFfHoaGvxwqY8DTh'
+  normalized: Gibberish
+-
+  user_agent: '@5M3NuJTZDE1J5-0Bjd8C'
+  normalized: Gibberish
+-
+  user_agent: '%%V16e403fd7ae6dc86bc07c5f69c8885b5d419b2d28585d9bb08360aac96a8ab%%%'
+  normalized: Gibberish
+-
+  user_agent: '%%|1c32605b8945243b6f185d45b04d4bc06b8ea2804677e015f4fa49b1954fda%%%'
+  normalized: Gibberish
+-
+  user_agent: '@pI8EJKdMasvqyk7sj9X9OkCuC7a6hSVLp3IMDHTKNT9RYthD_Z3GCI9weB4kscGjqSJa6uJ-Fg2A38i4dZljnWH0Daac2UUtxwvtlGyrTmYWHTDJJjQW-AYCw9E6yNkMdThTfS1B1U6iSkN_eb0XaDDfYwrHyPr9aQy-pA5Lsh4T0NppVBI1tDz1PY6d0iRAkafCjbU18KZTQ_Xc_S_zWFERyfce4-hpfZ7REn9sSvRwSwWjuG3U-ZBlx1IRkpJzWojni8wwQbmTJ38LCVPxUV6hTmU5p8aFvbpPJ2m0zq5pySfyNic_fFGAz_J7stj2ADro-EaIny-SYr4Afz0mAqpO-_wyo-UGf5jaZgDVctE='
+  normalized: Gibberish
+-
+  user_agent: '@aIY1u-3e72XFDSZJMPkEOwiqJ849El2XKuDzDoBdQ-kW8TdXdfZlQgwwS8EMOyQx9HaduLPi_taRv8JYHH_9Q-qqplG9qHklnXmss9R5WfWvlT4GRPIiN8w7xPoK9G79bFOsfrEQ9U3_mPeZb8wtJxCuHA_8lG2aO2lNgtGcv6K1E5LsarhZAI93FDBNSPoXrKjGwMHkBg0arz_F4P5HXH8TH7qlq_C6o2RMUBnjrg8ytCIzzXx3iSzq767J3kKNv8S9NeK_xb8pOqBgym8wur8nUeJ7_hukDn2zLE76x4kxe4ENndOko9-WJp2whJbGnO1uhP-KHh9jrvc2tjzGmrpAA5bum25L588tSiWt7nH='
+  normalized: Gibberish
+-
+  user_agent: '*BkhBAAQAqpcr-X2cXpK9OlSjOYP1fppAz_54DhGqKw0ULQiEVpEBAYmAAAAAAABA'
+  normalized: Gibberish

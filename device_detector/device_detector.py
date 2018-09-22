@@ -1,7 +1,9 @@
+from string import punctuation
 try:
     import regex as re
 except ImportError:
     import re
+import uuid
 
 from .parser import (
     OS,
@@ -25,7 +27,8 @@ from .parser import (
     VPNProxy,
     WholeNameExtractor,
 )
-from . import DDCache
+from .settings import DDCache, WORTHLESS_UA_TYPES
+from .yaml_loader import RegexLoader
 
 MAC_iOS = {
     'ATV',
@@ -33,8 +36,14 @@ MAC_iOS = {
     'MAC',
 }
 
+trans_tbl = str.maketrans({p: '' for p in punctuation})
 
-class DeviceDetector:
+
+class DeviceDetector(RegexLoader):
+
+    fixture_files = [
+        'local/device/normalize.yml',
+    ]
 
     # All registered Client Types
     client_types = []
@@ -78,9 +87,10 @@ class DeviceDetector:
         self.bot = None
 
         self.skip_bot_detection = skip_bot_detection
-        self.all_details = {}
+        self.all_details = {'normalized': ''}
         self.parsed = False
         self.touch_fragment = re.compile('Touch', re.IGNORECASE)
+        self.TV_fragment = re.compile('Kylo|Espial|Opera TV Store|HbbTV', re.IGNORECASE)
 
     @property
     def class_name(self) -> str:
@@ -100,6 +110,72 @@ class DeviceDetector:
     # -----------------------------------------------------------------------------
     # UA parsing methods
     # -----------------------------------------------------------------------------
+    def is_digit(self) -> bool:
+        """
+        Remove all punctuation. If only digits remain,
+        don't bother saving, as nothing can be learned.
+
+        21/4.35.1.2
+        5.0.6
+        """
+        return self.user_agent.translate(trans_tbl).isdigit()
+
+    def is_uuid(self) -> bool:
+        """
+        Check for strings that are UUIDs
+
+        (UUIDs enclosed in curly braces are valid)
+        {1378F00B-BCEA-418F-B1AF-C343EA4F9417}
+        {022CCD4D-EDE3-40EB-BE1D-FE4041B0A050}
+
+        A:08338459-4ca1-457f-a596-94c3a9037d20
+        I:5DFF6AEC-DCED-4BA0-B122-B1826C1CEB02
+        """
+        ua = self.user_agent
+        if len(ua) >= 2 and ua[1] == ':':
+            ua = self.user_agent[2:]
+
+        try:
+            uuid.UUID(ua)
+            return True
+        except (ValueError, AttributeError):
+            return False
+
+    def normalize(self):
+        """
+        Check for common worthless features that preclude the need for any further processing.
+
+        If UA string is not worthless, process against normalizing regexes.
+
+        Some client User Agent strings such as Antivirus services add file version information
+        that is of no use outside the application itself. Remove such information to present a
+        cleaner UA string with fewer duplicates
+        """
+        if self.all_details['normalized']:
+            return self.all_details['normalized']
+
+        if self.is_digit():
+            self.all_details['normalized'] = 'Numeric'
+        elif self.is_uuid():
+            self.all_details['normalized'] = 'UUID'
+        else:
+            for nr in self.normalized_regex_list:
+                regex = nr['regex']
+                groups = r'{}'.format(nr['groups'])
+                ua = regex.sub(groups, self.user_agent)
+                if ua != self.user_agent:
+                    self.all_details['normalized'] = ua
+                    break
+
+        return self.all_details['normalized']
+
+    def is_worthless(self):
+        """
+        Is this UA string of no possible interest?
+        """
+        self.normalize()
+        return self.all_details['normalized'] in WORTHLESS_UA_TYPES
+
     def parse(self):
         parsed = self.get_parse_cache()
         if parsed:
@@ -112,6 +188,9 @@ class DeviceDetector:
             self.parse_bot()
             if self.is_bot():
                 return self
+
+        if self.is_worthless():
+            return self
 
         self.parse_os()
         self.parse_client()
@@ -234,8 +313,7 @@ class DeviceDetector:
         """Devices running Kylo or Espital TV Browsers are assumed to be a TV"""
         if self.client_name() in ('Kylo', 'Espial TV Browser'):
             return True
-        regex = 'Kylo|Espial|Opera TV Store|HbbTV'
-        return re.search(regex, self.user_agent, re.IGNORECASE) is not None
+        return self.TV_fragment.search(self.user_agent, re.IGNORECASE) is not None
 
     def uses_mobile_browser(self) -> bool:
         try:
@@ -377,6 +455,9 @@ class DeviceDetector:
             'type': self.device_type(),
             'name': self.device_brand_name(),
         })
+
+    def pretty_name(self) -> str:
+        return self.all_details['normalized'] or self.user_agent
 
     def pretty_print(self) -> str:
         if not self.is_known():
