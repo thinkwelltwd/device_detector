@@ -51,6 +51,15 @@
   user_agent: Symantec/3.00.10.2737 MID/{00000000-0000-0000-0000-000000000000} SID/zIRxWwAAAAA LUE/1.12.5.5 (Windows;6.2;SP0.0;X64;ENC)
   normalized: Symantec/3.00.10.2737 (Windows;6.2;SP0.0;X64;ENC)
 -
+  user_agent: 1.0,win/6.1.7601,AV/18.5.3059,avl/devcontrol/18.5.3931.338,ffl
+  normalized: 1.0,win/6.1.7601,AV,avl/devcontrol
+-
+  user_agent: 1.0,win/6.1.7601,AV/18.6.3066,avl/myavast/18.6.3983.0,ffl
+  normalized: 1.0,win/6.1.7601,AV,avl/myavast
+-
+  user_agent: 1.0,win/6.3.9600,AV/18.6.2540,avl/devcontrol/18.5.3931.361,ffl
+  normalized: 1.0,win/6.3.9600,AV,avl/devcontrol
+-
   user_agent: 'EAV Update (Windows; U; 64bit; BPC 11.2.49.0; OS: 6.1.7601 SP 1.0 NT; TDB 38379; CL 1.0.0; x64c; APP eav; ASP 0.0; PX 1; PUA 1; CD 1; RA 0; PEV 0; HWF: 0100CDD9-B875-9C8B-3107-CA8A12DC46E5; PLOC en_us; PCODE 106.0.0; PAR -1; ATH -1; DC 0; PLID 3AA-5RV-KST; SEAT db67f021; RET 2101)'
   normalized: EAV Update (Windows; U; 64bit)
 -

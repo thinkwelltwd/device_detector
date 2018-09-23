@@ -16,7 +16,6 @@ from .parser import (
     Browser,
     FeedReader,
     Game,
-    SlashedNameExtractor,
     Library,
     MediaPlayer,
     Messaging,
@@ -25,6 +24,10 @@ from .parser import (
     P2P,
     PIM,
     VPNProxy,
+
+    # Generic name extractors
+    ApplicationIDExtractor,
+    SlashedNameExtractor,
     WholeNameExtractor,
 )
 from .settings import DDCache, WORTHLESS_UA_TYPES
@@ -37,6 +40,7 @@ MAC_iOS = {
 }
 
 trans_tbl = str.maketrans({p: '' for p in punctuation})
+punctuation_tbl = str.maketrans({p: '' for p in ' /.'})
 
 
 class DeviceDetector(RegexLoader):
@@ -44,9 +48,6 @@ class DeviceDetector(RegexLoader):
     fixture_files = [
         'local/device/normalize.yml',
     ]
-
-    # All registered Client Types
-    client_types = []
 
     CLIENT_PARSERS = (
         FeedReader,
@@ -60,8 +61,8 @@ class DeviceDetector(RegexLoader):
         DesktopApp,
         Browser,
         Library,
-        # SlashedNameExtractor,
-        # WholeNameExtractor,
+        SlashedNameExtractor,
+        WholeNameExtractor,
     )
 
     DEVICE_PARSERS = (
@@ -117,8 +118,19 @@ class DeviceDetector(RegexLoader):
 
         21/4.35.1.2
         5.0.6
+
+        Or if entire string is mostly numeric, discard
+        15B93
         """
-        return self.user_agent.translate(trans_tbl).isdigit()
+        if self.user_agent.translate(trans_tbl).isdigit():
+            return True
+
+        alphabetic_chars = 0
+        for char in self.user_agent:
+            if not char.isnumeric():
+                alphabetic_chars += 1
+
+        return alphabetic_chars < 2
 
     def is_uuid(self) -> bool:
         """
@@ -141,6 +153,16 @@ class DeviceDetector(RegexLoader):
         except (ValueError, AttributeError):
             return False
 
+    def is_gibberish(self):
+        """
+        If UserAgent string is long and has no Space, Dot or Slash
+        consider it meaningless gibberish
+        """
+        if len(self.user_agent) < 65:
+            return False
+        punc_removed = self.user_agent.translate(punctuation_tbl)
+        return punc_removed == self.user_agent
+
     def normalize(self):
         """
         Check for common worthless features that preclude the need for any further processing.
@@ -158,6 +180,8 @@ class DeviceDetector(RegexLoader):
             self.all_details['normalized'] = 'Numeric'
         elif self.is_uuid():
             self.all_details['normalized'] = 'UUID'
+        elif self.is_gibberish():
+            self.all_details['normalized'] = 'Gibberish'
         else:
             for nr in self.normalized_regex_list:
                 regex = nr['regex']
@@ -205,12 +229,22 @@ class DeviceDetector(RegexLoader):
         if self.client:
             return
 
+        app_id = ApplicationIDExtractor(self.user_agent).extract()
+
         for Parser in self.CLIENT_PARSERS:
             parser = Parser(self.user_agent).parse()
             if parser.ua_data:
                 self.client = parser
                 self.all_details['client'] = parser.ua_data
+                self.all_details['client']['app_id'] = app_id
                 return
+
+        # if no client matched, still add name / app_id values
+        if app_id:
+            self.all_details['client'] = {
+                'name': app_id,
+                'app_id': app_id,
+            }
 
     def parse_device(self) -> None:
         """
