@@ -1,8 +1,21 @@
 #!/usr/bin/env python3
 import io
 import os
+import re
 from setuptools import setup, find_packages
-import device_detector
+
+
+def get_version():
+    with open('device_detector/__init__.py', 'r') as f:
+        line = f.readline()
+        match = re.match(r'__version__ = \'([\d\.]+)\'', line)
+
+        if not match:
+            raise ImportError("Can't read the version of device_detector")
+
+        version = match.group(1)
+        return version
+
 
 here = os.path.abspath(os.path.dirname(__file__))
 with io.open(os.path.join(here, 'README.md'), encoding='utf-8') as f:
@@ -10,7 +23,7 @@ with io.open(os.path.join(here, 'README.md'), encoding='utf-8') as f:
 
 setup(
     name='device_detector',
-    version=device_detector.__version__,
+    version=get_version(),
     description="Python3 port of matomo's Device Detector",
     long_description=long_description,
     author='Dave Burkholder',
