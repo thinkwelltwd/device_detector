@@ -1,4 +1,4 @@
-from ..base import ParserBaseTest
+from ..base import GenericParserTest, ParserBaseTest
 from ...parser import (
     Browser,
     DesktopApp,
@@ -10,7 +10,7 @@ from ...parser import (
     MobileApp,
     P2P,
     PIM,
-    SlashedNameExtractor,
+    NameVersionExtractor,
     VPNProxy,
     WholeNameExtractor
 )
@@ -122,22 +122,31 @@ class TestVPNProxy(ParserBaseTest):
     Parser = VPNProxy
 
 
-class TestSlashedNameExtractor(ParserBaseTest):
+class TestNameVersionExtractor(GenericParserTest):
 
     fixture_files = [
-        'tests/parser/fixtures/local/client/slashed_name_extractor.yml'
+        'tests/parser/fixtures/local/client/extractor_name_version.yml'
     ]
     fields = ('name', 'type', 'version')
-    Parser = SlashedNameExtractor
+    Parser = NameVersionExtractor
+    skipped = (
+        '$(PRODUCT_NAME)/4839 CFNetwork/894 Darwin/17.4.0',
+        'MotionXGPSFull24.2b5063R-iOS12.0-iPhone7,2',
+        '1530819907iOSv1.6.5',
+        'ISUA11.00MP',
+    )
 
 
-class TestWholeNameExtractor(ParserBaseTest):
+class TestWholeNameExtractor(GenericParserTest):
 
     fixture_files = [
-        'tests/parser/fixtures/local/client/whole_name_extractor.yml'
+        'tests/parser/fixtures/local/client/extractor_whole_name.yml'
     ]
     fields = ('name', 'type', 'version')
     Parser = WholeNameExtractor
+    skipped = (
+        '646E514C51BFF23DBBB5B9487F142670_5_5.10.228257.2253_1_0',
+    )
 
 
 __all__ = (
@@ -152,6 +161,6 @@ __all__ = (
     'TestP2P',
     'TestPIM',
     'TestVPNProxy',
-    'TestSlashedNameExtractor',
+    'TestNameVersionExtractor',
     'TestWholeNameExtractor'
 )

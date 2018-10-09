@@ -1,34 +1,28 @@
-from . import BaseClientParser
+from . import GenericClientParser
 try:
     import regex as re
 except ImportError:
     import re
 
 
-class WholeNameExtractor(BaseClientParser):
+class WholeNameExtractor(GenericClientParser):
     """
     Catch all for user agents that do not use the slash format
     """
 
-# -------------------------------------------------------------------
-    # App names that have no value to us so we want to discard them
-    # Should be lowercase
-    discard = {
+    # -------------------------------------------------------------------
+    # Regexes that we use to parse UA's with a similar structure
+    parse_generic_regex = [
+        # Weather_WeatherFoundation[1]_15E302
+        # SpringBoard_WeatherFoundation[1]_16A
+        (re.compile(r'(^(?:\w+)_WeatherFoundation).*', re.IGNORECASE), 1),
+        (re.compile(r'(^AVGSETUP).*', re.IGNORECASE), 1),
 
-    }
+        # samsung SAMSUNG-SM-T337A SyncML_DM Client
+        # samsung SMT377P SPDClient to samsung SM-T377P SPD-Client
+        (re.compile(r'^samsung.*((?:SyncML_DM|SPD)[ \-]Client)$', re.IGNORECASE), 1),
 
-# -------------------------------------------------------------------
-    # List of substrings that if found in the app name, we will
-    # discard the entire app name
-    # Should be lowercase
-    unwanted_substrings = [
-
-    ]
-
-# -------------------------------------------------------------------
-    # Regexes that we use to remove unwanted app names
-    remove_unwanted_regex = [
-
+        (re.compile(r'(WXCommonUtils).*', re.IGNORECASE), 1),
     ]
 
 # -------------------------------------------------------------------
@@ -47,8 +41,10 @@ class WholeNameExtractor(BaseClientParser):
 
         self.app_name = self.extract_version_suffix().strip()
 
-        if self.discard_name():
+        if self.discard_name() or not self.is_name_length_valid():
             return
+
+        self.clean_name()
 
         self.ua_data = {
             'name': self.app_name,
@@ -78,11 +74,5 @@ class WholeNameExtractor(BaseClientParser):
         """
         Check if app name portion of UA is between 3 and 60 chars
         """
+        return 2 < len(self.app_name) <= 60
 
-        if 2 < len(self.app_name) < 61:
-            return True
-
-        return False
-
-    def dtype(self) -> str:
-        return 'generic'

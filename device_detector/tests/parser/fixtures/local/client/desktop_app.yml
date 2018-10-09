@@ -5,6 +5,18 @@
     name: Adobe Photoshop Lightroom
     version: ''
 -
+  user_agent: AdobeLightroom(7.5.1186149;Unknown;Unknown;Windows;6.3)
+  client:
+    type: desktop app
+    name: Adobe Photoshop Lightroom
+    version: 7.5.1186149
+-
+  user_agent: AdobeNimbus(1.4.20180608-0705-e1ba7c8;Unknown;Unknown;Windows;6.2)
+  client:
+    type: desktop app
+    name: Adobe Nimbus
+    version: 1.4.20180608
+-
   user_agent: Microsoft Excel 2013 (15.0.4693) Windows NT 6.2
   client:
     type: productivity
@@ -203,12 +215,6 @@
     name: Application Virtualization Client
     version: 4.6.3.25281
 -
-  user_agent: APSDaemon.exe (unknown version) CFNetwork/28
-  client:
-    type: desktop app
-    name: Apple Push Service Daemon
-    version:
--
   user_agent: ArcSoft Panorama Maker 6 - Check Update
   client:
     type: desktop app
@@ -364,12 +370,6 @@
     type: desktop app
     name: Apple geod
     version: 1077.0.18
--
-  user_agent: com.apple.trustd/1.0
-  client:
-    type: desktop app
-    name: Apple trustd
-    version: 1.0
 -
   user_agent: com.apple.weatherkitservice/147 cfnetwork/720.5.7 darwin/14.5.0 (x86_64)
   client:
@@ -660,12 +660,6 @@
     name: HP Smart
     version: 519
 -
-  user_agent: iCloudServices.exe (unknown version) CFNetwork/520.30.2
-  client:
-    type: desktop app
-    name: iCloud Services
-    version:
--
   user_agent: ICM-Service
   client:
     type: desktop app
@@ -851,18 +845,6 @@
     type: desktop app
     name: MSN Explorer
     version: 9.0
--
-  user_agent: nesessionmanager (unknown version) cfnetwork/897.15 darwin/17.5.0
-  client:
-    type: desktop app
-    name: nesessionmanager
-    version:
--
-  user_agent: networkserviceproxy (unknown version) cfnetwork/894 darwin/17.4.0
-  client:
-    type: desktop app
-    name: networkserviceproxy
-    version:
 -
   user_agent: NGAutorun
   client:
@@ -1152,12 +1134,6 @@
     name: safarifetcherd
     version: '602.1'
 -
-  user_agent: safarinotificationagent (unknown version) cfnetwork/811.5.4 darwin/16.7.0 (x86_64)
-  client:
-    type: desktop app
-    name: Safari Notification Agent
-    version: ''
--
   user_agent: SafariSafeBrowsing/11601.7.1 CFNetwork/760.8 Darwin/15.6.0 (x86_64)
   client:
     type: desktop app
@@ -1193,12 +1169,6 @@
     type: desktop app
     name: Search Framework
     version: '1.0'
--
-  user_agent: securityd (unknown version) cfnetwork/758.2.8 darwin/15.0.0
-  client:
-    type: desktop app
-    name: securityd
-    version: ''
 -
   user_agent: SelfUpdateService/2.5.3.0
   client:
@@ -1313,12 +1283,6 @@
     type: desktop app
     name: TrueUpdate
     version: '3.5'
--
-  user_agent: trustd (unknown version) cfnetwork/811.5.4 darwin/16.7.0 (x86_64)
-  client:
-    type: desktop app
-    name: trustd
-    version: ''
 -
   user_agent: UnityPlayer/4.1.4f1 (http://unity3d.com)
   client:
@@ -1475,6 +1439,12 @@
     type: desktop app
     name: xBox Live Windows
     version: '1.0'
+-
+  user_agent: Agent:XBLWIN10.18081;Type:Windows10PC;Version:10.18081.1112
+  client:
+    type: desktop app
+    name: xBox Live Windows
+    version: 10.18081
 -
   user_agent: X-Client/AppexWin8Microsoft.BingFinance X-Client-AppVersion/4.18.37.0
   client:

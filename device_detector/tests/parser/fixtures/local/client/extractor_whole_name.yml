@@ -1,0 +1,73 @@
+-
+  user_agent: Evernote Windows
+  client:
+    type: generic
+    name: Evernote Windows
+    version:
+-
+  user_agent: toys::file
+  client:
+    type: generic
+    name: toys::file
+    version:
+-
+  user_agent: Chicken Feeder v4.0
+  client:
+    type: generic
+    name: Chicken Feeder
+    version: v4.0
+-
+  user_agent: Turkey Barn Thermo 4.3.123.1
+  client:
+    type: generic
+    name: Turkey Barn Thermo
+    version: 4.3.123.1
+-
+  user_agent: Weather_WeatherFoundation[1]_15E302
+  client:
+    type: generic
+    name: Weather_WeatherFoundation
+    version: 302
+-
+  user_agent: SpringBoard_WeatherFoundation[1]_16A
+  client:
+    type: generic
+    name: SpringBoard_WeatherFoundation
+    version: ''
+
+-
+  user_agent: AVGSETUP-WV7XXX64
+  client:
+    type: generic
+    name: AVGSETUP
+    version: 64
+-
+  user_agent: AVGSETUP-W10HXX64
+  client:
+    type: generic
+    name: AVGSETUP
+    version: 64
+-
+  user_agent: samsung SAMSUNG-SM-T337A SyncML_DM Client
+  client:
+    type: generic
+    name: SyncML_DM Client
+    version: ''
+-
+  user_agent: samsung SMT377P SPDClient to samsung SM-T377P SPD-Client
+  client:
+    type: generic
+    name: SPD-Client
+    version: ''
+-
+  user_agent: WXCommonUtils 1.0 rv:1 (Macintosh; Mac OS X 10.14.0; en_US)
+  client:
+    type: generic
+    name: WXCommonUtils
+    version: ''
+-
+  user_agent: Voltage Security LLC. Voltage SDM Client
+  client:
+    type: generic
+    name: Voltage Security LLC. Voltage SDM Client
+    version: ''

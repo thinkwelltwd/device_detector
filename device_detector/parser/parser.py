@@ -31,6 +31,8 @@ class Parser(RegexLoader):
             self.user_agent = ua
 
         self.ua_data = {}
+        self.app_name = ''
+        self.app_name_no_punctuation = ''
         self.matched_regex = None
         self.known = False
         if self.user_agent not in DDCache['user_agents']:

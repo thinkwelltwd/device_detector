@@ -142,6 +142,14 @@ class ParserBaseTest(Base):
                 )
 
 
+class GenericParserTest(ParserBaseTest):
+    skipped = []
+
+    def test_skipped_useragents(self):
+        for ua in self.skipped:
+            parsed = self.Parser(ua).parse()
+            self.assertEqual(parsed.ua_data, {})
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -4,6 +4,11 @@
 # Copyright (c) 2018 Dave Burkholder, Thinkwell Designs
 # @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
 ###############
+- regex: '^(.*) \(unknown version\) CFNetwork'
+  name: '$1'
+  version: ''
+  type: osutility
+
 - regex: 'windows-update-agent\/(\d+[\.\d]+)'
   name: 'Windows Update Agent'
   version: '$1'

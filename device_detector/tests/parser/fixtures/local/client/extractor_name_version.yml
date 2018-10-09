@@ -1,0 +1,120 @@
+-
+  user_agent: AldiSued_US/18255 CFNetwork/974.2.1 Darwin/18.0.0
+  client:
+    type: generic
+    name: AldiSued_US
+    version: 18255
+-
+  user_agent: AldiSued_US/3.9 (iPhone; iOS 12.0; Scale/2.00)
+  client:
+    type: generic
+    name: AldiSued_US
+    version: 3.9
+-
+  user_agent: GasBuddy/5.31.0 (iPhone; iOS 11.4.1; Scale/2.00)
+  client:
+    type: generic
+    name: Gas Buddy
+    version: '5.31.0'
+-
+  user_agent: generic ua string/1.23.2
+  client:
+    type: generic
+    name: generic ua string
+    version: '1.23.2'
+-
+  user_agent: generic ua string 2/1.23.2 misc data that we don't want
+  client:
+    type: generic
+    name: generic ua string 2
+    version: '1.23.2'
+-
+  user_agent: Test-Case/1.23.2
+  client:
+    type: generic
+    name: Test Case
+    version: '1.23.2'
+-
+  user_agent: Microsoft SkyDriveSync 18.091.0506.0007 ship; Windows NT 10.0 (17134)
+  client:
+    type: generic
+    name: Microsoft SkyDriveSync
+    version: '18.091.0506.0007'
+-
+  user_agent: Call & Chat/1 CFNetwork/902.2 Darwin/17.7.0
+  client:
+    type: generic
+    name: Call & Chat
+    version: 1
+-
+  user_agent: o7talkingtom2 53386
+  client:
+    type: generic
+    name: o7talkingtom2
+    version: 53386
+-
+  user_agent: Callpod Keeper for Android 1.0 (11.2.1/303) Dalvik/2.1.0 (Linux; U; Android 6.0.1; SAMSUNG-SM-G900A Build/MMB29M)
+  client:
+    type: generic
+    name: Callpod Keeper for Android 1.0
+    version: '11.2.1'
+-
+  user_agent: "DICK'S/621 CFNetwork/974.2.1 Darwin/18.0.0"
+  client:
+    type: generic
+    name: "DICK'S"
+    version: 621
+-
+  user_agent: edX/2.15.2 CFNetwork/901.1 Darwin/17.6.0
+  client:
+    type: generic
+    name: edX
+    version: '2.15.2'
+-
+  user_agent: DigiCal (v1.8.2b; http://digibites.nl/digical)
+  client:
+    type: generic
+    name: DigiCal
+    version: '1.8.2'
+-
+  user_agent: "Wood Puzzle!/1 CFNetwork/902.2 Darwin/17.7.0"
+  client:
+    type: generic
+    name: "Wood Puzzle!"
+    version: 1
+-
+  user_agent: American Girl®/4.0.9 CFNetwork/974.2.1 Darwin/18.0.0
+  client:
+    type: generic
+    name: American Girl®
+    version: '4.0.9'
+-
+  user_agent: Access, Lift & Handlers/4024 CFNetwork/893.14.2 Darwin/17.3.0
+  client:
+    type: generic
+    name: Access, Lift & Handlers
+    version: 4024
+-
+  user_agent: What's it worth?/21 CFNetwork/811.5.4 Darwin/16.6.0
+  client:
+    type: generic
+    name: What's it worth?
+    version: 21
+-
+  user_agent: Thrift/Swift (Session)
+  client:
+    type: generic
+    name: Thrift
+    version: ''
+-
+  user_agent: Cocoa/THTTPClient
+  client:
+    type: generic
+    name: Cocoa
+    version: ''
+-
+  user_agent: aws-sdk-android/unknown-version Linux/3.10.9-11788437 Dalvik/2.1.0/0 en_US
+  client:
+    type: generic
+    name: aws-sdk-android
+    version: ''

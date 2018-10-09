@@ -1,3 +1,8 @@
+try:
+    import regex as re
+except ImportError:
+    import re
+
 from ..parser import Parser
 import string
 
@@ -16,6 +21,8 @@ class BaseClientParser(Parser):
         'test-case': 'Test Case',
         'httpconnection symantec': 'Symantec',
         'gasbuddy': 'Gas Buddy',
+        'icloudservices.exe': 'icloudservices',
+        'apsdaemon.exe': 'apsdaemon',
     }
 
     def normalize_name(self):
@@ -34,6 +41,43 @@ class BaseClientParser(Parser):
         self.normalize_name()
         return parsed
 
+    def dtype(self):
+        return self.cache_name.lower()
+
+
+class GenericClientParser(BaseClientParser):
+
+    # -------------------------------------------------------------------
+    # App names that have no value to us so we want to discard them
+    # Should be lowercase
+    discard = {
+        'productname',
+        'null',
+        'httppostlib',
+        'mozilla',
+        'mobileios'
+    }
+
+    # -------------------------------------------------------------------
+    # List of substrings that if found in the app name, we will
+    # discard the entire app name
+    # Should be lowercase
+    unwanted_substrings = [
+        'ab_1.1.3011',
+        'deviceid=',
+        'timezone=',
+    ]
+
+    # -------------------------------------------------------------------
+    # Regexes that we use to remove unwanted app names
+    remove_unwanted_regex = [
+        re.compile(r'sm-\w+-android', re.IGNORECASE),
+        re.compile(r'^4d531b', re.IGNORECASE),
+
+        # App IDs will be parsed with ApplicationID extractor
+        re.compile(r'^com\.', re.IGNORECASE),
+    ]
+
     def discard_name(self) -> bool:
         """
         Determine if app name is of any value to us
@@ -44,7 +88,7 @@ class BaseClientParser(Parser):
         if not self.is_name_length_valid():
             return True
 
-        if self.app_name.lower() in self.discard:
+        if self.app_name_no_punc().lower() in self.discard:
             return True
 
         if self.is_substring_unwanted():
@@ -57,9 +101,9 @@ class BaseClientParser(Parser):
 
     def is_name_length_valid(self) -> bool:
         """
-        Check if app name portion of UA is between 3 and 25 chars
+        Check if app name portion of UA is between 3 and 35 chars
         """
-        return 2 < len(self.app_name) < 26
+        return 2 < len(self.app_name) <= 35
 
     def is_substring_unwanted(self):
         for substring in self.unwanted_substrings:
@@ -78,35 +122,52 @@ class BaseClientParser(Parser):
         Strip punctuation from app name and return True if
         alphabetic characters are less than 25% of the string
         """
-
-        s = self.remove_punctuation(self.app_name)
+        app_no_punc = self.app_name_no_punc()
 
         try:
-            int(s)
+            int(app_no_punc)
             return True
         except ValueError:
             pass
 
         alphabetic_chars = 0
-        for char in s:
+        for char in app_no_punc:
             if not char.isnumeric():
                 alphabetic_chars += 1
 
-        return alphabetic_chars / len(s) < .75
+        return alphabetic_chars / len(app_no_punc) < .75
 
-    @staticmethod
-    def remove_punctuation(string_with_punct: str) -> str:
+    def app_name_no_punc(self) -> str:
         """
         Remove punctuation from the given string and return
         the new string
         """
+        if self.app_name_no_punctuation:
+            return self.app_name_no_punctuation
 
-        return string_with_punct.translate(table)
+        self.app_name_no_punctuation = self.app_name.translate(table)
 
-    def dtype(self):
-        return self.cache_name.lower()
+        return self.app_name_no_punctuation
+
+    def clean_name(self) -> None:
+        """
+        Check if the extracted name uses a known format that we can
+        extract helpful info from.  If so, update ua data and mark
+        as known.
+        """
+
+        for regex, group in self.parse_generic_regex:
+            m = regex.match(self.app_name)
+
+            if m:
+                self.app_name = m.group(group).strip()
+                return
+
+    def dtype(self) -> str:
+        return 'generic'
 
 
 __all__ = (
     'BaseClientParser',
+    'GenericClientParser',
 )

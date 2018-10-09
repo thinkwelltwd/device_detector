@@ -24,11 +24,6 @@
     app_id: com.apple.geod
     pretty_name: Apple Geod
 -
-  user_agent: com.apple.trustd/1.0
-  client:
-    app_id: com.apple.trustd
-    pretty_name: Apple Trustd
--
   user_agent: com.apple.weatherkitservice/147 cfnetwork/720.5.7 darwin/14.5.0 (x86_64)
   client:
     app_id: com.apple.weatherkitservice

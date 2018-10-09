@@ -1,4 +1,64 @@
 -
+  user_agent: Actualización de software (unknown version) CFNetwork/974.1 Darwin/18.0.0 (x86_64)
+  client:
+    type: osutility
+    name: Actualización de software
+    version: ''
+-
+  user_agent: APSDaemon.exe (unknown version) CFNetwork/28
+  client:
+    type: osutility
+    name: apsdaemon
+    version: ''
+-
+  user_agent: iCloudServices.exe (unknown version) CFNetwork/520.30.2
+  client:
+    type: osutility
+    name: icloudservices
+    version:
+-
+  user_agent: dataaccessd (unknown version) CFNetwork/889.9 Darwin/17.2.0
+  client:
+    type: osutility
+    name: dataaccessd
+    version: ''
+-
+  user_agent: mobileassetd (unknown version) CFNetwork/811.5.4 Darwin/16.7.0 (x86_64)
+  client:
+    type: osutility
+    name: mobileassetd
+    version: ''
+-
+  user_agent: systemmigrationd (unknown version) CFNetwork/887 Darwin/17.0.0 (x86_64)
+  client:
+    type: osutility
+    name: systemmigrationd
+    version: ''
+-
+  user_agent: nesessionmanager (unknown version) cfnetwork/897.15 darwin/17.5.0
+  client:
+    type: osutility
+    name: nesessionmanager
+    version:
+-
+  user_agent: networkserviceproxy (unknown version) cfnetwork/894 darwin/17.4.0
+  client:
+    type: osutility
+    name: networkserviceproxy
+    version:
+-
+  user_agent: securityd (unknown version) cfnetwork/758.2.8 darwin/15.0.0
+  client:
+    type: osutility
+    name: securityd
+    version: ''
+-
+  user_agent: trustd (unknown version) cfnetwork/811.5.4 darwin/16.7.0 (x86_64)
+  client:
+    type: osutility
+    name: trustd
+    version: ''
+-
   user_agent: debian apt-http/1.3
   client:
     type: osutility

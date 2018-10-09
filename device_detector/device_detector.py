@@ -27,7 +27,7 @@ from .parser import (
 
     # Generic name extractors
     ApplicationIDExtractor,
-    SlashedNameExtractor,
+    NameVersionExtractor,
     WholeNameExtractor,
 )
 from .settings import DDCache, WORTHLESS_UA_TYPES
@@ -61,7 +61,7 @@ class DeviceDetector(RegexLoader):
         DesktopApp,
         Browser,
         Library,
-        SlashedNameExtractor,
+        NameVersionExtractor,
         WholeNameExtractor,
     )
 
@@ -239,7 +239,7 @@ class DeviceDetector(RegexLoader):
                 self.all_details['client'] = parser.ua_data
                 self.all_details['client']['app_id'] = app_id
                 if app_id and app_id in self.all_details['client']['name']:
-                    self.all_details['client']['name'] = app_id.pretty_name()
+                    self.all_details['client']['name'] = app_idx.pretty_name()
                 return
 
         # if no client matched, still add name / app_id values

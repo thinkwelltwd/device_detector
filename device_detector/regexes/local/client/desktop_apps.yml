@@ -10,6 +10,14 @@
   name: Adobe Photoshop Lightroom
   version: ''
 
+- regex: ^AdobeLightroom\(([\d\.]+)
+  name: Adobe Photoshop Lightroom
+  version: '$1'
+
+- regex: ^AdobeNimbus\(([\d\.]+)
+  name: Adobe Nimbus
+  version: '$1'
+
 - regex: com.apple.Maps
   name: Apple Maps
   version:
@@ -204,11 +212,6 @@
   version: '$1'
   type: desktop app
 
-- regex: ^apsdaemon\.exe
-  name: Apple Push Service Daemon
-  version: ''
-  type: desktop app
-
 - regex: arcsoft panorama maker ([\d\.]+)
   name: ArcSoft Panorama Maker
   version: '$1'
@@ -335,9 +338,9 @@
   type: desktop app
 
 - regex: com\.apple\.trustd\/([\d\.]+)
-  name: Apple trustd
+  name: trustd
   version: '$1'
-  type: desktop app
+  type: osutility
 
 - regex: com\.apple\.weatherkitservice\/([\d\.]+)
   name: Apple Weather Kit Service
@@ -585,11 +588,6 @@
   version: '$1'
   type: desktop app
 
-- regex: icloudservices\.exe
-  name: iCloud Services
-  version: ''
-  type: desktop app
-
 - regex: ^ICM-Service$
   name: ICM Service
   version: ''
@@ -738,11 +736,6 @@
 - regex: msn explorer\/([\d\.]+)
   name: MSN Explorer
   version: '$1'
-  type: desktop app
-
-- regex: ^nesessionmanager
-  name: nesessionmanager
-  version: ''
   type: desktop app
 
 - regex: ^networkserviceproxy
@@ -980,11 +973,6 @@
   version: '$1'
   type: desktop app
 
-- regex: safarinotificationagent
-  name: Safari Notification Agent
-  version: ''
-  type: desktop app
-
 - regex: safarisafebrowsing\/([\d\.]+)
   name: Safari Safe Browsing
   version: '$1'
@@ -1013,11 +1001,6 @@
 - regex: search framework\/([\d\.]+)
   name: Search Framework
   version: '$1'
-  type: desktop app
-
-- regex: ^securityd
-  name: securityd
-  version: ''
   type: desktop app
 
 - regex: selfupdateservice\/([\d\.]+)
@@ -1113,11 +1096,6 @@
 - regex: ^trueupdate ([\d\.]+)
   name: TrueUpdate
   version: '$1'
-  type: desktop app
-
-- regex: ^trustd
-  name: trustd
-  version: ''
   type: desktop app
 
 - regex: unityplayer\/([\w\.]+)
@@ -1245,7 +1223,7 @@
   version: '$1'
   type: desktop app
 
-- regex: ^xblwin([\d\.]+)
+- regex: xblwin([\d\.]+)
   name: xBox Live Windows
   version: '$1'
   type: desktop app
