@@ -45,9 +45,7 @@ class WholeNameExtractor(BaseClientParser):
         if '/' in self.user_agent:
             return
 
-        ua_without_suffix = self.extract_version_suffix().strip()
-
-        self.app_name = self.remove_punctuation(ua_without_suffix)
+        self.app_name = self.extract_version_suffix().strip()
 
         if self.discard_name():
             return

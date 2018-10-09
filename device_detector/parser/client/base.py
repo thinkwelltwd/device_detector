@@ -7,6 +7,33 @@ table = str.maketrans(dict.fromkeys(''.join(c for c in string.punctuation if c n
 
 class BaseClientParser(Parser):
 
+    # Map app names to a user friendly names.
+    # For example we might want to map 'yp' to 'Yellow Pages'
+    # Keys should be lowercase
+    normalized_name = {
+        'accu-weather': 'AccuWeather',
+        'accuweather': 'AccuWeather',
+        'test-case': 'Test Case',
+        'httpconnection symantec': 'Symantec',
+        'gasbuddy': 'Gas Buddy',
+    }
+
+    def normalize_name(self):
+        """
+        Map app names to a user friendly names.
+        For example we might want to map 'yp' to 'Yellow Pages'
+        Keys should be lowercase
+        """
+        name = self.ua_data.get('name', '')
+        if not name:
+            return
+        self.ua_data['name'] = self.normalized_name.get(name.lower(), name)
+
+    def parse(self):
+        parsed = super().parse()
+        self.normalize_name()
+        return parsed
+
     def discard_name(self) -> bool:
         """
         Determine if app name is of any value to us
@@ -34,7 +61,6 @@ class BaseClientParser(Parser):
         """
         return 2 < len(self.app_name) < 26
 
-
     def is_substring_unwanted(self):
         for substring in self.unwanted_substrings:
             if substring in self.app_name.lower():
@@ -50,7 +76,7 @@ class BaseClientParser(Parser):
     def is_name_mostly_numeric(self) -> bool:
         """
         Strip punctuation from app name and return True if
-        it has one or fewer alphabetic characters
+        alphabetic characters are less than 25% of the string
         """
 
         s = self.remove_punctuation(self.app_name)
@@ -66,7 +92,7 @@ class BaseClientParser(Parser):
             if not char.isnumeric():
                 alphabetic_chars += 1
 
-        return alphabetic_chars < 2
+        return alphabetic_chars / len(s) < .75
 
     @staticmethod
     def remove_punctuation(string_with_punct: str) -> str:

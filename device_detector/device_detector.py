@@ -229,7 +229,8 @@ class DeviceDetector(RegexLoader):
         if self.client:
             return
 
-        app_id = ApplicationIDExtractor(self.user_agent).extract()
+        app_idx = ApplicationIDExtractor(self.user_agent)
+        app_id = app_idx.extract()
 
         for Parser in self.CLIENT_PARSERS:
             parser = Parser(self.user_agent).parse()
@@ -237,13 +238,15 @@ class DeviceDetector(RegexLoader):
                 self.client = parser
                 self.all_details['client'] = parser.ua_data
                 self.all_details['client']['app_id'] = app_id
+                if app_id and app_id in self.all_details['client']['name']:
+                    self.all_details['client']['name'] = app_id.pretty_name()
                 return
 
         # if no client matched, still add name / app_id values
-        if app_id:
+        if app_idx.extract():
             self.all_details['client'] = {
-                'name': app_id,
-                'app_id': app_id,
+                'name': app_idx.app_id,
+                'app_id': app_idx.pretty_name(),
             }
 
     def parse_device(self) -> None:

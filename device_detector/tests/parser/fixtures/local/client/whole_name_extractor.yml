@@ -8,7 +8,7 @@
   user_agent: toys::file
   client:
     type: generic
-    name: toysfile
+    name: toys::file
     version:
 -
   user_agent: Chicken Feeder v4.0

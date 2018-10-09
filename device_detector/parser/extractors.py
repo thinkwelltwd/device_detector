@@ -107,6 +107,7 @@ class ApplicationIDExtractor:
 
     def __init__(self, user_agent):
         self.user_agent = user_agent
+        self.app_id = ''
 
     def extract(self):
         """
@@ -115,6 +116,9 @@ class ApplicationIDExtractor:
         In the (unlikely) event that multiple valid IDs
         are found, just return the first one.
         """
+        if self.app_id:
+            return self.app_id
+
         app_ids = set(APP_ID.findall(self.user_agent))
         scrubbed_ids = sorted(list(app_ids.difference(SECONDARY_APPIDS)))
 
@@ -122,9 +126,13 @@ class ApplicationIDExtractor:
             app_id = scrubbed_ids[0]
             if app_id.lower() in IGNORE_APPIDS:
                 return ''
-            return NORMALIZE_ID.get(app_id.lower(), app_id)
+            self.app_id = NORMALIZE_ID.get(app_id.lower(), app_id)
 
-        return ''
+        return self.app_id
+
+    def pretty_name(self):
+        app_id = self.extract()
+        return ' '.join(app_id.split('.')[1:]).title()
 
 
 class NameExtractor(DataExtractor):

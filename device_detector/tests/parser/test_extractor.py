@@ -15,20 +15,19 @@ class TestApplicationIDExtractor(ParserBaseTest):
 
     def test_parsing(self):
         fixtures = self.load_fixtures()
+        error = 'Error parsing {}.\n Parsed value "{}" != expected value "{}"'
 
         for fixture in fixtures:
             self.user_agent = fixture.pop('user_agent')
             expected = fixture['client']['app_id']
-            parsed = ApplicationIDExtractor(self.user_agent).extract()
+            app_id = ApplicationIDExtractor(self.user_agent)
+            parsed = app_id.extract()
 
-            self.assertEqual(
-                expected,
-                parsed,
-                msg='Error parsing {}.\n'
-                'Parsed value {} != expected value {}'.format(
-                    self.user_agent, parsed, expected
-                )
-            )
+            self.assertEqual(expected, parsed, msg=error.format(self.user_agent, parsed, expected))
+
+            expected = fixture['client']['pretty_name']
+            parsed = app_id.pretty_name()
+            self.assertEqual(expected, parsed, msg=error.format(self.user_agent, parsed, expected))
 
 
 class TestNameExtractor(ParserBaseTest):

@@ -14,28 +14,13 @@ class SlashedNameExtractor(BaseClientParser):
     """
 
 # -------------------------------------------------------------------
-    # Manually update this to map app IDs to a user friendly name.
-    # For example we might want to map 'yp' to 'Yellow Pages'
-    # Keys should be lowercase
-    normalize_id = {
-        'accu-weather': 'AccuWeather',
-        'accuweather': 'AccuWeather',
-        'test-case': 'Test Case',
-        'httpconnection symantec': 'Symantec',
-    }
-
-# -------------------------------------------------------------------
     # App names that have no value to us so we want to discard them
     # Should be lowercase
     discard = {
         'product_name',
         'null',
-        '4d531b86',
-        '4d531b9a',
         'httppostlib',
         'mozilla',
-        'sm-g900p-android',
-        'sm-j320p-android',
         'mobile_ios'
     }
 
@@ -88,11 +73,6 @@ class SlashedNameExtractor(BaseClientParser):
         if self.discard_name():
             return
 
-        self.app_name = self.normalize_id.get(
-            self.app_name.lower(),
-            self.app_name
-        )
-
         self.ua_data = {
             'name': self.app_name,
             'version': self.app_version
@@ -108,16 +88,6 @@ class SlashedNameExtractor(BaseClientParser):
         self.app_version = self.app_version.split(' ')[0]
 
     def clean_name(self) -> None:
-        """
-        Extract substring name and remove punctuation from
-        app name.
-        """
-
-        self.extract_substring_name()
-
-        self.app_name = self.remove_punctuation(self.app_name)
-
-    def extract_substring_name(self) -> None:
         """
         Check if the extracted name uses a known format that we can
         extract helpful info from.  If so, update ua data and mark
