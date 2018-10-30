@@ -6,9 +6,10 @@ from .base import BaseDeviceParser
 from .vendor_fragment import VendorFragment
 from ...settings import DDCache
 
-tablet_fragment = re.compile('Android( [\.0-9]+)?; Tablet;', re.IGNORECASE)
-mobile_fragment = re.compile('Android( [\.0-9]+)?; Mobile;', re.IGNORECASE)
-opera_tablet = re.compile('Opera Tablet', re.IGNORECASE)
+tablet_fragment = re.compile(r'Android( [\.0-9]+)?; Tablet;', re.IGNORECASE)
+mobile_fragment = re.compile(r'Android( [\.0-9]+)?; Mobile;', re.IGNORECASE)
+opera_tablet = re.compile(r'Opera Tablet', re.IGNORECASE)
+tv_fragment = re.compile(r'HbbTV', re.IGNORECASE)
 
 
 class Device(BaseDeviceParser):
@@ -120,7 +121,7 @@ class Device(BaseDeviceParser):
         """
         HbbTV UA strings are only parsed by the televisions.yml file
         """
-        return re.search('HbbTV', self.user_agent, re.IGNORECASE) is not None
+        return tv_fragment.search(self.user_agent) is not None
 
     def has_android_tablet_fragment(self) -> bool:
         """

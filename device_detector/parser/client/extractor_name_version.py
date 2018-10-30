@@ -13,13 +13,30 @@ class NameVersionExtractor(GenericClientParser):
     Also support user agents that have a
     <name><break><string> format, HotelSearch/ios_5
     """
+    # Check for name/version matching, in order of desired match
+    name_versions = (
+        # match where name/version separator is found multiple times,
+        # but string ends with version
+        # Microsoft URL Control - 6.01.9782
+        # openshot-qt-2.4.2
+        re.compile(r'(?P<name>.*) ?\- ?(?P<version>[\d\.]+)$', re.IGNORECASE),
 
-    name_version = re.compile(
-        r'^(?P<name>[\w\d\-_\.\&\'!®\?, ]+)[/ \(]v?(?P<version>[\d\.]+)',
-        re.IGNORECASE
+        re.compile(
+            r'^(?P<name>[\w\d\-_\.\&\'!®\?, ]+)[/ \(]v?(?P<version>[\d\.]+)',
+            re.IGNORECASE
+        ),
+
+        # Name<break>version
+        # _iPhone9,1_Chariton_12.0.1
+        re.compile(r'.*[\b_](?P<name>\w+)[\b_](?P<version>[\d\.]+)$', re.IGNORECASE),
+
+        # Microsoft.VisualStudio.Help (2.3)
+        re.compile(r'(?P<name>.*) [\(\[\{]([\d\.]+)[\)\]\}]$', re.IGNORECASE),
+
+        # name_slash
+        re.compile(r'^(?P<name>[\w-]+)/', re.IGNORECASE)
+
     )
-
-    name_slash = re.compile(r'^(?P<name>[\w-]+)/', re.IGNORECASE)
 
 # -------------------------------------------------------------------
     # Regexes that we use to remove unwanted app names
@@ -47,11 +64,11 @@ class NameVersionExtractor(GenericClientParser):
 
     def _parse(self) -> None:
 
-        # prefer name/version format
-        match = self.name_version.match(self.user_agent)
-        if not match:
-            # fall back to name/<worthless-string> format
-            match = self.name_slash.match(self.user_agent)
+        match = None
+        for pattern in self.name_versions:
+            match = pattern.match(self.user_agent)
+            if match:
+                break
 
         if not match:
             return

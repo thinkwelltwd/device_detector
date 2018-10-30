@@ -90,8 +90,8 @@ class DeviceDetector(RegexLoader):
         self.skip_bot_detection = skip_bot_detection
         self.all_details = {'normalized': ''}
         self.parsed = False
-        self.touch_fragment = re.compile('Touch', re.IGNORECASE)
-        self.TV_fragment = re.compile('Kylo|Espial|Opera TV Store|HbbTV', re.IGNORECASE)
+        self.touch_fragment = re.compile(r'Touch', re.IGNORECASE)
+        self.TV_fragment = re.compile(r'Kylo|Espial|Opera TV Store|HbbTV', re.IGNORECASE)
 
     @property
     def class_name(self) -> str:

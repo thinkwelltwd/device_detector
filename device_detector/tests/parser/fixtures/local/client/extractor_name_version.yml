@@ -118,3 +118,39 @@
     type: generic
     name: aws-sdk-android
     version: ''
+-
+  user_agent: uservoice-android-1.2.4
+  client:
+    type: generic
+    name: uservoice-android
+    version: '1.2.4'
+-
+  user_agent: Microsoft URL Control - 6.01.9782
+  client:
+    type: generic
+    name: Microsoft URL Control
+    version: '6.01.9782'
+-
+  user_agent: openshot-qt-2.4.2
+  client:
+    type: generic
+    name: openshot-qt
+    version: '2.4.2'
+-
+  user_agent: "##_iPhone9,1_Chariton_12.0.1"
+  client:
+    type: generic
+    name: Chariton
+    version: '12.0.1'
+-
+  user_agent: Microsoft.VisualStudio.Help (2.3)
+  client:
+    type: generic
+    name: Microsoft.VisualStudio.Help
+    version: '2.3'
+-
+  user_agent: SCSDK;A1-8.0.6
+  client:
+    type: generic
+    name: SCSDK;A1
+    version: '8.0.6'

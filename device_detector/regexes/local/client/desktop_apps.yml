@@ -1277,3 +1277,8 @@
   name: ZWCAD
   version: '$1'
   type: desktop app
+
+- regex: (mbam.*) - base:([\d\.]+)
+  name: '$1'
+  version: '$2'
+  type: desktop app

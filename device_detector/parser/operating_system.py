@@ -157,9 +157,9 @@ class OS(Parser):
     OS_FAMILIES = OS_FAMILIES
     FAMILY_FROM_OS = FAMILY_FROM_OS
 
-    ARM_REGEX = re.compile('arm', re.IGNORECASE)
-    WINDOWS_REGEX = re.compile('WOW64|x64|win64|amd64|x86_64', re.IGNORECASE)
-    x86_REGEX = re.compile('i[0-9]86|i86pc', re.IGNORECASE)
+    ARM_REGEX = re.compile(r'arm', re.IGNORECASE)
+    WINDOWS_REGEX = re.compile(r'WOW64|x64|win64|amd64|x86_64', re.IGNORECASE)
+    x86_REGEX = re.compile(r'i[0-9]86|i86pc', re.IGNORECASE)
 
     def is_desktop(self) -> bool:
         return self.family() in self.DESKTOP_OS

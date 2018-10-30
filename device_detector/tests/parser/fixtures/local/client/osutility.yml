@@ -130,3 +130,9 @@
     type: osutility
     name: Microsoft Delivery Optimization
     version: "10.0"
+-
+  user_agent: HP-Inkjet-WebUpdate-1.1-cl
+  client:
+    type: osutility
+    name: HP-Inkjet-WebUpdate
+    version: "1.1"

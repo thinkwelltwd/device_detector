@@ -42,7 +42,7 @@ class Base(unittest.TestCase):
 
         if not msg and hasattr(self, 'user_agent'):
             msg = '\n\nFailed to parse "{}"\n' \
-                  'Parsed value {} != expected value {}'.format(
+                  'Parsed value "{}" != expected value "{}"'.format(
                 getattr(self, 'user_agent'), first, second,
             )
 

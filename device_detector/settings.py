@@ -5,7 +5,7 @@ import os
 
 # interpolate regex with anchors so
 # iPhone / Tiphone are matched correctly
-BOUNDED_REGEX = '(?:^|[^A-Z0-9\_\-])(?:{})'
+BOUNDED_REGEX = r'(?:^|[^A-Z0-9_\-])(?:{})'
 MAX_CACHE_SIZE = 384
 
 

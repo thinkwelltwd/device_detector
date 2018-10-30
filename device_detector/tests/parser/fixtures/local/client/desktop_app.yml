@@ -1499,3 +1499,9 @@
     type: desktop app
     name: ZWCAD
     version: '90'
+-
+  user_agent: mbam - retail_licensed (scanner) - base:1.70.0.1100 - rules:v2018.06.01.06
+  client:
+    type: desktop app
+    name: mbam - retail_licensed (scanner)
+    version: '1.70.0.1100'

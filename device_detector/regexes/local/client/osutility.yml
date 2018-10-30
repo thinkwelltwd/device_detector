@@ -68,3 +68,8 @@
   name: 'YUM Updater'
   version: '$1'
   type: osutility
+
+- regex: 'HP-Inkjet-WebUpdate-(\d+[\.\d]+)-cl'
+  name: 'HP-Inkjet-WebUpdate'
+  version: '$1'
+  type: osutility
