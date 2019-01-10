@@ -140,6 +140,7 @@ AVAILABLE_BROWSERS = {
     'OM': 'Opera Mobile',
     'OP': 'Opera',
     'ON': 'Opera Next',
+    'OO': 'Opera Touch',
     'OR': 'Oregano',
     'OV': 'Openwave Mobile Browser',
     'OW': 'OmniWeb',
