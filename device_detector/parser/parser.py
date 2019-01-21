@@ -5,6 +5,7 @@ except ImportError:
 
 from ..settings import (
     DDCache,
+    ua_hash,
 )
 from .extractors import (
     NameExtractor,
@@ -30,13 +31,14 @@ class Parser(RegexLoader):
         else:
             self.user_agent = ua
 
+        self.ua_hash = ua_hash(self.user_agent)
         self.ua_data = {}
         self.app_name = ''
         self.app_name_no_punctuation = ''
         self.matched_regex = None
         self.known = False
-        if self.user_agent not in DDCache['user_agents']:
-            DDCache['user_agents'][self.user_agent] = {}
+        if self.ua_hash not in DDCache['user_agents']:
+            DDCache['user_agents'][self.ua_hash] = {}
 
     @property
     def cache_name(self) -> str:
@@ -50,10 +52,10 @@ class Parser(RegexLoader):
         return self.cache_name.lower()
 
     def get_from_cache(self) -> dict:
-        return DDCache['user_agents'][self.user_agent].get(self.cache_name, None)
+        return DDCache['user_agents'][self.ua_hash].get(self.cache_name, None)
 
     def add_to_cache(self) -> dict:
-        DDCache['user_agents'][self.user_agent][self.cache_name] = self.ua_data
+        DDCache['user_agents'][self.ua_hash][self.cache_name] = self.ua_data
         return self.ua_data
 
     def _check_regex(self, regex):

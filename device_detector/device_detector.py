@@ -30,7 +30,7 @@ from .parser import (
     NameVersionExtractor,
     WholeNameExtractor,
 )
-from .settings import DDCache, WORTHLESS_UA_TYPES
+from .settings import DDCache, WORTHLESS_UA_TYPES, ua_hash
 from .yaml_loader import RegexLoader
 
 MAC_iOS = {
@@ -73,7 +73,7 @@ class DeviceDetector(RegexLoader):
 
         # Holds the useragent that should be parsed
         self.user_agent = user_agent
-
+        self.ua_hash = ua_hash(self.user_agent)
         self.os = None
         self.client = None
         self.device = None
@@ -98,14 +98,15 @@ class DeviceDetector(RegexLoader):
         return self.__class__.__name__
 
     def get_parse_cache(self):
-        if self.user_agent not in DDCache['user_agents']:
+        if self.ua_hash not in DDCache['user_agents']:
             return None
-        return DDCache['user_agents'][self.user_agent].get('parsed', None)
+        return DDCache['user_agents'][self.ua_hash].get('parsed', None)
 
     def set_parse_cache(self):
-        if self.user_agent not in DDCache['user_agents']:
-            DDCache['user_agents'][self.user_agent] = {}
-        DDCache['user_agents'][self.user_agent]['parsed'] = self
+        try:
+            DDCache['user_agents'][self.ua_hash]['parsed'] = self
+        except KeyError:
+            DDCache['user_agents'][self.ua_hash] = {'parsed': self}
         return self
 
     # -----------------------------------------------------------------------------

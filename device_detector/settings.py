@@ -1,6 +1,15 @@
 from collections import OrderedDict
 from copy import deepcopy
+from hashlib import md5
 import os
+
+
+def ua_hash(user_agent):
+    """
+    Return short hash of User Agent string for 
+    memory-efficient cache key.
+    """
+    return md5(user_agent.encode('utf-8')).hexdigest()[:9]
 
 
 # interpolate regex with anchors so
@@ -85,4 +94,6 @@ __all__ = (
     'LRUDict',
     'ROOT',
     'WORTHLESS_UA_TYPES',
+    'ua_hash',
 )
+
