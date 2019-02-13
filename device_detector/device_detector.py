@@ -1,7 +1,7 @@
 from string import punctuation
 try:
     import regex as re
-except ImportError:
+except (ImportError, ModuleNotFoundError):
     import re
 import uuid
 

@@ -1,6 +1,6 @@
 try:
     import regex as re
-except ImportError:
+except (ImportError, ModuleNotFoundError):
     import re
 
 APP_ID = re.compile(r'(com\.(?:[\w\d\-_]+\.)+(?:[\w\d\-_]+))', re.IGNORECASE)

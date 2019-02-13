@@ -1,6 +1,6 @@
 try:
     import regex as re
-except ImportError:
+except (ImportError, ModuleNotFoundError):
     import re
 from .base import BaseDeviceParser
 from .vendor_fragment import VendorFragment
