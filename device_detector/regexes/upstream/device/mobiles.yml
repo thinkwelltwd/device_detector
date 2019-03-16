@@ -371,6 +371,15 @@ Apple:
     - regex: '(?:Apple-)?iPh(?:one)?10[C,][36]'
       model: 'iPhone X'
       device: 'phablet'
+    - regex: '(?:Apple-)?iPh(?:one)?11[C,][2]'
+      model: 'iPhone XS'
+      device: 'phablet'
+    - regex: '(?:Apple-)?iPh(?:one)?11[C,][46]'
+      model: 'iPhone XS Max'
+      device: 'phablet'      
+    - regex: '(?:Apple-)?iPh(?:one)?11[C,][8]'
+      model: 'iPhone XR'
+      device: 'phablet'
 
     # specific tablet devices
     - regex: '(?:Apple-)?iPad1[C,]1'
