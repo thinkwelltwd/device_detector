@@ -20,11 +20,7 @@ class NameVersionExtractor(GenericClientParser):
         # Microsoft URL Control - 6.01.9782
         # openshot-qt-2.4.2
         re.compile(r'(?P<name>.*) ?\- ?(?P<version>[\d\.]+)$', re.IGNORECASE),
-
-        re.compile(
-            r'^(?P<name>[\w\d\-_\.\&\'!®\?, ]+)[/ \(]v?(?P<version>[\d\.]+)',
-            re.IGNORECASE
-        ),
+        re.compile(r'^(?P<name>[\w\d\-_\.\&\'!®\?, ]+)[/ \(]v?(?P<version>[\d\.]+)', re.IGNORECASE),
 
         # Name<break>version
         # _iPhone9,1_Chariton_12.0.1
@@ -35,10 +31,9 @@ class NameVersionExtractor(GenericClientParser):
 
         # name_slash
         re.compile(r'^(?P<name>[\w-]+)/', re.IGNORECASE)
-
     )
 
-# -------------------------------------------------------------------
+    # -------------------------------------------------------------------
     # Regexes that we use to remove unwanted app names
     remove_unwanted_regex = [
         re.compile(r'sm-\w+-android', re.IGNORECASE),
@@ -46,7 +41,7 @@ class NameVersionExtractor(GenericClientParser):
         re.compile(r'^com\.', re.IGNORECASE),
     ]
 
-# -------------------------------------------------------------------
+    # -------------------------------------------------------------------
     # Regexes that we use to parse UA's with a similar structure
     parse_generic_regex = [
         (re.compile(r'([\w ]+)\(unknown version\) cfnetwork$', re.IGNORECASE), 1),
@@ -58,7 +53,7 @@ class NameVersionExtractor(GenericClientParser):
         (re.compile(r'^(liveupdateengine)', re.IGNORECASE), 1),
     ]
 
-# -------------------------------------------------------------------
+    # -------------------------------------------------------------------
     app_name = ''
     app_version = ''
 
@@ -86,12 +81,12 @@ class NameVersionExtractor(GenericClientParser):
 
         self.ua_data = {
             'name': self.app_name,
-            'version': self.app_version
+            'version': self.app_version,
         }
 
         self.known = True
 
 
-__all__ = (
+__all__ = [
     'NameVersionExtractor',
-)
+]

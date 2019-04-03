@@ -18,7 +18,6 @@ class TestVendorFragment(ParserBaseTest):
             self.assertEqual(expect, parsed.ua_data['brand'])
 
 
-
-__all__ = (
+__all__ = [
     'TestVendorFragment',
-)
+]

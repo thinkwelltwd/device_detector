@@ -458,7 +458,6 @@ class BaseDeviceParser(Parser):
     BRAND_TO_ABBREV = BRAND_TO_ABBREV
 
 
-
 __all__ = (
     'BaseDeviceParser',
     'DEVICE_BRANDS',

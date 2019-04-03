@@ -11,7 +11,6 @@ class P2P(BaseClientParser):
         return 'p2p'
 
 
-
-__all__ = (
+__all__ = [
     'P2P',
-)
+]

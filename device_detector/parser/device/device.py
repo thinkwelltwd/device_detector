@@ -183,6 +183,6 @@ class Device(BaseDeviceParser):
         return self.ua_data.get('model', '')
 
 
-__all__ = (
+__all__ = [
     'Device',
-)
+]

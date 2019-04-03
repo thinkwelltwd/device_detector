@@ -11,7 +11,6 @@ class FeedReader(BaseClientParser):
     ]
 
 
-
-__all__ = (
+__all__ = [
     'FeedReader',
-)
+]

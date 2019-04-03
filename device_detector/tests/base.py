@@ -172,15 +172,21 @@ class DetectorBaseTest(Base):
             self.confirm_version(fixture, parsed_value=device.client_version())
 
             # Device properties
-            self.matches_fixture_or_generic(fixture, key1='device', key2='type', parsed_value=device.device_type())
-            self.matches_fixture_or_generic(fixture, key1='device', key2='model', parsed_value=device.device_model())
-            self.matches_fixture_or_generic(fixture, key1='device', key2='brand', parsed_value=device.device_brand())
+            self.matches_fixture_or_generic(
+                fixture, key1='device', key2='type', parsed_value=device.device_type()
+            )
+            self.matches_fixture_or_generic(
+                fixture, key1='device', key2='model', parsed_value=device.device_model()
+            )
+            self.matches_fixture_or_generic(
+                fixture, key1='device', key2='brand', parsed_value=device.device_brand()
+            )
 
 
 class ParserBaseTest(Base):
 
     fixture_files = []
-    fixture_key = 'client'   # key of fixture dict containing the values to compare
+    fixture_key = 'client'  # key of fixture dict containing the values to compare
     fields = []
     Parser = None
 
@@ -205,13 +211,16 @@ class ParserBaseTest(Base):
 
             for field in self.fields:
                 self.assertIn(
-                    field, data,
+                    field,
+                    data,
                     msg='Error parsing {}. '
-                        'Parsed data does not have "{}" key'.format(self.user_agent, field))
+                    'Parsed data does not have "{}" key'.format(self.user_agent, field)
+                )
                 self.assertEqual(
-                    str(expect.get(field, '')), str(data.get(field, '')),
+                    str(expect.get(field, '')),
+                    str(data.get(field, '')),
                     msg='Error parsing {}. \n'
-                        'Field "{}" parsed value "{}" != expected value "{}"'.format(
+                    'Field "{}" parsed value "{}" != expected value "{}"'.format(
                         self.user_agent, field, data.get(field, ''), expect.get(field, '')
                     )
                 )

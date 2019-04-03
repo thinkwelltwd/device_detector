@@ -25,6 +25,6 @@ class TestBot(ParserBaseTest):
         self.assertEqual(bot.ua_data, {})
 
 
-__all__ = (
+__all__ = [
     'TestBot',
-)
+]

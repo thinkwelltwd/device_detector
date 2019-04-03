@@ -11,7 +11,6 @@ class Game(BaseClientParser):
         return 'game'
 
 
-
-__all__ = (
+__all__ = [
     'Game',
-)
+]

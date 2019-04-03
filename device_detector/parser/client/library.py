@@ -9,7 +9,6 @@ class Library(BaseClientParser):
     ]
 
 
-
-__all__ = (
+__all__ = [
     'Library',
-)
+]

@@ -67,7 +67,6 @@ class TestVersionExtractor(ParserBaseTest):
         self.assertEqual(version, '2')
 
 
-
 __all__ = (
     'TestApplicationIDExtractor',
     'TestNameExtractor',

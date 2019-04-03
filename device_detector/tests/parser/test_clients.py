@@ -12,7 +12,7 @@ from ...parser import (
     PIM,
     NameVersionExtractor,
     VPNProxy,
-    WholeNameExtractor
+    WholeNameExtractor,
 )
 
 
@@ -125,7 +125,7 @@ class TestVPNProxy(ParserBaseTest):
 class TestNameVersionExtractor(GenericParserTest):
 
     fixture_files = [
-        'tests/parser/fixtures/local/client/extractor_name_version.yml'
+        'tests/parser/fixtures/local/client/extractor_name_version.yml',
     ]
     fields = ('name', 'type', 'version')
     Parser = NameVersionExtractor
@@ -140,13 +140,13 @@ class TestNameVersionExtractor(GenericParserTest):
 class TestWholeNameExtractor(GenericParserTest):
 
     fixture_files = [
-        'tests/parser/fixtures/local/client/extractor_whole_name.yml'
+        'tests/parser/fixtures/local/client/extractor_whole_name.yml',
     ]
     fields = ('name', 'type', 'version')
     Parser = WholeNameExtractor
-    skipped = (
+    skipped = [
         '646E514C51BFF23DBBB5B9487F142670_5_5.10.228257.2253_1_0',
-    )
+    ]
 
 
 __all__ = (
@@ -162,5 +162,5 @@ __all__ = (
     'TestPIM',
     'TestVPNProxy',
     'TestNameVersionExtractor',
-    'TestWholeNameExtractor'
+    'TestWholeNameExtractor',
 )

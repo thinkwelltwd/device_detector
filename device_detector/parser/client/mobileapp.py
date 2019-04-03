@@ -12,7 +12,6 @@ class MobileApp(BaseClientParser):
         return 'mobile app'
 
 
-
-__all__ = (
+__all__ = [
     'MobileApp',
-)
+]

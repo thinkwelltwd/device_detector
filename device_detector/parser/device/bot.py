@@ -11,6 +11,6 @@ class Bot(BaseDeviceParser):
         return self.matched_regex is not None
 
 
-__all__ = (
+__all__ = [
     'Bot',
-)
+]

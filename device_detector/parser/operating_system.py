@@ -13,7 +13,7 @@ DESKTOP_OS = {
     'Unix',
     'Windows',
     'BeOS',
-    'Chrome OS'
+    'Chrome OS',
 }
 
 OPERATING_SYSTEMS = {
@@ -105,7 +105,14 @@ OS_TO_ABBREV = {os.lower(): abbrev for abbrev, os in OPERATING_SYSTEMS.items()}
 
 OS_FAMILIES = {
     'Android': [
-        'AND', 'CYN', 'REM', 'RZD', 'MLD', 'MCD', 'YNS', 'FIR',
+        'AND',
+        'CYN',
+        'REM',
+        'RZD',
+        'MLD',
+        'MCD',
+        'YNS',
+        'FIR',
     ],
     'AmigaOS': ['AMG', 'MOR'],
     'Apple TV': ['ATV'],
@@ -120,8 +127,26 @@ OS_FAMILIES = {
     'iOS': ['IOS'],
     'RISC OS': ['ROS'],
     'GNU/Linux': [
-        'LIN', 'ARL', 'DEB', 'KNO', 'MIN', 'UBT', 'KBT', 'XBT', 'LBT', 'FED',
-        'RHT', 'VLN', 'MDR', 'GNT', 'SAB', 'SLW', 'SSE', 'CES', 'BTR', 'SAF'
+        'LIN',
+        'ARL',
+        'DEB',
+        'KNO',
+        'MIN',
+        'UBT',
+        'KBT',
+        'XBT',
+        'LBT',
+        'FED',
+        'RHT',
+        'VLN',
+        'MDR',
+        'GNT',
+        'SAB',
+        'SLW',
+        'SSE',
+        'CES',
+        'BTR',
+        'SAF',
     ],
     'Mac': ['MAC'],
     'Mobile Gaming Console': ['PSP', 'NDS', 'XBX'],
@@ -129,7 +154,17 @@ OS_FAMILIES = {
     'Other Mobile': ['WOS', 'POS', 'SBA', 'TIZ', 'SMG', 'MAE'],
     'Symbian': ['SYM', 'SYS', 'SY3', 'S60', 'S40'],
     'Unix': [
-        'SOS', 'AIX', 'HPX', 'BSD', 'NBS', 'OBS', 'DFB', 'SYL', 'IRI', 'T64', 'INF',
+        'SOS',
+        'AIX',
+        'HPX',
+        'BSD',
+        'NBS',
+        'OBS',
+        'DFB',
+        'SYL',
+        'IRI',
+        'T64',
+        'INF',
     ],
     'WebTV': ['WTV'],
     'Windows': ['WIN'],
@@ -196,9 +231,7 @@ class OS(Parser):
     def set_details(self) -> None:
         super().set_details()
         if self.ua_data:
-            abbreviation = self.OS_TO_ABBREV.get(
-                self.ua_data['name'].lower(), self.UNKNOWN
-            )
+            abbreviation = self.OS_TO_ABBREV.get(self.ua_data['name'].lower(), self.UNKNOWN)
             self.ua_data.update({
                 # Overwrite name for capitalization.
                 # insensitive regex match preserves original casing

@@ -87,7 +87,6 @@ WORTHLESS_UA_TYPES = {
     'Gibberish',
 }
 
-
 __all__ = (
     'BOUNDED_REGEX',
     'DDCache',
@@ -96,4 +95,3 @@ __all__ = (
     'WORTHLESS_UA_TYPES',
     'ua_hash',
 )
-

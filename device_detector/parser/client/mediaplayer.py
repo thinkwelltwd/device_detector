@@ -9,7 +9,6 @@ class MediaPlayer(BaseClientParser):
     ]
 
 
-
-__all__ = (
+__all__ = [
     'MediaPlayer',
-)
+]

@@ -21,17 +21,16 @@ class WholeNameExtractor(GenericClientParser):
         # samsung SAMSUNG-SM-T337A SyncML_DM Client
         # samsung SMT377P SPDClient to samsung SM-T377P SPD-Client
         (re.compile(r'^samsung.*((?:SyncML_DM|SPD)[ \-]Client)$', re.IGNORECASE), 1),
-
         (re.compile(r'(WXCommonUtils).*', re.IGNORECASE), 1),
     ]
 
-# -------------------------------------------------------------------
+    # -------------------------------------------------------------------
     # Regexes that we use to extract app versions
     extract_version_regex = [
         (re.compile(r'(v?[\.\d]+$)', re.IGNORECASE)),
     ]
 
-# -------------------------------------------------------------------
+    # -------------------------------------------------------------------
     app_name = ''
     app_version = ''
 
@@ -48,7 +47,7 @@ class WholeNameExtractor(GenericClientParser):
 
         self.ua_data = {
             'name': self.app_name,
-            'version': self.app_version
+            'version': self.app_version,
         }
 
         self.known = True
@@ -75,4 +74,3 @@ class WholeNameExtractor(GenericClientParser):
         Check if app name portion of UA is between 3 and 60 chars
         """
         return 2 < len(self.app_name) <= 60
-

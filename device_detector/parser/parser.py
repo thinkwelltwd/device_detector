@@ -64,8 +64,10 @@ class Parser(RegexLoader):
         except Exception as e:
             print('{} fired an error {}'.format(regex, e))
             if re.__name__ == 're':
-                print('You are using the builtin "re" library. '
-                      'Consider installing the "regex" library instead.')
+                print(
+                    'You are using the builtin "re" library. '
+                    'Consider installing the "regex" library instead.'
+                )
             return None
 
     def _parse(self) -> None:
@@ -141,6 +143,6 @@ class Parser(RegexLoader):
         return False
 
 
-__all__ = (
+__all__ = [
     'Parser',
-)
+]

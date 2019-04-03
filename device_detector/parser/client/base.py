@@ -55,7 +55,7 @@ class GenericClientParser(BaseClientParser):
         'null',
         'httppostlib',
         'mozilla',
-        'mobileios'
+        'mobileios',
     }
 
     # -------------------------------------------------------------------

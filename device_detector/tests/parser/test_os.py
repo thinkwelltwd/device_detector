@@ -31,7 +31,7 @@ class TestOSFragment(ParserBaseTest):
             self.assertEqual(expect, parsed.ua_data['name'])
 
 
-
 __all__ = (
-    'TestOS', 'TestOSFragment',
+    'TestOS',
+    'TestOSFragment',
 )

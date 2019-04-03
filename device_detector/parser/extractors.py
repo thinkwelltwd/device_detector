@@ -168,7 +168,6 @@ class VersionExtractor(DataExtractor):
         return value
 
 
-
 __all__ = (
     'ApplicationIDExtractor',
     'DataExtractor',

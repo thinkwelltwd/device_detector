@@ -2,7 +2,6 @@ from ..base import ParserBaseTest
 from ...parser import Device
 
 
-
 class TestDevices(ParserBaseTest):
 
     fixture_files = [
@@ -25,15 +24,15 @@ class TestDevices(ParserBaseTest):
 
             for field in ('type', 'brand', 'model'):
                 self.assertEqual(
-                    str(expect[field]), str(data[field]),
+                    str(expect[field]),
+                    str(data[field]),
                     msg='Error parsing {}. \n'
-                        'Field "{}" parsed value "{}" != expected value "{}"'.format(
+                    'Field "{}" parsed value "{}" != expected value "{}"'.format(
                         self.user_agent, field, data[field], expect[field]
                     )
                 )
 
 
-
-__all__ = (
+__all__ = [
     'TestDevices',
-)
+]

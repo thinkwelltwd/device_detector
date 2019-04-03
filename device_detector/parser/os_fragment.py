@@ -23,8 +23,8 @@ class OSFragment(BaseDeviceParser):
         for os, regexes in new_regexes.items():
             reg_list.append({
                 'name': os,
-                'regexes': [re.compile(reg, re.IGNORECASE) for reg in regexes]},
-            )
+                'regexes': [re.compile(reg, re.IGNORECASE) for reg in regexes],
+            })
 
         return reg_list
 
@@ -44,6 +44,6 @@ class OSFragment(BaseDeviceParser):
                     return
 
 
-__all__ = (
+__all__ = [
     'OSFragment',
-)
+]

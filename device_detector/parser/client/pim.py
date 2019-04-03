@@ -9,7 +9,6 @@ class PIM(BaseClientParser):
     ]
 
 
-
-__all__ = (
+__all__ = [
     'PIM',
-)
+]

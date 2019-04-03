@@ -11,7 +11,6 @@ class VPNProxy(BaseClientParser):
         return 'vpnproxy'
 
 
-
-__all__ = (
+__all__ = [
     'VPNProxy',
-)
+]

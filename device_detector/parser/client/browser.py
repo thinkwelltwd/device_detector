@@ -5,21 +5,9 @@ except (ImportError, ModuleNotFoundError):
 from . import BaseClientParser
 from ...settings import BOUNDED_REGEX
 
-
 AVAILABLE_ENGINES = {
-    'WebKit',
-    'Blink',
-    'Trident',
-    'Text-based',
-    'Dillo',
-    'iCab',
-    'Elektra',
-    'Presto',
-    'Gecko',
-    'KHTML',
-    'NetFront',
-    'Edge',
-    'NetSurf'
+    'WebKit', 'Blink', 'Trident', 'Text-based', 'Dillo', 'iCab', 'Elektra', 'Presto', 'Gecko',
+    'KHTML', 'NetFront', 'Edge', 'NetSurf'
 }
 AVAILABLE_ENGINES_LOWER_CASE = {engine.lower(): engine for engine in AVAILABLE_ENGINES}
 
@@ -198,8 +186,8 @@ BROWSER_FAMILIES = {
     'Baidu': ['BD', 'BS'],
     'Amiga': ['AV', 'AW'],
     'Chrome': (
-        'AS', 'AZ', 'CH', 'BR', 'CC', 'CD', 'CM', 'CI', 'CF', 'CN',
-        'CR', 'CP', 'IR', 'RM', 'AO', 'TS', 'VI', 'PT'
+        'AS', 'AZ', 'CH', 'BR', 'CC', 'CD', 'CM', 'CI', 'CF', 'CN', 'CR', 'CP', 'IR', 'RM', 'AO',
+        'TS', 'VI', 'PT'
     ),
     'Firefox': ['FF', 'FE', 'FM', 'SX', 'FB', 'PX', 'MB', 'EI', 'WF', 'CU'],
     'Internet Explorer': ['IE', 'IM', 'PS'],
@@ -213,9 +201,22 @@ BROWSER_FAMILIES = {
 }
 
 MOBILE_ONLY_BROWSERS = {
-    '36', 'PU', 'SK', 'MF', 'OI', 'OM', 'DB',
-    'ST', 'BL', 'IV', 'FM', 'C1', 'AL', 'SA',
+    '36',
+    'PU',
+    'SK',
+    'MF',
+    'OI',
+    'OM',
+    'DB',
+    'ST',
+    'BL',
+    'IV',
+    'FM',
+    'C1',
+    'AL',
+    'SA',
 }
+
 
 class EngineVersion:
 
@@ -252,9 +253,8 @@ class Engine(BaseClientParser):
     def _parse(self):
         super()._parse()
         if 'name' in self.ua_data:
-            self.ua_data['engine_version'] = EngineVersion(self.user_agent).parse(
-                engine=self.ua_data['name']
-            )
+            self.ua_data['engine_version'] = EngineVersion(self.user_agent
+                                                          ).parse(engine=self.ua_data['name'])
 
 
 class Browser(BaseClientParser):
@@ -269,7 +269,6 @@ class Browser(BaseClientParser):
     BROWSER_TO_ABBREV = BROWSER_TO_ABBREV
     BROWSER_FAMILIES = BROWSER_FAMILIES
     MOBILE_ONLY_BROWSERS = MOBILE_ONLY_BROWSERS
-
 
     def set_details(self):
         super().set_details()

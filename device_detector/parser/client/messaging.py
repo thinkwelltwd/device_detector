@@ -11,7 +11,6 @@ class Messaging(BaseClientParser):
         return 'messaging'
 
 
-
-__all__ = (
+__all__ = [
     'Messaging',
-)
+]

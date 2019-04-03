@@ -13,6 +13,6 @@ class DesktopApp(BaseClientParser):
         return self.ua_data.get('type', 'desktop app')
 
 
-__all__ = (
+__all__ = [
     'DesktopApp',
-)
+]

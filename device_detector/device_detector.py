@@ -65,9 +65,9 @@ class DeviceDetector(RegexLoader):
         WholeNameExtractor,
     )
 
-    DEVICE_PARSERS = (
+    DEVICE_PARSERS = [
         Device,
-    )
+    ]
 
     def __init__(self, user_agent, skip_bot_detection=False):
 
@@ -505,15 +505,19 @@ class DeviceDetector(RegexLoader):
             os = '{} {}'.format(self.os_name(), self.os_version())
         if self.client_name():
             client = '{} {} ({})'.format(
-                self.client_name(), self.client_version(), self.client_type().title(),
+                self.client_name(),
+                self.client_version(),
+                self.client_type().title(),
             )
         if self.device_model():
             device = '{} ({})'.format(
-                self.device_brand_name(), self.device_model(), self.device_type().title(),
+                self.device_brand_name(),
+                self.device_model(),
+                self.device_type().title(),
             )
         return 'Client: {} Device: {} OS: {}'.format(client, device, os).strip()
 
 
-__all__ = (
+__all__ = [
     'DeviceDetector',
-)
+]

@@ -44,6 +44,6 @@ class VendorFragment(BaseDeviceParser):
                     return
 
 
-__all__ = (
+__all__ = [
     'VendorFragment',
-)
+]
