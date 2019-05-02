@@ -199,9 +199,6 @@ class OS(Parser):
     def is_desktop(self) -> bool:
         return self.family() in self.DESKTOP_OS
 
-    def is_mobile(self) -> bool:
-        return self.family() in self.DESKTOP_OS
-
     def short_name(self) -> str:
         return self.ua_data.get('short_name', '')
 

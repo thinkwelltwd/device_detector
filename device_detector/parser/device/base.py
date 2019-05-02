@@ -40,6 +40,15 @@ DEVICE_TYPES = {
     'phablet': DEVICE_TYPE_PHABLET,
 }
 
+MOBILE_DEVICE_TYPES = {
+    'camera',
+    'feature phone',
+    'phablet',
+    'portable media player',
+    'smartphone',
+    'tablet',
+}
+
 # Before using a new brand in on of the regex files, it needs to be added here
 DEVICE_BRANDS = {
     '3Q': '3Q',
@@ -545,4 +554,5 @@ class BaseDeviceParser(Parser):
 __all__ = (
     'BaseDeviceParser',
     'DEVICE_BRANDS',
+    'MOBILE_DEVICE_TYPES',
 )

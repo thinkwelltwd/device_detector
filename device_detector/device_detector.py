@@ -13,6 +13,7 @@ from .parser import (
     # Devices
     Bot,
     Device,
+    MOBILE_DEVICE_TYPES,
 
     # Clients
     Browser,
@@ -372,10 +373,9 @@ class DeviceDetector(RegexLoader):
             return ''
 
     def is_mobile(self) -> bool:
-        try:
-            return self.os.is_mobile()
-        except AttributeError:
-            return False
+        if self.device_type() in MOBILE_DEVICE_TYPES:
+            return True
+        return not self.is_bot() and not self.is_desktop() and not self.is_television()
 
     def is_desktop(self) -> bool:
         if self.uses_mobile_browser():
