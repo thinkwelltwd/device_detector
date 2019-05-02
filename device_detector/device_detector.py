@@ -5,6 +5,8 @@ except (ImportError, ModuleNotFoundError):
     import re
 import uuid
 
+from urllib.parse import unquote
+
 from .parser import (
     OS,
 
@@ -72,7 +74,7 @@ class DeviceDetector(RegexLoader):
     def __init__(self, user_agent, skip_bot_detection=False):
 
         # Holds the useragent that should be parsed
-        self.user_agent = user_agent
+        self.user_agent = unquote(user_agent)
         self.ua_hash = ua_hash(self.user_agent)
         self.os = None
         self.client = None
