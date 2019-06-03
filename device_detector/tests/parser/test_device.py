@@ -1,5 +1,6 @@
 from ..base import ParserBaseTest
 from ...parser import Device
+from ...utils import ua_hash
 
 
 class TestDevices(ParserBaseTest):
@@ -17,7 +18,9 @@ class TestDevices(ParserBaseTest):
         for fixture in fixtures:
             self.user_agent = fixture.pop('user_agent')
             expect = fixture['device']
-            parsed = Device(self.user_agent).parse()
+            hashed = ua_hash(self.user_agent)
+            spaceless = self.user_agent.lower().replace(' ', '')
+            parsed = Device(self.user_agent, hashed, spaceless).parse()
 
             data = parsed.ua_data
             data['type'] = Device.DEVICE_TYPES[data['type']]

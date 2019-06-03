@@ -5,7 +5,6 @@ except (ImportError, ModuleNotFoundError):
 
 from ..settings import (
     DDCache,
-    ua_hash,
 )
 from .extractors import (
     NameExtractor,
@@ -17,28 +16,20 @@ from ..yaml_loader import RegexLoader
 
 class Parser(RegexLoader):
 
-    # Paths to yml files of regexes
-    fixture_files = []
-
     # Constant used as value for unknown browser / os
     UNKNOWN = 'UNK'
 
-    def __init__(self, ua):
-        # sprd-Galaxy-S4/1.0 Linux/2.6.35.7 Android/4.2.2 Release/10.14.2013 Browser/AppleWebKit533.1 (KHTML, like Gecko) Mozilla/5.0 Mobile
-        # sprd-lingwin-U820S/1.0 Linux/2.6.35.7 Android/2.3.5 Release/10.15.2012 Browser/AppleWebKit533.1 (KHTML, like Gecko) Mozilla/5.0 Mobile
-        if ua.startswith('sprd-'):
-            self.user_agent = ua[5:]
-        else:
-            self.user_agent = ua
-
-        self.ua_hash = ua_hash(self.user_agent)
+    def __init__(self, ua, ua_hash, ua_spaceless):
+        self.user_agent = ua
+        self.ua_hash = ua_hash
+        self.ua_spaceless = ua_spaceless
         self.ua_data = {}
         self.app_name = ''
         self.app_name_no_punctuation = ''
         self.matched_regex = None
+        self.app_version = None
         self.known = False
-        if self.ua_hash not in DDCache['user_agents']:
-            DDCache['user_agents'][self.ua_hash] = {}
+        self.calculated_dtype = ''
 
     @property
     def cache_name(self) -> str:
@@ -49,10 +40,14 @@ class Parser(RegexLoader):
         """
         For adding 'type' key to ua_data
         """
-        return self.cache_name.lower()
+        return self.calculated_dtype or self.cache_name.lower()
 
     def get_from_cache(self) -> dict:
-        return DDCache['user_agents'][self.ua_hash].get(self.cache_name, None)
+        try:
+            return DDCache['user_agents'][self.ua_hash].get(self.cache_name, None)
+        except KeyError:
+            DDCache['user_agents'][self.ua_hash] = {}
+        return {}
 
     def add_to_cache(self) -> dict:
         DDCache['user_agents'][self.ua_hash][self.cache_name] = self.ua_data

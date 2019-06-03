@@ -1,4 +1,5 @@
 from ..base import DetectorBaseTest
+from ...device_detector import DeviceDetector
 
 
 class TestNormalized(DetectorBaseTest):
@@ -14,7 +15,7 @@ class TestNormalized(DetectorBaseTest):
 
         for fixture in self.load_fixtures():
             self.user_agent = fixture.pop('user_agent')
-            device = self.Parser(self.user_agent)
+            device = DeviceDetector(self.user_agent)
             device.parse()
 
             self.assertEqual(device.pretty_name(), fixture['normalized'])

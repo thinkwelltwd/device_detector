@@ -12,11 +12,3 @@
 - regex: 'FB(Android|iOS)SDK\.(\d+[\.\d]+)'
   name: 'Facebook SDK for $1'
   version: '$2'
-
-- regex: 'xboxservicesapi/(\d+[\.\d]+)'
-  name: 'Xbox Services API'
-  version: '$1'
-
-- regex: 'zendesk-sdk/(\d+[\.\d]+)'
-  name: 'Zendesk SDK'
-  version: '$1'

@@ -222,7 +222,7 @@ class OS(Parser):
     def _parse(self):
         super()._parse()
         if not self.ua_data:
-            OSFragment(self.user_agent).parse()
+            OSFragment(self.user_agent, self.ua_hash, self.ua_spaceless).parse()
         return self.ua_data or {}
 
     def set_details(self) -> None:

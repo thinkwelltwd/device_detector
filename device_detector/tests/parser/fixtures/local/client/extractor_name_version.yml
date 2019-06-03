@@ -11,12 +11,6 @@
     name: AldiSued_US
     version: 3.9
 -
-  user_agent: GasBuddy/5.31.0 (iPhone; iOS 11.4.1; Scale/2.00)
-  client:
-    type: generic
-    name: Gas Buddy
-    version: '5.31.0'
--
   user_agent: generic ua string/1.23.2
   client:
     type: generic
@@ -27,12 +21,6 @@
   client:
     type: generic
     name: generic ua string 2
-    version: '1.23.2'
--
-  user_agent: Test-Case/1.23.2
-  client:
-    type: generic
-    name: Test Case
     version: '1.23.2'
 -
   user_agent: Microsoft SkyDriveSync 18.091.0506.0007 ship; Windows NT 10.0 (17134)
@@ -115,7 +103,7 @@
 -
   user_agent: aws-sdk-android/unknown-version Linux/3.10.9-11788437 Dalvik/2.1.0/0 en_US
   client:
-    type: generic
+    type: library
     name: aws-sdk-android
     version: ''
 -
@@ -151,6 +139,6 @@
 -
   user_agent: SCSDK;A1-8.0.6
   client:
-    type: generic
+    type: library
     name: SCSDK;A1
     version: '8.0.6'

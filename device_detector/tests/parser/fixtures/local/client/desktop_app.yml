@@ -101,24 +101,6 @@
     name: Windows Network Diagnostics
     version: ''
 -
-  user_agent: Picasa/3.9.139.161 (gzip)
-  client:
-    type: desktop app
-    name: Picasa
-    version: 3.9.139.161
--
-  user_agent: PicasaUpdater/3.9.139.161 (gzip)
-  client:
-    type: apputility
-    name: Picasa Updater
-    version: 3.9.139.161
--
-  user_agent: Get Flash Player version xml/1.0
-  client:
-    type: apputility
-    name: Flash Updater
-    version: 1.0
--
   user_agent: googlesoftwareupdateagent/1.2.10.105 cfnetwork/901.1 darwin/17.5.0 (x86_64)
   client:
     type: apputility
@@ -245,23 +227,11 @@
     name: Avanquest LiveUpdate
     version:
 -
-  user_agent: Avast
-  client:
-    type: desktop app
-    name: Avast
-    version:
--
   user_agent: BingBar 7.1.355.0
   client:
     type: desktop app
     name: BingBar
     version: 7.1.355.0
--
-  user_agent: broadcom windows 8 hal downloader
-  client:
-    type: desktop app
-    name: Broadcom Windows 8 Downloader
-    version:
 -
   user_agent: ByteFenceEngine
   client:
@@ -311,18 +281,6 @@
     name: Carbonite Uploader
     version: 6.3.3
 -
-  user_agent: Classic Shell
-  client:
-    type: desktop app
-    name: Classic Shell
-    version:
--
-  user_agent: Classic Start Menu 4.3.1 (Win 602)
-  client:
-    type: desktop app
-    name: Classic Start Menu
-    version: 4.3.1
--
   user_agent: cloudd/735.4 CFNetwork/894 Darwin/17.4.0
   client:
     type: desktop app
@@ -333,12 +291,6 @@
   client:
     type: desktop app
     name: CloudSDK
-    version:
--
-  user_agent: CLS License Activation
-  client:
-    type: desktop app
-    name: CLS License Activation
     version:
 -
   user_agent: Apple Configurator 2/439 CFNetwork/897.15 Darwin/17.5.0 (x86_64)
@@ -362,13 +314,13 @@
   user_agent: geod/1 cfnetwork/894 darwin/17.4.0
   client:
     type: desktop app
-    name: Apple geod
+    name: Apple Geod
     version: 1
 -
   user_agent: com.apple.geod/1077.0.18 cfnetwork/720.5.7 darwin/14.5.0 (x86_64)
   client:
     type: desktop app
-    name: Apple geod
+    name: Apple Geod
     version: 1077.0.18
 -
   user_agent: com.apple.weatherkitservice/147 cfnetwork/720.5.7 darwin/14.5.0 (x86_64)
@@ -424,7 +376,7 @@
   client:
     type: desktop app
     name: Creative Cloud
-    version:
+    version: 78
 -
   user_agent: CRWindowsClient
   client:
@@ -492,12 +444,6 @@
     name: Egnyte
     version: 248
 -
-  user_agent: Embrace/a/2.0.9
-  client:
-    type: desktop app
-    name: Embrace
-    version: 2.0.9
--
   user_agent: Endicia/2.18.2 Sparkle/1.5
   client:
     type: desktop app
@@ -514,12 +460,6 @@
   client:
     type: desktop app
     name: Epson Applet Service
-    version:
--
-  user_agent: EPSON Printer Updater (Windows NT 6.3)
-  client:
-    type: desktop app
-    name: Epson Printer Updater
     version:
 -
   user_agent: Epson ReadyInk Agent
@@ -542,15 +482,9 @@
 -
   user_agent: Excel/15.30.17010700 CFNetwork/720.5.7 Darwin/14.5.0 (x86_64)
   client:
-    type: desktop app
+    type: productivity
     name: Excel
     version: 15.30.17010700
--
-  user_agent: exceptionless/3.0.1337
-  client:
-    type: desktop app
-    name: exceptionless
-    version: 3.0.1337
 -
   user_agent: Fitbit Agent 1.0 Windows
   client:
@@ -569,24 +503,6 @@
     type: desktop app
     name: Apple GameKit
     version: 5.11.20.4.8.16.5.5.2
--
-  user_agent: Garmin Core Service Win - 6.5.1.0
-  client:
-    type: desktop app
-    name: Garmin Core Service
-    version: 6.5.1.0
--
-  user_agent: Garmin Express Win - 6.5.1.0
-  client:
-    type: desktop app
-    name: Garmin Express
-    version: 6.5.1.0
--
-  user_agent: getwebfile/1.0
-  client:
-    type: desktop app
-    name: Get Web File
-    version: 1.0
 -
   user_agent: GN Templates for MS Office/500050 CFNetwork/897.15 Darwin/17.5.0 (x86_64)
   client:
@@ -619,12 +535,6 @@
     version: 6.3.0.489
 -
   user_agent: Grammarly/1.5.35 CFNetwork/897.15 Darwin/17.5.0 (x86_64)
-  client:
-    type: desktop app
-    name: Grammarly
-    version: 1.5.35
--
-  user_agent: Grammarly Desktop Editor ts0 1.5.35-osx
   client:
     type: desktop app
     name: Grammarly
@@ -672,12 +582,6 @@
     name: iDrive Daemon
     version: 3.5.0.5
 -
-  user_agent: IMSLib Agent
-  client:
-    type: desktop app
-    name: IMSLib Agent
-    version:
--
   user_agent: IMTransferAgent/1000 CFNetwork/894 Darwin/17.4.0
   client:
     type: desktop app
@@ -706,7 +610,7 @@
   client:
     type: desktop app
     name: JGit
-    version:
+    version: 0.0
 -
   user_agent: join.me/4.20.11090 cfnetwork/901.1 darwin/17.6.0
   client:
@@ -735,7 +639,7 @@
   user_agent: Luminar 2018/1.2.0 Sparkle/1.13.1
   client:
     type: desktop app
-    name: Luminar
+    name: Luminar 2018
     version: 1.2.0
 -
   user_agent: macappstore/1.1.2 (macintosh; u; intel mac os x 10.7.5; en) applewebkit/534.57.7
@@ -766,7 +670,7 @@
   client:
     type: desktop app
     name: Mac Submission Engine
-    version:
+    version: '1.'
 -
   user_agent: MacVim/8.1.72 Sparkle/1.13.1
   client:
@@ -810,18 +714,6 @@
     name: Microsoft AutoUpdate
     version: 3.8.16120900
 -
-  user_agent: microsoft bits/7.5
-  client:
-    type: desktop app
-    name: Microsoft Bits
-    version: 7.5
--
-  user_agent: microsoft ncsi
-  client:
-    type: desktop app
-    name: Microsoft NCSI
-    version:
--
   user_agent: Microsoft-PlayReady-DRM/1.0
   client:
     type: desktop app
@@ -851,12 +743,6 @@
     type: desktop app
     name: NGAutorun
     version:
--
-  user_agent: Night Eyes/3.7.6.0 CFNetwork/897.15 Darwin/17.5.0
-  client:
-    type: desktop app
-    name: Night Eyes
-    version: 3.7.6.0
 -
   user_agent: Nikon Message Center 2/2.1.0.3000 (Microsoft Windows 10 Home  64bit; Intel(R) Core(TM) i3-6100 CPU @ 3.70GHz; EN; NSA; US)
   client:
@@ -891,7 +777,7 @@
   user_agent: OfficeC2R
   client:
     type: desktop app
-    name: OfficeC2R
+    name: Office Click to Run
     version:
 -
   user_agent: officeclicktorun
@@ -932,8 +818,8 @@
 -
   user_agent: OpenOffice 4.1.1 (411m6(Build:9775); Windows; x86; BundledLanguages=en-US)
   client:
-    type: desktop app
-    name: Open Office
+    type: productivity
+    name: OpenOffice
     version: 4.1.1
 -
   user_agent: Opera NetInstaller/45.0.2552.25968
@@ -1032,12 +918,6 @@
     name: pipelined
     version: 231.9
 -
-  user_agent: potdata
-  client:
-    type: desktop app
-    name: potdata
-    version:
--
   user_agent: PowerPoint/15.30.17010700 CFNetwork/720.5.7 Darwin/14.5.0 (x86_64)
   client:
     type: desktop app
@@ -1049,12 +929,6 @@
     type: desktop app
     name: PowerRegister
     version: 2.0
--
-  user_agent: PPKHandler
-  client:
-    type: desktop app
-    name: PPKHandler
-    version:
 -
   user_agent: PreInstallCheck/27
   client:
@@ -1068,18 +942,6 @@
     name: Premiere Elements
     version:
 -
-  user_agent: premium-wotd-extension/440.2 cfnetwork/901.1 darwin/17.6.0
-  client:
-    type: desktop app
-    name: premium-wotd-extension
-    version: 440.2
--
-  user_agent: Proxifier
-  client:
-    type: desktop app
-    name: Proxifier
-    version:
--
   user_agent: pseelive
   client:
     type: desktop app
@@ -1091,12 +953,6 @@
     type: desktop app
     name: PS Express
     version: 6.0.5.74
--
-  user_agent: PSProfiler_4_0_0_45
-  client:
-    type: desktop app
-    name: PS Profiler
-    version: '4.0.0.45'
 -
   user_agent: realizd/18 cfnetwork/901.1 darwin/17.6.0
   client:
@@ -1115,12 +971,6 @@
     type: desktop app
     name: RestSharp
     version: '105.1.0.0'
--
-  user_agent: rf-safari-companion/8.4.5.5 CFNetwork/889.9 Darwin/17.2.0 (x86_64)
-  client:
-    type: desktop app
-    name: rf-safari-companion
-    version: '8.4.5.5'
 -
   user_agent: SafariExtension/100864 CFNetwork/901.1 Darwin/17.6.0
   client:
@@ -1164,12 +1014,6 @@
     name: Seagate Toolkit
     version: ''
 -
-  user_agent: search framework/1.0 cfnetwork/758.2.8 darwin/15.0.0
-  client:
-    type: desktop app
-    name: Search Framework
-    version: '1.0'
--
   user_agent: SelfUpdateService/2.5.3.0
   client:
     type: desktop app
@@ -1199,12 +1043,6 @@
     type: desktop app
     name: SFG Universal Production Rich Push
     version: '130'
--
-  user_agent: Shockwave Flash
-  client:
-    type: desktop app
-    name: Shockwave Flash
-    version: ''
 -
   user_agent: SlimWare.Session/1.0.1 (os:windows; ver:6.1; arc:AMD64)
   client:
@@ -1236,12 +1074,6 @@
     name: SoftMaker Fetch
     version: '1.0'
 -
-  user_agent: Software Update/360 CFNetwork/520.5.3 Darwin/11.4.2 (i386) (MacPro1,1)
-  client:
-    type: desktop app
-    name: Software Update
-    version: ''
--
   user_agent: stream_package_agent
   client:
     type: desktop app
@@ -1252,7 +1084,7 @@
   client:
     type: desktop app
     name: SYMC Remediation
-    version: ''
+    version: 22.6
 -
   user_agent: TaskUpdateDetection
   client:
@@ -1288,13 +1120,7 @@
   client:
     type: desktop app
     name: Unity Player
-    version: '4.1.4f1'
--
-  user_agent: Valve/Steam HTTP Client 1.0
-  client:
-    type: desktop app
-    name: Valve/Steam
-    version: ''
+    version: '4.1.'
 -
   user_agent: vcsoapclient
   client:
@@ -1388,7 +1214,7 @@
 -
   user_agent: windows-update-agent
   client:
-    type: desktop app
+    type: osutility
     name: Windows Update Agent
     version: ''
 -
@@ -1426,7 +1252,7 @@
   client:
     type: desktop app
     name: WSCSTUB
-    version: 'r22.1.0'
+    version: '22.1.0'
 -
   user_agent: WSLib 1.4 [3, 0, 0, 129]
   client:

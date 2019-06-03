@@ -6,8 +6,19 @@ from . import BaseClientParser
 from ...settings import BOUNDED_REGEX
 
 AVAILABLE_ENGINES = {
-    'WebKit', 'Blink', 'Trident', 'Text-based', 'Dillo', 'iCab', 'Elektra', 'Presto', 'Gecko',
-    'KHTML', 'NetFront', 'Edge', 'NetSurf'
+    'WebKit',
+    'Blink',
+    'Trident',
+    'Text-based',
+    'Dillo',
+    'iCab',
+    'Elektra',
+    'Presto',
+    'Gecko',
+    'KHTML',
+    'NetFront',
+    'Edge',
+    'NetSurf',
 }
 AVAILABLE_ENGINES_LOWER_CASE = {engine.lower(): engine for engine in AVAILABLE_ENGINES}
 
@@ -254,6 +265,36 @@ MOBILE_ONLY_BROWSERS = {
     'SA',
 }
 
+# Fast membership testing
+BROWSER_FAMILIES_LOWER = {browser.lower() for browser in BROWSER_FAMILIES.keys()}
+
+# Crufty name/version prefixes too generic to be meaningful Client names
+# iOS/12.1, CFNetwork/975.0.3, Android/7.0
+CRUFT_NAMES = {
+    'alamofire',
+    'applewebkit',
+    'carrier',
+    'cfnetwork',
+    'configuration',
+    'darwin',
+    'dalvik',
+    'mozilla',
+    'mobile',
+    'ios',
+    'android',
+    'iphone',
+    'okhttp',
+    'profile',
+    'symbian',
+    'urbanairshiplib',
+    'urbanairshiplib-android',
+}
+
+# When parsing UA strings generically, multiple name/version pairs may be found.
+# Ignore the uninteresting ones
+# Mozilla/5.0 (Symbian/3; Series60/5.2 NokiaN8-00/014.002; Profile/MIDP-2.1 Configuration/CLDC-1.1; en-us) AppleWebKit/525 (KHTML, like Gecko) Version/3.0 BrowserNG/7.2.6.4 3gpp-gba
+SKIP_PREFIXES = set(AVAILABLE_ENGINES_LOWER_CASE.keys()) & BROWSER_FAMILIES_LOWER & CRUFT_NAMES
+
 
 class EngineVersion:
 
@@ -290,8 +331,11 @@ class Engine(BaseClientParser):
     def _parse(self):
         super()._parse()
         if 'name' in self.ua_data:
-            self.ua_data['engine_version'] = EngineVersion(self.user_agent
-                                                          ).parse(engine=self.ua_data['name'])
+            self.ua_data['engine_version'] = EngineVersion(
+                self.user_agent,
+            ).parse(
+                engine=self.ua_data['name'],
+            )
 
 
 class Browser(BaseClientParser):
@@ -316,7 +360,11 @@ class Browser(BaseClientParser):
             })
 
             if 'engine' not in self.ua_data:
-                self.ua_data['engine'] = Engine(self.user_agent).parse().ua_data
+                self.ua_data['engine'] = Engine(
+                    self.user_agent,
+                    self.ua_hash,
+                    self.ua_spaceless,
+                ).parse().ua_data
 
     def short_name(self) -> str:
         return self.ua_data.get('short_name', None)
@@ -338,5 +386,7 @@ __all__ = (
     'AVAILABLE_ENGINES',
     'AVAILABLE_BROWSERS',
     'BROWSER_FAMILIES',
+    'CRUFT_NAMES',
     'MOBILE_ONLY_BROWSERS',
+    'SKIP_PREFIXES',
 )

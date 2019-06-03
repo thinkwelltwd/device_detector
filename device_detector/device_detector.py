@@ -1,11 +1,8 @@
-from string import punctuation
 try:
     import regex as re
 except (ImportError, ModuleNotFoundError):
     import re
 import uuid
-
-from urllib.parse import unquote
 
 from .parser import (
     OS,
@@ -33,7 +30,15 @@ from .parser import (
     NameVersionExtractor,
     WholeNameExtractor,
 )
-from .settings import DDCache, WORTHLESS_UA_TYPES, ua_hash
+from .settings import DDCache, WORTHLESS_UA_TYPES
+from .utils import (
+    clean_ua,
+    long_ua_no_punctuation,
+    mostly_numerals,
+    mostly_repeating_characters,
+    only_numerals_and_punctuation,
+    ua_hash,
+)
 from .yaml_loader import RegexLoader
 
 MAC_iOS = {
@@ -41,9 +46,6 @@ MAC_iOS = {
     'IOS',
     'MAC',
 }
-
-trans_tbl = str.maketrans({p: '' for p in punctuation})
-punctuation_tbl = str.maketrans({p: '' for p in ' /.'})
 
 
 class DeviceDetector(RegexLoader):
@@ -72,11 +74,12 @@ class DeviceDetector(RegexLoader):
         Device,
     ]
 
-    def __init__(self, user_agent, skip_bot_detection=False):
+    def __init__(self, user_agent, skip_bot_detection=False, skip_device_detection=False):
 
         # Holds the useragent that should be parsed
-        self.user_agent = unquote(user_agent)
+        self.user_agent = clean_ua(user_agent)
         self.ua_hash = ua_hash(self.user_agent)
+        self._ua_spaceless = ''
         self.os = None
         self.client = None
         self.device = None
@@ -91,18 +94,27 @@ class DeviceDetector(RegexLoader):
         self.bot = None
 
         self.skip_bot_detection = skip_bot_detection
+        self.skip_device_detection = skip_device_detection
         self.all_details = {'normalized': ''}
         self.parsed = False
         self.touch_fragment = re.compile(r'Touch', re.IGNORECASE)
         self.TV_fragment = re.compile(r'Kylo|Espial|Opera TV Store|HbbTV', re.IGNORECASE)
+        self.facebook_fragment = re.compile(f'FBAB/', re.IGNORECASE)
+
+        if self.ua_hash not in DDCache['user_agents']:
+            DDCache['user_agents'][self.ua_hash] = {}
 
     @property
     def class_name(self) -> str:
         return self.__class__.__name__
 
+    @property
+    def ua_spaceless(self) -> str:
+        if not self._ua_spaceless:
+            self._ua_spaceless = self.user_agent.lower().replace(' ', '')
+        return self._ua_spaceless
+
     def get_parse_cache(self):
-        if self.ua_hash not in DDCache['user_agents']:
-            return None
         return DDCache['user_agents'][self.ua_hash].get('parsed', None)
 
     def set_parse_cache(self):
@@ -126,15 +138,10 @@ class DeviceDetector(RegexLoader):
         Or if entire string is mostly numeric, discard
         15B93
         """
-        if self.user_agent.translate(trans_tbl).isdigit():
+        if only_numerals_and_punctuation(self.user_agent):
             return True
 
-        alphabetic_chars = 0
-        for char in self.user_agent:
-            if not char.isnumeric():
-                alphabetic_chars += 1
-
-        return alphabetic_chars < 2
+        return mostly_numerals(self.user_agent)
 
     def is_uuid(self) -> bool:
         """
@@ -159,13 +166,12 @@ class DeviceDetector(RegexLoader):
 
     def is_gibberish(self):
         """
-        If UserAgent string is long and has no Space, Dot or Slash
-        consider it meaningless gibberish
+        Check for frequently occurring patterns of meaninglessness
         """
-        if len(self.user_agent) < 65:
-            return False
-        punc_removed = self.user_agent.translate(punctuation_tbl)
-        return punc_removed == self.user_agent
+        if mostly_repeating_characters(self.user_agent):
+            return True
+
+        return long_ua_no_punctuation(self.user_agent)
 
     def normalize(self):
         """
@@ -222,7 +228,9 @@ class DeviceDetector(RegexLoader):
 
         self.parse_os()
         self.parse_client()
-        self.parse_device()
+
+        if not self.skip_device_detection:
+            self.parse_device()
 
         return self.set_parse_cache()
 
@@ -234,34 +242,37 @@ class DeviceDetector(RegexLoader):
             return
 
         app_idx = ApplicationIDExtractor(self.user_agent)
-        app_id = app_idx.extract()
+        app_id = app_idx.extract().get('app_id', '')
 
         for Parser in self.CLIENT_PARSERS:
-            parser = Parser(self.user_agent).parse()
+            parser = Parser(self.user_agent, self.ua_hash, self.ua_spaceless).parse()
             if parser.ua_data:
                 self.client = parser
                 self.all_details['client'] = parser.ua_data
                 self.all_details['client']['app_id'] = app_id
-                if app_id and app_id in self.all_details['client']['name']:
-                    self.all_details['client']['name'] = app_idx.pretty_name()
+                if app_id:
+                    if app_id in self.all_details['client']['name']:
+                        self.all_details['client']['name'] = app_idx.pretty_name()
+                    elif self.is_facebook_tracking_noise():
+                        self.all_details['client']['name'] = app_idx.pretty_name()
                 return
 
         # if no client matched, still add name / app_id values
-        if app_idx.extract():
+        if app_id:
             self.all_details['client'] = {
-                'name': app_idx.app_id,
-                'app_id': app_idx.pretty_name(),
+                'name': app_idx.pretty_name(),
+                'app_id': app_id,
             }
 
     def parse_device(self) -> None:
         """
         Parses the UA for Device information using the Device or Bot parsers
         """
-        if self.device:
+        if self.device or self.skip_device_detection:
             return
 
         for Parser in self.DEVICE_PARSERS:
-            parser = Parser(self.user_agent).parse()
+            parser = Parser(self.user_agent, self.ua_hash, self.ua_spaceless).parse()
             if parser.ua_data:
                 self.device = parser
                 self.all_details['device'] = parser.ua_data
@@ -272,7 +283,7 @@ class DeviceDetector(RegexLoader):
         Parses the UA for bot information using the Bot parser
         """
         if not self.skip_bot_detection and not self.bot:
-            self.bot = Bot(self.user_agent).parse()
+            self.bot = Bot(self.user_agent, self.ua_hash, self.ua_spaceless).parse()
             self.all_details['bot'] = self.bot.ua_data
 
     def parse_os(self) -> None:
@@ -280,7 +291,7 @@ class DeviceDetector(RegexLoader):
         Parses the UA for Operating System information using the OS parser
         """
         if not self.os:
-            self.os = OS(self.user_agent).parse()
+            self.os = OS(self.user_agent, self.ua_hash, self.ua_spaceless).parse()
             self.all_details['os'] = self.os.ua_data
 
     # -----------------------------------------------------------------------------
@@ -354,7 +365,7 @@ class DeviceDetector(RegexLoader):
         """Devices running Kylo or Espital TV Browsers are assumed to be a TV"""
         if self.client_name() in ('Kylo', 'Espial TV Browser'):
             return True
-        return self.TV_fragment.search(self.user_agent, re.IGNORECASE) is not None
+        return self.TV_fragment.search(self.user_agent) is not None
 
     def uses_mobile_browser(self) -> bool:
         try:
@@ -363,6 +374,14 @@ class DeviceDetector(RegexLoader):
         except AttributeError:
             pass
         return False
+
+    def is_facebook_tracking_noise(self):
+        """
+        Dalvik/2.1.0 (Linux; U; Android 6.0.1; LG-M153 Build/MXB48T) [FBAN/AudienceNetworkForAndroid;FBSN/Android;FBSV/6.0.1;FBAB/com.outthinking.photo;FBAV/1.41;FBBV/37;FBVS/4.27.1;FBLC/en_US]
+        Interested in the FBAB/<app.id> pattern
+        i.e. FBAB/com.outthinking.photo
+        """
+        return self.facebook_fragment.search(self.user_agent) is not None
 
     def engine(self) -> str:
         if 'browser' not in self.client_type():
@@ -414,6 +433,8 @@ class DeviceDetector(RegexLoader):
         """
         Get device type, preferably from the Device Parser, but
         calculate from other attributes Device Parser failed.
+
+        Should work, even if skip_device_detection=True
         """
         if self.android_feature_phone():
             return 'smartphone'
@@ -441,15 +462,19 @@ class DeviceDetector(RegexLoader):
         return ''
 
     def device_model(self) -> str:
-        if not self.device:
+        if not self.device or self.skip_device_detection:
             return ''
         return self.device.model()
 
-    def device_brand_name(self):
+    def device_brand_name(self) -> str:
+        if self.skip_device_detection:
+            return ''
         from .parser import DEVICE_BRANDS
         return DEVICE_BRANDS.get(self.device_brand(), 'UNK')
 
     def device_brand(self) -> str:
+        if self.skip_device_detection:
+            return ''
         try:
             brand = self.device.brand_short_name()
         except AttributeError:
@@ -488,6 +513,9 @@ class DeviceDetector(RegexLoader):
         Update device details, after all parsing is complete,
         and we have the maximum context available.
         """
+        if self.skip_device_detection:
+            return
+
         if 'device' not in self.all_details:
             return
 
@@ -520,6 +548,17 @@ class DeviceDetector(RegexLoader):
         return 'Client: {} Device: {} OS: {}'.format(client, device, os).strip()
 
 
+class SoftwareDetector(DeviceDetector):
+
+    def __init__(self, user_agent, skip_bot_detection=True, skip_device_detection=True):
+        super().__init__(
+            user_agent,
+            skip_bot_detection=skip_bot_detection,
+            skip_device_detection=skip_device_detection,
+        )
+
+
 __all__ = [
     'DeviceDetector',
+    'SoftwareDetector',
 ]

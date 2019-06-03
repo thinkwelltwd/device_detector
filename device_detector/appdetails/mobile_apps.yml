@@ -1,0 +1,2969 @@
+###############
+# App Name / Type details for Device Detector - The Universal Device Detection library for parsing User Agents
+#
+# Copyright (c) 2019 Dave Burkholder, Thinkwell Designs
+# @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
+###############
+
+# WhatsApp
+- uaname: WhatsApp
+  name: WhatsApp
+
+- uaname: Chat for WhatsApp
+  name: WhatsApp
+
+- uaname: Guide for WhatsApp
+  name: WhatsApp
+
+- uaname: Groups for WhatsApp
+  name: WhatsApp
+
+- uaname: Memes for WhatsApp
+  name: WhatsApp
+
+# Line
+- uaname: Line
+  name: Line
+
+- uaname: Podcasts
+  name: Podcasts
+
+-
+  uaname: Podcat
+  name: Podcat
+
+-
+  uaname: BeyondPod
+  name: BeyondPod
+-
+  uaname: AntennaPod
+  name: AntennaPod
+-
+  uaname: Overcast
+  name: Overcast
+-
+  uaname: Player FM
+  name: Player FM
+-
+  uaname: Podkicker
+  suffixes: Pro
+  name: Podkicker
+-
+  uaname: Castro 2 Episode Download
+  name: Castro 2
+-
+  uaname: DoggCatcher
+  name: DoggCatcher
+-
+  uaname: iCatcher! Podcast Player
+  name: iCatcher
+-
+  uaname: YelpApp
+  name: Yelp Mobile
+-
+  uaname: GoogleAuth
+  name: Google Auth Engine
+-
+  uaname: PinkyPie
+  name: Cequint Caller ID
+-
+  uaname: eBayiPhone
+  name: eBay for iOS
+-
+  uaname: eBayiPhone
+  name: eBay for iOS
+-
+  uaname: Viber
+  name: Viber
+-
+  uaname: CloudVeilMessenger
+  name: CloudVeil Messenger
+
+-
+  uaname: VungleDroid
+  name: VungleDroid
+
+-
+  uaname: SafetyMap
+  name: SafetyMap
+
+-
+  uaname: Staples Mobile App
+  name: Staples Mobile App
+-
+  uaname: iMazing
+  name: iMazing
+
+- uaname: cbnnews
+  name: CBN News
+
+- uaname: chase
+  name: Chase
+
+- uaname: cheapoair
+  name: Cheapo Air
+
+- uaname: evernote/windows
+  name: Evernote Windows
+
+- uaname: evernote windows
+  name: Evernote Windows
+
+- uaname: foxnews
+  name: Fox News
+
+- uaname: accuweather
+  name: AccuWeather
+
+- uaname: com.accuweather.android
+  name: AccuWeather
+
+- uaname: com.apalon.weatherradar.free
+  name: NOAA Weather Radar
+
+- uaname: jcpenney
+  name: JC Penney
+
+- uaname: jetblue
+  name: Jet Blue
+
+- uaname: MyRadarPro
+  name: MyRadar Pro Weather Radar
+
+- uaname: flightradar24
+  name: Flightradar24
+
+- uaname: FlightRadarFree
+  name: Flightradar24
+
+- uaname: myradar
+  name: MyRadar Weather Radar
+
+- uaname: agweather
+  name: 'DTN: Ag Weather Tools'
+
+- uaname: agweb
+  name: AgWeb News & Markets
+
+- uaname: gaiagps
+  name: GAIA GPS
+
+- uaname: whitepages
+  name: Whitepages
+
+- uaname: 1password
+  name: 1Password
+
+- uaname: allrecipes
+  name: All Recipes
+
+- uaname: airtickets
+  name: airtickets.com App
+
+- uaname: airbnb
+  name: Airbnb
+
+- uaname: allairlines
+  name: All Airlines
+
+- uaname: americanairlines
+  name: American Airlines
+
+- uaname: auctiontime
+  name: AuctionTime
+
+- uaname: autotrader
+  name: AutoTrader
+
+- uaname: audible
+  name: Audible
+
+- uaname: biblegateway
+  name: Zondervan Bible Gateway
+
+- uaname: bible\+
+  name: Bible Plus
+
+- uaname: burger king
+  name: Burger King
+
+- uaname: cars.com
+  name: Cars.com App
+
+- uaname: ebay
+  name: eBay
+
+- uaname: ebaynotificationserviceextension
+  name: eBay
+
+- uaname: expediabookings
+  name: Expedia
+
+- uaname: fastline
+  name: Fastline
+
+- uaname: fly delta
+  name: Fly Delta
+
+- uaname: foreflight
+  name: ForeFlight
+
+- uaname: foxitmobilepdf
+  name: Foxit Mobile PDF
+
+- uaname: gasbuddy
+  name: Gas Buddy
+
+- uaname: flight board
+  name: Flight Board
+
+- uaname: hobbylobby
+  name: Hobby Lobby
+
+- uaname: holy bible
+  name: Holy Bible
+
+- uaname: holybiblefree
+  name: Holy Bible Free
+
+- uaname: i-easydrive
+  name: i-Easy Drive
+
+- uaname: iaa buyer
+  name: IAA Buyer App
+
+- uaname: kayak
+  name: Kayak
+
+- uaname: keeptruckin
+  name: KeepTruckin
+
+- uaname: kjvbible
+  name: KJV Bible
+
+- uaname: kjvstrongs
+  name: KJV Strongs Concordance
+
+- uaname: lowes
+  name: Lowes
+
+- uaname: metrofaxmobile
+  name: MetroFax Mobile
+
+- uaname: moneywiz
+  name: MoneyWiz
+
+- uaname: my cricket
+  name: MyCricket
+
+- uaname: ritchie bros.
+  name: Ritchie Brothers
+
+- uaname: roadtrippers
+  name: Road Trippers
+
+- uaname: samsclub
+  name: Sams Club
+
+- uaname: southwest
+  name: Southwest
+
+- uaname: snapfish
+  name: Snapfish
+
+- uaname: theweather
+  name: The Weather
+
+- uaname: thisoldhouse
+  name: This Old House
+
+- uaname: tractorhouse
+  name: Tractor House
+
+- uaname: tripadvisor
+  name: Trip Advisor
+
+- uaname: tripmode
+  name: Trip Mode
+
+- uaname: truckmap
+  name: Truck Map
+
+- uaname: truckpaper
+  name: Truck Paper
+
+- uaname: united
+  name: United
+
+- uaname: usatoday
+  name: USA Today
+
+- uaname: accuweather
+  name: AccuWeather
+
+- uaname: accu-weather
+  name: AccuWeather
+
+- uaname: weatherbug
+  name: Weather Bug
+
+- uaname: weather live
+  name: Weather Live
+
+- uaname: weather nerd
+  name: Weather Nerd
+
+- uaname: weather network
+  name: Weather Network
+
+- uaname: wikipanion
+  name: Wikipanion
+
+- uaname: wikipedia
+  name: Wikipedia
+
+- uaname: wunderground
+  name: Wunderground
+
+- uaname: wunderlist
+  name: Wunderlist
+
+- uaname: wsj
+  name: Wall Street Journal
+
+- uaname: zillow
+  suffixes: map
+  name: Zillow
+
+- uaname: 1800LastBid.com
+  name: 1800 Last Bid
+
+- uaname: 5miles
+  name: 5 Miles
+
+
+- uaname: aaairlines
+  name: American Airlines
+
+- uaname: Abbyy.Internet
+  name: Abbyy
+
+- uaname: acrobat viewer
+  name: Acrobat Viewer
+
+- uaname: Active911
+  name: Active 911
+
+- uaname: ActivityTracker
+  name: Activity Tracker
+
+- uaname: addmusictovideo_V2
+  name: AddMusicToVideo V2
+
+- uaname: AdobeAIR
+  name: AdobeAIR
+
+- uaname: adobe acrobat
+  suffixes: updater|updater helper
+  name: Adobe Acrobat
+
+- uaname: adobe acrobat
+  name: Adobe Acrobat
+
+- uaname: Adobe Application Manager
+  name: Adobe Application Manager
+
+- uaname: Adobe Downloader App
+  name: Adobe Downloader App
+
+- uaname: Adobe Draw
+  name: Adobe Draw
+
+- uaname: Adobe Flash Player
+  name: Adobe Flash Player
+
+- uaname: Adobe Help Integration Library
+  name: Adobe Help Integration Library
+
+- uaname: Adobe Log Transport
+  name: Adobe Log Transport
+
+- uaname: Adobe Online Services
+  name: Adobe Online Services
+
+- uaname: Adobe Real Time
+  name: Adobe Real Time
+
+- uaname: Adobe Scan
+  name: Adobe Scan
+
+- uaname: Adobe Sketch
+  name: Adobe Sketch
+
+- uaname: Adobe Update Manager
+  name: Adobe Update Manager
+
+- uaname: adobe xd
+  name: Adobe XD
+
+- uaname: Adore Me
+  name: Adore Me
+
+- uaname: aeroplane wallpapers
+  name: Aeroplane Wallpapers
+
+- uaname: aeroplusweather2
+  name: Aeroplus Weather 2
+
+- uaname: AESMService
+  name: AESM Service
+
+- uaname: agenda-widgetextension
+  name: Agenda Widget Extension
+
+- uaname: agworld
+  name: Ag World
+
+- uaname: airdroid
+  name: Air Droid
+
+- uaname: AKLocationSignInAlert
+  name: AK Location Sign In Alert
+
+- uaname: alarmclockfree
+  name: Alarm Clock Free
+
+- uaname: alcatraz
+  name: Alcatraz
+
+- uaname: algolia for swift
+  name: Algolia for Swift
+
+- uaname: allegiant
+  name: Allegiant
+
+- uaname: alliesskyraidersfree
+  name: Allies Sky Raiders Free
+
+- uaname: alltrails
+  name: All Trails
+
+- uaname: altimeter
+  name: Altimeter
+
+- uaname: altimeter pro a.c.t
+  name: Altimeter Pro A.C.T
+
+- uaname: amazon
+  name: Amazon
+
+- uaname: amazoncloudplayer
+  name: Amazon Cloud Player
+
+- uaname: amex
+  name: Amex
+
+- uaname: amp recover
+  name: Amp Recover
+
+- uaname: AMPVConnector
+  name: AMPV Connector
+
+- uaname: amtrak
+  name: Amtrak
+
+- uaname: analytics-android
+  name: Android Analytics
+
+- uaname: anbtx md
+  name: ANBTX MD
+
+- uaname: "angie's list"
+  name: "Angie's List"
+
+- uaname: angle pro
+  name: Angle Pro
+
+- uaname: angusmobile
+  name: Angus Mobile
+
+- uaname: anothervoice
+  suffixes: extension
+  name: Another Voice
+
+- uaname: any.do
+  name: Any.do
+
+- uaname: anylist
+  name: AnyList
+
+- uaname: ap mobile
+  name: AP Mobile
+
+- uaname: ap news
+  name: AP News
+
+- uaname: appbox
+  name: App Box
+
+- uaname: appcore
+  name: App Core
+
+- uaname: appex
+  name: Appex
+
+- uaname: applecoremedia
+  name: Apple Core Media
+
+- uaname: appledictionaryapplication
+  name: Apple Dictionary App
+
+- uaname: appleidauthagent
+  name: Apple ID Auth Agent
+
+- uaname: applenewswidget
+  name: Apple News Widget
+
+- uaname: apple support
+  name: Apple Support
+
+- uaname: applib\/apps 4 you
+  name: Apps 4 You
+
+- uaname: app.quiktrip.com.quiktrip
+  name: QuickTrip
+
+- uaname: appstore
+  name: AppStore
+
+- uaname: apptentiveconnect
+  name: Apptentive Connect
+
+- uaname: aquarium live hd free
+  name: Aquarium Live HD Free
+
+- uaname: archeryking
+  name: Archery King
+
+- uaname: arc-intouch
+  name: ARC Intouch
+
+- uaname: areacodedirectory
+  name: Area Code Directory
+
+- uaname: art and stitch
+  name: Art and Stitch
+
+- uaname: atube-music
+  name: ATube Music
+
+- uaname: auction.com
+  name: Auction.com
+
+- uaname: audiomack
+  suffixes: -android|-iphone
+  name: Audiomack
+
+- uaname: audubon
+  name: Audubon
+
+- uaname: auto agent
+  name: Auto Agent
+
+- uaname: autolist
+  name: Auto List
+
+- uaname: autosist
+  name: AUTOsist
+
+- uaname: autozone
+  name: AutoZone
+
+- uaname: avdroid
+  name: AvDroid
+
+- uaname: avira
+  name: Avira
+
+- uaname: backupassistantdaemon
+  name: Backup Assistant Daemon
+
+- uaname: ballsvsblocks
+  name: Balls VS Blocks
+
+- uaname: bbw loyalty
+  name: BBW Loyalty
+
+- uaname: beam
+  name: Beam
+
+- uaname: bee7advertiser
+  name: Bee 7 Advertiser
+
+- uaname: bee7publisher
+  name: Bee 7 Publisher
+
+- uaname: bestbuy-mapp
+  name: Best Buy App
+
+- uaname: better homes and gardens release
+  name: Better Homes and Gardens
+
+- uaname: bible
+  name: Bible
+
+- uaname: bible.is
+  name: Bible.is
+
+- uaname: bible votd
+  name: Bible VOTD
+
+- uaname: bigben clock
+  name: BigBen Clock
+
+- uaname: bigoven
+  name: BigOven
+
+- uaname: bigroad
+  name: BigRoad
+
+- uaname: bill.com
+  name: Bill.com
+
+- uaname: bluedriver
+  name: Blue Driver
+
+- uaname: bluemail
+  name: Blue Mail
+
+- uaname: bmi calc
+  name: BMI Calculator
+
+- uaname: bofa
+  name: Bank of America
+
+- uaname: books to go
+  name: Books To Go
+
+- uaname: breakpad
+  name: Breakpad
+
+- uaname: breakr
+  name: BreakR
+
+- uaname: snapfish
+  suffixes: -android
+  name: Snapfish
+
+- uaname: bubblelevel3d
+  name: Bubble Level 3D
+
+- uaname: bubblelevel
+  name: Bubble Level
+
+- uaname: budget planner
+  name: Budget Planner
+
+- uaname: buyandsell
+  name: Buy and Sell
+
+- uaname: cabelas
+  name: Cabelas
+
+- uaname: calcbot
+  name: Calcbot
+
+- uaname: calculator
+  name: Calculator
+
+- uaname: calculator...
+  name: Calculator...
+
+- uaname: calculator hd
+  name: Calculator HD
+
+- uaname: calculator irocks
+  name: Calculator iRocks
+
+- uaname: calendars
+  name: Calendars
+
+- uaname: calenmob
+  name: CalenMob
+
+- uaname: CAL FIRE
+  name: CAL FIRE
+
+- uaname: callrecorder
+  name: Call Recorder
+
+- uaname: cambriaar
+  name: Cambria AR
+
+- uaname: camera
+  name: Camera
+
+- uaname: camscannerhd_pro
+  name: CamScanner HD Pro
+
+- uaname: canva
+  name: Canva
+
+- uaname: capo
+  name: Capo
+
+- uaname: caponate
+  name: Caponate
+
+- uaname: cardcompanion
+  name: Card Companion
+
+- uaname: carmax
+  name: CarMax
+
+- uaname: car-part.com
+  name: Car-Part.com
+
+- uaname: carsub
+  name: Car Sub
+
+- uaname: cartalk20
+  name: Car Talk
+
+- uaname: cash plus hd
+  name: Cash Plus HD
+
+- uaname: castsdk
+  name: Cast SDK
+
+- uaname: cattletalkmobile2
+  name: Cattle Talk Mobile
+
+- uaname: chatter
+  name: Chatter
+
+- uaname: cheapflights
+  name: Cheap Flights
+
+- uaname: cheaptickets
+  name: Cheap Tickets
+
+- uaname: chickfila
+  name: Chick-fil-A
+
+- uaname: christianaudio
+  name: Christian Audio
+
+- uaname: citi mobile
+  name: Citi Mobile
+
+- uaname: city market
+  name: City Market
+
+- uaname: classifieds_free
+  name: Classifieds Free
+
+- uaname: clips
+  name: Clips
+
+- uaname: cloudahoy
+  name: Cloud Ahoy
+
+- uaname: cloudinary
+  suffixes: ios|android
+  name: Cloudinary
+
+- uaname: cloudkit
+  name: CloudKit
+
+- uaname: cloudveil messenger
+  name: CloudVeil Messenger
+
+- uaname: clover® go
+  name: Clover Go
+
+- uaname: clue
+  name: Clue
+
+- uaname: cmegroup
+  suffixes: _android|widget
+  name: CME Group
+
+- uaname: cnn today
+  name: CNN Today
+
+- uaname: cocorahs
+  name: CoCoRaHS
+
+- uaname: coinbase
+  name: Coinbase
+
+- uaname: colorado roads
+  name: Colorado Roads
+
+- uaname: colorledflashlightpro
+  name: Color LED Flashlight Pro
+
+- uaname: com.agilebits.onepassword-ios.extension
+  name: 1Password
+
+- uaname: AgingBooth
+  name: AgingBooth
+
+- uaname: Adult SMS
+  name: Adult SMS
+
+- uaname: com.apple.camera
+  name: Apple Camera
+
+- uaname: com.apple.invitation-registration
+  name: Apple Invitation Registration
+
+- uaname: com.apple.mobilenotes.sharingextension
+  name: Apple Mobile Notes
+
+- uaname: com.apple.mobilesafari
+  name: Apple Mobile Safari
+
+- uaname: com.apple.mobileslideshow
+  name: Apple Mobile Slideshow
+
+- uaname: com.apple.MobileSMS
+  name: Apple MobileSMS
+
+- uaname: com.apple.mobilesoftwareupdate
+  name: Apple Mobile Software Update
+
+- uaname: com.apple.Photos
+  name: Apple Photos
+
+- uaname: com.apple.safari.searchhelper
+  name: Safari Search Helper
+
+- uaname: com.apple.siri-distributed-evaluation
+  name: Safari Siri Distibuted Evalutation
+
+- uaname: com.equitybank.grip
+  name: Equity Bank
+
+- uaname: Hangouts
+  name: Google Hangouts
+
+- uaname: com.google.hangouts
+  suffixes: _ios
+  name: Google Hangouts
+
+- uaname: com.jcp
+  name: JCPenney
+
+- uaname: com.kohls.mcommerce.opal
+  name: Kohls
+
+- uaname: com.menards.mobile
+  name: Menards
+
+- uaname: commerce \(com.underarmour.shop
+  name: Under Armour
+
+- uaname: com.mxtech.videoplayer.*
+  name: MX Player
+
+- uaname: com.offerup
+  name: OfferUp
+
+- uaname: com.ovbc.grip
+  name: Ohio Valley Mobile Banking
+
+- uaname: com.parrot.freeflight3
+  name: FreeFlight Pro
+
+- uaname: com.project100pi.themusicplayer
+  name: Pi Music Player
+
+- uaname: com.sonicomobile.itranslatemac
+  name: iTranslate
+
+- uaname: com.starbucks.mobilecard
+  name: Starbucks
+
+- uaname: com.tgc.greatcoursesplus
+  name: Great Courses Plus
+
+- uaname: com.thehomedepot
+  name: The Home Depot
+
+- uaname: com.trucker-path-pro
+  name: Trucker Path Pro
+
+- uaname: com.umi.feudlive
+  name: Family Feud Live!
+
+- uaname: com.whaleshark.retailmenot
+  name: RetailMeNot
+
+- uaname: concepts
+  name: Concepts
+
+- uaname: concordance
+  name: Concordance
+
+- uaname: concrete and aggregate calc
+  name: Concrete and Aggregate Calc
+
+- uaname: connect for garmin
+  name: Connect for Garmin
+
+- uaname: connectify
+  name: Connectify
+
+- uaname: connectmobile
+  name: Connect Mobile
+
+- uaname: consumermobile
+  name: Consumer Mobile
+
+- uaname: contacts
+  name: Contacts
+
+- uaname: converterplus
+  name: Converter Plus
+
+- uaname: convertunits
+  name: Convert Units
+
+- uaname: cookbook
+  name: Cookbook
+
+- uaname: coolfacts
+  name: CoolFacts
+
+- uaname: coollocks
+  name: Cool Locks
+
+- uaname: corridor
+  name: Corridor
+
+- uaname: couchbaselite
+  name: Couchbase Lite
+
+- uaname: coupons
+  name: Coupons
+
+- uaname: couponsproject
+  name: Coupons Project
+
+- uaname: cplus for craigslist
+  name: CPlus for Craigslist
+
+- uaname: crashlytics[ a-z]+
+  name: Crashlytics
+
+- uaname: creditkarmauniversal
+  name: Credit Karma
+
+- uaname: crew
+  name: Crew
+
+- uaname: csmart for craigslist
+  name: CSmart for craigslist
+
+- uaname: csmi
+  name: CSMI
+
+- uaname: CUIPromotion
+  name: CUIPromotion
+
+- uaname: curiosityandroid
+  name: Curiosity Android
+
+- uaname: currencyapp
+  name: Currency App
+
+- uaname: dailyquote
+  name: Daily Quote
+
+- uaname: darkskywatchapp extension
+  name: Dark Sky Watch App
+
+- uaname: darkskywidget
+  name: Dark Sky Widget
+
+- uaname: dashlane
+  name: Dashlane
+
+- uaname: day one
+  name: Day One
+
+- uaname: day - weather nerd
+  name: Weather Nerd
+
+- uaname: db meter
+  name: dB Meter
+
+- uaname: ddactionsservice
+  name: DD Actions Service
+
+- uaname: Densimeter Axiom iOS
+  name: Densimeter Axiom
+
+- uaname: despicableme
+  name: Despicable Me
+
+- uaname: dewalt
+  name: DeWalt
+
+- uaname: dictboxapp
+  name: Dict Box App
+
+- uaname: dictionary(ipad)?
+  name: Dictionary
+
+- uaname: discountsproject
+  name: Discounts Project
+
+- uaname: discovermobile
+  name: Discover Mobile
+
+- uaname: distance
+  name: Distance
+
+- uaname: ditty
+  name: Ditty
+
+- uaname: dji go
+  name: DJI GO
+
+- uaname: docscan hd
+  name: DocScan HD
+
+- uaname: documents
+  name: Documents
+
+- uaname: dominos
+  name: Dominos
+
+- uaname: dr.fone
+  name: dr.fone
+
+- uaname: drovers
+  name: Drovers
+
+- uaname: dsfile
+  name: DSfile
+
+- uaname: dte energy
+  name: DTE Energy
+
+- uaname: duolingomobile
+  name: Duolingo Mobile
+
+- uaname: eBay
+  suffixes: NotificationServiceExtension
+  name: eBay
+
+- uaname: ecatalog
+  name: eCatalog
+
+- uaname: edispatches
+  name: eDispatches
+
+- uaname: eeba
+  name: EEBA
+
+- uaname: eero
+  name: eero
+
+- uaname: efaxmobile
+  name: eFaxMobile
+
+- uaname: egginc
+  name: Egg, Inc.
+
+- uaname: eliveroom
+  name: eliveroom
+
+- uaname: eloquent
+  name: Eloquent
+
+- uaname: englertapp
+  name: Englert App
+
+- uaname: enterprise
+  name: Enterprise
+
+- uaname: espn
+  name: ESPN
+
+- uaname: estatesales
+  name: Estate Sales
+
+- uaname: etpushsdk
+  name: ET Push SDK
+
+- uaname: everydollar
+  name: Every Dollar
+
+- uaname: facebook
+  name: Facebook
+
+- uaname: facefoto
+  name: FaceFoto
+
+- uaname: familycalendar
+  name: Family Calendar
+
+- uaname: famousquotesnotification
+  name: Famous Quotes Notification
+
+- uaname: faraztest
+  name: Faraz Test
+
+- uaname: farmlead
+  name: Farm Lead
+
+- uaname: farmlogs
+  name: Farm Logs
+
+- uaname: farms.com
+  name: farms.com
+
+- uaname: farmworks
+  name: FarmWorks
+
+- uaname: fatsecret
+  name: FatSecret
+
+- uaname: favoriteswidget
+  name: Favorites Widget
+
+- uaname: fax
+  name: Fax
+
+- uaname: famliycalendar
+  name: Family Calendar
+
+- uaname: faxplus
+  name: Fax Plus
+
+- uaname: faxreceive
+  name: Fax Receive
+
+- uaname: fdconsumer
+  name: Family Dollar
+
+- uaname: femalefitness
+  name: Female Fitness
+
+- uaname: fidelity
+  name: Fidelity
+
+- uaname: fieldalytics explorer
+  name: FieldAlytics Explorer
+
+- uaname: fieldview
+  name: FieldView
+
+- uaname: filebrowserbusiness
+  name: Field Browser Business
+
+- uaname: fileexplorerfree
+  name: File Explorer Free
+
+- uaname: filemaker pro
+  name: FileMaker Pro
+
+- uaname: filemanager
+  name: File Manager
+
+- uaname: filestack-ios
+  name: Filestack iOS
+
+- uaname: filestack-swift
+  name: Filestack Swift
+
+- uaname: fileviewpro updater
+  name: FileViewPro Updater
+
+- uaname: fillandsign
+  name: Fill and Sign
+
+- uaname: filterra
+  name: Filterra
+
+- uaname: findersync
+  name: FinderSync
+
+- uaname: findmyiphone
+  name: Find My iPhone
+
+- uaname: finetuner
+  name: Fine Tuner
+
+- uaname: fingerfocus
+  name: Finger Focus
+
+- uaname: fishbrainbot
+  name: Fishbrain Bot
+
+- uaname: fitbitmobile
+  name: Fitbit Mobile
+
+- uaname: flac player
+  name: FLAC Player
+
+- uaname: flashlight
+  name: Flashlight
+
+- uaname: flightaware
+  name: FlightAware
+
+- uaname: flightpilot
+  name: Flight Pilot
+
+- uaname: flights
+  name: Flights
+
+- uaname: FlightStats
+  name: FlightStats
+
+- uaname: flipp-ios
+  name: Flipp
+
+- uaname: flir one
+  name: FLIR One
+
+- uaname: flo
+  name: Flo
+
+- uaname: floriani
+  name: Floriani
+
+- uaname: flux
+  name: flux
+
+- uaname: flyplane
+  name: Fly Plane
+
+- uaname: foresttreeidentification
+  name: Forest Tree Identification
+
+- uaname: FORTE 9 Free
+  name: FORTE 9 Free
+
+- uaname: Foxit PhantomPDF
+  name: Foxit PhantomPDF
+
+- uaname: FoxitPhantomPDFUpdater
+  name: Foxit PhantomPDF Updater
+
+- uaname: Foxit Reader
+  name: Foxit Reader
+
+- uaname: FoxitReaderUpdater
+  name: Foxit Reader Updater
+
+- uaname: fractioncalculatorplusfree
+  name: Fraction Calculator Plus Free
+
+- uaname: free books
+  name: Free Books
+
+- uaname: freechat
+  name: FreeChat
+
+- uaname: freeletics
+  name: Freeletics
+
+- uaname: freeprints
+  name: FreePrints
+
+- uaname: freequotes
+  name: FreeQuotes
+
+- uaname: freestreamer
+  name: Freestreamer
+
+- uaname: freetone
+  name: FreeTone
+
+- uaname: freevpn-us
+  name: FreeVPN-US
+
+- uaname: freshbooks
+  name: FreshBooks
+
+- uaname: friedman
+  name: Friedman
+
+- uaname: frontier
+  name: Frontier
+
+- uaname: ftwidgettoday
+  name: FT Widget Today
+
+- uaname: funny pics-free
+  name: Funny Pics Free
+
+- uaname: fusion360
+  name: Fusion 360
+
+- uaname: fxfactory
+  name: FX Factory
+
+- uaname: com.sandhills.auctiontime
+  name: Auction Time
+
+- uaname: galaxycare
+  name: Galaxy Care
+
+- uaname: ganamovil
+  name: GanaMovil
+
+- uaname: gascubby
+  name: GasCubby
+
+- uaname: gdata
+  name: GData
+
+- uaname: genie_swift4
+  name: Genie Swift 4
+
+- uaname: geocaching
+  name: Geocaching
+
+- uaname: geomeasure
+  name: Geomeasure
+
+- uaname: gifbook(message)?
+  name: GIFbook
+
+- uaname: giftagram
+  name: Giftagram
+
+- uaname: gifx
+  name: GifX
+
+- uaname: gliese
+  name: Gliese
+
+- uaname: gms-backup
+  name: Gms-Backup
+
+- uaname: gmscore
+  name: GmsCore
+
+- uaname: goiq
+  name: GoIQ
+
+- uaname: golfshot
+  name: Golfshot
+
+- uaname: goodmorning
+  name: GoodMorning
+
+- uaname: googleanalytics
+  name: Google Analytics
+
+- uaname: googlemobile
+  name: Google Mobile
+
+- uaname: google update
+  name: Google Update
+
+- uaname: gopayment
+  name: GoPayment
+
+- uaname: gopro
+  name: GoPro
+
+- uaname: gould
+  name: Gould
+
+- uaname: gpskithd
+  name: GPS Kit HD
+
+- uaname: gps\/topo maps
+  name: GPS Topo Maps
+
+- uaname: grace to you
+  name: Grace To You
+
+- uaname: grainger
+  suffixes: -iphone|-android|_iphone|_android
+  name: Grainger
+
+- uaname: greatquotes
+  name: Great Quotes
+
+- uaname: greensky
+  name: GreenSky
+
+- uaname: greentraffic
+  name: GreenTraffic
+
+- uaname: grkeyboard(extension)?
+  name: GR Keyboard
+
+- uaname: grocery
+  name: Grocery
+
+- uaname: groupme
+  name: GroupMe
+
+- uaname: groups
+  name: Groups
+
+- uaname: \w+.com.apalonapps.radarfree
+  name: NOAA Weather Radar Free
+
+- uaname: \w+.com.apalonapps.wlf
+  name: Weather Live Free
+
+- uaname: hand shadow
+  name: Hand Shadow
+
+- uaname: harvestyield
+  name: Harvest Yield
+
+- uaname: health
+  name: Health
+
+- uaname: healthstorylines
+  name: Health Story Lines
+
+- uaname: heartbeat-client
+  name: Heartbeat Client
+
+- uaname: hearts 
+  name: Hearts
+
+- uaname: hemmings
+  name: Hemmings
+
+- uaname: heresuite
+  name: Here Suite
+
+- uaname: hi-def radar
+  name: Hi-Def Radar
+
+- uaname: hiya
+  name: Hiya
+
+- uaname: hlmetrics_android
+  name: HL Metrics
+
+- uaname: hms_ios
+  name: HMS
+
+- uaname: HOCKEYSDK
+  name: Hockey SDK
+
+- uaname: homeadvisorpro
+  name: Home Advisor Pro
+
+- uaname: HomeAway WebKit
+  name: HomeAway WebKit
+
+- uaname: hot_flights
+  name: Hot Flights
+
+- uaname: house-flip
+  name: House Flip
+
+- uaname: houzz
+  name: houzz
+
+- uaname: hughesnet-prod-store
+  name: HughesNet
+
+- uaname: hungrysharkwor
+  name: Hungry Shark World
+
+- uaname: hunt
+  name: Hunt
+
+- uaname: huntingchallengefree
+  name: Hunting Challenge Free
+
+- uaname: huntstand
+  name: Hunt Stand
+
+- uaname: hvac vfd
+  name: HVAC VFD
+
+- uaname: ibird explorer plus
+  name: iBird Explorer Plus
+
+- uaname: iblurb
+  name: iBlurb
+
+- uaname: ibooks
+  name: iBooks
+
+- uaname: iexit
+  name: iExit
+
+- uaname: iexit trucks
+  name: iExit Trucks
+
+- uaname: ifax
+  name: iFax
+
+- uaname: ilights
+  name: iLights
+
+- uaname: imapmyhike
+  name: Map My Hike
+
+- uaname: imessageextension
+  name: iMessage
+
+- uaname: imoji
+  name: iMoji
+
+- uaname: imoneywiz
+  name: iMoneyWiz
+
+- uaname: imovie
+  name: iMovie
+
+- uaname: inbox
+  name: Inbox
+
+- uaname: informant
+  name: Informant
+
+- uaname: inspirations
+  name: Inspirations
+
+- uaname: instamag
+  name: InstaMag
+
+- uaname: intercom
+  name: Intercom
+
+- uaname: inventor
+  name: Inventor
+
+- uaname: inventory
+  name: Inventory
+
+- uaname: ipolis mobile
+  name: iPOLiS Mobile
+
+- uaname: iprint&scan
+  name: iPrint & Scan
+
+- uaname: iquad
+  name: iQuad
+
+- uaname: iroofing
+  name: iRoofing
+
+- uaname: iscanner
+  name: iScanner
+
+- uaname: ispending
+  name: iSpending
+
+- uaname: iss finder
+  name: ISS Finder
+
+- uaname: isub
+  name: iSub
+
+- uaname: itranslate
+  name: iTranslate
+
+- uaname: itriplog
+  name: iTripLog
+
+- uaname: ituner
+  name: iTuner
+
+- uaname: ixpand drive
+  name: iXpand Drive
+
+- uaname: jm bullion
+  name: JM Bullion
+
+- uaname: joann
+  name: JOANN
+
+- uaname: johnstone
+  name: Johnstone
+
+- uaname: joist
+  name: Joist
+
+- uaname: jpay
+  name: JPay
+
+- uaname: jump desktop
+  name: Jump Desktop
+
+- uaname: kamino
+  name: Kamino
+
+- uaname: keihiapp
+  name: Keihi App
+
+- uaname: kickstarter
+  name: Kickstarter
+
+- uaname: kidsbible-mobile
+  name: Kids Bible
+
+- uaname: kies
+  name: Kies
+
+- uaname: kiosk
+  name: Kiosk
+
+- uaname: kjv bible dictionary
+  name: KJV Bible Dictionary
+
+- uaname: kjvbiblenonpro
+  name: KJV Bible Non Pro
+
+- uaname: kjv - king james study bible
+  name: King James Study Bible
+
+- uaname: km-911-alert
+  name: KM 911 Alert
+
+- uaname: koa
+  name: KOA
+
+- uaname: kodakmomentsapp
+  name: Kodak Moments
+
+- uaname: "kohl's"
+  suffixes: "notification service extension"
+  name: "Kohl's"
+
+- uaname: kroger
+  name: Kroger
+
+- uaname: ksoap2-android
+  name: kSOAP2
+
+- uaname: landglide \(com.reportallusa.landglide.landglide
+  name: LandGlide
+
+- uaname: languages
+  name: Languages
+
+- uaname: lanscan
+  name: LanScan
+
+- uaname: lastminutetakeoff
+  name: Last Minute Takeoff
+
+- uaname: letgo
+  name: letgo
+
+- uaname: lexie
+  name: Lexie
+
+- uaname: libby
+  name: Libby
+
+- uaname: lifesum
+  name: Lifesum
+
+- uaname: listingsapi
+  name: Listings API
+
+- uaname: liveatc
+  name: Live ATC
+
+- uaname: liveblock
+  name: Live Block
+
+- uaname: livegenicenterprise
+  name: Livegenic Enterprise
+
+- uaname: liveupdateengine
+  name: Live Update Engine
+
+- uaname: livewallpapersfree
+  name: Live Wallpapers Free
+
+- uaname: live weather
+  name: Live Weather
+
+- uaname: lookout
+  name: Lookout
+
+- uaname: lookupviewservice
+  name: Lookup View Service
+
+- uaname: lose it!
+  name: Lose It!
+
+- uaname: lrmobile(phone)?
+  name: Light Room Mobile
+
+- uaname: lumos
+  name: Lumos
+
+- uaname: lyonsnationalbankv3
+  name: Lyons National Bank
+
+- uaname: machinery
+  name: Machinery
+
+- uaname: magisto
+  name: Magisto
+
+
+- uaname: mail
+  name: Mail
+
+- uaname: main_retail_pro_app
+  name: Main Retail Pro
+
+- uaname: mango
+  name: Mango
+
+- uaname: mapboxgl
+  name: Mapbox GL
+
+- uaname: mapmyrun
+  name: Map My Run
+
+- uaname: mapquest
+  name: MapQuest
+
+- uaname: maps
+  name: Maps
+
+- uaname: maps.me
+  name: maps.me
+
+- uaname: mapssupport
+  name: Maps Support
+
+- uaname: maps_weatherfoundation
+  name: Maps Weather Foundation
+
+- uaname: mapulator
+  name: Mapulator
+
+- uaname: mapwidget
+  name: Map Widget
+
+- uaname: marcopolo
+  name: Marco Polo
+
+- uaname: marketbook
+  name: Market Book
+
+- uaname: marketingcloudsdk
+  name: Marketing Cloud SDK
+
+- uaname: marketplace
+  name: Marketplace
+
+- uaname: marketwatch
+  name: MarketWatch
+
+- uaname: matthew henry
+  name: Matthew Henry
+
+- uaname: matthew henry & strong's concordance with kjv bible
+  name: Matthew Henry & Strong's Concordance with KJV Bible
+
+- uaname: mcdonald's
+  name: McDonald's
+
+- uaname: mcmaster-carr-app
+  name: McMaster-Carr
+
+- uaname: mdchuntermobile
+  name: MDC Hunter Mobile
+
+- uaname: mdm tunnel provider
+  name: MDM Tunnel Provider
+
+- uaname: measure
+  name: Measure
+
+- uaname: meijer
+  name: Meijer
+
+- uaname: menards
+  name: Menards
+
+- uaname: meraki mdm
+  name: Meraki MDM
+
+- uaname: merck vet
+  name: Merck Vet
+
+- uaname: merlin
+  name: Merlin
+
+- uaname: merriam-webster
+  suffixes: dictionary|dict. and thes.|-ipad|-ipad-premium
+  name: Merriam Webster Dictionary
+
+- uaname: merriamwebster
+  suffixes: dictionary|dict. and thes.|-ipad|-ipad-premium
+  name: Merriam Webster Dictionary
+
+- uaname: messages
+  name: Messages
+
+- uaname: MessagesViewService
+  name: Messages View Service
+
+- uaname: metal calculator
+  name: Metal Calculator
+
+- uaname: metaldetect
+  name: Metal Detect
+
+- uaname: metronome
+  name: Metronome
+
+- uaname: mevo
+  name: Mevo
+
+- uaname: military night vision spy - binoculars camera
+  name: Military Night Vision Spy
+
+- uaname: MiniLyrics4Android
+  name: Mini Lyrics 4 Android
+
+- uaname: mobilecashplus
+  name: Mobile Cash Plus
+
+- uaname: mobiledealerconnectipad
+  name: Mobile Dealer Connect iPad
+
+- uaname: mobileoffice
+  name: Mobile Office
+
+- uaname: mobilesms
+  name: Mobile SMS
+
+- uaname: modulo
+  name: Modulo
+
+- uaname: mo fishing
+  name: MO Fishing
+
+- uaname: moment
+  name: Moment
+
+- uaname: momondo
+  name: Momondo
+
+- uaname: monal
+  name: Monal
+
+- uaname: moneywiz 2
+  name: MoneyWiz 2
+
+- uaname: monkey
+  name: Monkey
+
+- uaname: monsterairfield
+  name: Monster Airfield
+
+- uaname: moom
+  name: Moom
+
+- uaname: moonlight
+  name: Moonlight
+
+- uaname: morecast
+  suffixes: ios httpclient|ios oauthclient
+  name: Morecast
+
+- uaname: motivation
+  name: Motivation
+
+- uaname: motivationalquotes
+  name: Motivational Quotes
+
+- uaname: motivo
+  name: Motivo
+
+- uaname: mp s3 transfer manager, ios
+  name: MP S3 Transfer Manager
+
+- uaname: music
+  name: Music
+
+- uaname: musica cristiana de adoracion
+  name: Musica Cristiana de Adoracion
+
+- uaname: musically
+  name: Musically
+
+- uaname: musicplayerapp
+  name: Music Player App
+
+- uaname: myattthin
+  name: my ATT
+
+- uaname: mybusiness
+  name: MyBusiness
+
+- uaname: mychart
+  name: MyChart
+
+- uaname: mycom
+  name: MyCom
+
+- uaname: my data mgr
+  name: My Data Manager
+
+- uaname: myfitnesspal
+  name: My Fitness Pal
+
+- uaname: mygmc
+  name: myGMC
+
+- uaname: myibidder pps
+  name: Myibidder PPS
+
+- uaname: myklove
+  name: myKLOVE
+
+- uaname: mymaintenance
+  name: My Maintenance
+
+- uaname: myoperations
+  name: My Operations
+
+- uaname: myrapid
+  name: MyRapid
+
+- uaname: my sprint
+  name: My Sprint
+
+- uaname: mysteryhouse
+  name: Mystery House
+
+- uaname: nanomusic
+  name: Nano Music
+
+- uaname: nbs newlens agent
+  name: NBS Newlens Agent
+
+- uaname: nearbyhomeswidget
+  name: Nearby Homes Widget
+
+- uaname: nearesthomeforsalewidget
+  name: Nearest Home for Sale Widget
+
+- uaname: neutron
+  name: Neutron
+
+- uaname: new-buymeapie-free
+  name: Buy Me a Pie!
+
+- uaname: new reach
+  name: New Reach
+
+- uaname: News
+  name: Apple News
+
+- uaname: newsarticleviewer
+  name: News Article Viewer
+
+- uaname: newstoday
+  name: News Today
+
+- uaname: nfoapp
+  name: NfoApp
+
+- uaname: night sky
+  name: Night Sky
+
+- uaname: nikerunclub
+  name: Nike Run Club
+
+- uaname: nikerunclubwatch extension
+  name: Nike Run Club Watch Extension
+
+- uaname: nitrogenplus
+  name: Nitrogen Plus
+
+- uaname: nkjv bible
+  name: NKJV Bible
+
+- uaname: noaa radar
+  name: NOAA Radar
+
+- uaname: noaa radar pro
+  name: NOAA Radar Pro
+
+- uaname: noaa radar usa
+  name: NOAA Radar USA
+
+- uaname: noaa weather
+  name: NOAA Weather
+
+- uaname: notepad *
+  name: Notepad
+
+- uaname: notes
+  name: Notes
+
+- uaname: notificationhubs
+  name: Notification Hubs
+
+- uaname: notificationservice
+  suffixes: extension
+  name: Notification Service
+
+- uaname: ns imessage app
+  name: NS iMessage App
+
+- uaname: o7mytalkingtom
+  name: My Talking Tom
+
+- uaname: obd fusion
+  name: OBD Fusion
+
+- uaname: ocspd
+  name: OCSPD
+
+- uaname: odin-yms
+  name: Odin YMS
+
+- uaname: offerup
+  name: OfferUp
+
+- uaname: Olympus
+  name: Olympus
+
+- uaname: OndemandCM
+  name: OndemandCM
+
+- uaname: oneweather
+  name: OneWeather
+
+- uaname: ontime ifta
+  name: Ontime Ifta
+
+- uaname: onx roam
+  name: onX ROAM
+
+- uaname: opensignalmaps
+  name: Open Signal Maps
+
+- uaname: oplayerhd lite
+  name: OPlayerHD Lite
+
+- uaname: oral-b app
+  name: Oral-B App
+
+- uaname: orbitz
+  name: Orbitz
+
+- uaname: osmand
+  suffix: maps
+  name: OsmAnd Maps
+
+- uaname: owner
+  name: Owner
+
+- uaname: oxforddictionaryofenglishfree
+  name: Oxford Dictionary of English Free
+
+- uaname: pacer
+  name: Pacer
+
+- uaname: pageadmin
+  name: PageAdmin
+
+- uaname: paprika
+  name: Paprika
+
+- uaname: parceltrack
+  name: Parcel Track
+
+- uaname: parsec
+  name: Parsec
+
+- uaname: pasturemap
+  name: PastureMap
+
+- uaname: paypal
+  suffixes: here
+  name: Paypal
+
+- uaname: PDFCreator
+  name: PDF Creator
+
+- uaname: pdfexpert
+  name: PDF Expert
+
+- uaname: pdfreader free
+  name: PDF Reader Free
+
+- uaname: pedometer
+  name: Pedometer
+
+- uaname: penguinwings
+  name: Penguin Wings
+
+- uaname: perfect pitch pipe
+  name: Perfect Pitch Pipe
+
+- uaname: perfectserve
+  name: PerfectServe
+
+- uaname: photon
+  name: Photon
+
+- uaname: photopills
+  name: Photo Pills
+
+- uaname: picmonkey
+  name: PicMonkey
+
+- uaname: picnote
+  name: PicMonkey
+
+- uaname: picsart
+  name: PicsArt
+
+- uaname: pipeline
+  name: Pipeline
+
+- uaname: planimeter
+  name: Planimeter
+
+- uaname: playsub
+  name: Play Sub
+
+- uaname: plnar
+  name: PLNAR
+
+- uaname: plt hub
+  name: PLT Hub
+
+- uaname: pocketbible
+  name: PocketBible
+
+- uaname: pocketfilespro
+  name: Pocket Files Pro
+
+- uaname: podcast
+  name: Podcast
+
+- uaname: point of sale
+  name: Point of Sale
+
+- uaname: popwords2
+  name: Pop Words 2
+
+- uaname: PowerDirector
+  name: PowerDirector
+
+- uaname: poweredgecatalog
+  name: Power Edge Catalog
+
+- uaname: powerplay
+  name: PowerPlay
+
+- uaname: priceline.com
+  name: priceline.com
+
+- uaname: principal/nutritionist dashboard
+  name: Principal Nutrionist Dashboard
+
+- uaname: pro altimeter
+  name: Pro Altimeter
+
+- uaname: procamera
+  name: Pro Camera
+
+- uaname: proxycap
+  name: Proxycap
+
+- uaname: pulse
+  name: Pulse
+
+- uaname: puppr
+  name: Puppr
+
+- uaname: pushnotificationserviceextension
+  name: Push Notification Service Extension
+
+- uaname: pyrogusto.speedometer
+  name: Pyrogusto Speedometer
+
+- uaname: qantas
+  name: Qantas
+
+- uaname: qrreader
+  suffixes: ipad
+  name: QR Reader
+
+- uaname: qr scanner
+  name: QR Scanner
+
+- uaname: quickbooks
+  name: QuickBooks
+
+- uaname: quickbooks payroll
+  name: QuickBooks Payroll
+
+- uaname: quicken
+  name: Quicken
+
+- uaname: quicklook
+  name: QuickLook
+
+- uaname: quickmap
+  name: Quickmap
+
+- uaname: quizwidget
+  name: Quiz Widget
+
+- uaname: quoter
+  name: Quoter
+
+- uaname: QUOTES - FREE
+  name: Quotes - FREE
+
+- uaname: quotlr
+  name: Quotlr
+
+- uaname: qwilo(.cl)?
+  name: Qwilo
+
+- uaname: radar
+  name: Radar
+
+- uaname: rainbird
+  name: RainBird
+
+- uaname: raintunnel car wash
+  name: RainTunnel Car Wash
+
+- uaname: rangefinder
+  name: Range Finder
+
+- uaname: rapala
+  name: Rapala
+
+- uaname: rc phone
+  name: RC Phone
+
+- uaname: reach
+  name: Reach
+
+- uaname: realfeelgolf
+  name: Real Feel Golf
+
+- uaname: realpool3dfree
+  name: Real Pool 3D Free
+
+- uaname: realtor.com
+  name: realtor.com
+
+- uaname: realtormessage
+  name: Realtor Message
+
+- uaname: redfin
+  name: Redfin
+
+- uaname: redgiantlink
+  name: Red Giant Link
+
+- uaname: reflector 3
+  name: Reflector 3
+
+- uaname: relivmobile
+  name: RelivMobile
+
+- uaname: replay
+  name: Replay
+
+- uaname: retailmenot
+  name: RetailMeNot
+
+- uaname: ringtones #1
+  name: Ringtones #1
+
+- uaname: ringtones
+  name: Ringtones
+
+- uaname: ringtonesmaker
+  name: Ringtones Maker
+
+- uaname: ringtone smaker
+  name: Ringtones Maker
+
+- uaname: ringvzw
+  name: Ring VZW
+
+- uaname: riot
+  name: Riot
+
+- uaname: robinhood
+  name: Robinhood
+
+- uaname: roboform
+  suffixes: service
+  name: RoboForm
+
+- uaname: row52
+  name: Row 52
+
+- uaname: runtastic
+  name: Runtastic
+
+- uaname: safe web
+  name: Safe Web
+
+- uaname: s apps
+  name: S Apps
+
+- uaname: sa today
+  name: SA Today
+
+- uaname: scanbot
+  name: Scanbot
+
+- uaname: scanner
+  name: Scanner
+
+- uaname: scannerpro
+  name: ScannerPro
+
+- uaname: scoretrip
+  name: ScoreTrip
+
+- uaname: scrivener
+  name: Scrivener
+
+- uaname: seaport
+  name: SeaPort
+
+- uaname: searchwithgoogle
+  name: Search With Google
+
+- uaname: searssocial
+  name: Sears Social
+
+- uaname: secretphoto
+  name: Secret Photo
+
+- uaname: secureblackbox
+  name: Secure Blackbox
+
+- uaname: secureline
+  name: Secure Line
+
+- uaname: SecurityEngine
+  name: SecurityEngine
+
+- uaname: sellonetsy
+  name: Sell on Etsy
+
+- uaname: sermons
+  name: Sermons
+
+- uaname: settings
+  name: Settings
+
+- uaname: sevminworkout
+  name: 7 Minute Workout
+
+- uaname: SfMarket
+  name: SF Market
+
+- uaname: shapr3d
+  name: Shapr 3D
+
+- uaname: share
+  name: Share
+
+- uaname: shareextension
+  name: Share Extension
+
+- uaname: shazam
+  name: Shazam
+
+- uaname: sheets
+  name: Sheets
+
+- uaname: shell
+  name: Shell
+
+- uaname: shopify
+  name: Shopify
+
+- uaname: shopsamsung-android
+  name: Shop Samsung
+
+- uaname: shutterfly
+  name: Shutterfly
+
+- uaname: sidesync
+  name: SideSync
+
+- uaname: simulator3d
+  name: Simulator 3D
+
+- uaname: SiriViewService
+  name: Siri View Service
+
+- uaname: sirrus
+  name: Sirrus
+
+- uaname: sky guide
+  name: Sky Guide
+
+- uaname: SkyLib
+  name: SkyLib
+
+- uaname: skysafari pro
+  name: SkySafari Pro
+
+- uaname: skyscanner
+  name: Skyscanner
+
+- uaname: skyview lite
+  name: SkyView Lite
+
+- uaname: skyweek
+  name: Skyweek
+
+- uaname: sl hunting
+  name: SL Hunting
+
+- uaname: Smart Panel
+  name: Smart Panel
+
+- uaname: smartscreen
+  name: SmartScreen
+
+- uaname: snapple
+  name: Snapple
+
+- uaname: snapseed
+  name: Snapseed
+
+- uaname: sng
+  name: SNG
+
+- uaname: solitaire
+  name: Solitaire
+
+- uaname: sonos
+  name: Sonos
+
+- uaname: sorter
+  name: Sorter
+
+- uaname: soundcloud
+  name: SoundCloud
+
+- uaname: soundmeter x
+  name: Sound Meter X
+
+- uaname: soundwaves
+  name: Soundwaves
+
+- uaname: spanishdict
+  name: SpanishDict
+
+- uaname: sparkrecipes
+  name: Spark Recipes
+
+- uaname: speak & translate
+  name: Speak & Translate
+
+- uaname: speedometer
+  name: Speedometer
+
+- uaname: speedtest
+  name: Speedtest
+
+- uaname: spider
+  name: Spider
+
+- uaname: spiritlevel
+  name: Spirit Level
+
+- uaname: spotlight
+  name: Spotlight
+
+- uaname: spotlightnethelper
+  name: Spotlight Net Helper
+
+- uaname: springboard
+  name: Springboard
+
+- uaname: starbucks
+  name: Starbucks
+
+- uaname: stickers_extension
+  name: Stickers Extension
+
+- uaname: stickers_extention
+  name: Stickers Extension
+
+- uaname: stitcher
+  name: Stitcher
+
+- uaname: stocktracker
+  name: Stock Tracker
+
+- uaname: StoreExperienceHost
+  name: Store Experience Host
+
+- uaname: storefront
+  name: Storefront
+
+- uaname: storm
+  name: Storm
+
+- uaname: strava
+  suffixes: notification service extension
+  name: Strava
+
+- uaname: street invoice
+  name: Street Invoice
+
+- uaname: strong's concordance and kjv bible
+  name: Strong's Concordance and KJV Bible
+
+- uaname: subscriptionapp
+  name: Subscription App
+
+- uaname: subway®?
+  name: Subway
+
+- uaname: subwayoc
+  name: Subway OC
+
+- uaname: subwaysurfers
+  name: Subway Surfers
+
+- uaname: sudoku
+  name: Sudoku
+
+- uaname: sudokupacks2
+  name: Sudoku Packs 2
+
+- uaname: sugarsync
+  name: Sugar Sync
+
+- uaname: Sunbelt
+  name: Sunbelt
+
+- uaname: superescape
+  name: Super Escape
+
+- uaname: supersonic
+  name: SuperSonic
+
+- uaname: swiftkey
+  name: SwiftKey
+
+- uaname: sygic
+  name: Sygic
+
+- uaname: system information
+  name: System Information
+
+- uaname: taobao-umeng
+  name: Taobao
+
+- uaname: tapeacall pro
+  name: Tape A Call Pro
+
+- uaname: taxbot
+  name: Taxbot
+
+- uaname: teal
+  name: Teal
+
+- uaname: teamup
+  name: Teamup
+
+- uaname: tecartabible
+  name: Tecarta Bible
+
+- uaname: telemetry
+  name: Telemetry
+
+- uaname: temperaturesensor
+  name: Temperature Sensor
+
+- uaname: templerun
+  suffixes: 2
+  name: Temple Run
+
+- uaname: TencentConnect
+  name: TencentConnect
+
+- uaname: test-case
+  name: Test Case
+
+- uaname: tether
+  name: Tether
+
+- uaname: text2group
+  name: Text2Group
+
+- uaname: text2group pro
+  name: Text2Group Pro
+
+- uaname: textme
+  name: TextMe
+
+- uaname: textplus
+  name: Text Plus
+
+- uaname: thdconsumer
+  name: THD Consumer
+
+- uaname: thebump
+  name: The Bump
+
+- uaname: the calculator
+  name: The Calculator
+
+- uaname: themetronome
+  name: The Metronome
+
+- uaname: thepiano
+  name: The Piano
+
+- uaname: thepianofree
+  name: The Piano Free
+
+- uaname: thermometer
+  name: Thermometer
+
+- uaname: the weather
+  name: The Weather
+
+- uaname: tidal
+  name: Tidal
+
+- uaname: timeshutter
+  name: Time Shutter
+
+- uaname: timetag
+  name: TimeTag
+
+- uaname: timetree
+  name: TimeTree
+
+- uaname: tinder
+  name: Tinder
+
+- uaname: tinybeans
+  name: Tinybeans
+
+- uaname: tips
+  name: Tips
+
+- uaname: tips & tricks
+  name: Tips & Tricks
+
+- uaname: tipswidgetextension
+  name: Tips Widget Extension
+
+- uaname: tiresizer
+  name: TireSizer
+
+- uaname: today
+  name: Today
+
+- uaname: todaywidget
+  name: Today Widget
+
+- uaname: todoist
+  name: Todoist
+
+- uaname: toolbox
+  name: Toolbox
+
+- uaname: toolbox for keynote
+  name: Toolbox for Keynote
+
+- uaname: toolkit
+  name: Toolkit
+
+- uaname: topchristian
+  name: Top Christian
+
+- uaname: topo maps
+  name: Topo Maps
+
+- uaname: tpe
+  name: TPE
+
+- uaname: tracker
+  name: Tracker
+
+- uaname: traffictour
+  name: Traffic Tour
+
+- uaname: trails
+  name: Trails
+
+- uaname: translate
+  name: Translate
+
+- uaname: translator
+  name: Translator
+
+- uaname: tsheets
+  name: TSheets
+
+- uaname: tuner lite
+  name: Tuner Lite
+
+- uaname: turn_live_live_wallpaper
+  name: Turn Live Wallpaper
+
+- uaname: tuunes
+  name: Tuunes
+
+- uaname: com.twc.radar
+  name: TWC
+
+- uaname: twcwidget
+  name: TWC Widget
+
+- uaname: twoway
+  name: Twoway
+
+- uaname: typorama
+  name: Typorama
+
+- uaname: uber
+  name: Uber
+
+- uaname: uberdriver
+  name: Uber Driver
+
+- uaname: u by bb&t
+  name: U by BB&T
+
+- uaname: udemy-mobile
+  suffixes: -ios|-android
+  name: Udemy Mobile
+
+- uaname: ueboom
+  name: UE Boom
+
+- uaname: uk fossils
+  name: UK Fossils
+
+- uaname: ultralight
+  name: Ultralight
+
+- uaname: unchecky
+  name: Unchecky
+
+- uaname: under armour
+  name: Under Armour
+
+- uaname: units plus
+  name: Units Plus
+
+- uaname: universal
+  name: Universal
+
+- uaname: u.s. bank
+  name: U.S. Bank
+
+- uaname: uship
+  name: uShip
+
+- uaname: usps mobile
+  name: USPS Mobile
+
+- uaname: van trader
+  name: Van Trader
+
+- uaname: verses
+  name: Verses
+
+- uaname: vinscan
+  name: Vinscan
+
+- uaname: vision
+  name: Vision
+
+- uaname: visionpack
+  name: Vision Pack
+
+- uaname: visor de ayuda
+  name: Visor de Ayuda
+
+- uaname: vitacost
+  name: Vitacost
+
+- uaname: vocal coach - time to sing
+  name: Vocal Coach - Time to Sing
+
+- uaname: voice2text
+  name: Voice2Text
+
+- uaname: voicerecorder
+  name: Voice Recorder
+
+- uaname: vox
+  name: Vox
+
+- uaname: voxer
+  name: Voxer
+
+- uaname: vrbo
+  name: VRBO
+
+- uaname: vside
+  name: vSIDE
+
+- uaname: vungle
+  name: Vungle
+
+- uaname: vz messages
+  name: VZ Messages
+
+- uaname: walgreens
+  name: Walgreens
+
+- uaname: wallpapers
+  name: Wallpapers
+
+- uaname: walmart
+  name: Walmart
+
+- uaname: wantu
+  name: Wantu
+
+- uaname: washingtonmetro
+  name: Washington Metro
+
+- uaname: watch
+  name: Watch
+
+- uaname: waze
+  name: Waze
+
+- uaname: weatherapptodaywidget_weatherfoundation
+  name: Weather App Today Widget
+
+- uaname: weathernow
+  name: Weather Now
+
+- uaname: weathertwo
+  name: Weather Two
+
+- uaname: weatherwidget
+  name: Weather Widget
+
+- uaname: wells_fargo_mobile_banking
+  suffixes: iphone|android
+  name: Wells Fargo Mobile Banking
+
+- uaname: wellspan
+  name: Wellspan
+
+- uaname: wendys
+  name: Wendys
+
+- uaname: wephone
+  name: WePhone
+
+- uaname: wgal
+  name: WGAL
+
+- uaname: whitenoiselite
+  name: White Noise Lite
+
+- uaname: whiteyellowpages
+  name: White Yellow Pages
+
+- uaname: wholesome
+  name: Wholesome
+
+- uaname: WicaAgent
+  name: Wica Agent
+
+- uaname: Wikipediaapp
+  name: Wikipedia App
+
+- uaname: Wise
+  name: Wise
+
+- uaname: wish
+  name: Wish
+
+- uaname: woot
+  name: Woot
+
+- uaname: wootric-mobile-sdk
+  name: Wootric
+
+- uaname: wordbrain
+  name: Word Brain
+
+- uaname: wordscramble
+  name: Word Scramble
+
+- uaname: wordsearch
+  name: WordSearch
+
+- uaname: workbox
+  name: Workbox
+
+- uaname: wsbtweather
+  name: WSBTweather
+
+- uaname: wunderstation
+  name: Wunder Station
+
+- uaname: wzpad
+  name: WzPad
+
+- uaname: xe currency
+  name: XE Currency
+
+- uaname: ycrashmanager
+  suffixes: -ios|-android
+  name: YCrashManager
+
+- uaname: youtube
+  name: YouTube
+
+- uaname: youtubemusic
+  name: YouTube Music
+
+- uaname: yp
+  name: YP
+
+- uaname: yummly
+  suffixes: -iphone
+  name: Yummly
+
+- uaname: zappcustomer
+  name: ZAppCustomer
+
+- uaname: zmodo
+  name: Zmodo
+
+- uaname: zumo
+  name: Zumo
+
+- uaname: 待办
+  name: 待办

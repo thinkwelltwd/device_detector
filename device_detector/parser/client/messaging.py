@@ -3,12 +3,12 @@ from . import BaseClientParser
 
 class Messaging(BaseClientParser):
 
-    fixture_files = [
-        'local/client/messaging.yml',
+    appdetails_files = [
+        'appdetails/messaging.yml',
     ]
 
     def dtype(self):
-        return 'messaging'
+        return self.calculated_dtype or 'messaging'
 
 
 __all__ = [

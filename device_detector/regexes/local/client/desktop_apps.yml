@@ -6,105 +6,106 @@
 ###############
 # General Desktop Apps
 
-- regex: Adobe Photoshop Lightroom
-  name: Adobe Photoshop Lightroom
-  version: ''
-
-- regex: ^AdobeLightroom\(([\d\.]+)
-  name: Adobe Photoshop Lightroom
+- regex: aioremote_[a-z]*\/([\d\.]+)
+  name: AiO Remote
   version: '$1'
+  type: desktop app
 
-- regex: ^AdobeNimbus\(([\d\.]+)
-  name: Adobe Nimbus
+- regex: akamai netsession interface.+;([\d\.]+)
+  name: Akamai NetSession Interface
   version: '$1'
+  type: desktop app
 
-- regex: com.apple.Maps
-  name: Apple Maps
-  version:
 
-- regex: google ?earth\/(\d+[\.\d]+)
-  name: Google Earth
+- regex: Apple Configurator [\w\d]/([\d\.]+)
+  name: Apple Configurator
   version: '$1'
+  type: desktop app
 
-- regex: google ?maps\/(\d+[\.\d]+)
-  name: Google Maps
+- regex: com\.apple\.configurator\.xpc\.[a-z]+\/([\d\.]+)
+  name: Apple Configurator
   version: '$1'
+  type: desktop app
 
-- regex: google ?photos\/(\d+[\.\d]+)
-  name: Google Photos
+- regex: lastpass(ext)?\/([\d\.]+)
+  name: LastPass
+  version: '$2'
+  type: desktop app
+
+- regex: mac[ +]os[ +]x\/.+\) addressbook\/([\d\.]+)
+  name: Mac OS X Address Book
   version: '$1'
+  type: desktop app
 
-- regex: microsoftphotos\/(\d+[\.\d]+)
-  name: Microsoft Photos
+- regex: mac[ +]os[ +]x\/.+\) calendaragent\/([\d\.]+)
+  name: Mac OS X Calendar Agent
   version: '$1'
+  type: desktop app
 
-- regex: skydrivesync[ \/](\d+[\.\d]+)
-  name: Microsoft OneDrive
+- regex: nikon message center (\d)\/([\d\.]+)
+  name: Nikon Message Center $1
+  version: '$2'
+  type: desktop app
+
+- regex: nvidia (gfe|update) v([\d\.]+)
+  name: NVIDIA
+  version: '$2'
+  type: desktop app
+
+- regex: pinnaclenoti[tf]icationservice\/([\d\.]+)
+  name: Pinnacle Notification Service
   version: '$1'
-  type: apputility
+  type: desktop app
 
-- regex: onedrive[ \/](\d+[\.\d]+)
-  name: Microsoft OneDrive
+- regex: panda devices agent *([\d\.]+)
+  name: Panda Devices Agent
   version: '$1'
-  type: apputility
+  type: desktop app
 
-- regex: onenote[ \/](\d+[\.\d]+)
-  name: Microsoft OneNote
+- regex: pandasoftware\.informacionproactiva\.([\d\.]+)
+  name: Panda Software
   version: '$1'
-  type: productivity
+  type: desktop app
 
-- regex: word[ \/](\d+[\.\d]+)
-  name: Microsoft Word
+- regex: bingmap(s\.3dcontrol)?\/([\d\.]+)
+  name: Bing Maps
+  version: '$2'
+  type: desktop app
+
+- regex: bingfinance.+\/([\d\.]+)
+  name: Bing Finance
   version: '$1'
-  type: productivity
+  type: desktop app
 
-- regex: microsoft settingssync[ \/]\(?(\d+[\.\d]+)
-  name: Microsoft OneDrive
+- regex: binghealthandfitness.+\/([\d\.]+)
+  name: Bing Health and Fitness
   version: '$1'
-  type: apputility
+  type: desktop app
 
-- regex: microsoft windows network diagnostics
-  name: Windows Network Diagnostics
-  version:
-  type: osutility
-
-- regex: googlesoftwareupdateagent\/(\d+[\.\d]+)
-  name: Google Updater
+- regex: bingnews.+\/([\d\.]+)
+  name: Bing News
   version: '$1'
-  type: apputility
+  type: desktop app
 
-
-- regex: Picasa\/(\d+[\.\d]+)
-  name: Picasa
+- regex: bingsports.+\/([\d\.]+)
+  name: Bing Sports
   version: '$1'
+  type: desktop app
 
-- regex: PicasaUpdater\/(\d+[\.\d]+)
-  name: Picasa Updater
+- regex: bingweather.+\/([\d\.]+)
+  name: Bing Weather
   version: '$1'
-  type: apputility
+  type: desktop app
 
-- regex: Get Flash Player version xml\/(\d+[\.\d]+)
-  name: Flash Updater
-  version: '$1'
-  type: apputility
+- regex: (mbam.*) - base:([\d\.]+)
+  name: '$1'
+  version: '$2'
+  type: desktop app
 
-- regex: DellUpdate\/(\d+[\.\d]+)
-  name: Dell Updater
-  version: '$1'
-  type: osutility
-
-# Financial
-- regex: QBUpdate\/(\d+[\.\d]+)
-  name: Quickbooks Updater
-  version: '$1'
-  type: apputility
-
-
-# Office / Productivity Apps
-- regex: Microsoft Office\/(\d+[\.\d]+)?
+- regex: ms-office
   name: Microsoft Office
-  version: '$1'
   type: productivity
+  version:
 
 - regex: Microsoft (?:Office )?Access(?:[\/ ](\d+[\.\d]+))?
   name: Microsoft Access
@@ -147,258 +148,13 @@
   type: apputility
 
 # Match last after other Office apps - Microsoft Office 2014 & Microsoft Office/2014
-- regex: Microsoft Office(?:[\/ ]+(\d+[\.\d]+))?
+- regex: Microsoft Office
   name: Microsoft Office
   version: '$1'
   type: productivity
 
-- regex: ms-office
-  name: Microsoft Office
-  type: productivity
-  version:
-
-- regex: openoffice.org[\/ ](\d+[\.\d]+)
-  name: OpenOffice
-  version: '$1'
-  type: productivity
-
-- regex: libreoffice[\/ ](\d+[\.\d]+)
-  name: LibreOffice
-  version: '$1'
-  type: productivity
-
-- regex: aioremote_[a-z]*\/([\d\.]+)
-  name: AiO Remote
-  version: '$1'
-  type: desktop app
-
-- regex: airport utility\/([\d\.]+)
-  name: Apple AirPort Utility
-  version: '$1'
-  type: desktop app
-
-- regex: akamaidlm\/([\d\.]+)
-  name: Akamai Download Manager
-  version: '$1'
-  type: desktop app
-
-- regex: akamai netsession interface.+;([\d\.]+)
-  name: Akamai NetSession Interface
-  version: '$1'
-  type: desktop app
-
-- regex: AMD Catalyst Install Manager$
-  name: AMD Catalyst Install Manager
-  version: ''
-  type: desktop app
-
-- regex: AMD Radeon Analytics Utility$
-  name: AMD Radeon Analytics Utility
-  version: ''
-  type: desktop app
-
-- regex: AMD Radeon Installer Analytics$
-  name: AMD Radeon Installer Analytics
-  version: ''
-  type: desktop app
-
-- regex: ^Apple Software Update$
-  name: Apple Software Update
-  version: ''
-  type: desktop app
-
-- regex: app virt client\/([\d\.]+)
-  name: Application Virtualization Client
-  version: '$1'
-  type: desktop app
-
-- regex: arcsoft panorama maker ([\d\.]+)
-  name: ArcSoft Panorama Maker
-  version: '$1'
-  type: desktop app
-
-- regex: ^asana\/([\d\.]+)
-  name: Asana
-  version: '$1'
-  type: desktop app
-
-- regex: ^ASUS Live Update$
-  name: ASUS Live Update
-  version: ''
-  type: desktop app
-
-- regex: autocad360\/([\d\.]+)
-  name: Auto CAD 360
-  version: '$1'
-  type: desktop app
-
-- regex: ^avanquest liveupdate$
-  name: Avanquest LiveUpdate
-  version: ''
-  type: desktop app
-
-- regex: ^Avast
-  name: Avast
-  version: ''
-  type: desktop app
-
-- regex: ^bingbar ([\d\.]+)
-  name: BingBar
-  version: '$1'
-  type: desktop app
-
-- regex: ^broadcom windows 8 hal downloader$
-  name: Broadcom Windows 8 Downloader
-  version: ''
-  type: desktop app
-
-- regex: ^ByteFenceEngine$
-  name: Byte Fence Engine
-  version: ''
-  type: desktop app
-
-- regex: ^bzbmenu\/([\d\.]+)
-  name: BZB Menu
-  version: '$1'
-  type: desktop app
-
-- regex: ^captain ftp\/([\d\.]+)
-  name: Captain FTP
-  version: '$1'
-  type: desktop app
-
-- regex: ^captivenetworksupport-([(\d\.]+)
-  name: Captive Network Support
-  version: '$1'
-  type: desktop app
-
-- regex: ^carbonitedownloader ([\d\.]+)
-  name: Carbonite Downloader
-  version: '$1'
-  type: desktop app
-
-- regex: ^Carbonite Installer$
-  name: Carbonite Installer
-  version: ''
-  type: desktop app
-
-- regex: ^carboniteservice\/([\d\.]+)
-  name: Carbonite Service
-  version: '$1'
-  type: desktop app
-
-- regex: ^carboniteuploader ([\d\.]+)
-  name: Carbonite Uploader
-  version: '$1'
-  type: desktop app
-
-- regex: ^classic shell$
-  name: Classic Shell
-  version: ''
-  type: desktop app
-
-- regex: ^classic start menu ([\d\.]+)
-  name: Classic Start Menu
-  version: '$1'
-  type: desktop app
-
-- regex: ^cloudd\/([\d\.]+)
-  name: Cloudd
-  version: '$1'
-  type: desktop app
-
-- regex: ^cloudsdk$
-  name: CloudSDK
-  version: ''
-  type: desktop app
-
-- regex: ^CLS License Activation$
-  name: CLS License Activation
-  version: ''
-  type: desktop app
-
-- regex: Apple Configurator [\w\d]/([\d\.]+)
-  name: Apple Configurator
-  version: '$1'
-  type: desktop app
-
-- regex: com\.apple\.configurator\.xpc\.[a-z]+\/([\d\.]+)
-  name: Apple Configurator
-  version: '$1'
-  type: desktop app
-
-- regex: ^geod/([\d\.]+)
-  name: Apple geod
-  version: '$1'
-  type: desktop app
-
-- regex: com\.apple\.geod\/([\d\.]+)
-  name: Apple geod
-  version: '$1'
-  type: desktop app
-
-- regex: com\.apple\.trustd\/([\d\.]+)
-  name: trustd
-  version: '$1'
-  type: osutility
-
-- regex: com\.apple\.weatherkitservice\/([\d\.]+)
-  name: Apple Weather Kit Service
-  version: '$1'
-  type: desktop app
-
-- regex: com\.apple\.webkit\.networking\/([\d\.]+)
-  name: Apple Networking Webkit
-  version: '$1'
-  type: desktop app
-
-- regex: compose-shareextension\/([\d\.]+)
-  name: compose-shareextension
-  version: '$1'
-  type: desktop app
-
-- regex: ^coresync\/([\d\.]+)
-  name: CoreSync
-  version: '$1'
-  type: desktop app
-
-- regex: cppanalytics\/([\d\.]+)
-  name: CppAnalytics
-  version: '$1'
-  type: desktop app
-
-- regex: ^cpprestsdk\/([\d\.]+)
-  name: C++ REST SDK
-  version: '$1'
-  type: desktop app
-
-- regex: ^CrashRpt$
-  name: CrashRpt
-  version: ''
-  type: desktop app
-
-- regex: ^Creative Cloud
-  name: Creative Cloud
-  version: ''
-  type: desktop app
-
-- regex: ^CRWindowsClient$
-  name: CRWindowsClient
-  version: ''
-  type: desktop app
-
-- regex: ^CyberLink PowerDVD$
-  name: CyberLink PowerDVD
-  version: ''
-  type: desktop app
-
-- regex: ^dayonemac\/([\d\.]+)
-  name: Day One for Mac
-  version: '$1'
-  type: desktop app
-
-- regex: delldigitaldelivery\/([\d\.]+)
-  name: Dell Digital Delivery
+- regex: xblwin([\d\.]+)
+  name: xBox Live Windows
   version: '$1'
   type: desktop app
 
@@ -407,615 +163,9 @@
   version: '$1'
   type: desktop app
 
-- regex: ^drive\/([\d\.]+)
-  name: Drive
-  version: '$1'
-  type: desktop app
-
-- regex: ^driverrestore\/([\d\.]+)
-  name: Driver Restore
-  version: '$1'
-  type: desktop app
-
-- regex: ^driverreviver$
-  name: Driver Reviver
-  version: ''
-  type: desktop app
-
-- regex: ^driverupdate\/([\d\.]+)
-  name: Driver Update
-  version: '$1'
-  type: desktop app
-
-- regex: ^dropbox\/([\d\.]+)
-  name: Dropbox
-  version: '$1'
-  type: desktop app
-
-- regex: ownCloud-\w+\/([\d\.]+)
-  name: ownCloud
-  version: '$1'
-  type: desktop app
-
-- regex: mirall\/([\d\.]+)
-  name: ownCloud
-  version: '$1'
-  type: desktop app
-
-
-- regex: Nextcloud-\w+\/([\d\.]+)
-  name: Nextcloud
-  version: '$1'
-  type: desktop app
-
-- regex: ^egnyte\/([\d\.]+)
-  name: Egnyte
-  version: '$1'
-  type: desktop app
-
-- regex: ^embrace\/a\/([\d\.]+)
-  name: Embrace
-  version: '$1'
-  type: desktop app
-
-- regex: ^endicia\/([\d\.]+)
-  name: Endicia
-  version: '$1'
-  type: desktop app
-
-- regex: ^entech\.update$
-  name: EnTech Update
-  version: ''
-  type: desktop app
-
-- regex: ^epsonappletservice$
-  name: Epson Applet Service
-  version: ''
-  type: desktop app
-
-- regex: ^epson printer updater
-  name: Epson Printer Updater
-  version: ''
-  type: desktop app
-
-- regex: ^epson readyink agent$
-  name: Epson ReadyInk Agent
-  version: ''
-  type: desktop app
-
-- regex: ^epsonrewardinvitation$
-  name: Epson Reward Invitation
-  version: ''
-  type: desktop app
-
-- regex: ^eset security proxy detection$
-  name: ESET Security Proxy Detection
-  version: ''
-  type: desktop app
-
-- regex: ^excel\/([\d\.]+)
-  name: Excel
-  version: '$1'
-  type: desktop app
-
-- regex: ^exceptionless\/([\d\.]+)
-  name: exceptionless
-  version: '$1'
-  type: desktop app
-
-- regex: fitbit agent ([\d\.]+)
-  name: Fitbit Agent
-  version: '$1'
-  type: desktop app
-
-- regex: g2mupdate\/([\d\.]+)
-  name: G2M Update
-  version: '$1'
-  type: desktop app
-
-- regex: ^gamed\/([\d\.]+).+gamekit
-  name: Apple GameKit
-  version: '$1'
-  type: desktop app
-
-- regex: garmin core service[ \-a-z]+([\d\.]+)
-  name: Garmin Core Service
-  version: '$1'
-  type: desktop app
-
-- regex: garmin express[ \-a-z]+([\d\.]+)
-  name: Garmin Express
-  version: '$1'
-  type: desktop app
-
-- regex: ^getwebfile\/([\d\.]+)
-  name: Get Web File
-  version: '$1'
-  type: desktop app
-
-- regex: ^gn templates for ms office\/([\d\.]+)
-  name: GN Templates for MS Office
-  version: '$1'
-  type: desktop app
-
-- regex: googlesoftwareupdate\/([\d\.]+)
-  name: Google Software Update
-  version: '$1'
-  type: desktop app
-
-- regex: gopro desktop app\/([\d\.]+)
-  name: GoPro Desktop App
-  version: '$1'
-  type: desktop app
-
-- regex: ^gototraining\/([\d\.]+)
-  name: Go To Training
-  version: '$1'
-  type: desktop app
-
-- regex: ^gotowebinar\/([\d\.]+)
-  name: Go To Webinar
-  version: '$1'
-  type: desktop app
-
-- regex: ^grammarly(\/| desktop editor ts\d )([\d\.]+)
-  name: Grammarly
-  version: '$2'
-  type: desktop app
-
-- regex: ^grooveagent
-  name: Groove Agent
-  version: ''
-  type: desktop app
-
-- regex: ^gsoap\/([\d\.]+)
-  name: gSOAP
-  version: '$1'
-  type: desktop app
-
-- regex: ^HP Lookup Agent$
-  name: HP Lookup Agent
-  version: ''
-  type: desktop app
-
-- regex: hp rules engine\/([\d\.]+)
-  name: HP Rules Engine
-  version: '$1'
-  type: desktop app
-
-- regex: hp smart\/([\d\.]+)
-  name: HP Smart
-  version: '$1'
-  type: desktop app
-
-- regex: ^ICM-Service$
-  name: ICM Service
-  version: ''
-  type: desktop app
-
-- regex: idrivedaemon\/([\d\.]+)
-  name: iDrive Daemon
-  version: '3.5.0.5'
-  type: desktop app
-
-- regex: ^IMSLib Agent$
-  name: IMSLib Agent
-  version: ''
-  type: desktop app
-
-- regex: imtransferagent\/([\d\.]+)
-  name: IM Transfer Agent
-  version: '$1'
-  type: desktop app
-
-- regex: ^innotools_downloader$
-  name: Inno Tools Downloader
-  version: ''
-  type: desktop app
-
-- regex: ^InTouchDownloader$
-  name: InTouch Downloader
-  version: ''
-  type: desktop app
-
-- regex: ^itype\/([\d\.]+)
-  name: itype
-  version: '$1'
-  type: desktop app
-
-- regex: ^jgit\/
-  name: JGit
-  version: ''
-  type: desktop app
-
-- regex: ^join\.me\/([\d\.]+)
-  name: join.me
-  version: '$1'
-  type: desktop app
-
-- regex: ^lastpass(ext)?\/([\d\.]+)
-  name: LastPass
-  version: '$2'
-  type: desktop app
-
-- regex: locationd\/([\d\.]+)
-  name: locationd
-  version: '$1'
-  type: desktop app
-
-- regex: luminar \d{4}\/([\d\.]+)
-  name: Luminar
-  version: '$1'
-  type: desktop app
-
-- regex: macappstore\/([\d\.]+)
-  name: Mac Appstore
-  version: '$1'
-  type: desktop app
-
-- regex: machash\/([\d\.]+)
-  name: MacHash
-  version: '$1'
-  type: desktop app
-
-- regex: mac[ +]os[ +]x\/.+\) addressbook\/([\d\.]+)
-  name: Mac OS X Address Book
-  version: '$1'
-  type: desktop app
-
-- regex: mac[ +]os[ +]x\/.+\) calendaragent\/([\d\.]+)
-  name: Mac OS X Calendar Agent
-  version: '$1'
-  type: desktop app
-
-- regex: mac submission engine
-  name: Mac Submission Engine
-  version: ''
-  type: desktop app
-
-- regex: macvim\/([\d\.]+)
-  name: MacVim
-  version: '$1'
-  type: desktop app
-
-- regex: magicprefs\/([\d\.]+)
-  name: MagicPrefs
-  version: '$1'
-  type: desktop app
-
-- regex: ^MailBuddy$
-  name: MailBuddy
-  version: ''
-  type: desktop app
-
-- regex: mailchimp\/([\d\.]+)
-  name: MailChimp
-  version: '$1'
-  type: desktop app
-
-- regex: microsoft-atl-native\/([\d\.]+)
-  name: Microsoft ATL Native
-  version: '$1'
-  type: desktop app
-
-- regex: microsoft au daemon\/([\d\.]+)
-  name: Microsoft AU Daemon
-  version: '$1'
-  type: desktop app
-
-- regex: microsoft autoupdate\/([\d\.]+)
-  name: Microsoft AutoUpdate
-  version: '$1'
-  type: desktop app
-
-- regex: microsoft bits\/([\d\.]+)
-  name: Microsoft Bits
-  version: '$1'
-  type: desktop app
-
-- regex: ^microsoft ncsi$
-  name: Microsoft NCSI
-  version: ''
-  type: desktop app
-
-- regex: microsoft-playready-drm\/([\d\.]+)
-  name: Microsoft PlayReady DRM
-  version: '$1'
-  type: desktop app
-
-- regex: microsoft remote desktop\/([\d\.]+)
-  name: Microsoft Remote Desktop
-  version: '$1'
-  type: desktop app
-
-- regex: microsoft\.windowscommunicationsapps
-  name: Microsoft Windows Communication Apps
-  version: ''
-  type: desktop app
-
-- regex: msn explorer\/([\d\.]+)
-  name: MSN Explorer
-  version: '$1'
-  type: desktop app
-
-- regex: ^networkserviceproxy
-  name: networkserviceproxy
-  version: ''
-  type: desktop app
-
-- regex: ^ngautorun$
-  name: NGAutorun
-  version: ''
-  type: desktop app
-
-- regex: ^night eyes\/([\d\.]+)
-  name: Night Eyes
-  version: '$1'
-  type: desktop app
-
-- regex: nikon message center (\d)\/([\d\.]+)
-  name: Nikon Message Center $1
-  version: '$2'
-  type: desktop app
-
-- regex: ^nis\/([\d\.]+)
-  name: NIS
-  version: '$1'
-  type: desktop app
-
-- regex: nvidia (gfe|update) v([\d\.]+)
-  name: NVIDIA
-  version: '$2'
-  type: desktop app
-
-- regex: nvprofileupdater\/([\d\.]+)
-  name: Nv Profile Updater
-  version: '$1'
-  type: desktop app
-
-- regex: nvtelemetry\/([\d\.]+)
-  name: Nv Telemetry
-  version: '$1'
-  type: desktop app
-
-- regex: ^OfficeC2R$
-  name: OfficeC2R
-  version: ''
-  type: desktop app
-
-- regex: ^officeclicktorun$
-  name: Office Click to Run
-  version: ''
-  type: desktop app
-
-- regex: ^Office Source Engine$
-  name: Office Source Engine
-  version: ''
-  type: desktop app
-
-- regex: officesuite(free2)?\/([\d\.]+)
-  name: Office Suite
-  version: '$2'
-  type: desktop app
-
-- regex: onedrivefileprovider\/([\d\.]+)
-  name: OneDrive
-  version: '$1'
-  type: desktop app
-
-- regex: ^OpenDNS Updater Client$
-  name: OpenDNS Updater Client
-  version: ''
-  type: desktop app
-
-- regex: ^openlink\/([\d\.]+)
-  name: OpenLink
-  version: '$1'
-  type: desktop app
-
-- regex: openoffice ([\d\.]+)
-  name: Open Office
-  version: '$1'
-  type: desktop app
-
-- regex: opera netinstaller\/([\d\.]+)
-  name: Opera Net Installer
-  version: '$1'
-  type: desktop app
-
-- regex: ossproxy ([\d\.]+)
-  name: OSS Proxy
-  version: '$1'
-  type: desktop app
-
-- regex: outlook shim services ([\d\.]+)
-  name: Outlook Shim Services
-  version: '$1'
-  type: desktop app
-
-- regex: outlooksocialconnector\/([\d\.]+)
-  name: Outlook Social Connector
-  version: '$1'
-  type: desktop app
-
-- regex: panda devices agent *([\d\.]+)
-  name: Panda Devices Agent
-  version: '$1'
-  type: desktop app
-
-- regex: pandasoftware\.informacionproactiva\.([\d\.]+)
-  name: Panda Software
-  version: '$1'
-  type: desktop app
-
-- regex: parallels toolbox\/([\d\.]+)
-  name: Parallels Toolbox
-  version: '$1'
-  type: desktop app
-
-- regex: ^parsecd\/([\d\.]+)
-  name: parsecd
-  version: '$1'
-  type: desktop app
-
-- regex: ^photoshopelements$
-  name: Photoshop Elements
-  version: ''
-  type: desktop app
-
-- regex: photoshop fix\/([\d\.]+)
-  name: Photoshop Fix
-  version: '$1'
-  type: desktop app
-
-- regex: photoshop Mix\/([\d\.]+)
-  name: Photoshop Mix
-  version: '$1'
-  type: desktop app
-
-- regex: pingsender\/([\d\.]+)
-  name: pingsender
-  version: '$1'
-  type: desktop app
-
-- regex: pinnaclenoti[tf]icationservice\/([\d\.]+)
-  name: Pinnacle Notification Service
-  version: '$1'
-  type: desktop app
-
-- regex: pipelined\/([\d\.]+)
-  name: pipelined
-  version: '$1'
-  type: desktop app
-
-- regex: ^potdata$
-  name: potdata
-  version: ''
-  type: desktop app
-
-- regex: powerpoint\/([\d\.]+)
-  name: PowerPoint
-  version: '$1'
-  type: desktop app
-
-- regex: powerregister\/([\d\.]+)
-  name: PowerRegister
-  version: '$1'
-  type: desktop app
-
-- regex: ^PPKHandler$
-  name: PPKHandler
-  version: ''
-  type: desktop app
-
-- regex: preinstallcheck\/([\d\.]+)
-  name: PreInstallCheck
-  version: '$1'
-  type: desktop app
-
-- regex: ^premiereelements$
-  name: Premiere Elements
-  version: ''
-  type: desktop app
-
-- regex: premium-wotd-extension\/([\d\.]+)
-  name: premium-wotd-extension
-  version: '$1'
-  type: desktop app
-
-- regex: ^proxifier$
-  name: Proxifier
-  version: ''
-  type: desktop app
-
-- regex: ^pseelive$
-  name: pseelive
-  version: ''
-  type: desktop app
-
-- regex: ps express\/([\d\.]+)
-  name: PS Express
-  version: '$1'
-  type: desktop app
-
-- regex: PyCharm\/([\d\.]+)
-  name: PyCharm
-  version: '$1'
-  type: desktop app
-
-- regex: psprofiler_([_\d]+)
-  name: PS Profiler
-  version: '$1'
-  type: desktop app
-
-- regex: realizd\/([\d\.]+)
-  name: realizd
-  version: '$1'
-  type: desktop app
-
-- regex: ^restsharp\/([\d\.]+)
-  name: RestSharp
-  version: '$1'
-  type: desktop app
-
-- regex: rf-safari-companion\/([\d\.]+)
-  name: rf-safari-companion
-  version: '$1'
-  type: desktop app
-
-- regex: safariextension\/([\d\.]+)
-  name: Safari Extension
-  version: '$1'
-  type: desktop app
-
-- regex: safarifetcherd\/([\d\.]+)
-  name: safarifetcherd
-  version: '$1'
-  type: desktop app
-
-- regex: safarisafebrowsing\/([\d\.]+)
-  name: Safari Safe Browsing
-  version: '$1'
-  type: desktop app
-
-- regex: ^saraclient$
-  name: saraclient
-  version: ''
-  type: desktop app
-
-- regex: ^SASDIAGNOSTICITEM$
-  name: SAS Diagnostic Item
-  version: ''
-  type: desktop app
-
-- regex: ^Seagate Dashboard$
-  name: Seagate Dashboard
-  version: ''
-  type: desktop app
-
-- regex: ^SeagateToolkit$
-  name: Seagate Toolkit
-  version: ''
-  type: desktop app
-
-- regex: search framework\/([\d\.]+)
-  name: Search Framework
-  version: '$1'
-  type: desktop app
-
-- regex: selfupdateservice\/([\d\.]+)
-  name: Self Update Service
-  version: '$1'
-  type: desktop app
-
 - regex: sendamessageapi; ([\d\.]+)
   name: Send A Message API
   version: '$1'
-  type: desktop app
-
-- regex: ^sentry-cocoa$
-  name: Sentry Cocoa
-  version: ''
   type: desktop app
 
 - regex: ^server-bag
@@ -1023,262 +173,8 @@
   version: ''
   type: desktop app
 
-- regex: sfguniversalproductionrichpush\/([\d\.]+)
-  name: SFG Universal Production Rich Push
-  version: '$1'
-  type: desktop app
-
-- regex: ^Shockwave Flash?
-  name: Shockwave Flash
-  version: ''
-  type: desktop app
-
-- regex: slimware\.session\/([\d\.]+)
-  name: SlimWare Session
-  version: '$1'
-  type: desktop app
-
-- regex: ^smartdraw download module$
-  name: SmartDraw Download Module
-  version: ''
-  type: desktop app
-
-- regex: smartmailnotificationservice\/([\d\.]+)
-  name: Smart Mail Notification Service
-  version: '$1'
-  type: desktop app
-
-- regex: smart ?switch ?pc
-  name: Smart Switch PC
-  version: ''
-  type: desktop app
-
-- regex: softmaker fetch\/([\d\.]+)
-  name: SoftMaker Fetch
-  version: '$1'
-  type: desktop app
-
-- regex: ^software update
-  name: Software Update
-  version: ''
-  type: desktop app
-
-- regex: ^stream_package_agent$
-  name: Stream Package Agent
-  version: ''
-  type: desktop app
-
-- regex: symc-remediation
-  name: SYMC Remediation
-  version: ''
-  type: desktop app
-
-- regex: ^TaskUpdateDetection$
-  name: Task Update Detection
-  version: ''
-  type: desktop app
-
-- regex: ^TaskUpdateDownload$
-  name: Task Update Download
-  version: ''
-  type: desktop app
-
-- regex: ^tipsd\/([\d\.]+)
-  name: tipsd
-  version: '$1'
-  type: desktop app
-
-- regex: ^touristd\/([\d\.]+)
-  name: touristd
-  version: '$1'
-  type: desktop app
-
-- regex: ^trueupdate ([\d\.]+)
-  name: TrueUpdate
-  version: '$1'
-  type: desktop app
-
-- regex: unityplayer\/([\w\.]+)
-  name: Unity Player
-  version: '$1'
-  type: desktop app
-
-- regex: valve\/steam
-  name: Valve/Steam
-  version: ''
-  type: desktop app
-
-- regex: ^vcsoapclient$
-  name: vcsoapclient
-  version: ''
-  type: desktop app
-
-- regex: ^vsmon$
-  name: vsmon
-  version: ''
-  type: desktop app
-
-- regex: vs-platform-installer\/([\d\.]+)
-  name: VS Platform Installer
-  version: '$1'
-  type: desktop app
-
-- regex: vsservices\/([\d\.]+)
-  name: VS Services
-  version: '$1'
-  type: desktop app
-
-- regex: webtrendsclientlibrary\/([\d\.]+)
-  name: Webtrends Client Library
-  version: '$1'
-  type: desktop app
-
-- regex: ^WebTroubleshootingService$
-  name: Web Troubleshooting Service
-  version: ''
-  type: desktop app
-
-- regex: bingmap(s\.3dcontrol)?\/([\d\.]+)
-  name: Bing Maps
-  version: '$2'
-  type: desktop app
-
-- regex: window manager\/([\d\.]+)
-  name: Window Manager
-  version: '$1'
-  type: desktop app
-
-- regex: windowsadclient\/([\d\.]+)
-  name: Windows Ad Client
-  version: '$1'
-  type: desktop app
-
 - regex: ^windows assistant
   name: Windows Assistant
   version: ''
   type: desktop app
 
-- regex: windowsconnectedsearch\/([\d\.]+)
-  name: Windows Connected Search
-  version: '$1'
-  type: desktop app
-
-- regex: ^windowsliveexperienceconfigurationcabdownload$
-  name: Windows Live Experience Configuration Cab Download
-  version: ''
-  type: desktop app
-
-- regex: ^WindowsLocationProvider$
-  name: Windows Location Provider
-  version: ''
-  type: desktop app
-
-- regex: windows maps \(([\d\.]+)\)
-  name: Windows Maps
-  version: '$1'
-  type: desktop app
-
-- regex: ^windowsstoresdk$
-  name: Windows Store SDK
-  version: ''
-  type: desktop app
-
-- regex: ^windows-update-agent$
-  name: Windows Update Agent
-  version: ''
-  type: desktop app
-
-- regex: winmaildatopener\/([\d\.]+)
-  name: Winmail dat Opener
-  version: '$1'
-  type: desktop app
-
-- regex: ^wintuner\/([\d\.]+)
-  name: WinTuner
-  version: '$1'
-  type: desktop app
-
-- regex: wlfnotificationservice\/([\d\.]+)
-  name: WLF Notification Service
-  version: '$1'
-  type: desktop app
-
-- regex: wlinstaller\/([\d\.]+)
-  name: WL Installer
-  version: '$1'
-  type: desktop app
-
-- regex: wotd-extension\/([\d\.]+)
-  name: wotd-extension
-  version: '$1'
-  type: desktop app
-
-- regex: WSCSTUB-([\w\.]+)
-  name: WSCSTUB
-  version: '$1'
-  type: desktop app
-
-- regex: ^wslib ([\d\.]+)
-  name: WSLib
-  version: '$1'
-  type: desktop app
-
-- regex: xblwin([\d\.]+)
-  name: xBox Live Windows
-  version: '$1'
-  type: desktop app
-
-- regex: bingfinance.+\/([\d\.]+)
-  name: Bing Finance
-  version: '$1'
-  type: desktop app
-
-- regex: binghealthandfitness.+\/([\d\.]+)
-  name: Bing Health and Fitness
-  version: '$1'
-  type: desktop app
-
-- regex: bingnews.+\/([\d\.]+)
-  name: Bing News
-  version: '$1'
-  type: desktop app
-
-- regex: bingsports.+\/([\d\.]+)
-  name: Bing Sports
-  version: '$1'
-  type: desktop app
-
-- regex: bingweather.+\/([\d\.]+)
-  name: Bing Weather
-  version: '$1'
-  type: desktop app
-
-- regex: xpcolite platform
-  name: XPCOLite Platform
-  version: ''
-  type: desktop app
-
-- regex: youtubecreator\/([\d\.]+)
-  name: YouTube Creator
-  version: '$1'
-  type: desktop app
-
-- regex: ^zatray$
-  name: zatray
-  version: ''
-  type: desktop app
-
-- regex: ^ZuneClient$
-  name: Zune Client
-  version: ''
-  type: desktop app
-
-- regex: zwcad\/([\d\.]+)
-  name: ZWCAD
-  version: '$1'
-  type: desktop app
-
-- regex: (mbam.*) - base:([\d\.]+)
-  name: '$1'
-  version: '$2'
-  type: desktop app

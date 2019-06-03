@@ -42,7 +42,7 @@
   user_agent: 5ZLLHQPJA8.com.wunderground.storm
   client:
     app_id: com.wunderground.storm
-    pretty_name: Wunderground Storm
+    pretty_name: Storm by Weather Underground
 -
   user_agent: 8YJ6H75V7V.com.precisionplanting.FieldView
   client:
@@ -208,3 +208,13 @@
   client:
     app_id: com.tgc.greatcoursesplus
     pretty_name: Tgc Greatcoursesplus
+-
+  user_agent: Android-com.google.android.play.games/5.10.6084 (203152957.203152957-000304) (api=4,versionCode=60840034,sdk=23,device=j1xlteatt,hardware=universal3475,product=j1xlteuc)
+  client:
+    app_id: com.google.android.play.games
+    pretty_name: Google Android Play Games
+-
+  user_agent: 6H4HRTU5E3.net.avast.osx.secureline.avastsecurelinehelper/47936 CFNetwork/974.1 Darwin/18.0.0 (x86_64)
+  client:
+    app_id: net.avast.osx.secureline.avastsecurelinehelper
+    pretty_name: Avast Osx Secureline Avastsecurelinehelper

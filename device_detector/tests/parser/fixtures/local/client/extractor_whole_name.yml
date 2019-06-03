@@ -1,7 +1,7 @@
 -
   user_agent: Evernote Windows
   client:
-    type: generic
+    type: mobile app
     name: Evernote Windows
     version:
 -
@@ -34,7 +34,6 @@
     type: generic
     name: SpringBoard_WeatherFoundation
     version: ''
-
 -
   user_agent: AVGSETUP-WV7XXX64
   client:
@@ -70,4 +69,155 @@
   client:
     type: generic
     name: Voltage Security LLC. Voltage SDM Client
+    version: ''
+-
+  user_agent: NeroInfo
+  client:
+    type: mediaplayer
+    name: Nero
+    version: ""
+-
+  user_agent: Windows Media Player
+  client:
+    type: mediaplayer
+    name: Windows Media Player
+    version: ""
+-
+  user_agent: Adobe Update Manager 5
+  client:
+    type: mobile app
+    name: Adobe Update Manager
+    version: 5
+-
+  user_agent: Adobe Real Time
+  client:
+    type: mobile app
+    name: Adobe Real Time
+    version: ''
+-
+  user_agent: Adobe Online Services
+  client:
+    type: mobile app
+    name: Adobe Online Services
+    version: ''
+-
+  user_agent: Adobe Log Transport
+  client:
+    type: mobile app
+    name: Adobe Log Transport
+    version: ''
+-
+  user_agent: Adobe Flash Player 10
+  client:
+    type: mobile app
+    name: Adobe Flash Player
+    version: 10
+-
+  user_agent: Adobe Downloader App
+  client:
+    type: mobile app
+    name: Adobe Downloader App
+    version:
+-
+  user_agent: Adobe Application Manager 2.0
+  client:
+    type: mobile app
+    name: Adobe Application Manager
+    version: 2.0
+-
+  user_agent: Acrobat viewer
+  client:
+    type: mobile app
+    name: Acrobat Viewer
+    version:
+-
+  user_agent: Abbyy.Internet
+  client:
+    type: mobile app
+    name: Abbyy
+    version:
+-
+  user_agent: appbox
+  client:
+    type: mobile app
+    name: App Box
+    version:
+-
+  user_agent: APPCORE
+  client:
+    type: mobile app
+    name: App Core
+    version:
+-
+  user_agent: AESMService
+  client:
+    type: mobile app
+    name: AESM Service
+    version:
+-
+  user_agent: AKLocationSignInAlert
+  client:
+    type: mobile app
+    name: AK Location Sign In Alert
+    version:
+-
+  user_agent: alcatraz
+  client:
+    type: mobile app
+    name: Alcatraz
+    version:
+-
+  user_agent: AMPVConnector
+  client:
+    type: mobile app
+    name: AMPV Connector
+    version:
+-
+  user_agent: arc-intouch
+  client:
+    type: mobile app
+    name: ARC Intouch
+    version:
+-
+  user_agent: avdroid
+  client:
+    type: mobile app
+    name: AvDroid
+    version:
+-
+  user_agent: avira
+  client:
+    type: mobile app
+    name: Avira
+    version:
+-
+  user_agent: Corridor5.0.1011
+  client:
+    type: mobile app
+    name: Corridor
+    version: '5.0.1011'
+-
+  user_agent: CUIPromotion
+  client:
+    type: mobile app
+    name: CUIPromotion
+    version: ''
+-
+  user_agent: CuriosityAndroid169
+  client:
+    type: mobile app
+    name: Curiosity Android
+    version: '169'
+-
+  user_agent: Densimeter Axiom iOS
+  client:
+    type: mobile app
+    name: Densimeter Axiom
+    version: ''
+# should auto-assign type to "desktop app"
+-
+  user_agent: DieselDetect Updater
+  client:
+    type: desktop app
+    name: DieselDetect Updater
     version: ''

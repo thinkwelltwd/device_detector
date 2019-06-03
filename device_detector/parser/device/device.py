@@ -35,7 +35,7 @@ class Device(BaseDeviceParser):
         if regexes:
             return regexes
 
-        regexes = self.load_from_yaml('upstream/device/televisions.yml')
+        regexes = self.load_from_yaml('regexes/upstream/device/televisions.yml')
         if not regexes:
             return []
 
@@ -95,7 +95,11 @@ class Device(BaseDeviceParser):
                 return
 
         # If no brand info was found, check known fragments
-        self.ua_data = VendorFragment(self.user_agent).parse().ua_data or {}
+        self.ua_data = VendorFragment(
+            self.user_agent,
+            self.ua_hash,
+            self.ua_spaceless,
+        ).parse().ua_data or {}
 
     def get_model(self):
         model = self.ua_data.get('model', None)

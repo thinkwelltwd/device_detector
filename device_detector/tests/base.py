@@ -15,7 +15,23 @@ except ImportError:
     from yaml import SafeLoader
 
 from ..settings import ROOT
+from ..utils import ua_hash
 from .. import DeviceDetector
+
+from ..parser import (
+    Browser,
+    DesktopApp,
+    FeedReader,
+    Game,
+    Library,
+    MediaPlayer,
+    Messaging,
+    MobileApp,
+    P2P,
+    PIM,
+    NameVersionExtractor,
+    VPNProxy,
+)
 
 # App names -> Application ID map so that upstream
 # test fixtures can pass without modifications
@@ -151,12 +167,9 @@ class DetectorBaseTest(Base):
 
     def test_parsing(self):
 
-        if not self.Parser:
-            return
-
         for fixture in self.load_fixtures():
             self.user_agent = fixture.pop('user_agent')
-            device = self.Parser(self.user_agent)
+            device = DeviceDetector(self.user_agent)
             device.parse()
 
             # OS properties
@@ -205,8 +218,9 @@ class ParserBaseTest(Base):
 
         for fixture in fixtures:
             self.user_agent = fixture.pop('user_agent')
+            spaceless = self.user_agent.lower().replace(' ', '')
             expect = fixture[self.fixture_key]
-            parsed = self.Parser(self.user_agent).parse()
+            parsed = self.Parser(self.user_agent, ua_hash(self.user_agent), spaceless).parse()
             data = parsed.ua_data
 
             for field in self.fields:
@@ -227,11 +241,38 @@ class ParserBaseTest(Base):
 
 
 class GenericParserTest(ParserBaseTest):
+
+    @classmethod
+    def setUpClass(cls) -> None:
+        """
+        Run UA match on all Parser classes to populate DDCache['alldetails']
+        """
+        super().setUpClass()
+
+        ua = 'Garmin Express Service/6030000 CFNetwork/902.1 Darwin/17.7.0 (x86_64)'
+        hashed = ua_hash(ua)
+        spaceless = ua.lower().replace(' ', '')
+        for parser in (
+                Browser,
+                DesktopApp,
+                FeedReader,
+                Game,
+                Library,
+                MediaPlayer,
+                Messaging,
+                MobileApp,
+                P2P,
+                PIM,
+                NameVersionExtractor,
+                VPNProxy,
+        ):
+            parser(ua, hashed, spaceless).parse()
+
     skipped = []
 
     def test_skipped_useragents(self):
         for ua in self.skipped:
-            parsed = self.Parser(ua).parse()
+            parsed = self.Parser(ua, ua_hash(ua), ua.lower().replace(' ', '')).parse()
             self.assertEqual(parsed.ua_data, {})
 
 

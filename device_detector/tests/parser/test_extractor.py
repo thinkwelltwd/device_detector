@@ -11,6 +11,7 @@ class TestApplicationIDExtractor(ParserBaseTest):
 
     fixture_files = [
         'tests/parser/fixtures/local/extractor/applicationid.yml',
+        'tests/parser/fixtures/local/extractor/facebook_tracking.yml',
     ]
 
     def test_parsing(self):
@@ -21,7 +22,7 @@ class TestApplicationIDExtractor(ParserBaseTest):
             self.user_agent = fixture.pop('user_agent')
             expected = fixture['client']['app_id']
             app_id = ApplicationIDExtractor(self.user_agent)
-            parsed = app_id.extract()
+            parsed = app_id.extract().get('app_id', '')
 
             self.assertEqual(expected, parsed, msg=error.format(self.user_agent, parsed, expected))
 

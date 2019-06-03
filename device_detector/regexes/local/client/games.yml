@@ -8,11 +8,3 @@
 - regex: 'angry ?birds ?([\w\d]+)\/([\d\.]+)'
   name: 'Angry Birds $1'
   version: '$2'
-
-- regex: 'Asphalt8\/([\d\.]+)'
-  name: 'Asphalt 8'
-  version: '$1'
-
-- regex: 'At Bat\/([\d\.]+)'
-  name: 'At Bat'
-  version: '$1'

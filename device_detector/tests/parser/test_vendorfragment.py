@@ -1,5 +1,6 @@
 from ..base import ParserBaseTest
 from ...parser import VendorFragment
+from ...utils import ua_hash
 
 
 class TestVendorFragment(ParserBaseTest):
@@ -13,8 +14,10 @@ class TestVendorFragment(ParserBaseTest):
 
         for fixture in fixtures:
             self.user_agent = fixture.pop('useragent')
+            hashed = ua_hash(self.user_agent)
+            spaceless = self.user_agent.lower().replace(' ', '')
             expect = fixture['vendor']
-            parsed = VendorFragment(self.user_agent).parse()
+            parsed = VendorFragment(self.user_agent, hashed, spaceless).parse()
             self.assertEqual(expect, parsed.ua_data['brand'])
 
 

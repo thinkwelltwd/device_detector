@@ -2,26 +2,13 @@ try:
     import regex as re
 except (ImportError, ModuleNotFoundError):
     import re
+from ..settings import DDCache
+from ..yaml_loader import RegexLoader
 
-APP_ID = re.compile(r'(com\.(?:[\w\d\-_]+\.)+(?:[\w\d\-_]+))', re.IGNORECASE)
-
-# If UA string contains App ID IGNORE_APPIDS, consider it not to have an App ID at all
-IGNORE_APPIDS = {
-    'com.yourcompany.testwithcustomtabs',
-    'com.yourcompany.speedboxlite',
-}
-
-# If UA string contains multiple App IDs, prefer any not in SECONDARY_APPIDS
-SECONDARY_APPIDS = {
-    'com.usebutton.sdk',
-}
-NORMALIZE_ID = {
-    'com.apple.configurator.xpc.deviceservice': 'com.apple.configurator',
-    'com.apple.configurator.xpc.internetservice': 'com.apple.configurator',
-}
+APP_ID = re.compile(r'\b([a-z]{2,5}\.[\w\d\.\-]+)', re.IGNORECASE)
 
 
-class DataExtractor(object):
+class DataExtractor:
     """
     Regex will define a string value or 1-based index
     position of the desired metadata
@@ -80,10 +67,13 @@ class DataExtractor(object):
         # collect regex group values, substituting empty string for None
         group_values = []
         for pos in indices:
-            if not self.groups[pos]:
-                group_values.append('')
-            else:
-                group_values.append(self.groups[pos])
+            try:
+                if not self.groups[pos]:
+                    group_values.append('')
+                else:
+                    group_values.append(self.groups[pos])
+            except IndexError:
+                return ''
 
         return value.format(*group_values).strip()
 
@@ -93,8 +83,14 @@ class DataExtractor(object):
             return self.get_value_from_regex(value)
         return value
 
+    def __str__(self):
+        return '%s Extractor' % self.__class__.__name__
 
-class ApplicationIDExtractor:
+    def __repr__(self):
+        return '%s(%s, %s)' % (self.__class__.__name__, self.metadata, self.groups)
+
+
+class ApplicationIDExtractor(RegexLoader):
     """
     Extract App Store IDs such as:
 
@@ -107,32 +103,75 @@ class ApplicationIDExtractor:
 
     def __init__(self, user_agent):
         self.user_agent = user_agent
+        self.details = {}
         self.app_id = ''
+        self.name = ''
 
-    def extract(self):
+    def ignored_appids(self):
         """
-        arse for "com.<string.<string>.<string>" value
+        Load Ignored App IDs from yaml file
+        """
+        return self.load_app_id_sets(name='ignored')
+
+    def secondary_appids(self):
+        """
+        Load Seconadary App IDs from yaml file
+        """
+        return self.load_app_id_sets(name='secondary')
+
+    def normalized_app_ids(self):
+        normalized = DDCache['appids_normalized']
+        if normalized:
+            return normalized
+
+        DDCache['appids_normalized'] = self.load_from_yaml('appids/normalized.yml')
+        return DDCache['appids_normalized']
+
+    def extract(self) -> dict:
+        """
+        Parse for "<tld>.<string.<string>.<string>" value
 
         In the (unlikely) event that multiple valid IDs
         are found, just return the first one.
         """
-        if self.app_id:
-            return self.app_id
+        if self.details:
+            return self.details
 
         app_ids = set(APP_ID.findall(self.user_agent))
-        scrubbed_ids = sorted(list(app_ids.difference(SECONDARY_APPIDS)))
+        scrubbed_ids = sorted(list(app_ids.difference(self.secondary_appids())))
 
         if scrubbed_ids:
             app_id = scrubbed_ids[0]
-            if app_id.lower() in IGNORE_APPIDS:
-                return ''
-            self.app_id = NORMALIZE_ID.get(app_id.lower(), app_id)
+            if app_id.lower() in self.ignored_appids():
+                return {}
+            details = self.normalized_app_ids().get(app_id.lower(), {'app_id': app_id})
+            # allow for only pretty_name to be defined in the normalized data file
+            if 'app_id' not in details:
+                details['app_id'] = app_id
 
-        return self.app_id
+            self.details = details
+
+        return self.details
 
     def pretty_name(self):
-        app_id = self.extract()
-        return ' '.join(app_id.split('.')[1:]).title()
+        details = self.extract()
+        name = self.details.get('name', '')
+
+        if name:
+            return name
+
+        if not details:
+            return ''
+
+        self.details['name'] = ' '.join(details.get('app_id', '').split('.')[1:]).title()
+
+        return self.details['name']
+
+    def __str__(self):
+        return '%s("%s")' % (self.__class__.__name__, self.user_agent)
+
+    def __repr__(self):
+        return '%s("%s")' % (self.__class__.__name__, self.user_agent)
 
 
 class NameExtractor(DataExtractor):

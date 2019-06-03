@@ -1,16 +1,6 @@
 from collections import OrderedDict
 from copy import deepcopy
-from hashlib import md5
 import os
-
-
-def ua_hash(user_agent):
-    """
-    Return short hash of User Agent string for 
-    memory-efficient cache key.
-    """
-    return md5(user_agent.encode('utf-8')).hexdigest()[:9]
-
 
 # interpolate regex with anchors so
 # iPhone / Tiphone are matched correctly
@@ -20,7 +10,7 @@ MAX_CACHE_SIZE = 384
 
 class LRUDict(OrderedDict):
     """
-    An dict that can discard least-recently-used items via maximum capacity.
+    A dict that can discard least-recently-used items via maximum capacity.
 
     An item is considered "used" by direct access via [] or get() only,
     not via iterating over the whole collection with items(), for example.
@@ -63,8 +53,12 @@ class LRUDict(OrderedDict):
 class Cache(dict):
 
     base = {
+        'appdetails': {},
         'regexes': {},
         'normalize_regexes': [],
+        'appids_ignored': set(),
+        'appids_secondary': set(),
+        'appids_normalized': {},
         'user_agents': LRUDict(),
     }
 
@@ -93,5 +87,4 @@ __all__ = (
     'LRUDict',
     'ROOT',
     'WORTHLESS_UA_TYPES',
-    'ua_hash',
 )

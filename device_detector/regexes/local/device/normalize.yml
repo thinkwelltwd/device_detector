@@ -43,8 +43,3 @@
 # 1.0,win/6.3.9600,AV/18.4.2338,avl/push/18.4.3895.325,ffl
 - regex: '(\d\.\d,win\/[\d+\.]+,AV)(\/[\d+\.]+)(,avl\/[\w]+)\/.*'
   groups:  '\g<1>\g<3>'
-
-# Remove repeated characters like "baaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
-# match 12+ repetitions to avoid UUIDs like "00000000-0000-0000-0000-000000000000"
-- regex: (?:.*)(.)\1{12,}(.*)
-  groups: Gibberish

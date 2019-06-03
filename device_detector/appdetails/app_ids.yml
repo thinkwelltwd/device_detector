@@ -1,0 +1,18 @@
+###############
+# App Name / Type details for Device Detector - The Universal Device Detection library for parsing User Agents
+#
+# Copyright (c) 2019 Dave Burkholder, Thinkwell Designs
+# @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
+###############
+
+- app_id: com.google.gmail
+  name: Gmail
+
+- app_id: com.airmailapp.iphone
+  name: Airmail
+
+- app_id: com.airmailapp.iphone.notificationservice
+  name: Airmail
+
+- app_id: com.yahoo.mobile.client.android.mail
+  name: Yahoo Mobile

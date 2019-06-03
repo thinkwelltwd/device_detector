@@ -2,9 +2,11 @@ try:
     import regex as re
 except (ImportError, ModuleNotFoundError):
     import re
+import string
 
 from ..parser import Parser
-import string
+from ...settings import DDCache
+from ...utils import version_from_key
 
 keep = {'!', '@', '+'}
 table = str.maketrans(dict.fromkeys(''.join(c for c in string.punctuation if c not in keep)))
@@ -12,37 +14,113 @@ table = str.maketrans(dict.fromkeys(''.join(c for c in string.punctuation if c n
 
 class BaseClientParser(Parser):
 
-    # Map app names to a user friendly names.
-    # For example we might want to map 'yp' to 'Yellow Pages'
-    # Keys should be lowercase
-    normalized_name = {
-        'accu-weather': 'AccuWeather',
-        'accuweather': 'AccuWeather',
-        'test-case': 'Test Case',
-        'httpconnection symantec': 'Symantec',
-        'gasbuddy': 'Gas Buddy',
-        'icloudservices.exe': 'icloudservices',
-        'apsdaemon.exe': 'apsdaemon',
-    }
+    # Get the "full name/version" (space allowed) at beginning of UA string
+    # merriam-webster dictionary/430.11 cfnetwork/893.14.2 darwin/17.3.0
+    # Aurora HDR 2018/1.1.2 Sparkle/1.13.1
+    # libreoffice 5.4.3.2 (92a7159f7e4af62137622921e809f8546db437e5; windows; x86;)
+    # openoffice.org 3.2 (320m18(build:9502); windows; x86; bundledlanguages=en-us)
+    FIRST_NAME_SLASH_VERSION = re.compile(
+        r'^(?P<name>[\w\d\.\-_\&\'!®\?, \+]+)[\/( \-][vr]?(?P<version>[\d\.]+)\b',
+        re.IGNORECASE,
+    )
 
-    def normalize_name(self):
+    # Get the "name version" (space allowed) at beginning of UA string
+    # CarboniteDownloader 6.3.2 build 7466 (Sep-07-2017)
+    # Microsoft Office Access 2013 (15.0.4693) Windows NT 6.2
+    NAME_SPACE_VERSION = re.compile(
+        r'^(?P<name>[\w\d\.\-_\&\'!®\?,\+]+) v?(?P<version>[\d\.]+)',
+        re.IGNORECASE,
+    )
+
+    # Name can't include space after the first match. IOW, don't want to extract
+    # "NRD90M Android/7.0" from the following regex
+    # Version/1 Yelp/v9.16.1 Carrier/AT&T Model/j7popelteatt OSBuild/NRD90M Android/7.0
+    NAME_SLASH_VERSION = re.compile(
+        r'\b(?P<name>[\w\d\-_\.\&\'!®\?\+]+)[\/]v?(?P<version>[\d\.]+)',
+        re.IGNORECASE,
+    )
+
+    FIRST_ALPHANUMERIC_WORD = re.compile(r'^([a-z0-9]+)', re.IGNORECASE)
+
+    def name_version_pairs(self) -> list:
         """
-        Map app names to a user friendly names.
-        For example we might want to map 'yp' to 'Yellow Pages'
-        Keys should be lowercase
+        This regex used on most UA strings so we don't need to write the same
+        <name>/<version> regexes over and again
+
+        Try to find interesting matches with name/version or name (version) format
+        anywhere in the regex, skipping the obvious cruft.
+
+        Zip Books/1.3.20 (com.zipbooks.zipbooksios; build:1309; iOS 12.1.3) Alamofire/4.3.0
+        should return - [('zipbooks', 'Zip Books', '1.3.20'), ('alamofire', 'Alamofire', '4.3.0')]
+
+        Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) Spotify/1.0.92.390 Safari/537.36
+        should return - [('spotify', 'Spotify', '1.0.92.390'), ('safari', 'Safari', '537.36')]
+
+        Mozilla/5.0 (Windows NT 10.0: WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.81 Safari/537.36 Avast/69.0.792.81
+        should return - [('chrome', 'Chrome', '69.0.3497.81'), ('safari', 'Safari', '537.36'), ('avast', 'Avast', '69.0.792.81')]
         """
-        name = self.ua_data.get('name', '')
-        if not name:
+        from .browser import CRUFT_NAMES
+        ua = self.user_agent
+
+        cached = DDCache['user_agents'][self.ua_hash].get('name_version_pairs', [])
+        if cached:
+            return cached
+
+        matches = self.FIRST_NAME_SLASH_VERSION.findall(ua)
+        matches.extend(self.NAME_SPACE_VERSION.findall(ua))
+
+        first_slash = self.user_agent.find('/')
+        matches.extend(self.NAME_SLASH_VERSION.findall(ua, pos=first_slash + 1))
+
+        cleaned_matches = []
+
+        for name, version in matches:
+            name = name.strip()
+            name_lower = name.lower()
+            if name_lower in CRUFT_NAMES:
+                continue
+            code = name_lower.replace(' ', '')
+            cleaned_matches.append((code, name, version.strip()))
+
+        DDCache['user_agents'][self.ua_hash]['name_version_pairs'] = cleaned_matches
+        return cleaned_matches
+
+    def _parse(self) -> None:
+        """
+        Check the name_version_pairs data before checking regexes
+        """
+        app_details = self.appdetails_data
+        name_version_pairs = self.name_version_pairs()
+
+        for code, name, version in name_version_pairs:
+            if code in app_details:
+                self.known = True
+                self.ua_data = {
+                    'name': app_details[code]['name'],
+                    # get version by Key/Value if it exists - News/582.1 Version/2.0
+                    'version': version_from_key(name_version_pairs, version),
+                }
+                self.calculated_dtype = app_details[code].get('type', '')
+                return
+
+        # check if whole UA string found in app details
+        match = app_details.get(self.ua_spaceless, {})
+
+        # Check if first alphanumeric word found in app details.
+        if not match:
+            try:
+                first_word = self.FIRST_ALPHANUMERIC_WORD.search(self.ua_spaceless).group()
+                match = app_details.get(first_word, {})
+            except AttributeError:
+                pass
+
+        if match:
+            match['version'] = None
+            self.ua_data = match
+            self.calculated_dtype = match.get('type', '')
             return
-        self.ua_data['name'] = self.normalized_name.get(name.lower(), name)
 
-    def parse(self):
-        parsed = super().parse()
-        self.normalize_name()
-        return parsed
-
-    def dtype(self):
-        return self.cache_name.lower()
+        return super()._parse()
 
 
 class GenericClientParser(BaseClientParser):
@@ -84,7 +162,6 @@ class GenericClientParser(BaseClientParser):
 
         Return True if app should be discarded
         """
-
         if not self.is_name_length_valid():
             return True
 
@@ -155,7 +232,6 @@ class GenericClientParser(BaseClientParser):
         extract helpful info from.  If so, update ua data and mark
         as known.
         """
-
         for regex, group in self.parse_generic_regex:
             m = regex.match(self.app_name)
 
@@ -164,6 +240,18 @@ class GenericClientParser(BaseClientParser):
                 return
 
     def dtype(self) -> str:
+        if self.calculated_dtype:
+            return self.calculated_dtype
+
+        app_name_lower = self.app_name.lower()
+        for name, dtype in (
+            ('update', 'desktop app'),
+            ('api', 'library'),
+            ('sdk', 'library'),
+        ):
+            if name in app_name_lower:
+                return dtype
+
         return 'generic'
 
 

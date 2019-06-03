@@ -1,0 +1,629 @@
+###############
+# App Name / Type details for Device Detector - The Universal Device Detection library for parsing User Agents
+#
+# Copyright (c) 2019 Dave Burkholder, Thinkwell Designs
+# @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
+###############
+# General Desktop Apps
+
+- uaname: AdobeLightroom
+  name: Adobe Photoshop Lightroom
+
+- uaname: Adobe Photoshop Lightroom
+  name: Adobe Photoshop Lightroom
+
+- uaname: Photoshop Fix
+  name: Photoshop Fix
+
+- uaname: Photoshop Mix
+  name: Photoshop Mix
+
+- uaname: AdobeNimbus
+  name: Adobe Nimbus
+
+- uaname: com.apple.Maps
+  name: Apple Maps
+
+- uaname: google earth
+  name: Google Earth
+
+- uaname: google maps
+  name: Google Maps
+
+- uaname: google photos
+  name: Google Photos
+
+- uaname: cloudd
+  name: Cloudd
+
+- uaname: microsoftphotos
+  name: Microsoft Photos
+
+- uaname: microsoft skydrivesync
+  name: Microsoft OneDrive
+  type: apputility
+
+- uaname: onedrive
+  name: Microsoft OneDrive
+
+- uaname: onenote
+  name: Microsoft OneNote
+
+- uaname: word
+  name: Microsoft Word
+  type: productivity
+
+- uaname: microsoft settingssync
+  name: Microsoft OneDrive
+  type: apputility
+
+- uaname: googlesoftwareupdateagent
+  name: Google Updater
+  type: apputility
+
+- uaname: DellUpdate
+  name: Dell Updater
+  type: apputility
+
+# Financial
+- uaname: QBUpdate
+  name: Quickbooks Updater
+  type: apputility
+
+
+# Office / Productivity Apps
+- uaname: Microsoft Office
+  name: Microsoft Office
+  type: productivity
+
+- uaname: openoffice.org
+  name: OpenOffice
+  type: productivity
+
+- uaname: libreoffice
+  name: LibreOffice
+  type: productivity
+
+- uaname: airport utility
+  name: Apple AirPort Utility
+
+- uaname: akamaidlm
+  name: Akamai Download Manager
+
+- uaname: AMD Catalyst Install Manager
+  name: AMD Catalyst Install Manager
+
+- uaname: AMD Radeon Analytics Utility
+  name: AMD Radeon Analytics Utility
+
+- uaname: AMD Radeon Installer Analytics
+  name: AMD Radeon Installer Analytics
+
+- uaname: Apple Software Update
+  name: Apple Software Update
+
+- uaname: ASUS Live Update
+  name: ASUS Live Update
+
+- uaname: Avanquest LiveUpdate
+  name: Avanquest LiveUpdate
+
+- uaname: app virt client
+  name: Application Virtualization Client
+
+- uaname: asana
+  name: Asana
+
+- uaname: autocad360
+  name: Auto CAD 360
+
+- uaname: bingbar
+  name: BingBar
+
+- uaname: ByteFenceEngine
+  name: Byte Fence Engine
+
+- uaname: bzbmenu
+  name: BZB Menu
+
+- uaname: arcsoft panorama maker
+  name: ArcSoft Panorama Maker
+
+- uaname: captivenetworksupport
+  name: Captive Network Support
+
+- uaname: captain ftp
+  name: Captain FTP
+
+- uaname: carbonitedownloader
+  name: Carbonite Downloader
+
+- uaname: Carbonite Installer
+  name: Carbonite Installer
+
+- uaname: carboniteservice
+  name: Carbonite Service
+
+- uaname: carboniteuploader
+  name: Carbonite Uploader
+
+- uaname: cloudsdk
+  name: CloudSDK
+
+- uaname: geod
+  name: Apple Geod
+
+- uaname: com.apple.geod
+  name: Apple Geod
+
+- uaname: com.apple.trustd
+  name: trustd
+
+- uaname: com.apple.weatherkitservice
+  name: Apple Weather Kit Service
+
+- uaname: com.apple.webkit.networking
+  name: Apple Networking Webkit
+
+- uaname: coresync
+  name: CoreSync
+
+- uaname: cppanalytics
+  name: CppAnalytics
+
+- uaname: cpprestsdk
+  name: C++ REST SDK
+
+- uaname: dayonemac
+  name: Day One for Mac
+
+- uaname: delldigitaldelivery
+  name: Dell Digital Delivery
+
+- uaname: dell sonicwall anti-spam desktop
+  name: Dell SonicWall
+
+- uaname: driverrestore
+  name: Driver Restore
+
+- uaname: driverreviver
+  name: Driver Reviver
+
+- uaname: driverupdate
+  name: Driver Update
+
+- uaname: ownCloud
+  suffixes: -android
+  name: ownCloud
+
+- uaname: mirall
+  name: ownCloud
+
+- uaname: entech.update
+  name: EnTech Update
+
+- uaname: epsonappletservice
+  name: Epson Applet Service
+
+- uaname: epsonrewardinvitation
+  name: Epson Reward Invitation
+
+- uaname: g2mupdate
+  name: G2M Update
+
+- uaname: gamed.+gamekit
+  name: Apple GameKit
+
+- uaname: gn templates for ms office
+  name: GN Templates for MS Office
+
+- uaname: googlesoftwareupdate
+  name: Google Software Update
+
+- uaname: gopro desktop app
+  name: GoPro Desktop App
+
+- uaname: gototraining
+  name: Go To Training
+
+- uaname: gotowebinar
+  name: Go To Webinar
+
+- uaname: grooveagent
+  name: Groove Agent
+
+- uaname: gsoap
+  name: gSOAP
+
+- uaname: ICM-Service
+  name: ICM Service
+
+- uaname: idrivedaemon
+  name: iDrive Daemon
+
+- uaname: imtransferagent
+  name: IM Transfer Agent
+
+- uaname: innotools_downloader
+  name: Inno Tools Downloader
+
+- uaname: InTouchDownloader
+  name: InTouch Downloader
+
+- uaname: jgit
+  name: JGit
+
+- uaname: macappstore
+  name: Mac Appstore
+
+- uaname: machash
+  name: MacHash
+
+- uaname: macvim
+  name: MacVim
+
+- uaname: magicprefs
+  name: MagicPrefs
+
+- uaname: mailchimp
+  name: MailChimp
+
+- uaname: microsoft-atl-native
+  name: Microsoft ATL Native
+
+- uaname: microsoft ncsi
+  name: Microsoft NCSI
+
+- uaname: microsoft-playready-drm
+  name: Microsoft PlayReady DRM
+
+- uaname: microsoft.windowscommunicationsapps
+  name: Microsoft Windows Communication Apps
+
+- uaname: ngautorun
+  name: NGAutorun
+
+- uaname: nis
+  name: NIS
+
+- uaname: nvprofileupdater
+  name: Nv Profile Updater
+
+- uaname: nvtelemetry
+  name: Nv Telemetry
+
+- uaname: officeclicktorun
+  name: Office Click to Run
+
+- uaname: officesuite
+  suffixes: free2
+  name: Office Suite
+
+- uaname: onedrivefileprovider
+  name: OneDrive
+
+- uaname: openlink
+  name: OpenLink
+
+- uaname: openoffice
+  name: OpenOffice
+  type: productivity
+
+- uaname: opera netinstaller
+  name: Opera Net Installer
+
+- uaname: ossproxy
+  name: OSS Proxy
+
+- uaname: outlooksocialconnector
+  name: Outlook Social Connector
+
+- uaname: photoshopelements
+  name: Photoshop Elements
+
+- uaname: powerpoint
+  name: PowerPoint
+
+- uaname: powerregister
+  name: PowerRegister
+
+- uaname: preinstallcheck
+  name: PreInstallCheck
+
+- uaname: premiereelements
+  name: Premiere Elements
+
+- uaname: restsharp
+  name: RestSharp
+
+- uaname: compose-shareextension
+  name: compose-shareextension
+
+- uaname: CrashRpt
+  name: CrashRpt
+
+- uaname: Creative Cloud
+  name: Creative Cloud
+
+- uaname: CRWindowsClient
+  name: CRWindowsClient
+
+- uaname: CyberLink PowerDVD
+  name: CyberLink PowerDVD
+
+- uaname: DriverReviver
+  name: Driver Reviver
+
+- uaname: Drive
+  name: Drive
+
+- uaname: Dropbox
+  name: Dropbox
+
+- uaname: Egnyte
+  name: Egnyte
+
+- uaname: Endicia
+  name: Endicia
+
+- uaname: Epson ReadyInk Agent
+  name: Epson ReadyInk Agent
+
+- uaname: EpsonRewardInvitation
+  name: Epson Reward Invitation
+
+- uaname: ESET Security proxy detection
+  name: ESET Security Proxy Detection
+
+- uaname: safariextension
+  name: Safari Extension
+
+- uaname: Excel
+  name: Excel
+  type: productivity
+
+- uaname: Fitbit Agent
+  name: Fitbit Agent
+
+- uaname: gamed
+  name: Apple GameKit
+
+- uaname: Garmin Core Service Win
+  name: Garmin Core Service
+
+- uaname: Garmin Express Win
+  name: Garmin Express
+
+- uaname: Grammarly
+  name: Grammarly
+
+- uaname: GrooveAgent WinInet
+  name: Groove Agent
+
+- uaname: HP Lookup Agent
+  name: HP Lookup Agent
+
+- uaname: HP Rules Engine
+  name: HP Rules Engine
+
+- uaname: HP Smart
+  name: HP Smart
+
+- uaname: IMTransferAgent
+  name: IM Transfer Agent
+
+- uaname: itype
+  name: itype
+
+- uaname: JGit
+  name: JGit
+
+- uaname: join.me
+  name: join.me
+
+- uaname: locationd
+  name: locationd
+
+- uaname: Luminar 2018
+  name: Luminar 2018
+
+- uaname: Mac Submission Engine
+  name: Mac Submission Engine
+
+- uaname: MailBuddy
+  name: MailBuddy
+
+- uaname: MailChimp
+  name: MailChimp
+
+- uaname: Microsoft AU Daemon
+  name: Microsoft AU Daemon
+
+- uaname: Microsoft AutoUpdate
+  name: Microsoft AutoUpdate
+
+- uaname: Microsoft remote desktop
+  name: Microsoft Remote Desktop
+
+- uaname: MSN Explorer
+  name: MSN Explorer
+
+- uaname: OfficeC2R
+  name: Office Click to Run
+
+- uaname: Office Source Engine
+  name: Office Source Engine
+
+- uaname: OpenDNS Updater Client
+  name: OpenDNS Updater Client
+
+- uaname: Outlook shim services
+  name: Outlook Shim Services
+
+- uaname: OutlookSocialConnector
+  name: Outlook Social Connector
+
+- uaname: parallels toolbox
+  name: Parallels Toolbox
+
+- uaname: parsecd
+  name: parsecd
+
+- uaname: pingsender
+  name: pingsender
+
+- uaname: pipelined
+  name: pipelined
+
+- uaname: pseelive
+  name: pseelive
+
+- uaname: ps express
+  name: PS Express
+
+- uaname: realizd
+  name: realizd
+
+- uaname: PyCharm
+  name: PyCharm
+
+- uaname: safarifetcherd
+  name: safarifetcherd
+
+- uaname: safarisafebrowsing
+  name: Safari Safe Browsing
+
+- uaname: SASDIAGNOSTICITEM
+  name: SAS Diagnostic Item
+
+- uaname: saraclient
+  name: saraclient
+
+- uaname: Seagate Dashboard
+  name: Seagate Dashboard
+
+- uaname: SeagateToolkit
+  name: Seagate Toolkit
+
+- uaname: selfupdateservice
+  name: Self Update Service
+
+- uaname: sentry-cocoa
+  name: Sentry Cocoa
+
+- uaname: sfguniversalproductionrichpush
+  name: SFG Universal Production Rich Push
+
+- uaname: slimware.session
+  name: SlimWare Session
+
+- uaname: smartmailnotificationservice
+  name: Smart Mail Notification Service
+
+- uaname: SmartDraw Download Module
+  name: SmartDraw Download Module
+
+- uaname: Smart Switch PC
+  name: Smart Switch PC
+
+- uaname: SoftMaker Fetch
+  name: SoftMaker Fetch
+
+- uaname: stream_package_agent
+  name: Stream Package Agent
+
+- uaname: symc-remediation
+  name: SYMC Remediation
+
+- uaname: TaskUpdateDetection
+  name: Task Update Detection
+
+- uaname: TaskUpdateDownload
+  name: Task Update Download
+
+- uaname: tipsd
+  name: tipsd
+
+- uaname: touristd
+  name: touristd
+
+- uaname: trueupdate
+  name: TrueUpdate
+
+- uaname: unityplayer
+  name: Unity Player
+
+- uaname: vcsoapclient
+  name: vcsoapclient
+
+- uaname: vsmon
+  name: vsmon
+
+- uaname: vs-platform-installer
+  name: VS Platform Installer
+
+- uaname: vsservices
+  name: VS Services
+
+- uaname: Windows Maps
+  name: Windows Maps
+
+- uaname: WSCSTUB
+  name: WSCSTUB
+
+- uaname: webtrendsclientlibrary
+  name: Webtrends Client Library
+
+- uaname: WebTroubleshootingService
+  name: Web Troubleshooting Service
+
+- uaname: window manager
+  name: Window Manager
+
+- uaname: windowsadclient
+  name: Windows Ad Client
+
+- uaname: windowsconnectedsearch
+  name: Windows Connected Search
+
+- uaname: windowsliveexperienceconfigurationcabdownload
+  name: Windows Live Experience Configuration Cab Download
+
+- uaname: WindowsLocationProvider
+  name: Windows Location Provider
+
+- uaname: windowsstoresdk
+  name: Windows Store SDK
+
+- uaname: winmaildatopener
+  name: Winmail dat Opener
+
+- uaname: wintuner
+  name: WinTuner
+
+- uaname: wlfnotificationservice
+  name: WLF Notification Service
+
+- uaname: wlinstaller
+  name: WL Installer
+
+- uaname: wotd-extension
+  name: wotd-extension
+
+- uaname: wslib
+  name: WSLib
+
+- uaname: xblwin
+  name: xBox Live Windows
+
+- uaname: youtubecreator
+  name: YouTube Creator
+
+- uaname: zatray
+  name: zatray
+
+- uaname: ZuneClient
+  name: Zune Client
+
+- uaname: zwcad
+  name: ZWCAD

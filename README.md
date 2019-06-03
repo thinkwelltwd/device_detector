@@ -46,6 +46,26 @@ device.device_brand()       # >>> SO
 device.device_model()       # >>> Xperia ZR
 device.device_type()        # >>> smartphone
 
+# For much faster performance, skip Bot and Device Hardware Detection
+# and extract get OS / App details only.
+from device_detector import SoftwareDetector
+
+ua = 'Mozilla/5.0 (Linux; Android 6.0; 4Good Light A103 Build/MRA58K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.83 Mobile Safari/537.36'
+device = SoftwareDetector(ua).parse()
+
+device.client_name()        # >>> Chrome Mobile
+device.client_short_name()  # >>> CM
+device.client_type()        # >>> browser
+device.client_version()     # >>> 58.0.3029.83
+
+device.os_name()     # >>> Android
+device.os_version()  # >>> 6.0
+device.engine()      # >>> WebKit
+
+device.device_brand_name()  # >>> ''
+device.device_brand()       # >>> ''
+device.device_model()       # >>> ''
+device.device_type()        # >>> ''
 ```
 
 ## Device Detector for other languages

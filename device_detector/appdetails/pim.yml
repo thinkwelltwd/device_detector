@@ -1,0 +1,46 @@
+###############
+# App Name / Type details for Device Detector - The Universal Device Detection library for parsing User Agents
+#
+# Copyright (c) 2019 Dave Burkholder, Thinkwell Designs
+# @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
+###############
+
+- uaname: applemail
+  name: Apple Mail
+
+- uaname: bluemail
+  name: Blue Mail
+
+- uaname: canary mail
+  name: Canary Mail
+
+- uaname: email
+  name: Email
+
+- uaname: android-gmail
+  name: Gmail
+
+- uaname: androidgmail
+  name: Gmail
+
+- uaname: gmail
+  name: Gmail
+
+- uaname: mailbird
+  name: Mailbird
+
+- uaname: outlook
+  name: Microsoft Outlook
+
+- uaname: outlook-express
+  name: Outlook Express
+
+- uaname: youmail
+  suffixes: android
+  name: YouMail
+
+- uaname: yahoo mail
+  name: Yahoo Mail
+
+- uaname: ymobile
+  name: Yahoo Mobile

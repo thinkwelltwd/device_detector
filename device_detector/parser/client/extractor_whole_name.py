@@ -4,6 +4,8 @@ try:
 except (ImportError, ModuleNotFoundError):
     import re
 
+from ...settings import DDCache
+
 
 class WholeNameExtractor(GenericClientParser):
     """
@@ -31,9 +33,6 @@ class WholeNameExtractor(GenericClientParser):
     ]
 
     # -------------------------------------------------------------------
-    app_name = ''
-    app_version = ''
-
     def _parse(self):
         if '/' in self.user_agent:
             return
@@ -61,13 +60,22 @@ class WholeNameExtractor(GenericClientParser):
         for regex in self.extract_version_regex:
 
             match = regex.search(self.user_agent)
-
             if match:
                 self.app_version = match.group()
+                name = self.user_agent[:match.start()]
+                break
+        else:
+            name = self.user_agent
 
-                return self.user_agent[:match.start()]
+        # if this name was specified in App Details, lookup
+        # the dtype and normalized name.
+        name_lower = name.lower().replace(' ', '')
+        for dtype, details in DDCache['appdetails'].items():
+            if name_lower in details:
+                self.calculated_dtype = dtype
+                return details[name_lower]['name']
 
-            return self.user_agent
+        return name
 
     def is_name_length_valid(self) -> bool:
         """
