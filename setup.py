@@ -26,6 +26,7 @@ setup(
     version=get_version(),
     description="Python3 port of matomo's Device Detector",
     long_description=long_description,
+    long_description_content_type='text/markdown',
     author='Dave Burkholder',
     author_email='dave@thinkwelldesigns.com',
     packages=find_packages(exclude=["tests"]),
