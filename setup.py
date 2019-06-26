@@ -38,7 +38,10 @@ setup(
     package_data={
         '': ['*.yml'],
     },
-    install_requires=['pyyaml'],
+    install_requires=[
+        'pyyaml',
+        'regex',
+    ],
     classifiers=[
         'Environment :: Web Environment',
         'Intended Audience :: Developers',
@@ -47,10 +50,8 @@ setup(
         'Programming Language :: Python',
         'Topic :: Internet :: WWW/HTTP',
         'Topic :: Software Development :: Libraries :: Python Modules',
-        'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.4',
-        'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3.7',
         'Programming Language :: Python :: Implementation :: CPython',
     ],
 )
