@@ -13,6 +13,7 @@ from .parser import (
     MOBILE_DEVICE_TYPES,
 
     # Clients
+    DictUA,
     Browser,
     FeedReader,
     Game,
@@ -47,6 +48,14 @@ MAC_iOS = {
     'MAC',
 }
 
+TOUCH_FRAGMENT = re.compile(r'Touch', re.IGNORECASE)
+TV_FRAGMENT = re.compile(r'Kylo|Espial|Opera TV Store|HbbTV', re.IGNORECASE)
+ANDROID_MOBILE_FRAGMENT = re.compile(r'Android( [\.0-9]+)?; Mobile;', re.IGNORECASE)
+ANDROID_TABLET_FRAGMENT = re.compile(r'Android( [\.0-9]+)?; Tablet;', re.IGNORECASE)
+CHROME_MOBILE_FRAGMENT = re.compile(r'Chrome/[\.0-9]* Mobile', re.IGNORECASE)
+CHROME_NOTMOBILE_FRAGMENT = re.compile(r'Chrome/[\.0-9]* (?!Mobile)', re.IGNORECASE)
+OPERA_TABLET_FRAGMENT = re.compile(r'Opera Tablet', re.IGNORECASE)
+
 
 class DeviceDetector(RegexLoader):
 
@@ -55,6 +64,7 @@ class DeviceDetector(RegexLoader):
     ]
 
     CLIENT_PARSERS = (
+        DictUA,
         FeedReader,
         Game,
         Messaging,
@@ -97,9 +107,6 @@ class DeviceDetector(RegexLoader):
         self.skip_device_detection = skip_device_detection
         self.all_details = {'normalized': ''}
         self.parsed = False
-        self.touch_fragment = re.compile(r'Touch', re.IGNORECASE)
-        self.TV_fragment = re.compile(r'Kylo|Espial|Opera TV Store|HbbTV', re.IGNORECASE)
-        self.facebook_fragment = re.compile(f'FBAB/', re.IGNORECASE)
 
         if self.ua_hash not in DDCache['user_agents']:
             DDCache['user_agents'][self.ua_hash] = {}
@@ -221,7 +228,7 @@ class DeviceDetector(RegexLoader):
         if not self.skip_bot_detection:
             self.parse_bot()
             if self.is_bot():
-                return self
+                return self.set_parse_cache()
 
         if self.is_worthless():
             return self
@@ -233,6 +240,21 @@ class DeviceDetector(RegexLoader):
             self.parse_device()
 
         return self.set_parse_cache()
+
+    def supplement_secondary_client_data(self, app_idx):
+        """
+        Add data to secondary_client details
+        """
+        data = {
+            'name': app_idx.pretty_name(),
+            'version': app_idx.version(),
+            'type': 'generic',
+        }
+        self.client.secondary_client.update(data)
+        try:
+            self.all_details['client']['secondary_client'].update(data)
+        except KeyError:
+            self.all_details['client']['secondary_client'] = data
 
     def parse_client(self) -> None:
         """
@@ -253,8 +275,8 @@ class DeviceDetector(RegexLoader):
                 if app_id:
                     if app_id in self.all_details['client']['name']:
                         self.all_details['client']['name'] = app_idx.pretty_name()
-                    elif self.is_facebook_tracking_noise():
-                        self.all_details['client']['name'] = app_idx.pretty_name()
+                    elif app_idx.override_name_with_app_id(client_name=parser.name()):
+                        self.supplement_secondary_client_data(app_idx)
                 return
 
         # if no client matched, still add name / app_id values
@@ -308,18 +330,32 @@ class DeviceDetector(RegexLoader):
             return False
         return self.bot.is_known()
 
-    def ambiguous_android_type(self) -> str:
-        """
-        Android up to 3.0 was designed for smartphones only. But as 3.0, which was tablet only,
-        was published too late, there were a bunch of tablets running with 2.x
+    def android_device_type(self) -> str:
 
-        With 4.0 the two trees were merged and it is for smartphones and tablets
-        So were are expecting that all devices running Android < 2 are smartphones
-        Devices running Android 3.X are tablets. Device type of Android 2.X and 4.X+ are unknown
-        """
         if self.os_short_name() != 'AND':
             return ''
 
+        # Some user agents simply contain the fragment 'Android; Mobile;',
+        # so we assume those devices as smartphones
+        if ANDROID_MOBILE_FRAGMENT.findall(self.user_agent):
+            return 'smartphone'
+
+         # Chrome on Android passes the device type based on the keyword 'Mobile'
+         # If it is present the device should be a smartphone, otherwise it's a tablet
+         # See https://developer.chrome.com/multidevice/user-agent#chrome_for_android_user_agent
+        if CHROME_MOBILE_FRAGMENT.search(self.user_agent) is not None:
+            return 'smartphone'
+
+        elif CHROME_NOTMOBILE_FRAGMENT.search(self.user_agent) is not None:
+            return 'tablet'
+
+
+        # Android up to 3.0 was designed for smartphones only. But as 3.0, which was tablet only,
+        # was published too late, there were a bunch of tablets running with 2.x
+        #
+        # With 4.0 the two trees were merged and it is for smartphones and tablets
+        # So were are expecting that all devices running Android < 2 are smartphones
+        # Devices running Android 3.X are tablets. Device type of Android 2.X and 4.X+ are unknown
         os_version = self.os_version()
         if not os_version:
             return ''
@@ -354,18 +390,24 @@ class DeviceDetector(RegexLoader):
         As most touch enabled devices are tablets and only a smaller part are desktops/notebooks
         we assume that all Windows 8 touch devices are tablets.
         """
-        touch_enabled = self.touch_fragment.search(self.user_agent) is not None
+        touch_enabled = TOUCH_FRAGMENT.search(self.user_agent) is not None
 
         if touch_enabled and not self.device_model():
             return self.os_short_name() in ('WRT', 'WIN')
 
         return False
 
+    def opera_tablet(self) -> bool:
+        """
+        Some UA strings contain 'Opera Tablet', so we assume those devices as tablets
+        """
+        return OPERA_TABLET_FRAGMENT.search(self.user_agent) is not None
+
     def is_television(self) -> bool:
         """Devices running Kylo or Espital TV Browsers are assumed to be a TV"""
         if self.client_name() in ('Kylo', 'Espial TV Browser'):
             return True
-        return self.TV_fragment.search(self.user_agent) is not None
+        return TV_FRAGMENT.search(self.user_agent) is not None
 
     def uses_mobile_browser(self) -> bool:
         try:
@@ -374,14 +416,6 @@ class DeviceDetector(RegexLoader):
         except AttributeError:
             pass
         return False
-
-    def is_facebook_tracking_noise(self):
-        """
-        Dalvik/2.1.0 (Linux; U; Android 6.0.1; LG-M153 Build/MXB48T) [FBAN/AudienceNetworkForAndroid;FBSN/Android;FBSV/6.0.1;FBAB/com.outthinking.photo;FBAV/1.41;FBBV/37;FBVS/4.27.1;FBLC/en_US]
-        Interested in the FBAB/<app.id> pattern
-        i.e. FBAB/com.outthinking.photo
-        """
-        return self.facebook_fragment.search(self.user_agent) is not None
 
     def engine(self) -> str:
         if 'browser' not in self.client_type():
@@ -429,6 +463,40 @@ class DeviceDetector(RegexLoader):
         except AttributeError:
             return ''
 
+    def secondary_client_name(self) -> str:
+        try:
+            return self.client.secondary_name()
+        except AttributeError:
+            return ''
+
+    def secondary_client_version(self) -> str:
+        try:
+            return self.client.secondary_version()
+        except AttributeError:
+            return ''
+
+    def secondary_client_type(self) -> str:
+        try:
+            return self.client.secondary_type()
+        except AttributeError:
+            return ''
+
+    def preferred_client_name(self):
+        """
+        Android and iOS mobile browsers often contain more interesting
+        app information.
+
+        If Secondary app can be extracted, prefer those app details
+        as being more specific.
+        """
+        return self.secondary_client_name() or self.client_name()
+
+    def preferred_client_version(self):
+        return self.secondary_client_version() or self.client_version()
+
+    def preferred_client_type(self):
+        return self.secondary_client_type() or self.secondary_client_type()
+
     def device_type(self) -> str:
         """
         Get device type, preferably from the Device Parser, but
@@ -446,7 +514,7 @@ class DeviceDetector(RegexLoader):
         except AttributeError:
             pass
 
-        aat = self.ambiguous_android_type()
+        aat = self.android_device_type()
         if aat:
             return aat
 
@@ -458,6 +526,9 @@ class DeviceDetector(RegexLoader):
 
         if self.is_desktop():
             return 'desktop'
+
+        if self.opera_tablet():
+            return 'tablet'
 
         return ''
 

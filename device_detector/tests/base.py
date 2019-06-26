@@ -39,6 +39,7 @@ APPID_TO_NAME = {
     'com.google.GooglePlus': 'Google Plus',
     'com.google.android.youtube': 'YouTube',
     'com.google.android.apps.magazines': 'Google Play Newsstand',
+    'WAP Browser': '',
 }
 
 
@@ -88,18 +89,6 @@ class DetectorBaseTest(Base):
         # if there's a fixture name, then the parsed value should match
         if fixture_name:
             self.assertEqual(fixture_name, parsed_name)
-
-        else:
-            # but if no fixture name specified, then generic parsed name
-            # should be taken from the beginning of the UA string
-            for value in (parsed_name, parsed_name.replace(' ', '')):
-                if self.user_agent.startswith(value):
-                    return
-
-            self.assertTrue(
-                self.user_agent.startswith(parsed_name),
-                msg='%s does not start with %s' % (self.user_agent, parsed_name),
-            )
 
     def confirm_client_type(self, fixture, parsed_value):
         """

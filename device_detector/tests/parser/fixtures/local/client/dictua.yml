@@ -1,0 +1,42 @@
+-
+  user_agent: '{"ac":"CCDesktop_app","av":"4.8.1.435"}'
+  client:
+    type: generic
+    name: CCDesktop_app
+    version: 4.8.1.435
+-
+  user_agent: '{"locale":"en_US","appVersion":"5.2.5","os":"iOS","deviceName":"iPhone","deviceType":"phone","iOSApiLevel":"12.1.4","gzip":true,"appId":"KHAiOS","buildNumber":"31667"}'
+  client:
+    type: generic
+    name: KHAiOS
+    version: 5.2.5
+-
+  user_agent: target=LetGo; appVersion=1.58.0; bundle=com.letgo.ios; build=524; os=iOS 9.2.1; device=Apple iPad4,2; httpLibrary=Alamofire/4.7.3
+  client:
+    type: generic
+    name: LetGo
+    version: 1.58.0
+-
+  user_agent: AppName=iOSProApp;AppId=3;Platform=iOS;Model=iPad Pro 9.7-inch (Wi-Fi Cellular);OSVersion=12.0;Carrier=iPad;AppVersion=3.27.0.4
+  client:
+    type: generic
+    name: iOSProApp
+    version: 3.27.0.4
+-
+  user_agent: '{"appVersion":"1.15.1","bundleId":"com.claritymoney.ios.prod","region":"US","buildNumber":"253","device":"iPhone 7","OS":"iOS 11.4.1","networking":"Alamofire 4.7.3","language":"en"}'
+  client:
+    type: generic
+    name: com.claritymoney.ios.prod
+    version: 1.15.1
+-
+  user_agent: app=customstreetracer2; ver=2.1.0; dev=iPhone8,4; os=iOS; osver=12.1; res=1136x640
+  client:
+    type: generic
+    name: customstreetracer2
+    version: 2.1.0
+-
+  user_agent: app=kmail; ver=2.1.8; dev=iPhone8,4; os=iOS; osver=12.1; res=1136x640
+  client:
+    type: pim
+    name: kmail
+    version: 2.1.8

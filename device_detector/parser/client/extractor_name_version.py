@@ -4,6 +4,8 @@ try:
 except (ImportError, ModuleNotFoundError):
     import re
 
+from ..settings import METADATA_NAMES
+
 
 class NameVersionExtractor(GenericClientParser):
     """
@@ -12,76 +14,67 @@ class NameVersionExtractor(GenericClientParser):
 
     Also support user agents that have a
     <name><break><string> format, HotelSearch/ios_5
+
+    Checks all name/version pairs, preferring any name that the UA string
+    starts with. If that beginning of the UA string isn't interesting,
+    prefer the longest name in the name/value pair list.
     """
-    # Check for name/version matching, in order of desired match
-    name_versions = (
-        # match where name/version separator is found multiple times,
-        # but string ends with version
-        # Microsoft URL Control - 6.01.9782
-        # openshot-qt-2.4.2
-        re.compile(r'(?P<name>.*) ?\- ?(?P<version>[\d\.]+)$', re.IGNORECASE),
-        re.compile(r'^(?P<name>[\w\d\-_\.\&\'!®\?, ]+)[/ \(]v?(?P<version>[\d\.]+)', re.IGNORECASE),
 
-        # Name<break>version
-        # _iPhone9,1_Chariton_12.0.1
-        re.compile(r'.*[\b_](?P<name>\w+)[\b_](?P<version>[\d\.]+)$', re.IGNORECASE),
-
-        # Microsoft.VisualStudio.Help (2.3)
-        re.compile(r'(?P<name>.*) [\(\[\{]([\d\.]+)[\)\]\}]$', re.IGNORECASE),
-
-        # name_slash
-        re.compile(r'^(?P<name>[\w-]+)/', re.IGNORECASE)
-    )
-
-    # -------------------------------------------------------------------
-    # Regexes that we use to remove unwanted app names
-    remove_unwanted_regex = [
-        re.compile(r'sm-\w+-android', re.IGNORECASE),
-        re.compile(r'^4d531b', re.IGNORECASE),
-        re.compile(r'^com\.', re.IGNORECASE),
-    ]
-
-    # -------------------------------------------------------------------
-    # Regexes that we use to parse UA's with a similar structure
-    parse_generic_regex = [
-        (re.compile(r'([\w ]+)\(unknown version\) cfnetwork$', re.IGNORECASE), 1),
-        (re.compile(r'^(fbiossdk)', re.IGNORECASE), 1),
-        (re.compile(r'^samsung [\w-]+ (\w+)', re.IGNORECASE), 1),
-        (re.compile(r'(pubnub)-csharp', re.IGNORECASE), 1),
-        (re.compile(r'(microsoft office)$', re.IGNORECASE), 1),
-        (re.compile(r'^(windows assistant)', re.IGNORECASE), 1),
-        (re.compile(r'^(liveupdateengine)', re.IGNORECASE), 1),
-    ]
+    NAME_SLASH = re.compile(r'^(?P<name>[\w-]+)/', re.IGNORECASE)
 
     # -------------------------------------------------------------------
     app_name = ''
     app_version = ''
 
+    def parse_name_version_pairs(self):
+        """
+        Check all name/version pairs for most interesting values
+        """
+        name_version_pairs = self.name_version_pairs()
+
+        for code, name, version in name_version_pairs:
+
+            # Only extract interesting pairs!
+            if len(name) <= 2 or code in METADATA_NAMES or code.endswith(('version', 'build')):
+                continue
+
+            # prefer the name that the UA starts with
+            if self.user_agent.startswith(name):
+                self.app_name = name
+                self.app_version = version
+                return
+
+            # consider longest name the most interesting
+            if len(name) > len(self.app_name):
+                self.app_name = name
+                self.app_version = version
+
+    def version_contains_numbers(self):
+        """
+        Version contains no numeric characters
+        """
+        if not self.app_version:
+            return False
+
+        for char in self.app_version:
+            if char.isnumeric():
+                return True
+
+        return False
+
     def _parse(self) -> None:
 
-        match = None
-        for pattern in self.name_versions:
-            match = pattern.match(self.user_agent)
-            if match:
-                break
+        self.parse_name_version_pairs()
 
-        if not match:
+        if not self.app_name:
             return
-
-        self.app_name = match.group('name').strip()
-        try:
-            self.app_version = match.group('version')
-        except IndexError:
-            self.app_version = ''
-
-        self.clean_name()
 
         if self.discard_name():
             return
 
         self.ua_data = {
             'name': self.app_name,
-            'version': self.app_version,
+            'version': self.app_version if self.version_contains_numbers() else '',
         }
 
         self.known = True

@@ -23,3 +23,23 @@
   client:
     app_id: kjv.bible.kingjamesbible
     pretty_name: Bible Kingjamesbible
+-
+  user_agent: YHOO YahooMobile/1.0 (com.aol.mapquest; 5.18.6) (Apple; iPhone; iOS/12.1.4);
+  client:
+    app_id: com.aol.mapquest
+    pretty_name: Aol Mapquest
+-
+  user_agent: YHOO YahooMobile/1.0 (com.softacular.Sportacular; 7.10.1) (Apple; iPhone; iOS/11.4.1);
+  client:
+    app_id: com.softacular.Sportacular
+    pretty_name: Softacular Sportacular
+-
+  user_agent: YHOO YahooMobile/1.0 (com.yahoo.Aerogram; 4.41) (Apple; iPhone; iOS/12.1);
+  client:
+    app_id: com.yahoo.Aerogram
+    pretty_name: Yahoo Aerogram
+-
+  user_agent: YHOO YahooMobile/1.0 (com.yahoo.weather; 1.18.0) (Apple; iPhone; iOS/11.4.1);
+  client:
+    app_id: com.yahoo.weather
+    pretty_name: Yahoo Weather

@@ -30,6 +30,7 @@ class Parser(RegexLoader):
         self.app_version = None
         self.known = False
         self.calculated_dtype = ''
+        self.secondary_client = {}
 
     @property
     def cache_name(self) -> str:
@@ -131,6 +132,21 @@ class Parser(RegexLoader):
 
     def version(self) -> str:
         return self.ua_data.get('version', '')
+
+    def secondary_name(self):
+        if self.secondary_client:
+            return self.secondary_client['name']
+        return ''
+
+    def secondary_version(self):
+        if self.secondary_client:
+            return self.secondary_client['version']
+        return ''
+
+    def secondary_type(self):
+        if self.secondary_client:
+            return self.secondary_client['type']
+        return ''
 
     def is_known(self) -> bool:
         if self.ua_data:

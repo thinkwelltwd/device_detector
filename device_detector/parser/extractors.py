@@ -3,9 +3,24 @@ try:
 except (ImportError, ModuleNotFoundError):
     import re
 from ..settings import DDCache
+from .settings import CHECK_PAIRS
 from ..yaml_loader import RegexLoader
 
 APP_ID = re.compile(r'\b([a-z]{2,5}\.[\w\d\.\-]+)', re.IGNORECASE)
+
+# 6H4HRTU5E3.com.avast.osx.secureline.avastsecurelinehelper/47978 CFNetwork/976 Darwin/18.2.0 (x86_64)
+# YMobile/1.0(com.kitkatandroid.keyboard/4.3.2;Android/6.0.1;lv1;LGE;LG-M153;;792x480
+# x86_64; macOS 10.14.5 (18F132); com.apple.ap.adprivacyd; 143441-1,13
+APP_ID_VERSION = re.compile(r'\b(?P<name>[a-z]{2,5}\.[\w\d\.\-]+)[;:/] ?(?P<version>[\d\.\-]+)\b', re.IGNORECASE)
+
+# Dalvik/2.1.0 (Linux; U; Android 6.0.1; LG-M153 Build/MXB48T) [FBAN/AudienceNetworkForAndroid;FBSN/Android;FBSV/6.0.1;FBAB/com.outthinking.photo;FBAV/1.41;FBBV/37;FBVS/4.27.1;FBLC/en_US]
+# Interested in the FBAB/<app.id> pattern
+# i.e. FBAB/com.outthinking.photo
+FACEBOOK_FRAGMENT = re.compile(r'FBAB/', re.IGNORECASE)
+
+# YHOO YahooMobile/1.0 (com.softacular.Sportacular; 7.10.1) (Apple; iPhone; iOS/11.4.1);
+# YHOO YahooMobile/1.0 (com.aol.mapquest; 5.18.6) (Apple; iPhone; iOS/12.1.4);
+YAHOO_FRAGMENT = re.compile(r'YHOO YahooMobile', re.IGNORECASE)
 
 
 class DataExtractor:
@@ -104,8 +119,25 @@ class ApplicationIDExtractor(RegexLoader):
     def __init__(self, user_agent):
         self.user_agent = user_agent
         self.details = {}
-        self.app_id = ''
-        self.name = ''
+
+    def override_name_with_app_id(self, client_name):
+        """
+        Override the parsed name with the AppID / BundleID.
+
+        Useful when application connects with API service where
+        both App ID and service API data are included in the same UA.
+        """
+        if client_name in CHECK_PAIRS:
+            return True
+
+        for REGEX in (
+            FACEBOOK_FRAGMENT,
+            YAHOO_FRAGMENT,
+        ):
+            if REGEX.search(self.user_agent) is not None:
+                return True
+
+        return False
 
     def ignored_appids(self):
         """
@@ -115,7 +147,7 @@ class ApplicationIDExtractor(RegexLoader):
 
     def secondary_appids(self):
         """
-        Load Seconadary App IDs from yaml file
+        Load Secondary App IDs from yaml file
         """
         return self.load_app_id_sets(name='secondary')
 
@@ -129,7 +161,10 @@ class ApplicationIDExtractor(RegexLoader):
 
     def extract(self) -> dict:
         """
-        Parse for "<tld>.<string.<string>.<string>" value
+        Parse for
+
+        "<tld>.<string.<string>.<string><sep><version>" or
+        "<tld>.<string.<string>.<string>"
 
         In the (unlikely) event that multiple valid IDs
         are found, just return the first one.
@@ -137,11 +172,18 @@ class ApplicationIDExtractor(RegexLoader):
         if self.details:
             return self.details
 
-        app_ids = set(APP_ID.findall(self.user_agent))
-        scrubbed_ids = sorted(list(app_ids.difference(self.secondary_appids())))
+        app_ids = APP_ID_VERSION.findall(self.user_agent)
+        if not app_ids:
+            app_ids = [(app_id, '') for app_id in APP_ID.findall(self.user_agent)]
+
+        secondary_app_ids = self.secondary_appids()
+        scrubbed_ids = []
+        for app_id in app_ids:
+            if app_id[0] not in secondary_app_ids:
+                scrubbed_ids.append(app_id)
 
         if scrubbed_ids:
-            app_id = scrubbed_ids[0]
+            app_id, version = scrubbed_ids[0]
             if app_id.lower() in self.ignored_appids():
                 return {}
             details = self.normalized_app_ids().get(app_id.lower(), {'app_id': app_id})
@@ -149,9 +191,14 @@ class ApplicationIDExtractor(RegexLoader):
             if 'app_id' not in details:
                 details['app_id'] = app_id
 
+            details['version'] = version
+
             self.details = details
 
         return self.details
+
+    def version(self):
+        return self.details.get('version', '')
 
     def pretty_name(self):
         details = self.extract()

@@ -11,7 +11,7 @@ class TestApplicationIDExtractor(ParserBaseTest):
 
     fixture_files = [
         'tests/parser/fixtures/local/extractor/applicationid.yml',
-        'tests/parser/fixtures/local/extractor/facebook_tracking.yml',
+        'tests/parser/fixtures/local/extractor/app_id_override_name.yml',
     ]
 
     def test_parsing(self):

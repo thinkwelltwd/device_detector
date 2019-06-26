@@ -11,6 +11,18 @@
     name: AldiSued_US
     version: 3.9
 -
+  user_agent: Android; samsung-SAMSUNG-SM-T377A; 6.0.1; AutoTrader.com; 2.6.4.3.236
+  client:
+    type: generic
+    name: AutoTrader.com
+    version: 2.6.4.3.236
+-
+  user_agent: iPad; 10.3.3; cartrader.com; 3.0.10
+  client:
+    type: generic
+    name: cartrader.com
+    version: 3.0.10
+-
   user_agent: generic ua string/1.23.2
   client:
     type: generic
@@ -44,8 +56,8 @@
   user_agent: Callpod Keeper for Android 1.0 (11.2.1/303) Dalvik/2.1.0 (Linux; U; Android 6.0.1; SAMSUNG-SM-G900A Build/MMB29M)
   client:
     type: generic
-    name: Callpod Keeper for Android 1.0
-    version: '11.2.1'
+    name: Callpod Keeper for Android
+    version: 1.0
 -
   user_agent: "DICK'S/621 CFNetwork/974.2.1 Darwin/18.0.0"
   client:
@@ -125,20 +137,68 @@
     name: openshot-qt
     version: '2.4.2'
 -
-  user_agent: "##_iPhone9,1_Chariton_12.0.1"
-  client:
-    type: generic
-    name: Chariton
-    version: '12.0.1'
--
   user_agent: Microsoft.VisualStudio.Help (2.3)
   client:
     type: generic
     name: Microsoft.VisualStudio.Help
     version: '2.3'
 -
-  user_agent: SCSDK;A1-8.0.6
+  user_agent: Zacks 4.0.4 (iPhone; iOS 12.0.1; UALib 8.6.3; s_8AaMoWTtiAUalpymsUqA; en_US)
+  client:
+    type: generic
+    name: Zacks
+    version: '4.0.4'
+-
+  user_agent: ZillowRentals 12.0.2 (iPad; iOS 12.1; UALib 9.0.5; YuafAVKCR8GYdldn6nycbw; en_US)
+  client:
+    type: generic
+    name: ZillowRentals
+    version: '12.0.2'
+-
+  user_agent: YouCam Fun/22261949 (iPhone; iOS 12.0.1; Scale/2.00)
+  client:
+    type: generic
+    name: YouCam Fun
+    version: 22261949
+-
+  user_agent: WallPapers HD 1.4.2 (iPhone; iOS 11.4.1; en_US)
+  client:
+    type: generic
+    name: WallPapers HD
+    version: 1.4.2
+-
+  user_agent: VZC/19.4.9/1/iOS/iPhone iPhone11,8
+  client:
+    type: generic
+    name: VZC
+    version: 19.4.9
+-
+  user_agent: Version/2.94 (834) FLFitCloudAPI/1.0 iOS/12.1.1 Device/F0783886-45BF-470A-9B84-0706C6CB42D4 iPhone11,8
   client:
     type: library
-    name: SCSDK;A1
-    version: '8.0.6'
+    name: FLFitCloudAPI
+    version: 1.0
+-
+  user_agent: The Columbia Bank, MD/5.11.0.42 BundleID/com.intuit.mobilebanking01368 BundleDeviceFamily/iPhone,iPad (iPhone; iPhone11,2; iPhone XS; iOS 12.1.4)
+  client:
+    type: generic
+    name: The Columbia Bank, MD
+    version: 5.11.0.42
+-
+  user_agent: The Economist on iPad NA/69 CFNetwork/893.14.2 Darwin/17.3.0
+  client:
+    type: generic
+    name: The Economist on iPad NA
+    version: 69
+-
+  user_agent: tv.platomedia.hopsterapp/3.36.36 google-api-objc-client/3.0 iPhone/12.1.4 hw/iPhone6_1 (gzip)
+  client:
+    type: generic
+    name: tv.platomedia.hopsterapp
+    version: 3.36.36
+-
+  user_agent: ArcGISiOS-10.2.5/12.0/iPad7,4
+  client:
+    type: generic
+    name: ArcGISiOS-10.2.5
+    version: 12.0

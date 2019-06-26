@@ -1,6 +1,7 @@
 from .base import *
 from .browser import *
 from .desktopapp import *
+from .dictua import *
 from .feed_reader import *
 from .game import *
 from .extractor_name_version import *

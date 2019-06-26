@@ -66,6 +66,14 @@ device.device_brand_name()  # >>> ''
 device.device_brand()       # >>> ''
 device.device_model()       # >>> ''
 device.device_type()        # >>> ''
+
+# Many mobile browser UA strings contain the app info of the APP that's using the browser 
+ua = 'Mozilla/5.0 (iPhone; CPU iPhone OS 12_1_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/16D57 EtsyInc/5.22 rv:52200.62.0'
+device = DeviceDetector(ua).parse()
+
+device.secondary_client_name()     # >>> EtsyInc
+device.secondary_client_type()     # >>> generic
+device.secondary_client_version()  # >>> 5.22
 ```
 
 ## Device Detector for other languages

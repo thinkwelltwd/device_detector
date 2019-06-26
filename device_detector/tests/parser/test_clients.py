@@ -2,6 +2,7 @@ from ..base import GenericParserTest, ParserBaseTest
 from ...parser import (
     Browser,
     DesktopApp,
+    DictUA,
     FeedReader,
     Game,
     Library,
@@ -24,6 +25,15 @@ class TestBrowser(ParserBaseTest):
     ]
     fields = ('name', 'type', 'short_name', 'version')
     Parser = Browser
+
+
+class TestDictUA(ParserBaseTest):
+
+    fixture_files = [
+        'tests/parser/fixtures/local/client/dictua.yml',
+    ]
+    fields = ('name', 'version', 'type')
+    Parser = DictUA
 
 
 class TestFeedReader(ParserBaseTest):
@@ -122,7 +132,7 @@ class TestVPNProxy(ParserBaseTest):
     Parser = VPNProxy
 
 
-class TestNameVersionExtractor(GenericParserTest):
+class TestNameVersionExtractor(ParserBaseTest):
 
     fixture_files = [
         'tests/parser/fixtures/local/client/extractor_name_version.yml',

@@ -790,7 +790,7 @@
   client:
     type: mobile app
     name: Android Analytics
-    version: 4.3.2
+    version: 4.3.2-SNAPSHOT
 -
   user_agent: ANBTX MD/1002 CFNetwork/893.14.2 Darwin/17.3.0
   client:
@@ -856,7 +856,7 @@
   client:
     type: mobile app
     name: Apple Core Media
-    version: '1.0.0.'
+    version: 1.0.0.15G18013
 -
   user_agent: AppleDictionaryApplication/203
   client:
@@ -1823,12 +1823,12 @@
     type: mobile app
     name: ZAppCustomer
     version: '18.12'
--
-  user_agent: ZUMO/3.3 (lang=objective-c; os=OSX; os_version=Version 10.10.5 (Build 14F2511); arch=Mac; version=3.3.0)
-  client:
-    type: mobile app
-    name: Zumo
-    version: '3.3'
+#-
+#  user_agent: ZUMO/3.3 (lang=objective-c; os=OSX; os_version=Version 10.10.5 (Build 14F2511); arch=Mac; version=3.3.0)
+#  client:
+#    type: mobile app
+#    name: Zumo
+#    version: '3.3'
 -
   user_agent: 待办/2.3.10 CFNetwork/894 Darwin/17.4.0
   client:

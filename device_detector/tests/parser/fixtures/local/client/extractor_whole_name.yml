@@ -23,29 +23,32 @@
     name: Turkey Barn Thermo
     version: 4.3.123.1
 -
-  user_agent: Weather_WeatherFoundation[1]_15E302
-  client:
-    type: generic
-    name: Weather_WeatherFoundation
-    version: 302
--
   user_agent: SpringBoard_WeatherFoundation[1]_16A
   client:
     type: generic
     name: SpringBoard_WeatherFoundation
+    version: ''
+# ---------------------------------------------------------------
+# UA normalized, so no version extracted
+-
+  user_agent: Weather_WeatherFoundation[1]_15E302
+  client:
+    type: generic
+    name: Weather_WeatherFoundation
     version: ''
 -
   user_agent: AVGSETUP-WV7XXX64
   client:
     type: generic
     name: AVGSETUP
-    version: 64
+    version: ''
 -
   user_agent: AVGSETUP-W10HXX64
   client:
     type: generic
     name: AVGSETUP
-    version: 64
+    version: ''
+# ---------------------------------------------------------------
 -
   user_agent: samsung SAMSUNG-SM-T337A SyncML_DM Client
   client:
@@ -213,6 +216,24 @@
   client:
     type: mobile app
     name: Densimeter Axiom
+    version: ''
+-
+  user_agent: Mapbox iOS SDK (iPhone/11.1.1)
+  client:
+    type: library
+    name: Mapbox iOS SDK
+    version: ''
+-
+  user_agent: SCSDK/(iPhone;iOS;12.2)
+  client:
+    type: library
+    name: SCSDK
+    version: ''
+-
+  user_agent: TopBuzz (iPhone; iOS 12.1.3;)
+  client:
+    type: generic
+    name: TopBuzz
     version: ''
 # should auto-assign type to "desktop app"
 -

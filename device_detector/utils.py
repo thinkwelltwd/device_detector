@@ -10,6 +10,12 @@ trans_tbl = str.maketrans({p: '' for p in punctuation})
 punctuation_tbl = str.maketrans({p: '' for p in ' /.'})
 REPEATED_CHARACTERS = re.compile(r'(.)(\1{11,})')
 
+# Safari often appends a meaningless alphanumeric string enclosed in parens.
+# Otherwise the UAs are identical so strip that suffix
+# Mozilla/5.0 (iPhone; CPU iPhone OS 12_1_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/16C101 (5836419392)
+# Mozilla/5.0 (iPhone; CPU iPhone OS 12_1_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/16D57 baidumap_IPHO (10793838272)
+STRIP_NUM_SUFFIX = re.compile(r'(\([0-9]+\))$', re.IGNORECASE)
+
 
 def ua_hash(user_agent):
     """
@@ -57,11 +63,27 @@ def clean_ua(user_agent):
     """
     Normalize and decode User Agent string
     """
-    ua = unquote(user_agent)
-    # sprd-Galaxy-S4/1.0 Linux/2.6.35.7 Android/4.2.2 Release/10.14.2013 Browser/AppleWebKit533.1 (KHTML, like Gecko) Mozilla/5.0 Mobile
-    # sprd-lingwin-U820S/1.0 Linux/2.6.35.7 Android/2.3.5 Release/10.15.2012 Browser/AppleWebKit533.1 (KHTML, like Gecko) Mozilla/5.0 Mobile
-    if ua.startswith('sprd-'):
-        return ua[5:]
+    ua = unquote(STRIP_NUM_SUFFIX.sub('', user_agent)).strip()
+    ua_lower = ua.lower()
+
+    for prefix in (
+            # sprd-Galaxy-S4/1.0 Linux/2.6.35.7 Android/4.2.2 Release/10.14.2013 Browser/AppleWebKit533.1 (KHTML, like Gecko) Mozilla/5.0 Mobile
+            # sprd-lingwin-U820S/1.0 Linux/2.6.35.7 Android/2.3.5 Release/10.15.2012 Browser/AppleWebKit533.1 (KHTML, like Gecko) Mozilla/5.0 Mobile
+            'sprd-',
+
+            # null (FlipboardProxy/1.1; http://flipboard.com/browserproxy)
+            # (null) MyOperations/3.0.0/162 JDM/1.0
+            'null',
+            '(null)',
+
+            # AmazonWebView/Kindle for iOS/6.9.1.3/iOS/11.4.1/iPhone
+            # AmazonWebView/PrimeNow/5.7/iOS/11.4.1/iPhone
+            # AmazonWebView/Prime Video/5.71.1526.2/iOS/11.4.1/iPad
+            # AmazonWebView/SellingServicesOnAmazon/1.1.7/iPhone OS/11.3.1/iPhone
+            'amazonwebview',
+    ):
+        if ua_lower.startswith(prefix):
+            return ua[len(prefix):].strip()
 
     return ua
 
@@ -97,7 +119,27 @@ def version_from_key(name_version_pairs, default_version=None):
     return default_version
 
 
+def calculate_dtype(app_name) -> str:
+    """
+    For generic extractors try to return a more
+    specific type we can be if reasonably sure.
+    """
+    app_name_lower = app_name.lower()
+    for name, dtype in (
+            ('update', 'desktop app'),
+            ('mail', 'pim'),
+            ('api', 'library'),
+            ('sdk', 'library'),
+            ('webview', 'browser'),
+    ):
+        if name in app_name_lower:
+            return dtype
+
+    return 'generic'
+
+
 __all__ = (
+    'calculate_dtype',
     'ua_hash',
     'long_ua_no_punctuation',
     'only_numerals_and_punctuation',

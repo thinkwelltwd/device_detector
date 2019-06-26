@@ -8,3 +8,5 @@
 # If UA string contains multiple App IDs, prefer any not listed here
 
 - com.usebutton.sdk
+- com.batch.ios
+- com.gimbal

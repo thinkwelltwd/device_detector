@@ -21,11 +21,52 @@ class TestNormalized(DetectorBaseTest):
             self.assertEqual(device.pretty_name(), fixture['normalized'])
 
 
+class TestAppNames(DetectorBaseTest):
+    """
+    Get expected App Names. Should take precedence over upstream regexes
+    """
+
+    fixture_files = [
+        'tests/fixtures/local/app_names.yml',
+    ]
+
+    def test_parsing(self):
+        return
+
+    def test_client_details(self):
+
+        for fixture in self.load_fixtures():
+            self.user_agent = fixture.pop('user_agent')
+            parsed = DeviceDetector(self.user_agent).parse()
+
+            # Client properties
+            self.confirm_client_name(fixture, parsed_name=parsed.preferred_client_name())
+            self.confirm_client_type(fixture, parsed_value=parsed.preferred_client_type())
+            self.confirm_version(fixture, parsed_value=parsed.preferred_client_version())
+
+
 class TestDetectBot(DetectorBaseTest):
 
     fixture_files = [
         'tests/fixtures/upstream/bots.yml',
     ]
+
+    def test_parsing(self):
+
+        for fixture in self.load_fixtures():
+            self.user_agent = fixture.pop('user_agent')
+            bot = DeviceDetector(self.user_agent).parse()
+
+            expected_values = fixture['bot']
+            parsed_values = bot.all_details['bot']
+
+            for field in ('name', 'url', 'category'):
+                expected = expected_values.get(field, 'N/A')
+                parsed = parsed_values.get(field, 'N/A')
+                self.assertEqual(
+                    parsed, expected,
+                    msg=f'Parsed "{parsed}" != Expected "{expected}" on {self.user_agent}',
+                )
 
 
 class TestDetectCamera(DetectorBaseTest):

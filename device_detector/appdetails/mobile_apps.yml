@@ -2347,6 +2347,12 @@
 - uaname: scrivener
   name: Scrivener
 
+- uaname: iphone SermonAudio.com
+  name: SermonAudio.com
+
+- uaname: wsdl2objc iphone SermonAudio.com
+  name: SermonAudio.com
+
 - uaname: seaport
   name: SeaPort
 

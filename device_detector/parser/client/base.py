@@ -5,8 +5,9 @@ except (ImportError, ModuleNotFoundError):
 import string
 
 from ..parser import Parser
+from ...parser.key_value_pairs import key_value_pairs
 from ...settings import DDCache
-from ...utils import version_from_key
+from ...utils import version_from_key, calculate_dtype
 
 keep = {'!', '@', '+'}
 table = str.maketrans(dict.fromkeys(''.join(c for c in string.punctuation if c not in keep)))
@@ -14,80 +15,25 @@ table = str.maketrans(dict.fromkeys(''.join(c for c in string.punctuation if c n
 
 class BaseClientParser(Parser):
 
-    # Get the "full name/version" (space allowed) at beginning of UA string
-    # merriam-webster dictionary/430.11 cfnetwork/893.14.2 darwin/17.3.0
-    # Aurora HDR 2018/1.1.2 Sparkle/1.13.1
-    # libreoffice 5.4.3.2 (92a7159f7e4af62137622921e809f8546db437e5; windows; x86;)
-    # openoffice.org 3.2 (320m18(build:9502); windows; x86; bundledlanguages=en-us)
-    FIRST_NAME_SLASH_VERSION = re.compile(
-        r'^(?P<name>[\w\d\.\-_\&\'!®\?, \+]+)[\/( \-][vr]?(?P<version>[\d\.]+)\b',
-        re.IGNORECASE,
-    )
-
-    # Get the "name version" (space allowed) at beginning of UA string
-    # CarboniteDownloader 6.3.2 build 7466 (Sep-07-2017)
-    # Microsoft Office Access 2013 (15.0.4693) Windows NT 6.2
-    NAME_SPACE_VERSION = re.compile(
-        r'^(?P<name>[\w\d\.\-_\&\'!®\?,\+]+) v?(?P<version>[\d\.]+)',
-        re.IGNORECASE,
-    )
-
-    # Name can't include space after the first match. IOW, don't want to extract
-    # "NRD90M Android/7.0" from the following regex
-    # Version/1 Yelp/v9.16.1 Carrier/AT&T Model/j7popelteatt OSBuild/NRD90M Android/7.0
-    NAME_SLASH_VERSION = re.compile(
-        r'\b(?P<name>[\w\d\-_\.\&\'!®\?\+]+)[\/]v?(?P<version>[\d\.]+)',
-        re.IGNORECASE,
-    )
-
     FIRST_ALPHANUMERIC_WORD = re.compile(r'^([a-z0-9]+)', re.IGNORECASE)
 
     def name_version_pairs(self) -> list:
-        """
-        This regex used on most UA strings so we don't need to write the same
-        <name>/<version> regexes over and again
-
-        Try to find interesting matches with name/version or name (version) format
-        anywhere in the regex, skipping the obvious cruft.
-
-        Zip Books/1.3.20 (com.zipbooks.zipbooksios; build:1309; iOS 12.1.3) Alamofire/4.3.0
-        should return - [('zipbooks', 'Zip Books', '1.3.20'), ('alamofire', 'Alamofire', '4.3.0')]
-
-        Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) Spotify/1.0.92.390 Safari/537.36
-        should return - [('spotify', 'Spotify', '1.0.92.390'), ('safari', 'Safari', '537.36')]
-
-        Mozilla/5.0 (Windows NT 10.0: WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.81 Safari/537.36 Avast/69.0.792.81
-        should return - [('chrome', 'Chrome', '69.0.3497.81'), ('safari', 'Safari', '537.36'), ('avast', 'Avast', '69.0.792.81')]
-        """
-        from .browser import CRUFT_NAMES
-        ua = self.user_agent
 
         cached = DDCache['user_agents'][self.ua_hash].get('name_version_pairs', [])
         if cached:
             return cached
 
-        matches = self.FIRST_NAME_SLASH_VERSION.findall(ua)
-        matches.extend(self.NAME_SPACE_VERSION.findall(ua))
+        name_version_pairs = key_value_pairs(ua=self.user_agent)
 
-        first_slash = self.user_agent.find('/')
-        matches.extend(self.NAME_SLASH_VERSION.findall(ua, pos=first_slash + 1))
+        DDCache['user_agents'][self.ua_hash]['name_version_pairs'] = name_version_pairs
+        return name_version_pairs
 
-        cleaned_matches = []
-
-        for name, version in matches:
-            name = name.strip()
-            name_lower = name.lower()
-            if name_lower in CRUFT_NAMES:
-                continue
-            code = name_lower.replace(' ', '')
-            cleaned_matches.append((code, name, version.strip()))
-
-        DDCache['user_agents'][self.ua_hash]['name_version_pairs'] = cleaned_matches
-        return cleaned_matches
-
-    def _parse(self) -> None:
+    def matches_manual_appdetails(self):
         """
-        Check the name_version_pairs data before checking regexes
+        Check the name_version_pairs data before checking regexes.
+
+        Much faster to check for set membership than to iterate over
+        custom regexes for each application.
         """
         app_details = self.appdetails_data
         name_version_pairs = self.name_version_pairs()
@@ -101,7 +47,7 @@ class BaseClientParser(Parser):
                     'version': version_from_key(name_version_pairs, version),
                 }
                 self.calculated_dtype = app_details[code].get('type', '')
-                return
+                return True
 
         # check if whole UA string found in app details
         match = app_details.get(self.ua_spaceless, {})
@@ -118,9 +64,20 @@ class BaseClientParser(Parser):
             match['version'] = None
             self.ua_data = match
             self.calculated_dtype = match.get('type', '')
-            return
+            return True
 
-        return super()._parse()
+        return False
+
+    def _parse(self) -> None:
+        """
+        Each subclass may have `appdetails/<name>.yml` file(s) defined
+        containing manually specified details for the regex.
+
+        These files before checking regexes, for best performance.
+        """
+        manually_specified = self.matches_manual_appdetails()
+        if not manually_specified:
+            return super()._parse()
 
 
 class GenericClientParser(BaseClientParser):
@@ -197,7 +154,7 @@ class GenericClientParser(BaseClientParser):
     def is_name_mostly_numeric(self) -> bool:
         """
         Strip punctuation from app name and return True if
-        alphabetic characters are less than 25% of the string
+        alphabetic characters are less than 50% of the string
         """
         app_no_punc = self.app_name_no_punc()
 
@@ -212,7 +169,7 @@ class GenericClientParser(BaseClientParser):
             if not char.isnumeric():
                 alphabetic_chars += 1
 
-        return alphabetic_chars / len(app_no_punc) < .75
+        return alphabetic_chars / len(app_no_punc) < .5
 
     def app_name_no_punc(self) -> str:
         """
@@ -233,26 +190,22 @@ class GenericClientParser(BaseClientParser):
         as known.
         """
         for regex, group in self.parse_generic_regex:
-            m = regex.match(self.app_name)
+            m = regex.match(self.user_agent)
 
             if m:
-                self.app_name = m.group(group).strip()
-                return
+                try:
+                    self.app_name = m.group(group).strip()
+                    return
+                except Exception:
+                    continue
+
+        self.app_name = self.user_agent
 
     def dtype(self) -> str:
         if self.calculated_dtype:
             return self.calculated_dtype
 
-        app_name_lower = self.app_name.lower()
-        for name, dtype in (
-            ('update', 'desktop app'),
-            ('api', 'library'),
-            ('sdk', 'library'),
-        ):
-            if name in app_name_lower:
-                return dtype
-
-        return 'generic'
+        return calculate_dtype(app_name=self.app_name)
 
 
 __all__ = (
