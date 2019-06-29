@@ -1,5 +1,6 @@
 include requirements.txt
 include optional-requirements.txt
 include README.md
+include device_detector/appids/*.yml device_detector/appdetails/*.yml
 recursive-include device_detector/regexes *
 global-exclude *~
