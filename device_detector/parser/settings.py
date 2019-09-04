@@ -1,4 +1,3 @@
-
 AVAILABLE_ENGINES = {
     'WebKit',
     'Blink',
@@ -17,6 +16,7 @@ AVAILABLE_ENGINES = {
 AVAILABLE_ENGINES_LOWER_CASE = {engine.lower(): engine for engine in AVAILABLE_ENGINES}
 
 AVAILABLE_BROWSERS = {
+    '2B': '2345 Browser',
     '36': '360 Phone Browser',
     '3B': '360 Browser',
     'AA': 'Avant Browser',
@@ -47,6 +47,7 @@ AVAILABLE_BROWSERS = {
     'CA': 'Camino',
     'CC': 'Coc Coc',
     'CD': 'Comodo Dragon',
+    'CE': 'CM Browser',
     'C1': 'Coast',
     'CX': 'Charon',
     'CF': 'Chrome Frame',
@@ -62,22 +63,26 @@ AVAILABLE_BROWSERS = {
     'CY': 'Cyberfox',
     'CS': 'Cheshire',
     'CU': 'Cunaguaro',
+    'CV': 'Chrome Webview',
     'DB': 'dbrowser',
     'DE': 'Deepnet Explorer',
     'DF': 'Dolphin',
     'DO': 'Dorado',
     'DL': 'Dooble',
     'DI': 'Dillo',
+    'EC': 'Ecosia',
     'EI': 'Epic',
     'EL': 'Elinks',
     'EB': 'Element Browser',
     'EP': 'GNOME Web',
     'ES': 'Espial TV Browser',
+    'F1': 'Firefox Mobile iOS',
     'FB': 'Firebird',
     'FD': 'Fluid',
     'FE': 'Fennec',
     'FF': 'Firefox',
     'FK': 'Firefox Focus',
+    'FR': 'Firefox Rocket',
     'FL': 'Flock',
     'FM': 'Firefox Mobile',
     'FW': 'Fireweb',
@@ -85,11 +90,12 @@ AVAILABLE_BROWSERS = {
     'GA': 'Galeon',
     'GE': 'Google Earth',
     'HJ': 'HotJava',
-    'IA': 'Iceape',
     'IB': 'IBrowse',
     'IC': 'iCab',
     'I2': 'iCab Mobile',
     'I1': 'Iridium',
+    'I3': 'Iron Mobile',
+    'I4': 'IceCat',
     'ID': 'IceDragon',
     'IV': 'Isivioo',
     'IW': 'Iceweasel',
@@ -102,9 +108,11 @@ AVAILABLE_BROWSERS = {
     'KM': 'K-meleon',
     'KO': 'Konqueror',
     'KP': 'Kapiko',
+    'KW': 'Kiwi',
     'KY': 'Kylo',
     'KZ': 'Kazehakase',
     'LB': 'Liebao',
+    'LF': 'LieBaoFast',
     'LG': 'LG Browser',
     'LI': 'Links',
     'LU': 'LuaKit',
@@ -115,8 +123,10 @@ AVAILABLE_BROWSERS = {
     'ME': 'Mercury',
     'MF': 'Mobile Safari',
     'MI': 'Midori',
+    'MO': 'Mobicip',
     'MU': 'MIUI Browser',
     'MS': 'Mobile Silk',
+    'MT': 'Mint Browser',
     'MX': 'Maxthon',
     'NB': 'Nokia Browser',
     'NO': 'Nokia OSS Browser',
@@ -127,10 +137,13 @@ AVAILABLE_BROWSERS = {
     'NP': 'NetPositive',
     'NS': 'Netscape',
     'NT': 'NTENT Browser',
+    'O1': 'Opera Mini iOS',
     'OB': 'Obigo',
     'OD': 'Odyssey Web Browser',
     'OF': 'Off By One',
     'OE': 'ONE Browser',
+    'OG': 'Opera Neon',
+    'OH': 'Opera Devices',
     'OI': 'Opera Mini',
     'OM': 'Opera Mobile',
     'OP': 'Opera',
@@ -151,10 +164,12 @@ AVAILABLE_BROWSERS = {
     'PO': 'Polaris',
     'PT': 'Polarity',
     'PS': 'Microsoft Edge',
+    'Q1': 'QQ Browser Mini',
     'QQ': 'QQ Browser',
     'QT': 'Qutebrowser',
     'QZ': 'QupZilla',
     'QM': 'Qwant Mobile',
+    'QW': 'QtWebEngine',
     'RK': 'Rekonq',
     'RM': 'RockMelt',
     'SB': 'Samsung Browser',
@@ -166,21 +181,25 @@ AVAILABLE_BROWSERS = {
     'SK': 'Skyfire',
     'SS': 'Seraphic Sraf',
     'SL': 'Sleipnir',
-    'SM': 'SeaMonkey',
     'SN': 'Snowshoe',
+    'SO': 'Sogou Mobile Browser',
     'SR': 'Sunrise',
     'SP': 'SuperBird',
     'ST': 'Streamy',
     'SX': 'Swiftfox',
+    'SZ': 'Seznam Browser',
     'TF': 'TenFourFox',
     'TB': 'Tenta Browser',
     'TZ': 'Tizen Browser',
     'TS': 'TweakStyle',
     'UC': 'UC Browser',
+    'UM': 'UC Browser Mini',
     'VI': 'Vivaldi',
     'VB': 'Vision Mobile Browser',
+    'WP': 'Web Explorer',
     'WE': 'WebPositive',
     'WF': 'Waterfox',
+    'WH': 'Whale Browser',
     'WO': 'wOSBrowser',
     'WT': 'WeTab Browser',
     'YA': 'Yandex Browser',
@@ -217,6 +236,20 @@ BROWSER_FAMILIES = {
         'VI',
         'PT',
         'AD',
+        'SB',
+        'WP',
+        'I3',
+        'CV',
+        'WH',
+        'SZ',
+        'QW',
+        'LF',
+        'KW',
+        '2B',
+        'CE',
+        'EC',
+        'MT',
+        'MS',
     ),
     'Firefox': (
         'FF',
@@ -231,14 +264,19 @@ BROWSER_FAMILIES = {
         'CU',
         'TF',
         'QM',
+        'FR',
+        'I4',
+        'GZ',
+        'MO',
+        'F1',
     ),
     'Internet Explorer': ('IE', 'IM', 'PS'),
     'Konqueror': ('KO',),
     'NetFront': ('NF',),
     'NetSurf': ('NE',),
     'Nokia Browser': ('NB', 'NO', 'NV', 'DO'),
-    'Opera': ('OP', 'OM', 'OI', 'ON'),
-    'Safari': ('SF', 'MF'),
+    'Opera': ('OP', 'OM', 'OI', 'ON', 'OO', 'OG', 'OH', 'O1'),
+    'Safari': ('SF', 'MF', 'SO'),
     'Sailfish Browser': ('SA',),
 }
 
@@ -257,6 +295,9 @@ MOBILE_ONLY_BROWSERS = {
     'C1',
     'AL',
     'SA',
+    'SB',
+    'FR',
+    'WP',
 }
 
 # Fast membership testing
@@ -319,11 +360,13 @@ METADATA_NAMES = {
     'wfexperience',
 }
 
-
 # When parsing UA strings generically, multiple name/version pairs may be found.
 # Ignore the uninteresting ones
 # Mozilla/5.0 (Symbian/3; Series60/5.2 NokiaN8-00/014.002; Profile/MIDP-2.1 Configuration/CLDC-1.1; en-us) AppleWebKit/525 (KHTML, like Gecko) Version/3.0 BrowserNG/7.2.6.4 3gpp-gba
-SKIP_PREFIXES = set(AVAILABLE_ENGINES_LOWER_CASE.keys()) | BROWSER_FAMILIES_LOWER | CRUFT_NAMES | set(BROWSER_TO_ABBREV.keys())
+SKIP_PREFIXES = set(AVAILABLE_ENGINES_LOWER_CASE.keys()) | \
+                BROWSER_FAMILIES_LOWER | \
+                CRUFT_NAMES | \
+                set(BROWSER_TO_ABBREV.keys())
 
 CHECK_PAIRS = {
     'Android Browser',
@@ -331,7 +374,6 @@ CHECK_PAIRS = {
     'Chrome Mobile',
     'Chrome',
 }
-
 
 __all__ = (
     'AVAILABLE_ENGINES',

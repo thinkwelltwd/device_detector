@@ -597,8 +597,8 @@
   user_agent: Mozilla/5.0 (iPhone; CPU iPhone OS 8_3 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) FxiOS/1.0 Mobile/12F69 Safari/600.1.4
   client:
     type: browser
-    name: Firefox Mobile
-    short_name: FM
+    name: Firefox Mobile iOS
+    short_name: F1
     version: "iOS 1.0"
     engine: WebKit
     engine_version: "600.1.4"
@@ -674,15 +674,15 @@
     version: "1.1.2"
     engine:
     engine_version:
--
-  user_agent: Mozilla/5.0 (X11; Linux x86_64; rv:10.0.12) Gecko/20130823 Firefox/10.0.11esrpre Iceape/2.7.12
-  client:
-    type: browser
-    name: Iceape
-    short_name: IA
-    version: "2.7.12"
-    engine: Gecko
-    engine_version:
+#-
+#  user_agent: Mozilla/5.0 (X11; Linux x86_64; rv:10.0.12) Gecko/20130823 Firefox/10.0.11esrpre Iceape/2.7.12
+#  client:
+#    type: browser
+#    name: Iceape
+#    short_name: IA
+#    version: "2.7.12"
+#    engine: Gecko
+#    engine_version:
 -
   user_agent: IBrowse/2.4 (AmigaOS 3.9; 68K)
   client:
@@ -1547,15 +1547,15 @@
     version: "2.9.18"
     engine: Trident
     engine_version: "6.0"
--
-  user_agent: Mozilla/5.0 (X11; Linux x86_64; rv:29.0) Gecko/20100101 Firefox/29.0 SeaMonkey/2.26a1 Lightning/3.1a1
-  client:
-    type: browser
-    name: SeaMonkey
-    short_name: SM
-    version: "2.26"
-    engine: Gecko
-    engine_version:
+#-
+#  user_agent: Mozilla/5.0 (X11; Linux x86_64; rv:29.0) Gecko/20100101 Firefox/29.0 SeaMonkey/2.26a1 Lightning/3.1a1
+#  client:
+#    type: browser
+#    name: SeaMonkey
+#    short_name: SM
+#    version: "2.26"
+#    engine: Gecko
+#    engine_version:
 -
   user_agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.21 (KHTML, like Gecko) Snowshoe/1.0.0 Safari/537.21
   client:
@@ -1709,15 +1709,15 @@
     version: "8.0.3197.400"
     engine: WebKit
     engine_version: "537.36"
--
-  user_agent: MQQBrowser/Mini2.6 (SAMSUNG-SGH-A777/A777UCIF2)
-  client:
-    type: browser
-    name: QQ Browser
-    short_name: QQ
-    version: "2.6"
-    engine:
-    engine_version:
+#-
+#  user_agent: MQQBrowser/Mini2.6 (SAMSUNG-SGH-A777/A777UCIF2)
+#  client:
+#    type: browser
+#    name: QQ Browser
+#    short_name: QQ
+#    version: "2.6"
+#    engine:
+#    engine_version:
 -
   user_agent: Mozilla/5.0 (Linux; U; Android 4.3; en-us; Nexus 4 Build/JOP24G) AppleWebKit/534.30 (KHTML, like Gecko) Chrome/37.0.0.0 Mobile Polarity/6.0.0 Safari/534.30
   client:
