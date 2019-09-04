@@ -37,7 +37,7 @@ class DataExtractor:
     # subclasses must override
     key = ''
 
-    def __init__(self, metadata, groups):
+    def __init__(self, metadata: dict, groups: tuple):
         """
         :param metadata: dict of regex and associated metadata
             {'regex': <regex1>, 'name': 'iOS', 'version': '$1'}
@@ -120,7 +120,7 @@ class ApplicationIDExtractor(RegexLoader):
         self.user_agent = user_agent
         self.details = {}
 
-    def override_name_with_app_id(self, client_name):
+    def override_name_with_app_id(self, client_name: str) -> bool:
         """
         Override the parsed name with the AppID / BundleID.
 
@@ -145,18 +145,18 @@ class ApplicationIDExtractor(RegexLoader):
         """
         return self.load_app_id_sets(name='ignored')
 
-    def secondary_appids(self):
+    def secondary_appids(self) -> set:
         """
         Load Secondary App IDs from yaml file
         """
         return self.load_app_id_sets(name='secondary')
 
-    def normalized_app_ids(self):
+    def normalized_app_ids(self) -> dict:
         normalized = DDCache['appids_normalized']
         if normalized:
             return normalized
 
-        DDCache['appids_normalized'] = self.load_from_yaml('appids/normalized.yml')
+        DDCache['appids_normalized'] = self.load_from_yaml('appids/normalized.yml') or {}
         return DDCache['appids_normalized']
 
     def extract(self) -> dict:
@@ -197,10 +197,10 @@ class ApplicationIDExtractor(RegexLoader):
 
         return self.details
 
-    def version(self):
+    def version(self) -> str:
         return self.details.get('version', '')
 
-    def pretty_name(self):
+    def pretty_name(self) -> str:
         details = self.extract()
         name = self.details.get('name', '')
 
