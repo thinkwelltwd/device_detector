@@ -23,7 +23,7 @@ class TestBrowser(ParserBaseTest):
         'tests/parser/fixtures/local/client/browser.yml',
         'tests/parser/fixtures/upstream/client/browser.yml',
     ]
-    fields = ('name', 'type', 'short_name', 'version')
+    fields = ('name', 'type', 'short_name')
     Parser = Browser
 
 

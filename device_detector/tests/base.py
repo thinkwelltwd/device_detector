@@ -48,7 +48,7 @@ class Base(unittest.TestCase):
     fixture_files = []
     Parser = None
 
-    def assertEqual(self, first, second, msg=None):
+    def assertEqual(self, first, second, msg=None, **kwargs):
         if first == 'None':
             first = None
         if second == 'None':
@@ -58,10 +58,17 @@ class Base(unittest.TestCase):
             return
 
         if not msg and hasattr(self, 'user_agent'):
-            msg = '\n\nFailed to parse "{}"\n' \
-                  'Expected value "{}" != Parsed value "{}"'.format(
-                getattr(self, 'user_agent'), first, second,
-            )
+            field = kwargs.get('field')
+            ua_msg = '\n\nFailed to parse "{}"\n'.format(getattr(self, 'user_agent'))
+
+            if field:
+                field_msg = 'Field "{}" expected value "{}" != Parsed value "{}"'.format(
+                    field, first, second
+                )
+            else:
+                field_msg = 'Expected value "{}" != Parsed value "{}"'.format(first, second)
+
+            msg = '{} {}'.format(ua_msg, field_msg)
 
         super().assertEqual(first, second, msg)
 
@@ -88,7 +95,7 @@ class DetectorBaseTest(Base):
 
         # if there's a fixture name, then the parsed value should match
         if fixture_name:
-            self.assertEqual(fixture_name, parsed_name)
+            self.assertEqual(fixture_name, parsed_name, field='client_name')
 
     def confirm_client_type(self, fixture, parsed_value):
         """
@@ -103,7 +110,7 @@ class DetectorBaseTest(Base):
             return
 
         if fixture_value:
-            self.assertEqual(str(fixture_value), str(parsed_value))
+            self.assertEqual(str(fixture_value), str(parsed_value), field='client_type')
 
     def confirm_version(self, fixture, parsed_value):
         """
@@ -118,7 +125,7 @@ class DetectorBaseTest(Base):
         # otherwise, skip checking. The generic version extractor
         # will push/pull values a bit.
         if fixture_value:
-            self.assertEqual(str(fixture_value), str(parsed_value))
+            self.assertEqual(str(fixture_value), str(parsed_value), field='client_version')
 
     def matches_fixture_or_generic(self, fixture, key1, key2, parsed_value):
         """
@@ -161,10 +168,10 @@ class DetectorBaseTest(Base):
             device = DeviceDetector(self.user_agent)
             device.parse()
 
-            # OS properties
-            self.assertEqual(device.os_name(), self.get_value(fixture, 'os', 'name'))
-            self.assertEqual(device.os_short_name(), self.get_value(fixture, 'os', 'short_name'))
-            self.assertEqual(device.os_version(), self.get_value(fixture, 'os', 'version'))
+            # # OS properties
+            self.assertEqual(device.os_name(), self.get_value(fixture, 'os', 'name'), field='os_name')
+            self.assertEqual(device.os_short_name(), self.get_value(fixture, 'os', 'short_name'), field='os_short_name')
+            self.assertEqual(device.os_version(), self.get_value(fixture, 'os', 'version'), field='os_version')
 
             # Client properties
             parsed_name = device.client_name()
@@ -222,10 +229,7 @@ class ParserBaseTest(Base):
                 self.assertEqual(
                     str(expect.get(field, '')),
                     str(data.get(field, '')),
-                    msg='Error parsing {}. \n'
-                    'Field "{}" parsed value "{}" != expected value "{}"'.format(
-                        self.user_agent, field, data.get(field, ''), expect.get(field, '')
-                    )
+                    field=field,
                 )
 
 

@@ -29,10 +29,7 @@ class TestDevices(ParserBaseTest):
                 self.assertEqual(
                     str(expect[field]),
                     str(data[field]),
-                    msg='Error parsing {}. \n'
-                    'Field "{}" parsed value "{}" != expected value "{}"'.format(
-                        self.user_agent, field, data[field], expect[field]
-                    )
+                    field=field,
                 )
 
 
