@@ -5,6 +5,36 @@
 # @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
 ###############
 
+# Firefox Reality (https://mixedreality.mozilla.org/firefox-reality/)
+- regex: 'Mobile VR.+Firefox'
+  name: 'Firefox Reality'
+  version: ''
+
+# AVG Secure Browser (https://www.avg.com/en-us/secure-browser)
+- regex: 'AVG(?:/(\d+[\.\d]+))?'
+  name: 'AVG Secure Browser'
+  version: '$1'
+
+# START Internet Browser (https://play.google.com/store/apps/details?id=fyi.start.web.browser)
+- regex: 'Start/(?:(\d+[\.\d]+))?'
+  name: 'START Internet Browser'
+  version: '$1'
+
+# Lovense Browser (https://www.lovense.com/cam-model/download)
+- regex: 'Lovense(?:/(\d+[\.\d]+))?'
+  name: 'Lovense Browser'
+  version: '$1'
+
+# Delta Browser (https://play.google.com/store/apps/details?id=com.airfind.deltabrowser)
+- regex: 'com.airfind.deltabrowser(?:/(\d+[\.\d]+))?'
+  name: 'Delta Browser'
+  version: '$1'
+
+# Ordissimo (https://www.ordissimo.fr/)
+- regex: '(?:Ordissimo|webissimo3)(?:/(\d+[\.\d]+))?'
+  name: 'Ordissimo'
+  version: '$1'
+
 # CCleaner (https://www.ccleaner.com/ccleaner/browser)
 - regex: 'CCleaner(?:/(\d+[\.\d]+))?'
   name: 'CCleaner'
@@ -428,6 +458,11 @@
   name: 'Cunaguaro'
   version: '$1'
 
+# t-online.de Browser (https://www.t-online.de/computer/browser/)
+- regex: 'TO-Browser(?:/TOB(\d+[\.\d]+))?'
+  name: 't-online.de Browser'
+  version: '$1'
+
 #Kazehakase
 - regex: 'Kazehakase(?:/(\d+[\.\d]+))?'
   name: 'Kazehakase'
@@ -564,6 +599,21 @@
 - regex: 'UC[ ]?Browser.* \(UCMini\)'
   name: 'UC Browser Mini'
   version: ''
+
+# UC Browser Turbo
+- regex: 'UCTurbo(?:[ /]?(\d+[\.\d]+))?'
+  name: 'UC Browser Turbo'
+  version: '$1'
+- regex: 'UC[ ]?Browser.* \(UCTurbo\)'
+  name: 'UC Browser Turbo'
+  version: ''
+
+# Opera GX (https://www.opera.com/gx#start | http://ftp.opera.com/pub/opera_gx/)
+- regex: 'OPRGX(?:/(\d+[\.\d]+))?'
+  name: 'Opera GX'
+  version: '$1'
+  engine:
+    default: 'Blink'
 
 #Opera
 - regex: '(?:Opera Tablet.*Version|Opera/.+Opera Mobi.+Version|Mobile.+OPR)/(\d+[\.\d]+)'
@@ -845,18 +895,29 @@
   name: 'Samsung Browser'
   version: '$1'
 
-#Streamy
-#This browser is built on top of Chromium.
-#It should be checked first.
+# Super Fast Browser (https://play.google.com/store/apps/details?id=com.browser.tssomas)
+- regex: '(?:SFBrowser|com.browser.tssomas)(?:/(\d+[\.\d]+))?'
+  name: 'Super Fast Browser'
+  version: '$1'
+
+# EUI Browser
+- regex: 'EUI Browser(?:/(\d+[\.\d]+))?'
+  name: 'EUI Browser'
+  version: '$1'
+
+# UBrowser (https://callumprentice.github.io/)
+- regex: 'UBrowser(?:/(\d+[\.\d]+))?'
+  name: 'UBrowser'
+  version: '$1'
+
+#Streamy (Chromium based)
 - regex: 'Streamy(?:/(\d+[\.\d]+))?'
   name: 'Streamy'
   version: '$1'
   engine:
     default: 'WebKit'
 
-#Isivioo
-#Andorid version of the browser is built on top of Chrome Mobile.
-#It should be checked first.
+#Isivioo (Android version is Chrome based)
 - regex: 'isivioo'
   name: 'Isivioo'
   version: ''
@@ -1000,6 +1061,13 @@
 - regex: '^Nokia|Nokia[EN]?\d+'
   name: 'Nokia Browser'
   version: ''
+
+#Sleipnir
+- regex: 'Sleipnir(?:[ /](\d+[\.\d]+))?'
+  name: 'Sleipnir'
+  version: '$1'
+  engine:
+    default: '' # multi engine
 
 # NTENT Browser
 - regex: 'NTENTBrowser(?:/(\d+[\.\d]+))?'
@@ -1194,6 +1262,11 @@
   name: 'Element Browser'
   version: '$1'
 
+# eZ Browser (https://play.google.com/store/apps/details?id=com.asc.csbrowser)
+- regex: 'eZBrowser(?:/(\d+[\.\d]+))?'
+  name: 'eZ Browser'
+  version: '$1'
+
 #Firebird
 - regex: 'Firebird(?! Build)(?:/(\d+[\.\d]+))?'
   name: 'Firebird'
@@ -1242,13 +1315,6 @@
     default: 'iCab'
     versions:
       4: 'WebKit'
-
-#Sleipnir
-- regex: 'Sleipnir(?:[ /](\d+[\.\d]+))?'
-  name: 'Sleipnir'
-  version: '$1'
-  engine:
-    default: '' # multi engine
 
 #Lunascape
 - regex: 'Lunascape(?:[/ ](\d+[\.\d]+))?'

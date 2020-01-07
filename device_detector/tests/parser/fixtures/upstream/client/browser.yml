@@ -2205,6 +2205,24 @@
     engine: Blink
     engine_version: ""
 - 
+  user_agent: Mozilla/5.0 (X11; Linux i686 on x86_64; rv:52.0) Gecko/20100101 Firefox/52.0 Ordissimo/3.8.20+svn37598
+  client:
+    type: browser
+    name: Ordissimo
+    short_name: OS
+    version: "3.8.20"
+    engine: Gecko
+    engine_version: ""
+- 
+  user_agent: Mozilla/5.0 (X11; Linux i686 on x86_64; rv:42.0) Gecko/20100101 Firefox/42.0 webissimo3/3.7.22+svn30377
+  client:
+    type: browser
+    name: Ordissimo
+    short_name: OS
+    version: "3.7.22"
+    engine: Gecko
+    engine_version: ""
+-
   user_agent: Mozilla/5.0 (Linux; U; COS like Android 4.1.2; zh_CN; 909d Build/JRO03C) AppleWebKit/537.17 (KHTML, like Gecko) COSBrowser/1.0.0 Version/4.0 Mobile Safari/537.17
   client:
     type: browser
@@ -2220,6 +2238,87 @@
     name: Crusta
     short_name: CT
     version: "1.4.3"
+    engine: WebKit
+    engine_version: "537.36"
+- 
+  user_agent: Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36 OPR/60.0.3255.50747 OPRGX/60.0.3255.50747
+  client:
+    type: browser
+    name: Opera GX
+    short_name: OX
+    version: "60.0.3255.50747"
+    engine: Blink
+    engine_version: ""
+- 
+  user_agent: Mozilla/5.0 (Linux; U; Android 7.0; BV6000 Build/NRD90M) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/57.0.2987.108 UCBrowser/12.10.0.1163 UCTurbo/1.7.9.900 Mobile Safari/537.36
+  client:
+    type: browser
+    name: UC Browser Turbo
+    short_name: UT
+    version: "1.7.9.900"
+    engine: WebKit
+    engine_version: "537.36"
+-
+  user_agent: Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.157 UBrowser/5.5.5701.114 Safari/537.36
+  client:
+    type: browser
+    name: UBrowser
+    short_name: UB
+    version: "5.5.5701.114"
+    engine: WebKit
+    engine_version: "537.36"
+-
+  user_agent: Mozilla/5.0 (Linux; U; Android 2.3.5; zh-cn; SHP-SH330T/V03.03; 320*480; CTC/2.0) eZBrowser/1.0
+  client:
+    type: browser
+    name: eZ Browser
+    short_name: EZ
+    version: "1.0"
+    engine: 
+    engine_version: ""
+-
+  user_agent: Mozilla/5.0 (Linux; U; Android 6.0.1;en_gb; C103 Build/ZIXOSOP5801803011S) AppleWebKit/537.36 (KHTML, like Gecko)Version/4.0 Chrome/49.0.0.0 Mobile Safari/537.36 EUI Browser/5.8.018S
+  client:
+    type: browser
+    name: EUI Browser
+    short_name: EU
+    version: "5.8.018"
+    engine: WebKit
+    engine_version: "537.36"
+- 
+  user_agent: Mozilla/5.0 (Linux; Android 7.1.2; SO-01H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.76 SFBrowser/12.0.2115.28 Mobile Safari/537.36
+  client:
+    type: browser
+    name: Super Fast Browser
+    short_name: SU
+    version: "12.0.2115.28"
+    engine: WebKit
+    engine_version: "537.36"
+- 
+  user_agent: Mozilla/5.0 (Linux; Android 7.0; SO-01H Build/NRD90M; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/58.0.3029.83 Mobile Safari/537.36 com.browser.tssomas/11.0.1001.0327
+  client:
+    type: browser
+    name: Super Fast Browser
+    short_name: SU
+    version: "11.0.1001.0327"
+    engine: WebKit
+    engine_version: "537.36"
+-
+  user_agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:68.0) Gecko/20100101 Firefox/68.0 TO-Browser/TOB7.68.0.201_01
+  client:
+    type: browser
+    name: t-online.de Browser
+    short_name: TO
+    version: "7.68.0.201"
+    engine: Gecko
+    engine_version: ""
+-
+  user_agent: Mozilla/5.0 (Linux; Android 7.0; SO-01H Build/32.3.E.0.136; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/64.0.3282.137 Mobile Safari/537.36 Sleipnir/3.5.7
+  client:
+    type: browser
+    name: Sleipnir
+    short_name: SL
+    version: "3.5.7"
     engine: WebKit
     engine_version: "537.36"
 - 
@@ -2384,4 +2483,48 @@
     version: "6.9.410"
     engine: WebKit
     engine_version: "537.36"
-
+- 
+  user_agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36 AVG/77.2.2156.122
+  client:
+    type: browser
+    name: AVG Secure Browser
+    short_name: VG
+    version: "77.2.2156.122"
+    engine: WebKit
+    engine_version: "537.36"
+-
+  user_agent: Mozilla/5.0 (Linux; Android 6.0; Zun X Build/MRA58K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.97 Mobile Safari/537.36 Start/53.0.2785.97
+  client:
+    type: browser
+    name: START Internet Browser
+    short_name: S0
+    version: "53.0.2785.97"
+    engine: WebKit
+    engine_version: "537.36"
+-
+  user_agent: Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.87 Safari/537.36 Lovense/20.0.1
+  client:
+    type: browser
+    name: Lovense Browser
+    short_name: LO
+    version: "20.0.1"
+    engine: WebKit
+    engine_version: "537.36"
+-
+  user_agent: com.airfind.deltabrowser/2.0.8.2 (Linux; U; Android 8.0.0; en-us; LGUS997 Build/OPR1.170623.032; lge) 1440X2672 LGE LGUS997 AppleWebKit/537.36 (KHTML, like Gecko)
+  client:
+    type: browser
+    name: Delta Browser
+    short_name: DT
+    version: "2.0.8.2"
+    engine: WebKit
+    engine_version: "537.36"
+- 
+  user_agent: Mozilla/5.0 (Android 7.1.2; Mobile VR; rv:66.0) Gecko/66.0 Firefox/66.0
+  client:
+    type: browser
+    name: Firefox Reality
+    short_name: FY
+    version: ""
+    engine: Gecko
+    engine_version: "66.0"
