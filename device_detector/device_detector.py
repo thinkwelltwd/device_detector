@@ -330,9 +330,7 @@ class DeviceDetector(RegexLoader):
         return False
 
     def is_bot(self) -> bool:
-        if not self.bot:
-            return False
-        return self.bot.is_known()
+        return bool(self.all_details.get('bot'))
 
     def android_device_type(self) -> str:
 
@@ -561,6 +559,12 @@ class DeviceDetector(RegexLoader):
                 self.device_type().title(),
             )
         return 'Client: {} Device: {} OS: {}'.format(client, device, os).strip()
+
+    def __str__(self):
+        return self.user_agent
+
+    def __repr__(self):
+        return '%s(%s)' % (self.__class__.__name__, self.user_agent)
 
 
 class SoftwareDetector(DeviceDetector):

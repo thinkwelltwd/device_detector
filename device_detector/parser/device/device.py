@@ -186,6 +186,9 @@ class Device(BaseDeviceParser):
     def model(self) -> str:
         return self.ua_data.get('model', '')
 
+    def __str__(self):
+        return '%s %s' % (self.model(), self.dtype())
+
 
 __all__ = [
     'Device',
