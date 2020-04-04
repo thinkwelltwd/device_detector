@@ -13,6 +13,7 @@ AVAILABLE_ENGINES = {
     'Edge',
     'NetSurf',
     'Servo',
+    'Goanna',
 }
 AVAILABLE_ENGINES_LOWER_CASE = {engine.lower(): engine for engine in AVAILABLE_ENGINES}
 
@@ -233,6 +234,7 @@ AVAILABLE_BROWSERS = {
     'TB': 'Tenta Browser',
     'TZ': 'Tizen Browser',
     'TS': 'TweakStyle',
+    'TV': 'TV Bro',
     'UB': 'UBrowser',
     'UC': 'UC Browser',
     'UM': 'UC Browser Mini',
@@ -313,6 +315,7 @@ BROWSER_FAMILIES = {
         'UB',
         'LO',
         'VG',
+        'TV',
     ),
     'Firefox': (
         'FF',

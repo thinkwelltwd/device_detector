@@ -405,6 +405,11 @@
 
 
 #Pale Moon
+- regex: '.*Goanna.*PaleMoon(?:/(\d+[\.\d]+))?'
+  name: 'Pale Moon'
+  version: '$1'
+  engine:
+    default: 'Goanna'
 - regex: 'PaleMoon(?:/(\d+[\.\d]+))?'
   name: 'Pale Moon'
   version: '$1'
@@ -1072,6 +1077,11 @@
 # NTENT Browser
 - regex: 'NTENTBrowser(?:/(\d+[\.\d]+))?'
   name: 'NTENT Browser'
+  version: '$1'
+
+# TV Bro
+- regex: 'TV Bro/(\d+[\.\d]+)'
+  name: 'TV Bro'
   version: '$1'
 
 # Chrome Webview
