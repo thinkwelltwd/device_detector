@@ -11,7 +11,27 @@ CONTAINS_URL = re.compile(
     re.IGNORECASE,
 )
 
-REGEXES = (
+
+# Extra version / name from UAs
+VERSION_NAME_REGEXES = (
+    # 1.172.0.1 - LIVE - Mar 5 2020
+    # 17build 113411 LIVE Sep 17 20180
+    re.compile(
+        r'(?P<version>[\d\.]+)[ \-]+(?P<name>LIVE)',
+        re.IGNORECASE,
+    ),
+
+    # 15.5.53 Boxcar
+    # 165 CandyCanes
+    re.compile(
+        r'^(?P<version>[\d\.]+)[ \-/]+(?P<name>\w+)$',
+        re.IGNORECASE,
+    ),
+)
+
+
+# Extra name / version from UAs
+NAME_VERSION_REGEXES = (
 
     # Get ALL <key>/<value> pairs from the regex
     re.compile(
@@ -72,21 +92,19 @@ def name_matches_regex(name) -> bool:
     return False
 
 
-def extract_pairs(regex, ua):
+def scrub_name_version_pairs(matches: list) -> list:
     """
-    Extract all key/value pairs of the specified regex,
-    and return pairs along with unmatched portion of ua string.
+    Takes list of (name,version) tuples.
+    Remove all pairs where name matches SKIP patterns
     """
-    matches = regex.findall(ua)
-    substring = ua
-
-    if matches:
-        substring = regex.sub(' ', ua)
-
     pairs = []
     for name, version in matches:
         name = name.strip(' -,')
         if not name:
+            continue
+
+        # does this look like base64 encoded data?
+        if name.endswith('=='):
             continue
 
         name_lower = name.lower()
@@ -98,6 +116,37 @@ def extract_pairs(regex, ua):
 
         code = name_lower.replace(' ', '')
         pairs.append((code, name, version.strip()))
+
+    return pairs
+
+
+def extract_version_name_pairs(regex, ua):
+    """
+    Extract all key/value pairs of the specified regex,
+    where key==version and value==name
+    and return pairs along with unmatched portion of ua string.
+    """
+    match = regex.search(ua)
+
+    if match:
+        return scrub_name_version_pairs([(match.group('name'), match.group('version'))])
+
+    return []
+
+
+def extract_name_version_pairs(regex, ua):
+    """
+    Extract all key/value pairs of the specified regex,
+    where key==name and value==version
+    and return pairs along with unmatched portion of ua string.
+    """
+    matches = regex.findall(ua)
+    substring = ua
+
+    if matches:
+        substring = regex.sub(' ', ua)
+
+    pairs = scrub_name_version_pairs(matches)
 
     return pairs, substring
 
@@ -111,14 +160,24 @@ def key_value_pairs(ua):
 
     all_pairs = []
 
-    for rgx in REGEXES:
-        pairs, substring = extract_pairs(rgx, substring)
+    for rgx in VERSION_NAME_REGEXES:
+        pairs = extract_version_name_pairs(rgx, substring)
+        if pairs:
+            all_pairs.extend(pairs)
+
+    # <version>/<name> regexes will be much less common
+    # so if we found such entries return then first
+    if all_pairs:
+        return all_pairs
+
+    for rgx in NAME_VERSION_REGEXES:
+        pairs, substring = extract_name_version_pairs(rgx, substring)
         all_pairs.extend(pairs)
 
     return all_pairs
 
 
 __all__ = (
-    'extract_pairs',
+    'extract_name_version_pairs',
     'key_value_pairs',
 )

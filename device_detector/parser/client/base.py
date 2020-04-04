@@ -19,8 +19,8 @@ class BaseClientParser(Parser):
 
     def name_version_pairs(self) -> list:
 
-        cached = DDCache['user_agents'][self.ua_hash].get('name_version_pairs', [])
-        if cached:
+        cached = DDCache['user_agents'][self.ua_hash].get('name_version_pairs', None)
+        if cached is not None:
             return cached
 
         name_version_pairs = key_value_pairs(ua=self.user_agent)
