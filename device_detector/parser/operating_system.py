@@ -181,6 +181,11 @@ for os, families in OS_FAMILIES.items():
         FAMILY_FROM_OS[family] = os
 
 
+ARM_REGEX = re.compile(r'arm', re.IGNORECASE)
+WINDOWS_REGEX = re.compile(r'WOW64|x64|win64|amd64|x86_64', re.IGNORECASE)
+x86_REGEX = re.compile(r'i[0-9]86|i86pc', re.IGNORECASE)
+
+
 class OS(Parser):
 
     fixture_files = [
@@ -193,10 +198,6 @@ class OS(Parser):
     OS_TO_ABBREV = OS_TO_ABBREV
     OS_FAMILIES = OS_FAMILIES
     FAMILY_FROM_OS = FAMILY_FROM_OS
-
-    ARM_REGEX = re.compile(r'arm', re.IGNORECASE)
-    WINDOWS_REGEX = re.compile(r'WOW64|x64|win64|amd64|x86_64', re.IGNORECASE)
-    x86_REGEX = re.compile(r'i[0-9]86|i86pc', re.IGNORECASE)
 
     def is_desktop(self) -> bool:
         return self.family() in self.DESKTOP_OS
@@ -213,11 +214,11 @@ class OS(Parser):
         return super().is_known()
 
     def platform(self) -> str:
-        if self._check_regex(self.ARM_REGEX):
+        if self._check_regex(ARM_REGEX):
             return 'ARM'
-        if self._check_regex(self.WINDOWS_REGEX):
+        if self._check_regex(WINDOWS_REGEX):
             return 'x64'
-        if self._check_regex(self.x86_REGEX):
+        if self._check_regex(x86_REGEX):
             return 'x86'
         return ''
 

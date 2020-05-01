@@ -538,7 +538,7 @@ class DeviceDetector(RegexLoader):
         return self.all_details.get('os', {}).get('version', '')
 
     def pretty_name(self) -> str:
-        return self.all_details['normalized'] or self.user_agent
+        return self.all_details.get('normalized') or self.user_agent
 
     def pretty_print(self) -> str:
         if not self.is_known():
