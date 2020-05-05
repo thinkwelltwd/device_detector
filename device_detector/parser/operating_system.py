@@ -1,9 +1,6 @@
-try:
-    import regex as re
-except (ImportError, ModuleNotFoundError):
-    import re
 from .parser import Parser
 from .os_fragment import OSFragment
+from ..lazy_regex import RegexLazyIgnore
 
 DESKTOP_OS = {
     'AmigaOS',
@@ -180,10 +177,9 @@ for os, families in OS_FAMILIES.items():
     for family in families:
         FAMILY_FROM_OS[family] = os
 
-
-ARM_REGEX = re.compile(r'arm', re.IGNORECASE)
-WINDOWS_REGEX = re.compile(r'WOW64|x64|win64|amd64|x86_64', re.IGNORECASE)
-x86_REGEX = re.compile(r'i[0-9]86|i86pc', re.IGNORECASE)
+ARM_REGEX = RegexLazyIgnore(r'arm')
+WINDOWS_REGEX = RegexLazyIgnore(r'WOW64|x64|win64|amd64|x86_64')
+x86_REGEX = RegexLazyIgnore(r'i[0-9]86|i86pc')
 
 
 class OS(Parser):

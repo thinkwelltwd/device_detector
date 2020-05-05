@@ -1,9 +1,4 @@
 from . import GenericClientParser
-try:
-    import regex as re
-except (ImportError, ModuleNotFoundError):
-    import re
-
 from ..settings import METADATA_NAMES
 
 
@@ -19,8 +14,6 @@ class NameVersionExtractor(GenericClientParser):
     starts with. If that beginning of the UA string isn't interesting,
     prefer the longest name in the name/value pair list.
     """
-
-    NAME_SLASH = re.compile(r'^(?P<name>[\w-]+)/', re.IGNORECASE)
 
     # -------------------------------------------------------------------
     app_name = ''

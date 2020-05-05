@@ -1,8 +1,5 @@
-try:
-    import regex as re
-except (ImportError, ModuleNotFoundError):
-    import re
 from . import BaseDeviceParser
+from ..lazy_regex import RegexLazyIgnore
 
 
 class OSFragment(BaseDeviceParser):
@@ -23,7 +20,7 @@ class OSFragment(BaseDeviceParser):
         for os, regexes in new_regexes.items():
             reg_list.append({
                 'name': os,
-                'regexes': [re.compile(reg, re.IGNORECASE) for reg in regexes],
+                'regexes': [RegexLazyIgnore(reg) for reg in regexes],
             })
 
         return reg_list

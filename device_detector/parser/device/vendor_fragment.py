@@ -1,9 +1,5 @@
-try:
-    import regex as re
-except (ImportError, ModuleNotFoundError):
-    import re
-
 from . import BaseDeviceParser
+from ...lazy_regex import RegexLazyIgnore
 
 
 class VendorFragment(BaseDeviceParser):
@@ -23,7 +19,7 @@ class VendorFragment(BaseDeviceParser):
         for brand, regexes in new_regexes.items():
             reg_list.append({
                 'name': brand,
-                'regexes': [re.compile(r, re.IGNORECASE) for r in regexes],
+                'regexes': [RegexLazyIgnore(r) for r in regexes],
             })
 
         return reg_list

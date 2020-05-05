@@ -1,52 +1,32 @@
-try:
-    import regex as re
-except (ImportError, ModuleNotFoundError):
-    import re
-
+from ..lazy_regex import RegexLazyIgnore
 from .settings import SKIP_PREFIXES
 
-
-CONTAINS_URL = re.compile(
+CONTAINS_URL = RegexLazyIgnore(
     r'https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)',
-    re.IGNORECASE,
 )
-
 
 # Extra version / name from UAs
 VERSION_NAME_REGEXES = (
     # 1.172.0.1 - LIVE - Mar 5 2020
     # 17build 113411 LIVE Sep 17 20180
-    re.compile(
-        r'(?P<version>[\d\.]+)[ \-]+(?P<name>LIVE)',
-        re.IGNORECASE,
-    ),
+    RegexLazyIgnore(r'(?P<version>[\d\.]+)[ \-]+(?P<name>LIVE)'),
 
     # 15.5.53 Boxcar
     # 165 CandyCanes
-    re.compile(
-        r'^(?P<version>[\d\.]+)[ \-/]+(?P<name>\w+)$',
-        re.IGNORECASE,
-    ),
+    RegexLazyIgnore(r'^(?P<version>[\d\.]+)[ \-/]+(?P<name>\w+)$'),
 )
-
 
 # Extra name / version from UAs
 NAME_VERSION_REGEXES = (
 
     # Get ALL <key>/<value> pairs from the regex
-    re.compile(
-        r'(?P<name>[\w\d\.\-_\&\'!®\?, \+\&]+)/(?P<version>[\d\.\-\w\&\?]+)\b',
-        re.IGNORECASE,
-    ),
+    RegexLazyIgnore(r'(?P<name>[\w\d\.\-_\&\'!®\?, \+\&]+)/(?P<version>[\d\.\-\w\&\?]+)\b'),
 
     # <name><space><version> - anchored at the beginning
     # CarboniteDownloader 6.3.2 build 7466 (Sep-07-2017)
     # libreoffice 5.4.3.2 (92a7159f7e4af62137622921e809f8546db437e5; windows; x86;)
     # openoffice.org 3.2 (320m18(build:9502); windows; x86; bundledlanguages=en-us)
-    re.compile(
-        r'^(?P<name>[\w\._\&\'!®\?,\+\&]+) [rv]?(?P<version>[\d\.\-\&\?]+)\b',
-        re.IGNORECASE,
-    ),
+    RegexLazyIgnore(r'^(?P<name>[\w\._\&\'!®\?,\+\&]+) [rv]?(?P<version>[\d\.\-\&\?]+)\b'),
 
     # <name><sep><version> - anywhere in string
     # Microsoft Office Access 2013 (15.0.4693) Windows NT 6.2, where version == 15.0.4693
@@ -55,28 +35,23 @@ NAME_VERSION_REGEXES = (
     # openshot-qt-2.4.2
     # DigiCal (v1.8.2b; http://digibites.nl/digical)
     # iPad; 10.3.3; autotrader.com; 3.0.10
-    re.compile(
-        r'(?P<name>[\w\d\.\-_\&\'!®\?, \+]+) ?[(\-;] ?[vr]?(?P<version>[\d\.]+)(?:\b|\w|$)',
-        re.IGNORECASE,
+    RegexLazyIgnore(
+        r'(?P<name>[\w\d\.\-_\&\'!®\?, \+]+) ?[(\-;] ?[vr]?(?P<version>[\d\.]+)(?:\b|\w|$)'
     ),
 
     # <name><space><version> - anywhere in remainder of string
     # Mozilla/5.0 AppleWebKit/537.36 Mobile Safari/537.36 Android SermonAudio.com 1.9.8, wanting "SermonAudio.com 1.9.8"
-    re.compile(
-        r'(?P<name>[\w\._\&\'!®\?,\+\& ]+) [rv]?(?P<version>[\d\.\-\&\?]+)\b',
-        re.IGNORECASE,
-    ),
-
+    RegexLazyIgnore(r'(?P<name>[\w\._\&\'!®\?,\+\& ]+) [rv]?(?P<version>[\d\.\-\&\?]+)\b'),
 )
 
 # <name>/<version> pairs with names matching these
 # regexes are not considered interesting
 SKIP_NAME_REGEXES = [
     # Android; samsung-SAMSUNG-SM-T377A; 6.0.1; AutoTrader.com; 2.6.4.3.236
-    re.compile(r'samsung[- ]sm', re.IGNORECASE),
+    RegexLazyIgnore(r'samsung[- ]sm'),
 
     # Mozilla/5.0 (iPhone; iPhone103; 12.1.4) MLN/4.30.450041483 (0f3d913a35528d98b8793f4d7aa0539e)"
-    re.compile(r'^(iphone|ipad)\d', re.IGNORECASE),
+    RegexLazyIgnore(r'^(iphone|ipad)\d'),
 ]
 
 

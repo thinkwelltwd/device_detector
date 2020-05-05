@@ -1,42 +1,38 @@
 from . import GenericClientParser
-try:
-    import regex as re
-except (ImportError, ModuleNotFoundError):
-    import re
 
+from ...lazy_regex import RegexLazyIgnore
 from ..settings import SKIP_PREFIXES
 from ...settings import DDCache
-
 
 # -------------------------------------------------------------------
 # Regexes that we use to parse UAs with a similar structure
 parse_generic_regex = [
     # Weather_WeatherFoundation[1]_15E302
     # SpringBoard_WeatherFoundation[1]_16A
-    (re.compile(r'(^(?:\w+)_WeatherFoundation).*', re.IGNORECASE), 1),
-    (re.compile(r'(^AVGSETUP).*', re.IGNORECASE), 1),
+    (RegexLazyIgnore(r'(^(?:\w+)_WeatherFoundation).*'), 1),
+    (RegexLazyIgnore(r'(^AVGSETUP).*'), 1),
 
     # ACC__14EDB170A0EAA78B40F
-    (re.compile(r'(^ACC)__[A-Z0-9].*'), 1),
+    (RegexLazyIgnore(r'(^ACC)__[A-Z0-9].*'), 1),
 
     # YWeather (iPhone/11.4.1; iOS; en_US;)
     # Mapbox iOS SDK (iPhone/11.1.1)
     # SCSDK/(iPhone;iOS;12.2)
     # Akamai NetSession C-API (win;AdDLMgr;capi_1.9.2;Vista)
-    (re.compile(r'^([a-z0-9\- ]+)[ /]?\((?:iphone|ipad|win)', re.IGNORECASE), 1),
+    (RegexLazyIgnore(r'^([a-z0-9\- ]+)[ /]?\((?:iphone|ipad|win)'), 1),
 
     # CPIS&iPhone10.1&
-    (re.compile(r'(^CPIS).*', re.IGNORECASE), 1),
+    (RegexLazyIgnore(r'(^CPIS).*'), 1),
 
     # samsung SAMSUNG-SM-T337A SyncML_DM Client
     # samsung SMT377P SPDClient to samsung SM-T377P SPD-Client
-    (re.compile(r'^samsung.*((?:SyncML_DM|SPD)[ \-]Client)$', re.IGNORECASE), 1),
-    (re.compile(r'(WXCommonUtils).*', re.IGNORECASE), 1),
+    (RegexLazyIgnore(r'^samsung.*((?:SyncML_DM|SPD)[ \-]Client)$'), 1),
+    (RegexLazyIgnore(r'(WXCommonUtils).*'), 1),
 
     # mShop:::Telly_iPhone_13.7.0:::iPad:::iPhone_OS_ == Telly_iPhone_13.7.0
     # mShop:::Amazon_Android_18.11.0.100:::SAMSUNG-SM-G935A:::Android_6.0.1
     # mShop:::WindowShop_Android_16.13.0.850:::SM-T817V:::Android_6.0.1
-    (re.compile(r'^mshop:+([a-z0-9_\.]+)', re.IGNORECASE), 1),
+    (RegexLazyIgnore(r'^mshop:+([a-z0-9_\.]+)'), 1),
 ]
 
 # -------------------------------------------------------------------
@@ -44,11 +40,11 @@ parse_generic_regex = [
 extract_version_regex = [
     # ANVSDKv.5.0.21
     # ANVSDKv5.0.21
-    (re.compile(r'(v?[\.\d]+$)', re.IGNORECASE)),
+    (RegexLazyIgnore(r'(v?[\.\d]+$)')),
 
     # Catch versions with trailing, separated characters
     # AppNamev.5.0.21_PRC = v.5.0.21
-    (re.compile(r'((?:v.?)?\d[\d\.]+)', re.IGNORECASE)),
+    (RegexLazyIgnore(r'((?:v.?)?\d[\d\.]+)')),
 ]
 
 

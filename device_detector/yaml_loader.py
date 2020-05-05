@@ -1,7 +1,3 @@
-try:
-    import regex as re
-except (ImportError, ModuleNotFoundError):
-    import re
 import yaml
 try:
     from yaml import CSafeLoader as SafeLoader
@@ -10,6 +6,7 @@ except ImportError:
 from pathlib import Path
 
 import device_detector
+from .lazy_regex import RegexLazyIgnore
 from .settings import BOUNDED_REGEX, DDCache, ROOT
 
 
@@ -82,9 +79,9 @@ class RegexLoader:
 
         for regex in regexes:
             if 'regex' in regex:
-                regex['regex'] = re.compile(BOUNDED_REGEX.format(regex['regex']), re.IGNORECASE)
+                regex['regex'] = RegexLazyIgnore(BOUNDED_REGEX.format(regex['regex']))
             for model in regex.get('models', []):
-                model['regex'] = re.compile(BOUNDED_REGEX.format(model['regex']), re.IGNORECASE)
+                model['regex'] = RegexLazyIgnore(BOUNDED_REGEX.format(model['regex']))
 
         DDCache['regexes'][self.cache_name] = regexes
 
@@ -100,7 +97,7 @@ class RegexLoader:
             regexes.extend(self.yaml_to_list('regexes/{}'.format(fixture)))
 
         for regex in regexes:
-            regex['regex'] = re.compile(regex['regex'], re.IGNORECASE)
+            regex['regex'] = RegexLazyIgnore(regex['regex'])
 
         DDCache['normalize_regexes'] = regexes
 

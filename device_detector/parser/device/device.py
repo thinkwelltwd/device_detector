@@ -1,15 +1,12 @@
-try:
-    import regex as re
-except (ImportError, ModuleNotFoundError):
-    import re
 from .base import BaseDeviceParser
+from ...lazy_regex import RegexLazyIgnore
 from .vendor_fragment import VendorFragment
 from ...settings import DDCache
 
-tablet_fragment = re.compile(r'Android( [\.0-9]+)?; Tablet;', re.IGNORECASE)
-mobile_fragment = re.compile(r'Android( [\.0-9]+)?; Mobile;', re.IGNORECASE)
-opera_tablet = re.compile(r'Opera Tablet', re.IGNORECASE)
-tv_fragment = re.compile(r'HbbTV', re.IGNORECASE)
+tablet_fragment = RegexLazyIgnore(r'Android( [\.0-9]+)?; Tablet;')
+mobile_fragment = RegexLazyIgnore(r'Android( [\.0-9]+)?; Mobile;')
+opera_tablet = RegexLazyIgnore(r'Opera Tablet')
+tv_fragment = RegexLazyIgnore(r'HbbTV')
 
 
 class Device(BaseDeviceParser):
@@ -43,12 +40,12 @@ class Device(BaseDeviceParser):
         for brand, stats in regexes.items():
             brand_data = {
                 'name': brand,
-                'regex': re.compile(stats['regex'], re.IGNORECASE),
+                'regex': RegexLazyIgnore(stats['regex']),
                 'device': stats['device'],
             }
             if 'models' in stats:
                 for model in stats['models']:
-                    model['regex'] = re.compile(model['regex'], re.IGNORECASE)
+                    model['regex'] = RegexLazyIgnore(model['regex'])
                 brand_data['models'] = stats['models']
             if 'model' in stats:
                 brand_data['model'] = stats['model']

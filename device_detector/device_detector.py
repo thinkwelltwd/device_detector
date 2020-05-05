@@ -1,7 +1,4 @@
-try:
-    import regex as re
-except (ImportError, ModuleNotFoundError):
-    import re
+from .lazy_regex import RegexLazyIgnore
 import uuid
 
 from .parser import (
@@ -30,7 +27,6 @@ from .parser import (
     ApplicationIDExtractor,
     NameVersionExtractor,
     WholeNameExtractor,
-
     DESKTOP_OS,
 )
 from .settings import DDCache, WORTHLESS_UA_TYPES
@@ -50,13 +46,13 @@ MAC_iOS = {
     'MAC',
 }
 
-TOUCH_FRAGMENT = re.compile(r'Touch', re.IGNORECASE)
-TV_FRAGMENT = re.compile(r'Kylo|Espial|Opera TV Store|HbbTV', re.IGNORECASE)
-ANDROID_MOBILE_FRAGMENT = re.compile(r'Android( [\.0-9]+)?; Mobile;', re.IGNORECASE)
-ANDROID_TABLET_FRAGMENT = re.compile(r'Android( [\.0-9]+)?; Tablet;', re.IGNORECASE)
-CHROME_MOBILE_FRAGMENT = re.compile(r'Chrome/[\.0-9]* Mobile', re.IGNORECASE)
-CHROME_NOTMOBILE_FRAGMENT = re.compile(r'Chrome/[\.0-9]* (?!Mobile)', re.IGNORECASE)
-OPERA_TABLET_FRAGMENT = re.compile(r'Opera Tablet', re.IGNORECASE)
+TOUCH_FRAGMENT = RegexLazyIgnore(r'Touch')
+TV_FRAGMENT = RegexLazyIgnore(r'Kylo|Espial|Opera TV Store|HbbTV')
+ANDROID_MOBILE_FRAGMENT = RegexLazyIgnore(r'Android( [\.0-9]+)?; Mobile;')
+ANDROID_TABLET_FRAGMENT = RegexLazyIgnore(r'Android( [\.0-9]+)?; Tablet;')
+CHROME_MOBILE_FRAGMENT = RegexLazyIgnore(r'Chrome/[\.0-9]* Mobile')
+CHROME_NOTMOBILE_FRAGMENT = RegexLazyIgnore(r'Chrome/[\.0-9]* (?!Mobile)')
+OPERA_TABLET_FRAGMENT = RegexLazyIgnore(r'Opera Tablet')
 
 
 class DeviceDetector(RegexLoader):
@@ -342,15 +338,14 @@ class DeviceDetector(RegexLoader):
         if ANDROID_MOBILE_FRAGMENT.findall(self.user_agent):
             return 'smartphone'
 
-         # Chrome on Android passes the device type based on the keyword 'Mobile'
-         # If it is present the device should be a smartphone, otherwise it's a tablet
-         # See https://developer.chrome.com/multidevice/user-agent#chrome_for_android_user_agent
+        # Chrome on Android passes the device type based on the keyword 'Mobile'
+        # If it is present the device should be a smartphone, otherwise it's a tablet
+        # See https://developer.chrome.com/multidevice/user-agent#chrome_for_android_user_agent
         if CHROME_MOBILE_FRAGMENT.search(self.user_agent) is not None:
             return 'smartphone'
 
         elif CHROME_NOTMOBILE_FRAGMENT.search(self.user_agent) is not None:
             return 'tablet'
-
 
         # Android up to 3.0 was designed for smartphones only. But as 3.0, which was tablet only,
         # was published too late, there were a bunch of tablets running with 2.x
@@ -577,7 +572,7 @@ class SoftwareDetector(DeviceDetector):
         )
 
 
-__all__ = [
+__all__ = (
     'DeviceDetector',
     'SoftwareDetector',
-]
+)

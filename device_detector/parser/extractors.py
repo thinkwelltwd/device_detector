@@ -1,26 +1,25 @@
-try:
-    import regex as re
-except (ImportError, ModuleNotFoundError):
-    import re
+from ..lazy_regex import RegexLazyIgnore
 from ..settings import DDCache
 from .settings import CHECK_PAIRS
 from ..yaml_loader import RegexLoader
 
-APP_ID = re.compile(r'\b([a-z]{2,5}\.[\w\d\.\-]+)', re.IGNORECASE)
+APP_ID = RegexLazyIgnore(r'\b([a-z]{2,5}\.[\w\d\.\-]+)')
 
 # 6H4HRTU5E3.com.avast.osx.secureline.avastsecurelinehelper/47978 CFNetwork/976 Darwin/18.2.0 (x86_64)
 # YMobile/1.0(com.kitkatandroid.keyboard/4.3.2;Android/6.0.1;lv1;LGE;LG-M153;;792x480
 # x86_64; macOS 10.14.5 (18F132); com.apple.ap.adprivacyd; 143441-1,13
-APP_ID_VERSION = re.compile(r'\b(?P<name>[a-z]{2,5}\.[\w\d\.\-]+)[;:/] ?(?P<version>[\d\.\-]+)\b', re.IGNORECASE)
+APP_ID_VERSION = RegexLazyIgnore(
+    r'\b(?P<name>[a-z]{2,5}\.[\w\d\.\-]+)[;:/] ?(?P<version>[\d\.\-]+)\b'
+)
 
 # Dalvik/2.1.0 (Linux; U; Android 6.0.1; LG-M153 Build/MXB48T) [FBAN/AudienceNetworkForAndroid;FBSN/Android;FBSV/6.0.1;FBAB/com.outthinking.photo;FBAV/1.41;FBBV/37;FBVS/4.27.1;FBLC/en_US]
 # Interested in the FBAB/<app.id> pattern
 # i.e. FBAB/com.outthinking.photo
-FACEBOOK_FRAGMENT = re.compile(r'FBAB/', re.IGNORECASE)
+FACEBOOK_FRAGMENT = RegexLazyIgnore(r'FBAB/')
 
 # YHOO YahooMobile/1.0 (com.softacular.Sportacular; 7.10.1) (Apple; iPhone; iOS/11.4.1);
 # YHOO YahooMobile/1.0 (com.aol.mapquest; 5.18.6) (Apple; iPhone; iOS/12.1.4);
-YAHOO_FRAGMENT = re.compile(r'YHOO YahooMobile', re.IGNORECASE)
+YAHOO_FRAGMENT = RegexLazyIgnore(r'YHOO YahooMobile')
 
 
 class DataExtractor:
@@ -131,8 +130,8 @@ class ApplicationIDExtractor(RegexLoader):
             return True
 
         for REGEX in (
-            FACEBOOK_FRAGMENT,
-            YAHOO_FRAGMENT,
+                FACEBOOK_FRAGMENT,
+                YAHOO_FRAGMENT,
         ):
             if REGEX.search(self.user_agent) is not None:
                 return True

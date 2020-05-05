@@ -1,20 +1,17 @@
 from hashlib import blake2s
 from string import punctuation
-try:
-    import regex as re
-except (ImportError, ModuleNotFoundError):
-    import re
 from urllib.parse import unquote
+from .lazy_regex import RegexLazy, RegexLazyIgnore
 
 trans_tbl = str.maketrans({p: '' for p in punctuation})
 punctuation_tbl = str.maketrans({p: '' for p in ' /.'})
-REPEATED_CHARACTERS = re.compile(r'(.)(\1{11,})')
+REPEATED_CHARACTERS = RegexLazy(r'(.)(\1{11,})')
 
 # Safari often appends a meaningless alphanumeric string enclosed in parens.
 # Otherwise the UAs are identical so strip that suffix
 # Mozilla/5.0 (iPhone; CPU iPhone OS 12_1_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/16C101 (5836419392)
 # Mozilla/5.0 (iPhone; CPU iPhone OS 12_1_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/16D57 baidumap_IPHO (10793838272)
-STRIP_NUM_SUFFIX = re.compile(r'(\([0-9]+\))$', re.IGNORECASE)
+STRIP_NUM_SUFFIX = RegexLazyIgnore(r'(\([0-9]+\))$')
 
 
 def ua_hash(user_agent):
@@ -126,11 +123,11 @@ def calculate_dtype(app_name) -> str:
     """
     app_name_lower = app_name.lower()
     for name, dtype in (
-            ('update', 'desktop app'),
-            ('mail', 'pim'),
-            ('api', 'library'),
-            ('sdk', 'library'),
-            ('webview', 'browser'),
+        ('update', 'desktop app'),
+        ('mail', 'pim'),
+        ('api', 'library'),
+        ('sdk', 'library'),
+        ('webview', 'browser'),
     ):
         if name in app_name_lower:
             return dtype

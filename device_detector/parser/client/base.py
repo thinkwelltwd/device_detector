@@ -1,9 +1,6 @@
-try:
-    import regex as re
-except (ImportError, ModuleNotFoundError):
-    import re
 import string
 
+from ...lazy_regex import RegexLazyIgnore
 from ..parser import Parser
 from ...parser.key_value_pairs import key_value_pairs
 from ...settings import DDCache
@@ -12,10 +9,18 @@ from ...utils import version_from_key, calculate_dtype
 keep = {'!', '@', '+'}
 table = str.maketrans(dict.fromkeys(''.join(c for c in string.punctuation if c not in keep)))
 
+FIRST_ALPHANUMERIC_WORD = RegexLazyIgnore(r'^([a-z0-9]+)')
+
+UNWANTED_APP_NAMES = [
+    RegexLazyIgnore(r'sm-\w+-android'),
+    RegexLazyIgnore(r'^4d531b'),
+
+    # App IDs will be parsed with ApplicationID extractor
+    RegexLazyIgnore(r'^com\.'),
+]
+
 
 class BaseClientParser(Parser):
-
-    FIRST_ALPHANUMERIC_WORD = re.compile(r'^([a-z0-9]+)', re.IGNORECASE)
 
     def name_version_pairs(self) -> list:
 
@@ -55,7 +60,7 @@ class BaseClientParser(Parser):
         # Check if first alphanumeric word found in app details.
         if not match:
             try:
-                first_word = self.FIRST_ALPHANUMERIC_WORD.search(self.ua_spaceless).group()
+                first_word = FIRST_ALPHANUMERIC_WORD.search(self.ua_spaceless).group()
                 match = app_details.get(first_word, {})
             except AttributeError:
                 pass
@@ -103,16 +108,6 @@ class GenericClientParser(BaseClientParser):
         'timezone=',
     ]
 
-    # -------------------------------------------------------------------
-    # Regexes that we use to remove unwanted app names
-    remove_unwanted_regex = [
-        re.compile(r'sm-\w+-android', re.IGNORECASE),
-        re.compile(r'^4d531b', re.IGNORECASE),
-
-        # App IDs will be parsed with ApplicationID extractor
-        re.compile(r'^com\.', re.IGNORECASE),
-    ]
-
     def discard_name(self) -> bool:
         """
         Determine if app name is of any value to us
@@ -145,7 +140,7 @@ class GenericClientParser(BaseClientParser):
                 return True
 
     def unwanted_regex_match(self) -> bool:
-        for regex in self.remove_unwanted_regex:
+        for regex in UNWANTED_APP_NAMES:
             if regex.search(self.app_name):
                 return True
 
