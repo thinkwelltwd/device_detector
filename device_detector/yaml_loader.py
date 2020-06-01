@@ -28,7 +28,7 @@ class RegexLoader:
         Load yaml from regexes directory, or extract from the egg
         """
         if Path('{}/{}'.format(ROOT, yfile)).exists():
-            with open('{}/{}'.format(ROOT, yfile), 'r') as yf:
+            with open('{}/{}'.format(ROOT, yfile), 'r', encoding="utf-8") as yf:
                 return yaml.load(yf, SafeLoader)
 
         try:
