@@ -330,9 +330,9 @@ class DeviceDetector(RegexLoader):
         if not self.skip_bot_detection and not self.bot:
             self.bot = Bot(self.user_agent, self.ua_hash, self.ua_spaceless).parse()
             self.all_details.bot_name = self.bot.name()
-            self.all_details.bot_category = self.bot.ua_data['category']
-            self.all_details.bot_url = self.bot.ua_data['url']
-            self.all_details.bot_producer = self.bot.ua_data['producer']
+            self.all_details.bot_category = self.bot.ua_data.get('category')
+            self.all_details.bot_url = self.bot.ua_data.get('url')
+            self.all_details.bot_producer = self.bot.ua_data.get('producer')
 
     def parse_os(self) -> None:
         """
