@@ -114,7 +114,6 @@ class DeviceDetector(RegexLoader):
 
         self.skip_bot_detection = skip_bot_detection
         self.skip_device_detection = skip_device_detection
-
         self.all_details = AllDetails()
 
     @property
@@ -195,9 +194,8 @@ class DeviceDetector(RegexLoader):
         that is of no use outside the application itself. Remove such information to present a
         cleaner UA string with fewer duplicates
         """
-        normalized = self.all_details.normalized
-        if normalized:
-            return normalized
+        if self.all_details.normalized:
+            return self.all_details.normalized
 
         if self.is_digit():
             self.all_details.normalized = 'Numeric'
@@ -279,7 +277,6 @@ class DeviceDetector(RegexLoader):
             parser = Parser(self.user_agent, self.ua_hash, self.ua_spaceless).parse()
             if parser.ua_data:
                 self.client = parser
-
                 self.all_details.client_name = parser.name()
                 self.all_details.client_version = parser.version()
                 self.all_details.client_engine_default = parser.ua_data['engine']['default']
@@ -506,12 +503,12 @@ class DeviceDetector(RegexLoader):
 
         Should work, even if skip_device_detection=True
         """
+
+        if self.all_details.device_type:
+            return self.all_details.device_type
+
         if self.android_feature_phone():
             return 'smartphone'
-
-        dt = self.all_details.device_type
-        if dt:
-            return dt
 
         aat = self.android_device_type()
         if aat:
