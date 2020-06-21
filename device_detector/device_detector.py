@@ -463,13 +463,13 @@ class DeviceDetector(RegexLoader):
         return self.all_details.os_family in DESKTOP_OS
 
     def client_name(self) -> str:
-        return self.all_details.client_name in DESKTOP_OS
+        return self.all_details.client_name
 
     def client_short_name(self) -> str:
-        return self.all_details.client_short_name in DESKTOP_OS
+        return self.all_details.client_short_name
 
     def client_version(self) -> str:
-        return self.all_details.client_version in DESKTOP_OS
+        return self.all_details.client_version
 
     def client_type(self) -> str:
         return self.all_details.client_type
