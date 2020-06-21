@@ -55,8 +55,19 @@ CHROME_NOTMOBILE_FRAGMENT = RegexLazyIgnore(r'Chrome/[\.0-9]* (?!Mobile)')
 OPERA_TABLET_FRAGMENT = RegexLazyIgnore(r'Opera Tablet')
 
 
-class DeviceDetector(RegexLoader):
+class AllDetails(object):
+    __slots__ = 'normalized', 'device_brand', 'os_short_name', 'secondary_client_name', 'secondary_client_version', \
+                'secondary_client_type', 'device_model', 'device_type', 'client_name', 'os_name', 'os_version', \
+                'client_short_name', 'client_type', 'client_version', 'os_family', 'os_platform', 'os_type', \
+                'client_app_id', 'device_name', 'device_device', 'bot_name', 'bot_category', 'bot_url', \
+                'bot_producer', 'client_engine_default', 'client_engine_versions_id', 'client_engine_versions_name'
 
+    def __init__(self):
+        for k in self.__slots__:
+            setattr(self, k, None)
+
+
+class DeviceDetector(RegexLoader):
     fixture_files = [
         'local/device/normalize.yml',
     ]
@@ -103,8 +114,8 @@ class DeviceDetector(RegexLoader):
 
         self.skip_bot_detection = skip_bot_detection
         self.skip_device_detection = skip_device_detection
-        self.all_details = {'normalized': ''}
-        self.parsed = False
+
+        self.all_details = AllDetails()
 
     @property
     def class_name(self) -> str:
@@ -117,15 +128,12 @@ class DeviceDetector(RegexLoader):
         return self._ua_spaceless
 
     def get_parse_cache(self):
-        return DDCache['user_agents'].get(self.ua_hash, {}).get('parsed', {})
+        return DDCache['user_agents'].get(self.ua_hash)
 
     def set_parse_cache(self):
         if not self.all_details:
             return self.all_details
-        try:
-            DDCache['user_agents'][self.ua_hash]['parsed'] = self.all_details
-        except KeyError:
-            DDCache['user_agents'][self.ua_hash] = {'parsed': self.all_details}
+        DDCache['user_agents'][self.ua_hash] = self.all_details
         return self
 
     # -----------------------------------------------------------------------------
@@ -187,39 +195,40 @@ class DeviceDetector(RegexLoader):
         that is of no use outside the application itself. Remove such information to present a
         cleaner UA string with fewer duplicates
         """
-        normalized = self.all_details.get('normalized', '')
+        normalized = self.all_details.normalized
         if normalized:
             return normalized
 
         if self.is_digit():
-            self.all_details['normalized'] = 'Numeric'
+            self.all_details.normalized = 'Numeric'
         elif self.is_uuid():
-            self.all_details['normalized'] = 'UUID'
+            self.all_details.normalized = 'UUID'
         elif self.is_gibberish():
-            self.all_details['normalized'] = 'Gibberish'
+            self.all_details.normalized = 'Gibberish'
         else:
             for nr in self.normalized_regex_list:
                 regex = nr['regex']
                 groups = r'{}'.format(nr['groups'])
                 ua = regex.sub(groups, self.user_agent)
                 if ua != self.user_agent:
-                    self.all_details['normalized'] = ua
+                    self.all_details.normalized = ua
                     break
             else:
-                self.all_details['normalized'] = ''
+                self.all_details.normalized = ''
 
-        return self.all_details['normalized']
+        return self.all_details.normalized
 
     def is_worthless(self):
         """
         Is this UA string of no possible interest?
         """
         self.normalize()
-        return self.all_details['normalized'] in WORTHLESS_UA_TYPES
+        return self.all_details.normalized in WORTHLESS_UA_TYPES
 
     def parse(self):
-        self.all_details = self.get_parse_cache()
-        if self.all_details:
+        cached = self.get_parse_cache()
+        if cached:
+            self.all_details = cached
             return self
 
         if not self.user_agent:
@@ -251,10 +260,10 @@ class DeviceDetector(RegexLoader):
             'type': 'generic',
         }
         self.client.secondary_client.update(data)
-        try:
-            self.all_details['client']['secondary_client'].update(data)
-        except KeyError:
-            self.all_details['client']['secondary_client'] = data
+
+        self.all_details.secondary_client_name = app_idx.pretty_name()
+        self.all_details.secondary_client_version = app_idx.version()
+        self.all_details.secondary_client_type = 'generic'
 
     def parse_client(self) -> None:
         """
@@ -270,21 +279,31 @@ class DeviceDetector(RegexLoader):
             parser = Parser(self.user_agent, self.ua_hash, self.ua_spaceless).parse()
             if parser.ua_data:
                 self.client = parser
-                self.all_details['client'] = parser.ua_data
-                self.all_details['client']['app_id'] = app_id
+
+                self.all_details.client_name = parser.name()
+                self.all_details.client_version = parser.version()
+                self.all_details.client_engine_default = parser.ua_data['engine']['default']
+                if parser.ua_data['engine']['versions']:
+                    key = tuple(parser.ua_data['engine']['versions'].keys())[0]
+                    value = parser.ua_data['engine']['versions'][key]
+                    self.all_details.client_engine_versions_id = key
+                    self.all_details.client_engine_versions_name = value
+
+                self.all_details.client_type = parser.dtype()
+                self.all_details.client_short_name = parser.short_name()
+                self.all_details.client_app_id = app_id
+
                 if app_id:
-                    if app_id in self.all_details['client']['name']:
-                        self.all_details['client']['name'] = app_idx.pretty_name()
+                    if app_id in self.all_details.client_name:
+                        self.all_details.client_name = app_idx.pretty_name()
                     elif app_idx.override_name_with_app_id(client_name=parser.name()):
                         self.supplement_secondary_client_data(app_idx)
                 return
 
         # if no client matched, still add name / app_id values
         if app_id:
-            self.all_details['client'] = {
-                'name': app_idx.pretty_name(),
-                'app_id': app_id,
-            }
+            self.all_details.client_name = app_idx.pretty_name()
+            self.all_details.client_app_id = app_id
 
     def parse_device(self) -> None:
         """
@@ -297,7 +316,11 @@ class DeviceDetector(RegexLoader):
             parser = Parser(self.user_agent, self.ua_hash, self.ua_spaceless).parse()
             if parser.ua_data:
                 self.device = parser
-                self.all_details['device'] = parser.ua_data
+                self.all_details.device_brand = parser.ua_data['brand']
+                self.all_details.device_device = parser.ua_data['device']
+                self.all_details.device_model = parser.ua_data['model']
+                self.all_details.device_name = parser.ua_data['name']
+                self.all_details.device_type = parser.ua_data['type']
                 return
 
     def parse_bot(self) -> None:
@@ -306,7 +329,10 @@ class DeviceDetector(RegexLoader):
         """
         if not self.skip_bot_detection and not self.bot:
             self.bot = Bot(self.user_agent, self.ua_hash, self.ua_spaceless).parse()
-            self.all_details['bot'] = self.bot.ua_data
+            self.all_details.bot_name = self.bot.name()
+            self.all_details.bot_category = self.bot.ua_data['category']
+            self.all_details.bot_url = self.bot.ua_data['url']
+            self.all_details.bot_producer = self.bot.ua_data['producer']
 
     def parse_os(self) -> None:
         """
@@ -314,19 +340,24 @@ class DeviceDetector(RegexLoader):
         """
         if not self.os:
             self.os = OS(self.user_agent, self.ua_hash, self.ua_spaceless).parse()
-            self.all_details['os'] = self.os.ua_data
+            self.all_details.os_name = self.os.name()
+            self.all_details.os_version = self.os.version()
+            self.all_details.os_type = self.os.dtype()
+            self.all_details.os_short_name = self.os.short_name()
+            self.all_details.os_family = self.os.family()
+            self.all_details.os_platform = self.os.platform()
 
     # -----------------------------------------------------------------------------
     # Data post-processing / analysis
     # -----------------------------------------------------------------------------
     def is_known(self) -> bool:
-        for section, data in self.all_details.items():
-            if data:
+        for key in self.all_details.__slots__:
+            if getattr(self.all_details, key, None):
                 return True
         return False
 
     def is_bot(self) -> bool:
-        return bool(self.all_details.get('bot'))
+        return bool(self.all_details.bot_name)
 
     def android_device_type(self) -> str:
 
@@ -417,7 +448,9 @@ class DeviceDetector(RegexLoader):
     def engine(self) -> str:
         if 'browser' not in self.client_type():
             return ''
-        return self.all_details.get('client', {}).get('engine', '')
+        data = {'default': self.all_details.client_engine_default,
+                'versions': {self.all_details.client_engine_versions_id: self.all_details.client_engine_versions_name}}
+        return data
 
     def is_mobile(self) -> bool:
         if self.device_type() in MOBILE_DEVICE_TYPES:
@@ -427,28 +460,28 @@ class DeviceDetector(RegexLoader):
     def is_desktop(self) -> bool:
         if self.uses_mobile_browser():
             return False
-        return self.all_details.get('os', {}).get('family', '') in DESKTOP_OS
+        return self.all_details.os_family in DESKTOP_OS
 
     def client_name(self) -> str:
-        return self.all_details.get('client', {}).get('name', '')
+        return self.all_details.client_name in DESKTOP_OS
 
     def client_short_name(self) -> str:
-        return self.all_details.get('client', {}).get('short_name', '')
+        return self.all_details.client_short_name in DESKTOP_OS
 
     def client_version(self) -> str:
-        return self.all_details.get('client', {}).get('version', '')
+        return self.all_details.client_version in DESKTOP_OS
 
     def client_type(self) -> str:
-        return self.all_details.get('client', {}).get('type', '')
+        return self.all_details.client_type
 
     def secondary_client_name(self) -> str:
-        return self.all_details.get('client', {}).get('secondary_client', {}).get('name', '')
+        return self.all_details.secondary_client_name
 
     def secondary_client_version(self) -> str:
-        return self.all_details.get('client', {}).get('secondary_client', {}).get('version', '')
+        return self.all_details.secondary_client_version
 
     def secondary_client_type(self) -> str:
-        return self.all_details.get('client', {}).get('secondary_client', {}).get('type', '')
+        return self.all_details.secondary_client_type
 
     def preferred_client_name(self):
         """
@@ -476,7 +509,7 @@ class DeviceDetector(RegexLoader):
         if self.android_feature_phone():
             return 'smartphone'
 
-        dt = self.all_details.get('device', {}).get('type', '')
+        dt = self.all_details.device_type
         if dt:
             return dt
 
@@ -501,7 +534,7 @@ class DeviceDetector(RegexLoader):
     def device_model(self) -> str:
         if self.skip_device_detection:
             return ''
-        return self.all_details.get('device', {}).get('model', '')
+        return self.all_details.device_model
 
     def device_brand_name(self) -> str:
         if self.skip_device_detection:
@@ -513,7 +546,7 @@ class DeviceDetector(RegexLoader):
         if self.skip_device_detection:
             return ''
 
-        brand = self.all_details.get('device', {}).get('brand', '')
+        brand = self.all_details.device_brand
         if brand:
             return brand
 
@@ -524,16 +557,16 @@ class DeviceDetector(RegexLoader):
         return ''
 
     def os_name(self) -> str:
-        return self.all_details.get('os', {}).get('name', '')
+        return self.all_details.os_name
 
     def os_short_name(self) -> str:
-        return self.all_details.get('os', {}).get('short_name', '')
+        return self.all_details.os_short_name
 
     def os_version(self) -> str:
-        return self.all_details.get('os', {}).get('version', '')
+        return self.all_details.os_version
 
     def pretty_name(self) -> str:
-        return self.all_details.get('normalized') or self.user_agent
+        return self.all_details.normalized or self.user_agent
 
     def pretty_print(self) -> str:
         if not self.is_known():
