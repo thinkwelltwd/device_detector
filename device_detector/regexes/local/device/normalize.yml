@@ -43,3 +43,64 @@
 # 1.0,win/6.3.9600,AV/18.4.2338,avl/push/18.4.3895.325,ffl
 - regex: '(\d\.\d,win\/[\d+\.]+,AV)(\/[\d+\.]+)(,avl\/[\w]+)\/.*'
   groups:  '\g<1>\g<3>'
+
+# UAs starting with OTA or FC3 and containing no spaces or punctuation
+# 30001924uLE8rxqZkFP1XQy5RqGlRVly
+# OTA100503107AC282A850DB733C
+- regex: '^(FC3|OTA)[a-zA-Z0-9]*$'
+  groups: Gibberish
+
+# 471306wp2FvTHfnLdwJIY25Ipa9XszPj
+- regex: '(^\d+)[a-zA-Z0-9]{20,}'
+  groups: Gibberish
+
+# Android 5.1.1
+# Android Client
+- regex: '^Android[ -\.]?([\d\.]+|app|client|sdk|os)$'
+  groups: 'Generic Android'
+
+# ArcGIS.Android-10.2.8-1
+- regex: '^([\w\d ]+)[\. ]?Android[ -]?([\d\.\-]+|client|sdk)$'
+  groups: '\g<1> for Android'
+
+# TalentLMS Android - 3.2.1
+# TalentScout - 45
+- regex: '([\w\d ]+) - [\d\.]+$'
+  groups: '\g<1>'
+
+# build 201, Android
+- regex: '^build \d+,? Android$'
+  groups: 'Generic Android'
+
+# 15.5.41 CFNetwork
+# 15 iOS
+- regex: '^[\d\.,]+ (AppleWebKit|Darwin|CFNetwork|iOS|Dalvik)$'
+  groups: 'Generic \g<1>'
+
+# ios/274 CFNetwork/1121.2.2 Darwin
+- regex: '^(ios|iphone|mobile|client|build)/[\d\.]+ CFNetwork/[\d\.]+ Darwin$'
+  groups: 'Generic iOS'
+
+# 1.146.1.2 - LIVE - Mar 13 2019
+- regex: '^[\d\.]+ - (LIVE).*'
+  groups: '\g<1>'
+
+# 1.172.6_ios_LIVE
+- regex: '^[\d\.]+_[\w]+_(LIVE)$'
+  groups: '\g<1>'
+
+# 2001 AutodeskClient
+# 3.3.5-moat
+- regex: '^[\d\.]+[ -]?(AutodeskClient|moat)$'
+  groups: '\g<1>'
+
+# 1010/42 CFNetwork/978.0.7 Darwin
+- regex: '^[\d\/\.]+ (CFNetwork).*(Darwin)$'
+  groups: '\g<1> \g<2>'
+
+# 500px/852 CFNetwork/1121.2.2 Darwin
+# Blink/8019 CFNetwork/1125.2 Darwin
+# BS2012/1.0.11 CFNetwork/808.2.16 Darwin
+# Chrome/71.0.3578.89 CFNetwork/811.5.4 Darwin
+- regex: '^([\w\d \.]+)/[\d\.]+ CFNetwork/[\d\.]+ Darwin$'
+  groups: '\g<1> for iOS/macOS'

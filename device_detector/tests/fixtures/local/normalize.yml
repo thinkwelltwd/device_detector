@@ -137,3 +137,102 @@
 -
   user_agent: '*BkhBAAQAqpcr-X2cXpK9OlSjOYP1fppAz_54DhGqKw0ULQiEVpEBAYmAAAAAAABA'
   normalized: Gibberish
+-
+  user_agent: OTA100503107AC282A850DB733C
+  normalized: Gibberish
+-
+  user_agent: FC3A97585E2AF12F05FDA0FCB364525E196503325146
+  normalized: Gibberish
+-
+  user_agent: 471306wp2FvTHfnLdwJIY25Ipa9XszPj
+  normalized: Gibberish
+-
+  user_agent: 0000956gUSchj6WSF7ahRyK4lJHFnprL
+  normalized: Gibberish
+-
+  user_agent: ArcGIS.Android-10.2.8-1
+  normalized: ArcGIS for Android
+-
+  user_agent: TalentLMS Android - 3.2.1
+  normalized: TalentLMS Android
+-
+  user_agent: build 201, Android
+  normalized: Generic Android
+-
+  user_agent: Android App
+  normalized: Generic Android
+-
+  user_agent: Android.os
+  normalized: Generic Android
+-
+  user_agent: Android Client
+  normalized: Generic Android
+-
+  user_agent: Android-Client
+  normalized: Generic Android
+-
+  user_agent: Android-sdk
+  normalized: Generic Android
+-
+  user_agent: Android-8.5.7
+  normalized: Generic Android
+-
+  user_agent: Androidclient
+  normalized: Generic Android
+-
+  user_agent: Android 5.1.1
+  normalized: Generic Android
+-
+  user_agent:  4.4.10, Dalvik
+  normalized: Generic Dalvik
+-
+  user_agent:  15.5.41 iOS
+  normalized: Generic iOS
+-
+  user_agent:  ios/274 CFNetwork/1121.2.2 Darwin
+  normalized: Generic iOS
+-
+  user_agent:  iphone/49017 CFNetwork/978.0.7 Darwin
+  normalized: Generic iOS
+-
+  user_agent:  1121.2.2 Darwin
+  normalized: Generic Darwin
+-
+  user_agent:  1617 AppleWebKit
+  normalized: Generic AppleWebKit
+-
+  user_agent:  Chrome/71.0.3578.89 CFNetwork/811.5.4 Darwin
+  normalized: Chrome for iOS/macOS
+-
+  user_agent:  Blink/8019 CFNetwork/1125.2 Darwin
+  normalized: Blink for iOS/macOS
+-
+  user_agent:  King James Version/1 CFNetwork/1098.7 Darwin
+  normalized: King James Version for iOS/macOS
+-
+  user_agent:  155 CFNetwork
+  normalized: Generic CFNetwork
+-
+  user_agent:  15.5.41 CFNetwork
+  normalized: Generic CFNetwork
+-
+  user_agent:  1.146.1.2 - LIVE - Mar 13 2019
+  normalized: LIVE
+-
+  user_agent: 1.172.6_ios_LIVE
+  normalized: LIVE
+-
+  user_agent: 1010/42 CFNetwork/978.0.7 Darwin
+  normalized: CFNetwork Darwin
+-
+  user_agent: 2.0.3/42 CFNetwork/978.0.7 Darwin
+  normalized: CFNetwork Darwin
+-
+  user_agent: 2001 AutodeskClient
+  normalized: AutodeskClient
+-
+  user_agent: 3.2.4-moat
+  normalized: moat
+-
+  user_agent: 3.2.4moat
+  normalized: moat
