@@ -11,6 +11,15 @@ table = str.maketrans(dict.fromkeys(''.join(c for c in string.punctuation if c n
 
 FIRST_ALPHANUMERIC_WORD = RegexLazyIgnore(r'^([a-z0-9]+)')
 
+UNWANTED_UA_STRINGS = [
+    # 13F7BD1A-F6FF-411E-BF5E
+    # 4UWWU-WBDXC-VYFN3-QDJMH
+    RegexLazyIgnore(r"([\d\w]{4,10}-){3}[\d\w]{4,10}$"),
+
+    # long gibberish string, starting with integer and containing no punctuation
+    RegexLazyIgnore(r'^\d[\d\w]{20,40}$'),
+]
+
 UNWANTED_APP_NAMES = [
     RegexLazyIgnore(r'sm-\w+-android'),
     RegexLazyIgnore(r'^4d531b'),
@@ -114,6 +123,9 @@ class GenericClientParser(BaseClientParser):
 
         Return True if app should be discarded
         """
+        if self.unwanted_regex_match():
+            return True
+
         if not self.is_name_length_valid():
             return True
 
@@ -123,16 +135,16 @@ class GenericClientParser(BaseClientParser):
         if self.is_substring_unwanted():
             return True
 
-        if self.unwanted_regex_match():
+        if self.unwanted_regex_name_match():
             return True
 
         return self.is_name_mostly_numeric()
 
     def is_name_length_valid(self) -> bool:
         """
-        Check if app name portion of UA is between 3 and 35 chars
+        Check if app name portion of UA is between 1 and 45 chars
         """
-        return 2 < len(self.app_name) <= 35
+        return 1 < len(self.app_name) <= 45
 
     def is_substring_unwanted(self):
         for substring in self.unwanted_substrings:
@@ -140,6 +152,13 @@ class GenericClientParser(BaseClientParser):
                 return True
 
     def unwanted_regex_match(self) -> bool:
+        for regex in UNWANTED_UA_STRINGS:
+            if regex.search(self.user_agent):
+                return True
+
+        return False
+
+    def unwanted_regex_name_match(self) -> bool:
         for regex in UNWANTED_APP_NAMES:
             if regex.search(self.app_name):
                 return True
@@ -164,7 +183,9 @@ class GenericClientParser(BaseClientParser):
             if not char.isnumeric():
                 alphabetic_chars += 1
 
-        return alphabetic_chars / len(app_no_punc) < .5
+        threshold = .25 if len(self.app_name) < 10 else .5
+
+        return alphabetic_chars / len(app_no_punc) < threshold
 
     def app_name_no_punc(self) -> str:
         """

@@ -109,14 +109,19 @@ class Parser(RegexLoader):
         self.ua_data.pop('models', False)
         groups = self.matched_regex and self.matched_regex.groups()
 
-        if groups and 'model' in self.ua_data:
-            self.ua_data['model'] = ModelExtractor(self.ua_data, groups).extract()
+        if groups:
+            if 'model' in self.ua_data:
+                self.ua_data['model'] = ModelExtractor(self.ua_data, groups).extract()
 
-        if groups and 'name' in self.ua_data:
-            self.ua_data['name'] = NameExtractor(self.ua_data, groups).extract()
+            if 'name' in self.ua_data:
+                self.ua_data['name'] = NameExtractor(self.ua_data, groups).extract()
 
-        if groups and 'version' in self.ua_data:
-            self.ua_data['version'] = VersionExtractor(self.ua_data, groups).extract()
+            if 'version' in self.ua_data:
+                self.ua_data['version'] = VersionExtractor(self.ua_data, groups).extract()
+
+        # no version should be considered valid if the name can't be parsed
+        if not self.ua_data.get('name') and self.ua_data.get('version'):
+            self.ua_data['version'] = ''
 
         # Add type if details were actually found
         if self.ua_data:

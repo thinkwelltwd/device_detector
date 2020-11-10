@@ -242,3 +242,21 @@
     type: desktop app
     name: DieselDetect Updater
     version: ''
+-
+  user_agent: ACC14C605413729036F0B
+  client:
+    type: generic
+    name: 'ACC'
+    version: ''
+-
+  user_agent: ACC_4.00.3019_1BF78BFDF84E7EEFDA
+  client:
+    type: generic
+    name: 'ACC'
+    version: ''
+-
+  user_agent: UBT_1DF14945D8BA5CBDD
+  client:
+    type: generic
+    name: 'UBT'
+    version: ''

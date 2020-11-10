@@ -15,6 +15,7 @@ from ...parser import (
     VPNProxy,
     WholeNameExtractor,
 )
+from ...utils import ua_hash
 
 
 class TestBrowser(ParserBaseTest):
@@ -159,6 +160,27 @@ class TestWholeNameExtractor(GenericParserTest):
     ]
 
 
+class TestNoNameExtracted(ParserBaseTest):
+
+    fixture_files = [
+        'tests/parser/fixtures/local/client/extractor_no_name.yml',
+    ]
+
+    def test_parsing(self):
+        fixtures = self.load_fixtures()
+        fields = ('name', 'version')
+        extractors = (WholeNameExtractor, NameVersionExtractor)
+
+        for fixture in fixtures:
+            ua = fixture.pop('user_agent')
+
+            for extractor in extractors:
+                parsed = extractor(ua, ua_hash(ua), ua.lower().replace(' ', '')).parse()
+
+                for field in fields:
+                    self.assertNotIn(field, parsed.ua_data)
+
+
 __all__ = (
     'TestBrowser',
     'TestDesktopApp',
@@ -173,4 +195,5 @@ __all__ = (
     'TestVPNProxy',
     'TestNameVersionExtractor',
     'TestWholeNameExtractor',
+    'TestNoNameExtracted',
 )

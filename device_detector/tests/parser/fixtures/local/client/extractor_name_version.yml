@@ -202,3 +202,15 @@
     type: generic
     name: ArcGISiOS-10.2.5
     version: 12.0
+-
+  user_agent: 500px/771 CFNetwork/978.0.7 Darwin
+  client:
+    type: generic
+    name: 500px
+    version: 771
+-
+  user_agent: BW/808 CFNetwork/978.0.7 Darwin
+  client:
+    type: generic
+    name: BW
+    version: 808

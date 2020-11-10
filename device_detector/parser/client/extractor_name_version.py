@@ -28,7 +28,10 @@ class NameVersionExtractor(GenericClientParser):
         for code, name, version in name_version_pairs:
 
             # Only extract interesting pairs!
-            if len(name) <= 2 or code in METADATA_NAMES or code.endswith(('version', 'build')):
+            if name.isdigit() \
+                    or len(name) == 1 \
+                    or code in METADATA_NAMES \
+                    or code.endswith(('version', 'build')):
                 continue
 
             # prefer the name that the UA starts with
