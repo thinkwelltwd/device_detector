@@ -171,6 +171,8 @@ class GenericClientParser(BaseClientParser):
         alphabetic characters are less than 50% of the string
         """
         app_no_punc = self.app_name_no_punc()
+        if not app_no_punc:
+            return True
 
         try:
             int(app_no_punc)
