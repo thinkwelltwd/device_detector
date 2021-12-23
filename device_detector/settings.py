@@ -4,8 +4,8 @@ import os
 
 # interpolate regex with anchors so
 # iPhone / Tiphone are matched correctly
-BOUNDED_REGEX = r'(?:^|[^A-Z0-9_\-])(?:{})'
-MAX_CACHE_SIZE = 384
+BOUNDED_REGEX = r'(?:^|[^A-Z0-9\-_]|MZ-)(?:{})'
+MAX_CACHE_SIZE = 1024
 
 
 class LRUDict(OrderedDict):

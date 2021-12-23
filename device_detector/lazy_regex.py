@@ -65,4 +65,7 @@ class RegexLazyIgnore(RegexLazy):
         super().__init__(pattern, IGNORECASE)
 
 
-__all__ = ('RegexLazy', 'RegexLazyIgnore')
+__all__ = (
+    'RegexLazy',
+    'RegexLazyIgnore',
+)
