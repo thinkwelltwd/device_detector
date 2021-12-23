@@ -173,3 +173,99 @@
     type: library
     name: RestSharp
     version: "106.2.1.0"
+-
+  user_agent: scalaj-http/2.4.0
+  client:
+    type: library
+    name: ScalaJ HTTP
+    version: "2.4.0"
+-
+  user_agent: REST::Client/273
+  client:
+    type: library
+    name: Perl REST::Client
+    version: "273"
+-
+  user_agent: node-fetch/1.0 (+https://github.com/bitinn/node-fetch)
+  client:
+    type: library
+    name: Node Fetch
+    version: "1.0"
+-
+  user_agent: ReactorNetty/0.9.10.RELEASE
+  client:
+    type: library
+    name: ReactorNetty
+    version: "0.9.10"
+-
+  user_agent: PostmanRuntime/7.9.1
+  client:
+    type: library
+    name: Postman Desktop
+    version: "7.9.1"
+-
+  user_agent: Jakarta Commons-HttpClient/3.1
+  client:
+    type: library
+    name: Jakarta Commons HttpClient
+    version: "3.1"
+-
+  user_agent: Mozilla/4.0 (compatible; Win32; WinHttp.WinHttpRequest.5)
+  client:
+    type: library
+    name: WinHttp WinHttpRequest
+    version: "5"
+-
+  user_agent: Embarcadero URI Client/1.0
+  client:
+    type: library
+    name: Embarcadero URI Client
+    version: "1.0"
+-
+  user_agent: Mikrotik/6.x Fetch
+  client:
+    type: library
+    name: Mikrotik Fetch
+    version: "6"
+-
+  user_agent: akka-http/10.1.11
+  client:
+    type: library
+    name: Akka HTTP
+    version: 10.1.11
+-
+  user_agent: BTWebClient/2020(19648)
+  client:
+    type: library
+    name: uTorrent
+    version: ""
+-
+  user_agent: aria2/1.33.1
+  client:
+    type: library
+    name: Aria2
+    version: 1.33.1
+-
+  user_agent: gvfs/1.34.1
+  client:
+    type: library
+    name: gvfs
+    version: 1.34.1
+-
+  user_agent: uclient-fetch
+  client:
+    type: library
+    name: uclient-fetch
+    version: ""
+-
+  user_agent: cpprestsdk/2.8.0
+  client:
+    type: library
+    name: C++ REST SDK
+    version: 2.8.0
+-
+  user_agent: lua-resty-http/0.10 (Lua) ngx_lua/10019
+  client:
+    type: library
+    name: LUA OpenResty NGINX
+    version: "0.10"

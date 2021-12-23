@@ -22,25 +22,21 @@ class TestCache(ParserBaseTest):
 
         first_run = DeviceDetector(ua).parse()
         self.assertEqual(first_run.device_type(), 'camera')
-        self.assertEqual(first_run.device_brand(), 'NN')
-        self.assertEqual(first_run.device_brand_name(), 'Nikon')
+        self.assertEqual(first_run.device_brand(), 'Nikon')
 
         second_run = DeviceDetector(ua).parse()
         self.assertEqual(second_run.device_type(), 'camera')
-        self.assertEqual(second_run.device_brand(), 'NN')
-        self.assertEqual(second_run.device_brand_name(), 'Nikon')
+        self.assertEqual(second_run.device_brand(), 'Nikon')
 
     def test_client(self):
         ua = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.162 Safari/537.36"
 
         first_run = DeviceDetector(ua).parse()
         self.assertEqual(first_run.client_name(), 'Chrome')
-        self.assertEqual(first_run.client_short_name(), 'CH')
         self.assertEqual(first_run.client_version(), '80.0.3987.162')
 
         second_run = DeviceDetector(ua).parse()
         self.assertEqual(second_run.client_name(), 'Chrome')
-        self.assertEqual(second_run.client_short_name(), 'CH')
         self.assertEqual(second_run.client_version(), '80.0.3987.162')
 
     def test_os(self):
@@ -48,11 +44,9 @@ class TestCache(ParserBaseTest):
 
         first_run = DeviceDetector(ua).parse()
         self.assertEqual(first_run.os_name(), 'Ubuntu')
-        self.assertEqual(first_run.os_short_name(), 'UBT')
 
         second_run = DeviceDetector(ua).parse()
         self.assertEqual(second_run.os_name(), 'Ubuntu')
-        self.assertEqual(second_run.os_short_name(), 'UBT')
 
 
 __all__ = [

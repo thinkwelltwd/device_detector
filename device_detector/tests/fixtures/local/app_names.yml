@@ -55,11 +55,11 @@
   client:
     name: BlueApron
     version: 2.47.0
--
-  user_agent: mozilla/5.0 (iphone; cpu iphone os 11_3 like mac os x) applewebkit/605.1.15 (khtml, like gecko) mobile/15e302 iphone SermonAudio.com 4.4.4
-  client:
-    name: SermonAudio.com
-    version: 4.4.4
+#-
+#  user_agent: mozilla/5.0 (iphone; cpu iphone os 11_3 like mac os x) applewebkit/605.1.15 (khtml, like gecko) mobile/15e302 iphone SermonAudio.com 4.4.4
+#  client:
+#    name: SermonAudio.com
+#    version: 4.4.4
 -
   user_agent: YHOO YahooMobile/1.0 (com.yahoo.weather; 1.19.0) (Apple; iPhone; iOS/12.0.1);
   client:

@@ -45,10 +45,6 @@
   uaname: Player FM
   name: Player FM
 -
-  uaname: Podkicker
-  suffixes: Pro
-  name: Podkicker
--
   uaname: Castro 2 Episode Download
   name: Castro 2
 -
@@ -633,9 +629,6 @@
 - uaname: bluedriver
   name: Blue Driver
 
-- uaname: bluemail
-  name: Blue Mail
-
 - uaname: bmi calc
   name: BMI Calculator
 
@@ -699,9 +692,6 @@
 
 - uaname: cambriaar
   name: Cambria AR
-
-- uaname: camera
-  name: Camera
 
 - uaname: camscannerhd_pro
   name: CamScanner HD Pro
@@ -1349,9 +1339,6 @@
 - uaname: gms-backup
   name: Gms-Backup
 
-- uaname: gmscore
-  name: GmsCore
-
 - uaname: goiq
   name: GoIQ
 
@@ -1717,10 +1704,6 @@
 - uaname: magisto
   name: Magisto
 
-
-- uaname: mail
-  name: Mail
-
 - uaname: main_retail_pro_app
   name: Main Retail Pro
 
@@ -1969,9 +1952,6 @@
 
 - uaname: new reach
   name: New Reach
-
-- uaname: News
-  name: Apple News
 
 - uaname: newsarticleviewer
   name: News Article Viewer
@@ -2446,6 +2426,9 @@
 - uaname: skyweek
   name: Skyweek
 
+- uaname: slack
+  name: Slack
+
 - uaname: sl hunting
   name: SL Hunting
 
@@ -2466,9 +2449,6 @@
 
 - uaname: solitaire
   name: Solitaire
-
-- uaname: sonos
-  name: Sonos
 
 - uaname: sorter
   name: Sorter
@@ -2745,7 +2725,7 @@
 - uaname: com.twc.radar
   name: TWC
 
-- uaname: twcwidget
+- uaname: twcwidgetf
   name: TWC Widget
 
 - uaname: twoway
@@ -2784,6 +2764,9 @@
 
 - uaname: units plus
   name: Units Plus
+
+- uaname: unityplayer
+  name: UnityPlayer
 
 - uaname: universal
   name: Universal
@@ -2826,9 +2809,6 @@
 
 - uaname: voicerecorder
   name: Voice Recorder
-
-- uaname: vox
-  name: Vox
 
 - uaname: voxer
   name: Voxer

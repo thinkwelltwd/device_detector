@@ -16,3 +16,15 @@
     type: mediaplayer
     name: Pandora
     version: "2092"
+-
+  user_agent: vox/2.5.6 (iPhone; iOS 14.6; Scale/2.00)
+  client:
+    type: mediaplayer
+    name: VOX
+    version: "2.5.6"
+-
+  user_agent: VOX/2607 CFNetwork/1240.0.4 Darwin/20.5.0
+  client:
+    type: mediaplayer
+    name: VOX
+    version: 2607

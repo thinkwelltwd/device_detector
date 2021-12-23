@@ -7,6 +7,7 @@ Run individual test class by:
 
 python3 -m unittest device_detector.tests.parser.test_bot
 """
+from urllib.parse import unquote
 import unittest
 import yaml
 try:
@@ -18,20 +19,7 @@ from ..settings import ROOT
 from ..utils import ua_hash
 from .. import DeviceDetector
 
-from ..parser import (
-    Browser,
-    DesktopApp,
-    FeedReader,
-    Game,
-    Library,
-    MediaPlayer,
-    Messaging,
-    MobileApp,
-    P2P,
-    PIM,
-    NameVersionExtractor,
-    VPNProxy,
-)
+from device_detector import VERSION_TRUNCATION_NONE
 
 # App names -> Application ID map so that upstream
 # test fixtures can pass without modifications
@@ -154,7 +142,7 @@ class DetectorBaseTest(Base):
             self.assertEqual(fixture_value, parsed_value)
         elif parsed_value:
             # check various generic values
-            self.assertIn(parsed_value, ('generic', 'Windows', 'smartphone', 'XX'))
+            self.assertIn(parsed_value, ('generic', 'Windows', 'smartphone', 'XX', 'Unknown'))
 
     def get_value(self, fixture, key1, key2):
         """
@@ -178,14 +166,17 @@ class DetectorBaseTest(Base):
     def test_parsing(self):
 
         for fixture in self.load_fixtures():
-            self.user_agent = fixture.pop('user_agent')
+            self.user_agent = unquote(fixture.pop('user_agent'))
             device = DeviceDetector(self.user_agent)
             device.parse()
 
-            # # OS properties
-            self.assertEqual(device.os_name(), self.get_value(fixture, 'os', 'name'), field='os_name')
-            self.assertEqual(device.os_short_name(), self.get_value(fixture, 'os', 'short_name'), field='os_short_name')
-            self.assertEqual(device.os_version(), self.get_value(fixture, 'os', 'version'), field='os_version')
+            # OS properties
+            self.assertEqual(
+                self.get_value(fixture, 'os', 'name'), device.os_name(), field='os_name'
+            )
+            self.assertEqual(
+                self.get_value(fixture, 'os', 'version'), device.os_version(), field='os_version'
+            )
 
             # Client properties
             parsed_name = device.client_name()
@@ -212,6 +203,7 @@ class ParserBaseTest(Base):
     fixture_key = 'client'  # key of fixture dict containing the values to compare
     fields = []
     Parser = None
+    VERSION_TRUNCATION = VERSION_TRUNCATION_NONE
 
     def load_fixtures(self):
         fixtures = []
@@ -227,10 +219,15 @@ class ParserBaseTest(Base):
         fixtures = self.load_fixtures()
 
         for fixture in fixtures:
-            self.user_agent = fixture.pop('user_agent')
+            self.user_agent = unquote(fixture.pop('user_agent'))
             spaceless = self.user_agent.lower().replace(' ', '')
             expect = fixture[self.fixture_key]
-            parsed = self.Parser(self.user_agent, ua_hash(self.user_agent), spaceless).parse()
+            parsed = self.Parser(
+                self.user_agent,
+                ua_hash(self.user_agent),
+                spaceless,
+                self.VERSION_TRUNCATION,
+            ).clear_cache().parse()  # clear cache because fixture files may contain duplicate UAs
             data = parsed.ua_data
 
             for field in self.fields:
@@ -249,37 +246,16 @@ class ParserBaseTest(Base):
 
 class GenericParserTest(ParserBaseTest):
 
-    @classmethod
-    def setUpClass(cls) -> None:
-        """
-        Run UA match on all Parser classes to populate DDCache['alldetails']
-        """
-        super().setUpClass()
-
-        ua = 'Garmin Express Service/6030000 CFNetwork/902.1 Darwin/17.7.0 (x86_64)'
-        hashed = ua_hash(ua)
-        spaceless = ua.lower().replace(' ', '')
-        for parser in (
-                Browser,
-                DesktopApp,
-                FeedReader,
-                Game,
-                Library,
-                MediaPlayer,
-                Messaging,
-                MobileApp,
-                P2P,
-                PIM,
-                NameVersionExtractor,
-                VPNProxy,
-        ):
-            parser(ua, hashed, spaceless).parse()
-
     skipped = []
 
     def test_skipped_useragents(self):
         for ua in self.skipped:
-            parsed = self.Parser(ua, ua_hash(ua), ua.lower().replace(' ', '')).parse()
+            parsed = self.Parser(
+                ua,
+                ua_hash(ua),
+                ua.lower().replace(' ', ''),
+                self.VERSION_TRUNCATION,
+            ).parse()
             self.assertEqual(parsed.ua_data, {})
 
 

@@ -24,7 +24,7 @@ class TestBrowser(ParserBaseTest):
         'tests/parser/fixtures/local/client/browser.yml',
         'tests/parser/fixtures/upstream/client/browser.yml',
     ]
-    fields = ('name', 'type', 'short_name')
+    fields = ('name', 'type')
     Parser = Browser
 
 
@@ -118,7 +118,7 @@ class TestDesktopApp(ParserBaseTest):
     fixture_files = [
         'tests/parser/fixtures/local/client/antivirus.yml',
         'tests/parser/fixtures/local/client/osutility.yml',
-        'tests/parser/fixtures/local/client/desktop_app.yml',
+        'tests/parser/fixtures/local/client/desktop_apps.yml',
     ]
     fields = ('name', 'type', 'version')
     Parser = DesktopApp
@@ -160,26 +160,25 @@ class TestWholeNameExtractor(GenericParserTest):
     ]
 
 
-class TestNoNameExtracted(ParserBaseTest):
-
-    fixture_files = [
-        'tests/parser/fixtures/local/client/extractor_no_name.yml',
-    ]
-
-    def test_parsing(self):
-        fixtures = self.load_fixtures()
-        fields = ('name', 'version')
-        extractors = (WholeNameExtractor, NameVersionExtractor)
-
-        for fixture in fixtures:
-            ua = fixture.pop('user_agent')
-
-            for extractor in extractors:
-                parsed = extractor(ua, ua_hash(ua), ua.lower().replace(' ', '')).parse()
-
-                for field in fields:
-                    self.assertNotIn(field, parsed.ua_data)
-
+# class TestNoNameExtracted(ParserBaseTest):
+#
+#     fixture_files = [
+#         'tests/parser/fixtures/local/client/extractor_no_name.yml',
+#     ]
+#
+#     def test_parsing(self):
+#         fixtures = self.load_fixtures()
+#         fields = ('name', 'version')
+#         extractors = (WholeNameExtractor, NameVersionExtractor)
+#
+#         for fixture in fixtures:
+#             ua = fixture.pop('user_agent')
+#
+#             for extractor in extractors:
+#                 parsed = extractor(ua, ua_hash(ua), ua.lower().replace(' ', '')).parse()
+#
+#                 for field in fields:
+#                     self.assertNotIn(field, parsed.ua_data)
 
 __all__ = (
     'TestBrowser',
@@ -195,5 +194,5 @@ __all__ = (
     'TestVPNProxy',
     'TestNameVersionExtractor',
     'TestWholeNameExtractor',
-    'TestNoNameExtracted',
+    # 'TestNoNameExtracted',
 )

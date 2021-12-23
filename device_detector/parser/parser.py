@@ -14,12 +14,41 @@ from .extractors import (
 from ..yaml_loader import RegexLoader
 
 
+def build_version(version_str: str, truncation=1):
+    """
+    Extract basic version from strings like 10.0.16299.371
+
+    >>> build_version('10.0.16299.371')
+    '10'
+
+    >>> build_version('10')
+    '10'
+    """
+    if truncation == -1:
+        return version_str
+
+    retain_segments = truncation + 1
+
+    try:
+        segments = version_str.replace('_', '.').split('.')
+    except AttributeError:
+        return version_str
+
+    if len(segments) == retain_segments:
+        return version_str
+
+    return '.'.join(segments[:retain_segments])
+
+
 class Parser(RegexLoader):
 
     # Constant used as value for unknown browser / os
     UNKNOWN = 'UNK'
+    UNKNOWN_NAME = 'Unknown'
 
-    def __init__(self, ua, ua_hash, ua_spaceless):
+    def __init__(self, ua, ua_hash, ua_spaceless, version_truncation):
+        super().__init__(version_truncation)
+
         self.user_agent = ua
         self.ua_hash = ua_hash
         self.ua_spaceless = ua_spaceless
@@ -93,9 +122,21 @@ class Parser(RegexLoader):
         """
         Wrap set_details and call add_to_cache
         """
+        self.extract_version()
         self.set_details()
         self.add_to_cache()
         return self.ua_data
+
+    def extract_version(self):
+        """
+        Extract the version if UA Yaml files specify version regexes.
+        See oss.yml for example file structure.
+        """
+        for version in self.ua_data.pop('versions', []):
+            match = self._check_regex(version['regex'])
+            if match:
+                self.ua_data['version'] = version['version']
+                return
 
     def set_details(self) -> None:
         """
@@ -123,17 +164,14 @@ class Parser(RegexLoader):
         if not self.ua_data.get('name') and self.ua_data.get('version'):
             self.ua_data['version'] = ''
 
-        # Add type if details were actually found
-        if self.ua_data:
-            self.ua_data.update({
-                'type': self.dtype(),
-            })
+        self.ua_data.update({
+            'type': self.dtype(),
+            'model': (self.ua_data.get('model') or '').replace('_', ' '),
+            'version': self.set_version(self.ua_data.get('version', '')),
+        })
 
     def name(self) -> str:
         return self.ua_data.get('name', '')
-
-    def short_name(self) -> str:
-        return self.ua_data.get('short_name', '')
 
     def version(self) -> str:
         return self.ua_data.get('version', '')
@@ -157,6 +195,9 @@ class Parser(RegexLoader):
         if self.ua_data:
             return True
         return False
+
+    def set_version(self, version):
+        return build_version(version, self.VERSION_TRUNCATION)
 
     def __str__(self):
         return self.name()

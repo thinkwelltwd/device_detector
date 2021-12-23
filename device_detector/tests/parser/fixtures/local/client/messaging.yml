@@ -5,12 +5,6 @@
     name: Mattermost
     version: "3.6.0"
 -
-  user_agent: slack/397382 cfnetwork/901.1 darwin/17.6.0
-  client:
-    type: messaging
-    name: Slack
-    version: 397382
--
   user_agent: X-Lite/5.2.0.90534 X-Lite/5.2.0.90534 Mozilla/5.0 (Windows NT 6.1; WOW64)
   client:
     type: messaging

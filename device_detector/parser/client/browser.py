@@ -9,6 +9,7 @@ from ..settings import (
     AVAILABLE_ENGINES,
     BROWSER_FAMILIES,
     BROWSER_TO_ABBREV,
+    FAMILY_FROM_ABBREV,
     CHECK_PAIRS,
     MOBILE_ONLY_BROWSERS,
 )
@@ -70,6 +71,7 @@ class Browser(BaseClientParser):
     AVAILABLE_BROWSERS = AVAILABLE_BROWSERS
     BROWSER_TO_ABBREV = BROWSER_TO_ABBREV
     BROWSER_FAMILIES = BROWSER_FAMILIES
+    FAMILY_FROM_ABBREV = FAMILY_FROM_ABBREV
     MOBILE_ONLY_BROWSERS = MOBILE_ONLY_BROWSERS
 
     def has_interesting_pair(self):
@@ -90,8 +92,10 @@ class Browser(BaseClientParser):
         super().set_details()
         if self.ua_data:
             browser = self.ua_data.get('name', '')
+            abbrevation = self.BROWSER_TO_ABBREV.get(browser.lower(), browser)
             self.ua_data.update({
-                'short_name': self.BROWSER_TO_ABBREV.get(browser.lower(), browser),
+                'short_name': abbrevation,
+                'family': self.FAMILY_FROM_ABBREV.get(abbrevation, browser),
             })
 
             if 'engine' not in self.ua_data:
@@ -99,6 +103,7 @@ class Browser(BaseClientParser):
                     self.user_agent,
                     self.ua_hash,
                     self.ua_spaceless,
+                    self.VERSION_TRUNCATION,
                 ).parse().ua_data
 
     def short_name(self) -> str:
@@ -140,6 +145,7 @@ class Browser(BaseClientParser):
             ua=self.user_agent,
             ua_hash=self.ua_hash,
             ua_spaceless=self.ua_spaceless,
+            version_truncation=self.VERSION_TRUNCATION,
         ).parse()
 
         if parsed.ua_data:

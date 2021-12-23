@@ -41,12 +41,6 @@
     name: Avast
     version: "17.1.2286"
 -
-  user_agent: 1.0,win/10.0.17134,av/,,ffl
-  client:
-    type: av
-    name: Avast
-    version: ""
--
   user_agent: avast! Antivirus (instup)
   client:
     type: av

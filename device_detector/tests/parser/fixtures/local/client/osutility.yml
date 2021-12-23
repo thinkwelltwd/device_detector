@@ -5,18 +5,6 @@
     name: Actualización de software
     version: ''
 -
-  user_agent: APSDaemon.exe (unknown version) CFNetwork/28
-  client:
-    type: osutility
-    name: apsdaemon
-    version: ''
--
-  user_agent: iCloudServices.exe (unknown version) CFNetwork/520.30.2
-  client:
-    type: osutility
-    name: icloudservices
-    version:
--
   user_agent: dataaccessd (unknown version) CFNetwork/889.9 Darwin/17.2.0
   client:
     type: osutility

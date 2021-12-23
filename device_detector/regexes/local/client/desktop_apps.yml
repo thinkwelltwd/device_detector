@@ -27,6 +27,10 @@
   version: '$1'
   type: desktop app
 
+- regex: ^Drive/(\d+[\.\d]+)
+  name: Drive
+  version: '$1'
+
 - regex: lastpass(ext)?\/([\d\.]+)
   name: LastPass
   version: '$2'
@@ -108,32 +112,37 @@
   version:
 
 - regex: Microsoft (?:Office )?Access(?:[\/ ](\d+[\.\d]+))?
-  name: Microsoft Access
+  name: Microsoft Office Access
   version: '$1'
   type: productivity
 
 - regex: Microsoft (?:Office )?Excel(?:[\/ ](\d+[\.\d]+))?
-  name: Microsoft Excel
+  name: Microsoft Office Excel
   version: '$1'
   type: productivity
 
 - regex: Microsoft (?:Office )?Lync(?:[\/ ](\d+[\.\d]+))?
-  name: Microsoft Lync
+  name: Microsoft Office Lync
   version: '$1'
   type: productivity
 
 - regex: Microsoft (?:Office )?Powerpoint(?:[\/ ](\d+[\.\d]+))?
-  name: Microsoft PowerPoint
+  name: Microsoft Office PowerPoint
   version: '$1'
   type: productivity
 
 - regex: Microsoft (?:Office )?Visio(?:[\/ ](\d+[\.\d]+))?
-  name: Microsoft Visio
+  name: Microsoft Office Visio
   version: '$1'
   type: productivity
 
 - regex: Microsoft (?:Office )?Word(?:[\/ ](\d+[\.\d]+))?
-  name: Microsoft Word
+  name: Microsoft Office Word
+  version: '$1'
+  type: productivity
+
+- regex: word/(\d+[\.\d]+)
+  name: Microsoft Office Word
   version: '$1'
   type: productivity
 

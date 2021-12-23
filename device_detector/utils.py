@@ -99,23 +99,6 @@ def mostly_repeating_characters(user_agent):
         return False
 
 
-def version_from_key(name_version_pairs, default_version=None):
-    """
-    Some UA strings specify the app version in a separate Version/<float> pair.
-    Mozilla/5.0 (iPhone; CPU iPhone OS 10_0 like Mac OS X) AppleWebKit/602.1.50 (KHTML, like Gecko) News/582.1 Version/2.0
-    If so, return that version number.
-
-    :param name_version_pairs:  [('news', 'News', '582.1'), ('version', 'Version', '2.0')]
-    :param default_version: Default version if not found in name_version_pairs
-    """
-
-    for code, name, version in name_version_pairs:
-        if code == 'version':
-            return version
-
-    return default_version
-
-
 def calculate_dtype(app_name) -> str:
     """
     For generic extractors try to return a more
@@ -143,5 +126,4 @@ __all__ = (
     'mostly_numerals',
     'clean_ua',
     'mostly_repeating_characters',
-    'version_from_key',
 )

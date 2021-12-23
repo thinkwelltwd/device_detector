@@ -3,6 +3,7 @@ based_on_style = pep8
 column_limit=100
 blank_line_before_nested_class_or_def=True
 join_multiple_lines=False
+indent_dictionary_value=False
 
 coalesce_brackets=True
 dedent_closing_brackets=True
@@ -14,6 +15,8 @@ split_before_first_argument=True
 split_arguments_when_comma_terminated=True
 split_before_expression_after_opening_paren=True
 split_before_named_assigns=True
+allow_multiline_lambdas=True
+allow_split_before_dict_value=False
 
 
 #  █████  ██      ██
@@ -207,7 +210,7 @@ split_before_named_assigns=True
 
 # The penalty of splitting the line around the 'and' and 'or'
 # operators.
-# split_penalty_logical_operator=300
+split_penalty_logical_operator=0
 
 # Use the Tab character for indentation.
 # use_tabs=False

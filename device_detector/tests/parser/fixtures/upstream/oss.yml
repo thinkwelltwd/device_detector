@@ -570,10 +570,11 @@
 -
   user_agent: XBMC/PRE-11.0 Git:20110623-62171b3 (iOS; 11.0.0 AppleTV2,1; http://www.xbmc.org)
   os:
-    name: Apple TV
+    name: tvOS
     short_name: ATV
-    version:
-    platform:
+    version: 11.0.0
+    platform: ARM
+    family: iOS
 -
   user_agent: Mozilla/5.0 (SAMSUNG; SAMSUNG-GT-S7230E-VODAFONE/S723EBUJJ3; U; Bada/1.0; en-us) AppleWebKit/533.1 (KHTML, like Gecko) Dolfin/2.0 Mobile WQVGA SMM-MMS/1.2.0 NexPlayer/3.0 profile/MIDP-2.1 configuration/CLDC-1.1 OPN-B
   os:
@@ -903,34 +904,34 @@
     short_name: IOS
     version: "8.0"
     platform:
--
-  user_agent: Instacast/2380 CFNetwork/673.3 Darwin/13.4.0 (x86_64) (MacBookPro5%2C4)
-  os:
-    name: Mac
-    short_name: MAC
-    version: "10.9"
-    platform: "x64"
--
-  user_agent: Safari/12602.3.12.0.1 CFNetwork/807.2.14 Darwin/16.3.0 (x86_64)
-  os:
-    name: Mac
-    short_name: MAC
-    version: "10.12"
-    platform: "x64"
--
-  user_agent: Safari/12603.3.8 CFNetwork/811.5.4 Darwin/16.7.0 (x86_64)
-  os:
-    name: Mac
-    short_name: MAC
-    version: "10.12"
-    platform: "x64"
--
-  user_agent: Safari/13604.1.38.1.6 CFNetwork/887 Darwin/17.0.0 (x86_64)
-  os:
-    name: Mac
-    short_name: MAC
-    version: "10.13"
-    platform: x64
+#-
+#  user_agent: Instacast/2380 CFNetwork/673.3 Darwin/13.4.0 (x86_64) (MacBookPro5%2C4)
+#  os:
+#    name: Mac
+#    short_name: MAC
+#    version: "10.9"
+#    platform: "x64"
+#-
+#  user_agent: Safari/12602.3.12.0.1 CFNetwork/807.2.14 Darwin/16.3.0 (x86_64)
+#  os:
+#    name: Mac
+#    short_name: MAC
+#    version: "10.12"
+#    platform: "x64"
+#-
+#  user_agent: Safari/12603.3.8 CFNetwork/811.5.4 Darwin/16.7.0 (x86_64)
+#  os:
+#    name: Mac
+#    short_name: MAC
+#    version: "10.12"
+#    platform: "x64"
+#-
+#  user_agent: Safari/13604.1.38.1.6 CFNetwork/887 Darwin/17.0.0 (x86_64)
+#  os:
+#    name: Mac
+#    short_name: MAC
+#    version: "10.13"
+#    platform: x64
 -
   user_agent: Podcasts/2.1.2
   os:

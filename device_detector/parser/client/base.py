@@ -4,7 +4,7 @@ from ...lazy_regex import RegexLazyIgnore
 from ..parser import Parser
 from ...parser.key_value_pairs import key_value_pairs
 from ...settings import DDCache
-from ...utils import version_from_key, calculate_dtype
+from ...utils import calculate_dtype
 
 keep = {'!', '@', '+'}
 table = str.maketrans(dict.fromkeys(''.join(c for c in string.punctuation if c not in keep)))
@@ -32,7 +32,10 @@ UNWANTED_APP_NAMES = [
 class BaseClientParser(Parser):
 
     def name_version_pairs(self) -> list:
-
+        """
+        Extract key/value pairs from User Agent String, based on various patterns of:
+        <name><sep><version>
+        """
         cached = DDCache['user_agents'][self.ua_hash].get('name_version_pairs', None)
         if cached is not None:
             return cached
@@ -45,11 +48,16 @@ class BaseClientParser(Parser):
     def matches_manual_appdetails(self):
         """
         Check the name_version_pairs data before checking regexes.
+        This can make tests fail from upstream, if names don't match exactly, in
+        which case enter needful uaname/name values in the `appdetails` fixtures.
 
         Much faster to check for set membership than to iterate over
         custom regexes for each application.
         """
-        app_details = self.appdetails_data
+        app_details = self.appdetails_data.get(self.dtype())
+        if not app_details:
+            return False
+
         name_version_pairs = self.name_version_pairs()
 
         for code, name, version in name_version_pairs:
@@ -57,8 +65,7 @@ class BaseClientParser(Parser):
                 self.known = True
                 self.ua_data = {
                     'name': app_details[code]['name'],
-                    # get version by Key/Value if it exists - News/582.1 Version/2.0
-                    'version': version_from_key(name_version_pairs, version),
+                    'version': version,
                 }
                 self.calculated_dtype = app_details[code].get('type', '')
                 return True
@@ -89,9 +96,10 @@ class BaseClientParser(Parser):
 
         These files before checking regexes, for best performance.
         """
-        manually_specified = self.matches_manual_appdetails()
-        if not manually_specified:
-            return super()._parse()
+        super()._parse()
+        name = self.ua_data.get('name')
+        if not name or name == '$1':
+            self.matches_manual_appdetails()
 
 
 class GenericClientParser(BaseClientParser):
@@ -224,6 +232,29 @@ class GenericClientParser(BaseClientParser):
             return self.calculated_dtype
 
         return calculate_dtype(app_name=self.app_name)
+
+    def check_manual_appdetails(self):
+        """
+        Check to see if this app matches any values defined the appdetails yml files,
+        and if so, apply the name and app type.
+        """
+        if not self.app_name:
+            return
+
+        app_details = self.appdetails_data
+        if not app_details:
+            return
+
+        code = self.app_name.lower().replace('_', '').replace(' ', '')
+
+        for dtype, apps in app_details.items():
+            if code not in apps:
+                continue
+
+            app_details_data = apps.get(code)
+            self.app_name = app_details_data['name']
+            self.calculated_dtype = app_details_data.get('type') or self.calculated_dtype
+            return
 
 
 __all__ = (

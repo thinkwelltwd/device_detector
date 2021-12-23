@@ -8,9 +8,6 @@
 - uaname: mattermost
   name: Mattermost
 
-- uaname: slack
-  name: Slack
-
 - uaname: x-lite
   name: X-Lite Softphone
 

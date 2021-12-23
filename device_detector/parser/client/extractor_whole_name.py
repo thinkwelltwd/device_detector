@@ -76,7 +76,7 @@ class WholeNameExtractor(GenericClientParser):
             return
 
         self.parse_name_version()
-        self.normalize_app_name()
+        self.check_manual_appdetails()
 
         # WholeNameExtractor is called to supply secondary app data
         # if the Browser class matches. So if only Browser data was
@@ -84,9 +84,19 @@ class WholeNameExtractor(GenericClientParser):
         if self.app_name.lower() in SKIP_PREFIXES:
             return
 
+        app_details = self.appdetails_data
+        code = self.app_name.lower().replace(' ', '')
+
+        try:
+            self.app_name = app_details[code]['name']
+            self.calculated_dtype = app_details[code].get('type', '')
+        except KeyError:
+            pass
+
         self.ua_data = {
             'name': self.app_name,
             'version': self.app_version,
+            'type': self.calculated_dtype,
         }
 
         self.known = True
@@ -103,17 +113,6 @@ class WholeNameExtractor(GenericClientParser):
                 self.app_version = match.group().strip()
                 self.app_name = self.user_agent[:match.start()].strip(' /-')
                 return self.app_version
-
-    def normalize_app_name(self):
-        """
-        If this name was specified in App Details, lookup
-        the dtype and normalized name.
-        """
-        name_lower = self.app_name.lower().replace(' ', '')
-        for dtype, details in DDCache['appdetails'].items():
-            if name_lower in details:
-                self.calculated_dtype = dtype
-                self.app_name = details[name_lower]['name']
 
     def is_name_length_valid(self) -> bool:
         """

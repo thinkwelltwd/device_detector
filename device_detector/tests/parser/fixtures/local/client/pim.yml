@@ -16,3 +16,9 @@
     type: pim
     name: Microsoft Outlook
     version: 31007
+-
+  user_agent: BlueMail/9207 CFNetwork/897.15 Darwin/17.5.0
+  client:
+    type: pim
+    name: Blue Mail
+    version: 9207

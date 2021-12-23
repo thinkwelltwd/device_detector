@@ -1,5 +1,5 @@
 from ..lazy_regex import RegexLazyIgnore
-from ..settings import DDCache
+from ..settings import BOUNDED_REGEX, DDCache
 from .settings import CHECK_PAIRS
 from ..yaml_loader import RegexLoader
 
@@ -15,7 +15,7 @@ APP_ID_VERSION = RegexLazyIgnore(
 # Dalvik/2.1.0 (Linux; U; Android 6.0.1; LG-M153 Build/MXB48T) [FBAN/AudienceNetworkForAndroid;FBSN/Android;FBSV/6.0.1;FBAB/com.outthinking.photo;FBAV/1.41;FBBV/37;FBVS/4.27.1;FBLC/en_US]
 # Interested in the FBAB/<app.id> pattern
 # i.e. FBAB/com.outthinking.photo
-FACEBOOK_FRAGMENT = RegexLazyIgnore(r'FBAB/')
+FACEBOOK_FRAGMENT = RegexLazyIgnore(BOUNDED_REGEX.format('FBAB/'))
 
 # YHOO YahooMobile/1.0 (com.softacular.Sportacular; 7.10.1) (Apple; iPhone; iOS/11.4.1);
 # YHOO YahooMobile/1.0 (com.aol.mapquest; 5.18.6) (Apple; iPhone; iOS/12.1.4);
@@ -92,7 +92,7 @@ class DataExtractor:
         return value.format(*group_values).strip()
 
     def extract(self) -> str:
-        value = self.metadata.get(self.key, '')
+        value = str(self.metadata.get(self.key, ''))
         if value and '$' in value:
             return self.get_value_from_regex(value)
         return value

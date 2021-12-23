@@ -7,12 +7,16 @@
 
 - app_id: com.google.gmail
   name: Gmail
+  type: mobile app
 
 - app_id: com.airmailapp.iphone
   name: Airmail
+  type: mobile app
 
 - app_id: com.airmailapp.iphone.notificationservice
   name: Airmail
+  type: mobile app
 
 - app_id: com.yahoo.mobile.client.android.mail
   name: Yahoo Mobile
+  type: mobile app

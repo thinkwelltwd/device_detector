@@ -1,3 +1,4 @@
+from urllib.parse import unquote
 from ..base import ParserBaseTest
 from ...parser import (
     ApplicationIDExtractor,
@@ -19,7 +20,7 @@ class TestApplicationIDExtractor(ParserBaseTest):
         error = 'Error parsing {}.\n Parsed value "{}" != expected value "{}"'
 
         for fixture in fixtures:
-            self.user_agent = fixture.pop('user_agent')
+            self.user_agent = unquote(fixture.pop('user_agent'))
             expected = fixture['client']['app_id']
             app_id = ApplicationIDExtractor(self.user_agent)
             parsed = app_id.extract().get('app_id', '')

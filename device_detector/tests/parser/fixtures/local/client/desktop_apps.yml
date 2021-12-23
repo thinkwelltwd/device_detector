@@ -20,25 +20,25 @@
   user_agent: Microsoft Excel 2013 (15.0.4693) Windows NT 6.2
   client:
     type: productivity
-    name: Microsoft Excel
+    name: Microsoft Office Excel
     version: 2013
 -
   user_agent: Microsoft Office Excel 2013 (15.0.4693) Windows NT 6.2
   client:
     type: productivity
-    name: Microsoft Excel
+    name: Microsoft Office Excel
     version: 2013
 -
   user_agent: Microsoft Access 2013 (15.0.4693) Windows NT 6.2
   client:
     type: productivity
-    name: Microsoft Access
+    name: Microsoft Office Access
     version: 2013
 -
   user_agent: Microsoft Office Access 2013 (15.0.4693) Windows NT 6.2
   client:
     type: productivity
-    name: Microsoft Access
+    name: Microsoft Office Access
     version: 2013
 -
   user_agent: Microsoft Office SyncProc 2013 (15.0.4693) Windows NT 6.2
@@ -46,12 +46,12 @@
     type: apputility
     name: Microsoft Office SyncProc
     version: 2013
--
-  user_agent: Microsoft Office/15.0 (Windows NT 6.2; 15.0.4691; Pro)
-  client:
-    type: productivity
-    name: Microsoft Office
-    version: 15.0
+#-
+#  user_agent: Microsoft Office/15.0 (Windows NT 6.2; 15.0.4691; Pro)
+#  client:
+#    type: productivity
+#    name: Microsoft Office
+#    version: 15.0
 -
   user_agent: Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.3; WOW64; Trident/7.0; .NET4.0E; .NET4.0C; .NET CLR 3.5.30729; .NET CLR 2.0.50727; .NET CLR 3.0.30729; Tablet PC 2.0; ms-office)
   client:
@@ -140,7 +140,7 @@
   user_agent: word/15.27.16101000 cfnetwork/889.9 darwin/17.2.0 (x86_64)
   client:
     type: productivity
-    name: Microsoft Word
+    name: Microsoft Office Word
     version: 15.27.16101000
 -
   user_agent: AioRemote_win/85.1.379.0 PdsmqLib_win/6.0.1.30
@@ -1115,12 +1115,6 @@
     type: desktop app
     name: TrueUpdate
     version: '3.5'
--
-  user_agent: UnityPlayer/4.1.4f1 (http://unity3d.com)
-  client:
-    type: desktop app
-    name: Unity Player
-    version: 4.1.4f1
 -
   user_agent: vcsoapclient
   client:

@@ -1,23 +1,18 @@
 from .parser import Parser
 from .os_fragment import OSFragment
 from ..lazy_regex import RegexLazyIgnore
+from .settings import normalized_name
+from ..settings import BOUNDED_REGEX
 
-DESKTOP_OS = {
-    'AmigaOS',
-    'IBM',
-    'GNU/Linux',
-    'Mac',
-    'Unix',
-    'Windows',
-    'BeOS',
-    'Chrome OS',
-}
+WEBOS_VERSION = RegexLazyIgnore(r'WEBOS([\d\.]+)')
+
+DESKTOP_OS = {'AmigaOS', 'IBM', 'GNU/Linux', 'Mac', 'Unix', 'Windows', 'BeOS', 'Chrome OS'}
 
 OPERATING_SYSTEMS = {
     'AIX': 'AIX',
     'AND': 'Android',
     'AMG': 'AmigaOS',
-    'ATV': 'Apple TV',
+    'ATV': 'tvOS',
     'ARL': 'Arch Linux',
     'BTR': 'BackTrack',
     'SBA': 'Bada',
@@ -25,29 +20,42 @@ OPERATING_SYSTEMS = {
     'BLB': 'BlackBerry OS',
     'QNX': 'BlackBerry Tablet OS',
     'BMP': 'Brew',
+    'CAI': 'Caixa Mágica',
     'CES': 'CentOS',
     'COS': 'Chrome OS',
     'CYN': 'CyanogenMod',
     'DEB': 'Debian',
+    'DEE': 'Deepin',
     'DFB': 'DragonFly',
+    'DVK': 'DVKBuntu',
     'FED': 'Fedora',
-    'FIR': 'Fire OS',
+    'FEN': 'Fenix',
     'FOS': 'Firefox OS',
+    'FIR': 'Fire OS',
+    'FRE': 'Freebox',
     'BSD': 'FreeBSD',
+    'FYD': 'FydeOS',
     'GNT': 'Gentoo',
+    'GRI': 'GridOS',
     'GTV': 'Google TV',
     'HPX': 'HP-UX',
     'HAI': 'Haiku OS',
+    'IPA': 'iPadOS',
+    'HAR': 'HarmonyOS',
+    'HAS': 'HasCodingOS',
     'IRI': 'IRIX',
     'INF': 'Inferno',
+    'JME': 'Java ME',
     'KOS': 'KaiOS',
     'KNO': 'Knoppix',
     'KBT': 'Kubuntu',
     'LIN': 'GNU/Linux',
     'LBT': 'Lubuntu',
+    'LOS': 'Lumin OS',
     'VLN': 'VectorLinux',
     'MAC': 'Mac',
     'MAE': 'Maemo',
+    'MAG': 'Mageia',
     'MDR': 'Mandriva',
     'SMG': 'MeeGo',
     'MCD': 'MocorDroid',
@@ -56,21 +64,28 @@ OPERATING_SYSTEMS = {
     'MOR': 'MorphOS',
     'NBS': 'NetBSD',
     'MTK': 'MTK / Nucleus',
+    'MRE': 'MRE',
     'WII': 'Nintendo',
     'NDS': 'Nintendo Mobile',
     'OS2': 'OS/2',
     'T64': 'OSF1',
     'OBS': 'OpenBSD',
+    'OWR': 'OpenWrt',
     'ORD': 'Ordissimo',
+    'PCL': 'PCLinuxOS',
     'PSP': 'PlayStation Portable',
     'PS3': 'PlayStation',
     'RHT': 'Red Hat',
     'ROS': 'RISC OS',
+    'ROK': 'Roku OS',
+    'RSO': 'Rosa',
     'REM': 'Remix OS',
+    'REX': 'REX',
     'RZD': 'RazoDroiD',
     'SAB': 'Sabayon',
     'SSE': 'SUSE',
     'SAF': 'Sailfish OS',
+    'SEE': 'SeewoOS',
     'SLW': 'Slackware',
     'SOS': 'Solaris',
     'SYL': 'Syllable',
@@ -81,10 +96,14 @@ OPERATING_SYSTEMS = {
     'SY3': 'Symbian^3',
     'TDX': 'ThreadX',
     'TIZ': 'Tizen',
+    'TOS': 'TmaxOS',
     'UBT': 'Ubuntu',
+    'WAS': 'watchOS',
     'WTV': 'WebTV',
+    'WHS': 'Whale OS',
     'WIN': 'Windows',
     'WCE': 'Windows CE',
+    'WIO': 'Windows IoT',
     'WMO': 'Windows Mobile',
     'WPH': 'Windows Phone',
     'WRT': 'Windows RT',
@@ -94,7 +113,6 @@ OPERATING_SYSTEMS = {
     'IOS': 'iOS',
     'POS': 'palmOS',
     'WOS': 'webOS',
-    'WIO': 'Windows IoT',
     'UNK': 'Unknown',
 }
 
@@ -105,26 +123,27 @@ OS_FAMILIES = {
     'Android': [
         'AND',
         'CYN',
+        'FIR',
         'REM',
         'RZD',
         'MLD',
         'MCD',
         'YNS',
-        'FIR',
+        'GRI',
+        'HAR',
     ],
-    'AmigaOS': ['AMG', 'MOR'],
-    'Apple TV': ['ATV'],
-    'BlackBerry': ['BLB', 'QNX'],
-    'Brew': ['BMP'],
-    'BeOS': ['BEO', 'HAI'],
-    'Chrome OS': ['COS'],
-    'Firefox OS': ['FOS', 'KOS'],
-    'Gaming Console': ['WII', 'PS3'],
-    'Google TV': ['GTV'],
-    'IBM': ['OS2'],
-    'iOS': ['IOS'],
-    'RISC OS': ['ROS'],
-    'GNU/Linux': [
+    'AmigaOS': ('AMG', 'MOR'),
+    'BlackBerry': ('BLB', 'QNX'),
+    'Brew': ('BMP',),
+    'BeOS': ('BEO', 'HAI'),
+    'Chrome OS': ('COS', 'FYD', 'SEE'),
+    'Firefox OS': ('FOS', 'KOS'),
+    'Gaming Console': ('WII', 'PS3'),
+    'Google TV': ('GTV',),
+    'IBM': ('OS2',),
+    'iOS': ('IOS', 'ATV', 'WAS', 'IPA'),
+    'RISC OS': ('ROS',),
+    'GNU/Linux': (
         'LIN',
         'ARL',
         'DEB',
@@ -146,30 +165,31 @@ OS_FAMILIES = {
         'BTR',
         'SAF',
         'ORD',
-    ],
-    'Mac': ['MAC'],
-    'Mobile Gaming Console': ['PSP', 'NDS', 'XBX'],
-    'Real-time OS': ['MTK', 'TDX'],
-    'Other Mobile': ['WOS', 'POS', 'SBA', 'TIZ', 'SMG', 'MAE'],
-    'Symbian': ['SYM', 'SYS', 'SY3', 'S60', 'S40'],
-    'Unix': [
-        'SOS',
-        'AIX',
-        'HPX',
-        'BSD',
-        'NBS',
-        'OBS',
-        'DFB',
-        'SYL',
-        'IRI',
-        'T64',
-        'INF',
-    ],
-    'WebTV': ['WTV'],
-    'Windows': ['WIN'],
-    'Windows IoT': ['WIO'],
-    'Windows Mobile': ['WPH', 'WMO', 'WCE', 'WRT'],
-    'Unknown': ['UNK'],
+        'TOS',
+        'RSO',
+        'DEE',
+        'FRE',
+        'MAG',
+        'FEN',
+        'CAI',
+        'PCL',
+        'HAS',
+        'LOS',
+        'DVK',
+        'ROK',
+        'OWR',
+    ),
+    'Mac': ('MAC',),
+    'Mobile Gaming Console': ('PSP', 'NDS', 'XBX'),
+    'Real-time OS': ('MTK', 'TDX', 'MRE', 'JME', 'REX'),
+    'Other Mobile': ('WOS', 'POS', 'SBA', 'TIZ', 'SMG', 'MAE'),
+    'Symbian': ('SYM', 'SYS', 'SY3', 'S60', 'S40'),
+    'Unix': ('SOS', 'AIX', 'HPX', 'BSD', 'NBS', 'OBS', 'DFB', 'SYL', 'IRI', 'T64', 'INF'),
+    'WebTV': ('WTV',),
+    'Windows': ('WIN',),
+    'Windows Mobile': ('WPH', 'WMO', 'WCE', 'WRT', 'WIO'),
+    'Other Smart TV': ('WHS',),
+    'Unknown': ('UNK',),
 }
 
 FAMILY_FROM_OS = {}
@@ -177,9 +197,13 @@ for os, families in OS_FAMILIES.items():
     for family in families:
         FAMILY_FROM_OS[family] = os
 
-ARM_REGEX = RegexLazyIgnore(r'arm')
-WINDOWS_REGEX = RegexLazyIgnore(r'WOW64|x64|win64|amd64|x86_64')
-x86_REGEX = RegexLazyIgnore(r'i[0-9]86|i86pc')
+ARM_REGEX = RegexLazyIgnore(BOUNDED_REGEX.format('arm|aarch64|Apple ?TV|Watch ?OS|Watch1,[12]'))
+MIPS_REGEX = RegexLazyIgnore(BOUNDED_REGEX.format('mips'))
+SUPERH_REGEX = RegexLazyIgnore(BOUNDED_REGEX.format('sh4'))
+WINDOWS_REGEX = RegexLazyIgnore(
+    BOUNDED_REGEX.format(r'64-?bit|WOW64|(?:Intel)?x64|win64|amd64|x86_?64')
+)
+x86_REGEX = RegexLazyIgnore(BOUNDED_REGEX.format('.+32bit|.+win32|(?:i[0-9]|x)86|i86pc'))
 
 
 class OS(Parser):
@@ -212,6 +236,10 @@ class OS(Parser):
     def platform(self) -> str:
         if self._check_regex(ARM_REGEX):
             return 'ARM'
+        if self._check_regex(MIPS_REGEX):
+            return 'MIPS'
+        if self._check_regex(SUPERH_REGEX):
+            return 'SuperH'
         if self._check_regex(WINDOWS_REGEX):
             return 'x64'
         if self._check_regex(x86_REGEX):
@@ -221,21 +249,43 @@ class OS(Parser):
     def _parse(self):
         super()._parse()
         if not self.ua_data:
-            OSFragment(self.user_agent, self.ua_hash, self.ua_spaceless).parse()
+            OSFragment(
+                self.user_agent,
+                self.ua_hash,
+                self.ua_spaceless,
+                self.VERSION_TRUNCATION,
+            ).parse()
         return self.ua_data or {}
 
     def set_details(self) -> None:
         super().set_details()
         if self.ua_data:
-            abbreviation = self.OS_TO_ABBREV.get(self.ua_data['name'].lower(), self.UNKNOWN)
+            name = normalized_name(
+                self.ua_data['name'].lower(),
+                self.OS_TO_ABBREV,
+                self.OPERATING_SYSTEMS,
+            )
+            abbreviation = self.OS_TO_ABBREV.get(name.lower(), self.UNKNOWN)
             self.ua_data.update({
-                # Overwrite name for capitalization.
-                # insensitive regex match preserves original casing
-                'name': self.OPERATING_SYSTEMS.get(abbreviation),
+                'name': name,
                 'short_name': abbreviation,
                 'family': self.FAMILY_FROM_OS.get(abbreviation),
                 'platform': self.platform(),
+                'version': self.set_version(self.ua_data.get('version')),
             })
+
+    def set_version(self, version):
+        version = super().set_version(version)
+
+        if not version:
+            # Extract version from WEBOS4.5 substring
+            name = self.ua_data.get('name', '')
+            if name and name.lower() == 'webos':
+                match = WEBOS_VERSION.search(self.user_agent)
+                if match:
+                    version = match.group(1)
+
+        return version
 
 
 __all__ = (

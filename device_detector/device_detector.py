@@ -7,6 +7,9 @@ from .parser import (
     # Devices
     Bot,
     Device,
+    HbbTv,
+    Notebook,
+    ShellTv,
     MOBILE_DEVICE_TYPES,
 
     # Clients
@@ -29,7 +32,7 @@ from .parser import (
     WholeNameExtractor,
     DESKTOP_OS,
 )
-from .settings import DDCache, WORTHLESS_UA_TYPES
+from .settings import BOUNDED_REGEX, DDCache, WORTHLESS_UA_TYPES
 from .utils import (
     clean_ua,
     long_ua_no_punctuation,
@@ -41,18 +44,45 @@ from .utils import (
 from .yaml_loader import RegexLoader
 
 MAC_iOS = {
-    'ATV',
-    'IOS',
-    'MAC',
+    'tvOS',
+    'watchOS',
+    'iOS',
+    'Mac',
 }
 
-TOUCH_FRAGMENT = RegexLazyIgnore(r'Touch')
-TV_FRAGMENT = RegexLazyIgnore(r'Kylo|Espial|Opera TV Store|HbbTV')
-ANDROID_MOBILE_FRAGMENT = RegexLazyIgnore(r'Android( [\.0-9]+)?; Mobile;')
-ANDROID_TABLET_FRAGMENT = RegexLazyIgnore(r'Android( [\.0-9]+)?; Tablet;')
-CHROME_MOBILE_FRAGMENT = RegexLazyIgnore(r'Chrome/[\.0-9]* Mobile')
-CHROME_NOTMOBILE_FRAGMENT = RegexLazyIgnore(r'Chrome/[\.0-9]* (?!Mobile)')
-OPERA_TABLET_FRAGMENT = RegexLazyIgnore(r'Opera Tablet')
+TOUCH_FRAGMENT = RegexLazyIgnore(BOUNDED_REGEX.format('Touch'))
+TV_FRAGMENT = RegexLazyIgnore(BOUNDED_REGEX.format('Kylo|Espial|Opera TV Store|HbbTV'))
+ANDROID_MOBILE_FRAGMENT = RegexLazyIgnore(BOUNDED_REGEX.format(r'Android( [\.0-9]+)?; Mobile;'))
+ANDROID_TABLET_FRAGMENT = RegexLazyIgnore(BOUNDED_REGEX.format(r'Android( [\.0-9]+)?; Tablet;'))
+CHROME_MOBILE_FRAGMENT = RegexLazyIgnore(BOUNDED_REGEX.format(r'Chrome/[\.0-9]* (?:Mobile|eliboM)'))
+CHROME_NOTMOBILE_FRAGMENT = RegexLazyIgnore(BOUNDED_REGEX.format(r'Chrome/[\.0-9]* (?!Mobile)'))
+# CHROME_MOBILE_FRAGMENT = RegexLazyIgnore(r'(?:Mobile|eliboM) Safari/')
+# CHROME_NOTMOBILE_FRAGMENT = RegexLazyIgnore(r'(?!Mobile )Safari/')
+DESKTOP_FRAGMENT = RegexLazyIgnore(BOUNDED_REGEX.format('Desktop (x(?:32|64)|WOW64);'))
+OPERA_TABLET_FRAGMENT = RegexLazyIgnore(BOUNDED_REGEX.format('Opera Tablet'))
+
+# Set max versioning to major version only (3, 5, 6, 200, 123)
+VERSION_TRUNCATION_MAJOR = 0
+
+# Set max versioning to minor version (3.4, 5.6, 6.234, 0.200, 1.23)
+VERSION_TRUNCATION_MINOR = 1
+
+# Set max versioning to path level (3.4.0, 5.6.344, 6.234.2, 0.200.3, 1.2.3)
+VERSION_TRUNCATION_PATCH = 2
+
+# set versioning to build number (3.4.0.12, 5.6.334.0, 6.234.2.3, 0.200.3.1, 1.2.3.0)
+VERSION_TRUNCATION_BUILD = 3
+
+# Set versioning to unlimited (no truncation)
+VERSION_TRUNCATION_NONE = -1
+
+VERSION_TRUNCATION_MAP = {
+    'major': VERSION_TRUNCATION_MAJOR,
+    'minor': VERSION_TRUNCATION_MINOR,
+    'patch': VERSION_TRUNCATION_PATCH,
+    'build': VERSION_TRUNCATION_BUILD,
+    None: VERSION_TRUNCATION_NONE,
+}
 
 
 class DeviceDetector(RegexLoader):
@@ -78,12 +108,35 @@ class DeviceDetector(RegexLoader):
         WholeNameExtractor,
     )
 
-    DEVICE_PARSERS = [
+    DEVICE_PARSERS = (
+        HbbTv,
+        ShellTv,
+        Notebook,
         Device,
-    ]
+    )
 
-    def __init__(self, user_agent, skip_bot_detection=False, skip_device_detection=False):
+    def __init__(
+        self,
+        user_agent: str,
+        skip_bot_detection: bool = False,
+        skip_device_detection: bool = False,
+        version_truncation: str = VERSION_TRUNCATION_NONE,
+    ):
+        """
 
+        Args:
+            user_agent: User Agent string to parse
+            skip_bot_detection: Skip checking if client is a bot
+            skip_device_detection: Skip device brand and model lookup.
+            version_truncation: Set version truncation setting.
+                None = '4.2.2', '34.0.1847.114'
+                build = '4.2.2', '34.0.1847.114'
+                patch = '4.2.2', '34.0.1847'
+                minor = '4.2', '34.0'
+                major = '4', '34'
+        """
+
+        super().__init__(version_truncation=version_truncation)
         # Holds the useragent that should be parsed
         self.user_agent = clean_ua(user_agent)
         self.ua_hash = ua_hash(self.user_agent)
@@ -267,7 +320,13 @@ class DeviceDetector(RegexLoader):
         app_id = app_idx.extract().get('app_id', '')
 
         for Parser in self.CLIENT_PARSERS:
-            parser = Parser(self.user_agent, self.ua_hash, self.ua_spaceless).parse()
+            parser = Parser(
+                self.user_agent,
+                self.ua_hash,
+                self.ua_spaceless,
+                self.VERSION_TRUNCATION,
+            ).parse()
+
             if parser.ua_data:
                 self.client = parser
                 self.all_details['client'] = parser.ua_data
@@ -294,10 +353,18 @@ class DeviceDetector(RegexLoader):
             return
 
         for Parser in self.DEVICE_PARSERS:
-            parser = Parser(self.user_agent, self.ua_hash, self.ua_spaceless).parse()
+            parser = Parser(
+                self.user_agent,
+                self.ua_hash,
+                self.ua_spaceless,
+                self.VERSION_TRUNCATION,
+            ).parse()
             if parser.ua_data:
                 self.device = parser
                 self.all_details['device'] = parser.ua_data
+                if self.all_details['device'] != 'desktop' and DESKTOP_FRAGMENT.search(
+                        self.user_agent) is not None:
+                    self.all_details['device']['device'] = 'desktop'
                 return
 
     def parse_bot(self) -> None:
@@ -305,7 +372,12 @@ class DeviceDetector(RegexLoader):
         Parses the UA for bot information using the Bot parser
         """
         if not self.skip_bot_detection and not self.bot:
-            self.bot = Bot(self.user_agent, self.ua_hash, self.ua_spaceless).parse()
+            self.bot = Bot(
+                self.user_agent,
+                self.ua_hash,
+                self.ua_spaceless,
+                self.VERSION_TRUNCATION,
+            ).parse()
             self.all_details['bot'] = self.bot.ua_data
 
     def parse_os(self) -> None:
@@ -313,7 +385,12 @@ class DeviceDetector(RegexLoader):
         Parses the UA for Operating System information using the OS parser
         """
         if not self.os:
-            self.os = OS(self.user_agent, self.ua_hash, self.ua_spaceless).parse()
+            self.os = OS(
+                self.user_agent,
+                self.ua_hash,
+                self.ua_spaceless,
+                self.VERSION_TRUNCATION,
+            ).parse()
             self.all_details['os'] = self.os.ua_data
 
     # -----------------------------------------------------------------------------
@@ -330,7 +407,7 @@ class DeviceDetector(RegexLoader):
 
     def android_device_type(self) -> str:
 
-        if self.os_short_name() != 'AND':
+        if self.os_name() != 'Android':
             return ''
 
         # Some user agents simply contain the fragment 'Android; Mobile;',
@@ -390,7 +467,7 @@ class DeviceDetector(RegexLoader):
         touch_enabled = TOUCH_FRAGMENT.search(self.user_agent) is not None
 
         if touch_enabled and not self.device_model():
-            return self.os_short_name() in ('WRT', 'WIN')
+            return self.os_name() in ('Windows RT', 'Windows')
 
         return False
 
@@ -425,15 +502,19 @@ class DeviceDetector(RegexLoader):
         return not self.is_bot() and not self.is_desktop() and not self.is_television()
 
     def is_desktop(self) -> bool:
+        os_details = self.all_details.get('os') or {}
+        os_name = os_details.get('name', '')
+
+        if not os_name or os_name == 'Unknown':
+            return False
+
         if self.uses_mobile_browser():
             return False
-        return self.all_details.get('os', {}).get('family', '') in DESKTOP_OS
+
+        return os_details.get('family', '') in DESKTOP_OS
 
     def client_name(self) -> str:
         return self.all_details.get('client', {}).get('name', '')
-
-    def client_short_name(self) -> str:
-        return self.all_details.get('client', {}).get('short_name', '')
 
     def client_version(self) -> str:
         return self.all_details.get('client', {}).get('version', '')
@@ -503,12 +584,6 @@ class DeviceDetector(RegexLoader):
             return ''
         return self.all_details.get('device', {}).get('model', '')
 
-    def device_brand_name(self) -> str:
-        if self.skip_device_detection:
-            return ''
-        from .parser import DEVICE_BRANDS
-        return DEVICE_BRANDS.get(self.device_brand(), 'UNK')
-
     def device_brand(self) -> str:
         if self.skip_device_detection:
             return ''
@@ -518,16 +593,13 @@ class DeviceDetector(RegexLoader):
             return brand
 
         # Assume all devices running iOS / Mac OS are from Apple
-        if self.os_short_name() in MAC_iOS:
-            return 'AP'
+        if self.os_name() in MAC_iOS:
+            return 'Apple'
 
         return ''
 
     def os_name(self) -> str:
         return self.all_details.get('os', {}).get('name', '')
-
-    def os_short_name(self) -> str:
-        return self.all_details.get('os', {}).get('short_name', '')
 
     def os_version(self) -> str:
         return self.all_details.get('os', {}).get('version', '')
@@ -549,7 +621,6 @@ class DeviceDetector(RegexLoader):
             )
         if self.device_model():
             device = '{} ({})'.format(
-                self.device_brand_name(),
                 self.device_model(),
                 self.device_type().title(),
             )
@@ -575,4 +646,9 @@ class SoftwareDetector(DeviceDetector):
 __all__ = (
     'DeviceDetector',
     'SoftwareDetector',
+    'VERSION_TRUNCATION_MAJOR',
+    'VERSION_TRUNCATION_MINOR',
+    'VERSION_TRUNCATION_PATCH',
+    'VERSION_TRUNCATION_BUILD',
+    'VERSION_TRUNCATION_NONE',
 )

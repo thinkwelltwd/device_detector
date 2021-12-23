@@ -25,6 +25,11 @@
   version:
   type: av
 
+- regex: AV/(\d+[\.\d]+)
+  name: Avast
+  version: '$1'
+  type: av
+
 - regex: CCleaner, ?(\d+[\.\d]+)
   name: CCleaner
   version: '$1'

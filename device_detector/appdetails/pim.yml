@@ -29,6 +29,9 @@
 - uaname: mailbird
   name: Mailbird
 
+- uaname: mail
+  name: Mail
+
 - uaname: outlook
   name: Microsoft Outlook
 

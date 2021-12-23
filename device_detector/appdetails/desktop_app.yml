@@ -4,6 +4,77 @@
 # Copyright (c) 2019 Dave Burkholder, Thinkwell Designs
 # @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
 ###############
+- uaname: clamav
+  name: ClamAV
+  type: av
+
+- uaname: SophosAgent
+  name: Sophos
+  type: av
+
+- uaname: SophosUpdate
+  suffixes: Manager
+  name: Sophos
+  type: av
+
+- uaname: McAfee Agent
+  name: McAfee
+  type: av
+
+# Matching with regex in local fixtures file.
+# In key/value parsing, interferes with UAs like:
+# Mozilla/5.0 (Linux; Android 10; AV-10NT310) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.120 Safari/537.36
+#- uaname: AV
+#  name: Avast
+#  type: av
+
+- uaname: Avast
+  suffixes: Antivirus|curl|SimpleHttp|NCC
+  name: Avast
+  type: av
+
+- uaname: Avast!
+  suffixes: Antivirus|curl|SimpleHttp|NCC
+  name: Avast
+  type: av
+
+- uaname: Avast Emergency Update Agent
+  name: Avast
+  type: av
+
+- uaname: Avast TUNEUP Update Agent
+  name: Avast
+  type: av
+
+- uaname: CCleaner
+  suffixes: Update Agent
+  name: CCleaner
+  type: av
+
+- uaname: ZoneAlarm
+  name: ZoneAlarm
+  type: av
+
+- uaname: ngc
+  name: Norton Antivirus
+  type: av
+
+- uaname: antivirus emergency update agent
+  name: Antivirus Emergency Update Agent
+  type: av
+
+- uaname: norton
+  name: Norton
+  type: av
+
+- uaname: httpconnection symantec
+  name: Symantec
+  type: av
+
+- uaname: Webroot NCSI
+  name: Webroot
+  type: av
+
 # General Desktop Apps
 
 - uaname: AdobeLightroom
@@ -49,10 +120,6 @@
 - uaname: onenote
   name: Microsoft OneNote
 
-- uaname: word
-  name: Microsoft Word
-  type: productivity
-
 - uaname: microsoft settingssync
   name: Microsoft OneDrive
   type: apputility
@@ -72,9 +139,6 @@
 
 
 # Office / Productivity Apps
-- uaname: Microsoft Office
-  name: Microsoft Office
-  type: productivity
 
 - uaname: openoffice.org
   name: OpenOffice
@@ -354,9 +418,6 @@
 - uaname: DriverReviver
   name: Driver Reviver
 
-- uaname: Drive
-  name: Drive
-
 - uaname: Dropbox
   name: Dropbox
 
@@ -550,9 +611,6 @@
 - uaname: trueupdate
   name: TrueUpdate
 
-- uaname: unityplayer
-  name: Unity Player
-
 - uaname: vcsoapclient
   name: vcsoapclient
 
@@ -627,3 +685,61 @@
 
 - uaname: zwcad
   name: ZWCAD
+
+- uaname: apsdaemon
+  suffixes: .exe
+  name: apsdaemon
+  type: osutility
+
+- uaname: icloudservices
+  suffixes: .exe
+  name: icloudservices
+  type: osutility
+
+- uaname: windows-update-agent
+  name: Windows Update Agent
+  type: osutility
+
+- uaname: windows store
+  name: Windows Store
+  type: osutility
+
+- uaname: windowsshellclient
+  name: Windows Shell Client
+  type: osutility
+
+- uaname: Microsoft-CryptoAPI
+  name: Microsoft CryptoAPI
+  type: osutility
+
+- uaname: Microsoft-WNS
+  name: Microsoft WNS
+  type: osutility
+
+- uaname: Microsoft-BITS
+  name: Microsoft BITS
+  type: osutility
+
+- uaname: Microsoft-Delivery-Optimization
+  name: Microsoft Delivery Optimization
+  type: osutility
+
+- uaname: Microsoft-NCSI
+  name: Microsoft NCSI
+  type: osutility
+
+- uaname: microsoft windows network diagnostics
+  name: Windows Network Diagnostics
+  type: osutility
+
+- uaname: MICROSOFT_DEVICE_METADATA_RETRIEVAL_CLIENT
+  name: Microsoft Device Metadata Retrieval Client
+  type: osutility
+
+- uaname: debian apt-http
+  name: Apt Updater
+  type: osutility
+
+- uaname: yum
+  name: YUM Updater
+  type: osutility

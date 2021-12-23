@@ -1,3 +1,4 @@
+from collections import defaultdict
 import yaml
 try:
     from yaml import CSafeLoader as SafeLoader
@@ -15,12 +16,11 @@ class RegexLoader:
     # Paths to yml files of regexes
     fixture_files = []
 
-    # Paths to App Details files where lists of name/version patterns are
-    # loaded into dicts for fast lookup. Much faster than using regexes.
-    appdetails_files = []
-
     # Constant used as value for unknown browser / os
     UNKNOWN = 'UNK'
+
+    def __init__(self, version_truncation=1):
+        self.VERSION_TRUNCATION = version_truncation
 
     @staticmethod
     def load_from_yaml(yfile):
@@ -82,6 +82,8 @@ class RegexLoader:
                 regex['regex'] = RegexLazyIgnore(BOUNDED_REGEX.format(regex['regex']))
             for model in regex.get('models', []):
                 model['regex'] = RegexLazyIgnore(BOUNDED_REGEX.format(model['regex']))
+            for version in regex.get('versions', []):
+                version['regex'] = RegexLazyIgnore(BOUNDED_REGEX.format(version['regex']))
 
         DDCache['regexes'][self.cache_name] = regexes
 
@@ -113,32 +115,55 @@ class RegexLoader:
         contained in the relevant appdetails.yml file. Much faster than writing
         individual regexes for each app.
         """
-        appdetails = DDCache['appdetails'].get(self.dtype(), {})
+        appdetails = DDCache['appdetails']
         if appdetails:
             return appdetails
 
-        all_app_details = []
-        for fixture in self.appdetails_files:
-            all_app_details.extend(self.yaml_to_list('{}'.format(fixture)))
+        all_app_details = {}
+        for fixture in (
+                'appdetails/desktop_app.yml',
+                'appdetails/game.yml',
+                'appdetails/library.yml',
+                'appdetails/mediaplayer.yml',
+                'appdetails/messaging.yml',
+                'appdetails/mobile_app.yml',
+                'appdetails/p2p.yml',
+                'appdetails/pim.yml',
+                'appdetails/vpnproxy.yml',
+        ):
+            # Fixture file names are significant!
+            # Normalized file name must be a "dtype" of an Client Parser class
+            name = fixture.split('/')[-1]
+            default_type = name[:-4].replace('_', ' ')
+            all_app_details[default_type] = self.yaml_to_list('{}'.format(fixture))
 
-        # convert uaname value to dict key and remove spaces
-        # and add that key as well.
-        generalized_details = {}
-        for entry in all_app_details:
-            name = entry['name']
-            key = entry['uaname'].lower().replace(' ', '')
-            data = {
-                'name': name,
-                'type': entry.get('type', ''),
-            }
-            generalized_details[key] = data
+        # convert uaname value to dict key and remove spaces and add that key as well.
+        generalized_details = defaultdict(dict)
+        for dtype, entries in all_app_details.items():
+            for entry in entries:
+                name = entry['name']
+                key = entry['uaname'].lower().replace(' ', '')
+                data = {
+                    'name': name,
+                    'type': entry.get('type', dtype),
+                }
+                generalized_details[dtype][key] = data
 
-            # Match airmail, airmail-android, airmail-iphone
-            suffixes = str(entry.get('suffixes', '')).lower().replace(' ', '')
-            for suffix in suffixes.split('|'):
-                key_suffix = '%s%s' % (key, suffix)
-                generalized_details[key_suffix] = data
+                # Match airmail, airmail-android, airmail-iphone
+                suffixes = str(entry.get('suffixes', '')).lower().replace(' ', '')
+                for suffix in suffixes.split('|'):
+                    if not suffix:
+                        continue
+                    generalized_details[dtype]['%s%s' % (key, suffix)] = data
+                    generalized_details[dtype]['%s %s' % (key, suffix)] = data
 
-        DDCache['appdetails'][self.dtype()] = generalized_details
+        DDCache['appdetails'] = generalized_details
 
         return generalized_details
+
+    def clear_cache(self):
+        """
+        Helper method to clear cache on tests.
+        """
+        DDCache.clear()
+        return self

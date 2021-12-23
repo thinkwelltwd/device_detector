@@ -1,3 +1,4 @@
+from urllib.parse import unquote
 import regex
 from regex import IGNORECASE
 
@@ -27,7 +28,10 @@ class RegexLazy:
     """
 
     def __init__(self, pattern, flags=0):
-        self.pattern = pattern
+
+        # Decode UA regexes because UA strings are also decoded
+        # Pic%20Collage/(\d+[\.\d]+) CFNetwork
+        self.pattern = unquote(pattern)
         self.flags = flags
         self.compiled = None
 
