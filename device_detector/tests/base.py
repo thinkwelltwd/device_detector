@@ -43,6 +43,20 @@ APPID_TO_NAME = {
 }
 
 
+class TestInvalidUserAgents(unittest.TestCase):
+
+    def test_all_punctuation(self):
+        """
+        Bogus strings should not crash parser, and should return no client details
+        """
+        for ua in (
+                '%7C%7C%27',
+                ']]>><',
+        ):
+            dd = DeviceDetector(ua).parse()
+            self.assertNotIn('client', dd.all_details)
+
+
 class Base(unittest.TestCase):
 
     fixture_files = []
