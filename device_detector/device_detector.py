@@ -1,5 +1,4 @@
 from .lazy_regex import RegexLazyIgnore
-import uuid
 
 from .parser import (
     OS,
@@ -39,6 +38,8 @@ from .utils import (
     mostly_numerals,
     mostly_repeating_characters,
     only_numerals_and_punctuation,
+    random_alphanumeric_string,
+    uuid_like_name,
     ua_hash,
 )
 from .yaml_loader import RegexLoader
@@ -211,21 +212,20 @@ class DeviceDetector(RegexLoader):
         A:08338459-4ca1-457f-a596-94c3a9037d20
         I:5DFF6AEC-DCED-4BA0-B122-B1826C1CEB02
         """
-        ua = self.user_agent
+        ua = self.user_agent.strip('({})')
         if len(ua) >= 2 and ua[1] == ':':
             ua = self.user_agent[2:]
 
-        try:
-            uuid.UUID(ua)
-            return True
-        except (ValueError, AttributeError):
-            return False
+        return uuid_like_name(ua)
 
     def is_gibberish(self):
         """
         Check for frequently occurring patterns of meaninglessness
         """
         if mostly_repeating_characters(self.user_agent):
+            return True
+
+        if random_alphanumeric_string(self.user_agent):
             return True
 
         return long_ua_no_punctuation(self.user_agent)

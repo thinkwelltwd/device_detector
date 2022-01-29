@@ -138,11 +138,26 @@
   user_agent: '*BkhBAAQAqpcr-X2cXpK9OlSjOYP1fppAz_54DhGqKw0ULQiEVpEBAYmAAAAAAABA'
   normalized: Gibberish
 -
+  user_agent: Ya0eXACkoylZb9TS9qacxCw8XxYzWWuXQAAAAA
+  normalized: Gibberish
+-
+  user_agent: 000248mCaIqvTkO5vaFzEa6SBpSf91RE
+  normalized: Gibberish
+-
+  user_agent: 002261f23pRwrjIEtS1MrX0lZ4hx8N7P
+  normalized: Gibberish
+-
+  user_agent: 002261f23pRwrjIEtS1MrX0lZ4hx8N7P
+  normalized: Gibberish
+-
+  user_agent: 016942KN3oSQhwdGVwgwvvqAKlp1Regs
+  normalized: Gibberish
+-
   user_agent: OTA100503107AC282A850DB733C
   normalized: Gibberish
 -
   user_agent: FC3A97585E2AF12F05FDA0FCB364525E196503325146
-  normalized: Gibberish
+  normalized: Numeric
 -
   user_agent: 471306wp2FvTHfnLdwJIY25Ipa9XszPj
   normalized: Gibberish
