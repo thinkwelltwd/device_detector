@@ -220,6 +220,15 @@ class TestNotGibberish(TestCase):
                 '100Lessons',
                 'BoxCar 2.30',
                 'JQSmartBand',
+                'OfficialDropboxObjCSDKv2',
+                'Ezze',
+                'OPPO',
+                'Wiko',
+                'Asus',
+                'KaiOS',
+                'Huawei',
+                'LG',
+                'video.like',
         ):
             self.assertFalse(
                 random_alphanumeric_string(ua),
