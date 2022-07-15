@@ -17,7 +17,11 @@ class TestNotUUIDname(TestCase):
                 '738FAAEF-30CF',
                 '6BFAD903-A5EA-4E34',
                 '5FAEB6ED-AE46-4A26-BA1B',
+                '4U4AP-Z24UV-BTW0P-QW93F',
+                '4UNEF-PB63F-X9ZAS-AO3TB-HI9JO',
                 'ea1866cb-c89a-6d5d-89b8-afdcdb715237',
+                'a_05D42541-648B-41DD-B11F-0CAF61F4CE19-660-0000004D54BA56F2',
+                'a_03E848FE-2BD9-4400-B87B-172C35D4A309-3121-00000B5202325FA0',
         ):
             self.assertTrue(
                 uuid_like_name(ua),
@@ -29,6 +33,7 @@ class TestNotUUIDname(TestCase):
                 'Waterman-WZVN',
                 'Grainger-Cats',
                 'Boxcarts-8932',
+                'Google-Java-Http-Lib',
         ):
             self.assertFalse(
                 uuid_like_name(ua),

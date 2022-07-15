@@ -59,8 +59,11 @@ UUID_LIKE_NAME = RegexLazyIgnore(
     "^([0-9a-f]{8}(-[0-9a-f]{4}){2,}$)|"
     "^([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$)"
 )
-SHORT_UUID = RegexLazyIgnore(r"^[\w\d]{8}-[\w\d]{4}$")
-
+# a_05D42541-648B-41DD-B11F-0CAF61F4CE19-660-0000004D54BA56F2
+# a_03E848FE-2BD9-4400-B87B-172C35D4A309-3121-00000B5202325FA0
+LONG_UUID = RegexLazyIgnore(r"^([\w\d]{10}-)+([\w\d]{4,5}-)+([\w\d]{12}-)([\w\d]{3,5}-)")
+SHORT_UUID = RegexLazyIgnore(r"^([\w\d]{4,8}-)+([\w\d]{4,5})$")
+INTEGER = RegexLazyIgnore(r"\d")
 MIN_WORD_LENGTH = 7
 
 
@@ -316,7 +319,7 @@ def reset_sequences(current, longest):
     return 0, current if current > longest else longest
 
 
-def uuid_like_name(value: str):
+def uuid_like_name(value: str) -> bool:
     """
     Ensure that name isn't UUID-like string, such as:
 
@@ -325,13 +328,20 @@ def uuid_like_name(value: str):
     5FAEB6ED-AE46-4A26-BA1B
     ea1866cb-c89a-6d5d-89b8-afdcdb715237
     """
-    if UUID_LIKE_NAME.search(value):
+    if not INTEGER.search(value):
+        return False
+
+    if UUID_LIKE_NAME.search(value) or LONG_UUID.search(value):
         return True
 
-    # Require integer, to match 738FAAEF-30CF but permit Waterman-9573  # noqa
-    if SHORT_UUID.search(value):
-        prefix, suffix = value.split('-')
-        return prefix.translate(number_table) != prefix
+    # all sections of the string must contain an integer
+    try:
+        for group in SHORT_UUID.search(value).groups():
+            if not INTEGER.search(group):
+                return False
+        return True
+    except Exception:
+        pass
 
     return False
 
