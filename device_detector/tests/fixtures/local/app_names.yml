@@ -16,11 +16,6 @@
     name: 3M Collision Repair
     version: 3.7.66
 -
-  user_agent: ACC__1FABD5FADB8400B56CD
-  client:
-    name: ACC
-    version: ''
--
   user_agent: AmazonWebView/Kindle for iOS/6.13.1.0/iOS/12.1/iPhone
   client:
     name: Kindle for iOS

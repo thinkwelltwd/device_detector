@@ -11,7 +11,7 @@ number_table = str.maketrans({p: '' for p in '0123456789'})
 REPEATED_CHARACTERS = RegexLazy(r'(.)(\1{11,})')
 
 # Safari often appends a meaningless alphanumeric string enclosed in parens.
-# Otherwise the UAs are identical so strip that suffix
+# Otherwise, the UAs are identical so strip that suffix
 # Mozilla/5.0 (iPhone; CPU iPhone OS 12_1_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/16C101 (5836419392)  # noqa
 # Mozilla/5.0 (iPhone; CPU iPhone OS 12_1_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/16D57 baidumap_IPHO (10793838272)  # noqa
 STRIP_NUM_SUFFIX = RegexLazyIgnore(r'(\([0-9]+\))$')
@@ -45,14 +45,16 @@ LEGAL_BIGRAMS = RegexLazyIgnore(
     '|gz|hz|iz|jz|kz|lz|mz|nz|oz|pz|rz|sz|tz|uz|vz|wz|xz|yz|zz|3d|2p)'
 )
 COMMON_TRIGRAMS = RegexLazyIgnore(
-    r'(the|and|ing|her|hat|his|tha|ere|for|ent|ion|ter|was|you|ith|ver|all|wit|thi|tio|p2p|'
-    r'app|api|bot|cam|cpu|lab|hue|rgb|sdk|web|oku|pad|vpn|zig|4x4|gun|sim|mp3|wma|mov|pic|vid|war)'
+    r'(the|and|ing|her|hat|his|tha|ere|for|lab|ent|ion|ter|was|you|ith|ver|all|wit|thi|tio|p2p|dev|'
+    r'ink|jet|ios|mac|win|dos|rss|med|fun|sun|fax|app|api|bot|cam|cpu|lab|hue|rgb|sdk|web|oku|pad|'
+    r'vpn|zig|4x4|gun|sim|mp3|wma|mov|pic|pix|vid|war|key|bit|gen|sig)'
 )
 COMMON_QUADRIGRAMS = RegexLazyIgnore(
-    '(that|ther|with|tion|here|ould|ight|have|hich|whic|this|thin|they|atio|ever|from|ough|were|'
-    'hing|ment|droid|mobil|brows|load|micro|msdw|network|cloud|http|phone|tablet|wifi|window|page|'
-    'cart|wiki|mozilla|chrome|vivaldi|view|traf|rack|game|audio|truck|block|moat|book|sport|widget|'
-    'scan|connect|free|talk|school|tube|plus|tool|sheet|shop|kids)'
+    '(clou|ipod|ipad|that|ther|with|tion|here|ould|ight|have|hich|whic|this|thin|they|atio|ever|'
+    'from|ough|were|hing|ment|droid|mobil|brows|load|micro|msdw|network|cloud|http|phone|tablet|'
+    'wifi|window|page|cart|wiki|mozilla|chrome|vivaldi|view|traf|rack|game|audio|truck|block|moat|'
+    'book|sport|widget|scan|connect|free|talk|school|tube|plus|tool|sheet|shop|kids|sing|date|play|'
+    'soft|clien|instal|linu|data|trav|stud|sale|phot|shar|wire|star|mail)'
 )
 
 UUID_LIKE_NAME = RegexLazyIgnore(
@@ -170,12 +172,34 @@ def random_alphanumeric_string(user_agent):
     ziNICEarE9VlaPSkhDAyZrkZSpuEkIA
     vVNYZaiXO9Hd5zAi
     """
-    ua_length = len(user_agent)
+    if not user_agent:
+        return False
+
     user_agent = user_agent.lower()
 
-    # strings with spaces / punctuation are not handled
-    if (not user_agent or len(user_agent) <= MIN_WORD_LENGTH or not user_agent.isalnum()
-            or not user_agent.isascii() or good_ngram_matches(user_agent)):
+    # holav1_10593F39DD2DAEBC
+    # HKUM_XBw3S
+    # HKUM_fXHH8t9R
+    if user_agent.startswith(('holav1_', 'hkum_')):
+        return True
+
+    short_ua_len = 17
+    ua_length = len(user_agent)
+
+    # string should have a number of spaces & punctuation chars
+    punctuation_removed_diff = ua_length - len(user_agent.translate(trans_tbl))
+    if ua_length <= 20:
+        delta = 1
+    elif ua_length <= 35:
+        delta = 2
+    else:
+        delta = 3
+
+    large_diff = punctuation_removed_diff >= delta
+
+    # strings with adequate spaces / punctuation are not handled
+    if (len(user_agent) <= MIN_WORD_LENGTH or large_diff or not user_agent.isascii()
+            or good_ngram_matches(user_agent)):
         return False
 
     vowels = 'aeiou'
@@ -231,8 +255,8 @@ def random_alphanumeric_string(user_agent):
         longest_vowel_sequence,
     )
 
-    alphabetic_threshold = 4 if ua_length < 17 else 5
-    intermingled_integer_threshold = 2 if ua_length < 17 else 3
+    alphabetic_threshold = 4 if ua_length < short_ua_len else 5
+    intermingled_integer_threshold = 2 if ua_length < short_ua_len else 3
 
     gibberish = (
         longest_consonant_sequence >= alphabetic_threshold
@@ -240,7 +264,7 @@ def random_alphanumeric_string(user_agent):
         or intermingled_integers >= intermingled_integer_threshold
     )
 
-    if gibberish and ua_length < 17:
+    if gibberish and ua_length < short_ua_len:
         return ngram_analysis_gibberish(user_agent)
 
     return gibberish or ngram_analysis_gibberish(user_agent)
@@ -291,12 +315,12 @@ def good_ngram_matches(user_agent):
     if COMMON_QUADRIGRAMS.search(user_agent):
         return True
 
-    trigram_match = COMMON_TRIGRAMS.search(user_agent)
+    trigram_match = COMMON_TRIGRAMS.findall(user_agent)
+    ua_length = len(user_agent)
 
-    if len(user_agent) < 24 and trigram_match:
+    if ua_length < 24 and trigram_match or len(trigram_match) >= 2:
         return True
 
-    ua_length = len(user_agent)
     if ua_length <= 12:
         bigram_threshold = 2
     elif ua_length <= 24:
