@@ -64,7 +64,8 @@ UUID_LIKE_NAME = RegexLazyIgnore(
 # a_05D42541-648B-41DD-B11F-0CAF61F4CE19-660-0000004D54BA56F2
 # a_03E848FE-2BD9-4400-B87B-172C35D4A309-3121-00000B5202325FA0
 LONG_UUID = RegexLazyIgnore(r"^([\w\d]{10}-)+([\w\d]{4,5}-)+([\w\d]{12}-)([\w\d]{3,5}-)")
-SHORT_UUID = RegexLazyIgnore(r"^([\w\d]{4,8}-)+([\w\d]{4,5})$")
+SHORT_UUID = RegexLazyIgnore(r"^(\w{4,8}-)(\w{4,8}-)+(\w{4,12})$")
+TWO_SEGMENT_UUID = RegexLazyIgnore(r"^(\w{4,8}-)(\w{4,8})$")
 INTEGER = RegexLazyIgnore(r"\d")
 MIN_WORD_LENGTH = 7
 
@@ -355,12 +356,12 @@ def uuid_like_name(value: str) -> bool:
     if not INTEGER.search(value):
         return False
 
-    if UUID_LIKE_NAME.search(value) or LONG_UUID.search(value):
+    if UUID_LIKE_NAME.search(value) or LONG_UUID.search(value) or SHORT_UUID.search(value):
         return True
 
     # all sections of the string must contain an integer
     try:
-        for group in SHORT_UUID.search(value).groups():
+        for group in TWO_SEGMENT_UUID.search(value).groups():
             if not INTEGER.search(group):
                 return False
         return True
