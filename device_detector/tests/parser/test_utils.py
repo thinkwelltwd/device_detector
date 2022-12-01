@@ -124,6 +124,12 @@ class TestNotGibberish(TestCase):
                 'vVNYZaiXO9Hd5zAi',
                 'W6o8uLSXW8gagZqDA',
                 'zmV3SkWiLPNcSXNmhvFbQjpyk',
+                '3vFsPvhg',
+                '3VWsvq4e',
+                '3vjQidb8',
+                '21jWHcQV',
+                '2ffAGSu1',
+                '33Ji2XaL',
         ):
             self.assertTrue(
                 random_alphanumeric_string(ua),
@@ -268,6 +274,16 @@ class TestNotGibberish(TestCase):
                 'Huawei',
                 'LG',
                 'video.like',
+                'snomM700',
+                'sendori-client-win32',
+                'Stocks101',
+                'TuneFox2',
+                'project205',
+                'oilhunt2',
+                'pacman256',
+                'rcplane3',
+                'loggly-log4net-appender',
+                'sendori-client-win32',
         ):
             self.assertFalse(
                 random_alphanumeric_string(ua),

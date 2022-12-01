@@ -16,8 +16,8 @@ REPEATED_CHARACTERS = RegexLazy(r'(.)(\1{11,})')
 # Mozilla/5.0 (iPhone; CPU iPhone OS 12_1_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/16D57 baidumap_IPHO (10793838272)  # noqa
 STRIP_NUM_SUFFIX = RegexLazyIgnore(r'(\([0-9]+\))$')
 COMMON_BIGRAMS = RegexLazyIgnore(
-    r'th|he|in|er|an|re|on|at|en|nd|ti|es|or|te|of|ed|is|it|al|ar|st|to|nt|ng|se|'
-    r'ha|as|ou|io|le|ve|co|me|de|hi|ri|ro|ic|ne|ea|ra|ce|li|ch|ll|be|ma|si|om|ur'
+    r'th|he|in|er|an|ar|re|on|at|en|nd|ti|es|or|te|of|ed|is|it|al|ar|st|to|nt|ng|se|'
+    r'ha|as|ou|io|le|ve|co|me|de|hi|ri|ro|ic|ne|ea|ee|oo|ra|ce|li|ch|ll|be|ma|si|om|ur'
 )
 ILLEGAL_BIGRAMS = RegexLazyIgnore(r'[a-z0-9](jq|qg|qk|qy|qz|wq|wz)')
 LEGAL_BIGRAMS = RegexLazyIgnore(
@@ -47,14 +47,16 @@ LEGAL_BIGRAMS = RegexLazyIgnore(
 COMMON_TRIGRAMS = RegexLazyIgnore(
     r'(the|and|ing|her|hat|his|tha|ere|for|lab|ent|ion|ter|was|you|ith|ver|all|wit|thi|tio|p2p|dev|'
     r'ink|jet|ios|mac|win|dos|rss|med|fun|sun|fax|app|api|bot|cam|cpu|lab|hue|rgb|sdk|web|oku|pad|'
-    r'vpn|zig|4x4|gun|sim|mp3|wma|mov|pic|pix|vid|war|key|bit|gen|sig)'
+    r'art|bea|boa|cat|law|mes|new|not|vpn|zig|4x4|gun|sim|mp3|wma|mov|pic|pix|vid|war|key|sho|syn|'
+    r'bit|boy|cli|dri|han|log|man|mot|rad|oil|sip|nom|gen|per|sig|tim|tun|wor)'
 )
 COMMON_QUADRIGRAMS = RegexLazyIgnore(
     '(clou|ipod|ipad|that|ther|with|tion|here|ould|ight|have|hich|whic|this|thin|they|atio|ever|'
     'from|ough|were|hing|ment|droid|mobil|brows|load|micro|msdw|network|cloud|http|phone|tablet|'
     'wifi|window|page|cart|wiki|mozilla|chrome|vivaldi|view|traf|rack|game|audio|truck|block|moat|'
     'book|sport|widget|scan|connect|free|talk|school|tube|plus|tool|sheet|shop|kids|sing|date|play|'
-    'soft|clien|instal|linu|data|trav|stud|sale|phot|shar|wire|star|mail)'
+    'client|girl|plan|proj|soft|tock|instal|linu|data|trav|stud|send|sale|phot|shar|wire|star|mail|'
+    'win3|win6)'
 )
 
 UUID_LIKE_NAME = RegexLazyIgnore(
@@ -276,14 +278,10 @@ def ngram_analysis_gibberish(user_agent):
     Analyze legal ngrams to see if it's likely that UA is gibberish.
     """
     ua_length = len(user_agent)
-    # on shorter strings, strip leading / trailing integers to extract only the central name
-    # as the ints are like to be version or year values
-    if ua_length < 20:
-        user_agent = user_agent.strip('0123456789')
-        if len(user_agent) <= MIN_WORD_LENGTH:
-            return False
 
-    if ua_length <= 10:
+    if ua_length <= 6:
+        bigram_threshold = 3
+    elif ua_length <= 10:
         bigram_threshold = 4
     elif ua_length <= 15:
         bigram_threshold = 5
