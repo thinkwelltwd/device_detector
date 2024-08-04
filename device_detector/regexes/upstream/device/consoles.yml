@@ -26,7 +26,7 @@ Microsoft:
       model: 'Xbox 360'
 
 Nintendo:
-  regex: 'Nintendo (([3]?DS[i]?)|Wii[U]?|Switch)'
+  regex: 'Nintendo (([3]?DS[i]?)|Wii[U]?|Switch|GameBoy)'
   device: 'console'
   model: '$1'
 
@@ -35,12 +35,40 @@ OUYA:
   device: 'console'
   model: 'OUYA'
 
-Sega:
-  regex: 'Dreamcast'
+Sanyo:
+  regex: 'Aplix_SANYO'
   device: 'console'
-  model: 'Dreamcast'
+  model: '3DO TRY'
+
+Sega:
+  regex: 'Dreamcast|Aplix_SEGASATURN'
+  device: 'console'
+  models:
+    - regex: 'Dreamcast'
+      model: 'Dreamcast'
+    - regex: 'Aplix_SEGASATURN'
+      model: 'Saturn'
+
+JXD:
+  regex: 'JXD_S601WIFI'
+  device: 'console'
+  model: 'S601 WiFi'
 
 Sony:
-  regex: 'PlayStation (3|4 Pro|4|Portable|Vita)'
+  regex: '(?:PlayStation ?(4 Pro|[2-5]|Portable|Vita)|sony_tv;ps5;|\(PS3\))'
   device: 'console'
-  model: 'PlayStation $1'
+  models:
+    - regex: 'sony_tv;ps5;'
+      model: 'PlayStation 5'
+    - regex: 'PlayStation 4 PRO'
+      model: 'PlayStation 4 Pro'
+    - regex: '\(PS3\)'
+      model: 'PlayStation 3'
+    - regex: 'PlayStation ?(4 Pro|[2-5]|Portable|Vita)'
+      model: 'PlayStation $1'
+
+# Retroid Pocket (www.goretroid.com)
+Retroid Pocket:
+  regex: 'Retroid Pocket 2(?:Plus|\+)'
+  device: 'console'
+  model: '2 Plus'

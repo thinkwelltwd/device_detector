@@ -142,7 +142,7 @@ Akregator, Apple PubSub, BashPodder, Breaker, FeedDemon, Feeddler RSS Reader, gP
 2. Iterate through the various commits and copy the fixture files with the commands below.
 3. Review logic changes in the PHP files and implement them in the Python code.
 4. Run the tests and fix the ones that fail.
-
+5. Build and install wheel using pip3
 ```bash
 export upstream=/path/to/cloned/matomo/device-detector
 export pdd=/path/to/python/ported/device_detector
@@ -153,4 +153,10 @@ cp $upstream/regexes/*.yml $pdd/device_detector/regexes/upstream/
 cp $upstream/Tests/fixtures/* $pdd/device_detector/tests/fixtures/upstream/
 cp $upstream/Tests/Parser/Client/fixtures/* $pdd/device_detector/tests/parser/fixtures/upstream/client/
 cp $upstream/Tests/Parser/Device/fixtures/* $pdd/device_detector/tests/parser/fixtures/upstream/device/
+```
+
+### Building
+```bash
+python3 setup.py sdist bdist_wheel
+pip3 install dist/device_detector-*.whl
 ```
