@@ -27,8 +27,4 @@
   user_agent: FLCore v3 - Window Focus
   client:
     name: FLCore
--
-  user_agent: Focuskeeper/2.0.15.4 CFNetwork/1240.0.4 Darwin/20.5.0
-  client:
-    name: Focuskeeper
 # -----------------------------------------------------------------

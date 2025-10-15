@@ -47,6 +47,7 @@ from .yaml_loader import RegexLoader
 MAC_iOS = {
     'tvOS',
     'watchOS',
+    'iPadOS',
     'iOS',
     'Mac',
 }
