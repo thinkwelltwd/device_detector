@@ -2,9 +2,10 @@ from . import GenericClientParser
 
 from ...lazy_regex import RegexLazyIgnore
 from ..settings import SKIP_PREFIXES
-from ...settings import DDCache
+
 
 # -------------------------------------------------------------------
+# fmt: off
 # Regexes that we use to parse UAs with a similar structure
 parse_generic_regex = [
     # Weather_WeatherFoundation[1]_15E302
@@ -57,6 +58,7 @@ extract_version_regex = [
     # AppNamev.5.0.21_PRC = v.5.0.21
     (RegexLazyIgnore(r'((?:v.?)?\d[\d\.]+)')),
 ]
+# fmt: on
 
 
 class WholeNameExtractor(GenericClientParser):
@@ -64,11 +66,15 @@ class WholeNameExtractor(GenericClientParser):
     Catch all for user agents that do not use the slash format
     """
 
+    __slots__ = ()
+
     parse_generic_regex = parse_generic_regex
     extract_version_regex = extract_version_regex
 
     # -------------------------------------------------------------------
-    def _parse(self):
+    def _parse(self) -> None:
+        if self.ch_client_data:
+            return
 
         self.clean_name()
 
@@ -89,30 +95,47 @@ class WholeNameExtractor(GenericClientParser):
 
         try:
             self.app_name = app_details[code]['name']
-            self.calculated_dtype = app_details[code].get('type', '')
         except KeyError:
             pass
 
         self.ua_data = {
             'name': self.app_name,
             'version': self.app_version,
-            'type': self.calculated_dtype,
+            'type': app_details[code].get('type', ''),
         }
 
         self.known = True
 
-    def parse_name_version(self) -> str:
+    def clean_name(self) -> None:
+        """
+        Check if the extracted name uses a known format that we can
+        extract helpful info from.  If so, update ua data and mark
+        as known.
+        """
+        for regex, group in self.parse_generic_regex:
+            m = regex.match(self.user_agent)
+
+            if m:
+                try:
+                    self.app_name = m.group(group).strip()
+                    return
+                except Exception:
+                    continue
+
+        self.app_name = self.user_agent
+
+    def parse_name_version(self) -> str | None:
         """
         Check if app name has a suffix with the version number and
         extract if it does.  Return the UA string without the suffix.
         """
         for regex in self.extract_version_regex:
-
             match = regex.search(self.app_name)
             if match:
                 self.app_version = match.group().strip()
-                self.app_name = self.user_agent[:match.start()].strip(' /-')
+                self.app_name = self.user_agent[: match.start()].strip(' /-')
                 return self.app_version
+        return None
 
     def is_name_length_valid(self) -> bool:
         """

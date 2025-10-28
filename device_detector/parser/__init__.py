@@ -1,4 +1,5 @@
 from .client import *
+from .client_hints import ClientHints
 from .extractors import *
 from .device import *
 from .key_value_pairs import *

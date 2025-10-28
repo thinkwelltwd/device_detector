@@ -5,21 +5,8 @@
 # @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
 ###############
 
-# WhatsApp
-- uaname: WhatsApp
-  name: WhatsApp
-
-- uaname: Chat for WhatsApp
-  name: WhatsApp
-
-- uaname: Guide for WhatsApp
-  name: WhatsApp
-
-- uaname: Groups for WhatsApp
-  name: WhatsApp
-
-- uaname: Memes for WhatsApp
-  name: WhatsApp
+# The "uaname" values will be converted to lowercase,
+# so consider
 
 # Line
 - uaname: Line
@@ -28,66 +15,58 @@
 - uaname: Podcasts
   name: Podcasts
 
--
-  uaname: Podcat
+- uaname: Podcat
   name: Podcat
 
--
-  uaname: BeyondPod
+- uaname: BeyondPod
   name: BeyondPod
--
-  uaname: AntennaPod
+
+- uaname: AntennaPod
   name: AntennaPod
--
-  uaname: Overcast
+
+- uaname: Overcast
   name: Overcast
--
-  uaname: Player FM
-  name: Player FM
--
-  uaname: Castro 2 Episode Download
+
+- uaname: Castro 2 Episode Download
   name: Castro 2
--
-  uaname: DoggCatcher
+
+- uaname: DoggCatcher
   name: DoggCatcher
--
-  uaname: iCatcher! Podcast Player
+
+- uaname: iCatcher! Podcast Player
   name: iCatcher
--
-  uaname: YelpApp
+
+- uaname: YelpApp
   name: Yelp Mobile
--
-  uaname: GoogleAuth
+
+- uaname: GoogleAuth
   name: Google Auth Engine
--
-  uaname: PinkyPie
+
+- uaname: PinkyPie
   name: Cequint Caller ID
--
-  uaname: eBayiPhone
+
+- uaname: eBayiPhone
   name: eBay for iOS
--
-  uaname: eBayiPhone
+
+- uaname: eBayiPhone
   name: eBay for iOS
--
-  uaname: Viber
+
+- uaname: Viber
   name: Viber
--
-  uaname: CloudVeilMessenger
+
+- uaname: CloudVeilMessenger
   name: CloudVeil Messenger
 
--
-  uaname: VungleDroid
+- uaname: VungleDroid
   name: VungleDroid
 
--
-  uaname: SafetyMap
+- uaname: SafetyMap
   name: SafetyMap
 
--
-  uaname: Staples Mobile App
+- uaname: Staples Mobile App
   name: Staples Mobile App
--
-  uaname: iMazing
+
+- uaname: iMazing
   name: iMazing
 
 - uaname: cbnnews
@@ -112,7 +91,7 @@
   name: AccuWeather
 
 - uaname: com.accuweather.android
-  name: AccuWeather
+  name: "AccuWeather: Weather Radar"
 
 - uaname: com.apalon.weatherradar.free
   name: NOAA Weather Radar
@@ -337,7 +316,6 @@
 - uaname: 5miles
   name: 5 Miles
 
-
 - uaname: aaairlines
   name: American Airlines
 
@@ -508,9 +486,6 @@
 - uaname: appex
   name: Appex
 
-- uaname: applecoremedia
-  name: Apple Core Media
-
 - uaname: appledictionaryapplication
   name: Apple Dictionary App
 
@@ -550,8 +525,6 @@
 - uaname: art and stitch
   name: Art and Stitch
 
-- uaname: atube-music
-  name: ATube Music
 
 - uaname: auction.com
   name: Auction.com
@@ -797,8 +770,8 @@
 - uaname: com.agilebits.onepassword-ios.extension
   name: 1Password
 
-- uaname: AgingBooth
-  name: AgingBooth
+- uaname: agingbooth
+  name: agingbooth
 
 - uaname: Adult SMS
   name: Adult SMS
@@ -812,26 +785,20 @@
 - uaname: com.apple.mobilenotes.sharingextension
   name: Apple Mobile Notes
 
-- uaname: com.apple.mobilesafari
-  name: Apple Mobile Safari
-
 - uaname: com.apple.mobileslideshow
   name: Apple Mobile Slideshow
 
 - uaname: com.apple.MobileSMS
-  name: Apple MobileSMS
+  name: Apple Mobile SMS
 
 - uaname: com.apple.mobilesoftwareupdate
   name: Apple Mobile Software Update
 
-- uaname: com.apple.Photos
+- uaname: com.apple.photos
   name: Apple Photos
 
-- uaname: com.apple.safari.searchhelper
-  name: Safari Search Helper
-
 - uaname: com.apple.siri-distributed-evaluation
-  name: Safari Siri Distibuted Evalutation
+  name: Apple Siri
 
 - uaname: com.equitybank.grip
   name: Equity Bank
@@ -843,11 +810,14 @@
   suffixes: _ios
   name: Google Hangouts
 
+- uaname: com.ztnstudio.notepad
+  name: 'Notepad - Notes and To Do List'
+
 - uaname: com.jcp
   name: JCPenney
 
 - uaname: com.kohls.mcommerce.opal
-  name: Kohls
+  name: "Kohl's Shopping & More"
 
 - uaname: com.menards.mobile
   name: Menards
@@ -865,19 +835,16 @@
   name: Ohio Valley Mobile Banking
 
 - uaname: com.parrot.freeflight3
-  name: FreeFlight Pro
-
-- uaname: com.project100pi.themusicplayer
-  name: Pi Music Player
+  name: Parrot Freeflight3
 
 - uaname: com.sonicomobile.itranslatemac
-  name: iTranslate
+  name: iTranslate by Sonicmobile
 
 - uaname: com.starbucks.mobilecard
   name: Starbucks
 
 - uaname: com.tgc.greatcoursesplus
-  name: Great Courses Plus
+  name: The Great Courses Plus
 
 - uaname: com.thehomedepot
   name: The Home Depot
@@ -1710,32 +1677,8 @@
 - uaname: mango
   name: Mango
 
-- uaname: mapboxgl
-  name: Mapbox GL
-
 - uaname: mapmyrun
   name: Map My Run
-
-- uaname: mapquest
-  name: MapQuest
-
-- uaname: maps
-  name: Maps
-
-- uaname: maps.me
-  name: maps.me
-
-- uaname: mapssupport
-  name: Maps Support
-
-- uaname: maps_weatherfoundation
-  name: Maps Weather Foundation
-
-- uaname: mapulator
-  name: Mapulator
-
-- uaname: mapwidget
-  name: Map Widget
 
 - uaname: marcopolo
   name: Marco Polo
@@ -1878,17 +1821,11 @@
 - uaname: mp s3 transfer manager, ios
   name: MP S3 Transfer Manager
 
-- uaname: music
-  name: Music
-
 - uaname: musica cristiana de adoracion
   name: Musica Cristiana de Adoracion
 
 - uaname: musically
   name: Musically
-
-- uaname: musicplayerapp
-  name: Music Player App
 
 - uaname: myattthin
   name: my ATT
@@ -2046,10 +1983,6 @@
 
 - uaname: orbitz
   name: Orbitz
-
-- uaname: osmand
-  suffix: maps
-  name: OsmAnd Maps
 
 - uaname: owner
   name: Owner
@@ -2929,12 +2862,6 @@
   suffixes: -ios|-android
   name: YCrashManager
 
-- uaname: youtube
-  name: YouTube
-
-- uaname: youtubemusic
-  name: YouTube Music
-
 - uaname: yp
   name: YP
 
@@ -2953,3 +2880,771 @@
 
 - uaname: 待办
   name: 待办
+
+- uaname: com.apple.invitation-registration
+  name: Apple Invitation Maker
+- uaname: com.apple.mobilenotes.sharingextension
+  name: Apple Mobile Notes
+- uaname: com.apple.mobileslideshow
+  name: Apple Mobile Slideshow
+
+- uaname: com.google.drive
+  name: Google Drive
+- uaname: com.google.drive.fileproviderextension
+  name: Google Drive
+- uaname: com.google.drive.fileprovideruiextension
+  name: Google Drive
+- uaname: com.google.drive.shareextension
+  name: Google Drive
+- uaname: com.google.googlemobile
+  name: GoogleMobile
+- uaname: com.google.googlemobile.keyboardextension
+  name: GoogleMobile
+- uaname: com.google.googlemobile.messagesextension
+  name: GoogleMobile
+- uaname: com.google.googlemobile.trendstodayextension
+  name: GoogleMobile
+- uaname: com.google.hangouts_ios
+  name: Google Hangouts
+- uaname: com.google.b612
+  name: Google B612
+- uaname: com.google.android.apps.paidtasks
+  name: Google Opinion Rewards
+- uaname: com.google.android.apps.adm
+  name: Google’s Find Hub
+- uaname: com.google.android.apps.chromecast.app
+  name: Google Home
+- uaname: com.google.android.apps.subscriptions.red
+  name: Google One
+- uaname: com.google.android.apps.kids.familylink
+  name: Google Family Link
+- uaname: com.google.android.apps.docs.editors.docs
+  name: Google Docs
+- uaname: com.google.android.apps.healthdata
+  name: Health Connect
+- uaname: com.google.android.apps.nbu.files
+  name: Files by Google
+- uaname: com.google.ar.lens
+  name: Google Lens
+- uaname: com.google.android.as.oss
+  name: Private Compute Services
+- uaname: com.google.android.keep
+  name: Google Keep - Notes and lists
+- uaname: com.google.android.apps.nbu.paisa.user
+  name: "Google Pay: Save and Pay"
+- uaname: com.google.android.projection.gearhead
+  name: Android Auto
+- uaname: com.google.android.apps.books
+  name: Google Play Books & Audiobooks
+- uaname: com.google.android.apps.wellbeing
+  name: Digital Wellbeing
+- uaname: com.google.android.apps.tachyon
+  name: Google Meet
+- uaname: com.google.android.apps.photosgo
+  name: Gallery
+- uaname: com.google.android.apps.magazines
+  name: Google News - Daily Headlines
+- uaname: com.google.android.apps.translate
+  name: Google Translate
+- uaname: com.google.android.googlequicksearchbox
+  name: Google
+- uaname: com.google.android.apps.assistant
+  name: Google Assistant Go
+- uaname: com.google.android.apps.walletnfcrel
+  name: Google Wallet
+- uaname: com.google.android.apps.docs
+  name: Google Drive
+- uaname: com.google.android.apps.googleassistant
+  name: Google Assistant
+- uaname: com.google.android.apps.docs.editors.slides
+  name: Google Slides
+- uaname: com.google.android.apps.photos
+  name: Google Photos
+- uaname: com.google.android.apps.docs.editors.sheets
+  name: Google Sheets
+
+- uaname: com.applicatsia.iroofing
+  name: iRoofing
+- uaname: com.gemsoftware.textme
+  name: TextMe
+- uaname: bible.wordgame.words.connect.crossword.cookies
+  name: Bible Word Puzzle
+- uaname: com.adobe.reader
+  name: Adobe Reader
+- uaname: com.foursquare.pilgrimsdk.ios
+  name: Foursquare Pilgrim SDK
+- uaname: com.aiowireless.myaio
+  name: MyAIO
+- uaname: com.aol.mapquest
+  name: Aol Mapquest
+- uaname: com.belizebank.mobile
+  name: Belize Bank Mobile Banking
+- uaname: com.cloudveil.cloudveilmessenger
+  name: Cloudveil Messenger
+- uaname: com.engauge.chick-fil-a
+  name: Chick-Fil-A
+- uaname: com.gasbuddymobile.gasbuddy
+  name: GasBuddy Gas Station Finder
+- uaname: com.mxtech.videoplayer.ad
+  name: MX Player
+- uaname: com.precisionplanting.fieldview
+  name: Precision Planting Fieldview
+- uaname: com.samsclub.samsapp
+  name: Sam's Club
+- uaname: com.smilerlee.klondike
+  name: Smilerlee Klondike
+- uaname: com.softacular.sportacular
+  name: Softacular Sportacular
+- uaname: com.surpax.ledflashlight.panel
+  name: Super-Bright LED Torch
+- uaname: com.textra
+  name: Textra SMS
+- uaname: com.underarmour.shop
+  name: Under Armour
+- uaname: com.wte.view
+  name: Pregnancy Tracker & Baby App
+- uaname: com.wunderground.storm
+  name: Storm by Weather Underground
+- uaname: com.yahoo.aerogram
+  name: Yahoo Aerogram
+- uaname: com.yahoo.weather
+  name: Yahoo Weather
+- uaname: com.zonervan.biblegateway
+  name: Zonervan Bible Gateway
+- uaname: id.myvision.mail.k9
+  name: Vision Mail
+- uaname: kjv.bible.kingjamesbible
+  name: King James Bible
+- uaname: net.avast.osx.secureline.avastsecurelinehelper
+  name: Avast Antivirus
+- uaname: org.whiteglow.keepmynotes
+  name: Keep My Notes
+- uaname: com.microblink.photomath
+  name: Photomath
+- uaname: com.olx.southasia
+  name: "OLX: Buy & Sell Near You"
+- uaname: com.naturalmotion.customstreetracer2
+  name: CSR 2 Realistic Drag Racing
+- uaname: free.tube.premium.advanced.tuber
+  name: "Pure Tuber: Video & MP3 Player"
+- uaname: com.olacabs.customer
+  name: "Ola: Book Cab, Auto, Bike Taxi"
+- uaname: com.santander.app
+  name: Santander Brasil
+- uaname: com.mobikwik_new
+  name: "MobiKwik: BHIM UPI & Wallet"
+- uaname: com.halo.wifikey.wifilocating
+  name: "WiFi Master: WiFi Auto Connect"
+- uaname: fb.video.downloader
+  name: Video Downloader For Facebook
+- uaname: com.adobe.lrmobile
+  name: Lightroom Photo & Video Editor
+- uaname: com.apps.myxl
+  name: myXL - XL, PRIORITAS & HOME
+- uaname: com.dubox.drive
+  name: "TeraBox: 1TB Cloud & AI Space"
+- uaname: com.weather.weather
+  name: The Weather Channel - Radar
+- uaname: com.kakao.talk
+  name: "KakaoTalk : Messenger"
+- uaname: com.grofers.customerapp
+  name: "Blinkit: Grocery in 10 minutes"
+- uaname: com.paypal.android.p2pmobile
+  name: PayPal - Pay, Send, Save
+- uaname: com.rapido.passenger
+  name: "Rapido: Bike-Taxi, Auto & Cabs"
+- uaname: com.crunchyroll.crunchyroid
+  name: Crunchyroll
+- uaname: com.bancomer.mbanking
+  name: BBVA México
+- uaname: com.rsupport.mvagent
+  name: Mobizen Screen Recorder
+- uaname: com.facebook.pages.app
+  name: Meta Business Suite
+- uaname: com.fdgentertainment.redball4.gp
+  name: Red Ball 4
+- uaname: com.craftsman.go
+  name: "Craftsman: Building Craft"
+- uaname: com.daraz.android
+  name: Daraz Online Shopping App
+- uaname: com.teacapps.barcodescanner
+  name: QR & Barcode Scanner
+- uaname: com.king.petrescuesaga
+  name: Pet Rescue Saga
+- uaname: com.amazon.kindle
+  name: Amazon Kindle
+- uaname: com.axis.net
+  name: AXISnet Cek & Beli Kuota Data
+- uaname: com.binance.dev
+  name: "Binance: Buy Bitcoin & Crypto"
+- uaname: com.csam.icici.bank.imobile
+  name: "iMobile: Loan, Cards & Banking"
+- uaname: air.com.lunime.gachalife
+  name: Gacha Life
+- uaname: com.bitstrips.imoji
+  name: Bitmoji
+- uaname: com.miniclip.footballstrike
+  name: "Football Strike: Online Soccer"
+- uaname: com.dd.doordash
+  name: "DoorDash: Food, Grocery, More"
+- uaname: com.miniclip.agar.io
+  name: Agar.io
+- uaname: com.nekki.vector
+  name: Vector
+- uaname: com.socialnmobile.dictapps.notepad.color.note
+  name: ColorNote Notepad Notes
+- uaname: com.commsource.beautyplus
+  name: BeautyPlus-Selfie Photo Editor
+- uaname: com.radio.pocketfm
+  name: "Pocket FM: Audio Series"
+- uaname: pk.com.telenor.phoenix
+  name: easypaisa – a digital bank
+- uaname: com.joom
+  name: Joom. Shopping for every day
+- uaname: com.smule.singandroid
+  name: "Smule: Karaoke, Sing & Record"
+- uaname: vstudio.android.camera360
+  name: "Camera360 :Photo Editor&Selfie"
+- uaname: com.oplus.themestore
+  name: Theme Store
+- uaname: com.tokopedia.tkpd
+  name: Tokopedia Promo Guncang 10.10
+- uaname: com.ubercab.driver
+  name: "Uber - Driver: Drive & Deliver"
+- uaname: com.cyberlink.youcammakeup
+  name: YouCam Makeup - Selfie Editor
+- uaname: com.xvideostudio.videoeditor
+  name: AI Video Editor - VideoShow AI
+- uaname: com.reddit.frontpage
+  name: Reddit
+- uaname: com.prettysimple.criminalcaseandroid
+  name: Criminal Case
+- uaname: photoeditor.layout.collagemaker
+  name: Collage Maker
+- uaname: com.photoroom.app
+  name: Photoroom AI Photo Editor
+- uaname: videoeditor.videorecorder.screenrecorder
+  name: Screen Recorder - XRecorder
+- uaname: com.global.foodpanda.android
+  name: "foodpanda: food & groceries"
+- uaname: com.zeptoconsumerapp
+  name: "Zepto:10-Min Grocery Delivery*"
+- uaname: com.pixel.art.coloring.color.number
+  name: "Happy Color®: Color by Number"
+- uaname: com.jrzheng.supervpnfree
+  name: SuperVPN Fast VPN Client
+- uaname: com.digidust.elokence.akinator.freemium
+  name: Akinator
+- uaname: com.shopee.ph
+  name: "Shopee PH: 10.10"
+- uaname: com.myntra.android
+  name: Myntra - Fashion Shopping App
+- uaname: com.walmart.android
+  name: "Walmart: Shopping & Savings"
+- uaname: com.mediocre.smashhit
+  name: Smash Hit
+- uaname: com.squareup.cash
+  name: Cash App
+- uaname: photo.editor.photoeditor.photoeditorpro
+  name: AI Photo Editor - Polish
+- uaname: com.joeware.android.gpulumera
+  name: Candy Camera AI – Find myself
+- uaname: com.psafe.msuite
+  name: "dfndr security: antivirus"
+- uaname: com.amazon.dee.app
+  name: Amazon Alexa
+- uaname: com.itau
+  name: "Banco Itaú: Conta, Cartão e +"
+- uaname: com.uc.browser.en
+  name: UC Mini-Download Video Status
+- uaname: com.ril.ajio
+  name: AJIO Online Shopping App
+- uaname: com.devuni.flashlight
+  name: Tiny Flashlight + LED
+- uaname: com.instabridge.android
+  name: "Instabridge: WiFi Hotspot Map"
+- uaname: com.nekki.shadowfight3
+  name: Shadow Fight 3 - RPG fighting
+- uaname: wp.wattpad
+  name: Wattpad - Read & Write Stories
+- uaname: com.supercell.hayday
+  name: Hay Day
+- uaname: com.nu.production
+  name: Nu
+- uaname: com.outfit7.talkingtom
+  name: Talking Tom Cat
+- uaname: com.halfbrick.jetpackjoyride
+  name: Jetpack Joyride
+- uaname: com.ixigo.train.ixitrain
+  name: "ixigo Trains: Ticket Booking"
+- uaname: app.source.getcontact
+  name: Getcontact
+- uaname: com.ebay.mobile
+  name: eBay online shopping & selling
+- uaname: com.bradesco
+  name: "Bradesco: Conta, Cartão e Pix!"
+- uaname: com.amazon.mshop.android.shopping
+  name: Amazon Shopping
+- uaname: com.application.zomato
+  name: "Zomato: Food Delivery & Dining"
+- uaname: com.fugo.wow
+  name: "Words of Wonders: Crossword"
+- uaname: com.samsung.android.app.watchmanager
+  name: Galaxy Wearable
+- uaname: com.sec.android.app.clockpackage
+  name: Clock
+- uaname: com.moonactive.coinmaster
+  name: Coin Master
+- uaname: com.transsion.carlcare
+  name: Carlcare
+- uaname: com.audiomack
+  name: "Audiomack: Music Downloader"
+- uaname: com.axlebolt.standoff2
+  name: Bigo Live - Live Streaming App
+- uaname: br.com.brainweb.ifood
+  name: iFood comida e mercado em casa
+- uaname: com.pure.indosat.care
+  name: "myIM3: Data Plan & Buy Package"
+- uaname: com.wb.goog.mkx
+  name: Mortal Kombat
+- uaname: zombie.survival.craft.z
+  name: "Last Day on Earth: Survival"
+- uaname: com.telkomsel.telkomselcm
+  name: MyTelkomsel – Buy Internet
+- uaname: com.yodo1.crossyroad
+  name: Crossy Road
+- uaname: sinet.startup.indriver
+  name: inDrive. Rides with fair fares
+- uaname: com.mercadopago.wallet
+  name: "Mercado Pago: cuenta digital"
+- uaname: com.sirma.mobile.bible.android
+  name: YouVersion Bible App + Audio
+- uaname: io.faceapp
+  name: "FaceApp: Perfect Face Editor"
+- uaname: com.outfit7.mytalkingtom2
+  name: My Talking Tom 2
+- uaname: com.bigwinepot.nwdn.international
+  name: Remini - AI Photo Enhancer
+- uaname: com.sec.android.easymover
+  name: Samsung Smart Switch Mobile
+- uaname: com.ubercab.eats
+  name: "Uber Eats: Food and Grocery"
+- uaname: com.whereismytrain.android
+  name: Where is my Train
+- uaname: com.coloros.alarmclock
+  name: Clock
+- uaname: com.coloros.filemanager
+  name: My Files
+- uaname: com.tumblr
+  name: Tumblr - Social Media Fandom
+- uaname: com.wbd.stream
+  name: "HBO Max: Stream TV & Movies"
+- uaname: com.heytap.themestore
+  name: Theme
+- uaname: com.fdgentertainment.bananakong
+  name: Banana Kong
+- uaname: com.wildberries.ru
+  name: Wildberries
+- uaname: com.coloros.gallery3d
+  name: OPPO Photos
+- uaname: br.com.gabba.caixa
+  name: CAIXA
+- uaname: com.gamma.scan
+  name: QR & Barcode Scanner
+- uaname: com.waze
+  name: Waze Navigation & Live Traffic
+- uaname: com.phonepe.app
+  name: PhonePe UPI, Payment, Recharge
+- uaname: cn.xender
+  name: Xender - Share Music Transfer
+- uaname: vsin.t16_funny_photo
+  name: Photo Lab Picture Editor & Art
+- uaname: com.ismaker.android.simsimi
+  name: SimSimi
+- uaname: com.coloros.phonemanager
+  name: Phone Manager
+- uaname: com.gojek.app
+  name: Gojek - Food & Transportation
+- uaname: com.venticake.retrica
+  name: Retrica
+- uaname: com.motorola.fmplayer
+  name: FM Radio
+- uaname: com.transsion.xoslauncher
+  name: XOS Launcher -Cool Stylish
+- uaname: org.altruist.bajajexperia
+  name: "Bajaj Finserv: Loans, UPI & FD"
+- uaname: homeworkout.homeworkouts.noequipment
+  name: Home Workout - No Equipment
+- uaname: com.playit.videoplayer
+  name: PLAYit-All in One Video Player
+- uaname: flipboard.app
+  name: "Flipboard:Your Social Magazine"
+- uaname: com.naver.linewebtoon
+  name: "WEBTOON: Manga, Comics, Manhwa"
+- uaname: com.zzkko
+  name: SHEIN-Shopping Online
+- uaname: com.lbe.parallel.intl
+  name: Parallel Space - app cloning
+
+- uaname: com.episodeinteractive.android.catalog
+  name: Episode - Choose Your Story
+- uaname: com.oplus.melody
+  name: Wireless Earphones
+- uaname: com.transsion.notebook
+  name: Notepad - Notes、Todo、Memo
+- uaname: ru.yandex.taxi
+  name: "Yandex Go: Taxi Food Delivery"
+- uaname: com.lazada.android
+  name: The Grand Lazada 10.10
+- uaname: com.taxsee.taxsee
+  name: maxim — order a taxi & food
+- uaname: com.unicostudio.braintest
+  name: "Brain Test: Tricky Puzzles"
+- uaname: co.brainly
+  name: "Brainly: AI Homework Helper"
+- uaname: br.gov.serpro.cnhe
+  name: Carteira Digital de Trânsito
+- uaname: com.antivirus
+  name: AVG AntiVirus & Security
+- uaname: com.king.farmheroessaga
+  name: Farm Heroes Saga
+- uaname: com.mygalaxy
+  name: My Galaxy
+- uaname: in.swiggy.android
+  name: "Swiggy: Food Instamart Dineout"
+- uaname: id.dana
+  name: DANA Indonesia Digital Wallet
+- uaname: com.igg.android.lordsmobile
+  name: "Lords Mobile: Kingdom Wars"
+- uaname: com.halfbrick.fruitninjafree
+  name: Fruit Ninja®
+- uaname: com.instagram.lite
+  name: Instagram Lite
+- uaname: com.trassion.infinix.xclub
+  name: XClub
+
+
+- uaname: air.com.hypah.io.slither
+  name: slither.io
+- uaname: com.hp.android.printservice
+  name: HP Print Service Plugin
+- uaname: com.meesho.supply
+  name: "Meesho: Online Shopping App"
+- uaname: com.indeed.android.jobsearch
+  name: Indeed Job Search
+- uaname: org.iggymedia.periodtracker
+  name: Flo Ovulation & Period Tracker
+- uaname: ru.mail.mailapp
+  name: "Mail: Email, Cloud, Calendar"
+- uaname: com.mind.quiz.brain.out
+  name: "Brain Out®: Can you pass it?"
+- uaname: com.popularapp.periodcalendar
+  name: Period Calendar Period Tracker
+- uaname: com.mihoyo.genshinimpact
+  name: Genshin Impact
+- uaname: com.yahoo.mobile.client.android.mail
+  name: Yahoo Mail
+- uaname: br.gov.caixa.tem
+  name: CAIXA Tem
+- uaname: ee.mtakso.client
+  name: "Bolt: Request a Ride"
+- uaname: com.grabtaxi.passenger
+  name: Grab - Taxi & Food Delivery
+- uaname: com.viber.voip
+  name: Rakuten Viber Messenger
+- uaname: com.motorola.ccc.notification
+  name: Motorola Notifications
+- uaname: com.kwai.video
+  name: Kwai - Cool Video & Social Fun
+- uaname: com.sec.android.app.voicenote
+  name: Voice Recorder
+- uaname: com.miniclip.plagueinc
+  name: Plague Inc.
+- uaname: com.bbk.theme
+  name: Themes
+- uaname: com.openai.chatgpt
+  name: ChatGPT
+- uaname: com.xiaomi.midrop
+  name: "ShareMe: File sharing"
+- uaname: com.facebook.orca
+  name: Messenger
+- uaname: com.wildspike.wormszone
+  name: Worms Zone .io - Hungry Snake
+- uaname: com.dsi.ant.plugins.antplus
+  name: ANT+ Plugins Service
+- uaname: com.lemon.lvoverseas
+  name: CapCut - Video Editor
+- uaname: com.ss.android.ugc.trill
+  name: TikTok
+- uaname: com.dts.freefiremax
+  name: Free Fire MAX - Light Fest
+- uaname: com.imangi.templerun
+  name: Temple Run
+- uaname: com.sec.pcw
+  name: Samsung Link (Terminated)
+- uaname: com.roblox.client
+  name: Roblox
+- uaname: com.robtopx.geometryjumplite
+  name: Geometry Dash Lite
+- uaname: com.transsion.filemanagerx
+  name: File Manager
+- uaname: com.tencent.iglite
+  name: PUBG MOBILE LITE
+- uaname: com.outfit7.mytalkingtomfree
+  name: My Talking Tom
+- uaname: com.sec.spp.push
+  name: Samsung Push Service
+- uaname: com.outfit7.mytalkingangelafree
+  name: My Talking Angela
+- uaname: com.transsion.hilauncher
+  name: HiOS Launcher - Fast
+- uaname: com.booking
+  name: "Booking.com: Hotels & Travel"
+- uaname: com.samsung.sree
+  name: Samsung Global Goals
+- uaname: flipboard.boxer.app
+  name: Briefing
+- uaname: net.zedge.android
+  name: Zedge™ Wallpapers & Ringtones
+- uaname: com.microsoft.appmanager
+  name: Link to Windows
+- uaname: br.gov.meugovbr
+  name: gov.br
+- uaname: com.facebook.lite
+  name: Facebook Lite
+- uaname: com.fgol.hungrysharkevolution
+  name: Hungry Shark Evolution
+- uaname: jp.naver.line.android
+  name: "LINE: Calls & Messages"
+- uaname: com.samsung.android.voc
+  name: Samsung Members
+- uaname: com.microsoft.office.word
+  name: "Microsoft Word: Edit Documents"
+- uaname: com.samsung.android.calendar
+  name: Samsung Calendar
+- uaname: com.microsoft.skydrive
+  name: Microsoft OneDrive
+- uaname: com.myairtelapp
+  name: "Airtel Thanks: Recharge & Bank"
+- uaname: com.microsoft.teams
+  name: Microsoft Teams
+- uaname: com.motorola.help
+  name: Moto Feedback
+- uaname: jp.konami.pesam
+  name: eFootball™
+- uaname: net.one97.paytm
+  name: "Paytm: Secure UPI Payments"
+- uaname: com.frontrow.vlog
+  name: VN - Video Editor & Maker
+- uaname: com.flipkart.android
+  name: Flipkart Online Shopping App
+- uaname: com.quvideo.xiaoying
+  name: VivaVideo - Video Cut & Editor
+- uaname: com.microsoft.office.excel
+  name: "Microsoft Excel: Spreadsheets"
+- uaname: com.nekki.shadowfight
+  name: Shadow Fight 2
+- uaname: com.coloros.scenemode
+  name: Simple mode
+- uaname: com.twitter.android
+  name: X
+- uaname: com.alibaba.aliexpresshd
+  name: AliExpress - Shopping App
+- uaname: com.ubercab
+  name: Uber - Request a ride
+- uaname: com.coloros.weather.service
+  name: WeatherService
+- uaname: com.oppo.quicksearchbox
+  name: Global Search
+- uaname: com.camerasideas.instashot
+  name: Video Editor & Maker - InShot
+- uaname: com.ea.gp.fifamobile
+  name: EA SPORTS FC™ Mobile Soccer
+- uaname: com.sec.android.app.myfiles
+  name: Samsung My Files
+- uaname: video.like
+  name: Likee - Short Video Community
+- uaname: com.microsoft.office.onenote
+  name: "Microsoft OneNote: Save Notes"
+- uaname: com.supercell.clashroyale
+  name: Clash Royale
+- uaname: com.gau.go.launcherex
+  name: GO Launcher -Themes&Wallpapers
+- uaname: com.jio.myjio
+  name: "MyJio: For Everything Jio"
+- uaname: com.coloros.video
+  name: Videos
+- uaname: com.zhiliaoapp.musically.go
+  name: TikTok Lite - Save Data & Fast
+- uaname: com.samsung.android.app.notes
+  name: Samsung Notes
+- uaname: com.motorola.timeweatherwidget
+  name: Moto Widget
+- uaname: com.utorrent.client
+  name: µTorrent®- Torrent Downloader
+- uaname: com.sec.android.app.shealth
+  name: Samsung Health
+- uaname: com.zaz.translate
+  name: Hi Translate - Chat translator
+- uaname: com.contextlogic.wish
+  name: "Wish: Shop and Save"
+- uaname: com.linkedin.android
+  name: "LinkedIn: Jobs & Business News"
+- uaname: com.samsung.android.uds
+  name: Ultra data saving
+- uaname: com.playrix.homescapes
+  name: Homescapes
+- uaname: com.mercadolibre
+  name: "Mercado Libre: Compras online"
+- uaname: com.alibaba.intl.android.apps.poseidon
+  name: Alibaba.com - B2B marketplace
+- uaname: com.truecaller
+  name: "Truecaller: Spam Call Blocker"
+- uaname: com.camerasideas.trimmer
+  name: YouCut - Video Editor & Maker
+- uaname: in.startv.hotstar
+  name: JioHotstar
+- uaname: com.policydm
+  name: Samsung Security Policy Update
+- uaname: us.zoom.videomeetings
+  name: Zoom Workplace
+- uaname: com.sec.app.samsungprintservice
+  name: Samsung Print Service Plugin
+- uaname: com.mi.android.globalfileexplorer
+  name: File Manager
+- uaname: com.microsoft.office.powerpoint
+  name: Microsoft PowerPoint
+- uaname: com.samsung.android.email.provider
+  name: Samsung Email
+- uaname: com.discord
+  name: Discord - Talk, Play, Hang Out
+- uaname: com.kwai.bulldog
+  name: SnackVideo
+- uaname: com.offline.bible
+  name: Bible Offline-KJV Holy Bible
+- uaname: com.dropbox.android
+  name: "Dropbox: Secure Cloud Storage"
+- uaname: com.zhiliaoapp.musically
+  name: TikTok - Videos, Shop & LIVE
+- uaname: cn.wps.moffice_eng
+  name: WPS Office-PDF, Word, Sheet
+- uaname: com.playrix.gardenscapes
+  name: Gardenscapes
+- uaname: com.touchtype.swiftkey
+  name: Microsoft SwiftKey AI Keyboard
+- uaname: com.canva.editor
+  name: "Canva: AI Photo & Video Editor"
+- uaname: me.pou.app
+  name: Pou
+- uaname: com.outfit7.talkingtomgoldrun
+  name: Talking Tom Gold Run
+- uaname: com.innersloth.spacemafia
+  name: Among Us
+- uaname: com.sec.android.app.popupcalculator
+  name: Samsung Calculator
+- uaname: com.whatsapp
+  name: WhatsApp Messenger
+- uaname: com.mi.globalminusscreen
+  name: App Vault
+- uaname: com.tocaboca.tocalifeworld
+  name: Toca Boca World
+- uaname: com.miui.calculator
+  name: Calculator
+- uaname: com.kiloo.subwaysurf
+  name: Subway Surfers
+- uaname: com.dts.freefireth
+  name: Free Fire - Light Fest
+- uaname: free.vpn.unblock.proxy.turbovpn
+  name: Turbo VPN - Secure VPN Proxy
+- uaname: com.tencent.ig
+  name: PUBG MOBILE
+- uaname: com.lenovo.anyshare.gps
+  name: "SHAREit: Transfer, Share Files"
+- uaname: eu.nordeus.topeleven.android
+  name: Top Eleven Be a Soccer Manager
+- uaname: com.pinterest
+  name: Pinterest
+- uaname: com.samsung.android.lool
+  name: Device Care
+- uaname: com.transsion.phoenix
+  name: Phoenix - Fast & Safe
+- uaname: com.coloros.weather2
+  name: Weather
+- uaname: com.dsi.ant.service.socket
+  name: ANT Radio Service
+- uaname: com.nexstreaming.app.kinemasterfree
+  name: KineMaster - Video Editor
+- uaname: com.picsart.studio
+  name: Picsart AI Photo Editor, Video
+- uaname: com.imo.android.imoim
+  name: imo-International Calls & Chat
+- uaname: com.heytap.pictorial
+  name: Lock Screen Magazine
+- uaname: com.linecorp.b612.android
+  name: B612 AI Photo&Video Editor
+- uaname: com.vivo.website
+  name: vivo Store
+- uaname: com.outfit7.mytalkingtomfriends
+  name: My Talking Tom Friends
+- uaname: com.samsung.android.appseparation
+  name: Separated Apps
+- uaname: com.transsion.tecnospot
+  name: TECNO SPOT
+- uaname: com.quicinc.voice.activation
+  name: Qualcomm Voice Assist
+- uaname: com.intsig.camscanner
+  name: CamScanner- scanner, PDF maker
+- uaname: com.motorola.moto
+  name: Moto
+- uaname: com.rioo.runnersubway
+  name: Subway Princess Runner
+- uaname: com.ludo.king
+  name: Ludo King®
+- uaname: com.miui.videoplayer
+  name: Mi Video - Video player
+- uaname: com.mi.android.globalminusscreen
+  name: App Vault
+- uaname: com.playrix.township
+  name: Township
+- uaname: com.miui.weather2
+  name: Weather - By Xiaomi
+- uaname: com.microsoft.office.officehubrow
+  name: Microsoft 365 Copilot
+- uaname: com.samsung.android.oneconnect
+  name: SmartThings
+- uaname: com.whatsapp.w4b
+  name: WhatsApp Business
+- uaname: com.samsung.memorysaver
+  name: Storage Saver
+- uaname: br.com.bb.android
+  name: "BB: Banco, Conta, Pix, Cartão"
+- uaname: com.sega.sonicdash
+  name: Sonic Dash Run
+- uaname: com.duolingo
+  name: "Duolingo: Language Lessons"
+- uaname: com.motorola.actions
+  name: Moto Actions
+- uaname: com.transsion.magicshow
+  name: Visha-Video Player All Formats
+- uaname: com.flipkart.shopsy
+  name: Shopsy Shopping App - Flipkart
+- uaname: com.miui.cleaner
+  name: Cleaner
+- uaname: com.starmakerinteractive.starmaker
+  name: "StarMaker: Sing Karaoke Songs"
+- uaname: com.facebook.katana
+  name: Facebook
+- uaname: com.motorola.genie
+  name: Device Help
+- uaname: com.playrix.fishdomdd.gplay
+  name: Fishdom
+- uaname: com.outfit7.herodash
+  name: Talking Tom Hero Dash
+- uaname: com.block.juggle
+  name: Block Blast!
+- uaname: com.motorola.motodisplay
+  name: Moto Display
+- uaname: com.microsoft.office.outlook
+  name: Microsoft Outlook
+- uaname: com.vivo.easyshare
+  name: EasyShare

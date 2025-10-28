@@ -1,0 +1,56 @@
+- uaname: at
+  name: AVG Secure Browser
+
+- uaname: at
+  name: AVG Secure Browser
+
+- uaname: com.apple.mobilesafari
+  name: Apple Safari
+
+- uaname: com.apple.safari.searchhelper
+  name: Apple Safari
+
+- uaname: com.google.android.webview
+  name: Android System WebView
+
+- uaname: com.google.android.apps.bard
+  name: Google Gemini
+
+- uaname: com.android.chrome
+  name: Google Chrome
+
+- uaname: com.opera.browser
+  name: "Opera: Private Web Browser"
+
+- uaname: com.vivo.browser
+  name: Vivo Browser
+
+- uaname: com.talpa.hibrowser
+  name: Hola-Private&Fast web
+
+- uaname: herond
+  name: Herond Browser
+
+- uaname: yabrowser
+  name: Yandex Browser
+
+- uaname: samsung internet
+  name: Samsung Browser
+
+- uaname: com.sec.android.app.sbrowser
+  name: Samsung Browser
+
+- uaname: org.mozilla.firefox
+  name: Firefox Fast & Private Browser
+
+- uaname: com.heytap.browser
+  name: Internet Browser
+
+- uaname: com.mi.globalbrowser
+  name: Mi Browser
+
+- uaname: com.opera.mini.native
+  name: "Opera Mini: Fast Web Browser"
+
+- uaname: com.ucmobile.intl
+  name: UC Browser-Safe, Fast, Private

@@ -3,12 +3,12 @@
   user_agent: Mozilla/5.0 (Linux; Android 4.1.1; ARCHOS GAMEPAD Build/JRO03H) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.166 Safari/535.19
   os:
     name: Android
-    version: "4.1.1"
+    version: 4.1.1
     platform: ""
   client:
     type: browser
     name: Chrome
-    version: "18.0.1025.166"
+    version: 18.0.1025.166
     engine: WebKit
     engine_version: "535.19"
   device:
@@ -21,7 +21,7 @@
   user_agent: Mozilla/5.0 (Linux; U; Android 4.2.2; fr-fr; ARCHOS GAMEPAD2 Build/JDQ39) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30
   os:
     name: Android
-    version: "4.2.2"
+    version: 4.2.2
     platform: ""
   client:
     type: browser
@@ -93,7 +93,7 @@
   user_agent: Mozilla/5.0 (Nintendo 3DS; U; ; en) Version/1.7498.EU
   os:
     name: Nintendo Mobile
-    version: "3DS"
+    version: 3DS
     platform: ""
   client:
     type: browser
@@ -111,12 +111,12 @@
   user_agent: Bunjalloo/0.7.6(Nintendo DS;U;en)
   os:
     name: Nintendo Mobile
-    version: "DS"
+    version: DS
     platform: ""
   client:
     type: browser
     name: Bunjalloo
-    version: "0.7.6"
+    version: 0.7.6
     engine: ""
     engine_version: ""
   device:
@@ -129,7 +129,7 @@
   user_agent: Mozilla/5.0 (Nintendo Switch; WifiWebAuthApplet) AppleWebKit/601.6 (KHTML, like Gecko) NF/4.0.0.7.9 NintendoBrowser/5.1.0.15785
   os:
     name: Nintendo
-    version: "Switch"
+    version: Switch
     platform: ""
   client:
     type: browser
@@ -147,7 +147,7 @@
   user_agent: Opera/9.30 (Nintendo Wii; U; ; 3642; en)
   os:
     name: Nintendo
-    version: "Wii"
+    version: Wii
     platform: ""
   client:
     type: browser
@@ -165,7 +165,7 @@
   user_agent: Mozilla/5.0 (Nintendo WiiU) AppleWebKit/534.52 (KHTML, like Gecko) NX/2.1.0.8.21 NintendoBrowser/1.0.0.7494.US
   os:
     name: Nintendo
-    version: "Wii"
+    version: Wii
     platform: ""
   client:
     type: browser
@@ -183,7 +183,7 @@
   user_agent: Mozilla/5.0 (Linux; U; Android OUYA 4.1.2; en-us; OUYA Build/JZO54L-OUYA) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30
   os:
     name: Android
-    version: "4.1.2"
+    version: 4.1.2
     platform: ""
   client:
     type: browser
@@ -201,14 +201,14 @@
   user_agent: Mozilla/5.0 (PLAYSTATION 3 4.46) AppleWebKit/531.22.8 (KHTML, like Gecko)
   os:
     name: PlayStation
-    version: "3"
+    version: 3.4.46
     platform: ""
   client:
     type: browser
     name: NetFront
     version: ""
     engine: WebKit
-    engine_version: "531.22.8"
+    engine_version: 531.22.8
   device:
     type: console
     brand: Sony
@@ -219,7 +219,7 @@
   user_agent: Mozilla/5.0 (PlayStation 4 1.52) AppleWebKit/536.26 (KHTML, like Gecko)
   os:
     name: PlayStation
-    version: "4"
+    version: 4.1.52
     platform: ""
   client:
     type: browser
@@ -237,7 +237,7 @@
   user_agent: Mozilla/5.0 (PlayStation 4 Pro 5.0)
   os:
     name: PlayStation
-    version: "4"
+    version: 4.5.0
     platform: ""
   client:
     type: browser
@@ -255,7 +255,7 @@
   user_agent: Mozilla/4.0 (PlayStation Portable); 2.00)
   os:
     name: PlayStation Portable
-    version: "Portable"
+    version: Portable
     platform: ""
   client:
     type: browser
@@ -273,7 +273,7 @@
   user_agent: Mozilla/5.0 (PlayStation Vita 3.01) AppleWebKit/536.26 (KHTML, like Gecko) Silk/3.2
   os:
     name: PlayStation Portable
-    version: "Vita"
+    version: Vita
     platform: ""
   client:
     type: browser
@@ -341,3 +341,436 @@
     model: Xbox Series X
   os_family: Windows
   browser_family: Internet Explorer
+-
+  user_agent: Mozilla/5.0 (Linux; Android 9; Retroid Pocket 2Plus) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.74 Mobile Safari/537.36
+  os:
+    name: Android
+    version: "9"
+    platform: ""
+  client:
+    type: browser
+    name: Chrome Mobile
+    version: 95.0.4638.74
+    engine: Blink
+    engine_version: 95.0.4638.74
+  device:
+    type: console
+    brand: Retroid Pocket
+    model: 2 Plus
+  os_family: Android
+  browser_family: Chrome
+-
+  user_agent: Mozilla/5.0 (Linux; Android 5.1; SHIELD Build/LMY47N; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/53.0.2785.97 Mobile Safari/537.36
+  os:
+    name: Android
+    version: "5.1"
+    platform: ""
+  client:
+    type: browser
+    name: Chrome Webview
+    version: 53.0.2785.97
+    engine: Blink
+    engine_version: 53.0.2785.97
+  device:
+    type: console
+    brand: Nvidia
+    model: SHIELD Portable
+  os_family: Android
+  browser_family: Chrome
+-
+  user_agent: Mozilla/5.0 (PlayStation; PlayStation 5/2.26) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0 Safari/605.1.15
+  os:
+    name: PlayStation
+    version: 5.2.26
+    platform: ""
+  client:
+    type: browser
+    name: NetFront
+    version: ""
+    engine: WebKit
+    engine_version: 605.1.15
+  device:
+    type: console
+    brand: Sony
+    model: PlayStation 5
+  os_family: Gaming Console
+  browser_family: NetFront
+-
+  user_agent: Mozilla/5.0 (PlayStation 5 3.03/SmartTV) AppleWebKit/605.1.15 (KHTML, like Gecko)
+  os:
+    name: PlayStation
+    version: 5.3.03
+    platform: ""
+  client:
+    type: browser
+    name: NetFront
+    version: ""
+    engine: WebKit
+    engine_version: 605.1.15
+  device:
+    type: console
+    brand: Sony
+    model: PlayStation 5
+  os_family: Gaming Console
+  browser_family: NetFront
+-
+  user_agent: Mozilla/5.0 (PlayStation 5/SmartTV) AppleWebKit/605.1.15 (KHTML, like Gecko)
+  os:
+    name: PlayStation
+    version: "5"
+    platform: ""
+  client:
+    type: browser
+    name: NetFront
+    version: ""
+    engine: WebKit
+    engine_version: 605.1.15
+  device:
+    type: console
+    brand: Sony
+    model: PlayStation 5
+  os_family: Gaming Console
+  browser_family: NetFront
+-
+  user_agent: 'Mozilla/5.0 [ja] (Playstation2; Linux 2.4.20 MIPS; ja-JP; rv:1.8a2) Gecko/20040630'
+  os:
+    name: PlayStation
+    version: 2.4.20
+    platform: MIPS
+  client:
+    type: browser
+    name: NetFront
+    version: ""
+    engine: Gecko
+    engine_version: "1.8"
+  device:
+    type: console
+    brand: Sony
+    model: PlayStation 2
+  os_family: Gaming Console
+  browser_family: NetFront
+-
+  user_agent: Mozilla/5.0 (New Nintendo 3DS like iPhone) AppleWebKit/536.30 (KHTML, like Gecko) NX/3.0.0.5.22 Mobile NintendoBrowser/1.10.10166.JP
+  os:
+    name: Nintendo Mobile
+    version: 3DS
+    platform: ""
+  client:
+    type: browser
+    name: NetFront
+    version: ""
+    engine: WebKit
+    engine_version: "536.30"
+  device:
+    type: console
+    brand: Nintendo
+    model: 3DS
+  os_family: Mobile Gaming Console
+  browser_family: NetFront
+-
+  user_agent: UCWEB/2.0 (MIDP-2.0; U; Adr 2.3.4; ru; JXD_S601WIFI) U2/1.0.0 UCBrowser/9.9.1.554 U2/1.0.0 Mobile
+  os:
+    name: Android
+    version: 2.3.4
+    platform: ""
+  client:
+    type: browser
+    name: UC Browser
+    version: 9.9.1.554
+    engine: ""
+    engine_version: ""
+  device:
+    type: console
+    brand: JXD
+    model: S601 WiFi
+  os_family: Android
+  browser_family: Unknown
+-
+  user_agent: Mozilla/5.0 (Linux; Android 4.4.4; DEXP Freya) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 YaBrowser/18.11.1.1008.01 Safari/537.36
+  os:
+    name: Android
+    version: 4.4.4
+    platform: ""
+  client:
+    type: browser
+    name: Yandex Browser
+    version: 18.11.1.1008.01
+    engine: Blink
+    engine_version: 70.0.3538.102
+  device:
+    type: console
+    brand: DEXP
+    model: Freya
+  os_family: Android
+  browser_family: Unknown
+-
+  user_agent: Mozilla/5.0 (Linux; Android 9; Retroid Pocket 2+) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Mobile Safari/537.36
+  os:
+    name: Android
+    version: "9"
+    platform: ""
+  client:
+    type: browser
+    name: Chrome Mobile
+    version: 111.0.0.0
+    engine: Blink
+    engine_version: 111.0.0.0
+  device:
+    type: console
+    brand: Retroid Pocket
+    model: 2 Plus
+  os_family: Android
+  browser_family: Chrome
+-
+  user_agent: 'Mech.Mozilla/20.02 (Nintendo GameBoy; U) [ja]'
+  os: [ ]
+  client: null
+  device:
+    type: console
+    brand: Nintendo
+    model: GameBoy
+  os_family: Unknown
+  browser_family: Unknown
+-
+  user_agent: Mozilla/5.0 (PlayStation 4 PRO) AppleWebKit/531.3 (KHTML, like Gecko, HEVC, HDR, UHD) SCEE/1.0 Nuanti/2.0
+  os:
+    name: PlayStation
+    version: "4"
+    platform: ""
+  client:
+    type: browser
+    name: Nuanti Meta
+    version: "2.0"
+    engine: WebKit
+    engine_version: "531.3"
+  device:
+    type: console
+    brand: Sony
+    model: PlayStation 4 Pro
+  os_family: Gaming Console
+  browser_family: Unknown
+-
+  user_agent: Mozilla/5.0 (PS3) AppleWebKit/535.11 (KHTML, like Gecko) NuantiMeta/2.0
+  os: [ ]
+  client:
+    type: browser
+    name: Nuanti Meta
+    version: "2.0"
+    engine: WebKit
+    engine_version: "535.11"
+  device:
+    type: console
+    brand: Sony
+    model: PlayStation 3
+  os_family: Unknown
+  browser_family: Unknown
+-
+  user_agent: Aplix_SEGASATURN_browser/2.0 (Japanese)
+  os: [ ]
+  client:
+    type: browser
+    name: Aplix
+    version: "2.0"
+    engine: ""
+    engine_version: ""
+  device:
+    type: console
+    brand: Sega
+    model: Saturn
+  os_family: Unknown
+  browser_family: Unknown
+-
+  user_agent: Aplix_SANYO_browser/1.03 (Japanese)
+  os: [ ]
+  client:
+    type: browser
+    name: Aplix
+    version: "1.03"
+    engine: ""
+    engine_version: ""
+  device:
+    type: console
+    brand: Sanyo
+    model: 3DO TRY
+  os_family: Unknown
+  browser_family: Unknown
+-
+  user_agent: Mozilla/5.0 (Linux; Android 12; Razer Edge 5G) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Mobile Safari/537.36
+  os:
+    name: Android
+    version: "12"
+    platform: ""
+  client:
+    type: browser
+    name: Chrome Mobile
+    version: 124.0.0.0
+    engine: Blink
+    engine_version: 124.0.0.0
+  device:
+    type: console
+    brand: Razer
+    model: Edge 5G
+  os_family: Android
+  browser_family: Chrome
+-
+  user_agent: Mozilla/5.0 (Linux; Android 12; RG405V) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.96 Mobile Safari/537.36
+  os:
+    name: Android
+    version: "12"
+    platform: ""
+  client:
+    type: browser
+    name: Chrome Mobile
+    version: 78.0.3904.96
+    engine: Blink
+    engine_version: 78.0.3904.96
+  device:
+    type: console
+    brand: ANBERNIC
+    model: RG405V
+  os_family: Android
+  browser_family: Chrome
+-
+  user_agent: Mozilla/5.0 (Linux; Android 12; RG505) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.96 Mobile Safari/537.36
+  os:
+    name: Android
+    version: "12"
+    platform: ""
+  client:
+    type: browser
+    name: Chrome Mobile
+    version: 78.0.3904.96
+    engine: Blink
+    engine_version: 78.0.3904.96
+  device:
+    type: console
+    brand: ANBERNIC
+    model: RG505
+  os_family: Android
+  browser_family: Chrome
+-
+  user_agent: Mozilla/5.0 (Linux; arm_64; Android 13; Retroid Pocket 4 Pro) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.6261.96 YaBrowser/24.4.3.96.00 SA/3 Mobile Safari/537.36
+  os:
+    name: Android
+    version: "13"
+    platform: ARM
+  client:
+    type: browser
+    name: Yandex Browser
+    version: 24.4.3.96.00
+    engine: Blink
+    engine_version: 122.0.6261.96
+  device:
+    type: console
+    brand: Retroid Pocket
+    model: 4 Pro
+  os_family: Android
+  browser_family: Unknown
+-
+  user_agent: Mozilla/5.0 (Linux; U; Android 11; en-US; Retroid Pocket 3 Plus Build/RP1A.201005.001) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/78.0.3904.108 UCBrowser/13.4.5.1308 Mobile Safari/537.36
+  os:
+    name: Android
+    version: "11"
+    platform: ""
+  client:
+    type: browser
+    name: UC Browser
+    version: 13.4.5.1308
+    engine: Blink
+    engine_version: 78.0.3904.108
+  device:
+    type: console
+    brand: Retroid Pocket
+    model: 3 Plus
+  os_family: Android
+  browser_family: Unknown
+-
+  user_agent: Mozilla/5.0 (Linux; Android 13; RG556) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Mobile Safari/537.36
+  os:
+    name: Android
+    version: "13"
+    platform: ""
+  client:
+    type: browser
+    name: Chrome Mobile
+    version: 132.0.0.0
+    engine: Blink
+    engine_version: 132.0.0.0
+  device:
+    type: console
+    brand: ANBERNIC
+    model: RG556
+  os_family: Android
+  browser_family: Chrome
+-
+  user_agent: Mozilla/5.0 (Linux; Android 13; RG406V) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Mobile Safari/537.36
+  os:
+    name: Android
+    version: "13"
+    platform: ""
+  client:
+    type: browser
+    name: Chrome Mobile
+    version: 132.0.0.0
+    engine: Blink
+    engine_version: 132.0.0.0
+  device:
+    type: console
+    brand: ANBERNIC
+    model: RG406V
+  os_family: Android
+  browser_family: Chrome
+-
+  user_agent: Mozilla/5.0 (Linux; Android 13; RGCUBE) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Mobile Safari/537.36
+  os:
+    name: Android
+    version: "13"
+    platform: ""
+  client:
+    type: browser
+    name: Chrome Mobile
+    version: 131.0.0.0
+    engine: Blink
+    engine_version: 131.0.0.0
+  device:
+    type: console
+    brand: ANBERNIC
+    model: RG Cube
+  os_family: Android
+  browser_family: Chrome
+-
+  user_agent: Mozilla/5.0 (Linux; Android 13; Retroid Pocket 5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Mobile Safari/537.36
+  os:
+    name: Android
+    version: "13"
+    platform: ""
+  client:
+    type: browser
+    name: Chrome Mobile
+    version: 132.0.0.0
+    engine: Blink
+    engine_version: 132.0.0.0
+  device:
+    type: console
+    brand: Retroid Pocket
+    model: "5"
+  os_family: Android
+  browser_family: Chrome
+-
+  user_agent: Mozilla/5.0 (Linux; arm_64; Android 12; RG405M) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.6834.33 YaBrowser/25.3.0.33.00 SA/3 Mobile Safari/537.36
+  os:
+    name: Android
+    version: "12"
+    platform: ARM
+  client:
+    type: browser
+    name: Yandex Browser
+    version: 25.3.0.33.00
+    engine: Blink
+    engine_version: 132.0.6834.33
+  device:
+    type: console
+    brand: ANBERNIC
+    model: RG405M
+  os_family: Android
+  browser_family: Unknown

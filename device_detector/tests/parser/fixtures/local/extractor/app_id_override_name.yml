@@ -7,22 +7,22 @@
   user_agent: Dalvik/2.1.0 (Linux; U; Android 6.0.1; SAMSUNG-SM-G930A Build/MMB29M) [FBAN/AudienceNetworkForAndroid;FBSN/Android;FBSV/6.0.1;FBAB/bible.wordgame.words.connect.crossword.cookies;FBAV/2.11.6;FBBV/86;FBVS/5.0.1;FBLC/en_US]
   client:
     app_id: bible.wordgame.words.connect.crossword.cookies
-    pretty_name: Wordgame Words Connect Crossword Cookies
+    pretty_name: Bible Word Puzzle
 -
   user_agent: Dalvik/2.1.0 (Linux; U; Android 5.1.1; SM-T237P Build/LMY47X) [FBAN/AudienceNetworkForAndroid;FBSN/Android;FBSV/5.1.1;FBAB/com.surpax.ledflashlight.panel;FBAV/1.2.4;FBBV/63;FBVS/4.28.0;FBLC/en_US]
   client:
     app_id: com.surpax.ledflashlight.panel
-    pretty_name: Surpax Ledflashlight Panel
+    pretty_name: Super-Bright LED Torch
 -
   user_agent: Dalvik/2.1.0 (Linux; U; Android 5.1.1; SAMSUNG-SM-T337A Build/LMY47X) [FBAN/AudienceNetworkForAndroid;FBSN/Android;FBSV/5.1.1;FBAB/org.whiteglow.keepmynotes;FBAV/1.60.7;FBBV/86;FBVS/4.28.2;FBLC/en_US]
   client:
     app_id: org.whiteglow.keepmynotes
-    pretty_name: Whiteglow Keepmynotes
+    pretty_name: Keep My Notes
 -
   user_agent: Mozilla/5.0 (Linux; Android 7.0; SM-G930R6 Build/NRD90M; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/72.0.3626.105 Mobile Safari/537.36 [FBAN/AudienceNetworkForAndroid;FBSN/Android;FBSV/7.0;FBAB/kjv.bible.kingjamesbible;FBAV/2.0;FBBV/11;FBVS/4.23.0;FBLC/en_US]
   client:
     app_id: kjv.bible.kingjamesbible
-    pretty_name: Bible Kingjamesbible
+    pretty_name: King James Bible
 -
   user_agent: YHOO YahooMobile/1.0 (com.aol.mapquest; 5.18.6) (Apple; iPhone; iOS/12.1.4);
   client:

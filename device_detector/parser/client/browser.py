@@ -1,7 +1,6 @@
-try:
-    import regex as re
-except (ImportError, ModuleNotFoundError):
-    import re
+import regex
+from device_detector.enums import AppType
+from device_detector.lazy_regex import RegexLazy
 from . import BaseClientParser
 from ...settings import BOUNDED_REGEX
 from ..settings import (
@@ -17,23 +16,23 @@ from ..settings import (
 from .extractor_name_version import NameVersionExtractor
 from .extractor_whole_name import WholeNameExtractor
 
+DATE_VERSION = RegexLazy(r'^202[0-5]')
+
 
 class EngineVersion:
-
-    def __init__(self, user_agent):
+    def __init__(self, user_agent: str):
         self.user_agent = user_agent
 
-    def parse(self, engine) -> str:
+    def parse(self, engine: str) -> str:
         if not engine:
             return ''
 
-        regex = r"{engine}\s*\/?\s*((?=\d+\.\d)\d+[.\d]*|\d{{1,7}}(?=(?:\D|$)))".format(
-            engine=engine
+        engine_regex = BOUNDED_REGEX.format(
+            r"{engine}\s*\/?\s*((?=\d+\.\d)\d+[.\d]*|\d{{1,7}}(?=(?:\D|$)))".format(engine=engine)
         )
-        regex = BOUNDED_REGEX.format(regex)
-        match = re.search(regex, self.user_agent, re.IGNORECASE)
+        match = regex.search(engine_regex, self.user_agent, regex.IGNORECASE)
         if match:
-            engine_version = self.user_agent[match.start():match.end()]
+            engine_version = self.user_agent[match.start() : match.end()]
             try:
                 return engine_version.split('/')[1]
             except IndexError:
@@ -43,14 +42,14 @@ class EngineVersion:
 
 
 class Engine(BaseClientParser):
-
+    __slots__ = ()
     AVAILABLE_ENGINES = AVAILABLE_ENGINES
 
     fixture_files = [
         'upstream/client/browser_engine.yml',
     ]
 
-    def _parse(self):
+    def _parse(self) -> None:
         super()._parse()
         if 'name' in self.ua_data:
             self.ua_data['engine_version'] = EngineVersion(
@@ -61,6 +60,8 @@ class Engine(BaseClientParser):
 
 
 class Browser(BaseClientParser):
+    __slots__ = ()
+    APP_TYPE = AppType.Browser
 
     fixture_files = [
         'local/client/browsers.yml',
@@ -74,7 +75,14 @@ class Browser(BaseClientParser):
     FAMILY_FROM_ABBREV = FAMILY_FROM_ABBREV
     MOBILE_ONLY_BROWSERS = MOBILE_ONLY_BROWSERS
 
-    def has_interesting_pair(self):
+    def parse_browser_from_client_hints(self) -> None:
+        """
+        Returns the browser that can be safely detected from client hints.
+        """
+        if not self.client_hints:
+            return
+
+    def has_interesting_pair(self) -> bool:
         """
         If the UA string has interesting name/version pair(s),
         we don't want to process Browser regexes, but rather
@@ -88,42 +96,114 @@ class Browser(BaseClientParser):
                 return True
         return False
 
-    def set_details(self):
+    def set_details(self) -> None:
         super().set_details()
-        if self.ua_data:
-            browser = self.ua_data.get('name', '')
-            abbrevation = self.BROWSER_TO_ABBREV.get(browser.lower(), browser)
-            self.ua_data.update({
-                'short_name': abbrevation,
-                'family': self.FAMILY_FROM_ABBREV.get(abbrevation, browser),
-            })
+        self.set_engine()
+        self.check_secondary_client_data()
 
-            if 'engine' not in self.ua_data:
-                self.ua_data['engine'] = Engine(
-                    self.user_agent,
-                    self.ua_hash,
-                    self.ua_spaceless,
-                    self.VERSION_TRUNCATION,
-                ).parse().ua_data
+    def set_data_from_client_hints(self) -> None:
+        """
+        Save UA data before overriding with Client Hints,
+        to restore UA in some cases.
+        """
+        if not (ch := self.client_hints):
+            return
+
+        ch_data = ch.client_data()
+        if not self.ua_data and ch.client_is_browser():
+            self.ua_data = ch_data
+            return
+
+        if ch_data.get('app_id'):
+            self.ua_data |= ch_data
+            return
+
+        ch_name = ch_data.get('name') or ''
+        ch_version = ch_data.get('version') or ''
+        ua_name = self.ua_data.get('name', '')
+        ua_short_name = self.ua_data.get('short_name', '')
+
+        if ch_name == 'DuckDuckGo Privacy Browser':
+            super().set_data_from_client_hints()
+            self.ua_data['version'] = ''
+            self.ua_data['engine_version'] = ch_version
+            return
+
+        # If client hints report Chromium, but user agent
+        # detects a Chromium based browser, don't add the
+        # data from the client hints
+        if (
+            ua_name
+            and ch_name in ('Chromium', 'Chrome Webview')
+            and ua_short_name not in ('CR', 'CV', 'AN')
+        ):
+            # If the version reported from the client hints is YYYY or YYYY.MM,
+            # then it is the Iridium browser, based on Chromium
+            if DATE_VERSION.search(ch_version):
+                self.ua_data['name'] = 'Iridium'
+                self.ua_data['short_name'] = 'I1'
+                return
+
+            self.ua_data['name'] = ua_name
+            self.ua_data['version'] = self.ua_data.get('version', '')
+            self.ua_data['short_name'] = ua_short_name
+            return
+
+        super().set_data_from_client_hints()
+
+        # Fix mobile browser names e.g. Chrome => Chrome Mobile
+        if f'{ch_name} Mobile' == ua_name:
+            self.ua_data['name'] = ua_name
+            self.ua_data['short_name'] = ua_short_name
+            return
 
     def short_name(self) -> str:
         return self.ua_data.get('short_name', None)
 
-    def engine(self):
+    def set_engine(self) -> None:
+        """
+        Extract name from dict:
+        {
+            'name': 'Chrome',
+            'version': '123.0.6312.40',
+            'engine': {'default': 'WebKit', 'versions': {28: 'Blink'}},
+        }
+        """
         if not self.ua_data.get('engine', ''):
-            return ''
-        if 'default' in self.ua_data['engine']:
-            return self.ua_data['engine']['default']
-        return self.ua_data['engine']['name']
+            return
 
-    def is_mobile_only(self):
+        browser = self.ua_data.get('name', '')
+        abbreviation = self.BROWSER_TO_ABBREV.get(browser.lower(), browser)
+        self.ua_data |= {
+            'short_name': abbreviation,
+            'family': self.FAMILY_FROM_ABBREV.get(abbreviation, browser),
+        }
+
+        if 'engine' not in self.ua_data:
+            self.ua_data['engine'] = (
+                Engine(
+                    self.user_agent,
+                    self.ua_hash,
+                    self.ua_spaceless,
+                    self.client_hints,
+                )
+                .parse()
+                .ua_data
+            )
+            return
+
+        client_version = self.ch_client_data.get('version', '') or self.ua_data.get('version', '')
+        engine = self.ua_data.get('engine') or {}
+        for _, name in engine.get('versions', {}).items():
+            self.ua_data |= {
+                'engine': name,
+                'engine_version': client_version,
+            }
+
+    def is_mobile_only(self) -> bool:
         return self.short_name() in self.MOBILE_ONLY_BROWSERS
 
-    def _parse(self) -> None:
-        super()._parse()
-        self.check_secondary_client_data()
-
-    def check_secondary_client_data(self):
+    def check_secondary_client_data(self) -> None:
         """
         If the UA string matched is a browser that often
         contains more specific app information, check to
@@ -137,7 +217,10 @@ class Browser(BaseClientParser):
             else:
                 self.get_secondary_client_data(extractor=WholeNameExtractor)
 
-    def get_secondary_client_data(self, extractor):
+    def get_secondary_client_data(
+        self,
+        extractor: type[NameVersionExtractor] | type[WholeNameExtractor],
+    ) -> None:
         """
         Update secondary_client dict with any data from specified extractor
         """
@@ -145,12 +228,14 @@ class Browser(BaseClientParser):
             ua=self.user_agent,
             ua_hash=self.ua_hash,
             ua_spaceless=self.ua_spaceless,
-            version_truncation=self.VERSION_TRUNCATION,
+            client_hints=self.client_hints,
         ).parse()
 
         if parsed.ua_data:
             self.secondary_client = parsed.ua_data
             self.ua_data['secondary_client'] = parsed.ua_data
+        else:
+            self.secondary_client = {}
 
 
 __all__ = (

@@ -1,3 +1,4 @@
+import regex
 from ..lazy_regex import RegexLazyIgnore
 from .settings import SKIP_PREFIXES
 
@@ -5,6 +6,7 @@ CONTAINS_URL = RegexLazyIgnore(
     r'https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)',
 )
 
+# fmt: off
 # Extra version / name from UAs
 VERSION_NAME_REGEXES = (
     # 1.172.0.1 - LIVE - Mar 5 2020
@@ -53,9 +55,10 @@ SKIP_NAME_REGEXES = [
     # Mozilla/5.0 (iPhone; iPhone103; 12.1.4) MLN/4.30.450041483 (0f3d913a35528d98b8793f4d7aa0539e)"
     RegexLazyIgnore(r'^(iphone|ipad)\d'),
 ]
+# fmt: on
 
 
-def name_matches_regex(name) -> bool:
+def name_matches_regex(name: str) -> bool:
     """
     If name matches regex, then don't
     want its name/version pair.
@@ -67,7 +70,7 @@ def name_matches_regex(name) -> bool:
     return False
 
 
-def scrub_name_version_pairs(matches: list) -> list:
+def scrub_name_version_pairs(matches: list[tuple[str, str]]) -> list:
     """
     Takes list of (name,version) tuples.
     Remove all pairs where name matches SKIP patterns
@@ -95,38 +98,35 @@ def scrub_name_version_pairs(matches: list) -> list:
     return pairs
 
 
-def extract_version_name_pairs(regex, ua):
+def extract_version_name_pairs(rgx: regex.Pattern, ua: str) -> list[tuple[str, str]]:
     """
     Extract all key/value pairs of the specified regex,
     where key==version and value==name
     and return pairs along with unmatched portion of ua string.
     """
-    match = regex.search(ua)
-
-    if match:
-        return scrub_name_version_pairs([(match.group('name'), match.group('version'))])
+    if matched := rgx.search(ua):
+        return scrub_name_version_pairs([(matched.group('name'), matched.group('version'))])
 
     return []
 
 
-def extract_name_version_pairs(regex, ua):
+def extract_name_version_pairs(rgx: regex.Pattern, ua: str) -> tuple:
     """
     Extract all key/value pairs of the specified regex,
     where key==name and value==version
     and return pairs along with unmatched portion of ua string.
     """
-    matches = regex.findall(ua)
     substring = ua
 
-    if matches:
-        substring = regex.sub(' ', ua)
+    if matches := rgx.findall(ua):
+        substring = rgx.sub(' ', ua)
 
     pairs = scrub_name_version_pairs(matches)
 
     return pairs, substring
 
 
-def key_value_pairs(ua):
+def key_value_pairs(ua: str) -> list[tuple[str, str]]:
     """
     Extract key/value pairs from User Agent String
     """

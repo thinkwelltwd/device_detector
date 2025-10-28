@@ -1,272 +1,345 @@
 from .base import BaseDeviceParser
-from ...lazy_regex import RegexLazyIgnore
+from device_detector.enums import DeviceType
+from ...lazy_regex import RegexLazy, RegexLazyIgnore
 from .vendor_fragment import VendorFragment
-from ...settings import BOUNDED_REGEX, DDCache
-from ..settings import normalized_name
+from ...settings import BOUNDED_REGEX
+from ..settings import ALWAYS_DESKTOP_OS, DESKTOP_OS
 
-android_fragment = RegexLazyIgnore(BOUNDED_REGEX.format('Android'))
-desktop_fragment = RegexLazyIgnore(BOUNDED_REGEX.format('Desktop (x(?:32|64)|WOW64);'))
-tablet_fragment = RegexLazyIgnore(BOUNDED_REGEX.format(r'Android( [\.0-9]+)?; Tablet;'))
-mobile_fragment = RegexLazyIgnore(BOUNDED_REGEX.format(r'Android( [\.0-9]+)?; Mobile;'))
-opera_tablet = RegexLazyIgnore(BOUNDED_REGEX.format('Opera Tablet'))
-tv_fragment = RegexLazyIgnore(BOUNDED_REGEX.format('Opera TV Store|SmartTV|Tizen.+ TV .+$|WebTV'))
-hbbtv_fragment = RegexLazyIgnore(BOUNDED_REGEX.format(r'HbbTV/([1-9]{1}(?:\.[0-9]{1}){1,2})'))
-shell_tv_fragment = RegexLazyIgnore(BOUNDED_REGEX.format(r'[a-z]+[ _]Shell[ _]\w{6}'))
-facebook_notebook_fragment = RegexLazyIgnore(BOUNDED_REGEX.format('FBMD/'))
+CHROME_FRAGMENT = RegexLazy(BOUNDED_REGEX.format(r'Chrome/[.0-9]*'))
+CHROME_MOBILE_FRAGMENT = RegexLazy(BOUNDED_REGEX.format(r'(?:Mobile|eliboM)'))
+DESKTOP_FRAGMENT = RegexLazy(BOUNDED_REGEX.format(r'(?:Windows (?:NT|IoT)|X11; Linux x86_64)'))
+EXCLUDED_DESKTOP_FRAGMENT = RegexLazy(
+    BOUNDED_REGEX.format(
+        'CE-HTML|'
+        ' Mozilla/|Andr[o0]id|Tablet|Mobile|iPhone|Windows Phone|ricoh|OculusBrowser|'
+        'PicoBrowser|Lenovo|compatible; MSIE|Trident/|Tesla/|XBOX|FBMD/|ARM; ?([^)]+)'
+    )
+)
+ANDROID_MOBILE_FRAGMENT = RegexLazy(
+    BOUNDED_REGEX.format(r'Android( [.0-9]+)?; Mobile;|.*\-mobile$')
+)
+ANDROID_VRF_FRAGMENT = RegexLazy(BOUNDED_REGEX.format(r'Android( [.0-9]+)?; Mobile VR;| VR '))
+ANDROID_TABLET_FRAGMENT = RegexLazy(
+    BOUNDED_REGEX.format(r'Android( [.0-9]+)?; Tablet;|Tablet(?! PC)|.*\-tablet$')
+)
+ANDROID_TV_FRAGMENT = RegexLazyIgnore(
+    BOUNDED_REGEX.format(r'Andr0id|(?:Android(?: UHD)?|Google) TV|\(lite\) TV|BRAVIA|Firebolt| TV$')
+)
+TOUCH_FRAGMENT = RegexLazy(BOUNDED_REGEX.format('Touch'))
+GENERAL_TABLET_FRAGMENT = RegexLazy(BOUNDED_REGEX.format('HTC|Kindle'))
+TV_FRAGMENT = RegexLazyIgnore(BOUNDED_REGEX.format(r'TV Store|WhaleTV|Smart TVS'))
+TV_MINI_FRAGMENT = RegexLazyIgnore(BOUNDED_REGEX.format(r'\(TV;'))
+TIZEN_TV_FRAGMENT = RegexLazy(BOUNDED_REGEX.format(r'SmartTV|Tizen.+ TV .+$'))
+
+# Some UA contain the fragment 'Pad/APad', so we assume those devices as tablets
+PAD_TABLET_FRAGMENT = RegexLazy(BOUNDED_REGEX.format(r'Pad/APad'))
+
+PUFFIN_DESKTOP_FRAGMENT = RegexLazy(BOUNDED_REGEX.format(r'Puffin/(?:\d+[.\d]+)[LMW]D'))
+PUFFIN_PHONE_FRAGMENT = RegexLazy(BOUNDED_REGEX.format(r'Puffin/(?:\d+[.\d]+)[AIFLW]P'))
+PUFFIN_TABLET_FRAGMENT = RegexLazy(BOUNDED_REGEX.format(r'Puffin/(?:\d+[.\d]+)[AILW]T'))
+
+OPERA_TABLET_FRAGMENT = RegexLazy(BOUNDED_REGEX.format('Opera Tablet'))
+OPERA_TV_FRAGMENT = RegexLazy(BOUNDED_REGEX.format('Opera TV Store| OMI/'))
 
 
 class Device(BaseDeviceParser):
+    """
+    This class should be the final device-type class checked.
 
-    # The order of files needs to be the same as the order of device
-    # parser classes used in the matomo project, except for TVs
-    # which are parsed separately
+    It should not be subclassed!
+    """
+
+    __slots__ = ()
+
+    DEVICE_TYPE = DeviceType.Smartphone
+
     fixture_files = [
-        'upstream/device/consoles.yml',
-        'upstream/device/car_browsers.yml',
-        'upstream/device/cameras.yml',
-        'upstream/device/portable_media_player.yml',
         'upstream/device/mobiles.yml',
     ]
-
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self._is_running_android = None
-        self._has_android_mobile_fragment = None
-        self._has_android_tablet_fragment = None
-        self._has_desktop_fragment = None
-
-    # -----------------------------------------------------------------------------
-    # UA parsing methods
-    # -----------------------------------------------------------------------------
-    def extract_model(self) -> None:
-        """
-        Brand has list of model regexes to parse
-        """
-        for model in self.ua_data.pop('models', []):
-            matched_regex = self._check_regex(model['regex'])
-            if not matched_regex:
-                continue
-
-            self.matched_regex = matched_regex
-            self.ua_data.update(model)
-            self.ua_data.pop('regex', None)
-
-            # i.e. Sony Ericsson should override Sony
-            if 'brand' in model:
-                self.ua_data['name'] = self.ua_data.pop('brand')
-
-            # Must return after first match! Later patterns could match
-            # again and clobber the earlier, correct, values.
-            return
 
     def _parse(self) -> None:
         """
         Loop through all brands of all device types trying to find
         a model. Returns the first device with model info.
         """
-        super()._parse()
+        ch_model = self.client_hints and self.client_hints.model
+        user_agent = self.user_agent
 
-        if self.ua_data:
-            self.extract_model()
-            return
+        # ------------------------------------------------
+        # Complete copy of the superclass _parse method
+        for ua_data in self.regex_list:
+            if self.known:
+                break
+            if matched := ua_data['regex'].search(user_agent):
+                self.matched_regex = matched
+                self.ua_data |= {k: v for k, v in ua_data.items() if k != 'regex'}
+                self.known = True
+            elif ch_model:
+                main_fixture_dtype = ua_data.get('device')
+                if ua_models := ua_data.get('models', []):
+                    for model_data in ua_models:
+                        if self.known:
+                            break
+                        model_fixture_dtype = model_data.get('device', main_fixture_dtype)
+                        if model_fixture_dtype != self.DEVICE_TYPE:
+                            continue
+                        matched = model_data['regex'].search(ch_model)
+                        if matched:
+                            self.matched_regex = matched
+                            self.known = True
+                            ua_data = {
+                                k: v for k, v in ua_data.items() if k != 'regex' and k != 'models'
+                            }
+                            ua_data['model'] = model_data['model']
+                            ua_data['device'] = model_fixture_dtype
+                            self.ua_data = ua_data
 
-        # If no brand info was found, check known fragments
-        self.ua_data = VendorFragment(
-            self.user_agent,
-            self.ua_hash,
-            self.ua_spaceless,
-            self.VERSION_TRUNCATION,
-        ).parse().ua_data or {}
+                elif main_fixture_dtype == self.DEVICE_TYPE and (
+                    matched := ua_data['regex'].search(ch_model)
+                ):
+                    self.matched_regex = matched
+                    self.ua_data |= {k: v for k, v in ua_data.items() if k != 'regex'}
+                    self.known = True
+        # ------------------------------------------------
 
-    def get_model(self):
-        model = self.ua_data.get('model', None)
-        if model == 'Build':
-            return None
-        return model.strip() if model else model
+        if not self.ua_data:
+            if ch := self.client_hints:
+                self.ua_data |= {
+                    'type': ch.device_type(),
+                    'model': ch.model,
+                    'brand': 'Apple' if ch.platform == 'Mac' else '',
+                }
 
-    def set_details(self) -> None:
-        super().set_details()
-        dtype = self.dtype()
+        if not self.ua_data.get('brand'):
+            # If no brand info was found, check known fragments
+            vendor_fragment = (
+                VendorFragment(
+                    self.user_agent,
+                    self.ua_hash,
+                    self.ua_spaceless,
+                    self.client_hints,
+                )
+                .parse()
+                .ua_data
+            )
+            if vendor_fragment:
+                self.ua_data |= vendor_fragment
 
-        if self.ua_data or dtype:
-            if dtype != 'desktop' and self.has_desktop_fragment():
-                dtype = 'desktop'
+        if device_type := self.dtype():
+            self.ua_data['type'] = device_type
 
-            name = self.ua_data.get('name', self.UNKNOWN_NAME)
-            self.ua_data.update({
-                'type': dtype,
-                'brand': normalized_name(name, self.BRAND_TO_ABBREV, self.DEVICE_BRANDS),
-                'device': self.ua_data.get('device', None),
-                'model': self.get_model(),
-            })
-
-    # -----------------------------------------------------------------------------
-    # Data post-processing / analysis
-    # -----------------------------------------------------------------------------
-    def is_tv(self) -> bool:
+    def is_tablet(self) -> bool:
         """
-        All devices running Opera TV Store, Tizen TV or SmartTV
-        are assumed to be a tv.
+        Check for various tablet fragments.
         """
-        return tv_fragment.search(self.user_agent) is not None
+        return PAD_TABLET_FRAGMENT.search(self.user_agent) is not None
 
-    def is_hbbtv(self) -> bool:
-        """
-        HbbTV UA strings are only parsed by the televisions.yml file
-        """
-        return hbbtv_fragment.search(self.user_agent) is not None
-
-    def is_shell_tv(self) -> bool:
-        """
-        Shell UA strings are only parsed by the shell_tv.yml file
-        """
-        return shell_tv_fragment.search(self.user_agent) is not None
-
-    def has_android_tablet_fragment(self) -> bool:
-        """
-        Returns if the parsed UA contains the 'Android; Tablet;' fragment
-        """
-        if not self.is_running_android():
-            return False
-
-        if self._has_android_tablet_fragment is None:
-            self._has_android_tablet_fragment = tablet_fragment.search(self.user_agent) is not None
-        return self._has_android_tablet_fragment
-
-    def has_android_mobile_fragment(self) -> bool:
-        """
-        Returns if the parsed UA contains the 'Android; Mobile;' fragment
-        """
-        if not self.is_running_android():
-            return False
-
-        if self._has_android_mobile_fragment is None:
-            self._has_android_mobile_fragment = mobile_fragment.search(self.user_agent) is not None
-        return self._has_android_mobile_fragment
-
-    def has_desktop_fragment(self) -> bool:
-        if self._has_desktop_fragment is None:
-            self._has_desktop_fragment = desktop_fragment.search(self.user_agent) is not None
-        return self._has_desktop_fragment
-
-    def is_opera_tablet(self) -> bool:
-        return opera_tablet.search(self.user_agent) is not None
-
-    def is_running_android(self) -> bool:
-        if self._is_running_android is None:
-            self._is_running_android = android_fragment.search(self.user_agent) is not None
-        return self._is_running_android
-
-    def check_android_device(self) -> str:
+    def check_android_device(
+        self,
+        dtype: DeviceType | str,
+        os_name: str,
+        os_version: str,
+    ) -> DeviceType | None:
         """
         Chrome on Android passes the device type based on the keyword 'Mobile'
         If it is present the device should be a smartphone, otherwise it's a tablet
         See https://developer.chrome.com/multidevice/user-agent#chrome_for_android_user_agent
         """
-        if self.has_android_mobile_fragment():
-            return 'smartphone'
+        if os_name not in ('Android', 'MocorDroid'):
+            return None
 
-        if self.has_android_tablet_fragment():
-            return 'tablet'
+        # All detected feature phones running Android are more likely a smartphone
+        if dtype == DeviceType.FeaturePhone:
+            return DeviceType.Smartphone
 
-        return ''
+        if not self.matched_regex:
+            # All devices containing VR fragment are assumed to be a wearable
+            if ANDROID_VRF_FRAGMENT.search(self.user_agent) is not None:
+                return DeviceType.Wearable
 
-    def dtype(self) -> str:
-        """Calculcate Device Type, based on various parameters"""
-        if self.is_hbbtv():
-            self.ua_data['device'] = 'tv'
+            # Some UA contain the fragment 'Android; Tablet;' or 'Opera Tablet',
+            # so we assume those devices as tablets
+            if (
+                ANDROID_TABLET_FRAGMENT.search(self.user_agent) is not None
+                or OPERA_TABLET_FRAGMENT.search(self.user_agent) is not None
+            ):
+                return DeviceType.Tablet
 
-        ua_type = self.ua_data.get('device', '')
-        if ua_type:
-            if ua_type != 'tv' and self.is_tv():
-                return 'tv'
+            if ANDROID_MOBILE_FRAGMENT.search(self.user_agent) is not None:
+                return DeviceType.Smartphone
 
-            # All detected feature phones running android are more likely a smartphone
-            if ua_type == 'feature phone' and self.is_running_android():
-                return 'smartphone'
+            # Chrome on Android passes the device type based on the keyword 'Mobile'
+            # If it is present the device should be a smartphone, otherwise it's a tablet
+            # See https://developer.chrome.com/multidevice/user-agent#chrome_for_android_user_agent
+            # Note: We do not check for browser (family) here, as there might be mobile apps using
+            #       Chrome, that won't have a detected browser, but can still be detected.
+            #       So we check the useragent for Chrome instead.
+            if CHROME_FRAGMENT.search(self.user_agent) is not None:
+                if CHROME_MOBILE_FRAGMENT.search(self.user_agent) is not None:
+                    return DeviceType.Smartphone
+                return DeviceType.Tablet
 
-            return ua_type
+            # Android up to 3.0 was designed for smartphones only. But as 3.0, which was tablet
+            # only, was published too late, there were a bunch of tablets running with 2.x
+            #
+            # With 4.0 the two trees were merged and it is for smartphones and tablets
+            # So were are expecting that all devices running Android < 2 are smartphones
+            # Devices running Android 3.X are tablets. Device type of Android 2.X and 4.X+
+            # are unknown
+            if not os_version:
+                return None
 
-        android_device = self.check_android_device()
-        if android_device:
+            try:
+                if float(os_version) < 2.0:
+                    return DeviceType.Smartphone
+                if 3.0 <= float(os_version) < 4.0:
+                    return DeviceType.Tablet
+            except (ValueError, TypeError):
+                pass
+
+        return None
+
+    def check_puffin_device(self) -> DeviceType | None:
+        if self.matched_regex:
+            return None
+
+        # All devices running Puffin Secure Browser that contain
+        # letter 'D' are assumed to be desktops
+        if PUFFIN_DESKTOP_FRAGMENT.search(self.user_agent) is not None:
+            return DeviceType.Desktop
+
+        # All devices running Puffin Web Browser that contain
+        # letter 'P' are assumed to be smartphones
+        if PUFFIN_PHONE_FRAGMENT.search(self.user_agent) is not None:
+            return DeviceType.Smartphone
+
+        # All devices running Puffin Web Browser that contain
+        # letter 'T' are assumed to be tablets
+        if PUFFIN_TABLET_FRAGMENT.search(self.user_agent) is not None:
+            return DeviceType.Tablet
+
+        return None
+
+    def is_television(self, os_name: str) -> bool:
+        """
+        Check all the ways a device might be a television.
+        """
+        # All devices running Coolita OS are assumed to be a tv
+        if os_name == 'Coolita OS':
+            return True
+
+        # All devices running Opera TV Store are assumed to be a tv
+        if OPERA_TV_FRAGMENT.search(self.user_agent) is not None:
+            return True
+
+        if ANDROID_TV_FRAGMENT.search(self.user_agent) is not None:
+            return True
+
+        # All devices running Tizen TV or SmartTV are assumed to be a tv
+        if not self.matched_regex and TIZEN_TV_FRAGMENT.search(self.user_agent) is not None:
+            return True
+
+        # All devices containing TV fragment are assumed to be a tv
+        if TV_MINI_FRAGMENT.search(self.user_agent) is not None:
+            return True
+
+        if TV_FRAGMENT.search(self.user_agent) is not None:
+            return True
+
+        return False
+
+    def is_desktop(self, os_name: str) -> bool:
+        if os_name in ALWAYS_DESKTOP_OS:
+            return True
+
+        if os_name not in DESKTOP_OS or GENERAL_TABLET_FRAGMENT.search(self.user_agent) is not None:
+            return False
+
+        # Returns if the parsed UA contains the 'Windows NT;' or 'X11; Linux x86_64' fragments
+        fragment = (
+            DESKTOP_FRAGMENT.search(self.user_agent) is not None
+            and EXCLUDED_DESKTOP_FRAGMENT.search(self.user_agent) is None
+        )
+        return fragment or os_name == 'Mac' or ' Desktop' in self.user_agent
+
+    def device_runs_feature_phone_os(self, os_name: str) -> bool:
+        if not self.matched_regex and os_name == 'Java ME':
+            return True
+
+        # All devices running KaiOS are more likely feature phones
+        return os_name == 'KaiOS'
+
+    def is_windows_tablet(self, os_name: str, os_version: str) -> bool:
+        """
+        According to https://msdn.microsoft.com/en-us/library/ie/hh920767(v=vs.85).aspx
+        Internet Explorer 10 introduces the "Touch" UA string token. If this token is present
+        at the end of the UA string, the computer has touch capability, and is running Windows 8
+        (or later). This UA string will be transmitted on a touch-enabled system running
+        Windows 8 (RT)
+
+        As most touch enabled devices are tablets and only a smaller part are desktops/notebooks
+        we assume that all Windows 8 touch devices are tablets.
+        """
+        if self.matched_regex:
+            return False
+        if os_name == 'Windows RT' or (os_name == 'Windows' and os_version.startswith('8')):
+            return TOUCH_FRAGMENT.search(self.user_agent) is not None
+        return False
+
+    def dtype(self) -> DeviceType | str:
+        """Calculate Device Type, based on various parameters"""
+        default_dtype = super().dtype()
+        fixture_dtype = self.device_type_from_fixture()
+
+        os_name = self.os_details.get('name') or ''
+        os_family = self.os_details.get('family') or ''
+        os_version = self.os_details.get('version') or ''
+
+        # print(f'XXX os details are {self.os_details}. UA Data: {self.ua_data}')
+
+        if self.device_runs_feature_phone_os(os_name):
+            return DeviceType.FeaturePhone
+
+        if self.client_hints and self.client_hints.is_television():
+            # print(f'\nclient_hints.is_television returns DeviceType.TV')
+            return DeviceType.TV
+
+        if android_device := self.check_android_device(fixture_dtype, os_name, os_version):
+            # print(f'\nandroid_device returns {android_device}. ')
             return android_device
 
-        if self.is_opera_tablet():
-            return 'tablet'
+        if self.is_windows_tablet(os_name, os_version):
+            return DeviceType.Tablet
 
-        return ''
+        if device_from_puffin := self.check_puffin_device():
+            return device_from_puffin
+
+        if default_dtype != DeviceType.TV and self.is_television(os_name):
+            return DeviceType.TV
+
+        if default_dtype != DeviceType.Tablet and self.is_tablet():
+            return DeviceType.Tablet
+
+        if default_dtype != DeviceType.Desktop and self.is_desktop(os_name):
+            return DeviceType.Desktop
+
+        # Set device type to desktop for all devices running a
+        # desktop OS that were not detected as another device type
+        if not self.matched_regex and os_family in DESKTOP_OS:
+            return DeviceType.Desktop
+
+        if not self.user_agent:
+            return DeviceType.Unknown
+
+        return fixture_dtype or default_dtype
 
     def model(self) -> str:
         return self.ua_data.get('model', '')
 
-    def __str__(self):
-        return '%s %s' % (self.model(), self.dtype())
+    def __str__(self) -> str:
+        return f'{self.model()} {self.dtype()}'
 
 
-class HbbTv(Device):
-
-    @property
-    def regex_list(self) -> list:
-
-        regexes = DDCache.get('tvregexes', [])
-        if regexes:
-            return regexes
-
-        regexes = self.load_from_yaml('regexes/upstream/device/televisions.yml')
-        if not regexes:
-            return []
-
-        reg_list = []
-        for brand, stats in regexes.items():
-            brand_data = {
-                'name': brand,
-                'regex': RegexLazyIgnore(BOUNDED_REGEX.format(stats['regex'])),
-                'device': stats['device'],
-            }
-            if 'models' in stats:
-                for model in stats['models']:
-                    model['regex'] = RegexLazyIgnore(BOUNDED_REGEX.format(model['regex']))
-                brand_data['models'] = stats['models']
-            if 'model' in stats:
-                brand_data['model'] = stats['model']
-            reg_list.append(brand_data)
-
-        DDCache['tvregexes'] = reg_list
-
-        return reg_list
-
-    def _parse(self) -> None:
-        if self.is_hbbtv():
-            return super()._parse()
-
-
-class Notebook(Device):
-    fixture_files = [
-        'upstream/device/notebooks.yml',
-    ]
-
-    def _parse(self) -> None:
-        """
-        Loop through all brands of all device types trying to find
-        a model. Returns the first device with model info.
-        """
-        if facebook_notebook_fragment.search(self.user_agent):
-            return super()._parse()
-
-
-class ShellTv(Device):
-    fixture_files = [
-        'upstream/device/shell_tv.yml',
-    ]
-
-    def _parse(self) -> None:
-        if self.is_shell_tv():
-            return super()._parse()
-
-
-__all__ = (
+__all__ = [
     'Device',
-    'HbbTv',
-    'Notebook',
-    'ShellTv',
-)
+]

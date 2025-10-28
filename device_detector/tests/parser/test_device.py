@@ -1,18 +1,10 @@
 from urllib.parse import unquote
 from ..base import ParserBaseTest
-from ...parser import Device
+from ...parser import Camera, CarBrowser, Console, Notebook
 from ...utils import ua_hash
 
 
-class TestDevices(ParserBaseTest):
-
-    fixture_files = [
-        'tests/parser/fixtures/upstream/device/console.yml',
-        'tests/parser/fixtures/upstream/device/car_browser.yml',
-        'tests/parser/fixtures/upstream/device/camera.yml',
-        'tests/parser/fixtures/upstream/device/notebook.yml',
-    ]
-    Parser = Device
+class TestDeviceBase(ParserBaseTest):
 
     def test_parse(self):
         fixtures = self.load_fixtures()
@@ -22,7 +14,12 @@ class TestDevices(ParserBaseTest):
             expect = fixture['device']
             hashed = ua_hash(self.user_agent)
             spaceless = self.user_agent.lower().replace(' ', '')
-            parsed = Device(self.user_agent, hashed, spaceless, self.VERSION_TRUNCATION).parse()
+            parsed = self.Parser(
+                self.user_agent,
+                hashed,
+                spaceless,
+                None,
+            ).parse()
 
             data = parsed.ua_data
 
@@ -36,6 +33,41 @@ class TestDevices(ParserBaseTest):
                 )
 
 
+class TestConsole(TestDeviceBase):
+
+    fixture_files = [
+        'tests/parser/fixtures/upstream/device/console.yml',
+    ]
+    Parser = Console
+
+
+class TestCamera(TestDeviceBase):
+
+    fixture_files = [
+        'tests/parser/fixtures/upstream/device/camera.yml',
+    ]
+    Parser = Camera
+
+
+class TestCarBrowser(TestDeviceBase):
+
+    fixture_files = [
+        'tests/parser/fixtures/upstream/device/car_browser.yml',
+    ]
+    Parser = CarBrowser
+
+
+class TestNotebook(TestDeviceBase):
+
+    fixture_files = [
+        'tests/parser/fixtures/upstream/device/notebook.yml',
+    ]
+    Parser = Notebook
+
+
 __all__ = [
-    'TestDevices',
+    'TestConsole',
+    'TestCamera',
+    'TestCarBrowser',
+    'TestNotebook',
 ]

@@ -15,23 +15,26 @@ class NameVersionExtractor(GenericClientParser):
     prefer the longest name in the name/value pair list.
     """
 
+    __slots__ = ()
+
     # -------------------------------------------------------------------
     app_name = ''
     app_version = ''
 
-    def parse_name_version_pairs(self):
+    def parse_name_version_pairs(self) -> None:
         """
         Check all name/version pairs for most interesting values
         """
         name_version_pairs = self.name_version_pairs()
 
         for code, name, version in name_version_pairs:
-
             # Only extract interesting pairs!
-            if name.isdigit() \
-                    or len(name) == 1 \
-                    or code in METADATA_NAMES \
-                    or code.endswith(('version', 'build')):
+            if (
+                name.isdigit()
+                or len(name) == 1
+                or code in METADATA_NAMES
+                or code.endswith(('version', 'build'))
+            ):
                 continue
 
             # prefer the name that the UA starts with
@@ -40,12 +43,12 @@ class NameVersionExtractor(GenericClientParser):
                 self.app_version = version
                 return
 
-            # consider longest name the most interesting
+            # consider the longest name the most interesting
             if len(name) > len(self.app_name):
                 self.app_name = name
                 self.app_version = version
 
-    def version_contains_numbers(self):
+    def version_contains_numbers(self) -> bool:
         """
         Version contains no numeric characters
         """
@@ -59,6 +62,8 @@ class NameVersionExtractor(GenericClientParser):
         return False
 
     def _parse(self) -> None:
+        if self.ch_client_data:
+            return
 
         self.parse_name_version_pairs()
 

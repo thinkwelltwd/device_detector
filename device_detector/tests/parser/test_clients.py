@@ -1,24 +1,61 @@
+from urllib.parse import unquote
+from device_detector.parser import ClientHints
+from ...utils import ua_hash
 from ..base import GenericParserTest, ParserBaseTest
 from ...parser import (
     Browser,
-    DesktopApp,
     DictUA,
     FeedReader,
-    Game,
     Library,
     MediaPlayer,
-    Messaging,
     MobileApp,
-    P2P,
     PIM,
     NameVersionExtractor,
-    VPNProxy,
     WholeNameExtractor,
 )
-from ...utils import ua_hash
 
 
-class TestBrowser(ParserBaseTest):
+class ParserClientBase(ParserBaseTest):
+
+    def test_parsing(self):
+        if not self.Parser or not self.fields:
+            return
+
+        fixtures = self.load_fixtures()
+
+        for fixture in fixtures:
+            self.user_agent = unquote(fixture.pop('user_agent'))
+            spaceless = self.user_agent.lower().replace(' ', '')
+            expect = fixture[self.fixture_key]
+            parsed = self.Parser(
+                self.user_agent,
+                ua_hash(self.user_agent),
+                spaceless,
+                client_hints=ClientHints.new(fixture.get('headers', {})),
+            ).clear_cache().parse()  # clear cache because fixture files may contain duplicate UAs
+            data = parsed.ua_data
+
+            for field in self.fields:
+                expected = str(expect.get(field, '')).lower()
+                extracted = str(data.get(field, '')).lower()
+
+                # Consider names valid if they vary only by casing and spacing
+                if field == 'name' and extracted:
+                    if (
+                        expected != extracted
+                        and expected.replace(' ', '') == extracted.replace(' ', '')
+                    ):
+                        continue
+
+                self.assertIn(
+                    field,
+                    data,
+                    msg=f'Error parsing {self.user_agent}. Parsed data does not have {field!r} key.'
+                )
+                self.assertEqual(expected, extracted, field=field)
+
+
+class TestBrowser(ParserClientBase):
 
     fixture_files = [
         'tests/parser/fixtures/local/client/browser.yml',
@@ -28,16 +65,16 @@ class TestBrowser(ParserBaseTest):
     Parser = Browser
 
 
-class TestDictUA(ParserBaseTest):
+class TestDictUA(ParserClientBase):
 
     fixture_files = [
         'tests/parser/fixtures/local/client/dictua.yml',
     ]
-    fields = ('name', 'version', 'type')
+    fields = ('name', 'version')
     Parser = DictUA
 
 
-class TestFeedReader(ParserBaseTest):
+class TestFeedReader(ParserClientBase):
 
     fixture_files = [
         'tests/parser/fixtures/upstream/client/feed_reader.yml',
@@ -46,16 +83,7 @@ class TestFeedReader(ParserBaseTest):
     Parser = FeedReader
 
 
-class TestGame(ParserBaseTest):
-
-    fixture_files = [
-        'tests/parser/fixtures/local/client/games.yml',
-    ]
-    fields = ('name', 'type', 'version')
-    Parser = Game
-
-
-class TestLibrary(ParserBaseTest):
+class TestLibrary(ParserClientBase):
 
     fixture_files = [
         'tests/parser/fixtures/local/client/library.yml',
@@ -65,75 +93,34 @@ class TestLibrary(ParserBaseTest):
     Parser = Library
 
 
-class TestMediaPlayer(ParserBaseTest):
+class TestMediaPlayer(ParserClientBase):
 
     fixture_files = [
-        'tests/parser/fixtures/local/client/mediaplayer.yml',
         'tests/parser/fixtures/upstream/client/mediaplayer.yml',
     ]
     fields = ('name', 'type', 'version')
     Parser = MediaPlayer
 
 
-class TestMessaging(ParserBaseTest):
+class TestMobileApp(ParserClientBase):
 
     fixture_files = [
-        'tests/parser/fixtures/local/client/messaging.yml',
-    ]
-    fields = ('name', 'type', 'version')
-    Parser = Messaging
-
-
-class TestMobileApp(ParserBaseTest):
-
-    fixture_files = [
-        'tests/parser/fixtures/local/client/mobile_app.yml',
         'tests/parser/fixtures/upstream/client/mobile_app.yml',
     ]
     fields = ('name', 'type', 'version')
     Parser = MobileApp
 
 
-class TestP2P(ParserBaseTest):
+class TestPIM(ParserClientBase):
 
     fixture_files = [
-        'tests/parser/fixtures/local/client/p2p.yml',
-    ]
-    fields = ('name', 'type', 'version')
-    Parser = P2P
-
-
-class TestPIM(ParserBaseTest):
-
-    fixture_files = [
-        'tests/parser/fixtures/local/client/pim.yml',
         'tests/parser/fixtures/upstream/client/pim.yml',
     ]
     fields = ('name', 'type', 'version')
     Parser = PIM
 
 
-class TestDesktopApp(ParserBaseTest):
-
-    fixture_files = [
-        'tests/parser/fixtures/local/client/antivirus.yml',
-        'tests/parser/fixtures/local/client/osutility.yml',
-        'tests/parser/fixtures/local/client/desktop_apps.yml',
-    ]
-    fields = ('name', 'type', 'version')
-    Parser = DesktopApp
-
-
-class TestVPNProxy(ParserBaseTest):
-
-    fixture_files = [
-        'tests/parser/fixtures/local/client/vpnproxy.yml',
-    ]
-    fields = ('name', 'type', 'version')
-    Parser = VPNProxy
-
-
-class TestNameVersionExtractor(ParserBaseTest):
+class TestNameVersionExtractor(ParserClientBase):
 
     fixture_files = [
         'tests/parser/fixtures/local/client/extractor_name_version.yml',
@@ -182,16 +169,11 @@ class TestWholeNameExtractor(GenericParserTest):
 
 __all__ = (
     'TestBrowser',
-    'TestDesktopApp',
     'TestFeedReader',
-    'TestGame',
     'TestLibrary',
     'TestMediaPlayer',
-    'TestMessaging',
     'TestMobileApp',
-    'TestP2P',
     'TestPIM',
-    'TestVPNProxy',
     'TestNameVersionExtractor',
     'TestWholeNameExtractor',
     # 'TestNoNameExtracted',

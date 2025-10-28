@@ -1,0 +1,57 @@
+  # Matching with regex in local fixtures file.
+  # In key/value parsing, interferes with UAs like:
+  # Mozilla/5.0 (Linux; Android 10; AV-10NT310) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.120 Safari/537.36
+  #- uaname: AV
+  #  name: Avast
+  #  type: av
+- uaname: com.avast.android.mobilesecurity
+  name: Avast
+
+- uaname: Avast
+  suffixes: Antivirus|curl|SimpleHttp|NCC
+  name: Avast
+
+- uaname: Avast!
+  suffixes: Antivirus|curl|SimpleHttp|NCC
+  name: Avast
+
+- uaname: Avast Emergency Update Agent
+  name: Avast
+
+- uaname: Avast TUNEUP Update Agent
+  name: Avast
+
+- uaname: clamav
+  name: ClamAV
+
+- uaname: SophosAgent
+  name: Sophos
+
+- uaname: SophosUpdate
+  suffixes: Manager
+  name: Sophos
+
+- uaname: McAfee Agent
+  name: McAfee
+
+- uaname: CCleaner
+  suffixes: Update Agent
+  name: CCleaner
+
+- uaname: ZoneAlarm
+  name: ZoneAlarm
+
+- uaname: ngc
+  name: Norton Antivirus
+
+- uaname: antivirus emergency update agent
+  name: Antivirus Emergency Update Agent
+
+- uaname: norton
+  name: Norton
+
+- uaname: httpconnection symantec
+  name: Symantec
+
+- uaname: Webroot NCSI
+  name: Webroot

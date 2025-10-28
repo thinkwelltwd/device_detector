@@ -2,6 +2,7 @@ from collections import Counter
 from hashlib import blake2s
 from string import punctuation
 from urllib.parse import unquote
+from .enums import AppType
 from .lazy_regex import RegexLazy, RegexLazyIgnore
 
 PUNC_SPACE = f'{punctuation} '
@@ -72,15 +73,23 @@ INTEGER = RegexLazyIgnore(r"\d")
 MIN_WORD_LENGTH = 7
 
 
-def ua_hash(user_agent):
+def ua_hash(user_agent: str, headers: dict | None = None) -> str:
     """
     Return short hash of User Agent string for
     memory-efficient cache key.
     """
-    return blake2s(user_agent.encode('utf-8')).hexdigest()[:9]
+    if headers:
+        try:
+            cache_key = f'{user_agent}{"-".join(sorted(headers.values()))}'
+        except TypeError:
+            cache_key = f'{user_agent}{headers}'
+    else:
+        cache_key = user_agent
+
+    return blake2s(cache_key.encode('utf-8')).hexdigest()
 
 
-def long_ua_no_punctuation(user_agent):
+def long_ua_no_punctuation(user_agent: str) -> bool:
     """
     UserAgent string is long and has no Space, Dot or Slash
     """
@@ -90,7 +99,7 @@ def long_ua_no_punctuation(user_agent):
     return punc_removed == user_agent
 
 
-def only_numerals_and_punctuation(user_agent):
+def only_numerals_and_punctuation(user_agent: str) -> bool:
     """
     Remove all punctuation. If only digits remain,
     don't bother saving, as nothing can be learned.
@@ -101,13 +110,13 @@ def only_numerals_and_punctuation(user_agent):
     return user_agent.translate(trans_tbl).isdigit()
 
 
-def mostly_numerals(user_agent):
+def mostly_numerals(user_agent: str) -> bool:
     """
     UserAgent string is mostly numeric, discard
     15B93
     """
     if not user_agent or ' ' in user_agent:
-        return
+        return False
 
     try:
         int(user_agent)
@@ -120,10 +129,10 @@ def mostly_numerals(user_agent):
         if not char.isnumeric():
             alphabetic_chars += 1
 
-    return alphabetic_chars / len(user_agent) < .33
+    return alphabetic_chars / len(user_agent) < 0.33
 
 
-def clean_ua(user_agent):
+def clean_ua(user_agent: str) -> str:
     """
     Normalize and decode User Agent string
     """
@@ -131,28 +140,26 @@ def clean_ua(user_agent):
     ua_lower = ua.lower()
 
     for prefix in (
-            # sprd-Galaxy-S4/1.0 Linux/2.6.35.7 Android/4.2.2 Release/10.14.2013 Browser/AppleWebKit533.1 (KHTML, like Gecko) Mozilla/5.0 Mobile  # noqa
-            # sprd-lingwin-U820S/1.0 Linux/2.6.35.7 Android/2.3.5 Release/10.15.2012 Browser/AppleWebKit533.1 (KHTML, like Gecko) Mozilla/5.0 Mobile  # noqa
-            'sprd-',
-
-            # null (FlipboardProxy/1.1; http://flipboard.com/browserproxy)
-            # (null) MyOperations/3.0.0/162 JDM/1.0
-            'null',
-            '(null)',
-
-            # AmazonWebView/Kindle for iOS/6.9.1.3/iOS/11.4.1/iPhone
-            # AmazonWebView/PrimeNow/5.7/iOS/11.4.1/iPhone
-            # AmazonWebView/Prime Video/5.71.1526.2/iOS/11.4.1/iPad
-            # AmazonWebView/SellingServicesOnAmazon/1.1.7/iPhone OS/11.3.1/iPhone
-            'amazonwebview',
+        # sprd-Galaxy-S4/1.0 Linux/2.6.35.7 Android/4.2.2 Release/10.14.2013 Browser/AppleWebKit533.1 (KHTML, like Gecko) Mozilla/5.0 Mobile  # noqa
+        # sprd-lingwin-U820S/1.0 Linux/2.6.35.7 Android/2.3.5 Release/10.15.2012 Browser/AppleWebKit533.1 (KHTML, like Gecko) Mozilla/5.0 Mobile  # noqa
+        'sprd-',
+        # null (FlipboardProxy/1.1; http://flipboard.com/browserproxy)
+        # (null) MyOperations/3.0.0/162 JDM/1.0
+        'null',
+        '(null)',
+        # AmazonWebView/Kindle for iOS/6.9.1.3/iOS/11.4.1/iPhone
+        # AmazonWebView/PrimeNow/5.7/iOS/11.4.1/iPhone
+        # AmazonWebView/Prime Video/5.71.1526.2/iOS/11.4.1/iPad
+        # AmazonWebView/SellingServicesOnAmazon/1.1.7/iPhone OS/11.3.1/iPhone
+        'amazonwebview',
     ):
         if ua_lower.startswith(prefix):
-            return ua[len(prefix):].strip()
+            return ua[len(prefix) :].strip()
 
     return ua
 
 
-def mostly_repeating_characters(user_agent):
+def mostly_repeating_characters(user_agent: str) -> bool:
     """
     User Agent string is mostly repeating characters
       - baaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
@@ -162,10 +169,10 @@ def mostly_repeating_characters(user_agent):
         return False
 
     counts = Counter(user_agent)
-    return len(counts) / len(user_agent) < .15
+    return len(counts) / len(user_agent) < 0.15
 
 
-def random_alphanumeric_string(user_agent):
+def random_alphanumeric_string(user_agent: str) -> bool:
     """
     User Agent string is mostly generated names like:
 
@@ -201,8 +208,12 @@ def random_alphanumeric_string(user_agent):
     large_diff = punctuation_removed_diff >= delta
 
     # strings with adequate spaces / punctuation are not handled
-    if (len(user_agent) <= MIN_WORD_LENGTH or large_diff or not user_agent.isascii()
-            or good_ngram_matches(user_agent)):
+    if (
+        len(user_agent) <= MIN_WORD_LENGTH
+        or large_diff
+        or not user_agent.isascii()
+        or good_ngram_matches(user_agent)
+    ):
         return False
 
     vowels = 'aeiou'
@@ -217,7 +228,6 @@ def random_alphanumeric_string(user_agent):
     current_vowel_sequence = 0
 
     for char in user_agent:
-
         char_is_numerical = char.isnumeric()
 
         if char_is_numerical:
@@ -273,7 +283,7 @@ def random_alphanumeric_string(user_agent):
     return gibberish or ngram_analysis_gibberish(user_agent)
 
 
-def ngram_analysis_gibberish(user_agent):
+def ngram_analysis_gibberish(user_agent: str) -> bool:
     """
     Analyze legal ngrams to see if it's likely that UA is gibberish.
     """
@@ -298,7 +308,7 @@ def ngram_analysis_gibberish(user_agent):
     return bigram_threshold > unique_bigrams
 
 
-def good_ngram_matches(user_agent):
+def good_ngram_matches(user_agent: str) -> bool:
     """
     User agent likely NOT gibberish due to containing
     quadrigrams or trigrams.
@@ -334,7 +344,7 @@ def good_ngram_matches(user_agent):
     return len(common_bigram_match) >= bigram_threshold
 
 
-def reset_sequences(current, longest):
+def reset_sequences(current: int, longest: int) -> tuple[int, int]:
     """
     Set longest sequence to current if it's shorter
     and reset current sequence to zero.
@@ -369,23 +379,23 @@ def uuid_like_name(value: str) -> bool:
     return False
 
 
-def calculate_dtype(app_name) -> str:
+def calculate_dtype(app_name: str) -> AppType:
     """
     For generic extractors try to return a more
     specific type we can be if reasonably sure.
     """
     app_name_lower = app_name.lower()
     for name, dtype in (
-        ('update', 'desktop app'),
-        ('mail', 'pim'),
-        ('api', 'library'),
-        ('sdk', 'library'),
-        ('webview', 'browser'),
+        ('update', AppType.DesktopApp),
+        ('mail', AppType.PIM),
+        ('api', AppType.Library),
+        ('sdk', AppType.Library),
+        ('webview', AppType.Browser),
     ):
         if name in app_name_lower:
             return dtype
 
-    return 'generic'
+    return AppType.Generic
 
 
 __all__ = (

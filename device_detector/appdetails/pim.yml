@@ -47,3 +47,30 @@
 
 - uaname: ymobile
   name: Yahoo Mobile
+
+- uaname: com.airmailapp.iphone
+  name: Airmail
+
+- uaname: com.airmailapp.iphone.notificationservice
+  name: Airmail
+
+- uaname: com.google.gmail
+  name: Gmail
+
+- uaname: com.google.android.calendar
+  name: Google Calendar
+
+- uaname: com.google.calendar
+  name: Google Calendar
+
+- uaname: com.google.calendar.todayextension
+  name: Google Calendar
+
+- uaname: com.google.android.gm
+  name: Gmail
+
+- uaname: com.google.android.apps.messaging
+  name: Google Messages
+
+- uaname: com.google.android.gm.lite
+  name: Gmail Go

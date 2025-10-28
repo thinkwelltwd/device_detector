@@ -7,7 +7,7 @@ class OSFragment(BaseDeviceParser):
         'local/osfragments.yml',
     ]
 
-    def yaml_to_list(self, yfile) -> list:
+    def yaml_to_list(self, yfile: str) -> list:
         """
         List of dicts like so:
 
@@ -17,7 +17,7 @@ class OSFragment(BaseDeviceParser):
         reg_list = []
 
         # load and compile regexes. Not using boundaries.
-        for os, regexes in new_regexes.items():
+        for os, regexes in new_regexes.items():  # type: ignore[union-attr]
             reg_list.append({
                 'name': os,
                 'regexes': [RegexLazyIgnore(reg) for reg in regexes],
@@ -26,17 +26,14 @@ class OSFragment(BaseDeviceParser):
         return reg_list
 
     def _parse(self) -> None:
-
         for ua_data in self.regex_list:
             for regex in ua_data['regexes']:
-                match = regex.search(self.user_agent)
+                matched = regex.search(self.user_agent)
 
-                if match:
-                    self.matched_regex = match
-                    self.ua_data = ua_data.copy()
+                if matched:
+                    self.matched_regex = matched
+                    self.ua_data['name'] = ua_data['name']
                     self.known = True
-
-                    self.ua_data.pop('regexes', False)
 
                     return
 

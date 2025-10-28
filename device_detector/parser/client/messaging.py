@@ -1,10 +1,10 @@
 from . import BaseClientParser
+from device_detector.enums import AppType
 
 
 class Messaging(BaseClientParser):
-
-    def dtype(self):
-        return self.calculated_dtype or 'messaging'
+    __slots__ = ()
+    APP_TYPE = AppType.Messaging
 
 
 __all__ = [

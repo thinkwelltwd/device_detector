@@ -83,32 +83,32 @@
 -
   user_agent: com.apple.appstored/1.0 iOS/10.2 model/iPad4,8 hwp/s5l8960x build/14C92 (5; dt:104)
   client:
-    name: Apple Appstored
+    name: Apple App Store
     version: 1.0
 -
   user_agent: com.apple.invitation-registration [iPhone OS,11.1.2,15B202,iPhone8,1]
   client:
-    name: Apple Invitation-Registration
+    name: Apple Invitation Maker
     version: ''
 -
   user_agent: <com.apple.NewDeviceOutreach/12.3.1/iPad8,3>
   client:
-    name: Apple Newdeviceoutreach
+    name: Apple New Device Outreach
     version: ''
 -
   user_agent: com.applicatsia.iroofing/3.4.7 GMS-SDK/2.5.30219.0 iPad/12.1.1 hw/iPad5_4 (gzip)
   client:
-    name: Applicatsia Iroofing
+    name: iRoofing
     version: 3.4.7
 -
   user_agent: com.batch.ios/1.11.0 com.gemsoftware.textme/3.12.8 (iPad6.12;iOS 12.1.4)
   client:
-    name: Gemsoftware Textme
+    name: TextMe
     version: 3.12.8
 -
   user_agent: com.foursquare.pilgrimsdk.ios:1.2.1:20180226:iOS 11.4.1:iPhone8,1:release
   client:
-    name: Foursquare Pilgrimsdk Ios
+    name: Foursquare Pilgrim SDK
     version: 1.2.1
 -
   user_agent: com.google.b612/9.2.42 iPhone/12.1 hw/iPhone8_1

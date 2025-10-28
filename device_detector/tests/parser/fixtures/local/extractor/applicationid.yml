@@ -22,17 +22,17 @@
   user_agent: com.apple.geod/1077.0.18 cfnetwork/720.5.7 darwin/14.5.0 (x86_64)
   client:
     app_id: com.apple.geod
-    pretty_name: Apple Geod
+    pretty_name: Apple Location Services
 -
   user_agent: com.apple.weatherkitservice/147 cfnetwork/720.5.7 darwin/14.5.0 (x86_64)
   client:
     app_id: com.apple.weatherkitservice
-    pretty_name: Apple Weatherkitservice
+    pretty_name: Apple WeatherKit
 -
   user_agent: com.apple.webkit.networking/8604.5.6.0.1 cfnetwork/894 darwin/17.4.0
   client:
     app_id: com.apple.webkit.networking
-    pretty_name: Apple Webkit Networking
+    pretty_name: Apple Networking Webkit
 -
   user_agent: 6h4hrtu5e3.com.avast.osx.secureline.avastsecurelinehelper/47777
   client:
@@ -47,57 +47,57 @@
   user_agent: 8YJ6H75V7V.com.precisionplanting.FieldView
   client:
     app_id: com.precisionplanting.FieldView
-    pretty_name: Precisionplanting Fieldview
+    pretty_name: Precision Planting Fieldview
 -
   user_agent: chickfila/5.16.3 (com.engauge.Chick-fil-A; build:756; iOS 11.4.0) Alamofire/4.7.2
   client:
     app_id: com.engauge.Chick-fil-A
-    pretty_name: Engauge Chick-Fil-A
+    pretty_name: Chick-Fil-A
 -
   user_agent: com.cloudveil.CloudVeilMessenger/67634 (unknown, iOS unknown, iOS, Scale/2.000000)
   client:
     app_id: com.cloudveil.CloudVeilMessenger
-    pretty_name: Cloudveil Cloudveilmessenger
+    pretty_name: Cloudveil Messenger
 -
   user_agent: com.accuweather.android (samsung-sm-g900a; 6.0.1; urbanairshiplib-android/8.8.4; e6whem5otciqyeogsf8rhg; en_us)
   client:
     app_id: com.accuweather.android
-    pretty_name: Accuweather Android
+    pretty_name: "AccuWeather: Weather Radar"
 -
   user_agent: bible+/42 (com.zonervan.biblegateway; build:56; ios 11.3.0) alamofire/4.6.0
   client:
     app_id: com.zonervan.biblegateway
-    pretty_name: Zonervan Biblegateway
+    pretty_name: Zonervan Bible Gateway
 -
   user_agent: biblegateway/42 (com.zonervan.biblegateway; build:56; ios 11.3.0) alamofire/4.6.0
   client:
     app_id: com.zonervan.biblegateway
-    pretty_name: Zonervan Biblegateway
+    pretty_name: Zonervan Bible Gateway
 -
   user_agent: gasbuddy/5.15.0 (com.gasbuddymobile.gasbuddy; build:515.0.1; ios 11.3.1) alamofire/4.3.0
   client:
     app_id: com.gasbuddymobile.gasbuddy
-    pretty_name: Gasbuddymobile Gasbuddy
+    pretty_name: GasBuddy Gas Station Finder
 -
   user_agent: my cricket/2.5.2 (com.aiowireless.myaio; build:2122317944; ios 11.3.1) alamofire/3.5.1
   client:
     app_id: com.aiowireless.myaio
-    pretty_name: Aiowireless Myaio
+    pretty_name: MyAIO
 -
   user_agent: samsclub/589 (com.samsclub.samsapp; build:9452; ios 11.3.0) alamofire/4.7.2
   client:
     app_id: com.samsclub.samsapp
-    pretty_name: Samsclub Samsapp
+    pretty_name: "Sam's Club"
 -
   user_agent: com.agilebits.onepassword-ios.extension/70006002 cfnetwork/897.15 darwin/17.5.0
   client:
     app_id: com.agilebits.onepassword-ios.extension
-    pretty_name: Agilebits Onepassword-Ios Extension
+    pretty_name: '1Password'
 -
   user_agent: com.amazon.mp3 (SM-J320P; 5.1.1; UrbanAirshipLib-android/6.1.3; cImJnecuQfi4GVqUzGpURg; en_US)
   client:
     app_id: com.amazon.mp3
-    pretty_name: Amazon Mp3
+    pretty_name: Amazon Music
 -
   user_agent: com.apple.camera
   client:
@@ -107,32 +107,32 @@
   user_agent: com.apple.invitation-registration [Mac OS X,10.11.6,15G18013,MacBookPro8,1]
   client:
     app_id: com.apple.invitation-registration
-    pretty_name: Apple Invitation-Registration
+    pretty_name: Apple Invitation Maker
 -
   user_agent: com.apple.mobilenotes.SharingExtension/1127.50 CFNetwork/808.3 Darwin/16.3.0
   client:
     app_id: com.apple.mobilenotes.SharingExtension
-    pretty_name: Apple Mobilenotes Sharingextension
+    pretty_name: Apple Mobile Notes
 -
   user_agent: com.apple.mobilesafari
   client:
     app_id: com.apple.mobilesafari
-    pretty_name: Apple Mobilesafari
+    pretty_name: Apple Safari
 -
   user_agent: com.apple.mobileslideshow
   client:
     app_id: com.apple.mobileslideshow
-    pretty_name: Apple Mobileslideshow
+    pretty_name: Apple Mobile Slideshow
 -
   user_agent: com.apple.MobileSMS
   client:
     app_id: com.apple.MobileSMS
-    pretty_name: Apple Mobilesms
+    pretty_name: Apple Mobile SMS
 -
   user_agent: com.apple.MobileSoftwareUpdate.UpdateBrainService/1 CFNetwork/811.5.4 Darwin/16.6.0
   client:
     app_id: com.apple.MobileSoftwareUpdate.UpdateBrainService
-    pretty_name: Apple Mobilesoftwareupdate Updatebrainservice
+    pretty_name: Apple Update Service
 -
   user_agent: com.apple.Photos
   client:
@@ -142,47 +142,47 @@
   user_agent: com.apple.Safari.SearchHelper/13604.3.5 CFNetwork/889.9 Darwin/17.2.0 (x86_64)
   client:
     app_id: com.apple.Safari.SearchHelper
-    pretty_name: Apple Safari Searchhelper
+    pretty_name: Apple Safari
 -
   user_agent: com.apple.siri-distributed-evaluation/1 CFNetwork/894 Darwin/17.4.0
   client:
     app_id: com.apple.siri-distributed-evaluation
-    pretty_name: Apple Siri-Distributed-Evaluation
+    pretty_name: Apple Siri
 -
   user_agent: com.equitybank.grip (samsung-sm-g800a; 5.1.1; urbanairshiplib-android/9.0.6; aldpk9qqsjujvbjf_geqca; en_us)
   client:
     app_id: com.equitybank.grip
-    pretty_name: Equitybank Grip
+    pretty_name: Equity Bank
 -
   user_agent: com.google.hangouts_iOS/21.0.179146070 (gzip)
   client:
     app_id: com.google.hangouts_iOS
-    pretty_name: Google Hangouts_Ios
+    pretty_name: Google Hangouts
 -
   user_agent: com.kohls.mcommerce.opal (samsung-sm-g920a; 6.0.1; urbanairshiplib-android/8.7.0; clr_iah1suqm9zn4dimqsa; en_us)
   client:
     app_id: com.kohls.mcommerce.opal
-    pretty_name: Kohls Mcommerce Opal
+    pretty_name: Kohl's Shopping & More
 -
   user_agent: com.menards.mobile (samsung-sm-g891a; 7.0; urbanairshiplib-android/8.3.2; q8llfbrrthcupyijhsk79a; en_us)
   client:
     app_id: com.menards.mobile
-    pretty_name: Menards Mobile
+    pretty_name: Menards
 -
   user_agent: Commerce/1.27.1 (com.underarmour.shop; build:7065; iOS 11.4.0) Alamofire/4.7.1
   client:
     app_id: com.underarmour.shop
-    pretty_name: Underarmour Shop
+    pretty_name: Under Armour
 -
   user_agent: com.mxtech.videoplayer.ad/1023
   client:
     app_id: com.mxtech.videoplayer.ad
-    pretty_name: Mxtech Videoplayer Ad
+    pretty_name: MX Player
 -
   user_agent: com.ovbc.grip (SM-G900V; 6.0.1; UrbanAirshipLib-android/9.0.6; na0lwn2hQwarqjD8V4934Q; en_US)
   client:
     app_id: com.ovbc.grip
-    pretty_name: Ovbc Grip
+    pretty_name: Ohio Valley Mobile Banking
 -
   user_agent: com.parrot.freeflight3
   client:
@@ -192,22 +192,22 @@
   user_agent: com.Project100Pi.themusicplayer/104
   client:
     app_id: com.Project100Pi.themusicplayer
-    pretty_name: Project100Pi Themusicplayer
+    pretty_name: 'Pi Music Player: Offline Music'
 -
   user_agent: com.sonicomobile.itranslatemac 1.4.7 rv:1411 (Macmini7,1; Version 10.13.1 (Build 17B1003); en_US@currency=GTQ)
   client:
     app_id: com.sonicomobile.itranslatemac
-    pretty_name: Sonicomobile Itranslatemac
+    pretty_name: iTranslate by Sonicmobile
 -
   user_agent: com.starbucks.mobilecard (samsung-sm-g890a; 6.0.1; urbanairshiplib-android/8.9.6; n8pacvorrnedc1ykyopraa; es_us)
   client:
     app_id: com.starbucks.mobilecard
-    pretty_name: Starbucks Mobilecard
+    pretty_name: Starbucks
 -
   user_agent: com.tgc.greatcoursesplus (SAMSUNG-SM-T377A; 6.0.1; UrbanAirshipLib-android/8.2.0; xChI0L29QJWk5fSapY56kw; en_US)
   client:
     app_id: com.tgc.greatcoursesplus
-    pretty_name: Tgc Greatcoursesplus
+    pretty_name: The Great Courses Plus
 -
   user_agent: Android-com.google.android.play.games/5.10.6084 (203152957.203152957-000304) (api=4,versionCode=60840034,sdk=23,device=j1xlteatt,hardware=universal3475,product=j1xlteuc)
   client:
@@ -217,4 +217,4 @@
   user_agent: 6H4HRTU5E3.net.avast.osx.secureline.avastsecurelinehelper/47936 CFNetwork/974.1 Darwin/18.0.0 (x86_64)
   client:
     app_id: net.avast.osx.secureline.avastsecurelinehelper
-    pretty_name: Avast Osx Secureline Avastsecurelinehelper
+    pretty_name: Avast Antivirus

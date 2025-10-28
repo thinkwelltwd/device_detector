@@ -1,0 +1,47 @@
+- uaname: com.google.maps
+  name: Google Maps
+- uaname: com.google.maps.messagesextension
+  name: Google Maps
+- uaname: com.google.maps.nearbytraffictodayextension
+  name: Google Maps
+- uaname: osmand
+  suffix: maps
+  name: OsmAnd Maps
+- uaname: mapboxgl
+  name: Mapbox GL
+- uaname: mapquest
+  name: MapQuest
+- uaname: maps
+  name: Maps
+- uaname: maps.me
+  name: maps.me
+- uaname: mapssupport
+  name: Maps Support
+- uaname: maps_weatherfoundation
+  name: Maps Weather Foundation
+- uaname: mapulator
+  name: Mapulator
+- uaname: mapwidget
+  name: Map Widget
+- uaname: com.google.android.apps.mapslite
+  name: Google Maps Go
+- uaname: com.google.android.apps.searchlite
+  name: Google Go
+- uaname: com.google.android.apps.maps
+  name: Google Maps
+- uaname: com.google.earth
+  name: Google Earth
+- uaname: com.apple.maps
+  name: Apple Maps
+- uaname: google earth
+  name: Google Earth
+- uaname: google maps
+  name: Google Maps
+- uaname: Windows Maps
+  name: Windows Maps
+- uaname: com.ansangha.drdriving
+  name: Dr. Driving
+- uaname: gaiagps
+  name: GAIA GPS
+- uaname: truckmap
+  name: Truck Map

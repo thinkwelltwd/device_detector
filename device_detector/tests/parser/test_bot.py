@@ -12,17 +12,16 @@ class TestBot(ParserBaseTest):
             ua=ua,
             ua_hash=ua_hash(ua),
             ua_spaceless=spaceless,
-            version_truncation=self.VERSION_TRUNCATION,
+            client_hints=None,
         )
         expected = {
             'name': 'Googlebot',
             'category': 'Search bot',
-            'url': 'http://www.google.com/bot.html',
+            'url': 'https://developers.google.com/search/docs/crawling-indexing/overview-google-crawlers',
             'producer': {
                 'name': 'Google Inc.',
-                'url': 'http://www.google.com',
+                'url': 'https://www.google.com/',
             },
-            'model': '',
             'version': '',
         }
         bot = bot.parse()
@@ -36,7 +35,7 @@ class TestBot(ParserBaseTest):
             ua=ua,
             ua_hash=ua_hash(ua),
             ua_spaceless=spaceless,
-            version_truncation=self.VERSION_TRUNCATION,
+            client_hints=None,
         )
         bot.parse()
         self.assertEqual(bot.ua_data, {})

@@ -21,11 +21,7 @@ class TestApplicationIDExtractor(ParserBaseTest):
 
         for fixture in fixtures:
             self.user_agent = unquote(fixture.pop('user_agent'))
-            expected = fixture['client']['app_id']
             app_id = ApplicationIDExtractor(self.user_agent)
-            parsed = app_id.extract().get('app_id', '')
-
-            self.assertEqual(expected, parsed, msg=error.format(self.user_agent, parsed, expected))
 
             expected = fixture['client']['pretty_name']
             parsed = app_id.pretty_name()

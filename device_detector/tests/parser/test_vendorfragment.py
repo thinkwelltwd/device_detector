@@ -22,7 +22,7 @@ class TestVendorFragment(ParserBaseTest):
                 self.user_agent,
                 hashed,
                 spaceless,
-                self.VERSION_TRUNCATION,
+                None,
             ).parse()
             self.assertEqual(expect, parsed.ua_data['brand'])
 

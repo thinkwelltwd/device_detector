@@ -1,10 +1,10 @@
 from collections import OrderedDict
 from copy import deepcopy
 import os
+from typing import Any
 
-# interpolate regex with anchors so
-# iPhone / Tiphone are matched correctly
-BOUNDED_REGEX = r'(?:^|[^A-Z0-9\-_]|MZ-)(?:{})'
+# Only match if useragent begins with given regex or there is no letter before it
+BOUNDED_REGEX = r'(?:^|[^A-Z0-9_-]|[^A-Z0-9-]_|sprd-|MZ-)(?:{})'
 MAX_CACHE_SIZE = 1024
 
 
@@ -29,7 +29,7 @@ class LRUDict(OrderedDict):
         self.maxkeys = maxkeys
         self.purge()
 
-    def purge(self):
+    def purge(self) -> None:
         """
         Pop least used keys until maximum keys is reached.
         """
@@ -37,7 +37,7 @@ class LRUDict(OrderedDict):
         for _ in range(overflowing):
             self.popitem(last=False)
 
-    def __getitem__(self, key):
+    def __getitem__(self, key: Any) -> Any:
         value = super().__getitem__(key)
         try:
             self.move_to_end(key)
@@ -45,14 +45,13 @@ class LRUDict(OrderedDict):
             pass
         return value
 
-    def __setitem__(self, key, value):
+    def __setitem__(self, key: Any, value: Any) -> None:
         super().__setitem__(key, value)
         self.purge()
 
 
 class Cache(dict):
-
-    base = {
+    base: dict = {
         'appdetails': {},
         'regexes': {},
         'normalize_regexes': [],
@@ -62,11 +61,11 @@ class Cache(dict):
         'user_agents': LRUDict(),
     }
 
-    def __init__(self, *args, **kwargs):
+    def __init__(self, *args: Any, **kwargs: Any) -> None:
         kwargs.update(deepcopy(self.base))
         super().__init__(*args, **kwargs)
 
-    def clear(self):
+    def clear(self) -> None:
         super().clear()
         self.update(deepcopy(self.base))
 

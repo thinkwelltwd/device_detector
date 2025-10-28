@@ -25,3 +25,88 @@
 
 - uaname: com.amazon.mp3
   name: Amazon Music
+
+- uaname: com.amazon.avod.thirdpartyclient
+  name: Prime Video
+
+- uaname: com.sec.android.app.music
+  name: Samsung Music
+
+- uaname: com.jio.media.jiobeats
+  name: JioSaavn - Music & Podcasts
+
+- uaname: atube-music
+  name: ATube Music
+
+- uaname: com.project100pi.themusicplayer
+  name: "Pi Music Player: Offline Music"
+
+- uaname: music
+  name: Music
+
+- uaname: musicplayerapp
+  name: Music Player App
+
+- uaname: com.pandora.android
+  name: Pandora - Music & Podcasts
+
+- uaname: com.soundcloud.android
+  name: "SoundCloud: The Music You Love"
+
+- uaname: com.vkontakte.android
+  name: "VK: music, video, messenger"
+
+- uaname: musicplayer.musicapps.music.mp3player
+  name: Music Player & MP3 Player
+
+- uaname: com.tencent.ibg.joox
+  name: JOOX Music
+
+- uaname: com.dywx.larkplayer
+  name: "Lark Player:Music Player & MP3"
+
+- uaname: com.bsbportal.music
+  name: "Wynk Music: MP3, Song, Podcast"
+
+- uaname: in.amazon.mshop.android.shopping
+  name: Amazon India Shop, Pay, miniTV
+
+- uaname: com.gaana
+  name: "Gaana: Music App, MP3 Songs"
+
+- uaname: com.spotify.music
+  name: "Spotify: Music and Podcasts"
+
+- uaname: com.netflix.mediaclient
+  name: Netflix
+
+- uaname: com.miui.player
+  name: Mi Music
+
+- uaname: deezer.android.app
+  name: "Deezer: Music & Podcast Player"
+
+- uaname: Player FM
+  name: Player FM
+
+# YouTube
+- uaname: youtube
+  name: YouTube
+- uaname: youtubemusic
+  name: YouTube Music
+- uaname: com.google.android.apps.youtube.music
+  name: YouTube Music
+- uaname: com.googleios.youtube
+  name: YouTube Music
+- uaname: com.google.android.youtube
+  name: Youtube
+- uaname: com.google.android.youtube.player
+  name: Youtube
+- uaname: com.google.ios.youtube
+  name: Youtube
+- uaname: com.google.android.apps.youtube.kids
+  name: YouTube Kids
+- uaname: com.google.android.music
+  name: YouTube Music
+- uaname: com.google.android.videos
+  name: Google TV

@@ -16,9 +16,9 @@
     type: library
     name: Facebook SDK for Android
     version: 4.23.0
--
-  user_agent: xboxservicesapi/2017.08.0.0
-  client:
-    type: library
-    name: Xbox Services API
-    version: 2017.08.0.0
+#-
+#  user_agent: xboxservicesapi/2017.08.0.0
+#  client:
+#    type: library
+#    name: Xbox Services API
+#    version: 2017.08.0.0

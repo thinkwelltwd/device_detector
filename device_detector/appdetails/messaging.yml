@@ -7,12 +7,33 @@
 
 - uaname: mattermost
   name: Mattermost
-
 - uaname: x-lite
   name: X-Lite Softphone
-
 - uaname: zoiperpremium
   name: Zoiper Premium Softphone
-
 - uaname: textme
   name: TextMe
+- uaname: com.tencent.mm
+  name: WeChat
+- uaname: com.snapchat.android
+  name: Snapchat
+- uaname: in.mohalla.sharechat
+  name: ShareChat Trends Videos & Live
+- uaname: com.sgiggle.production
+  name: Tango- Live Stream, Video Chat
+- uaname: org.telegram.messenger
+  name: Telegram
+- uaname: com.instagram.android
+  name: Instagram
+
+# WhatsApp
+- uaname: WhatsApp
+  name: WhatsApp
+- uaname: Chat for WhatsApp
+  name: WhatsApp
+- uaname: Guide for WhatsApp
+  name: WhatsApp
+- uaname: Groups for WhatsApp
+  name: WhatsApp
+- uaname: Memes for WhatsApp
+  name: WhatsApp

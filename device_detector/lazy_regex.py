@@ -2,6 +2,7 @@ from urllib.parse import unquote
 import regex
 from regex import IGNORECASE
 
+
 # When one of these attributes is called, compile the regex
 REGEX_ATTRS = {
     'match',
@@ -27,15 +28,14 @@ class RegexLazy:
     never be called, so save the compilation time.
     """
 
-    def __init__(self, pattern, flags=0):
-
+    def __init__(self, pattern: str, flags: int = 0) -> None:
         # Decode UA regexes because UA strings are also decoded
         # Pic%20Collage/(\d+[\.\d]+) CFNetwork
         self.pattern = unquote(pattern)
         self.flags = flags
         self.compiled = None
 
-    def __getattribute__(self, attribute):
+    def __getattribute__(self, attribute: str) -> regex.Pattern:
         compiled_regex = super().__getattribute__('compiled')
         if compiled_regex is None and attribute in REGEX_ATTRS:
             pattern = super().__getattribute__('pattern')
@@ -49,19 +49,18 @@ class RegexLazy:
 
         return getattr(compiled_regex, attribute)
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         return repr(self.compiled)
 
-    def __hash__(self):
+    def __hash__(self) -> int:
         return hash(self.compiled)
 
-    def __eq__(self, other):
+    def __eq__(self, other: regex.Pattern) -> bool:
         return self.compiled == other.compiled
 
 
 class RegexLazyIgnore(RegexLazy):
-
-    def __init__(self, pattern):
+    def __init__(self, pattern: str) -> None:
         super().__init__(pattern, IGNORECASE)
 
 

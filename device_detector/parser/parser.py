@@ -1,20 +1,17 @@
-try:
-    import regex as re
-except (ImportError, ModuleNotFoundError):
-    import re
+from typing import Self
 
 from ..settings import (
     DDCache,
 )
+from .client_hints import ClientHints
 from .extractors import (
     NameExtractor,
-    ModelExtractor,
     VersionExtractor,
 )
-from ..yaml_loader import RegexLoader
+from ..yaml_loader import RegexLoader, app_pretty_names_types_data
 
 
-def build_version(version_str: str, truncation=1):
+def build_version(version_str: str, truncation: int = 1) -> str:
     """
     Extract basic version from strings like 10.0.16299.371
 
@@ -41,36 +38,52 @@ def build_version(version_str: str, truncation=1):
 
 
 class Parser(RegexLoader):
-
     # Constant used as value for unknown browser / os
     UNKNOWN = 'UNK'
     UNKNOWN_NAME = 'Unknown'
 
-    def __init__(self, ua, ua_hash, ua_spaceless, version_truncation):
-        super().__init__(version_truncation)
+    __slots__ = (
+        'user_agent',
+        'ua',
+        'ua_hash',
+        'ua_spaceless',
+        'ua_data',
+        'app_name',
+        'app_name_no_punctuation',
+        'matched_regex',
+        'app_version',
+        'known',
+        'secondary_client',
+        'client_hints',
+        'ch_client_data',
+        'os_details',
+        'appdetails_data',
+    )
+
+    def __init__(
+        self,
+        ua: str,
+        ua_hash: str,
+        ua_spaceless: str,
+        client_hints: ClientHints | None,
+        os_details: dict | None = None,
+    ) -> None:
+        super().__init__()
 
         self.user_agent = ua
         self.ua_hash = ua_hash
         self.ua_spaceless = ua_spaceless
-        self.ua_data = {}
+        self.ua_data: dict = {}
         self.app_name = ''
         self.app_name_no_punctuation = ''
         self.matched_regex = None
-        self.app_version = None
+        self.app_version = ''
         self.known = False
-        self.calculated_dtype = ''
-        self.secondary_client = {}
-
-    @property
-    def cache_name(self) -> str:
-        """Class name, used for cache key"""
-        return self.__class__.__name__
-
-    def dtype(self) -> str:
-        """
-        For adding 'type' key to ua_data
-        """
-        return self.calculated_dtype or self.cache_name.lower()
+        self.secondary_client: dict = {}
+        self.client_hints = client_hints
+        self.ch_client_data = client_hints.client_data() if client_hints else {}
+        self.os_details = os_details or {}
+        self.appdetails_data = app_pretty_names_types_data()
 
     def get_from_cache(self) -> dict:
         try:
@@ -83,29 +96,17 @@ class Parser(RegexLoader):
         DDCache['user_agents'][self.ua_hash][self.cache_name] = self.ua_data
         return self.ua_data
 
-    def _check_regex(self, regex):
-        try:
-            return regex.search(self.user_agent)
-        except Exception as e:
-            print('{} fired an error {}'.format(regex, e))
-            if re.__name__ == 're':
-                print(
-                    'You are using the builtin "re" library. '
-                    'Consider installing the "regex" library instead.'
-                )
-            return None
-
     def _parse(self) -> None:
         """Override on subclasses if custom parsing is required"""
+        user_agent = self.user_agent
         for ua_data in self.regex_list:
-            match = self._check_regex(ua_data['regex'])
-            if match:
-                self.matched_regex = match
-                self.ua_data = ua_data.copy()
+            if matched := ua_data['regex'].search(user_agent):
+                self.matched_regex = matched
+                self.ua_data |= {k: v for k, v in ua_data.items() if k != 'regex'}
                 self.known = True
                 return
 
-    def parse(self):
+    def parse(self) -> Self:
         """
         Return parsed details of UA String
         """
@@ -127,14 +128,14 @@ class Parser(RegexLoader):
         self.add_to_cache()
         return self.ua_data
 
-    def extract_version(self):
+    def extract_version(self) -> None:
         """
         Extract the version if UA Yaml files specify version regexes.
         See oss.yml for example file structure.
         """
+
         for version in self.ua_data.pop('versions', []):
-            match = self._check_regex(version['regex'])
-            if match:
+            if version['regex'].search(self.user_agent):
                 self.ua_data['version'] = version['version']
                 return
 
@@ -144,16 +145,8 @@ class Parser(RegexLoader):
 
         Update fields with interpolated values from regex data
         """
-        if not self.ua_data:
-            return
-        self.ua_data.pop('regex', False)
-        self.ua_data.pop('models', False)
-        groups = self.matched_regex and self.matched_regex.groups()
-
+        groups = self.matched_regex and self.matched_regex.groups() or None
         if groups:
-            if 'model' in self.ua_data:
-                self.ua_data['model'] = ModelExtractor(self.ua_data, groups).extract()
-
             if 'name' in self.ua_data:
                 self.ua_data['name'] = NameExtractor(self.ua_data, groups).extract()
 
@@ -164,29 +157,23 @@ class Parser(RegexLoader):
         if not self.ua_data.get('name') and self.ua_data.get('version'):
             self.ua_data['version'] = ''
 
-        self.ua_data.update({
-            'type': self.dtype(),
-            'model': (self.ua_data.get('model') or '').replace('_', ' '),
-            'version': self.set_version(self.ua_data.get('version', '')),
-        })
-
     def name(self) -> str:
         return self.ua_data.get('name', '')
 
     def version(self) -> str:
         return self.ua_data.get('version', '')
 
-    def secondary_name(self):
+    def secondary_name(self) -> str:
         if self.secondary_client:
             return self.secondary_client['name']
         return ''
 
-    def secondary_version(self):
+    def secondary_version(self) -> str:
         if self.secondary_client:
             return self.secondary_client['version']
         return ''
 
-    def secondary_type(self):
+    def secondary_type(self) -> str:
         if self.secondary_client:
             return self.secondary_client['type']
         return ''
@@ -196,19 +183,15 @@ class Parser(RegexLoader):
             return True
         return False
 
-    def set_version(self, version):
-        return build_version(version, self.VERSION_TRUNCATION)
+    def set_version(self, version: str) -> str:
+        # return build_version(version, self.VERSION_TRUNCATION)
+        return version
 
-    def __str__(self):
+    def __str__(self) -> str:
         return self.name()
 
-    def __repr__(self):
-        return '%s(%s, %s, %s)' % (
-            self.__class__.__name__,
-            self.user_agent,
-            self.ua_hash,
-            self.ua_spaceless,
-        )
+    def __repr__(self) -> str:
+        return f'{self.__class__.__name__}({self.user_agent}, {self.ua_data}, {self.ua_spaceless})'
 
 
 __all__ = [

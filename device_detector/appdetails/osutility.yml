@@ -1,0 +1,85 @@
+# Apple
+- uaname: com.apple.mobilesoftwareupdate.updatebrainservice
+  name: Apple Update Service
+- uaname: com.apple.configurator
+  name: Apple Configurator
+- uaname: com.apple.configurator.xpc.deviceservice
+  name: Apple Configurator
+- uaname: com.apple.configurator.xpc.internetservice
+  name: Apple Configurator
+- uaname: com.apple.appstored
+  name: Apple App Store
+- uaname: com.apple.newdeviceoutreach
+  name: Apple New Device Outreach
+- uaname: com.apple.geod
+  name: Apple Location Services
+- uaname: geoanalyticsd
+  name: Apple Location Services
+
+- uaname: apsdaemon
+  suffixes: .exe
+  name: apsdaemon
+- uaname: icloudservices
+  suffixes: .exe
+  name: icloudservices
+- uaname: windows-update-agent
+  name: Windows Update Agent
+- uaname: windows store
+  name: Windows Store
+- uaname: windowsshellclient
+  name: Windows Shell Client
+- uaname: Microsoft-CryptoAPI
+  name: Microsoft CryptoAPI
+- uaname: Microsoft-WNS
+  name: Microsoft WNS
+- uaname: Microsoft-BITS
+  name: Microsoft BITS
+- uaname: Microsoft-Delivery-Optimization
+  name: Microsoft Delivery Optimization
+- uaname: Microsoft-NCSI
+  name: Microsoft NCSI
+- uaname: microsoft windows network diagnostics
+  name: Windows Network Diagnostics
+- uaname: MICROSOFT_DEVICE_METADATA_RETRIEVAL_CLIENT
+  name: Microsoft Device Metadata Retrieval Client
+- uaname: debian apt-http
+  name: Apt Updater
+- uaname: yum
+  name: YUM Updater
+- uaname: com.sec.android.app.launcher
+  name: Samsung One UI Home
+- uaname: com.apusapps.launcher
+  name: APUS System
+
+
+# Google
+- uaname: com.google.android.inputmethod.latin
+  name: Gboard - the Google Keyboard
+- uaname: com.google.android.dialer
+  name: Phone by Google
+- uaname: com.google.android.apps.restore
+  name: Android Switch
+- uaname: com.google.android.gms
+  name: Google Play services
+- uaname: com.google.android.apps.wallpaper
+  name: Wallpapers
+- uaname: com.google.android.accessibility.switchaccess
+  name: Switch Access
+- uaname: com.google.android.calculator
+  name: Calculator
+- uaname: com.google.android.tts
+  name: Speech Recognition & Synthesis
+- uaname: com.google.android.apps.accessibility.voiceaccess
+  name: Voice Access
+- uaname: com.google.android.deskclock
+  name: Clock
+- uaname: com.google.android.as
+  name: Android System Intelligence
+- uaname: com.google.audio.hearing.visualization.accessibility.scribe
+  name: Live Transcribe & Notification
+- uaname: com.google.android.contacts
+  name: Contacts
+- uaname: com.google.android.ims
+  name: Carrier Services
+- uaname: com.google.ar.core
+  name: Google Play Services for AR

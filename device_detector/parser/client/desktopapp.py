@@ -1,18 +1,36 @@
 from . import BaseClientParser
+from device_detector.enums import AppType
 
 
 class DesktopApp(BaseClientParser):
+    __slots__ = ()
+    APP_TYPE = AppType.DesktopApp
 
     fixture_files = [
-        'local/client/osutility.yml',
-        'local/client/antivirus.yml',
         'local/client/desktop_apps.yml',
     ]
 
-    def dtype(self):
-        return self.calculated_dtype or self.ua_data.get('type', '') or 'desktop app'
+
+class OsUtility(BaseClientParser):
+    __slots__ = ()
+    APP_TYPE = AppType.OsUtility
+
+    fixture_files = [
+        'local/client/osutility.yml',
+    ]
 
 
-__all__ = [
+class Antivirus(BaseClientParser):
+    __slots__ = ()
+    APP_TYPE = AppType.Antivirus
+
+    fixture_files = [
+        'local/client/antivirus.yml',
+    ]
+
+
+__all__ = (
     'DesktopApp',
-]
+    'Antivirus',
+    'OsUtility',
+)

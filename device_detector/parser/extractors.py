@@ -1,7 +1,7 @@
 from ..lazy_regex import RegexLazyIgnore
-from ..settings import BOUNDED_REGEX, DDCache
+from ..settings import BOUNDED_REGEX
 from .settings import CHECK_PAIRS
-from ..yaml_loader import RegexLoader
+from ..yaml_loader import RegexLoader, app_pretty_names_types_data
 
 APP_ID = RegexLazyIgnore(r'\b([a-z]{2,5}\.[\w\d\.\-]+)')
 
@@ -21,16 +21,29 @@ FACEBOOK_FRAGMENT = RegexLazyIgnore(BOUNDED_REGEX.format('FBAB/'))
 # YHOO YahooMobile/1.0 (com.aol.mapquest; 5.18.6) (Apple; iPhone; iOS/12.1.4);
 YAHOO_FRAGMENT = RegexLazyIgnore(r'YHOO YahooMobile')
 
+IGNORED_APP_IDS = {
+    'com.yourcompany.testwithcustomtabs',
+    'com.yourcompany.speedboxlite',
+}
+
 
 class DataExtractor:
     """
     Regex will define a string value or 1-based index
     position of the desired metadata
 
-    - regex: '(?:Apple-)?(?:iPhone|iPad|iPod)(?:.*Mac OS X.*Version/(\d+\.\d+)|; Opera)?'
+    - regex: '(?:Apple-)?(?:iPhone|iPad|iPod)(?:.*Mac OS X.*Version/(\\d+\\.\\d+)|; Opera)?'
       name: 'iOS'
       version: '$1'
     """
+
+    __slots__ = (
+        'metadata',
+        'groups',
+        'user_agent',
+        'details',
+        '_app_id_pretty_names',
+    )
 
     # metadata value to extract / return
     # subclasses must override
@@ -48,7 +61,7 @@ class DataExtractor:
         self.metadata = metadata
         self.groups = groups
 
-    def get_value_from_regex(self, value) -> str:
+    def get_value_from_regex(self, value: str) -> str:
         """
         Model / Name values may be in format of
         $<int> or <NamePrefix> $<int>
@@ -97,11 +110,11 @@ class DataExtractor:
             return self.get_value_from_regex(value)
         return value
 
-    def __str__(self):
-        return '%s Extractor' % self.__class__.__name__
+    def __str__(self) -> str:
+        return f'{self.__class__.__name__} Extractor'
 
-    def __repr__(self):
-        return '%s(%s, %s)' % (self.__class__.__name__, self.metadata, self.groups)
+    def __repr__(self) -> str:
+        return f'{self.__class__.__name__}({self.metadata}, {self.groups})'
 
 
 class ApplicationIDExtractor(RegexLoader):
@@ -113,11 +126,13 @@ class ApplicationIDExtractor(RegexLoader):
     com.houzz.app
     com.google.Maps
     """
+
     key = 'app_id'
 
-    def __init__(self, user_agent):
+    def __init__(self, user_agent: str) -> None:
         self.user_agent = user_agent
-        self.details = {}
+        self.details: dict[str, str] = {}
+        self._app_id_pretty_names = app_pretty_names_types_data()
 
     def override_name_with_app_id(self, client_name: str) -> bool:
         """
@@ -130,33 +145,13 @@ class ApplicationIDExtractor(RegexLoader):
             return True
 
         for REGEX in (
-                FACEBOOK_FRAGMENT,
-                YAHOO_FRAGMENT,
+            FACEBOOK_FRAGMENT,
+            YAHOO_FRAGMENT,
         ):
             if REGEX.search(self.user_agent) is not None:
                 return True
 
         return False
-
-    def ignored_appids(self):
-        """
-        Load Ignored App IDs from yaml file
-        """
-        return self.load_app_id_sets(name='ignored')
-
-    def secondary_appids(self) -> set:
-        """
-        Load Secondary App IDs from yaml file
-        """
-        return self.load_app_id_sets(name='secondary')
-
-    def normalized_app_ids(self) -> dict:
-        normalized = DDCache['appids_normalized']
-        if normalized:
-            return normalized
-
-        DDCache['appids_normalized'] = self.load_from_yaml('appids/normalized.yml') or {}
-        return DDCache['appids_normalized']
 
     def extract(self) -> dict:
         """
@@ -175,24 +170,30 @@ class ApplicationIDExtractor(RegexLoader):
         if not app_ids:
             app_ids = [(app_id, '') for app_id in APP_ID.findall(self.user_agent)]
 
-        secondary_app_ids = self.secondary_appids()
-        scrubbed_ids = []
-        for app_id in app_ids:
-            if app_id[0] not in secondary_app_ids:
-                scrubbed_ids.append(app_id)
+        scrubbed_app_ids = [
+            (app_id.lower(), version)
+            for app_id, version in app_ids
+            if app_id.lower() not in IGNORED_APP_IDS
+        ]
+        if not scrubbed_app_ids:
+            return {}
 
-        if scrubbed_ids:
-            app_id, version = scrubbed_ids[0]
-            if app_id.lower() in self.ignored_appids():
-                return {}
-            details = self.normalized_app_ids().get(app_id.lower(), {'app_id': app_id})
-            # allow for only pretty_name to be defined in the normalized data file
-            if 'app_id' not in details:
-                details['app_id'] = app_id
-
-            details['version'] = version
-
-            self.details = details
+        for app_id, version in scrubbed_app_ids:
+            app_id_lower = app_id.lower()
+            if app_id_lower in IGNORED_APP_IDS:
+                continue
+            if pretty_name := self._app_id_pretty_names.get(app_id_lower):
+                self.details = {
+                    'name': pretty_name['name'],
+                    'app_id': app_id,
+                    'version': version,
+                }
+                break
+        else:
+            self.details = {
+                'app_id': scrubbed_app_ids[0][0],
+                'version': scrubbed_app_ids[0][1],
+            }
 
         return self.details
 
@@ -201,23 +202,27 @@ class ApplicationIDExtractor(RegexLoader):
 
     def pretty_name(self) -> str:
         details = self.extract()
-        name = self.details.get('name', '')
 
-        if name:
+        if name := self.details.get('name', ''):
             return name
 
         if not details:
             return ''
 
-        self.details['name'] = ' '.join(details.get('app_id', '').split('.')[1:]).title()
+        app_id = details.get('app_id', '')
+        # If it might be a domain name, then return the app_id as-is
+        if not app_id or not app_id.startswith(('com.', 'au.com.')):
+            return app_id
+
+        self.details['name'] = ' '.join(app_id.split('.')[1:]).title()
 
         return self.details['name']
 
-    def __str__(self):
-        return '%s("%s")' % (self.__class__.__name__, self.user_agent)
+    def __str__(self) -> str:
+        return f'{self.__class__.__name__}("{self.user_agent}")'
 
-    def __repr__(self):
-        return '%s("%s")' % (self.__class__.__name__, self.user_agent)
+    def __repr__(self) -> str:
+        return f'{self.__class__.__name__}("{self.user_agent}")'
 
 
 class NameExtractor(DataExtractor):
@@ -232,10 +237,13 @@ class ModelExtractor(DataExtractor):
         if not value:
             return value
 
+        if value == 'Build':
+            return ''
+
         # normalize D510_TD / ETON-T730D_TD
         if value.endswith('_TD'):
             value = value[:-3]
-        return value.replace('_', ' ')
+        return value.replace('_', ' ').strip()
 
 
 class VersionExtractor(DataExtractor):
@@ -246,11 +254,7 @@ class VersionExtractor(DataExtractor):
         if not value:
             return value
 
-        value = value.replace('_', '.')
-        if value.endswith('.'):
-            return value[:-1]
-
-        return value
+        return value.replace('_', '.').strip('.')
 
 
 __all__ = (

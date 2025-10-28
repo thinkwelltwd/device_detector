@@ -7,6 +7,7 @@ Run individual test class by:
 
 python3 -m unittest device_detector.tests.parser.test_bot
 """
+from enum import StrEnum
 from urllib.parse import unquote
 import unittest
 import yaml
@@ -15,11 +16,11 @@ try:
 except ImportError:
     from yaml import SafeLoader
 
+from device_detector.parser import ClientHints
 from ..settings import ROOT
 from ..utils import ua_hash
 from .. import DeviceDetector
 
-from device_detector import VERSION_TRUNCATION_NONE
 
 # App names -> Application ID map so that upstream
 # test fixtures can pass without modifications
@@ -55,29 +56,29 @@ class Base(unittest.TestCase):
             first = None
         if second == 'None':
             second = None
+        elif isinstance(second, StrEnum):
+            second = second.value
         # Count all falsy types as equal
-        if not first and not second:
+        if not first and (not second or second == '0'):
             return
 
         if not msg and hasattr(self, 'user_agent'):
             field = kwargs.get('field')
-            ua_msg = '\n\nFailed to parse "{}"\n'.format(getattr(self, 'user_agent'))
+            ua_msg = f'\n\nFailed to parse {getattr(self, "user_agent")!r}\n'
 
             if field:
-                field_msg = 'Field "{}" expected value "{}" != Parsed value "{}"'.format(
-                    field, first, second
-                )
+                field_msg = f'Field {field!r} expected value {first!r} != Parsed value {second!r}.'
             else:
-                field_msg = 'Expected value "{}" != Parsed value "{}"'.format(first, second)
+                field_msg = f'Expected value {first!r} != Parsed value {second!r}'
 
-            msg = '{} {}'.format(ua_msg, field_msg)
+            msg = f'{ua_msg} {field_msg}'
 
         super().assertEqual(first, second, msg)
 
     def load_fixtures(self):
         fixtures = []
         for ffile in self.fixture_files:
-            with open('{}/{}'.format(ROOT, ffile), 'r') as r:
+            with open(f'{ROOT}/{ffile}', 'r') as r:
                 fixtures.extend(yaml.load(r, SafeLoader))
         return fixtures
 
@@ -167,7 +168,7 @@ class DetectorBaseTest(Base):
 
         for fixture in self.load_fixtures():
             self.user_agent = unquote(fixture.pop('user_agent'))
-            device = DeviceDetector(self.user_agent)
+            device = DeviceDetector(self.user_agent, headers=fixture.get('headers', {}))
             device.parse()
 
             # OS properties
@@ -203,12 +204,11 @@ class ParserBaseTest(Base):
     fixture_key = 'client'  # key of fixture dict containing the values to compare
     fields = []
     Parser = None
-    VERSION_TRUNCATION = VERSION_TRUNCATION_NONE
 
     def load_fixtures(self):
         fixtures = []
         for ffile in self.fixture_files:
-            with open('{}/{}'.format(ROOT, ffile), 'r') as r:
+            with open(f'{ROOT}/{ffile}', 'r') as r:
                 fixtures.extend(yaml.load(r, SafeLoader))
         return fixtures
 
@@ -226,7 +226,7 @@ class ParserBaseTest(Base):
                 self.user_agent,
                 ua_hash(self.user_agent),
                 spaceless,
-                self.VERSION_TRUNCATION,
+                client_hints=ClientHints.new(fixture.get('headers', {})),
             ).clear_cache().parse()  # clear cache because fixture files may contain duplicate UAs
             data = parsed.ua_data
 
@@ -234,8 +234,7 @@ class ParserBaseTest(Base):
                 self.assertIn(
                     field,
                     data,
-                    msg='Error parsing {}. '
-                    'Parsed data does not have "{}" key'.format(self.user_agent, field)
+                    msg=f'Error parsing {self.user_agent}. Parsed data does not have {field!r} key.'
                 )
                 self.assertEqual(
                     str(expect.get(field, '')),
@@ -254,7 +253,7 @@ class GenericParserTest(ParserBaseTest):
                 ua,
                 ua_hash(ua),
                 ua.lower().replace(' ', ''),
-                self.VERSION_TRUNCATION,
+                None,
             ).parse()
             self.assertEqual(parsed.ua_data, {})
 

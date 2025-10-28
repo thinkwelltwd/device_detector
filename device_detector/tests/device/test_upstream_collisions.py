@@ -1,7 +1,6 @@
 from urllib.parse import unquote
 from ..base import DetectorBaseTest
 from device_detector import DeviceDetector
-from device_detector.device_detector import VERSION_TRUNCATION_NONE
 
 
 class TestCollisions(DetectorBaseTest):
@@ -13,7 +12,7 @@ class TestCollisions(DetectorBaseTest):
     For example, the following regex is too lenient:
 
     #Firefox Focus / Firefox Klar
-    - regex: '(?:Focus|Klar)(?:/(\d+[\.\d]+))?'
+    - regex: '(?:Focus|Klar)(?:/(\\d+[\\.\\d]+))?'
       name: 'Firefox Focus'
       version: '$1'
     """
@@ -21,7 +20,6 @@ class TestCollisions(DetectorBaseTest):
     fixture_files = [
         'tests/parser/fixtures/local/collisions.yml',
     ]
-    VERSION_TRUNCATION = VERSION_TRUNCATION_NONE
 
     def test_parsing(self):
 

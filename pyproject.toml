@@ -1,0 +1,32 @@
+requires-python = ">=3.11"
+
+[tool.mypy]
+check_untyped_defs = true
+ignore_missing_imports = true
+warn_unused_ignores = true
+warn_redundant_casts = true
+warn_unused_configs = true
+disallow_incomplete_defs = true
+show_error_context = true
+follow_imports = 'silent'
+
+exclude = [
+    "tests/",
+]
+
+[tool.ruff]
+line-length = 100
+preview = true
+
+exclude = [
+    "*/tests/*",
+]
+
+[tool.ruff.format]
+quote-style = "preserve"
+
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = ["E402", "F401", "F403"]
+
+[tool.ruff.lint.flake8-quotes]
+multiline-quotes = "single"

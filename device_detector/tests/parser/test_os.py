@@ -1,8 +1,7 @@
 from urllib.parse import unquote
 from ..base import ParserBaseTest
-from ...parser import OS, OSFragment
+from ...parser import OS, OSFragment, ClientHints
 from ...utils import ua_hash
-from device_detector.device_detector import VERSION_TRUNCATION_NONE
 
 
 class TestOS(ParserBaseTest):
@@ -14,7 +13,6 @@ class TestOS(ParserBaseTest):
     fields = ('name', 'version')
     fixture_key = 'os'
     Parser = OS
-    VERSION_TRUNCATION = VERSION_TRUNCATION_NONE
 
 
 class TestOSFragment(ParserBaseTest):
@@ -37,7 +35,7 @@ class TestOSFragment(ParserBaseTest):
                 self.user_agent,
                 hashed,
                 spaceless,
-                self.VERSION_TRUNCATION,
+                client_hints=ClientHints.new(fixture.get('headers', {})),
             ).parse()
 
             self.assertEqual(expect, parsed.ua_data['name'])
