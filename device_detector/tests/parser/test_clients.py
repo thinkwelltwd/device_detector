@@ -146,6 +146,20 @@ class TestWholeNameExtractor(GenericParserTest):
         '646E514C51BFF23DBBB5B9487F142670_5_5.10.228257.2253_1_0',
     ]
 
+    def test_ua_with_no_interesting_keys(self):
+        user_agents = (
+            'Chrome/136.0.7103.42 iPhone/18.6.2 hw/iPhone14_5',
+            'Chrome/138.0.7204.156 iPad/18.6.2 hw/iPad14_',
+        )
+        for ua in user_agents:
+            wn = WholeNameExtractor(
+                ua,
+                ua_hash(ua),
+                ua.replace(' ', ''),
+                client_hints=None,
+            ).parse()
+            self.assertEqual(wn.name(), '')
+
 
 # class TestNoNameExtracted(ParserBaseTest):
 #

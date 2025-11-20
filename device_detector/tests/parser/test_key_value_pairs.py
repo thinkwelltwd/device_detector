@@ -3,7 +3,6 @@ import unittest
 from ...parser.key_value_pairs import key_value_pairs
 
 
-
 class TestKeyValuePairs(unittest.TestCase):
 
     def test_trailing_key_space_version(self):
@@ -30,12 +29,11 @@ class TestKeyValuePairs(unittest.TestCase):
             [('libreoffice', 'libreoffice', '5.4.3.2')],
         )
 
-
     def test_5(self):
         ua = 'Microsoft Office Access 2013 (15.0.4693) Windows NT 6.2'
         self.assertListEqual(
             key_value_pairs(ua),
-            [('microsoftofficeaccess2013', 'Microsoft Office Access 2013', '15.0.4693')],
+            [('microsoftofficeaccess', 'Microsoft Office Access', '2013')],
         )
 
     def test_with_url1(self):

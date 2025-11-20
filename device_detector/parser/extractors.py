@@ -1,7 +1,6 @@
 from ..lazy_regex import RegexLazyIgnore
-from ..settings import BOUNDED_REGEX
-from .settings import CHECK_PAIRS
 from ..yaml_loader import RegexLoader, app_pretty_names_types_data
+from device_detector.enums import AppType
 
 APP_ID = RegexLazyIgnore(r'\b([a-z]{2,5}\.[\w\d\.\-]+)')
 
@@ -11,20 +10,6 @@ APP_ID = RegexLazyIgnore(r'\b([a-z]{2,5}\.[\w\d\.\-]+)')
 APP_ID_VERSION = RegexLazyIgnore(
     r'\b(?P<name>[a-z]{2,5}\.[\w\d\.\-]+)[;:/] ?(?P<version>[\d\.\-]+)\b'
 )
-
-# Dalvik/2.1.0 (Linux; U; Android 6.0.1; LG-M153 Build/MXB48T) [FBAN/AudienceNetworkForAndroid;FBSN/Android;FBSV/6.0.1;FBAB/com.outthinking.photo;FBAV/1.41;FBBV/37;FBVS/4.27.1;FBLC/en_US]
-# Interested in the FBAB/<app.id> pattern
-# i.e. FBAB/com.outthinking.photo
-FACEBOOK_FRAGMENT = RegexLazyIgnore(BOUNDED_REGEX.format('FBAB/'))
-
-# YHOO YahooMobile/1.0 (com.softacular.Sportacular; 7.10.1) (Apple; iPhone; iOS/11.4.1);
-# YHOO YahooMobile/1.0 (com.aol.mapquest; 5.18.6) (Apple; iPhone; iOS/12.1.4);
-YAHOO_FRAGMENT = RegexLazyIgnore(r'YHOO YahooMobile')
-
-IGNORED_APP_IDS = {
-    'com.yourcompany.testwithcustomtabs',
-    'com.yourcompany.speedboxlite',
-}
 
 
 class DataExtractor:
@@ -89,8 +74,6 @@ class DataExtractor:
                 chars.append('{}')
                 index_int_next = True
 
-        value = ''.join(chars)
-
         # collect regex group values, substituting empty string for None
         group_values = []
         for pos in indices:
@@ -102,7 +85,8 @@ class DataExtractor:
             except IndexError:
                 return ''
 
-        return value.format(*group_values).strip()
+        fmt_string = ''.join(chars)
+        return fmt_string.format(*group_values).strip()
 
     def extract(self) -> str:
         value = str(self.metadata.get(self.key, ''))
@@ -134,26 +118,7 @@ class ApplicationIDExtractor(RegexLoader):
         self.details: dict[str, str] = {}
         self._app_id_pretty_names = app_pretty_names_types_data()
 
-    def override_name_with_app_id(self, client_name: str) -> bool:
-        """
-        Override the parsed name with the AppID / BundleID.
-
-        Useful when application connects with API service where
-        both App ID and service API data are included in the same UA.
-        """
-        if client_name in CHECK_PAIRS:
-            return True
-
-        for REGEX in (
-            FACEBOOK_FRAGMENT,
-            YAHOO_FRAGMENT,
-        ):
-            if REGEX.search(self.user_agent) is not None:
-                return True
-
-        return False
-
-    def extract(self) -> dict:
+    def extract(self) -> 'ApplicationIDExtractor':
         """
         Parse for
 
@@ -164,65 +129,42 @@ class ApplicationIDExtractor(RegexLoader):
         are found, just return the first one.
         """
         if self.details:
-            return self.details
+            return self
 
-        app_ids = APP_ID_VERSION.findall(self.user_agent)
-        if not app_ids:
-            app_ids = [(app_id, '') for app_id in APP_ID.findall(self.user_agent)]
+        if not (app_ids := APP_ID_VERSION.findall(self.user_agent)):
+            if not (app_ids := [(app_id, '') for app_id in APP_ID.findall(self.user_agent)]):
+                return self
 
-        scrubbed_app_ids = [
-            (app_id.lower(), version)
-            for app_id, version in app_ids
-            if app_id.lower() not in IGNORED_APP_IDS
-        ]
-        if not scrubbed_app_ids:
-            return {}
-
-        for app_id, version in scrubbed_app_ids:
+        for app_id, version in app_ids:
             app_id_lower = app_id.lower()
-            if app_id_lower in IGNORED_APP_IDS:
-                continue
             if pretty_name := self._app_id_pretty_names.get(app_id_lower):
                 self.details = {
                     'name': pretty_name['name'],
                     'app_id': app_id,
                     'version': version,
+                    'type': pretty_name['type'],
                 }
                 break
         else:
             self.details = {
-                'app_id': scrubbed_app_ids[0][0],
-                'version': scrubbed_app_ids[0][1],
+                'app_id': app_ids[0][0],
+                'version': app_ids[0][1],
+                'type': AppType.Generic,
             }
 
-        return self.details
+        return self
 
     def version(self) -> str:
         return self.details.get('version', '')
 
     def pretty_name(self) -> str:
-        details = self.extract()
-
-        if name := self.details.get('name', ''):
-            return name
-
-        if not details:
-            return ''
-
-        app_id = details.get('app_id', '')
-        # If it might be a domain name, then return the app_id as-is
-        if not app_id or not app_id.startswith(('com.', 'au.com.')):
-            return app_id
-
-        self.details['name'] = ' '.join(app_id.split('.')[1:]).title()
-
-        return self.details['name']
+        return self.details.get('name', '')
 
     def __str__(self) -> str:
-        return f'{self.__class__.__name__}("{self.user_agent}")'
+        return f'{self.__class__.__name__}({self.user_agent!r})'
 
     def __repr__(self) -> str:
-        return f'{self.__class__.__name__}("{self.user_agent}")'
+        return f'{self.__class__.__name__}({self.user_agent!r})'
 
 
 class NameExtractor(DataExtractor):

@@ -52,7 +52,7 @@ class LRUDict(OrderedDict):
 
 class Cache(dict):
     base: dict = {
-        'appdetails': {},
+        'app_details': {},
         'regexes': {},
         'normalize_regexes': [],
         'appids_ignored': set(),

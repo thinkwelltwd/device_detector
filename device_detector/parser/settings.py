@@ -1181,6 +1181,7 @@ CRUFT_NAMES = {
     'configuration',
     'darwin',
     'dalvik',
+    'hw',
     'j2me',
     'mozilla',
     'mozzila',

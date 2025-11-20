@@ -16,8 +16,8 @@
 -
   user_agent: AccuWeather/10.4.2 (com.yourcompany.TestWithCustomTabs; build:2; iOS 11.4.0) Alamofire/4.4.0
   client:
-    app_id: ''
-    pretty_name: ''
+    app_id: com.yourcompany.TestWithCustomTabs
+    pretty_name: AccuWeather
 -
   user_agent: com.apple.geod/1077.0.18 cfnetwork/720.5.7 darwin/14.5.0 (x86_64)
   client:
@@ -37,7 +37,7 @@
   user_agent: 6h4hrtu5e3.com.avast.osx.secureline.avastsecurelinehelper/47777
   client:
     app_id: com.avast.osx.secureline.avastsecurelinehelper
-    pretty_name: Avast Osx Secureline Avastsecurelinehelper
+    pretty_name: Avast SecureLine VPN
 -
   user_agent: 5ZLLHQPJA8.com.wunderground.storm
   client:

@@ -191,7 +191,8 @@ class Parser(RegexLoader):
         return self.name()
 
     def __repr__(self) -> str:
-        return f'{self.__class__.__name__}({self.user_agent}, {self.ua_data}, {self.ua_spaceless})'
+        klass = self.__class__.__name__
+        return f'{klass}({self.user_agent!r}, {self.ua_data!r}, {self.ua_spaceless!r})'
 
 
 __all__ = [

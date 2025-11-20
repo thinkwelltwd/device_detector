@@ -1,6 +1,6 @@
 from typing import Self
 from .lazy_regex import RegexLazy
-from .enums import AppType, DeviceType
+from .enums import DeviceType
 
 from .parser import (
     BaseClientParser,
@@ -309,16 +309,11 @@ class DeviceDetector:
         """
         if not self.client:
             return
-        data = {
-            'name': app_idx.pretty_name(),
-            'version': app_idx.version(),
-            'type': AppType.Generic,
-        }
-        self.client.secondary_client.update(data)
+        self.client.secondary_client.update(app_idx.details)
         try:
-            self.all_details['client']['secondary_client'] |= data
+            self.all_details['client']['secondary_client'] |= app_idx.details
         except KeyError:
-            self.all_details['client']['secondary_client'] = data
+            self.all_details['client']['secondary_client'] = app_idx.details
 
     def parse_client(self) -> None:
         """
@@ -351,22 +346,14 @@ class DeviceDetector:
         if self.all_details.get('client', {}).get('app_id'):
             return
 
-        app_idx = ApplicationIDExtractor(self.user_agent)
+        app_idx = ApplicationIDExtractor(self.user_agent).extract()
 
-        if app_id := app_idx.extract().get('app_id', ''):
-            client_name = self.all_details.get('client', {}).get('name', '')
+        if app_idx.details.get('app_id', ''):
             if not self.all_details.get('client'):
-                self.all_details['client'] = {
-                    'name': app_idx.pretty_name(),
-                    'app_id': app_id,
-                }
+                self.all_details['client'] = app_idx.details
                 return
 
-            self.all_details['client']['app_id'] = app_id
-            if app_id in client_name:
-                self.all_details['client']['name'] = app_idx.pretty_name()
-            elif app_idx.override_name_with_app_id(client_name=client_name):
-                self.supplement_secondary_client_data(app_idx)
+            self.supplement_secondary_client_data(app_idx)
 
     def parse_device(self) -> None:
         """
@@ -579,7 +566,7 @@ class DeviceDetector:
         return self.user_agent
 
     def __repr__(self) -> str:
-        return f'{self.__class__.__name__}({self.user_agent})'
+        return f'{self.__class__.__name__}({self.user_agent!r})'
 
 
 class SoftwareDetector(DeviceDetector):

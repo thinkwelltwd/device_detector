@@ -13,3 +13,6 @@
 
 - uaname: com.google.android.play.games
   name: Google Android Play Games
+
+- uaname: '1010'
+  name: Block Puzzle Game

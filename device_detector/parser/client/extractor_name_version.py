@@ -17,17 +17,21 @@ class NameVersionExtractor(GenericClientParser):
 
     __slots__ = ()
 
-    # -------------------------------------------------------------------
-    app_name = ''
-    app_version = ''
-
-    def parse_name_version_pairs(self) -> None:
+    def parse_name_version_pairs(self) -> dict:
         """
         Check all name/version pairs for most interesting values
         """
         name_version_pairs = self.name_version_pairs()
+        app_details = self.appdetails_data
+        app_type = ''
 
         for code, name, version in name_version_pairs:
+            if app_detail := app_details.get(code):
+                self.app_name = app_detail['name']
+                self.app_version = version
+                app_type = app_detail['type']
+                break
+
             # Only extract interesting pairs!
             if (
                 name.isdigit()
@@ -41,12 +45,19 @@ class NameVersionExtractor(GenericClientParser):
             if self.user_agent.startswith(name):
                 self.app_name = name
                 self.app_version = version
-                return
+                break
 
             # consider the longest name the most interesting
             if len(name) > len(self.app_name):
                 self.app_name = name
                 self.app_version = version
+                break
+
+        return {
+            'name': self.app_name,
+            'version': self.app_version if self.version_contains_numbers() else '',
+            'type': app_type,
+        }
 
     def version_contains_numbers(self) -> bool:
         """
@@ -65,7 +76,7 @@ class NameVersionExtractor(GenericClientParser):
         if self.ch_client_data:
             return
 
-        self.parse_name_version_pairs()
+        app_data = self.parse_name_version_pairs()
 
         if not self.app_name:
             return
@@ -73,10 +84,7 @@ class NameVersionExtractor(GenericClientParser):
         if self.discard_name():
             return
 
-        self.ua_data = {
-            'name': self.app_name,
-            'version': self.app_version if self.version_contains_numbers() else '',
-        }
+        self.ua_data = app_data
 
         self.known = True
 

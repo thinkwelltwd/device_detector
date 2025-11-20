@@ -145,6 +145,7 @@ def clean_ua(user_agent: str) -> str:
         'sprd-',
         # null (FlipboardProxy/1.1; http://flipboard.com/browserproxy)
         # (null) MyOperations/3.0.0/162 JDM/1.0
+        # (null)/14898/app_MUd3n2yw07Lg5hy0f8hRXuj1jI5ml17ww3haFrbKUBw/ios/2.4.0/iOS/12.1.4/gzip/s
         'null',
         '(null)',
         # AmazonWebView/Kindle for iOS/6.9.1.3/iOS/11.4.1/iPhone
@@ -154,7 +155,7 @@ def clean_ua(user_agent: str) -> str:
         'amazonwebview',
     ):
         if ua_lower.startswith(prefix):
-            return ua[len(prefix) :].strip()
+            ua = ua[len(prefix) :].strip().strip('/')
 
     return ua
 

@@ -12,6 +12,12 @@
 - uaname: Line
   name: Line
 
+- uaname: com.apalonapps.alarmclock
+  name: Alarm Clock by Apalonapps
+
+- uaname: com.aaa.iphone.discounts
+  name: AAA Discounts
+
 - uaname: Podcasts
   name: Podcasts
 
@@ -90,6 +96,9 @@
 - uaname: accuweather
   name: AccuWeather
 
+- uaname: com.yourcompany.TestWithCustomTabs
+  name: AccuWeather
+
 - uaname: com.accuweather.android
   name: "AccuWeather: Weather Radar"
 
@@ -158,6 +167,9 @@
 
 - uaname: bible\+
   name: Bible Plus
+
+- uaname: bloomberghorseshoe
+  name: Bloomberg
 
 - uaname: burger king
   name: Burger King

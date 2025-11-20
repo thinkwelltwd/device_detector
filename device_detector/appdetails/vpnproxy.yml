@@ -7,3 +7,6 @@
 
 - uaname: PxBroker
   name: ProxyBroker
+
+- uaname: com.avast.osx.secureline.avastsecurelinehelper
+  name: Avast SecureLine VPN

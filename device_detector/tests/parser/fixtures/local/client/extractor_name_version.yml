@@ -37,8 +37,8 @@
 -
   user_agent: Microsoft SkyDriveSync 18.091.0506.0007 ship; Windows NT 10.0 (17134)
   client:
-    type: generic
-    name: Microsoft SkyDriveSync
+    type: apputility
+    name: Microsoft OneDrive
     version: '18.091.0506.0007'
 -
   user_agent: Call & Chat/1 CFNetwork/902.2 Darwin/17.7.0
@@ -214,3 +214,15 @@
     type: generic
     name: BW
     version: 808
+-
+  user_agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/Version/25.7.0 Hunt/1398
+  client:
+    type: mobile app
+    name: Hunt
+    version: 1398
+-
+  user_agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/Version/25.39.0 Offroad/3225
+  client:
+    type: generic
+    name: Offroad
+    version: 3225
