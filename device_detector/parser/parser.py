@@ -184,7 +184,6 @@ class Parser(RegexLoader):
         return False
 
     def set_version(self, version: str) -> str:
-        # return build_version(version, self.VERSION_TRUNCATION)
         return version
 
     def __str__(self) -> str:

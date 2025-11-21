@@ -82,7 +82,6 @@ class WholeNameExtractor(GenericClientParser):
             return
 
         self.parse_name_version()
-        self.check_manual_appdetails()
 
         # WholeNameExtractor is called to supply secondary app data
         # if the Browser class matches. So if only Browser data was

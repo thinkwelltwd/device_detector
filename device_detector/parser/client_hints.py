@@ -1,5 +1,5 @@
 import regex
-from typing import TypedDict
+from typing import cast, TypedDict
 from device_detector.enums import DeviceType, AppType
 from ..lazy_regex import RegexLazyIgnore
 from ..yaml_loader import app_pretty_names_types_data
@@ -137,7 +137,7 @@ class ClientHints:
         # fmt: off
         for header_key, value in headers.items():
             key = header_key.lower().replace('_', '-')
-            value = value if value is not None else ''
+            value = value or ''
             match key:
                 case (
                     'sec-ch-ua-arch'
@@ -233,7 +233,7 @@ class ClientHints:
                     if isinstance(value, (list, set, tuple)):
                         params['form_factors'] = set(value)
                     else:
-                        params['form_factors'] = set(ff.strip(' "') for ff in value.split(','))
+                        params['form_factors'] = {ff.strip(' "') for ff in value.split(',')}
         # fmt: on
 
         ch = ClientHints(**params)
@@ -251,7 +251,7 @@ class ClientHints:
         if not self._client_name:
             if self.app and (app_pretty_name := self.app_pretty_names.get(self.app)):
                 self._client_name = app_pretty_name['name']
-                self._calculated_app_type = app_pretty_name['type']
+                self._calculated_app_type = cast(AppType, app_pretty_name['type'])
                 return self._client_name
 
             name = ''
@@ -269,7 +269,7 @@ class ClientHints:
                 pretty_name := self.app_pretty_names.get(name.lower().replace(' ', ''))
             ):
                 self._client_name = pretty_name['name']
-                self._calculated_app_type = pretty_name['type']
+                self._calculated_app_type = cast(AppType, pretty_name['type'])
                 return self._client_name
 
             # Strip "Browser" suffix from browsers such as "Brave Browser"

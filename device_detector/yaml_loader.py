@@ -1,4 +1,5 @@
 from collections import defaultdict
+from typing import TypedDict
 import yaml
 
 try:
@@ -11,7 +12,7 @@ from typing import Self
 import device_detector
 from .lazy_regex import RegexLazyIgnore
 from .settings import BOUNDED_REGEX, DDCache, ROOT
-from device_detector.enums import AppType
+from .enums import AppType
 
 
 class RegexLoader:
@@ -43,20 +44,7 @@ class RegexLoader:
             print(f'{yfile} does not exist')
             return []
 
-    def load_app_id_sets(self, name: str) -> set:
-        """
-        Load App IDs by key name into python set
-        """
-        cache_key = f'appids_{name}'
-        app_ids = DDCache[cache_key]
-        if app_ids:
-            return app_ids
-
-        app_ids = set(self.load_from_yaml(f'appids/{name}.yml'))
-        DDCache[f'appids_{name}'] = app_ids
-        return app_ids
-
-    def yaml_to_list(self, yfile: str) -> list:
+    def yaml_to_list(self, yfile: str) -> list[dict]:
         """
         Override method on subclasses if yaml format varies.
 
@@ -74,7 +62,7 @@ class RegexLoader:
         return reg_list
 
     @property
-    def regex_list(self) -> list:
+    def regex_list(self) -> list[dict]:
         if regexes := DDCache['regexes'].get(self.cache_name, []):
             return regexes
 
@@ -101,7 +89,12 @@ class RegexLoader:
         return self
 
 
-def app_pretty_names_types_data() -> dict:
+class AppNameType(TypedDict):
+    name: str
+    type: AppType | str
+
+
+def app_pretty_names_types_data() -> dict[str, AppNameType]:
     """
     Load App Details data into dictionary.
 
@@ -148,10 +141,8 @@ def app_pretty_names_types_data() -> dict:
             # Match airmail, airmail-android, airmail-iphone
             suffixes = str(entry.get('suffixes', '')).lower().replace(' ', '')
             for suffix in suffixes.split('|'):
-                if not suffix:
-                    continue
-                generalized_details[dtype][f'{key}{suffix}'] = data
-                generalized_details[dtype][f'{key}{suffix}'] = data
+                if suffix:
+                    generalized_details[f'{key}{suffix}'] = data
 
     # Load upstream fixtures last, so that any values that are added
     # upstream later will stomp on local changes.

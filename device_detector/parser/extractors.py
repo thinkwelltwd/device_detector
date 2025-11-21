@@ -55,7 +55,7 @@ class DataExtractor:
 
         Replace %<int> section replaced with {} for format string
 
-        'Xino Z$1 X$2 -> 'Xino Z{} X{}
+        'Xino Z$1 X$2 -> 'Xino Z{} X{}'
 
         Return interpolated string with value from regex group
         """

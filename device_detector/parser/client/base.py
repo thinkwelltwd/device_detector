@@ -10,8 +10,6 @@ from ...utils import calculate_dtype
 keep = frozenset(['!', '@', '+'])
 table = str.maketrans(dict.fromkeys(''.join(c for c in string.punctuation if c not in keep)))
 
-FIRST_ALPHANUMERIC_WORD = RegexLazyIgnore(r'^([a-z0-9]+)')
-
 # fmt: off
 UNWANTED_UA_STRINGS = [
     # 13F7BD1A-F6FF-411E-BF5E
@@ -50,51 +48,6 @@ class BaseClientParser(Parser):
         DDCache['user_agents'][self.ua_hash]['name_version_pairs'] = name_version_pairs
         return name_version_pairs
 
-    def matches_manual_appdetails(self) -> bool:
-        """
-        Check the name_version_pairs data if regexes didn't match anything.
-
-        Each subclass may have `appdetails/<name>.yml` file(s) defined
-        containing manually specified details for the regex.
-        """
-        name = self.ua_data.get('name')
-        if name and name != '$1':
-            return False
-
-        app_details = self.appdetails_data.get(self.APP_TYPE)
-        if not app_details:
-            return False
-
-        name_version_pairs = self.name_version_pairs()
-
-        for code, name, version in name_version_pairs:
-            if code in app_details:
-                self.known = True
-                self.ua_data = {
-                    'name': app_details[code]['name'],
-                    'version': version,
-                    'type': app_details[code].get('type', ''),
-                }
-                return True
-
-        # check if whole UA string found in app details
-        match = app_details.get(self.ua_spaceless, {})
-
-        # Check if first alphanumeric word found in app details.
-        if not match:
-            try:
-                first_word = FIRST_ALPHANUMERIC_WORD.search(self.ua_spaceless).group()
-                match = app_details.get(first_word, {})
-            except AttributeError:
-                pass
-
-        if match:
-            match['version'] = None
-            self.ua_data = match
-            return True
-
-        return False
-
     def set_data_from_client_hints(self) -> None:
         """
         Prefer client hints over user agent data generally.
@@ -110,7 +63,6 @@ class BaseClientParser(Parser):
         """
         Set app data from UA or Client Hints.
         """
-        self.matches_manual_appdetails()
         self.set_data_from_client_hints()
 
         super().set_details()
@@ -230,29 +182,6 @@ class GenericClientParser(BaseClientParser):
 
     def dtype(self) -> AppType | str:
         return calculate_dtype(app_name=self.app_name) or self.APP_TYPE
-
-    def check_manual_appdetails(self) -> None:
-        """
-        Check to see if this app matches any values defined the appdetails yml files,
-        and if so, apply the name and app type.
-        """
-        if not self.app_name:
-            return
-
-        app_details = self.appdetails_data
-        if not app_details:
-            return
-
-        code = self.app_name.lower().replace('_', '').replace(' ', '')
-
-        for dtype, apps in app_details.items():
-            if code not in apps:
-                continue
-
-            app_details_data = apps.get(code)
-            self.app_name = app_details_data['name']
-            self.calculated_dtype = app_details_data.get('type') or self.APP_TYPE
-            return
 
 
 __all__ = (

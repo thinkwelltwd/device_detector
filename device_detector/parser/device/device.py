@@ -295,17 +295,13 @@ class Device(BaseDeviceParser):
         os_family = self.os_details.get('family') or ''
         os_version = self.os_details.get('version') or ''
 
-        # print(f'XXX os details are {self.os_details}. UA Data: {self.ua_data}')
-
         if self.device_runs_feature_phone_os(os_name):
             return DeviceType.FeaturePhone
 
         if self.client_hints and self.client_hints.is_television():
-            # print(f'\nclient_hints.is_television returns DeviceType.TV')
             return DeviceType.TV
 
         if android_device := self.check_android_device(fixture_dtype, os_name, os_version):
-            # print(f'\nandroid_device returns {android_device}. ')
             return android_device
 
         if self.is_windows_tablet(os_name, os_version):

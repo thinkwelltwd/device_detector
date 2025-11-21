@@ -19,7 +19,7 @@ class LRUDict(OrderedDict):
     manually calling purge().
     """
 
-    def __init__(self, *args, maxkeys=MAX_CACHE_SIZE, **kwargs):
+    def __init__(self, *args: Any, maxkeys: int = MAX_CACHE_SIZE, **kwargs: dict[Any, Any]) -> None:
         """
         Same arguments as OrderedDict with 1 addition
 

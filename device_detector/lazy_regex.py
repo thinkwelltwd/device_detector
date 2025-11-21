@@ -35,17 +35,13 @@ class RegexLazy:
         self.flags = flags
         self.compiled = None
 
-    def __getattribute__(self, attribute: str) -> regex.Pattern:
+    def __getattribute__(self, attribute: str) -> regex.Regex:
         compiled_regex = super().__getattribute__('compiled')
         if compiled_regex is None and attribute in REGEX_ATTRS:
             pattern = super().__getattribute__('pattern')
             flags = super().__getattribute__('flags')
             compiled_regex = regex.compile(pattern, flags)
-
             self.compiled = compiled_regex
-
-        if attribute == 'compiled':
-            return compiled_regex
 
         return getattr(compiled_regex, attribute)
 
@@ -55,7 +51,7 @@ class RegexLazy:
     def __hash__(self) -> int:
         return hash(self.compiled)
 
-    def __eq__(self, other: regex.Pattern) -> bool:
+    def __eq__(self, other: regex.Regex) -> bool:
         return self.compiled == other.compiled
 
 
