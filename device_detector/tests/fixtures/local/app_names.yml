@@ -188,6 +188,41 @@
   client:
     name: Caboose
     version: 12.31.79
+-
+  user_agent: app.beerbuddy.ios/2.15 iPhone/14.4.2 hw/iPhone12_1 iOS 2.15 - app.beerbuddy.ios - iPhone 11
+  client:
+    name: Beer Buddy - Friends Alerts
+    version: 2.15
+-
+  user_agent: au.com.btoj.receiptmaker/30.3 iPhone/17.5.1 hw/iPhone13_2 iOS 17.5.1 - au.com.btoj.receiptmaker - iPhone 12
+  client:
+    name: Receipt Maker
+    version: 30.3
+-
+  user_agent: app.TractorGPS/3.9 iPhone/18.5 hw/iPhone15_4 iOS 18.5 - app.TractorGPS - iPhone 15
+  client:
+    name: Tractor GPS
+    version: 3.9
+-
+  user_agent: azdev.citymapper/10.49 GMS-SDK/5.2.0.0 iPhone/15.1 hw/iPhone11_8 (gzip) iOS 15.1 - azdev.citymapper - iPhone XR
+  client:
+    name: Citymapper - the Ultimate Transit App
+    version: 10.49
+-
+  user_agent: ch.insafety.odoo.app/1.0.6 iPhone/18.4 hw/iPhone16_1 iOS 18.4 - ch.insafety.odoo.app - iPhone 15 Pro
+  client:
+    name: Odoo Inventory App
+    version: 1.0.6
+-
+  user_agent: cn.danatech.xingseus/1.24.1 GMS-SDK/3.5.0.0 iPhone/13.1.2 hw/iPhone9_1 (gzip)
+  client:
+    name: PictureThis - Plant Identifier
+    version: 1.24.1
+-
+  user_agent: FirebaseAuth.iOS/6.9.2 ai.replika.app/9.11.7 iPhone/16.2 hw/iPhone11_8
+  client:
+    name: 'Replika: My AI Friend'
+    version: 9.11.7
 # --------------------------------------------------------------------------------
 # UA Strings with no interesting pairs should fall back to browser details
 -

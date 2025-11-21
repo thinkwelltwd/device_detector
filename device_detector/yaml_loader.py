@@ -110,6 +110,7 @@ def app_pretty_names_types_data() -> dict[str, AppNameType]:
     regex_loader = RegexLoader()
     all_app_details = {}
     for fixture, dtype in (
+        ('appdetails/ai.yml', AppType.ArtificialIntelligence),
         ('appdetails/av.yml', AppType.Antivirus),
         ('appdetails/browser.yml', AppType.Browser),
         ('appdetails/desktop_app.yml', AppType.DesktopApp),
@@ -122,6 +123,7 @@ def app_pretty_names_types_data() -> dict[str, AppNameType]:
         ('appdetails/osutility.yml', AppType.OsUtility),
         ('appdetails/p2p.yml', AppType.P2P),
         ('appdetails/pim.yml', AppType.PIM),
+        ('appdetails/productivity.yml', AppType.Productivity),
         ('appdetails/vpnproxy.yml', AppType.VpnProxy),
     ):
         all_app_details[dtype] = regex_loader.yaml_to_list(fixture)

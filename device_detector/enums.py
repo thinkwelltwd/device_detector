@@ -2,7 +2,8 @@ from enum import StrEnum
 
 
 class AppType(StrEnum):
-    Antivirus = 'Antivirus'
+    Antivirus = 'av'
+    ArtificialIntelligence = 'ai'
     Browser = 'browser'
     FeedReader = 'feed reader'
     Game = 'game'
@@ -11,6 +12,7 @@ class AppType(StrEnum):
     Messaging = 'messaging'
     Navigation = 'navigation'
     OsUtility = 'osutility'
+    Productivity = 'productivity'
     P2P = 'p2p'
     PIM = 'pim'
     VpnProxy = 'vpnproxy'

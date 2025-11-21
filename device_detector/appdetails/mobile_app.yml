@@ -12,6 +12,27 @@
 - uaname: Line
   name: Line
 
+- uaname: au.com.btoj.receiptmaker
+  name: Receipt Maker
+
+- uaname: com.5thfinger.redshop.joann
+  name: JOANN - Shopping & Crafts
+
+- uaname: com.fifthfinger.clients.joann
+  name: JOANN - Shopping & Crafts
+
+- uaname: com.fitnow.loseit
+  name: Lose It! – Calorie Counter
+
+- uaname: com.flyfrontier.ios
+  name: Frontier Airlines
+
+- uaname: com.fuelman.driven
+  name: Driven for Fuelman
+
+- uaname: com.ford.fordpass
+  name: The Ford App
+
 - uaname: com.apalonapps.alarmclock
   name: Alarm Clock by Apalonapps
 
@@ -92,18 +113,28 @@
 
 - uaname: foxnews
   name: Fox News
+- uaname: com.superfeedtech.conservativenews
+  name: Conservative News America
+
+- uaname: co.windyapp.windy
+  name: Windy Map & Weather Forecast
+- uaname: co.windyapp.android
+  name: Windy Map & Weather Forecast
 
 - uaname: accuweather
   name: AccuWeather
-
 - uaname: com.yourcompany.TestWithCustomTabs
   name: AccuWeather
-
 - uaname: com.accuweather.android
   name: "AccuWeather: Weather Radar"
 
+- uaname: pandamonium.noaaweather
+  name: NOAA Weather & Tides
 - uaname: com.apalon.weatherradar.free
   name: NOAA Weather Radar
+
+- uaname: com.weatherflow.SmartWeather
+  name: Tempest Weather
 
 - uaname: jcpenney
   name: JC Penney
@@ -788,8 +819,29 @@
 - uaname: Adult SMS
   name: Adult SMS
 
+- uaname: com.apple.ibooks
+  name: Apple Books
 - uaname: com.apple.camera
   name: Apple Camera
+- uaname: com.apple.clips
+  name: Apple Clips
+- uaname: com.apple.mobiletimer
+  name: Apple Clock
+- uaname: com.apple.facetime
+  name: Apple FaceTime
+- uaname: com.apple.stocks
+  name: Apple Stocks
+- uaname: com.apple.tv
+  name: Apple TV
+- uaname: com.apple.Passbook
+  name: Apple Wallet
+- uaname: com.apple.Bridge
+  name: Apple Watch
+- uaname: com.apple.weather
+  name: Apple Weather
+- uaname: com.apple.Translate
+  name: Apple Translate
+
 
 - uaname: com.apple.invitation-registration
   name: Apple Invitation Registration
@@ -861,9 +913,6 @@
 - uaname: com.thehomedepot
   name: The Home Depot
 
-- uaname: com.trucker-path-pro
-  name: Trucker Path Pro
-
 - uaname: com.umi.feudlive
   name: Family Feud Live!
 
@@ -878,9 +927,6 @@
 
 - uaname: concrete and aggregate calc
   name: Concrete and Aggregate Calc
-
-- uaname: connect for garmin
-  name: Connect for Garmin
 
 - uaname: connectify
   name: Connectify
@@ -1447,6 +1493,12 @@
 
 - uaname: hunt
   name: Hunt
+- uaname: com.desiderata.ihunt
+  name: iHunt 750 - Hunting Calls
+- uaname: com.doorremote
+  name: DoorRemote
+- uaname: doorremote.com
+  name: DoorRemote
 
 - uaname: huntingchallengefree
   name: Hunting Challenge Free
@@ -1780,9 +1832,6 @@
 
 - uaname: mobiledealerconnectipad
   name: Mobile Dealer Connect iPad
-
-- uaname: mobileoffice
-  name: Mobile Office
 
 - uaname: mobilesms
   name: Mobile SMS
@@ -2900,6 +2949,50 @@
 - uaname: com.apple.mobileslideshow
   name: Apple Mobile Slideshow
 
+- uaname: com.relaypayments.relayapp
+  name: Relay Payments
+- uaname: com.relaypayments.relay
+  name: Relay Payments
+
+- uaname: com.qustodio.mdm.app.family.pro
+  name: Qustodio Parental Control
+- uaname: com.qustodio.family.parental.control.app.screentime
+  name: Qustodio Parental Control
+- uaname: com.qustodio.par.qustodio-family-parental-control-app
+  name: Qustodio Parental Control
+
+- uaname: com.google.android.apps.nbu.paisa.user
+  name: "Google Pay: Save and Pay"
+- uaname: com.google.paisa
+  name: "Google Pay: Save and Pay"
+- uaname: com.google.photos
+  name: Google Photos
+- uaname: com.google.photosscanner
+  name: Google Photos
+- uaname: com.google.photos.GeneratedFramework
+  name: Google Photos
+- uaname: com.google.paidtasks
+  name: Google Opinion Rewards
+- uaname: com.google.one
+  name: Google One
+- uaname: com.google.onhub
+  name: Google OnHub
+- uaname: com.google.meetings
+  name: Google Meet
+- uaname: com.google.mybusiness
+  name: Google Business Profile
+- uaname: com.google.admin
+  name: Google Admin
+- uaname: com.google.analyticsapp
+  name: Google Analytics
+- uaname: com.google.adwords
+  name: Google Adwords
+- uaname: com.google.adwordsexpress
+  name: Google Adwords
+- uaname: com.google.adWords.notificationserviceextension
+  name: Google Adwords
+- uaname: com.google.authenticator
+  name: Google Authenticator
 - uaname: com.google.drive
   name: Google Drive
 - uaname: com.google.drive.fileproviderextension
@@ -2942,8 +3035,6 @@
   name: Private Compute Services
 - uaname: com.google.android.keep
   name: Google Keep - Notes and lists
-- uaname: com.google.android.apps.nbu.paisa.user
-  name: "Google Pay: Save and Pay"
 - uaname: com.google.android.projection.gearhead
   name: Android Auto
 - uaname: com.google.android.apps.books
@@ -3003,6 +3094,8 @@
   name: Precision Planting Fieldview
 - uaname: com.samsclub.samsapp
   name: Sam's Club
+- uaname: com.samsclub.sng
+  name: "Sam's Club"
 - uaname: com.smilerlee.klondike
   name: Smilerlee Klondike
 - uaname: com.softacular.sportacular
@@ -3018,7 +3111,7 @@
 - uaname: com.wunderground.storm
   name: Storm by Weather Underground
 - uaname: com.yahoo.aerogram
-  name: Yahoo Aerogram
+  name: Yahoo Mail
 - uaname: com.yahoo.weather
   name: Yahoo Weather
 - uaname: com.zonervan.biblegateway
@@ -3374,8 +3467,6 @@
   name: Plague Inc.
 - uaname: com.bbk.theme
   name: Themes
-- uaname: com.openai.chatgpt
-  name: ChatGPT
 - uaname: com.xiaomi.midrop
   name: "ShareMe: File sharing"
 - uaname: com.facebook.orca
@@ -3486,8 +3577,6 @@
   name: "MyJio: For Everything Jio"
 - uaname: com.coloros.video
   name: Videos
-- uaname: com.zhiliaoapp.musically.go
-  name: TikTok Lite - Save Data & Fast
 - uaname: com.samsung.android.app.notes
   name: Samsung Notes
 - uaname: com.motorola.timeweatherwidget
@@ -3538,8 +3627,8 @@
   name: "Dropbox: Secure Cloud Storage"
 - uaname: com.zhiliaoapp.musically
   name: TikTok - Videos, Shop & LIVE
-- uaname: cn.wps.moffice_eng
-  name: WPS Office-PDF, Word, Sheet
+- uaname: com.zhiliaoapp.musically.go
+  name: TikTok Lite - Save Data & Fast
 - uaname: com.playrix.gardenscapes
   name: Gardenscapes
 - uaname: com.touchtype.swiftkey
@@ -3660,3 +3749,157 @@
   name: Microsoft Outlook
 - uaname: com.vivo.easyshare
   name: EasyShare
+- uaname: com.funeasylearn.languages.all
+  name: FunEasyLearn - Learn Languages
+- uaname: com.serialboxpublishing.serialbox
+  name: Serial Box - Bookshop
+- uaname: com.whillo
+  name: Whillo - Audiobooks & Music
+- uaname: fourkites.carrierlink
+  name: FourKites CarrierLink
+- uaname: proxima.easy-money
+  name: Money App - Cash Rewards App
+- uaname: proxima.easymoney.android
+  name: Money App - Cash Rewards App
+- uaname: de.fastic.app
+  name: Fastic Weight Loss & Fasting
+- uaname: AlexisBarreyat.BeReal
+  name: BeReal
+- uaname: com.igrill.igrilliphone
+  name: Weber® iGrill®
+- uaname: com.igrill.igrill
+  name: Weber® iGrill®
+- uaname: doordash.DoorDashConsumer
+  name: DoorDash Food Delivery
+- uaname: crc.carsapp.mn
+  name: Minnesota 511
+- uaname: crc.carsapp.ne
+  name: Nebraska 511
+- uaname: crc.carsapp.in
+  name: INDOT Trafficwise
+- uaname: corp.quoteiq.cam
+  name: QuoteIQ Cam
+- uaname: corp.quoteiq.quoteiq_cam
+  name: QuoteIQ Cam
+- uaname: com.wecenergygroup.we
+  name: We Energies
+- uaname: com.weathercreative.wildlifeweather
+  name: Wildlife Weather
+- uaname: com.wewash.blue
+  name: WeWash - A clever way of doing laundry
+- uaname: com.volvocars.onCall
+  name: Volvo On Call
+- uaname: com.wakefern.shoprite.shopriteapp
+  name: ShopRite Groceries & Savings
+- uaname: com.wakefern.shoprite
+  name: ShopRite Groceries & Savings
+- uaname: com.volaris.ios
+  name: Volaris Trip Management
+- uaname: com.vklapps.isshdlive
+  name: NASA Space Station Live
+- uaname: com.nicedayapps.iss
+  name: NASA Space Station Live
+- uaname: com.truckerpath.truckloads
+  name: Trucker Path Load Board
+- uaname: com.Trucker-Path-Pro
+  name: Trucker Path Truck GPS & Fuel
+- uaname: com.trucker-path-pro
+  name: Trucker Path Truck GPS & Fuel
+- uaname: com.sixdays.truckerpath
+  name: Trucker Path Truck GPS & Fuel
+- uaname: com.truckerpath.truckloads
+  name: Truckloads - Load Boards
+- uaname: com.truckerguide.droid
+  name: Trucker Guide - Truck GPS Maps
+- uaname: com.truckerguide.ios
+  name: Trucker Guide - Truck GPS Maps
+- uaname: com.salebug.tsc
+  name: Trucker Tools
+- uaname: com.salebug.truckstops
+  name: Trucker Tools
+- uaname: com.rtsfinancial.carrierpro
+  name: RTS Pro - Trucking Mobile App
+- uaname: com.scoutek.camware
+  name: SCOUTEK - Camera Management
+- uaname: com.shipt.shopper
+  name: 'Shipt: Shopper and Driver'
+- uaname: com.signalsupervisor.boosterus
+  name: Signal Supervisor
+- uaname: com.samsclub.sng
+  name: "Sam's Club"
+- uaname: com.sportandtravel.biketracker
+  name: 'Bike Tracker: Cycling & More'
+- uaname: com.discovery.petfinder
+  name: Petfinder - Adopt a Pet
+- uaname: com.spotonfence.app
+  name: SpotOn GPS Fence
+- uaname: com.siwalusoftware.dogscanner
+  name: 'Dog Scanner: Breed Recognitino'
+- uaname: com.spothero.spothero
+  name: SpotHero - Find Parking
+- uaname: com.spplus.parking
+  name: SPPlus Monthly Parking
+- uaname: com.southwire.conduitfill
+  name: Southwire Conduit Fill Calculator
+- uaname: com.conduit
+  name: Southwire Conduit Fill Calculator
+- uaname: com.southwire.SouthwireVoltageDropCalculator
+  name: Southwire Voltage Drop Calculator
+- uaname: com.shire.biolife
+  name: BioLife Plasma Services
+- uaname: com.shantanu.YouCut
+  name: YouCut - Video Editor
+- uaname: com.schluter.snapp
+  name: Schluter® APP
+- uaname: com.samsung.health
+  name: Samsung Health
+- uaname: com.sec.android.app.shealth
+  name: Samsung Health
+- uaname: com.ritasice.finder
+  name: "Rita's Ice"
+- uaname: com.app.ritas
+  name: "Rita's Ice"
+- uaname: com.pilgrimministry.app
+  name: Pilgrim Ministry
+- uaname: com.phonetracker.findus
+  name: Phone Tracker
+- uaname: com.phonetracker.location.share
+  name: Phone Tracker
+- uaname: com.perculacreative.peter.gardenplanner
+  name: Garden Planner
+- uaname: bz.com.bel247
+  name: BEL 24-7 Belize Electricity Limited
+- uaname: com.wave.livewallpaper
+  name: Wave Live Wallpapers Maker
+- uaname: wave.paperworld.wallpaper
+  name: Wave Live Wallpapers Maker
+- uaname: com.edmunds.EdmundsMobileShowroom
+  name: Edmunds - Shop Cars For Sale
+- uaname: com.edmunds
+  name: Edmunds - Shop Cars For Sale
+- uaname: com.onsip.onsip
+  name: OnSIP
+- uaname: com.particlenews.newsbreak
+  name: 'NewsBreak: Local News & Alerts'
+- uaname: com.hunterdouglas.powerview
+  name: Hunter Douglas POwerView
+- uaname: com.pixsterstudio.foodscanner
+  name: 'PureCheck: Scan Food, Cosmetics'
+- uaname: com.loyalty.dutchbros
+  name: Dutch Bros
+- uaname: com.treemama.iseatree
+  name: iSeaTree
+- uaname: com.rbauction.Ritchie-Bros-BiddingApp
+  name: Ritchie Brothers
+- uaname: com.rbauction.RitchieBros
+  name: Ritchie Brothers
+- uaname: finance.iris.autopilot
+  name: Autopilot - The Investment App
+- uaname: com.getmimo.mimo
+  name: 'Mimo: Learn Coding / Programming'
+- uaname: com.jaredford.ship
+  name: "I'd Ship That - Print Postage"
+- uaname: co.appnation.volumebooster
+  name: Volume Booster Bass Booster
+- uaname: co.appnation.volume_booster
+  name: Volume Booster Bass Booster

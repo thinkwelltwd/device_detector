@@ -4,6 +4,20 @@
   name: Google Maps
 - uaname: com.google.maps.nearbytraffictodayextension
   name: Google Maps
+- uaname: com.google.maps.NearbyTransitTodayExtension
+  name: Google Maps
+- uaname: com.google.Maps.ShareTextShareExtension
+  name: Google Maps
+- uaname: com.google.Maps.NotificationNoDefaultContentExtension
+  name: Google Maps
+- uaname: com.google.Maps.NotificationContentExtension
+  name: Google Maps
+- uaname: com.google.Maps.HomeAndWorkTodayExtension
+  name: Google Maps
+- uaname: com.google.Maps.HomeAndWorkTodayExtension
+  name: Google Maps
+- uaname: com.google.Maps.AppClip
+  name: Google Maps
 - uaname: osmand
   suffix: maps
   name: OsmAnd Maps
@@ -45,3 +59,17 @@
   name: GAIA GPS
 - uaname: truckmap
   name: Truck Map
+- uaname: azdev.citymapper
+  name: Citymapper - the Ultimate Transit App
+- uaname: app.TractorGPS
+  name: Tractor GPS
+- uaname: com.blocoware.speedometer
+  name: Speedometer 55
+- uaname: com.fleetcomplete.vision2
+  name: Unity VisionAI
+- uaname: com.garmin.connect.mobile
+  name: Garmin
+- uaname: connect for garmin
+  name: Connect for Garmin
+- uaname: com.rvlife.rvlife
+  name: RV Life - RV GPS & Campgrounds

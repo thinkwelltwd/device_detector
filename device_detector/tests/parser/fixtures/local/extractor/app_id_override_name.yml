@@ -37,7 +37,7 @@
   user_agent: YHOO YahooMobile/1.0 (com.yahoo.Aerogram; 4.41) (Apple; iPhone; iOS/12.1);
   client:
     app_id: com.yahoo.Aerogram
-    pretty_name: Yahoo Aerogram
+    pretty_name: Yahoo Mail
 -
   user_agent: YHOO YahooMobile/1.0 (com.yahoo.weather; 1.18.0) (Apple; iPhone; iOS/11.4.1);
   client:

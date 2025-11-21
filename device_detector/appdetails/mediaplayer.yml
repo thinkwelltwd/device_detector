@@ -26,6 +26,9 @@
 - uaname: com.amazon.mp3
   name: Amazon Music
 
+- uaname: com.apple.music
+  name: Apple Music
+
 - uaname: com.amazon.avod.thirdpartyclient
   name: Prime Video
 
@@ -48,6 +51,8 @@
   name: Music Player App
 
 - uaname: com.pandora.android
+  name: Pandora - Music & Podcasts
+- uaname: com.pandora
   name: Pandora - Music & Podcasts
 
 - uaname: com.soundcloud.android
@@ -89,6 +94,9 @@
 - uaname: Player FM
   name: Player FM
 
+- uaname: com.netflix.Netflix
+  name: Netflix
+
 # YouTube
 - uaname: youtube
   name: YouTube
@@ -110,3 +118,11 @@
   name: YouTube Music
 - uaname: com.google.android.videos
   name: Google TV
+- uaname: com.google.playmusic
+  name: Google Play Music
+- uaname: com.google.movies
+  name: Google Movies
+- uaname: com.soundcloud.TouchApp
+  name: 'SoundCloud: The Music You Love'
+- uaname: com.soundcloud.android
+  name: 'SoundCloud: The Music You Love'

@@ -8,6 +8,9 @@
 - uaname: applemail
   name: Apple Mail
 
+- uaname: comp.apple.mobilecal
+  name: Apple Calendar
+
 - uaname: bluemail
   name: Blue Mail
 

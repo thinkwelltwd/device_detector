@@ -7,6 +7,10 @@
   name: Apple Configurator
 - uaname: com.apple.configurator.xpc.internetservice
   name: Apple Configurator
+- uaname: com.apple.store.jolly
+  name: Apple Store
+- uaname: com.apple.appstore
+  name: Apple App Store
 - uaname: com.apple.appstored
   name: Apple App Store
 - uaname: com.apple.newdeviceoutreach
@@ -83,3 +87,7 @@
   name: Carrier Services
 - uaname: com.google.ar.core
   name: Google Play Services for AR
+- uaname: co.heybliss.blissapp1
+  name: Bliss Keyboard
+- uaname: co.heybliss.blissapp1.keyboard
+  name: Bliss Keyboard

@@ -25,6 +25,11 @@
   name: Telegram
 - uaname: com.instagram.android
   name: Instagram
+- uaname: app.beerbuddy.ios
+  name: Beer Buddy - Friends Alerts
+- uaname: com.wigle.chat
+  name: Wigle Random Video Сhat
+
 
 # WhatsApp
 - uaname: WhatsApp
