@@ -27,7 +27,7 @@
   user_agent: com.apple.weatherkitservice/147 cfnetwork/720.5.7 darwin/14.5.0 (x86_64)
   client:
     app_id: com.apple.weatherkitservice
-    pretty_name: Apple WeatherKit
+    pretty_name: Apple Weather
 -
   user_agent: com.apple.webkit.networking/8604.5.6.0.1 cfnetwork/894 darwin/17.4.0
   client:
@@ -112,7 +112,7 @@
   user_agent: com.apple.mobilenotes.SharingExtension/1127.50 CFNetwork/808.3 Darwin/16.3.0
   client:
     app_id: com.apple.mobilenotes.SharingExtension
-    pretty_name: Apple Mobile Notes
+    pretty_name: Apple Notes
 -
   user_agent: com.apple.mobilesafari
   client:

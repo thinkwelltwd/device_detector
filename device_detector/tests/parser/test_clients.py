@@ -3,6 +3,7 @@ from device_detector.parser import ClientHints
 from ...utils import ua_hash
 from ..base import GenericParserTest, ParserBaseTest
 from ...parser import (
+    AdobeCC,
     Browser,
     DictUA,
     FeedReader,
@@ -63,6 +64,15 @@ class TestBrowser(ParserClientBase):
     ]
     fields = ('name', 'type')
     Parser = Browser
+
+
+class TestAdobeCC(ParserClientBase):
+
+    fixture_files = [
+        'tests/parser/fixtures/local/client/adobe_cc.yml',
+    ]
+    fields = ('name', 'type', 'version')
+    Parser = AdobeCC
 
 
 class TestDictUA(ParserClientBase):

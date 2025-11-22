@@ -1,0 +1,30 @@
+###############
+# Supplemental regexes for Device Detector - The Universal Device Detection library for parsing User Agents
+#
+# Copyright (c) 2025 Dave Burkholder, Thinkwell Designs
+# @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
+###############
+-
+  user_agent: Adobe UXP Runtime/uxp-8.3.0-uxp-b1d8c85 (darwin 24.6.0; x64) Adobe Photoshop/26.8.0 com.adobe.inAppNotifications/2.0.25
+  client:
+    type: desktop app
+    name: Adobe Photoshop
+    version: 26.8.0
+-
+  user_agent: Adobe UXP Runtime/uxp-9.0.1-local (win32 10.0.19045; x64) Illustrator/29.8.0 com.adobe.ccx.start/10.2.0.30
+  client:
+    type: desktop app
+    name: Adobe Illustrator
+    version: 29.8.0
+-
+  user_agent: Adobe UXP Runtime/uxp-9.0.3-local (darwin 25.0.0; arm64) InDesign/21.0.0 com.adobe.ccx.start/10.3.1.2
+  client:
+    type: desktop app
+    name: Adobe InDesign
+    version: 21.0.0
+-
+  user_agent: Adobe UXP Runtime/uxp-8.1.0-local (darwin 24.6.0; arm64) Premiere Pro/25.5.0 com.adobe.uam/1.0.0
+  client:
+    type: desktop app
+    name: Adobe Premiere Pro
+    version: 25.5.0

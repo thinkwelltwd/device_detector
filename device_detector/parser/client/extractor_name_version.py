@@ -24,10 +24,11 @@ class NameVersionExtractor(GenericClientParser):
         name_version_pairs = self.name_version_pairs()
         app_details = self.appdetails_data
         app_type = ''
+        app_name = ''
 
         for code, name, version in name_version_pairs:
             if app_detail := app_details.get(code):
-                self.app_name = app_detail['name']
+                app_name = app_detail['name']
                 self.app_version = version
                 app_type = app_detail['type']
                 break
@@ -43,16 +44,19 @@ class NameVersionExtractor(GenericClientParser):
 
             # prefer the name that the UA starts with
             if self.user_agent.startswith(name):
-                self.app_name = name
+                app_name = name
                 self.app_version = version
                 break
 
             # consider the longest name the most interesting
             if len(name) > len(self.app_name):
-                self.app_name = name
+                app_name = name
                 self.app_version = version
                 break
 
+        # Chrome WIN 138.0.3351.83 (16e2a7bef3208e592c2c1a00548d2736a0d23ec7) channel(stable)
+        # A rather localized override :-(
+        self.app_name = 'Chrome' if app_name == 'Chrome WIN' else app_name
         return {
             'name': self.app_name,
             'version': self.app_version if self.version_contains_numbers() else '',

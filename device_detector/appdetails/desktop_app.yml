@@ -144,8 +144,12 @@
 - uaname: com.apple.trustd
   name: trustd
 
+- uaname: com.apple.weather
+  name: Apple Weather
 - uaname: com.apple.weatherkitservice
-  name: Apple WeatherKit
+  name: Apple Weather
+- uaname: com.apple.weatherkit.authservice
+  name: Apple Weather
 
 - uaname: com.apple.webkit.networking
   name: Apple Networking Webkit

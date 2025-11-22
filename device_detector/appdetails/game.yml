@@ -18,9 +18,8 @@
   name: Block Puzzle Game
 - uaname: com.loop.number.match.pethereum
   name: 'Number Match: 2048 Puzzle'
-- uaname: com.scoreholio.android
-  name: 'Scoreholio: Tournaments, Simplified'
-- uaname: com.scoreholio.ios
+- uaname: com.scoreholio
+  suffixes: .android|.ios
   name: 'Scoreholio: Tournaments, Simplified'
 - uaname: in.playsimple.tripcross
   name: Crossword Jam
@@ -46,3 +45,15 @@
   name: Block Sudoku Woody Puzzle Game
 - uaname: com.rapsodo.mlm
   name: Rapsodo MLM2PRO Golf Simulator
+- uaname: com.nfl.fantasy.core
+  name: Fantasy Football
+- uaname: com.banana.jigsaw
+  name: Banana Jigsaw Puzzles
+- uaname: com.fivemobile.CREA
+  name: Play FiveM
+- uaname: com.bamnetworks.mobile.android.gameday.atbat
+  name: Major League Baseball
+- uaname: com.fishbrain.app
+  name: Fishbrain - Fishing App
+- uaname: com.playgendary.tanks
+  name: Tank Stars Game

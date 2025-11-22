@@ -3,6 +3,7 @@ from ..yaml_loader import RegexLoader, app_pretty_names_types_data
 from device_detector.enums import AppType
 
 APP_ID = RegexLazyIgnore(r'\b([a-z]{2,5}\.[\w\d\.\-]+)')
+GOOGLE_APPS = RegexLazyIgnore(r'(com\.google\.\w+)\.\w+$')
 
 # 6H4HRTU5E3.com.avast.osx.secureline.avastsecurelinehelper/47978 CFNetwork/976 Darwin/18.2.0 (x86_64)
 # YMobile/1.0(com.kitkatandroid.keyboard/4.3.2;Android/6.0.1;lv1;LGE;LG-M153;;792x480
@@ -135,9 +136,9 @@ class ApplicationIDExtractor(RegexLoader):
             if not (app_ids := [(app_id, '') for app_id in APP_ID.findall(self.user_agent)]):
                 return self
 
+        pretty_names = self._app_id_pretty_names
         for app_id, version in app_ids:
-            app_id_lower = app_id.lower()
-            if pretty_name := self._app_id_pretty_names.get(app_id_lower):
+            if pretty_name := pretty_name_from_app_id(app_id.lower(), pretty_names):
                 self.details = {
                     'name': pretty_name['name'],
                     'app_id': app_id,
@@ -165,6 +166,23 @@ class ApplicationIDExtractor(RegexLoader):
 
     def __repr__(self) -> str:
         return f'{self.__class__.__name__}({self.user_agent!r})'
+
+
+def pretty_name_from_app_id(app_id: str, pretty_names: dict) -> dict:
+    """
+    Normalize app id before looking up the value, to avoid
+    storing variations for values like:
+
+    com.google.Drive.ExtensionFramework
+    com.google.Drive.ShareExtension
+    com.google.Drive.FileProviderExtension
+    com.google.photos.ModuleFramework
+    """
+    if matched := GOOGLE_APPS.match(app_id):
+        if pn := pretty_names.get(matched.group(1)):
+            return pn
+
+    return pretty_names.get(app_id) or {}
 
 
 class NameExtractor(DataExtractor):

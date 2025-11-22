@@ -1,3 +1,9 @@
+###############
+# App Name / Type details for Device Detector - The Universal Device Detection library for parsing User Agents
+#
+# Copyright (c) 2025 Dave Burkholder, Thinkwell Designs
+# @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
+###############
 - uaname: ch.insafety.odoo.app
   name: Odoo Inventory App
 - uaname: cn.danatech.xingseus
@@ -6,9 +12,58 @@
   name: WPS Office-PDF, Word, Sheet
 - uaname: mobileoffice
   name: Mobile Office
-- uaname: com.connecteamco.connecteam.app
-  name: Connecteam Team Management
-- uaname: com.connecteam.connecteam
+- uaname: com.connecteamco.connecteam
+  suffixes: .app
   name: Connecteam Team Management
 - uaname: com.btgs.scannerhdlit
   name: Offi Docs
+- uaname: com.google.android.apps.tachyon
+  name: Google Meet
+- uaname: com.google.android.apps.translate
+  name: Google Translate
+- uaname: com.google.translate
+  name: Google Translate
+- uaname: com.google.sheets
+  name: Google Sheets
+- uaname: com.apple.keynote
+  name: Apple iWork Keynote
+- uaname: com.apple.pages
+  name: Apple iWork Pages
+- uaname: com.apple.iwork.pages
+  name: Apple iWork Pages
+- uaname: com.apple.iwork.keynote
+  name: Apple iWork Pages
+- uaname: com.apple.notes
+  name: Apple Notes
+- uaname: com.apple.mobilenotes
+  name: Apple Notes
+- uaname: com.apple.numbers
+  name: Apple iWork Numbers
+- uaname: com.apple.iwork.numbers
+  name: Apple iWork Numbers
+- uaname: com.apple.freeform
+  name: Apple Freeform
+- uaname: com.adobe.adobe-reader
+  name: Adobe Reader
+- uaname: com.zoho
+  suffixes: .books|.zbooks|.invoice|.zinvoice
+  name: Zoho - Business Made Better
+- uaname: com.readdle.PDFExpert5
+  name: Readdle PDF Expert 5
+- uaname: com.ookla.speedtest
+  name: Ookla Speed Test
+- uaname: com.microsoft.rdc
+  suffixes: .ios|.androidx
+  name: Remote Desktop
+- uaname: com.loblaw.superstore
+  name: Loblaws Grocery Store
+- uaname: com.limebike
+  name: Lime - RideGreen
+- uaname: com.kindevelopment.ihunteralberta
+  name: iHunter Alberta
+- uaname: com.ebay.kijiji.ca
+  name: 'Kijiji: Buy & Sell'
+- uaname: com.kijiji.iphone
+  name: 'Kijiji: Buy & Sell'
+- uaname: com.gis.map.survey.gmaps
+  name: GMapper GIS GPS & Area Measure

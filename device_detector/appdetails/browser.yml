@@ -10,6 +10,11 @@
 - uaname: com.apple.safari.searchhelper
   name: Apple Safari
 
+- uaname: com.duckduckgo.mobile.android
+  name: DuckDuckGo Privacy Browser
+- uaname: com.duckduckgo.mobile.ios
+  name: DuckDuckGo Privacy Browser
+
 - uaname: com.google.android.webview
   name: Android System WebView
 
@@ -17,6 +22,9 @@
   name: Google Gemini
 
 - uaname: com.android.chrome
+  name: Google Chrome
+- uaname: com.google.chrome.ios
+  suffixes: .chromeframework
   name: Google Chrome
 
 - uaname: com.opera.browser

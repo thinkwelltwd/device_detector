@@ -21,6 +21,14 @@
 - uaname: com.fifthfinger.clients.joann
   name: JOANN - Shopping & Crafts
 
+- uaname: com.aa.android
+  name: American Airlines
+- uaname: com.aa.americanairlines
+  name: American Airlines
+
+- uaname: com.allegiantair.togo
+  name: Allegiant Air
+
 - uaname: com.fitnow.loseit
   name: Lose It! – Calorie Counter
 
@@ -33,9 +41,17 @@
 - uaname: com.ford.fordpass
   name: The Ford App
 
+- uaname: com.teslamotors.TeslaApp
+  name: Tesla Motors
+
+- uaname: com.starlink.mobile
+  name: Starlink
+
 - uaname: com.apalonapps.alarmclock
   name: Alarm Clock by Apalonapps
 
+- uaname: com.aaa.android.discounts
+  name: AAA Discounts
 - uaname: com.aaa.iphone.discounts
   name: AAA Discounts
 
@@ -75,7 +91,7 @@
 - uaname: eBayiPhone
   name: eBay for iOS
 
-- uaname: eBayiPhone
+- uaname: eBayiPad
   name: eBay for iOS
 
 - uaname: Viber
@@ -127,6 +143,9 @@
   name: AccuWeather
 - uaname: com.accuweather.android
   name: "AccuWeather: Weather Radar"
+
+- uaname: com.davisinstruments.weatherlink
+  name: WeatherLink
 
 - uaname: pandamonium.noaaweather
   name: NOAA Weather & Tides
@@ -195,18 +214,18 @@
 
 - uaname: biblegateway
   name: Zondervan Bible Gateway
-
+- uaname: com.sirma.mobile.bible.android
+  name: YouVersion Bible
 - uaname: bible\+
   name: Bible Plus
 
 - uaname: bloomberghorseshoe
   name: Bloomberg
 
-- uaname: burger king
+- uaname: com.emn8.mobilem8.native.bkrewards
   name: Burger King
-
-- uaname: cars.com
-  name: Cars.com App
+- uaname: com.rbi.timhortons
+  name: Tim Hortons
 
 - uaname: ebay
   name: eBay
@@ -441,6 +460,12 @@
 - uaname: agworld
   name: Ag World
 
+- uaname: airbnbnotificationserviceappextension
+  name: Airbnb
+- uaname: com.airbnb
+  suffixes: .android|.app
+  name: Airbnb
+
 - uaname: airdroid
   name: Air Droid
 
@@ -536,7 +561,9 @@
   name: Apple ID Auth Agent
 
 - uaname: applenewswidget
-  name: Apple News Widget
+  name: Apple News
+- uaname: applenewsagent
+  name: Apple News
 
 - uaname: apple support
   name: Apple Support
@@ -821,6 +848,8 @@
 
 - uaname: com.apple.ibooks
   name: Apple Books
+- uaname: com.apple.ibooksx
+  name: Apple Books
 - uaname: com.apple.camera
   name: Apple Camera
 - uaname: com.apple.clips
@@ -831,48 +860,54 @@
   name: Apple FaceTime
 - uaname: com.apple.stocks
   name: Apple Stocks
+- uaname: com.apple.watchlistd
+  name: Apple Stocks
 - uaname: com.apple.tv
   name: Apple TV
 - uaname: com.apple.Passbook
   name: Apple Wallet
 - uaname: com.apple.Bridge
   name: Apple Watch
-- uaname: com.apple.weather
-  name: Apple Weather
 - uaname: com.apple.Translate
   name: Apple Translate
-
-
-- uaname: com.apple.invitation-registration
-  name: Apple Invitation Registration
-
-- uaname: com.apple.mobilenotes.sharingextension
-  name: Apple Mobile Notes
-
 - uaname: com.apple.mobileslideshow
   name: Apple Mobile Slideshow
-
 - uaname: com.apple.MobileSMS
   name: Apple Mobile SMS
-
-- uaname: com.apple.mobilesoftwareupdate
-  name: Apple Mobile Software Update
-
 - uaname: com.apple.photos
   name: Apple Photos
-
-- uaname: com.apple.siri-distributed-evaluation
+- uaname: com.apple.siri
+  suffixes: -distributed-evaluation|.parsec.coreparsec
   name: Apple Siri
 
+- uaname: com.americanfederalbank.mobile
+  name: American Federal Bank
+- uaname: com.americanexpress.amexservice
+  name: American Express
 - uaname: com.equitybank.grip
   name: Equity Bank
-
-- uaname: Hangouts
-  name: Google Hangouts
-
-- uaname: com.google.hangouts
-  suffixes: _ios
-  name: Google Hangouts
+- uaname: com.heartlandbankohio.mobile
+  name: Heartland Bank of Ohio
+- uaname: com.fnbm.mobile
+  name: First National Bank of Michigan
+- uaname: com.fivestarbank.mobile
+  name: Five Star Digital Banking
+- uaname: com.fivestarbank4128.mobile.production
+  name: Five Star Digital Banking
+- uaname: com.firstcitizens.mobiliti
+  name: First Citizen's Mobile Banking
+- uaname: com.firstunitedbank.ios1
+  name: First United Bank
+- uaname: com.farmcrediteast.mobile
+  name: Farm Credit East Mobile
+- uaname: com.farmcrediteast415602.mobile.production
+  name: Farm Credit East Mobile
+- uaname: com.fi6134.godough
+  name: CB-Mobile Banking
+- uaname: com.fi7453.godough
+  name: PFFCU Mobile Banking
+- uaname: com.rbc.mobilebanking
+  name: RBC Royal Bank of Canada
 
 - uaname: com.ztnstudio.notepad
   name: 'Notepad - Notes and To Do List'
@@ -881,6 +916,7 @@
   name: JCPenney
 
 - uaname: com.kohls.mcommerce.opal
+  suffixes: opal|iphone
   name: "Kohl's Shopping & More"
 
 - uaname: com.menards.mobile
@@ -903,6 +939,8 @@
 
 - uaname: com.sonicomobile.itranslatemac
   name: iTranslate by Sonicmobile
+- uaname: com.outerspaceapps.itranslate
+  name: iTranslate Language Translator
 
 - uaname: com.starbucks.mobilecard
   name: Starbucks
@@ -1117,6 +1155,9 @@
 
 - uaname: everydollar
   name: Every Dollar
+
+- uaname: com.expedia.booking
+  name: 'Expedia: Hotels, Flights, Cars'
 
 - uaname: facebook
   name: Facebook
@@ -2728,12 +2769,6 @@
 - uaname: typorama
   name: Typorama
 
-- uaname: uber
-  name: Uber
-
-- uaname: uberdriver
-  name: Uber Driver
-
 - uaname: u by bb&t
   name: U by BB&T
 
@@ -2773,6 +2808,11 @@
 
 - uaname: usps mobile
   name: USPS Mobile
+
+- uaname: com.fedex.mobile.home
+  name: FedEx
+- uaname: com.fedex.ida.android
+  name: FedEx
 
 - uaname: van trader
   name: Van Trader
@@ -2942,10 +2982,10 @@
 - uaname: 待办
   name: 待办
 
+- uaname: com.apple.attributionkitd
+  name: Apple Ad Attribution
 - uaname: com.apple.invitation-registration
   name: Apple Invitation Maker
-- uaname: com.apple.mobilenotes.sharingextension
-  name: Apple Mobile Notes
 - uaname: com.apple.mobileslideshow
   name: Apple Mobile Slideshow
 
@@ -2969,8 +3009,6 @@
   name: Google Photos
 - uaname: com.google.photosscanner
   name: Google Photos
-- uaname: com.google.photos.GeneratedFramework
-  name: Google Photos
 - uaname: com.google.paidtasks
   name: Google Opinion Rewards
 - uaname: com.google.one
@@ -2986,28 +3024,12 @@
 - uaname: com.google.analyticsapp
   name: Google Analytics
 - uaname: com.google.adwords
-  name: Google Adwords
-- uaname: com.google.adwordsexpress
-  name: Google Adwords
-- uaname: com.google.adWords.notificationserviceextension
-  name: Google Adwords
+  name: Google AdWords
 - uaname: com.google.authenticator
   name: Google Authenticator
 - uaname: com.google.drive
   name: Google Drive
-- uaname: com.google.drive.fileproviderextension
-  name: Google Drive
-- uaname: com.google.drive.fileprovideruiextension
-  name: Google Drive
-- uaname: com.google.drive.shareextension
-  name: Google Drive
 - uaname: com.google.googlemobile
-  name: GoogleMobile
-- uaname: com.google.googlemobile.keyboardextension
-  name: GoogleMobile
-- uaname: com.google.googlemobile.messagesextension
-  name: GoogleMobile
-- uaname: com.google.googlemobile.trendstodayextension
   name: GoogleMobile
 - uaname: com.google.hangouts_ios
   name: Google Hangouts
@@ -3044,13 +3066,11 @@
 - uaname: com.google.android.apps.tachyon
   name: Google Meet
 - uaname: com.google.android.apps.photosgo
-  name: Gallery
+  name: Google Gallery
 - uaname: com.google.android.apps.magazines
   name: Google News - Daily Headlines
-- uaname: com.google.android.apps.translate
-  name: Google Translate
 - uaname: com.google.android.googlequicksearchbox
-  name: Google
+  name: Google Search
 - uaname: com.google.android.apps.assistant
   name: Google Assistant Go
 - uaname: com.google.android.apps.walletnfcrel
@@ -3156,6 +3176,8 @@
   name: "Blinkit: Grocery in 10 minutes"
 - uaname: com.paypal.android.p2pmobile
   name: PayPal - Pay, Send, Save
+- uaname: com.yourcompany.PPClient
+  name: PayPal - Pay, Send, Save
 - uaname: com.rapido.passenger
   name: "Rapido: Bike-Taxi, Auto & Cabs"
 - uaname: com.crunchyroll.crunchyroid
@@ -3214,8 +3236,6 @@
   name: Theme Store
 - uaname: com.tokopedia.tkpd
   name: Tokopedia Promo Guncang 10.10
-- uaname: com.ubercab.driver
-  name: "Uber - Driver: Drive & Deliver"
 - uaname: com.cyberlink.youcammakeup
   name: YouCam Makeup - Selfie Editor
 - uaname: com.xvideostudio.videoeditor
@@ -3332,8 +3352,6 @@
   name: Remini - AI Photo Enhancer
 - uaname: com.sec.android.easymover
   name: Samsung Smart Switch Mobile
-- uaname: com.ubercab.eats
-  name: "Uber Eats: Food and Grocery"
 - uaname: com.whereismytrain.android
   name: Where is my Train
 - uaname: com.coloros.alarmclock
@@ -3427,8 +3445,6 @@
   name: Instagram Lite
 - uaname: com.trassion.infinix.xclub
   name: XClub
-
-
 - uaname: air.com.hypah.io.slither
   name: slither.io
 - uaname: com.hp.android.printservice
@@ -3478,6 +3494,9 @@
 - uaname: com.lemon.lvoverseas
   name: CapCut - Video Editor
 - uaname: com.ss.android.ugc.trill
+  name: TikTok
+- uaname: com.tiktok.lite
+  suffixes: .go
   name: TikTok
 - uaname: com.dts.freefiremax
   name: Free Fire MAX - Light Fest
@@ -3553,8 +3572,6 @@
   name: X
 - uaname: com.alibaba.aliexpresshd
   name: AliExpress - Shopping App
-- uaname: com.ubercab
-  name: Uber - Request a ride
 - uaname: com.coloros.weather.service
   name: WeatherService
 - uaname: com.oppo.quicksearchbox
@@ -3625,10 +3642,6 @@
   name: Bible Offline-KJV Holy Bible
 - uaname: com.dropbox.android
   name: "Dropbox: Secure Cloud Storage"
-- uaname: com.zhiliaoapp.musically
-  name: TikTok - Videos, Shop & LIVE
-- uaname: com.zhiliaoapp.musically.go
-  name: TikTok Lite - Save Data & Fast
 - uaname: com.playrix.gardenscapes
   name: Gardenscapes
 - uaname: com.touchtype.swiftkey
@@ -3645,6 +3658,8 @@
   name: Samsung Calculator
 - uaname: com.whatsapp
   name: WhatsApp Messenger
+- uaname: com.whatsapp.w4b
+  name: WhatsApp Business
 - uaname: com.mi.globalminusscreen
   name: App Vault
 - uaname: com.tocaboca.tocalifeworld
@@ -3713,8 +3728,6 @@
   name: Microsoft 365 Copilot
 - uaname: com.samsung.android.oneconnect
   name: SmartThings
-- uaname: com.whatsapp.w4b
-  name: WhatsApp Business
 - uaname: com.samsung.memorysaver
   name: Storage Saver
 - uaname: br.com.bb.android
@@ -3829,10 +3842,16 @@
   name: "Sam's Club"
 - uaname: com.sportandtravel.biketracker
   name: 'Bike Tracker: Cycling & More'
+- uaname: com.mtmapping.onxhunt
+  name: 'onX Hunt: GPS Hunting Maps'
 - uaname: com.discovery.petfinder
   name: Petfinder - Adopt a Pet
 - uaname: com.spotonfence.app
   name: SpotOn GPS Fence
+- uaname: com.paws.haloapp
+  name: Halo Collar
+- uaname: com.pathfindercompany.gpsfence
+  name: Dogtra GPS Fence
 - uaname: com.siwalusoftware.dogscanner
   name: 'Dog Scanner: Breed Recognitino'
 - uaname: com.spothero.spothero
@@ -3903,3 +3922,119 @@
   name: Volume Booster Bass Booster
 - uaname: co.appnation.volume_booster
   name: Volume Booster Bass Booster
+- uaname: gsalr.com
+  name: Garage Sale Map
+- uaname: net.cts.android.centralbank
+  name: Central Bank
+- uaname: net.cts.android.mortgagetracker.centralbank
+  name: Central Bank
+- uaname: com.zillow.zillowmap
+  name: 'Zillow: Homes for Sale & Rent'
+- uaname: com.yandex.mobile.metrica.sdk
+  name: Yandex Browser
+- uaname: com.xfinity.digitalhome
+  name: Xfinity Home
+- uaname: com.wellspan.wellspan-iphone
+  name: WellSpan Health
+- uaname: com.wellspan.wellspanmobileapp
+  name: WellSpan Health
+- uaname: com.wendys.nutritiontool
+  name: "Wendy's Nutrition Calculator"
+- uaname: com.vrbo.traveler
+  name: Vrbo Vacation Rentals
+- uaname: com.ubercab
+  suffixes: .uberclient|.eats|.ubereats|.driver
+  name: Uber Rides & Eats
+- uaname: com.uhaul.myuhaul
+  name: U-Haul
+- uaname: com.uhaul.android.myuhaul
+  name: U-Haul
+- uaname: com.tricountiesbank3619.mobile
+  name: Tri Counties Banking
+- uaname: com.tricountiesbank3619.mobile.production
+  name: Tri Counties Banking
+- uaname: com.ticketmaster.ios.ticketmasterapp
+  name: Ticketmaster-Buy, Sell Tickets
+- uaname: com.ticketmaster.mobile.android.na
+  name: Ticketmaster-Buy, Sell Tickets
+- uaname: com.theepochtimes.mobile
+  name: The Epoch Times
+- uaname: com.roborock.smart
+  name: Roborock Vacuum Cleaner
+- uaname: com.relayrides.ios.relayrides
+  name: Relay Rides
+- uaname: com.papajohns.android
+  name: Papa John's Pizza
+- uaname: com.papajohns.ios
+  name: Papa John's Pizza
+- uaname: com.mypinnaclehealth.mypinnaclehealth-iPhone
+  name: Pinnacle Health
+- uaname: com.mixbook.app
+  name: Mixbook | Photo Books
+- uaname: com.menards.app
+  name: Menards
+- uaname: com.menards.mobile
+  name: Menards
+- uaname: com.michaels.michaelsstores
+  name: Michael's Stores
+- uaname: com.meevii.bibleKJV
+  name: Bible KJV
+- uaname: com.intuit.mobilebanking01027
+  name: Quickbooks Online
+- uaname: com.intuit.identity.IntuitIdentity
+  name: Quickbooks Online
+- uaname: com.atb.atbmobile
+  name: ATB Personal Mobile Banking
+- uaname: com.hilton.hhonors
+  name: Hilton
+- uaname: com.huntcontrol.ios.hunt
+  name: HuntControl
+- uaname: com.huntstand.huntstand
+  name: 'HuntStand: GPS Maps & Tools'
+- uaname: com.gusto.money
+  name: Gusto Payroll
+- uaname: com.greeneggnation.greeneggnation
+  name: Green Egg Nation
+- uaname: com.gunthermarktl.stepapp
+  name: StepsApp - Step Counter
+- uaname: com.fitbit.FitbitMobile
+  name: FitBit
+- uaname: com.deere.seedstar
+  name: John Deere SeedStar
+- uaname: com.deere.myoperations
+  name: John Deere Operations Center
+- uaname: com.23andme.core
+  name: 23andMe - DNA Testing
+- uaname: com.atlasobscura
+  suffixes: .ios|.android
+  name: Atlas Obscura Travel Guide
+- uaname: com.bizlogapp.itriplog
+  name: TripLog Mileage App
+- uaname: com.camerasideas.InstaShot
+  name: InShot Video Editor & Maker
+- uaname: com.canva.editor
+  name: Canva AI Photo & Video Editor
+- uaname: com.druryoutdoors.deercast.app
+  name: 'DeerCast: Weather, Maps, Track'
+- uaname: com.yourcompany.becartabible
+  name: Life Bible
+- uaname: com.tecarta.tecartabible
+  name: Life Bible (Tecarta)
+- uaname: com.orbitz
+  suffixes: .mbl|.mbl.cheaptickets|.iphoneprod
+  name: Orbitz Hotels & Flights
+- uaname: com.husqvarna
+  suffixes: .automowerconnect|.hfsmobile
+  name: Husqvarna
+- uaname: com.flightradar24free
+  name: Flightradar24 Flight Tracker
+- uaname: com.carfax.MyCarfaxApp
+  name: CARFAX Car Care
+- uaname: com.pinkbike.trailforks
+  name: Trailforks
+- uaname: com.pilottravelcentersllc.PFJLLMobileApp
+  name: Pilot Travel Centers
+- uaname: com.petrocanada.commercial-drivers.ios
+  name: Petro Canada
+- uaname: com.petrocanada.my_petro_canada
+  name: Petro Canada

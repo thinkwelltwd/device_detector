@@ -6,6 +6,8 @@
   #  type: av
 - uaname: com.avast.android.mobilesecurity
   name: Avast
+- uaname: com.avast.cleanup.update
+  name: Avast
 
 - uaname: Avast
   suffixes: Antivirus|curl|SimpleHttp|NCC

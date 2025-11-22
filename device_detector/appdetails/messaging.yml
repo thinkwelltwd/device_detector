@@ -25,11 +25,19 @@
   name: Telegram
 - uaname: com.instagram.android
   name: Instagram
-- uaname: app.beerbuddy.ios
+- uaname: app.beerbuddy
+  suffixes: .android|.ios
   name: Beer Buddy - Friends Alerts
 - uaname: com.wigle.chat
   name: Wigle Random Video Сhat
 
+- uaname: com.google.android.apps.dynamite
+  name: Google Сhat
+- uaname: Hangouts
+  name: Google Hangouts
+- uaname: com.google.hangouts
+  suffixes: _ios
+  name: Google Hangouts
 
 # WhatsApp
 - uaname: WhatsApp

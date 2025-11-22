@@ -1,4 +1,5 @@
 from .base import *
+from .adobe_cc import *
 from .browser import *
 from .desktopapp import *
 from .dictua import *

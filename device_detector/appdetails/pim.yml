@@ -8,7 +8,7 @@
 - uaname: applemail
   name: Apple Mail
 
-- uaname: comp.apple.mobilecal
+- uaname: com.apple.mobilecal
   name: Apple Calendar
 
 - uaname: bluemail
@@ -52,9 +52,7 @@
   name: Yahoo Mobile
 
 - uaname: com.airmailapp.iphone
-  name: Airmail
-
-- uaname: com.airmailapp.iphone.notificationservice
+  suffixes: .notificationservice
   name: Airmail
 
 - uaname: com.google.gmail
@@ -66,9 +64,6 @@
 - uaname: com.google.calendar
   name: Google Calendar
 
-- uaname: com.google.calendar.todayextension
-  name: Google Calendar
-
 - uaname: com.google.android.gm
   name: Gmail
 
@@ -77,3 +72,6 @@
 
 - uaname: com.google.android.gm.lite
   name: Gmail Go
+
+- uaname: com.ernieware.directmail
+  name: Direct Mail

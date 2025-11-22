@@ -1,6 +1,4 @@
 # Apple
-- uaname: com.apple.mobilesoftwareupdate.updatebrainservice
-  name: Apple Update Service
 - uaname: com.apple.configurator
   name: Apple Configurator
 - uaname: com.apple.configurator.xpc.deviceservice
@@ -14,11 +12,26 @@
 - uaname: com.apple.appstored
   name: Apple App Store
 - uaname: com.apple.newdeviceoutreach
+  suffixes: extension
   name: Apple New Device Outreach
 - uaname: com.apple.geod
   name: Apple Location Services
+- uaname: com.apple.preferences
+  name: Apple Preferences
 - uaname: geoanalyticsd
   name: Apple Location Services
+- uaname: com.apple.amsengagementd
+  name: Apple Media Services
+- uaname: com.apple.amsengagementviewservice
+  name: Apple Media Services
+- uaname: com.apple.mobilesoftwareupdate
+  suffixes: .updatebrainservice
+  name: Apple Update Service
+- uaname: com.apple.assistantservices
+  name: Apple Support
+- uaname: com.apple.authenticationservicescore
+  suffixes: .authenticationservicesagent
+  name: Apple Support
 
 - uaname: apsdaemon
   suffixes: .exe
@@ -54,7 +67,9 @@
   name: Samsung One UI Home
 - uaname: com.apusapps.launcher
   name: APUS System
-
+- uaname: com.piriform.ccleaner
+  suffixes: update
+  name: CCleaner
 
 # Google
 - uaname: com.google.android.inputmethod.latin
@@ -65,6 +80,8 @@
   name: Android Switch
 - uaname: com.google.android.gms
   name: Google Play services
+- uaname: com.android.vending
+  name: Google Play Store
 - uaname: com.google.android.apps.wallpaper
   name: Wallpapers
 - uaname: com.google.android.accessibility.switchaccess

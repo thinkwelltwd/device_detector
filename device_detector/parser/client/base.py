@@ -31,6 +31,12 @@ UNWANTED_APP_NAMES = [
 
 
 class BaseClientParser(Parser):
+    # If this client parser class matches, also
+    # check the UA string for an application id.
+    # Disable that check if the application id
+    # is used for many different apps and would
+    # result in a loss of precise app names.
+    CHECK_APP_ID = True
     __slots__ = ()
     APP_TYPE = AppType.Unknown
 

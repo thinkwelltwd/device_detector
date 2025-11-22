@@ -19,6 +19,7 @@ from .parser import (
     # ShellTv,
     MOBILE_DEVICE_TYPES,
     # Clients
+    AdobeCC,
     DictUA,
     Browser,
     FeedReader,
@@ -59,6 +60,7 @@ class DeviceDetector:
     ]
 
     CLIENT_PARSERS = (
+        AdobeCC,
         DictUA,
         FeedReader,
         Messaging,
@@ -342,6 +344,9 @@ class DeviceDetector:
         """
         Extract app_id from UA if not found in client hints.
         """
+        if self.client and not self.client.CHECK_APP_ID:
+            return
+
         # If app_id already present, it was extracted from client hints
         if self.all_details.get('client', {}).get('app_id'):
             return
@@ -480,6 +485,15 @@ class DeviceDetector:
 
     def client_version(self) -> str:
         return self.all_details.get('client', {}).get('version', '')
+
+    def client_application_id(self) -> str:
+        """
+        Return Apple Bundle ID or Android Package ID if present.
+
+        2ndLine/4.8.1 (com.second.phonenumber; build:1.5; iOS 16.7.12) Alamofire/5.4.4
+        AcuityApp/5.14.0 (com.acuityscheduling.app.ios; build:1686757700; iPhone; iOS 17.1.1) SquarespaceMobileiOS
+        """
+        return self.all_details.get('client', {}).get('app_id', '')
 
     def client_type(self) -> str:
         return self.all_details.get('client', {}).get('type', '')
