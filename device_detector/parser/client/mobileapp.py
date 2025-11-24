@@ -7,6 +7,7 @@ class MobileApp(BaseClientParser):
     APP_TYPE = AppType.MobileApp
 
     fixture_files = [
+        'local/client/mobile_apps.yml',
         'upstream/client/mobile_apps.yml',
     ]
 

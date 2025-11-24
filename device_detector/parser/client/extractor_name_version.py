@@ -1,4 +1,5 @@
 from . import GenericClientParser
+from ...lazy_regex import RegexLazyIgnore
 from ..settings import METADATA_NAMES
 
 
@@ -56,7 +57,7 @@ class NameVersionExtractor(GenericClientParser):
 
         # Chrome WIN 138.0.3351.83 (16e2a7bef3208e592c2c1a00548d2736a0d23ec7) channel(stable)
         # A rather localized override :-(
-        self.app_name = 'Chrome' if app_name == 'Chrome WIN' else app_name
+        self.app_name = 'Chrome' if app_name == 'Chrome WIN' else strip_unwanted_suffixes(app_name)
         return {
             'name': self.app_name,
             'version': self.app_version if self.version_contains_numbers() else '',
@@ -91,6 +92,20 @@ class NameVersionExtractor(GenericClientParser):
         self.ua_data = app_data
 
         self.known = True
+
+
+EXTRACT_SUFFIXES = RegexLazyIgnore(
+    r'^(\w+)\.?(?:ShareExtension|WidgetExtension|HomeWidget|Notifications?(Service|Content))'
+)
+
+
+def strip_unwanted_suffixes(name: str) -> str:
+    """
+    Remove unwanted suffixes, such as "ShareExtension" or "WidgetExtension".
+    """
+    if matched := EXTRACT_SUFFIXES.match(name):
+        return matched.group(1)
+    return name
 
 
 __all__ = [

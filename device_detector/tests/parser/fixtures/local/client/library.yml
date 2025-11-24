@@ -2,7 +2,7 @@
   user_agent: aws-sdk-cpp/1.2.9 windows/10.0.15063.608
   client:
     type: library
-    name: Amazon Web Services SDK for cpp
+    name: Amazon Web Services SDK
     version: 1.2.9
 -
   user_agent: FBiOSSDK.4.14.0

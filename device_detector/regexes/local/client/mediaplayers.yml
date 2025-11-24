@@ -1,0 +1,26 @@
+###############
+# Supplemental regexes for Device Detector - The Universal Device Detection library for parsing User Agents
+#
+# Copyright (c) 2025 Dave Burkholder, Thinkwell Designs
+# @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
+###############
+
+- regex: 'Amazon Music, iphone, ([\d\.]+)'
+  name: Amazon Music
+  version: '$1'
+
+- regex: 'Amazon Music, iphone, ([\d\.]+)'
+  name: Audible Music Player
+  version: '$1'
+
+- regex: 'Audible, iphone, ([\d\.]+)'
+  name: Audible Music Player
+  version: '$1'
+
+- regex: 'YouTubeUnplugged/([\d\.]+)'
+  name: YouTube
+  version: '$1'
+
+- regex: 'YouTubeMusicWidgetKitExtension/([\d\.]+)'
+  name: YouTube Music
+  version: '$1'

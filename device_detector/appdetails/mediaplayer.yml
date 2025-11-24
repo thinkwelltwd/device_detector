@@ -30,8 +30,14 @@
   name: Apple iMovie
 - uaname: com.apple.itunescloudd
   name: Apple iTunes
+- uaname: com.apple.mobilestore
+  name: Apple iTunes
 - uaname: com.apple.music
   name: Apple Music
+- uaname: com.apple.podcast
+  name: Apple Podcasts
+- uaname: com.apple.tv
+  name: Apple TV
 - uaname: com.apple.shazamd
   name: 'Shazam: Find Music & Concerts'
 
@@ -107,7 +113,10 @@
 - uaname: com.deepvision.shortdrama
   name: Drama Pops - Reel Shorts TV
 
-- uaname: com.audible.playersdk.player
+- uaname: com.audible
+  suffixes: .playersdk.player|.application
+  name: Audible Music Player
+- uaname: audiblenotificationserviceextension
   name: Audible Music Player
 
 # YouTube
@@ -120,15 +129,15 @@
 - uaname: com.googleios.youtube
   name: YouTube Music
 - uaname: com.google.ios.youtubemusic
-  name: Youtube Music
+  name: YouTube Music
 - uaname: com.google.android.youtube
   suffixes: .player
-  name: Youtube
+  name: YouTube
 - uaname: com.google.ios.youtube
   suffixes: .player
-  name: Youtube
+  name: YouTube
 - uaname: com.google.ios.youtubeunplugged
-  name: Youtube
+  name: YouTube
 - uaname: com.google.android.apps.youtube.kids
   name: YouTube Kids
 - uaname: com.google.android.music

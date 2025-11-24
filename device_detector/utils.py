@@ -153,6 +153,15 @@ def clean_ua(user_agent: str) -> str:
         # AmazonWebView/Prime Video/5.71.1526.2/iOS/11.4.1/iPad
         # AmazonWebView/SellingServicesOnAmazon/1.1.7/iPhone OS/11.3.1/iPhone
         'amazonwebview',
+        # com.usebutton.merchant/0.1.0-beta3 1 (iOS 11.4; iPhone8,4; com.tophatter.tophatter/4.33 614; Scale/2.00; en-US)
+        # com.usebutton.merchant/1.0.0 1 (Android 6.0.1; samsung SM-G900V; com.walmart.grocery/7.1.0 7010103; Scale/3.0; en_us)
+        # com.usebutton.merchant/1.0.0 1 (iOS 13.2.3; iPhone12,1; com.giddyinc.boxed.prod.00/2.9.4 2.9.4.11504; Scale/2.00; en-US)
+        # com.usebutton.merchant/1.0.0 1 (iOS 13.2.3; iPhone12,1; com.houzz.app/19.12.15 4305; Scale/2.00; en-US)
+        # com.usebutton.mparticle/7.9.2-1.0.0 (iOS 13.3; iPhone8,1; com.walmart.grocery/2001081028; Scale/2.0; en-US)
+        # com.usebutton.mparticle/7.9.2-1.0.0 (iOS 13.3; iPhone9,1; com.walmart.electronics/2003032106; Scale/2.0; en-US)
+        # com.usebutton.sdk/5.32.0 (iOS 12.2; iPhone10,1; com.hotwire.Hotwire/1732244; Scale/2.00; en-US; Build/appstore)
+        # com.usebutton.sdk/5.32.0 (iOS 12.2; iPhone10,3; doordash.DoorDashConsumer/1; Scale/3.00; en-US; Build/appstore)
+        'com.usebutton.',
     ):
         if ua_lower.startswith(prefix):
             ua = ua[len(prefix) :].strip().strip('/')

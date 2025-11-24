@@ -7,6 +7,7 @@ class MediaPlayer(BaseClientParser):
     APP_TYPE = AppType.MediaPlayer
 
     fixture_files = [
+        'local/client/mediaplayers.yml',
         'upstream/client/mediaplayers.yml',
     ]
 

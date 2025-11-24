@@ -5,6 +5,8 @@
 # @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
 ###############
 
+- uaname: com.apple.mobilemail
+  name: Apple Mail
 - uaname: applemail
   name: Apple Mail
 
@@ -37,7 +39,12 @@
 
 - uaname: outlook
   name: Microsoft Outlook
-
+- uaname: com.microsoft.office.outlook
+  name: Microsoft Outlook
+- uaname: Outlook shim services
+  name: Microsoft Outlook
+- uaname: OutlookSocialConnector
+  name: Microsoft Outlook
 - uaname: outlook-express
   name: Outlook Express
 
@@ -75,3 +82,8 @@
 
 - uaname: com.ernieware.directmail
   name: Direct Mail
+
+- uaname: com.samsung.android.email.provider
+  name: Samsung Email
+- uaname: com.samsung.android.calendar
+  name: Samsung Calendar

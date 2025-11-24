@@ -12,6 +12,9 @@
 - uaname: Line
   name: Line
 
+- uaname: com.apple.news
+  name: Apple News
+
 - uaname: au.com.btoj.receiptmaker
   name: Receipt Maker
 
@@ -20,6 +23,10 @@
 
 - uaname: com.fifthfinger.clients.joann
   name: JOANN - Shopping & Crafts
+
+- uaname: com.united
+  suffixes: .unitedcustomerfacingiphone|.mobile.android
+  name: United Airlines
 
 - uaname: com.aa.android
   name: American Airlines
@@ -138,9 +145,12 @@
   name: Windy Map & Weather Forecast
 
 - uaname: accuweather
-  name: AccuWeather
+  suffixes: widget
+  name: "AccuWeather: Weather Radar"
+- uaname: accuWeather accuswiftsdk web request client
+  name: "AccuWeather: Weather Radar"
 - uaname: com.yourcompany.TestWithCustomTabs
-  name: AccuWeather
+  name: "AccuWeather: Weather Radar"
 - uaname: com.accuweather.android
   name: "AccuWeather: Weather Radar"
 
@@ -222,6 +232,11 @@
 - uaname: bloomberghorseshoe
   name: Bloomberg
 
+- uaname: com.dominos.iphone
+  name: Domino's Pizza
+- uaname: com.dominospizza
+  name: Domino's Pizza
+
 - uaname: com.emn8.mobilem8.native.bkrewards
   name: Burger King
 - uaname: com.rbi.timhortons
@@ -298,9 +313,6 @@
 
 - uaname: roadtrippers
   name: Road Trippers
-
-- uaname: samsclub
-  name: Sams Club
 
 - uaname: southwest
   name: Southwest
@@ -874,15 +886,20 @@
   name: Apple Mobile Slideshow
 - uaname: com.apple.MobileSMS
   name: Apple Mobile SMS
+- uaname: com.apple.mobileslideshow
+  name: Apple Photos
 - uaname: com.apple.photos
   name: Apple Photos
+- uaname: com.apple.Photo-Booth
+  name: Apple Photo Booth
 - uaname: com.apple.siri
   suffixes: -distributed-evaluation|.parsec.coreparsec
   name: Apple Siri
 
 - uaname: com.americanfederalbank.mobile
   name: American Federal Bank
-- uaname: com.americanexpress.amexservice
+- uaname: com.americanexpress
+  suffixes: .amexservice|.android.acctsvcs.us
   name: American Express
 - uaname: com.equitybank.grip
   name: Equity Bank
@@ -1156,8 +1173,17 @@
 - uaname: everydollar
   name: Every Dollar
 
-- uaname: com.expedia.booking
+- uaname: com.fp.cheapoair
+  name: 'CheapOair: Cheap Flight Deals'
+- uaname: com.expedia
+  suffixes: .booking|.bookings
   name: 'Expedia: Hotels, Flights, Cars'
+- uaname: com.hoteltonight.prod
+  name: 'HotelTonight: Hotel Deals'
+- uaname: com.hotwire.hotwire
+  name: 'Hotwire: Hotel Deals & Travel'
+- uaname: com.travelocity.android
+  name: Travelocity Hotels & Flights
 
 - uaname: facebook
   name: Facebook
@@ -1487,7 +1513,7 @@
 - uaname: heartbeat-client
   name: Heartbeat Client
 
-- uaname: hearts 
+- uaname: hearts
   name: Hearts
 
 - uaname: hemmings
@@ -2865,9 +2891,6 @@
 - uaname: wallpapers
   name: Wallpapers
 
-- uaname: walmart
-  name: Walmart
-
 - uaname: wantu
   name: Wantu
 
@@ -2986,8 +3009,6 @@
   name: Apple Ad Attribution
 - uaname: com.apple.invitation-registration
   name: Apple Invitation Maker
-- uaname: com.apple.mobileslideshow
-  name: Apple Mobile Slideshow
 
 - uaname: com.relaypayments.relayapp
   name: Relay Payments
@@ -3112,10 +3133,14 @@
   name: MX Player
 - uaname: com.precisionplanting.fieldview
   name: Precision Planting Fieldview
+- uaname: samsclub
+  name: Sam's Club
+- uaname: com.rfi.sams.android
+  name: Sam's Club
 - uaname: com.samsclub.samsapp
   name: Sam's Club
 - uaname: com.samsclub.sng
-  name: "Sam's Club"
+  name: Sam's Club
 - uaname: com.smilerlee.klondike
   name: Smilerlee Klondike
 - uaname: com.softacular.sportacular
@@ -3214,6 +3239,8 @@
   name: "Football Strike: Online Soccer"
 - uaname: com.dd.doordash
   name: "DoorDash: Food, Grocery, More"
+- uaname: doordash.DoorDashConsumer
+  name: "DoorDash: Food, Grocery, More"
 - uaname: com.miniclip.agar.io
   name: Agar.io
 - uaname: com.nekki.vector
@@ -3250,6 +3277,8 @@
   name: Photoroom AI Photo Editor
 - uaname: videoeditor.videorecorder.screenrecorder
   name: Screen Recorder - XRecorder
+- uaname: com.ibotta.ibotta
+  name: 'Ibotta: Earn Cash Back on Groceries'
 - uaname: com.global.foodpanda.android
   name: "foodpanda: food & groceries"
 - uaname: com.zeptoconsumerapp
@@ -3264,8 +3293,6 @@
   name: "Shopee PH: 10.10"
 - uaname: com.myntra.android
   name: Myntra - Fashion Shopping App
-- uaname: com.walmart.android
-  name: "Walmart: Shopping & Savings"
 - uaname: com.mediocre.smashhit
   name: Smash Hit
 - uaname: com.squareup.cash
@@ -3314,6 +3341,8 @@
   name: "Zomato: Food Delivery & Dining"
 - uaname: com.fugo.wow
   name: "Words of Wonders: Crossword"
+- uaname: com.samsung.android.spay
+  name: Samsung Wallet
 - uaname: com.samsung.android.app.watchmanager
   name: Galaxy Wearable
 - uaname: com.sec.android.app.clockpackage
@@ -3540,12 +3569,6 @@
   name: "LINE: Calls & Messages"
 - uaname: com.samsung.android.voc
   name: Samsung Members
-- uaname: com.microsoft.office.word
-  name: "Microsoft Word: Edit Documents"
-- uaname: com.samsung.android.calendar
-  name: Samsung Calendar
-- uaname: com.microsoft.skydrive
-  name: Microsoft OneDrive
 - uaname: com.myairtelapp
   name: "Airtel Thanks: Recharge & Bank"
 - uaname: com.microsoft.teams
@@ -3562,8 +3585,6 @@
   name: Flipkart Online Shopping App
 - uaname: com.quvideo.xiaoying
   name: VivaVideo - Video Cut & Editor
-- uaname: com.microsoft.office.excel
-  name: "Microsoft Excel: Spreadsheets"
 - uaname: com.nekki.shadowfight
   name: Shadow Fight 2
 - uaname: com.coloros.scenemode
@@ -3584,8 +3605,6 @@
   name: Samsung My Files
 - uaname: video.like
   name: Likee - Short Video Community
-- uaname: com.microsoft.office.onenote
-  name: "Microsoft OneNote: Save Notes"
 - uaname: com.supercell.clashroyale
   name: Clash Royale
 - uaname: com.gau.go.launcherex
@@ -3608,6 +3627,9 @@
   name: "Wish: Shop and Save"
 - uaname: com.linkedin.android
   name: "LinkedIn: Jobs & Business News"
+- uaname: com.etsy
+  suffixes: .android|.android.soe|.etsyforandroid|.etsyforios|.etsyforios.clip|.sellonetsy
+  name: Etsy
 - uaname: com.samsung.android.uds
   name: Ultra data saving
 - uaname: com.playrix.homescapes
@@ -3630,10 +3652,6 @@
   name: Samsung Print Service Plugin
 - uaname: com.mi.android.globalfileexplorer
   name: File Manager
-- uaname: com.microsoft.office.powerpoint
-  name: Microsoft PowerPoint
-- uaname: com.samsung.android.email.provider
-  name: Samsung Email
 - uaname: com.discord
   name: Discord - Talk, Play, Hang Out
 - uaname: com.kwai.bulldog
@@ -3724,8 +3742,6 @@
   name: Township
 - uaname: com.miui.weather2
   name: Weather - By Xiaomi
-- uaname: com.microsoft.office.officehubrow
-  name: Microsoft 365 Copilot
 - uaname: com.samsung.android.oneconnect
   name: SmartThings
 - uaname: com.samsung.memorysaver
@@ -3758,8 +3774,6 @@
   name: Block Blast!
 - uaname: com.motorola.motodisplay
   name: Moto Display
-- uaname: com.microsoft.office.outlook
-  name: Microsoft Outlook
 - uaname: com.vivo.easyshare
   name: EasyShare
 - uaname: com.funeasylearn.languages.all
@@ -3782,8 +3796,6 @@
   name: Weber® iGrill®
 - uaname: com.igrill.igrill
   name: Weber® iGrill®
-- uaname: doordash.DoorDashConsumer
-  name: DoorDash Food Delivery
 - uaname: crc.carsapp.mn
   name: Minnesota 511
 - uaname: crc.carsapp.ne
@@ -3802,6 +3814,9 @@
   name: WeWash - A clever way of doing laundry
 - uaname: com.volvocars.onCall
   name: Volvo On Call
+- uaname: com.instacart
+  suffixes: .client|.shopper
+  name: Instacart Grocery Service
 - uaname: com.wakefern.shoprite.shopriteapp
   name: ShopRite Groceries & Savings
 - uaname: com.wakefern.shoprite
@@ -3924,10 +3939,16 @@
   name: Volume Booster Bass Booster
 - uaname: gsalr.com
   name: Garage Sale Map
+- uaname: com.acorns
+  suffixes: .android|.investor
+  name: 'Acorns: Invest For Your Future'
 - uaname: net.cts.android.centralbank
   name: Central Bank
 - uaname: net.cts.android.mortgagetracker.centralbank
   name: Central Bank
+- uaname: com.houzz
+  suffixes: .app|.pro
+  name: Houzz - Home Design & Remodel
 - uaname: com.zillow.zillowmap
   name: 'Zillow: Homes for Sale & Rent'
 - uaname: com.yandex.mobile.metrica.sdk
@@ -3942,6 +3963,10 @@
   name: "Wendy's Nutrition Calculator"
 - uaname: com.vrbo.traveler
   name: Vrbo Vacation Rentals
+- uaname: com.lyft.ios.driver
+  name: Lyft
+- uaname: me.lyft.android
+  name: Lyft
 - uaname: com.ubercab
   suffixes: .uberclient|.eats|.ubereats|.driver
   name: Uber Rides & Eats
@@ -4038,3 +4063,22 @@
   name: Petro Canada
 - uaname: com.petrocanada.my_petro_canada
   name: Petro Canada
+- uaname: walmart
+  name: 'Walmart: Shopping & Savings'
+- uaname: com.walmart
+  suffixes: .android|.electronics|.grocery|.sparkdriver
+  name: 'Walmart: Shopping & Savings'
+- uaname: com.biggu.shopsavvy
+  name: ShopSavvy - Barcode Scanner
+- uaname: com.poshmark.poshmark
+  name: 'Poshmark: Buy and sell fashion, home decor, beauty'
+- uaname: com.1800flowers.iphoneapp
+  name: '1800Flowers: Shop Gifts & More'
+- uaname: com.wondershare.Filmora.iPadPro
+  name: Wondershare Filmora
+- uaname: com.and.mailonline
+  name: 'Daily Mail: Breaking News'
+- uaname: com.babycenter.mypregnancytoday
+  name: Baby Center
+- uaname: com.planetart.simplytoimpress
+  name: Simply to Impress

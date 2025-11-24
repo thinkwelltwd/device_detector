@@ -1,0 +1,43 @@
+###############
+# Supplemental regexes for Device Detector - The Universal Device Detection library for parsing User Agents
+#
+# Copyright (c) 2025 Dave Burkholder, Thinkwell Designs
+# @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
+###############
+
+- regex: 'ALDI (?:ios|android) App US ([\d\.]+)'
+  name: ALDI
+  version: '$1'
+
+- regex: 'BabyCenterApp iOSMPBT/([\d\.]+)'
+  name: Baby Center
+  version: $1
+
+- regex: 'Booking\.?App/([\d\.]+)'
+  name: Booking App
+  version: $1
+
+- regex: 'ChatBox(?:_(ios|ai))?/([\d\.]+)'
+  name: ChatBox
+  version: '$2'
+  type: ai
+
+- regex: 'UPSMobile(?:\.widgetsextension)?/([\d\.]+)'
+  name: UPS Mobile
+  version: '$1'
+
+- regex: 'VeryFit(?:Pro)?/([\d\.]+)'
+  name: Very Fit
+  version: '$1'
+
+- regex: 'Walmart(?:Widgets|NotificationService)/([\d\.]+)'
+  name: 'Walmart: Shopping & Savings'
+  version: '$1'
+
+- regex: 'SupportAssist(?:Client|ClientOnTheBox|Consumer)/([\d\.]+)'
+  name: SupportAssist
+  version: '$1'
+
+- regex: 'Southwest(?:WidgetExtension|RichMediaPushExtension|PushPreview|IMessage|Android)/([\d\.]+)'
+  name: Southwest Airlines
+  version: '$1'

@@ -7742,7 +7742,7 @@
     platform: ""
   client:
     type: mobile app
-    name: Youtube Music
+    name: YouTube Music
     version: "62354340"
   device:
     type: smartphone
@@ -7758,7 +7758,7 @@
     platform: ""
   client:
     type: mobile app
-    name: Youtube Music
+    name: YouTube Music
     version: 20231020.1.1
   device:
     type: ""
@@ -7774,7 +7774,7 @@
     platform: ""
   client:
     type: mobile app
-    name: Youtube Music
+    name: YouTube Music
     version: 6.29.2
   device:
     type: ""

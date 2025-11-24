@@ -31,20 +31,6 @@
 - uaname: microsoftphotos
   name: Microsoft Photos
 
-- uaname: microsoft skydrivesync
-  name: Microsoft OneDrive
-  type: apputility
-
-- uaname: onedrive
-  name: Microsoft OneDrive
-
-- uaname: onenote
-  name: Microsoft OneNote
-
-- uaname: microsoft settingssync
-  name: Microsoft OneDrive
-  type: apputility
-
 - uaname: googlesoftwareupdateagent
   name: Google Updater
   type: apputility
@@ -146,10 +132,7 @@
 
 - uaname: com.apple.weather
   name: Apple Weather
-- uaname: com.apple.weatherkitservice
-  name: Apple Weather
-- uaname: com.apple.weatherkit.authservice
-  name: Apple Weather
+  suffixes: kitservice|kit.authservice
 
 - uaname: com.apple.webkit.networking
   name: Apple Networking Webkit
@@ -288,9 +271,6 @@
   suffixes: free2
   name: Office Suite
 
-- uaname: onedrivefileprovider
-  name: OneDrive
-
 - uaname: openlink
   name: OpenLink
 
@@ -303,9 +283,6 @@
 
 - uaname: ossproxy
   name: OSS Proxy
-
-- uaname: outlooksocialconnector
-  name: Outlook Social Connector
 
 - uaname: photoshopelements
   name: Photoshop Elements
@@ -442,12 +419,6 @@
 
 - uaname: OpenDNS Updater Client
   name: OpenDNS Updater Client
-
-- uaname: Outlook shim services
-  name: Outlook Shim Services
-
-- uaname: OutlookSocialConnector
-  name: Outlook Social Connector
 
 - uaname: parallels toolbox
   name: Parallels Toolbox

@@ -289,6 +289,166 @@
     type: browser
     name: Chrome
     version: 138.0.3351.83
+-
+  user_agent: AccuWeather AccuSwiftSDK Web Request Client/1.0 -- iOSApp
+  client:
+    type: mobile app
+    name: 'AccuWeather: Weather Radar'
+    version: 1.0
+-
+  user_agent: AccuWeatherWidget/1 CFNetwork/1568.200.51 Darwin/24.1.0
+  client:
+    type: mobile app
+    name: 'AccuWeather: Weather Radar'
+    version: 1
+-
+  user_agent: AppleNewsWidget/2074 Version/3.2
+  client:
+    type: mobile app
+    name: Apple News
+    version: 2074
+-
+  user_agent: com.usebutton.merchant/1.0.1 1 (iOS 12.0; iPad7,4; com.hotwire.Hotwire/12.9.0 3821620; Scale/2.00; en-US)
+  client:
+    type: mobile app
+    name: 'Hotwire: Hotel Deals & Travel'
+    version: 12.9.0
+-
+  user_agent: com.usebutton.merchant/1.4.6 1 (Android 13; Google Pixel 7a; com.etsy.android/6.62.0 66200034; Scale/2.6; en_us)
+  client:
+    type: mobile app
+    name: Etsy
+    version: 6.62.0
+-
+  user_agent: com.usebutton.sdk/5.32.0 (iOS 12.2; iPhone10,3; doordash.DoorDashConsumer/1; Scale/3.00; en-US; Build/appstore)
+  client:
+    type: mobile app
+    name: "DoorDash: Food, Grocery, More"
+    version: 1
+-
+  user_agent: amplify-android:2.14.11 md/Google/Pixel_7 md/locale/en_US
+  client:
+    type: library
+    name: AWS Amplify
+    version: 2.14.11
+-
+  user_agent: amplify-iOS/1.31.0 iOS/26.0.1 en_US
+  client:
+    type: library
+    name: AWS Amplify
+    version: 1.31.0
+-
+  user_agent: Audible, iPhone, 1813 (4.55.1), iPhone 13 Pro Max iPhone14,3, iOS, 26.0.1, 3G/Edge
+  client:
+    type: mediaplayer
+    name: Audible Music Player
+    version: 1813
+-
+  user_agent: AudibleNotificationServiceExtension/1538 CFNetwork/3826.500.111.2.2 Darwin/24.4.0
+  client:
+    type: mediaplayer
+    name: Audible Music Player
+    version: 1538
+-
+  user_agent: ALDI iOS App US 9.2513.0 43
+  client:
+    type: mobile app
+    name: ALDI
+    version: 9.2513.0
+-
+  user_agent: Adobe Photoshop Elements 2023/21.0.0.0 CFNetwork/3826.400.120 Darwin/24.3.0
+  client:
+    type: desktop app
+    name: Adobe Photoshop Elements
+    version: 21.0.0.0
+-
+  user_agent: Adobe Photoshop Elements 2025 Editor/23.0.0.0 CFNetwork/3826.400.120 Darwin/24.3.0
+  client:
+    type: desktop app
+    name: Adobe Photoshop Elements
+    version: 23.0.0.0
+-
+  user_agent: Adobe CCXProcess-6.2.0-13/win32-10.0.19045-x64
+  client:
+    type: desktop app
+    name: Adobe Creative Cloud
+    version: 6.2.0-13
+-
+  user_agent: amplify-flutter/0.6.14 amplify-iOS/1.30.4 iOS/18.1.1 en_US
+  client:
+    type: library
+    name: AWS Amplify
+    version: 0.6.14
+-
+  user_agent: amplify-android:2.14.11 md/Google/Pixel_7 md/locale/en_US
+  client:
+    type: library
+    name: AWS Amplify
+    version: 2.14.11
+-
+  user_agent: ALDI iOS App US 9.2513.0 43
+  client:
+    type: mobile app
+    name: ALDI
+    version: 9.2513.0
+-
+  user_agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_1_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 BabyCenterApp iOSMPBT/5.03.01
+  client:
+    type: mobile app
+    name: Baby Center
+    version: 5.03.01
+-
+  user_agent: iPhone iOS 16.7.12 BabyCenterApp iOSMPBT/4.37.1
+  client:
+    type: mobile app
+    name: Baby Center
+    version: 4.37.1
+-
+  user_agent: 'Booking.App/51.7.1 Android/13; Type: mobile; AppStore: google; Brand: google; Model: Pixel 7a;'
+  client:
+    type: mobile app
+    name: Booking App
+    version: 51.7.1
+-
+  user_agent: WeatherKit_WeatherWidget_iPadOS_Version 18.2 (Build 22C152)
+  client:
+    type: desktop app
+    name: Apple Weather
+    version: 18.2
+-
+  user_agent: ChatBox_AI/1.70.597.0 (iPhone 14_7; iPhone OS 18_4_1) genius.chat/1.70.597.0 (bundle 0855461153.5422564354) CFNetwork/3826.500.111.2.2 Darwin/24.4.0
+  client:
+    type: ai
+    name: ChatBox
+    version: 1.70.597.0
+-
+  user_agent: UPSMobile.WidgetsExtension/9 CFNetwork/1568.300.101 Darwin/24.2.0
+  client:
+    type: mobile app
+    name: UPS Mobile
+    version: 9
+-
+  user_agent: WalmartWidgets/2403051615 CFNetwork/3826.600.41 Darwin/24.6.0
+  client:
+    type: mobile app
+    name: 'Walmart: Shopping & Savings'
+    version: 2403051615
+-
+  user_agent: SouthwestWidgetExtension/11.11.4 CFNetwork/3826.500.131 Darwin/24.5.0
+  client:
+    type: mobile app
+    name: Southwest Airlines
+    version: 11.11.4
+-
+  user_agent: SkylightMobileShareExtension/19680 CFNetwork/3826.400.120 Darwin/24.3.0
+  client:
+    name: SkylightMobile
+    version: 19680
+-
+  user_agent: SmartMailShareExtension/3.9.4.306 CFNetwork/1568.300.101 Darwin/24.2.0
+  client:
+    name: SmartMail
+    version: 3.9.4.306
 # --------------------------------------------------------------------------------
 # UA Strings with no interesting pairs should fall back to browser details
 -

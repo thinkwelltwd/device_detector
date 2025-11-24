@@ -187,3 +187,21 @@
   version: ''
   type: desktop app
 
+- regex: 'Adobe Photoshop Elements (\d{1,4})(?: editor)?/([\d\.]+)'
+  name: Adobe Photoshop Elements
+  version: '$2'
+  type: desktop app
+
+- regex: 'Adobe CCXProcess-([\d\.-]+)/'
+  name: Adobe Creative Cloud
+  version: '$1'
+  type: desktop app
+
+- regex: 'WeatherKit_Weather(?:poster|widget|d)?_(?:ipados|ios|ipados|macos)_Version ([\d\.]+)'
+  name: Apple Weather
+  version: '$1'
+  type: desktop app
+- regex: 'WeatherWidgets?Extension/([\d\.]+)'
+  name: Apple Weather
+  version: '$1'
+  type: desktop app

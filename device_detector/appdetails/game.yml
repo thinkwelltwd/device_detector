@@ -57,3 +57,8 @@
   name: Fishbrain - Fishing App
 - uaname: com.playgendary.tanks
   name: Tank Stars Game
+- uaname: com.unicostudio
+  suffixes: .braintest|.braintest4|.braintestlegacy
+  name: 'Brain Test: Tricky Puzzles'
+- uaname: com.uqxuwtxbbu.parkingjam
+  name: Parking Jam 3D

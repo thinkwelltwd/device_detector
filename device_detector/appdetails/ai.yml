@@ -1,3 +1,9 @@
+###############
+# Supplemental regexes for Device Detector - The Universal Device Detection library for parsing User Agents
+#
+# Copyright (c) 2025 Dave Burkholder, Thinkwell Designs
+# @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
+###############
 - uaname: ai.replika.app
   name: 'Replika: My AI Friend'
 - uaname: com.openai.chatgpt
@@ -14,3 +20,5 @@
   name: AI Chat by tappz
 - uaname: com.dating.ai
   name: Dating.ai - AI-Powered Matchmaking
+- uaname: com.microsoft.office.officehubrow
+  name: Microsoft 365 Copilot

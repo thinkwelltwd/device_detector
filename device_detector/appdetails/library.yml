@@ -10,3 +10,19 @@
 
 - uaname: zendesk-sdk
   name: Zendesk SDK
+
+- uaname: com.amazonaws.mobileconnectors.kinesis.kinesisrecorder
+  suffixes: .KinesisFirehoseRecorder|.KinesisRecorder
+  name: Amazon Kinesis
+- uaname: com.amazonaws.auth.CognitoCachingCredentialsProvider
+  name: Amazon Cognito Identity Platform
+# Pinpoint is expiring after October 2026
+- uaname: com.amazonaws.mobileconnectors.pinpoint.PinpointManager
+  name: Amazon Pinpoint
+
+- uaname:  azsdk-net-security.keyvault.secrets
+  name: Azure Key Vault
+
+- uaname: com.foursquare.pilgrimsdk
+  suffixes: .android|.ios
+  name: Foursquare SDK

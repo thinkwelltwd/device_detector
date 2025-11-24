@@ -32,6 +32,9 @@
 - uaname: com.apple.authenticationservicescore
   suffixes: .authenticationservicesagent
   name: Apple Support
+- uaname: com.apple.SystemProfiler
+  suffixes: .AboutExtension
+  name: Apple System Profiler
 
 - uaname: apsdaemon
   suffixes: .exe
@@ -70,6 +73,16 @@
 - uaname: com.piriform.ccleaner
   suffixes: update
   name: CCleaner
+
+- uaname: com.apple.mobilephone
+  name: Apple Phone
+- uaname: com.apple.ap.adprivacyd
+  name: Apple Ad Tracking & Privacy
+- uaname: com.apple.adlib
+  name: Apple Ad Tracking & Privacy
+- uaname: com.apple.ndoagent
+  suffixes: .intervalevent|.paireddevices
+  name: Apple NDO Agent
 
 # Google
 - uaname: com.google.android.inputmethod.latin

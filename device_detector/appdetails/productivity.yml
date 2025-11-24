@@ -36,6 +36,7 @@
 - uaname: com.apple.notes
   name: Apple Notes
 - uaname: com.apple.mobilenotes
+  suffixes: .sharingextension
   name: Apple Notes
 - uaname: com.apple.numbers
   name: Apple iWork Numbers
@@ -67,3 +68,26 @@
   name: 'Kijiji: Buy & Sell'
 - uaname: com.gis.map.survey.gmaps
   name: GMapper GIS GPS & Area Measure
+- uaname: com.microsoft.skydrive
+  name: Microsoft OneDrive
+- uaname: microsoft skydrivesync
+  name: Microsoft OneDrive
+  type: apputility
+- uaname: onedrive
+  suffixes: fileprovider
+  name: Microsoft OneDrive
+- uaname: microsoft settingssync
+  name: Microsoft OneDrive
+  type: apputility
+- uaname: onenote
+  name: Microsoft OneNote
+- uaname: com.apple.iclouddriveapp
+  name: iCloud Drive
+- uaname: com.microsoft.office.word
+  name: "Microsoft Word: Edit Documents"
+- uaname: com.microsoft.office.powerpoint
+  name: Microsoft PowerPoint
+- uaname: com.microsoft.office.onenote
+  name: "Microsoft OneNote: Save Notes"
+- uaname: com.microsoft.office.excel
+  name: "Microsoft Excel: Spreadsheets"
