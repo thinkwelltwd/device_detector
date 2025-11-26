@@ -59,3 +59,5 @@
 - uaname: com.waze
   suffixes: .iphone
   name: Waze Navigation & Live Traffic
+- uaname: com.chimani.parks.free
+  name: National Park Guides

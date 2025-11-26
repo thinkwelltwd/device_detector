@@ -419,7 +419,7 @@
   user_agent: ChatBox_AI/1.70.597.0 (iPhone 14_7; iPhone OS 18_4_1) genius.chat/1.70.597.0 (bundle 0855461153.5422564354) CFNetwork/3826.500.111.2.2 Darwin/24.4.0
   client:
     type: ai
-    name: ChatBox
+    name: 'ChatGenius: Smart AI Assistant'
     version: 1.70.597.0
 -
   user_agent: UPSMobile.WidgetsExtension/9 CFNetwork/1568.300.101 Darwin/24.2.0
@@ -449,6 +449,40 @@
   client:
     name: SmartMail
     version: 3.9.4.306
+-
+  user_agent: FirebaseAuth.iOS/9.3.0 com.2mc.bidftamobile/4.26 iPhone/18.6 hw/iPhone12_8
+  client:
+    name: BidFTA Online Auctions
+    version: 4.26
+-
+  user_agent: FirebaseAuth.iOS/7.6.0 YanFlex.CPlus.Craigslist/5.1.6 iPhone/18.6 hw/iPhone15_3
+  client:
+    name: CPlus Craigslist Classifieds
+    version: 5.1.6
+-
+  user_agent: FirebaseAuth.iOS/8.4.0 depollsoft.pitchperfect/2.0.3 iPhone/18.4 hw/iPhone14_6
+  client:
+    name: Pitch Perfect (Pitch Pipe)
+    version: 2.0.3
+-
+  user_agent: FirebaseAuth.iOS/11.4.0 com.delta.iphone.ver1/6.9.1 iPhone/18.4.1 hw/iPhone15_4
+  client:
+    name: Delta Airlines
+    version: 6.9.1
+-
+  user_agent: com.google.Gmail.ShareExtension/6.0.251013 iSL/3.4 iPhone/18.6.2 hw/iPhone17_3 (gzip) iOS 18.6.2 - Google Gmail Shareextension - iPhone 16
+  client:
+    name: Gmail
+    version: 6.0.251013
+-
+  user_agent: com.google.Maps.HomeTrafficWidgetExtension/24.47.3 iPad/18.1.1 hw/iPad14_4 (gzip) iOS - Google Maps Hometrafficwidgetextension - iPa
+  client:
+    name: Google Maps
+    version: 24.47.3
+-
+  user_agent: mShop:::Amazon_iPhone_17.22.2:::iPhone:::iPhone_OS_15.8.4
+  client:
+    name: Amazon Shopping
 # --------------------------------------------------------------------------------
 # UA Strings with no interesting pairs should fall back to browser details
 -

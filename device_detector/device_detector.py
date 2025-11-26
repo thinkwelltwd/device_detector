@@ -96,6 +96,7 @@ class DeviceDetector:
         'client',
         'device',
         'model',
+        'user_agent_lower',
         'user_agent',
         'ua_hash',
         '_ua_spaceless',
@@ -127,7 +128,8 @@ class DeviceDetector:
         """
 
         # Holds the useragent that should be parsed
-        self.user_agent = clean_ua(user_agent)
+        self.user_agent_lower = user_agent.lower()
+        self.user_agent = clean_ua(user_agent, self.user_agent_lower)
         self.ua_hash = ua_hash(self.user_agent, headers)
         self._ua_spaceless = ''
         self.os: OS | None = None
@@ -226,7 +228,7 @@ class DeviceDetector:
         if mostly_repeating_characters(self.user_agent):
             return True
 
-        if random_alphanumeric_string(self.user_agent):
+        if random_alphanumeric_string(self.user_agent_lower):
             return True
 
         return long_ua_no_punctuation(self.user_agent)

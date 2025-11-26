@@ -27,7 +27,8 @@
 - uaname: com.united
   suffixes: .unitedcustomerfacingiphone|.mobile.android
   name: United Airlines
-
+- uaname: com.delta.iphone.ver1
+  name: Delta Airlines
 - uaname: com.aa.android
   name: American Airlines
 - uaname: com.aa.americanairlines
@@ -3082,6 +3083,8 @@
   name: Android Auto
 - uaname: com.google.android.apps.books
   name: Google Play Books & Audiobooks
+- uaname: com.google.GoogleBooks
+  name: Google Play Books
 - uaname: com.google.android.apps.wellbeing
   name: Digital Wellbeing
 - uaname: com.google.android.apps.tachyon
@@ -4082,3 +4085,35 @@
   name: Baby Center
 - uaname: com.planetart.simplytoimpress
   name: Simply to Impress
+- uaname: com.costco.costco
+  name: Costco Wholesale
+- uaname: com.costco.app.android
+  name: Costco Wholesale
+- uaname: depollsoft.pitchperfect
+  name: Pitch Perfect (Pitch Pipe)
+- uaname: com.2mc.bidftamobile
+  name: BidFTA Online Auctions
+- uaname: YanFlex.CPlus.Craigslist
+  name: CPlus Craigslist Classifieds
+- uaname: com.lowes.mobile.consumer.iphone.lowes
+  name: Lowe's Home Improvement
+- uaname: happy.paint.color.coloring.number
+  name: 'Happy Color®: Color by Number'
+- uaname: com.abishkking.periodcalendar
+  name: Period Calendar Period Tracker
+- uaname: com.popularapp.periodcalendar
+  name: Period Calendar Period Tracker
+- uaname: farm.raindrop.raindrop
+  name: 'RainDrop: Virtual Rain Gauge'
+- uaname: com.greenmountain.birds
+  name: Green Mountain Birds
+- uaname: com.festool.apps.powertools
+  name: Festool
+- uaname: com.locket.Locket
+  name: Locket Widget
+- uaname: com.impact.apps.BeHard
+  name: 'BeHard: 75 Hard Challenge'
+- uaname: com.teamlevellabs.measuretape
+  name: Tape MeasureTM
+- uaname: net.gordonedwards.Scanner-Radio-Deluxe
+  name: Police Scanner Radio & Fire

@@ -133,6 +133,8 @@
 - uaname: com.apple.weather
   name: Apple Weather
   suffixes: kitservice|kit.authservice
+- uaname: com.apple.nanoweatherprefsd
+  name: Apple Weather
 
 - uaname: com.apple.webkit.networking
   name: Apple Networking Webkit

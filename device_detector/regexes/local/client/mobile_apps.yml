@@ -18,7 +18,7 @@
   version: $1
 
 - regex: 'ChatBox(?:_(ios|ai))?/([\d\.]+)'
-  name: ChatBox
+  name: 'ChatGenius: Smart AI Assistant'
   version: '$2'
   type: ai
 
@@ -40,4 +40,12 @@
 
 - regex: 'Southwest(?:WidgetExtension|RichMediaPushExtension|PushPreview|IMessage|Android)/([\d\.]+)'
   name: Southwest Airlines
+  version: '$1'
+
+- regex: 'GroupMe-iOS(-share-ext)?/(\d+[\.\d]+)'
+  name: GroupMe
+  version: '$1'
+
+- regex: mShop:::Amazon_iPhone_(\d+[\.\d]+)
+  name: Amazon Shopping
   version: '$1'

@@ -8,6 +8,8 @@
   name: 'Replika: My AI Friend'
 - uaname: com.openai.chatgpt
   name: ChatGPT
+- uaname: com.aichatbotgpt4.neural
+  name: ChatGPT
 - uaname: co.appnation.babygenerator
   name: AI Baby Generator
 - uaname: com.vyro.chatly
@@ -22,3 +24,11 @@
   name: Dating.ai - AI-Powered Matchmaking
 - uaname: com.microsoft.office.officehubrow
   name: Microsoft 365 Copilot
+- uaname: genius.chat
+  name: 'ChatGenius: Smart AI Assistant'
+- uaname: ai.hailuo.video
+  name: Hailuo AI Video Generator
+- uaname: ai.video.generator
+  name: Hailuo AI Video Generator
+- uaname: ai.character.app
+  name: 'Character AI: Chat, Talk, Text'

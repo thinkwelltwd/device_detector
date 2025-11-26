@@ -10,6 +10,8 @@
 - uaname: com.apple.safari.searchhelper
   name: Apple Safari
 
+- uaname: com.duckduckgo.macos.browser
+  name: DuckDuckGo Privacy Browser
 - uaname: com.duckduckgo.mobile.android
   name: DuckDuckGo Privacy Browser
 - uaname: com.duckduckgo.mobile.ios

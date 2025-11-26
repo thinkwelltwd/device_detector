@@ -46,6 +46,8 @@
   name: Apple Freeform
 - uaname: com.adobe.adobe-reader
   name: Adobe Reader
+- uaname: com.twansoftware.Invoice-Maker-Pro
+  name: 'ProBooks: Invoice Maker'
 - uaname: com.zoho
   suffixes: .books|.zbooks|.invoice|.zinvoice
   name: Zoho - Business Made Better

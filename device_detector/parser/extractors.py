@@ -12,6 +12,14 @@ APP_ID_VERSION = RegexLazyIgnore(
     r'\b(?P<name>[a-z]{2,5}\.[\w\d\.\-]+)[;:/] ?(?P<version>[\d\.\-]+)\b'
 )
 
+# Match Application IDs like:
+# YanFlex.CPlus.Craigslist
+# depollsoft.pitchperfect
+# but do not match domain names
+LONG_PREFIX_APP_ID_VERSION = RegexLazyIgnore(
+    r' (?P<name>[a-z]{6,}\.[\w\d\.\-]{6,})[;:/] ?(?P<version>[\d\.\-]+)\b'
+)
+
 
 class DataExtractor:
     """
@@ -132,9 +140,8 @@ class ApplicationIDExtractor(RegexLoader):
         if self.details:
             return self
 
-        if not (app_ids := APP_ID_VERSION.findall(self.user_agent)):
-            if not (app_ids := [(app_id, '') for app_id in APP_ID.findall(self.user_agent)]):
-                return self
+        if not (app_ids := self.match_regexes()):
+            return self
 
         pretty_names = self._app_id_pretty_names
         for app_id, version in app_ids:
@@ -154,6 +161,21 @@ class ApplicationIDExtractor(RegexLoader):
             }
 
         return self
+
+    def match_regexes(self) -> list[tuple[str, str]]:
+        """
+        Extract App IDs from the user agent.
+        """
+        if app_ids := LONG_PREFIX_APP_ID_VERSION.findall(self.user_agent):
+            return app_ids
+
+        if app_ids := APP_ID_VERSION.findall(self.user_agent):
+            return app_ids
+
+        if app_ids := [(app_id, '') for app_id in APP_ID.findall(self.user_agent)]:
+            return app_ids
+
+        return []
 
     def version(self) -> str:
         return self.details.get('version', '')

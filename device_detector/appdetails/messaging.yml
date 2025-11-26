@@ -39,6 +39,11 @@
   suffixes: _ios
   name: Google Hangouts
 
+- uaname: com.groupme.iphone-app
+  name: GroupMe
+- uaname: com.messengerx
+  name: MessengerX
+
 # WhatsApp
 - uaname: WhatsApp
   name: WhatsApp

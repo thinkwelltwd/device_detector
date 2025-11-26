@@ -132,7 +132,7 @@ class TestNotGibberish(TestCase):
                 '33Ji2XaL',
         ):
             self.assertTrue(
-                random_alphanumeric_string(ua),
+                random_alphanumeric_string(ua.lower()),
                 msg='%s is random gibberish' % ua,
             )
 
@@ -286,8 +286,8 @@ class TestNotGibberish(TestCase):
                 'sendori-client-win32',
         ):
             self.assertFalse(
-                random_alphanumeric_string(ua),
-                msg='%s is not random gibberish' % ua,
+                random_alphanumeric_string(ua.lower()),
+                msg=f'{ua} is not random gibberish',
             )
 
 
@@ -302,7 +302,7 @@ class TestNotRepeatingCharacters(TestCase):
         ):
             self.assertTrue(
                 mostly_repeating_characters(ua),
-                msg='%s is mostly repeating characters' % ua,
+                msg=f'{ua} is mostly repeating characters',
             )
 
     def test_not_mostly_repeating_characters(self):
@@ -314,5 +314,5 @@ class TestNotRepeatingCharacters(TestCase):
         ):
             self.assertFalse(
                 mostly_repeating_characters(ua),
-                msg='%s is not mostly repeating characters' % ua,
+                msg=f'{ua} is not mostly repeating characters',
             )

@@ -95,7 +95,7 @@ class NameVersionExtractor(GenericClientParser):
 
 
 EXTRACT_SUFFIXES = RegexLazyIgnore(
-    r'^(\w+)\.?(?:ShareExtension|WidgetExtension|HomeWidget|Notifications?(Service|Content))'
+    r'^(\w+)\.?(?:ShareExtension|Widgets?Extension|HomeWidget|Notifications?(Service|Content))'
 )
 
 
