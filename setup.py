@@ -39,6 +39,7 @@ setup(
         '': ['*.yml'],
     },
     install_requires=[
+        'ahocorasick-rs',
         'pyyaml',
         'regex',
     ],

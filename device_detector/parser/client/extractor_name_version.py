@@ -1,5 +1,6 @@
 from . import GenericClientParser
 from ...lazy_regex import RegexLazyIgnore
+from ...parser.key_value_pairs import key_value_pairs
 from ..settings import METADATA_NAMES
 
 
@@ -22,12 +23,11 @@ class NameVersionExtractor(GenericClientParser):
         """
         Check all name/version pairs for most interesting values
         """
-        name_version_pairs = self.name_version_pairs()
         app_details = self.appdetails_data
         app_type = ''
         app_name = ''
 
-        for code, name, version in name_version_pairs:
+        for code, name, version in key_value_pairs(self.user_agent):
             if app_detail := app_details.get(code):
                 app_name = app_detail['name']
                 self.app_version = version

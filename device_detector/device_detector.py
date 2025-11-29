@@ -1,4 +1,4 @@
-from typing import Self
+from typing import Self, TYPE_CHECKING
 from .lazy_regex import RegexLazy
 from .enums import DeviceType
 
@@ -55,6 +55,9 @@ DESKTOP_FRAGMENT = RegexLazy(BOUNDED_REGEX.format(r'(?:Windows (?:NT|IoT)|X11; L
 
 
 class DeviceDetector:
+    if TYPE_CHECKING:
+        parsed: bool
+
     fixture_files = [
         'local/device/normalize.yml',
     ]
@@ -111,6 +114,22 @@ class DeviceDetector:
         '_normalized_regex_list',
     )
 
+    def __new__(
+        cls,
+        user_agent: str,
+        skip_bot_detection: bool = False,
+        skip_device_detection: bool = False,
+        headers: dict[str, str] | None = None,
+    ) -> 'DeviceDetector':
+        uah = ua_hash(user_agent.lower(), headers)
+        if cached := DDCache['user_agents'].get(uah, None):
+            cached.parsed = True
+            return cached
+
+        res = super().__new__(cls)
+        res.ua_hash = uah
+        return res
+
     def __init__(
         self,
         user_agent: str,
@@ -126,11 +145,14 @@ class DeviceDetector:
             skip_device_detection: Skip device brand and model lookup.
             headers: Client Hint headers from the request
         """
+        # Prevent reinitialization of memoized classes
+        if getattr(self, 'parsed', False):
+            return
 
         # Holds the useragent that should be parsed
         self.user_agent_lower = user_agent.lower()
         self.user_agent = clean_ua(user_agent, self.user_agent_lower)
-        self.ua_hash = ua_hash(self.user_agent, headers)
+        self.ua_hash = ua_hash(self.user_agent_lower, headers)
         self._ua_spaceless = ''
         self.os: OS | None = None
         self.client: BaseClientParser | None = None
@@ -148,7 +170,6 @@ class DeviceDetector:
         self.skip_bot_detection = skip_bot_detection
         self.skip_device_detection = skip_device_detection
         self.all_details: dict = {'normalized': ''}
-        self.parsed = False
         self.headers = headers or {}
         self.client_hints = ClientHints.new(headers) if headers else None
         self._normalized_regex_list = normalized_regex_list(self.fixture_files)
@@ -162,28 +183,6 @@ class DeviceDetector:
         if not self._ua_spaceless:
             self._ua_spaceless = self.user_agent.lower().replace(' ', '')
         return self._ua_spaceless
-
-    def get_parse_cache(self) -> Self | None:
-        cached = DDCache['user_agents'].get(self.ua_hash, {}).get('parsed') or None
-        if cached:
-            self.os = cached.os
-            self.client = cached.client
-            self.device = cached.device
-            self.model = cached.model
-            self.all_details = cached.all_details
-            self.parsed = cached.parsed
-            self.headers = cached.headers
-            self.client_hints = cached.client_hints
-
-        return cached
-
-    def set_parse_cache(self) -> Self:
-        if self.all_details:
-            try:
-                DDCache['user_agents'][self.ua_hash]['parsed'] = self
-            except KeyError:
-                DDCache['user_agents'][self.ua_hash] = {'parsed': self}
-        return self
 
     # -----------------------------------------------------------------------------
     # UA parsing methods
@@ -276,7 +275,7 @@ class DeviceDetector:
         return self.all_details['normalized'] in WORTHLESS_UA_TYPES
 
     def parse(self) -> Self:
-        if cached := self.get_parse_cache():
+        if cached := DDCache['user_agents'].get(self.ua_hash):
             return cached
 
         if not self.user_agent and not self.headers:
@@ -305,7 +304,9 @@ class DeviceDetector:
                 except KeyError:
                     self.all_details['device'] = device_data
 
-        return self.set_parse_cache()
+        self.parsed = True
+        DDCache['user_agents'][self.ua_hash] = self
+        return self
 
     def supplement_secondary_client_data(self, app_idx: ApplicationIDExtractor) -> None:
         """
@@ -326,13 +327,13 @@ class DeviceDetector:
         if self.client:
             return None
 
+        os_details = self.all_details.get('os', {})
         for Parser in self.CLIENT_PARSERS:
             parser = Parser(
                 self.user_agent,
-                self.ua_hash,
                 self.ua_spaceless,
                 self.client_hints,
-                os_details=self.all_details.get('os', {}),
+                os_details=os_details,
             ).parse()
 
             if parser.ua_data:
@@ -369,13 +370,14 @@ class DeviceDetector:
         if self.device or self.skip_device_detection:
             return
 
+        os_details = self.all_details.get('os', {})
+
         for Parser in self.DEVICE_PARSERS:
             parser = Parser(
                 self.user_agent,
-                self.ua_hash,
                 self.ua_spaceless,
                 self.client_hints,
-                os_details=self.all_details.get('os', {}),
+                os_details=os_details,
             ).parse()
             if parser.ua_data:
                 self.device = parser
@@ -386,18 +388,14 @@ class DeviceDetector:
                 ):
                     self.all_details['device']['device'] = DeviceType.Desktop
                 return
+        # print(f'\nWELL, NO device extractable from {self.user_agent}. OS Details: {os_details}')
 
     def parse_bot(self) -> None:
         """
         Parses the UA for bot information using the Bot parser
         """
         if not self.skip_bot_detection and not self.bot:
-            self.bot = Bot(
-                self.user_agent,
-                self.ua_hash,
-                self.ua_spaceless,
-                self.client_hints,
-            ).parse()
+            self.bot = Bot(self.user_agent, self.ua_spaceless, self.client_hints).parse()
             self.all_details['bot'] = self.bot.ua_data
 
     def parse_os(self) -> None:
@@ -405,12 +403,7 @@ class DeviceDetector:
         Parses the UA for Operating System information using the OS parser
         """
         if not self.os:
-            os = OS(
-                self.user_agent,
-                self.ua_hash,
-                self.ua_spaceless,
-                self.client_hints,
-            ).parse()
+            os = OS(self.user_agent, self.ua_spaceless, self.client_hints).parse()
             if os:
                 self.os = os
                 self.all_details['os'] = os.ua_data

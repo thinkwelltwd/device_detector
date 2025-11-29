@@ -43,6 +43,9 @@ class RegexLazy:
             compiled_regex = regex.compile(pattern, flags)
             self.compiled = compiled_regex
 
+        if attribute == 'compiled':
+            return compiled_regex
+
         return getattr(compiled_regex, attribute)
 
     def __repr__(self) -> str:

@@ -54,6 +54,7 @@ class Cache(dict):
     base: dict = {
         'app_details': {},
         'regexes': {},
+        'corasick': {},
         'normalize_regexes': [],
         'appids_ignored': set(),
         'appids_secondary': set(),
@@ -65,9 +66,8 @@ class Cache(dict):
         kwargs.update(deepcopy(self.base))
         super().__init__(*args, **kwargs)
 
-    def clear(self) -> None:
-        super().clear()
-        self.update(deepcopy(self.base))
+    def clear_user_agents(self) -> None:
+        self['user_agents'] = LRUDict()
 
 
 ROOT = os.path.dirname(os.path.abspath(__file__))

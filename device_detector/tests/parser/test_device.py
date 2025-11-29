@@ -1,7 +1,6 @@
 from urllib.parse import unquote
 from ..base import ParserBaseTest
 from ...parser import Camera, CarBrowser, Console, Notebook
-from ...utils import ua_hash
 
 
 class TestDeviceBase(ParserBaseTest):
@@ -12,14 +11,8 @@ class TestDeviceBase(ParserBaseTest):
         for fixture in fixtures:
             self.user_agent = unquote(fixture.pop('user_agent'))
             expect = fixture['device']
-            hashed = ua_hash(self.user_agent)
             spaceless = self.user_agent.lower().replace(' ', '')
-            parsed = self.Parser(
-                self.user_agent,
-                hashed,
-                spaceless,
-                None,
-            ).parse()
+            parsed = self.Parser(self.user_agent, spaceless, None).parse()
 
             data = parsed.ua_data
 

@@ -1,6 +1,5 @@
 from urllib.parse import unquote
 from device_detector.parser import ClientHints
-from ...utils import ua_hash
 from ..base import GenericParserTest, ParserBaseTest
 from ...parser import (
     AdobeCC,
@@ -30,7 +29,6 @@ class ParserClientBase(ParserBaseTest):
             expect = fixture[self.fixture_key]
             parsed = self.Parser(
                 self.user_agent,
-                ua_hash(self.user_agent),
                 spaceless,
                 client_hints=ClientHints.new(fixture.get('headers', {})),
             ).clear_cache().parse()  # clear cache because fixture files may contain duplicate UAs
@@ -162,12 +160,7 @@ class TestWholeNameExtractor(GenericParserTest):
             'Chrome/138.0.7204.156 iPad/18.6.2 hw/iPad14_',
         )
         for ua in user_agents:
-            wn = WholeNameExtractor(
-                ua,
-                ua_hash(ua),
-                ua.replace(' ', ''),
-                client_hints=None,
-            ).parse()
+            wn = WholeNameExtractor(ua, ua.replace(' ', ''), client_hints=None).parse()
             self.assertEqual(wn.name(), '')
 
 

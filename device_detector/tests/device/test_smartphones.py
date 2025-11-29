@@ -249,14 +249,28 @@ class TestDetectSmartPhone34(DetectorBaseTest):
 class TestDetectSmartPhone35(DetectorBaseTest):
 
     fixture_files = [
+        'tests/fixtures/upstream/smartphone-35.yml',
+    ]
+
+
+class TestDetectSmartPhone36(DetectorBaseTest):
+
+    fixture_files = [
         'tests/fixtures/upstream/smartphone-36.yml',
+    ]
+
+
+class TestDetectSmartPhone37(DetectorBaseTest):
+
+    fixture_files = [
+        'tests/fixtures/upstream/smartphone-37.yml',
     ]
 
 
 class TestDetectSmartPhone38(DetectorBaseTest):
 
     fixture_files = [
-        'tests/fixtures/upstream/smartphone-37.yml',
+        'tests/fixtures/upstream/smartphone-38.yml',
     ]
 
 

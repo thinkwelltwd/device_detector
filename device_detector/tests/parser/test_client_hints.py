@@ -2,7 +2,6 @@ from urllib.parse import unquote
 from ..base import ParserBaseTest
 from ...parser import OS
 from ...device_detector import DeviceDetector
-from ...utils import ua_hash
 from ...parser.client_hints import ClientHints
 
 
@@ -134,9 +133,8 @@ class TestClientHints(ParserBaseTest):
             expect = fixture['os']
 
             ch = ClientHints.new(fixture['headers'])
-            hashed = ua_hash(self.user_agent)
             spaceless = self.user_agent.lower().replace(' ', '')
-            parsed = OS(self.user_agent, hashed, spaceless, ch).parse()
+            parsed = OS(self.user_agent, spaceless, ch).parse()
 
             data = parsed.ua_data
 

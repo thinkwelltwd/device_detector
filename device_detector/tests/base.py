@@ -18,7 +18,6 @@ except ImportError:
 
 from device_detector.parser import ClientHints
 from ..settings import ROOT
-from ..utils import ua_hash
 from .. import DeviceDetector
 
 
@@ -171,6 +170,8 @@ class DetectorBaseTest(Base):
             device = DeviceDetector(self.user_agent, headers=fixture.get('headers', {}))
             device.parse()
 
+            # print(f'XXX DP: {device.all_details}')
+
             # OS properties
             self.assertEqual(
                 self.get_value(fixture, 'os', 'name'), device.os_name(), field='os_name'
@@ -224,7 +225,6 @@ class ParserBaseTest(Base):
             expect = fixture[self.fixture_key]
             parsed = self.Parser(
                 self.user_agent,
-                ua_hash(self.user_agent),
                 spaceless,
                 client_hints=ClientHints.new(fixture.get('headers', {})),
             ).clear_cache().parse()  # clear cache because fixture files may contain duplicate UAs
@@ -251,7 +251,6 @@ class GenericParserTest(ParserBaseTest):
         for ua in self.skipped:
             parsed = self.Parser(
                 ua,
-                ua_hash(ua),
                 ua.lower().replace(' ', ''),
                 None,
             ).parse()

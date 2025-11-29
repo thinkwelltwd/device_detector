@@ -1,5 +1,6 @@
 from .base import BaseDeviceParser
 from device_detector.enums import DeviceType
+from ..parser import ENDSWITH_DARWIN, IPHONE_ONLY_UA
 from ...lazy_regex import RegexLazy, RegexLazyIgnore
 from .vendor_fragment import VendorFragment
 from ...settings import BOUNDED_REGEX
@@ -41,6 +42,8 @@ PUFFIN_TABLET_FRAGMENT = RegexLazy(BOUNDED_REGEX.format(r'Puffin/(?:\d+[.\d]+)[A
 OPERA_TABLET_FRAGMENT = RegexLazy(BOUNDED_REGEX.format('Opera Tablet'))
 OPERA_TV_FRAGMENT = RegexLazy(BOUNDED_REGEX.format('Opera TV Store| OMI/'))
 
+ENDSWITH_FIREFOX = RegexLazyIgnore(r'(Firefox|Iceweasel|Phoenix)/(?:\d+[.\d]+)$')
+
 
 class Device(BaseDeviceParser):
     """
@@ -57,6 +60,27 @@ class Device(BaseDeviceParser):
         'upstream/device/mobiles.yml',
     ]
 
+    def check_all_regexes(self) -> bool:
+        # Match relatively generic UAs like:
+        # UCWEB/2.0 (MIDP-2.0; U; zh-CN; IQ4406) U2/1.0.0 UCBrowser/3.4.3.532 U2/1.0.0 Mobile
+        # UCWEB/2.0 (Linux; U; Opera Mini/7.1.32052/30.3697; en-US; LG-E405) U2/1.0.0 UCBrowser/8.8.1.359 Mobile
+        if self.user_agent_lower.endswith(' mobile'):
+            return True
+
+        if super().check_all_regexes():
+            return True
+
+        if self.user_agent_lower.startswith('iphone'):
+            return IPHONE_ONLY_UA.match(self.user_agent) is not None
+
+        if ENDSWITH_FIREFOX.search(self.user_agent) is not None:
+            return True
+
+        if ENDSWITH_DARWIN.search(self.user_agent) is not None:
+            return True
+
+        return self.user_agent_lower == 'msdw'
+
     def _parse(self) -> None:
         """
         Loop through all brands of all device types trying to find
@@ -64,6 +88,9 @@ class Device(BaseDeviceParser):
         """
         ch_model = self.client_hints and self.client_hints.model
         user_agent = self.user_agent
+        ac_matched = self.check_all_regexes()
+        if not ac_matched:
+            return
 
         # ------------------------------------------------
         # Complete copy of the superclass _parse method
@@ -113,12 +140,7 @@ class Device(BaseDeviceParser):
         if not self.ua_data.get('brand'):
             # If no brand info was found, check known fragments
             vendor_fragment = (
-                VendorFragment(
-                    self.user_agent,
-                    self.ua_hash,
-                    self.ua_spaceless,
-                    self.client_hints,
-                )
+                VendorFragment(self.user_agent, self.ua_spaceless, self.client_hints)
                 .parse()
                 .ua_data
             )
@@ -127,6 +149,9 @@ class Device(BaseDeviceParser):
 
         if device_type := self.dtype():
             self.ua_data['type'] = device_type
+
+        # if ac_matched and not isinstance(ac_matched, bool) and not self.ua_data:
+        #     print(f'{self.cache_name}: Unwanted AC Match is {ac_matched}')
 
     def is_tablet(self) -> bool:
         """

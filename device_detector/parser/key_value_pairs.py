@@ -1,4 +1,6 @@
 import regex
+from typing import NamedTuple
+
 from ..lazy_regex import RegexLazyIgnore
 from .settings import SKIP_PREFIXES
 
@@ -86,6 +88,17 @@ SKIP_NAME_REGEXES = [
 # fmt: on
 
 
+class NameVersion(NamedTuple):
+    name: str
+    version: str
+
+
+class CodeNameVersion(NamedTuple):
+    code: str
+    name: str
+    version: str
+
+
 def name_matches_regex(name: str) -> bool:
     """
     If name matches regex, then don't
@@ -98,7 +111,7 @@ def name_matches_regex(name: str) -> bool:
     return False
 
 
-def scrub_name_version_pairs(matches: list[tuple[str, str]]) -> list:
+def scrub_name_version_pairs(matches: list[NameVersion]) -> list[CodeNameVersion]:
     """
     Takes list of (name,version) tuples.
     Remove all pairs where name matches SKIP patterns
@@ -121,24 +134,25 @@ def scrub_name_version_pairs(matches: list[tuple[str, str]]) -> list:
             continue
 
         code = name_lower.replace(' ', '')
-        pairs.append((code, name, version.strip()))
+        pairs.append(CodeNameVersion(code, name, version.strip()))
 
     return pairs
 
 
-def extract_version_name_pairs(rgx: regex.Pattern, ua: str) -> list[tuple[str, str]]:
+def extract_version_name_pairs(rgx: regex.Pattern, ua: str) -> list[CodeNameVersion]:
     """
     Extract all key/value pairs of the specified regex,
     where key==version and value==name
     and return pairs along with unmatched portion of ua string.
     """
     if matched := rgx.search(ua):
-        return scrub_name_version_pairs([(matched.group('name'), matched.group('version'))])
+        name = matched.group('name')
+        return scrub_name_version_pairs([NameVersion(name, matched.group('version'))])
 
     return []
 
 
-def extract_name_version_pairs(rgx: regex.Pattern, ua: str) -> tuple:
+def extract_name_version_pairs(rgx: regex.Pattern, ua: str) -> tuple[list[CodeNameVersion], str]:
     """
     Extract all key/value pairs of the specified regex,
     where key==name and value==version
@@ -149,12 +163,12 @@ def extract_name_version_pairs(rgx: regex.Pattern, ua: str) -> tuple:
     if matches := rgx.findall(ua):
         substring = rgx.sub(' ', ua)
 
-    pairs = scrub_name_version_pairs(matches)
+    pairs = scrub_name_version_pairs([NameVersion(*pair) for pair in matches])
 
     return pairs, substring
 
 
-def key_value_pairs(ua: str) -> list[tuple[str, str]]:
+def key_value_pairs(ua: str) -> list[CodeNameVersion]:
     """
     Extract key/value pairs from User Agent String
     """

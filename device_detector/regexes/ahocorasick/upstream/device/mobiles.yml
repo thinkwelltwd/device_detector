@@ -1,0 +1,342 @@
+!!set
+'amiga-web': null
+'(beos': null
+' beos': null
+' cros ': null
+centos/: null
+debian/: null
+debian-: null
+(debian): null
+fedora/: null
+ubuntu/: null
+' freebsd': null
+' gentoo': null
+midori/: null
+libwww/: null
+netscape: null
+haiku : null
+haiku): null
+linux zbov: null
+mageia: null
+conkeror: null
+rekonq: null
+lightning/: null
+seamonkey/: null
+symbian/: null
+symbianos/: null
+iceape/: null
+thunderbird/: null
+minefield: null
+charon; inferno: null
+swiftfox: null
+snowshoe/: null
+granparadiso: null
+applemac: null
+shiretoko: null
+amigaos: null
+archlinux: null
+arch linux: null
+'links (': null
+' (bb10; ': null
+' acer; ': null
+' acer_': null
+' cpu os ': null
+' dw-': null
+' gt-s': null
+' htc-': null
+' htc; ': null
+' htc_': null
+' htcs': null
+' huawei;': null
+' hw/ipad': null
+' hw/iphone': null
+' inote ': null
+' inote_': null
+' ios/': null
+' iphone os': null
+' lg-': null
+' lg; ': null
+' mobile; ': null
+' moto ': null
+' phone; ': null
+' pixi/': null
+' pre/': null
+' quadra ': null
+' sc-': null
+' shw-m': null
+' smartphone;': null
+' staros ': null
+' tablet; ': null
+' toshiba-': null
+' touch; ': null
+' touch; rv:': null
+/ans/: null
+/ios/: null
+; a101: null
+; a5: null
+; c1505: null
+; gt-p: null
+; lc: null
+; smarttab: null
+'; spv ': null
+'; transformer ': null
+';cpu os ': null
+;huawei;: null
+;lg-: null
+';quadra ': null
+;smartphone;: null
+_sc-: null
+a5x max: null
+acer-: null
+adr 1: null
+adr 2: null
+adr 4: null
+adr 5: null
+adr 6: null
+adr 7: null
+adr 8: null
+adr 9: null
+adr910l: null
+alcatel: null
+android 0: null
+android 1: null
+android 2: null
+android 4: null
+android 5: null
+android 6: null
+android 7: null
+android 8: null
+android 9: null
+android/1: null
+android/2: null
+android/4: null
+android/5: null
+android/6: null
+android/7: null
+android/8: null
+android/9: null
+android; 1: null
+android; 2: null
+android; 4: null
+android; 5: null
+android; 6: null
+android; 7: null
+android; 8: null
+android; 9: null
+apple-ipad: null
+apple-iphone: null
+archos 10: null
+archos 70: null
+archos 79: null
+arm; 909: null
+arm; lumia: null
+arm; touch;: null
+asus;galaxy: null
+axonfon: null
+blackberry7: null
+blackberry8: null
+blackberry9: null
+blackberry;: null
+build/0: null
+build/1: null
+build/2: null
+build/3: null
+build/4: null
+build/5: null
+build/6: null
+build/7: null
+build/8: null
+build/9: null
+build/f: null
+build/h: null
+build/i: null
+build/j: null
+build/v: null
+celkon: null
+cloud phone: null
+cocoon/: null
+cosmote: null
+'cpu ios ': null
+dell; venue: null
+dv(iph: null
+fbcr/: null
+garmin-asus: null
+gigabyte: null
+hgtv-led: null
+hp-tablet: null
+hpipaq: null
+htc_hd: null
+htc_pg: null
+htc_touch: null
+huawei-: null
+huawei_: null
+huaweig: null
+huaweil: null
+ios iphone: null
+ios; u; ios: null
+ios; u; iph os: null
+ipad; cpu os: null
+ipad; u; cpu os: null
+ipados/: null
+iphone; cpu os: null
+iphone; u; cpu os: null
+itunes-ipad/: null
+itunes-iphone/: null
+junipers/: null
+'k-touch ': null
+k-touch_: null
+'karbonn ': null
+karbonn_: null
+kgt/2.0: null
+kindle/: null
+lavie tab: null
+lge; gvc-: null
+librem 5: null
+lifetabplus: null
+maemo rx: null
+'masstel ': null
+masstel_: null
+megafon: null
+micromax: null
+microsoft rm-: null
+microsoft; lumia: null
+microsoft; rm-: null
+mocor/w1: null
+navipad tm: null
+'nec ': null
+nec-: null
+nec_: null
+nexiannx: null
+'ngm ': null
+ngm_: null
+nokia 2: null
+nokia 3: null
+nokia 5: null
+nokia 6: null
+nokia 7: null
+nokia 8: null
+nokia 9: null
+nokia-rh-: null
+nokia-rm-: null
+nokia2: null
+nokia3: null
+nokia5: null
+nokia6: null
+nokia7: null
+nokia8: null
+nokia9: null
+'nokia; ': null
+nokia; lumia: null
+nokia; rm-: null
+nokiaa: null
+nokiac: null
+nokiae: null
+nokian7: null
+nokian8: null
+nokian9: null
+ov-steelcore: null
+palm os: null
+palm treo: null
+palmos: null
+palmscape/: null
+palmsource/: null
+pantech: null
+pendoo: null
+pndp60l10blk: null
+pndp60m7pur: null
+pocketbook: null
+polarline: null
+polaroid: null
+portalmmm/: null
+qc-1: null
+qc-2: null
+qc-3: null
+qc-4: null
+qc-5: null
+qc-6: null
+qc-7: null
+qc-8: null
+qc-9: null
+qc1: null
+qc2: null
+qc3: null
+qc4: null
+qc5: null
+qc6: null
+qc7: null
+qc8: null
+qc9: null
+rim tablet: null
+rx-51 n900: null
+sam-r560: null
+samsung gt-: null
+samsung sam-: null
+samsung sg-: null
+samsung sgh-: null
+samsung sm-: null
+samsung-gt-: null
+samsung-s8: null
+samsung-sg-: null
+samsung-sgh-: null
+samsung/i: null
+samsung/sm: null
+samsung; gt-: null
+samsung; omnia: null
+samsung; samsung: null
+samsung; sg-: null
+samsung; sgh-: null
+samsung; sm-: null
+sanyo/: null
+sanyo;: null
+sencor element: null
+sencor_element: null
+sharp-4: null
+sharp-a: null
+sharp-s: null
+silk-accelerated: null
+'smadl ': null
+smadl_: null
+smartfren: null
+sonos/: null
+sonos;: null
+sony tablet: null
+sonyericssonc: null
+sonyericssong: null
+sonyericssonj: null
+sonyericssonk: null
+sonyericssonm: null
+sonyericssonp: null
+sonyericssont: null
+sonyericssonw: null
+sonyericssonz: null
+spice m5: null
+spice mi: null
+spicem5: null
+staraddict: null
+starshine: null
+startab: null
+startrail: null
+t-mobile_: null
+tcl-: null
+tecnot: null
+thinkpad: null
+'tiphone ': null
+touch ii: null
+treo8: null
+'videocon ': null
+videocon-: null
+videocon_: null
+walton_: null
+webos/: null
+'windows ce ': null
+windows ce;: null
+'windows nt ': null
+windows nt;: null
+winmax: null
+wpdesktop; lumia: null
+xda comet: null
+xiino/: null
+xoom: null
+'zte ': null
+zte-: null
+zte_: null

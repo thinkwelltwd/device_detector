@@ -1,14 +1,21 @@
 from typing import Self
 
-from ..settings import (
-    DDCache,
-)
+from ..settings import DDCache
+from ..lazy_regex import RegexLazyIgnore
 from .client_hints import ClientHints
 from .extractors import (
     NameExtractor,
     VersionExtractor,
 )
 from ..yaml_loader import RegexLoader, app_pretty_names_types_data
+
+# Match regexes that ONLY values like:
+# iPhone12mini
+# iPhone8
+# iPhone6s
+IPHONE_ONLY_UA = RegexLazyIgnore(r'iPhone(\d{1,2})?(s?$|mini|SE|XR|XS)')
+
+ENDSWITH_DARWIN = RegexLazyIgnore(r'Darwin/(?:\d+[.\d]+)(?: \(x86_64\))?$')
 
 
 def build_version(version_str: str, truncation: int = 1) -> str:
@@ -44,8 +51,8 @@ class Parser(RegexLoader):
 
     __slots__ = (
         'user_agent',
+        'user_agent_lower',
         'ua',
-        'ua_hash',
         'ua_spaceless',
         'ua_data',
         'app_name',
@@ -58,12 +65,13 @@ class Parser(RegexLoader):
         'ch_client_data',
         'os_details',
         'appdetails_data',
+        'corasick',
+        '_is_ios_fragment',
     )
 
     def __init__(
         self,
         ua: str,
-        ua_hash: str,
         ua_spaceless: str,
         client_hints: ClientHints | None,
         os_details: dict | None = None,
@@ -71,7 +79,7 @@ class Parser(RegexLoader):
         super().__init__()
 
         self.user_agent = ua
-        self.ua_hash = ua_hash
+        self.user_agent_lower = ua.lower()
         self.ua_spaceless = ua_spaceless
         self.ua_data: dict = {}
         self.app_name = ''
@@ -84,49 +92,47 @@ class Parser(RegexLoader):
         self.ch_client_data = client_hints.client_data() if client_hints else {}
         self.os_details = os_details or {}
         self.appdetails_data = app_pretty_names_types_data()
+        self._is_ios_fragment: bool | None = None
 
-    def get_from_cache(self) -> dict:
-        try:
-            return DDCache['user_agents'][self.ua_hash].get(self.cache_name, None)
-        except KeyError:
-            DDCache['user_agents'][self.ua_hash] = {}
-        return {}
+    def is_ios_fragment(self) -> bool:
+        """
+        Check if UserAgent consists of iOS-related hardware.
+        """
+        if self._is_ios_fragment is None:
+            self._is_ios_fragment = IPHONE_ONLY_UA.match(self.user_agent_lower) is not None
+        return self._is_ios_fragment
 
-    def add_to_cache(self) -> dict:
-        DDCache['user_agents'][self.ua_hash][self.cache_name] = self.ua_data
-        return self.ua_data
+    def check_all_regexes(self) -> bool:
+        if not (corasick := DDCache['corasick'].get(self.cache_name)):
+            return True
+        matched = corasick.find_matches_as_strings(self.user_agent_lower)
+        return matched
 
     def _parse(self) -> None:
         """Override on subclasses if custom parsing is required"""
         user_agent = self.user_agent
-        for ua_data in self.regex_list:
-            if matched := ua_data['regex'].search(user_agent):
-                self.matched_regex = matched
-                self.ua_data |= {k: v for k, v in ua_data.items() if k != 'regex'}
-                self.known = True
-                return
+        if self.check_all_regexes():
+            for ua_data in self.regex_list:
+                if matched := ua_data['regex'].search(user_agent):
+                    self.matched_regex = matched
+                    self.ua_data |= {k: v for k, v in ua_data.items() if k != 'regex'}
+                    self.known = True
+                    return
+
+        # Uncomment lines for debugging.
+        # If too many ACs are matching when the full regex list failed,
+        # to match then the AC pattern matching isn't optimizing anything.
+        # ac_matched = self.check_all_regexes()
+        # print(f'{self.cache_name}: Unwanted AC Match: {ac_matched}. {self.user_agent}')
 
     def parse(self) -> Self:
         """
         Return parsed details of UA String
         """
-        details = self.get_from_cache()
-        if details:
-            return self
-
         self._parse()
-        self.extract_details()
-
-        return self
-
-    def extract_details(self) -> dict:
-        """
-        Wrap set_details and call add_to_cache
-        """
         self.extract_version()
         self.set_details()
-        self.add_to_cache()
-        return self.ua_data
+        return self
 
     def extract_version(self) -> None:
         """
@@ -194,6 +200,8 @@ class Parser(RegexLoader):
         return f'{klass}({self.user_agent!r}, {self.ua_data!r}, {self.ua_spaceless!r})'
 
 
-__all__ = [
+__all__ = (
     'Parser',
-]
+    'IPHONE_ONLY_UA',
+    'ENDSWITH_DARWIN',
+)

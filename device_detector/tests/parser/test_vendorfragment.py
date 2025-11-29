@@ -1,7 +1,6 @@
 from urllib.parse import unquote
 from ..base import ParserBaseTest
 from ...parser import VendorFragment
-from ...utils import ua_hash
 
 
 class TestVendorFragment(ParserBaseTest):
@@ -15,15 +14,9 @@ class TestVendorFragment(ParserBaseTest):
 
         for fixture in fixtures:
             self.user_agent = unquote(fixture.pop('useragent'))
-            hashed = ua_hash(self.user_agent)
             spaceless = self.user_agent.lower().replace(' ', '')
             expect = fixture['vendor']
-            parsed = VendorFragment(
-                self.user_agent,
-                hashed,
-                spaceless,
-                None,
-            ).parse()
+            parsed = VendorFragment(self.user_agent, spaceless, None).parse()
             self.assertEqual(expect, parsed.ua_data['brand'])
 
 

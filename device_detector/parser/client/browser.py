@@ -2,6 +2,7 @@ import regex
 from device_detector.enums import AppType
 from device_detector.lazy_regex import RegexLazy
 from . import BaseClientParser
+from ...parser.key_value_pairs import key_value_pairs
 from ...settings import BOUNDED_REGEX
 from ..settings import (
     AVAILABLE_BROWSERS,
@@ -75,6 +76,11 @@ class Browser(BaseClientParser):
     FAMILY_FROM_ABBREV = FAMILY_FROM_ABBREV
     MOBILE_ONLY_BROWSERS = MOBILE_ONLY_BROWSERS
 
+    def check_all_regexes(self) -> bool:
+        if super().check_all_regexes():
+            return True
+        return self.is_ios_fragment()
+
     def parse_browser_from_client_hints(self) -> None:
         """
         Returns the browser that can be safely detected from client hints.
@@ -91,7 +97,7 @@ class Browser(BaseClientParser):
         # if the name <= 2 characters, don't consider it interesting
         # if that name is actually interesting, add to relevant
         # appdetails/<file>.yml, so it'll be parsed before now.
-        for code, name, version in self.name_version_pairs():
+        for code, name, version in key_value_pairs(self.user_agent):
             if len(name) > 2 and not name.lower().endswith(('build', 'version')):
                 return True
         return False
@@ -180,16 +186,8 @@ class Browser(BaseClientParser):
         }
 
         if 'engine' not in self.ua_data:
-            self.ua_data['engine'] = (
-                Engine(
-                    self.user_agent,
-                    self.ua_hash,
-                    self.ua_spaceless,
-                    self.client_hints,
-                )
-                .parse()
-                .ua_data
-            )
+            engine = Engine(self.user_agent, self.ua_spaceless, self.client_hints).parse().ua_data
+            self.ua_data['engine'] = engine
             return
 
         client_version = self.ch_client_data.get('version', '') or self.ua_data.get('version', '')
@@ -226,7 +224,6 @@ class Browser(BaseClientParser):
         """
         parsed = extractor(
             ua=self.user_agent,
-            ua_hash=self.ua_hash,
             ua_spaceless=self.ua_spaceless,
             client_hints=self.client_hints,
         ).parse()

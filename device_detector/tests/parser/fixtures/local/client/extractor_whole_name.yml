@@ -5,10 +5,10 @@
     name: Evernote Windows
     version:
 -
-  user_agent: toys::file
+  user_agent: toys:file
   client:
     type: generic
-    name: toys::file
+    name: toys:file
     version:
 -
   user_agent: Chicken Feeder v4.0

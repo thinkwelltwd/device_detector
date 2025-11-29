@@ -380,12 +380,6 @@
     name: AWS Amplify
     version: 0.6.14
 -
-  user_agent: amplify-android:2.14.11 md/Google/Pixel_7 md/locale/en_US
-  client:
-    type: library
-    name: AWS Amplify
-    version: 2.14.11
--
   user_agent: ALDI iOS App US 9.2513.0 43
   client:
     type: mobile app
@@ -480,7 +474,7 @@
     name: Google Maps
     version: 24.47.3
 -
-  user_agent: mShop:::Amazon_iPhone_17.22.2:::iPhone:::iPhone_OS_15.8.4
+  user_agent: mShop::Amazon_iPhone_17.22.2::iPhone::iPhone_OS_15.8.4
   client:
     name: Amazon Shopping
 # --------------------------------------------------------------------------------

@@ -3,8 +3,6 @@ import string
 from ...enums import AppType
 from ...lazy_regex import RegexLazyIgnore
 from ..parser import Parser
-from ...parser.key_value_pairs import key_value_pairs
-from ...settings import DDCache
 from ...utils import calculate_dtype
 
 keep = frozenset(['!', '@', '+'])
@@ -39,20 +37,6 @@ class BaseClientParser(Parser):
     CHECK_APP_ID = True
     __slots__ = ()
     APP_TYPE = AppType.Unknown
-
-    def name_version_pairs(self) -> list:
-        """
-        Extract key/value pairs from User Agent String, based on various patterns of:
-        <name><sep><version>
-        """
-        cached = DDCache['user_agents'][self.ua_hash].get('name_version_pairs', None)
-        if cached is not None:
-            return cached
-
-        name_version_pairs = key_value_pairs(ua=self.user_agent)
-
-        DDCache['user_agents'][self.ua_hash]['name_version_pairs'] = name_version_pairs
-        return name_version_pairs
 
     def set_data_from_client_hints(self) -> None:
         """

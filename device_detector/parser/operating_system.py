@@ -28,6 +28,9 @@ WINDOWS_REGEX = RegexLazyIgnore(
     BOUNDED_REGEX.format('64-?bit|WOW64|(?:Intel)?x64|WINDOWS_64|win64|.*amd64|.*x86_?64')
 )
 x86_REGEX = RegexLazyIgnore(BOUNDED_REGEX.format('.*32bit|.*win32|(?:i[0-9]|x)86|i86pc'))
+CORASICK_COVERED_PLATFORMS = RegexLazyIgnore(
+    r'RazoDroiD|MildWild|CyanogenMod|gNewSense|Coolita OS QJY|ClearPHONE|RokuBrowser|centos|playstation'
+)
 
 
 class OS(Parser):
@@ -41,6 +44,27 @@ class OS(Parser):
     OS_TO_ABBREV = OS_TO_ABBREV
     OS_FAMILIES = OS_FAMILIES
     FAMILY_FROM_OS = FAMILY_FROM_OS
+
+    STRIP_EXTRA_SUFFIXES = (
+        r'.+bliss_maple',
+        r'.+-c9$',
+        r'.+aws',
+        r'.+.fc(\d+)',
+        r'.+ipad',
+        r'.+Apple/iPad',
+        r'.*FBSV/ ?(\d+[.\d]+);',
+        r'.+(?:iPhone|iPod)',
+        r'.+\(ICRU_',
+        r' ((?:9|1[0-9]|26)[_.]\d+(?:[_.]\d+)*)',
+        r'.+; Linux (\d+[.\d]+)',
+        r'.+NokiaBrowser/7\.3',
+        r'.+NokiaBrowser/7\.4',
+        r'.+RokuOS (\d+.[\d.]+)',
+        r'.*iPad.*; (\d(?:[\d.]*))[)]$',
+        r'.*iPhone.*; (\d(?:[\d.]*))[)]$',
+        r'.*; (\d(?:[\d.]*))\)$',
+        r'.*;MAUI',
+    )
 
     def is_desktop(self) -> bool:
         if self.client_hints and self.client_hints.mobile:
@@ -57,6 +81,11 @@ class OS(Parser):
         if self.short_name() == self.UNKNOWN:
             return False
         return super().is_known()
+
+    def check_all_regexes(self) -> bool:
+        if super().check_all_regexes():
+            return True
+        return self.is_ios_fragment()
 
     def platform(self) -> str:
         if ch := self.client_hints:
@@ -99,7 +128,6 @@ class OS(Parser):
         if not self.ua_data:
             OSFragment(
                 self.user_agent,
-                self.ua_hash,
                 self.ua_spaceless,
                 self.client_hints,
             ).parse()

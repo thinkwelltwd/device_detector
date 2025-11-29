@@ -1,0 +1,657 @@
+Words:
+- ' (bb10;'
+- ' (imac'
+- ' (macmini'
+- ' (macpro'
+- ' acer;'
+- ' acer_'
+- ' beos'
+- ' browsex'
+- ' cpu os'
+- ' cros'
+- ' dw-'
+- ' freebsd'
+- ' gentoo '
+- ' gt-s'
+- ' htc-'
+- ' htc;'
+- ' htc_'
+- ' htcs'
+- ' huawei;'
+- ' hw/ipad'
+- ' hw/iphone'
+- ' inote'
+- ' inote_'
+- ' ios/'
+- ' iphone os'
+- ' irix'
+- ' lg-'
+- ' lg;'
+- ' mobile;'
+- ' morphos'
+- ' moto'
+- ' netbsd'
+- ' openbsd'
+- ' osf1'
+- ' phone;'
+- ' pixi/'
+- ' pre/'
+- ' quadra'
+- ' sc-'
+- ' shw-m'
+- ' sm-r1'
+- ' sm-r2'
+- ' sm-r3'
+- ' sm-r4'
+- ' sm-r5'
+- ' sm-r6'
+- ' sm-r7'
+- ' sm-r8'
+- ' sm-r9'
+- ' smartphone;'
+- ' staros'
+- ' sunos'
+- ' suse'
+- ' tablet;'
+- ' toshiba-'
+- ' touch; rv:'
+- ' touch;'
+- ' ubuntu'
+- ' win10 x64'
+- ' win7 x64'
+- '(ipad; '
+- '(iphone; '
+- '(macos; '
+- '; winnt '
+- 'haiku '
+- 'haiku)'
+- 'iphone os '
+- 'k-touch '
+- 'k-touch_'
+- 'kaios '
+- 'videocon '
+- 'videocon-'
+- 'videocon_'
+- 'win95'
+- 'zte '
+- 'zte-'
+- 'zte_'
+- (beos
+- (debian)
+- (fuchsia)
+- (linux x86_64)
+- (linux; 1
+- (linux; 2
+- (linux; 2
+- (linux; 3
+- (linux; 4
+- (linux; 5
+- (linux; 6
+- (linux; 7
+- (linux; 8
+- (linux; 9
+- (win64)
+- (x11; fuchsia)
+- (x11; u; en)
+- /ans/
+- /ios/
+- /mac/
+- /midp-2.0
+- ; a101
+- ; a5
+- ; c1505
+- ; gt-p
+- ; lc
+- ; smartphone
+- ; smarttab
+- ; spv'
+- ; tablet
+- ; transformer
+- ;cpu os
+- ;huawei;
+- ;lg-
+- ;quadra
+- ;smartphone;
+- _sc-
+- a5x max
+- acer-
+- adr 1
+- adr 2
+- adr 4
+- adr 5
+- adr 6
+- adr 7
+- adr 8
+- adr 9
+- adr910l
+- airness
+- akregator/
+- alcatel
+- amiga-web
+- amigaos
+- amoi-
+- android 0
+- android 1
+- android 2
+- android 4
+- android 5
+- android 6
+- android 7
+- android 8
+- android 9
+- android/1
+- android/2
+- android/4
+- android/5
+- android/6
+- android/7
+- android/8
+- android/9
+- android; 1
+- android; 2
+- android; 4
+- android; 5
+- android; 6
+- android; 7
+- android; 8
+- android; 9
+- apple watch
+- apple-ipad
+- apple-iphone
+- apple/imac
+- apple/mac
+- arch linux
+- archlinux
+- archos 10
+- archos 70
+- archos 79
+- arm; 909
+- arm; lumia
+- arm; touch;
+- asus;galaxy
+- axonfon
+- bdspark/
+- benq-
+- beonex/
+- blackberry7
+- blackberry8
+- blackberry9
+- blackberry;
+- brew mp
+- browser/wap2
+- build/0
+- build/1
+- build/2
+- build/3
+- build/4
+- build/5
+- build/6
+- build/7
+- build/8
+- build/9
+- build/f
+- build/h
+- build/i
+- build/j
+- build/v
+- cat-b100
+- celkon
+- centos-
+- centos/
+- charon; inferno
+- cloud phone
+- cocoon/
+- conkeror
+- cosmote
+- cpu ios
+- cpu=ia32
+- cpu=ppc
+- cricket-
+- cygwin
+- debian-
+- debian/
+- dell; venue
+- desktop wow64
+- desktop x64
+- desktop x86
+- device/ipad
+- device/iphone
+- docomo
+- dv(iph
+- echo/0
+- echo/1
+- echo/2
+- echo/3
+- echo/4
+- echo/5
+- echo/6
+- echo/7
+- echo/8
+- echo/9
+- electron/
+- enterprise linux
+- fbcr/
+- fedora/
+- fly-
+- garmin-asus
+- gigabyte
+- gog galaxy
+- granparadiso
+- handbrake win upd
+- hgtv-led
+- hp-tablet
+- hpipaq
+- htc_hd
+- htc_pg
+- htc_touch
+- huawei
+- iceape/
+- ios iphone
+- ios/0
+- ios/1
+- ios/2
+- ios/3
+- ios/4
+- ios/5
+- ios/6
+- ios/7
+- ios/8
+- ios/9
+- ios; u; ios
+- ios; u; iph os
+- ipad 1
+- ipad 2
+- ipad 3
+- ipad 4
+- ipad 5
+- ipad 6
+- ipad 7
+- ipad 8
+- ipad 9
+- ipad app
+- ipad/1
+- ipad/2
+- ipad/3
+- ipad/4
+- ipad/5
+- ipad/6
+- ipad/7
+- ipad/8
+- ipad/9
+- ipad1
+- ipad1,
+- ipad2
+- ipad2,
+- ipad3
+- ipad3,
+- ipad4
+- ipad4,
+- ipad5
+- ipad5,
+- ipad6
+- ipad6,
+- ipad7
+- ipad7,
+- ipad8
+- ipad8,
+- ipad9
+- ipad9,
+- ipad; cpu ipad os
+- ipad; cpu ipad os
+- ipad; cpu os
+- ipad; cpu os
+- ipad; cpu os
+- ipad; u; cpu os
+- ipados 1
+- ipados 2
+- ipados 3
+- ipados 4
+- ipados 5
+- ipados 6
+- ipados 7
+- ipados 8
+- ipados 9
+- ipados/
+- ipados/1
+- ipados/2
+- ipados/3
+- ipados/4
+- ipados/5
+- ipados/6
+- ipados/7
+- ipados/8
+- ipados/9
+- iph10
+- iph11
+- iph12
+- iph13
+- iph14
+- iph15
+- iph16
+- iph17
+- iph18
+- iph19
+- iphone app
+- iphone/1
+- iphone/2
+- iphone/3
+- iphone/4
+- iphone/5
+- iphone/6
+- iphone/7
+- iphone/8
+- iphone/9
+- iphone1
+- iphone10
+- iphone11
+- iphone12
+- iphone13
+- iphone14
+- iphone15
+- iphone16
+- iphone17
+- iphone18
+- iphone19
+- iphone2
+- iphone20
+- iphone21
+- iphone22
+- iphone23
+- iphone24
+- iphone25
+- iphone26
+- iphone27
+- iphone28
+- iphone29
+- iphone3
+- iphone4
+- iphone5
+- iphone6
+- iphone7
+- iphone8
+- iphone9
+- iphone; cpu os
+- iphone; ios 1
+- iphone; ios 2
+- iphone; ios 3
+- iphone; u; cpu os
+- itunes-ipad/
+- itunes-iphone/
+- jig browser
+- juice/
+- junipers/
+- kaios/
+- karbonn
+- karbonn_
+- kddi-
+- kgt/2.0
+- kindle/
+- lavie tab
+- lge; gvc-
+- librem 5
+- libvlc/
+- libwww/
+- liferea
+- lifetabplus
+- lightning/
+- links (
+- linux 2.
+- linux 3.
+- linux 4.
+- linux 5.
+- linux 6.
+- linux 7.
+- linux 8.
+- linux 9.
+- linux zbov
+- mac os x version
+- mac os x; darwin
+- mac_powerpc
+- macbook
+- macintosh; intel  mac os x
+- macintosh; intel mac os x
+- macintosh; ppc mac os x
+- macintosh; u; amiga
+- macintosh; u; intel mac os x
+- macintosh; u; ppc mac os x
+- macos version
+- macos(catalyst)
+- macos/0
+- macos/1
+- macos/2
+- macos/3
+- macos/4
+- macos/5
+- macos/6
+- macos/7
+- macos/8
+- macos/9
+- maemo rx
+- mageia
+- masstel
+- masstel_
+- maui browser
+- maui-browser
+- maui_browser
+- megafon
+- mib/
+- micromax
+- microsoft edge update
+- microsoft rm-
+- microsoft windows
+- microsoft-cryptoapi/
+- microsoft-delivery-optimization/
+- microsoft-webdav-miniredir/
+- microsoft; lumia
+- microsoft; rm-
+- midori/
+- minefield
+- mmp/1.0
+- mmp/2.0
+- mobilephone
+- mocor/w1
+- model/watch
+- moon fm
+- ms-office;
+- navipad tm
+- nec
+- nec-
+- nec_
+- netscape
+- nexiannx
+- ngm
+- ngm_
+- nokia 2
+- nokia 3
+- nokia 5
+- nokia 6
+- nokia 7
+- nokia 8
+- nokia 9
+- nokia-rh-
+- nokia-rm-
+- nokia2
+- nokia3
+- nokia5
+- nokia6
+- nokia7
+- nokia8
+- nokia9
+- nokia;
+- nokia; lumia
+- nokia; rm-
+- nokiaa
+- nokiac
+- nokiae
+- nokian7
+- nokian8
+- nokian9
+- ordissimo/
+- ov-steelcore
+- palm os
+- palm treo
+- palmos
+- palmscape/
+- palmsource/
+- pantech
+- pendoo
+- pndp60l10blk
+- pndp60m7pur
+- pocketbook
+- polarline
+- polaroid
+- portalmmm/
+- power macintosh
+- powermac
+- qc-1
+- qc-2
+- qc-3
+- qc-4
+- qc-5
+- qc-6
+- qc-7
+- qc-8
+- qc-9
+- qc1
+- qc2
+- qc3
+- qc4
+- qc5
+- qc6
+- qc7
+- qc8
+- qc9
+- r1x browser
+- rekonq
+- rim tablet
+- rx-51 n900
+- sabayon
+- sagem-my
+- sam-r560
+- samsung gt-
+- samsung sam-
+- samsung sg-
+- samsung sgh-
+- samsung sm-
+- samsung-gt-
+- samsung-s8
+- samsung-sg-
+- samsung-sgh-
+- samsung/i
+- samsung/sm
+- samsung; gt-
+- samsung; omnia
+- samsung; samsung
+- samsung; sg-
+- samsung; sgh-
+- samsung; sm-
+- sanyo/
+- sanyo;
+- seamonkey/
+- sencor element
+- sencor_element
+- sharp-4
+- sharp-a
+- sharp-s
+- shiretoko
+- sie-
+- silk-accelerated
+- slackware/
+- smadl
+- smadl_
+- smartfren
+- snowshoe/
+- sonim xp
+- sonim-xp
+- sonos/
+- sonos;
+- sony tablet
+- sonyericssonc
+- sonyericssong
+- sonyericssonj
+- sonyericssonk
+- sonyericssonm
+- sonyericssonp
+- sonyericssont
+- sonyericssonw
+- sonyericssonz
+- spice m5
+- spice mi
+- spicebird
+- spicem5
+- spotify_android-tablet
+- spotify_other-mobile
+- staraddict
+- starshine
+- startab
+- startrail
+- suse/
+- swiftfox
+- syllable)
+- t-mobile_
+- tcl-
+- tecnot
+- thinkpad
+- thunderbird/
+- tianyu
+- tiphone
+- touch ii
+- tpapi
+- treo8
+- ubuntu)
+- ubuntu-
+- ubuntu/
+- url/emacs emacs/
+- vk-vk
+- vr safari
+- walton_
+- wap browser
+- wap-browser
+- wap1
+- wapbrowser
+- watch0,
+- watch1,
+- watch2,
+- watch3,
+- watch4,
+- watch5,
+- watch6,
+- watch7,
+- watch8,
+- watch9,
+- watchos
+- webissimo3/
+- webos/
+- wget/
+- windows 20
+- windows 95
+- windows 98
+- windows ce
+- windows nt
+- windows xp
+- windows-media-player
+- windows-update-agent/
+- windows-xp
+- windows.1
+- windows.2
+- windows.3
+- windows.4
+- windows.5
+- windows.6
+- windows.7
+- windows.8
+- windows.9
+- windows/20
+- windows; u; en
+- winmax
+- wpdesktop; lumia
+- x11; u; linux aarch64
+- x11; u; linux i686
+- xda comet
+- xiino/
+- xoom
+- ; fa-ir)
+- ; fa-ir;
+- ; pl-pl;
+- it-it;
+- puffin/

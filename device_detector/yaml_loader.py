@@ -1,13 +1,15 @@
 from collections import defaultdict
 from typing import TypedDict
 import yaml
-
-try:
-    from yaml import CSafeLoader as SafeLoader
-except ImportError:
-    from yaml import SafeLoader  # type: ignore[assignment]
+import exrex
+import ahocorasick_rs
 from pathlib import Path
 from typing import Self
+
+try:
+    from yaml import CSafeLoader as SafeLoader, CSafeDumper as SafeDumper
+except ImportError:
+    from yaml import SafeLoader, SafeDumper  # type: ignore[assignment]
 
 import device_detector
 from .lazy_regex import RegexLazyIgnore
@@ -21,6 +23,10 @@ class RegexLoader:
 
     # Constant used as value for unknown browser / os
     UNKNOWN = 'UNK'
+
+    # If User Agent regex endswith these suffixes,
+    # remove before calculating regex alternations.
+    STRIP_EXTRA_SUFFIXES: tuple[str, ...] = ()
 
     @property
     def cache_name(self) -> str:
@@ -41,7 +47,7 @@ class RegexLoader:
             yfile = f'device_detector/{yfile}'
             return yaml.load(device_detector.__loader__.get_data(yfile), SafeLoader)  # type: ignore[union-attr]
         except OSError:
-            print(f'{yfile} does not exist')
+            # print(f'{yfile} does not exist')
             return []
 
     def yaml_to_list(self, yfile: str) -> list[dict]:
@@ -61,31 +67,205 @@ class RegexLoader:
 
         return reg_list
 
+    def pre_process_regex_for_corasick(self, reg: str) -> str:
+        """
+        Apply any preprocessing needed before parsing prefixes & suffixes.
+        Override on subclasses to customize behavior.
+        """
+        if reg[0] == '^':
+            reg = reg[1:]
+        if reg[-1] == '$':
+            return reg[:-1]
+        return reg
+
     @property
     def regex_list(self) -> list[dict]:
-        if regexes := DDCache['regexes'].get(self.cache_name, []):
+        if (regexes := DDCache['regexes'].get(self.cache_name)) is not None:
             return regexes
 
+        all_regexes = []
+        all_corasick_words: list[str] = []
         for fixture in self.fixture_files:
-            regexes.extend(self.yaml_to_list(f'regexes/{fixture}'))
+            regexes = self.yaml_to_list(f'regexes/{fixture}')
+            all_corasick_words.extend(self.load_ahocorasick(fixture, regexes))
+
+            for regex in regexes:
+                if 'regex' in regex:
+                    regex['regex'] = RegexLazyIgnore(BOUNDED_REGEX.format(regex['regex']))
+                for model in regex.get('models', []):
+                    model['regex'] = RegexLazyIgnore(BOUNDED_REGEX.format(model['regex']))
+                for version in regex.get('versions', []):
+                    version['regex'] = RegexLazyIgnore(BOUNDED_REGEX.format(version['regex']))
+
+            all_regexes.extend(regexes)
+
+        DDCache['regexes'][self.cache_name] = all_regexes
+        DDCache['corasick'][self.cache_name] = ahocorasick_rs.AhoCorasick(set(all_corasick_words))
+
+        return all_regexes
+
+    def load_ahocorasick(self, fixture: str, regexes: list[dict]) -> set[str]:
+        """
+        Load AhoCorasick words from file, or expand from regexes.
+        """
+        if (ac := DDCache['corasick'].get(self.cache_name)) is not None:
+            return ac
+
+        ac_fixture = f'regexes/ahocorasick/{fixture}'
+        manual = self.load_manually_defined_words()
+        manual_words = set(manual.get('Words') or set())
+
+        if words := set(self.load_from_yaml(ac_fixture)):
+            words.update(manual_words)
+            return words
 
         for regex in regexes:
             if 'regex' in regex:
-                regex['regex'] = RegexLazyIgnore(BOUNDED_REGEX.format(regex['regex']))
-            for model in regex.get('models', []):
-                model['regex'] = RegexLazyIgnore(BOUNDED_REGEX.format(model['regex']))
-            for version in regex.get('versions', []):
-                version['regex'] = RegexLazyIgnore(BOUNDED_REGEX.format(version['regex']))
+                regex_words = self.extract_regex_to_words(pattern=regex)
+                words.update(regex_words)
 
-        DDCache['regexes'][self.cache_name] = regexes
+        unique_words = words - set(manual.get('ScrubWords') or set())
+        if not unique_words:
+            return set()
 
-        return regexes
+        fixture_path = Path(f'{ROOT}/{ac_fixture}')
+        if not fixture_path.exists():
+            parent = list(fixture_path.parents)[0]
+            parent.mkdir(parents=True, exist_ok=True)
+
+        with open(fixture_path, 'w', encoding="utf-8") as acf:
+            yaml.dump(unique_words, acf, SafeDumper)
+
+        return words
+
+    def load_manually_defined_words(self):
+        """
+        Every Parser or Detector class can have a set of words
+        and Word exclusions that are manually defined.
+        """
+        return self.load_from_yaml(f'regexes/ahocorasick/classes/{self.cache_name}.yml') or {}
+
+    def extract_regex_to_words(self, pattern: dict) -> list[str]:
+        """
+        Extract word variations from regex, if it expands
+        to a comparatively small number of variants.
+        """
+        r = self.pre_process_regex_for_corasick(pattern['regex'])
+
+        for suffix in self.STRIP_EXTRA_SUFFIXES:
+            if r.endswith(suffix):
+                r = r.removesuffix(suffix)
+
+        # Match single trailing integer instead of all possible variations
+        for suffix, replacement in (
+            (r'(\d+.[\d.]+)', r'(\d)'),
+            (r'(\d+[.\d]*)', r'(\d)'),
+            (r'(\d+[.\d]+)', r'(\d)'),
+            (r'(\d+[.\d]+))', r'(\d))'),
+            (r'(\d+[.\d]+)\);', r'(\d)\);'),
+            (r'(\d+\.\d+\.\d+)', r'(\d)'),
+            (r'(\d+[.\d]*);', r'(\d)'),
+            (r'(\d+[.\d]+);', r'(\d)'),
+            (r'(\d+[.\d]+)/', r'(\d)'),
+            (r'(\d+\.\d+)', r'(\d)'),
+            (r'\d\.\d', r'\d'),
+            (r'(\d+\.[\d.])', r'(\d)'),
+            (r'(\d+\.[\d.]+)', r'(\d)'),
+            (r'([\d\.]+)', r'(\d)'),
+        ):
+            if r.endswith(suffix):
+                r = r'{}{}'.format(r.removesuffix(suffix), replacement)
+
+        for suffix in (
+            r'(?:/(\d+[.\d]*))?',
+            r'(?:(?: |/v?)(\d+[.\d]*))?',
+            r'(?:[ /]?(\d+[.\d]+|V\d+))?',
+            r'(?:[/ ]?v?(\d+[.\d]+))?',
+            r'(?:[/ ](\d+[.\d]+))?',
+            r'(?:(\d+[.\d]+))?',
+            r'(?:[ /\-](\d+[.\d]+))?',
+            r'(?:/?(\d+[.\d]+))?',
+            r'(?:/(\d+\.[.\d]+))?',
+            r'(\d+\.[\d.]+)?',
+            r'(?:Plus/(\d+\.[.\d]+))?',
+            r'(?:HTML/(\d+\.[.\d]+))?',
+            r'(?:/(\d+[.\d]+))?',
+            r'(?:/([\w\.]+))?',
+            # r'?(\d+[.\d]+|V\d+))?',   # BREAKS!
+            r'([a-z\d]+\.[a-z.\d]+)?',
+            r'(?:[/ ]?(\d+[.\d]+))?',
+            r'(?:[ /](\d+[.\d]+))?',
+            r'(?: v(\d+[.\d]+))?',
+            # r'(\d+[.\d]+))?',  # BREAKS!
+            # r'(\d+[.\d]*))?',
+            r'(?:[);/ ]|$)',
+            r'(\d[.\d]*)?',
+            r'(\d+[.\d]*)?',
+            r'(?: (\d+[.\d]+))?',
+            r'(\d+[.\d]+)?',
+            r'(?:/0(\d+[.\d]+))?',
+            r'(\d+\.[.\d]+)',
+            r'(?:/(\d+[.\d]+))',
+            r'(?:[\/ ](\d+[\.\d]+))?',
+            r'\(?(\d+[\.\d]+)',
+            r'.+\/([\d\.]+)',
+            r'(?:.+\((\d+[.\d]+)\)$)?',
+            r'.*\((\d+[.\d]+)',
+            r'.+([.\d]+)',
+            r'([\d.]+)',
+            r'(\w+)',
+            r'\w+',
+            r'.*a',
+            r'.*W$',
+            r'.*/',
+            r'(.*)',
+            r'.+Android',
+        ):
+            if r.endswith(suffix):
+                r = r.removesuffix(suffix)
+
+        for prefix in (
+            r'.+.',
+            r'.+',
+            r'(.*)',
+            r'.*',
+            r'.+/(\d+\.[.\d]+) \(',
+            r'(\d+\.[.\d]+)',
+            r'(.*) \((\d+\.[.\d]+)\)',
+            r'(?:.+\((\d+[.\d]+)\)$)?',
+            r'^(.*)',
+            r'[a-z0-9_-]*',
+        ):
+            if r.startswith(prefix):
+                r = r.removeprefix(prefix)
+
+        r = (
+            r.replace('|.*', '|')
+            .replace('|.+', '|')
+            .replace(']+', ']')
+            .replace(']*', ']')
+            .replace(r'\d+', r'\d')
+            .replace(r'[0-9]{4}|', r'[0-9]{2}|')
+            .replace(r'\w+|', '|')
+        )
+
+        r = r.replace(r'|Google.*/\+/web/snippet', '|Google')
+        words: list[str] = []
+
+        if exrex.count(r) > 2_000:
+            return words
+
+        if r and self.cache_name != 'Device':
+            for word in exrex.generate(r.lower()):
+                words.append(word)
+
+        return words
 
     def clear_cache(self) -> Self:
         """
         Helper method to clear cache on tests.
         """
-        DDCache.clear()
+        DDCache.clear_user_agents()
         return self
 
 

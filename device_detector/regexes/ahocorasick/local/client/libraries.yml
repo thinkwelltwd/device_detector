@@ -1,0 +1,8 @@
+!!set
+amplify-android: null
+amplify-ios: null
+amplify-flutter: null
+fbandroidsdk.: null
+fbiossdk.: null
+lua-resty-http: null
+slimerjs: null

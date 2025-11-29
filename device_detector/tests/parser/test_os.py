@@ -1,7 +1,6 @@
 from urllib.parse import unquote
 from ..base import ParserBaseTest
 from ...parser import OS, OSFragment, ClientHints
-from ...utils import ua_hash
 
 
 class TestOS(ParserBaseTest):
@@ -28,15 +27,10 @@ class TestOSFragment(ParserBaseTest):
 
         for fixture in fixtures:
             self.user_agent = unquote(fixture.pop('user_agent'))
-            hashed = ua_hash(self.user_agent)
             spaceless = self.user_agent.lower().replace(' ', '')
             expect = fixture['name']
-            parsed = OSFragment(
-                self.user_agent,
-                hashed,
-                spaceless,
-                client_hints=ClientHints.new(fixture.get('headers', {})),
-            ).parse()
+            ch = ClientHints.new(fixture.get('headers', {}))
+            parsed = OSFragment(self.user_agent, spaceless, client_hints=ch).parse()
 
             self.assertEqual(expect, parsed.ua_data['name'])
 

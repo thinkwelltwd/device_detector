@@ -41,9 +41,9 @@ parse_generic_regex = [
     # ALU__1023502106209EEF239E246AA
     (RegexLazyIgnore(r'^(ACC|ALU)_*[\d\w_\.]+$'), 1),
 
-    # mShop:::Telly_iPhone_13.7.0:::iPad:::iPhone_OS_ == Telly_iPhone_13.7.0
-    # mShop:::Amazon_Android_18.11.0.100:::SAMSUNG-SM-G935A:::Android_6.0.1
-    # mShop:::WindowShop_Android_16.13.0.850:::SM-T817V:::Android_6.0.1
+    # mShop::Telly_iPhone_13.7.0::iPad::iPhone_OS_ == Telly_iPhone_13.7.0
+    # mShop::Amazon_Android_18.11.0.100::SAMSUNG-SM-G935A::Android_6.0.1
+    # mShop::WindowShop_Android_16.13.0.850::SM-T817V::Android_6.0.1
     (RegexLazyIgnore(r'^mshop:+([a-z0-9_\.]+)'), 1),
 ]
 

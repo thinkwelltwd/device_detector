@@ -46,6 +46,6 @@
   name: GroupMe
   version: '$1'
 
-- regex: mShop:::Amazon_iPhone_(\d+[\.\d]+)
+- regex: mShop::Amazon_iPhone_(\d+[\.\d]+)
   name: Amazon Shopping
   version: '$1'

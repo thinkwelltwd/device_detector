@@ -1,0 +1,75 @@
+!!set
+alexa mobile voice/: null
+alexamediaplayer/: null
+alexaservice/: null
+amarok/: null
+amazon;echo;: null
+amazon;echo_: null
+audacious: null
+banshee: null
+boxee: null
+clementine: null
+com.devcoder.iptvxtreamplayer: null
+deezer: null
+diga: null
+downcast/: null
+echo/: null
+flycast: null
+foobar2000: null
+googlechirp: null
+htc streaming player: null
+hubhopper/: null
+itunes-ipad: null
+itunes-iphone: null
+itunes/: null
+j. river internet reader/: null
+jhv/swhv-: null
+juice/: null
+just_audio/: null
+kasts/: null
+kodi: null
+libvlc: null
+mediago: null
+mediamonkey: null
+miro: null
+mixerbox pro: null
+mixerbox/: null
+mplayer 0: null
+mplayer 1: null
+mplayer 2: null
+mplayer 3: null
+mplayer 4: null
+mplayer 5: null
+mplayer 6: null
+mplayer 7: null
+mplayer 8: null
+mplayer 9: null
+mplayer/0: null
+mplayer/1: null
+mplayer/2: null
+mplayer/3: null
+mplayer/4: null
+mplayer/5: null
+mplayer/6: null
+mplayer/7: null
+mplayer/8: null
+mplayer/9: null
+'mpv ': null
+'music player daemon ': null
+musicbee: null
+nexplayer: null
+nightingale: null
+nsplayer: null
+quicktime: null
+songbird: null
+sonos/: null
+stagefright: null
+studiodisplay/: null
+substream: null
+vlc: null
+winamp: null
+winampmpeg: null
+windows-media-player: null
+xbmc: null
+youtube: null
+youview: null

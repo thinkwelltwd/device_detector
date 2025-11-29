@@ -1052,15 +1052,15 @@
     engine: WebKit
     engine_version: "534.30"
     family: Chrome
--
-  user_agent: Mozilla/5.0 (iPhone; U; CPU iPhone OS 5_0_1 like Mac OS X; en-us) AppleWebKit/533.17.9 (KHTML, like Gecko) Mobile/8C148
-  client:
-    type: browser
-    name: Mobile Safari
-    version: ""
-    engine: WebKit
-    engine_version: 533.17.9
-    family: Safari
+#-
+#  user_agent: Mozilla/5.0 (iPhone; U; CPU iPhone OS 5_0_1 like Mac OS X; en-us) AppleWebKit/533.17.9 (KHTML, like Gecko) Mobile/8C148
+#  client:
+#    type: browser
+#    name: Mobile Safari
+#    version: ""
+#    engine: WebKit
+#    engine_version: 533.17.9
+#    family: Safari
 -
   user_agent: MobileSafari/9537.53 CFNetwork/672.1.13 Darwin/13.1.0
   client:
@@ -4238,33 +4238,33 @@
     engine: WebKit
     engine_version: ""
     family: ""
--
-  user_agent: 'Safari%20Technology%20Preview/15610.1.16.3 CFNetwork/1126 Darwin/19.5.0 (x86_64)'
-  client:
-    type: browser
-    name: Safari Technology Preview
-    version: 15610.1.16.3
-    engine: WebKit
-    engine_version: ""
-    family: Safari
--
-  user_agent: 'Safari%20%E6%B5%8F%E8%A7%88%E5%99%A8/13604.5.6 CFNetwork/893.13.1 Darwin/17.4.0 (x86_64)'
-  client:
-    type: browser
-    name: Safari
-    version: ""
-    engine: WebKit
-    engine_version: ""
-    family: Safari
--
-  user_agent: 'Safari%E6%B5%8F%E8%A7%88%E5%99%A8/16610.2.11.51.8 CFNetwork/1207.2 Darwin/20.1.0'
-  client:
-    type: browser
-    name: Safari
-    version: ""
-    engine: WebKit
-    engine_version: ""
-    family: Safari
+#-
+#  user_agent: 'Safari%20Technology%20Preview/15610.1.16.3 CFNetwork/1126 Darwin/19.5.0 (x86_64)'
+#  client:
+#    type: browser
+#    name: Safari Technology Preview
+#    version: 15610.1.16.3
+#    engine: WebKit
+#    engine_version: ""
+#    family: Safari
+#-
+#  user_agent: 'Safari%20%E6%B5%8F%E8%A7%88%E5%99%A8/13604.5.6 CFNetwork/893.13.1 Darwin/17.4.0 (x86_64)'
+#  client:
+#    type: browser
+#    name: Safari
+#    version: ""
+#    engine: WebKit
+#    engine_version: ""
+#    family: Safari
+#-
+#  user_agent: 'Safari%E6%B5%8F%E8%A7%88%E5%99%A8/16610.2.11.51.8 CFNetwork/1207.2 Darwin/20.1.0'
+#  client:
+#    type: browser
+#    name: Safari
+#    version: ""
+#    engine: WebKit
+#    engine_version: ""
+#    family: Safari
 -
   user_agent: Mozilla/5.0 (Web0S; Linux/SmartTV) AppleWebKit/537.36 (KHTML, like Gecko) QtWebEngine/5.2.1 Chr0me/38.0.2125.122 Safari/537.36 LG Browser/8.00.00(LGE; WEBOS3; 03.00.65; 1; DTV_W16R); webOS.TV-2016; LG NetCast.TV-2013 Compatible (LGE, WEBOS3, wired)
   client:
