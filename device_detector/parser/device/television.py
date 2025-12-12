@@ -3,9 +3,38 @@ from device_detector.enums import DeviceType
 from ...lazy_regex import RegexLazyIgnore
 from ...settings import BOUNDED_REGEX, DDCache
 
+HBBTV_FRAGMENT = RegexLazyIgnore(r'(?:HbbTV|SmartTvA)/([1-9]{1}(?:\.[0-9]{1}){1,2})')
+SHELL_TV_FRAGMENT = RegexLazyIgnore(r'[ _]Shell[ _]\w{6}|tclwebkit(\d+[.\d]*)')
+
 
 class BaseTvParser(BaseDeviceParser):
-    __slots__ = ()
+    DEVICE_TYPE = DeviceType.TV
+    __slots__ = (
+        '_is_hbbtv',
+        '_is_shell_tv',
+    )
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        self._is_hbbtv: bool | None = None
+        self._is_shell_tv: bool | None = None
+
+    def is_hbbtv(self) -> bool:
+        """
+        HbbTV UA strings are only parsed by the televisions.yml file
+        """
+        if not self._is_hbbtv:
+            self._is_hbbtv = HBBTV_FRAGMENT.search(self.user_agent) is not None
+        return self._is_hbbtv
+
+    def is_shell_tv(self) -> bool:
+        """
+        Shell UA strings are only parsed by the shell_tv.yml file
+        """
+        if not self._is_shell_tv:
+            self._is_shell_tv = SHELL_TV_FRAGMENT.search(self.user_agent) is not None
+        return self._is_shell_tv
 
     def set_device_type(self) -> None:
         """
@@ -21,7 +50,6 @@ class BaseTvParser(BaseDeviceParser):
 
 class HbbTv(BaseTvParser):
     __slots__ = ()
-    DEVICE_TYPE = DeviceType.TV
 
     @property
     def regex_list(self) -> list:

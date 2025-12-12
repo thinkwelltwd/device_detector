@@ -1,11 +1,13 @@
 !!set
+'castero ': null
+'castget ': null
+'podpuppy ': null
+'reeder/': null
 akregator: null
 apple-pubsub: null
 bashpodder: null
 breaker/: null
 breaker/v: null
-'castero ': null
-'castget ': null
 feeddemon: null
 feeddlerpro: null
 feeddlerrss: null
@@ -20,7 +22,6 @@ newsblur/: null
 newsboat/: null
 playapod lite/: null
 playapod/: null
-'podpuppy ': null
 prittorrent/: null
 pulp/0: null
 pulp/1: null
@@ -33,6 +34,7 @@ pulp/7: null
 pulp/8: null
 pulp/9: null
 quiterss: null
+ranchero.com: null
 readkit: null
 reeder 0: null
 reeder 1: null
@@ -44,9 +46,7 @@ reeder 6: null
 reeder 7: null
 reeder 8: null
 reeder 9: null
-'reeder/': null
 rss junkie: null
-rss reader: null
 rssbandit: null
 rssowl: null
 stringer: null

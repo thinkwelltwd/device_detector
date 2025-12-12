@@ -1,11 +1,69 @@
 !!set
+"podcast\u2019ler/": null
 ' bnc/': null
+' code/0': null
+' code/1': null
+' code/2': null
+' code/3': null
+' code/4': null
+' code/5': null
+' code/6': null
+' code/7': null
+' code/8': null
+' code/9': null
+' line/1': null
+' line/2': null
+' line/3': null
+' line/4': null
+' line/5': null
+' line/6': null
+' line/7': null
+' line/8': null
+' line/9': null
 ' weibo ': null
+'/satoshi:0': null
+'/shibetoshi:': null
+'anghami android ': null
+'audible, android, ': null
+'azureus ': null
+'barcelona ': null
+'bonprix mobile app ': null
+'com.twipemobile.nrc ': null
+'emaudioplayer ': null
+'fscdcsafe ': null
+'getpodcast ': null
+'hmscore/': null
+'instagram ': null
+'kakaotalk ': null
+'kakaotalk/': null
+'kpn_veilig ': null
+'lg player ': null
+'listen5 ': null
+'microsoft lync ': null
+'microsoft office mobile ': null
+'microsoft office syncproc ': null
+'millennium ': null
+'nate_app;appver:': null
+'nl.nrc.nrcapp ': null
+'officemobile ': null
+'openvas-vt ': null
+'podcastguru ': null
+'podchaser ': null
+'podfriend ': null
+'podmn/android ': null
+'podmn/ios ': null
+'pugpigbolt ': null
+'radiopublic/android ': null
+'safari quora ': null
+'skyeng ': null
+'smzdm ': null
+'swoot ': null
+'tiktok ': null
+'vishaapp ': null
+'windows antivirus ': null
 +simple browser: null
 /gfibertv-: null
 /gftv200-: null
-'/satoshi:0': null
-'/shibetoshi:': null
 1password/: null
 1passwordthumbs/: null
 2chmate/0: null
@@ -51,7 +109,6 @@ aida64: null
 airpodcasts/: null
 airr (: null
 airr beta: null
-airr/.: null
 airr/0: null
 airr/1: null
 airr/2: null
@@ -63,6 +120,7 @@ airr/7: null
 airr/8: null
 airr/9: null
 airsonic/: null
+alco mp3/: null
 alexamediaplayer/stitcher: null
 aliapp(ap: null
 aliexpress/: null
@@ -72,19 +130,25 @@ allhitmusicradio/: null
 allyoucanbooks/: null
 allyoucanbooksapp: null
 alpha playerfm/: null
-amazon.com/: null
-amazon;af: null
+amazon.com/0: null
+amazon.com/1: null
+amazon.com/2: null
+amazon.com/3: null
+amazon.com/4: null
+amazon.com/5: null
+amazon.com/6: null
+amazon.com/7: null
+amazon.com/8: null
+amazon.com/9: null
+amazon;aft: null
 amazonmusic: null
 anchor/: null
 anchorfm/: null
 android_audionow: null
 androiddownloadmanager: null
-'anghami android ': null
 anghami/: null
 anonymisiert durch almisoft: null
 anonymized by abelssoft: null
-antenna/: null
-antenna/.: null
 antenna/0: null
 antenna/1: null
 antenna/2: null
@@ -95,8 +159,7 @@ antenna/6: null
 antenna/7: null
 antenna/8: null
 antenna/9: null
-antennapod/: null
-antennapod/.: null
+antenna/: null
 antennapod/0: null
 antennapod/1: null
 antennapod/2: null
@@ -107,6 +170,7 @@ antennapod/6: null
 antennapod/7: null
 antennapod/8: null
 antennapod/9: null
+antennapod/: null
 anwhatsapp: null
 anybox/: null
 anythingllm-desktop/: null
@@ -115,7 +179,6 @@ apkxdl: null
 apollo/: null
 app/yym-hago-and: null
 appdb/: null
-appletv.client: null
 applenews/0: null
 applenews/1: null
 applenews/2: null
@@ -126,6 +189,8 @@ applenews/6: null
 applenews/7: null
 applenews/8: null
 applenews/9: null
+appletv.client: null
+appletv: null
 appname/: null
 appname/hidex: null
 appname/musical_ly app_version/: null
@@ -134,54 +199,18 @@ appname/trill app_version/: null
 arvocast/: null
 asus update/: null
 at&t tv: null
-audible: null
-'audible, android, ': null
 audible/: null
+audible: null
 audio/: null
 autopliuslt: null
 avid link desktop app/: null
 awasu/: null
 aweme app_version/: null
 aweme/: null
-'azureus ': null
 baiduboxapp/: null
-baiduboxapp/.: null
-baiduboxapp/0: null
-baiduboxapp/1: null
-baiduboxapp/2: null
-baiduboxapp/3: null
-baiduboxapp/4: null
-baiduboxapp/5: null
-baiduboxapp/6: null
-baiduboxapp/7: null
-baiduboxapp/8: null
-baiduboxapp/9: null
 baiduinput/: null
-baiduinput/.: null
-baiduinput/0: null
-baiduinput/1: null
-baiduinput/2: null
-baiduinput/3: null
-baiduinput/4: null
-baiduinput/5: null
-baiduinput/6: null
-baiduinput/7: null
-baiduinput/8: null
-baiduinput/9: null
 balados/: null
-balados/.: null
-balados/0: null
-balados/1: null
-balados/2: null
-balados/3: null
-balados/4: null
-balados/5: null
-balados/6: null
-balados/7: null
-balados/8: null
-balados/9: null
 ballz/: null
-'barcelona ': null
 barcelona .: null
 barcelona 0: null
 barcelona 1: null
@@ -194,17 +223,6 @@ barcelona 7: null
 barcelona 8: null
 barcelona 9: null
 barcelona/: null
-barcelona/.: null
-barcelona/0: null
-barcelona/1: null
-barcelona/2: null
-barcelona/3: null
-barcelona/4: null
-barcelona/5: null
-barcelona/6: null
-barcelona/7: null
-barcelona/8: null
-barcelona/9: null
 basecamp: null
 battle.net/0: null
 battle.net/1: null
@@ -246,17 +264,6 @@ binance/9: null
 bingipadclient: null
 bingsapphire/: null
 bingweb: null
-bingweb/.: null
-bingweb/0: null
-bingweb/1: null
-bingweb/2: null
-bingweb/3: null
-bingweb/4: null
-bingweb/5: null
-bingweb/6: null
-bingweb/7: null
-bingweb/8: null
-bingweb/9: null
 binu: null
 bitsboard/: null
 bitwarden_mobile/: null
@@ -266,7 +273,6 @@ blue proxy/: null
 bluestacks 5/: null
 bluestacks/: null
 bolt/: null
-'bonprix mobile app ': null
 bookmobile/: null
 bookshelf-android: null
 boom v: null
@@ -300,16 +306,7 @@ castro/6: null
 castro/7: null
 castro/8: null
 castro/9: null
-ccleaner, 0: null
-ccleaner, 1: null
-ccleaner, 2: null
-ccleaner, 3: null
-ccleaner, 4: null
-ccleaner, 5: null
-ccleaner, 6: null
-ccleaner, 7: null
-ccleaner, 8: null
-ccleaner, 9: null
+ccleaner, : null
 cfr plus/: null
 cgnbrowser/: null
 chmate/0: null
@@ -336,28 +333,9 @@ ciisaa/9: null
 citrix viewer/: null
 citrix viewer: null
 classic fm/: null
-clipbox+/0: null
-clipbox+/1: null
-clipbox+/2: null
-clipbox+/3: null
-clipbox+/4: null
-clipbox+/5: null
-clipbox+/6: null
-clipbox+/7: null
-clipbox+/8: null
-clipbox+/9: null
+clipbox+/: null
 clovia/: null
 coaf smart citizen: null
-code/0: null
-code/1: null
-code/2: null
-code/3: null
-code/4: null
-code/5: null
-code/6: null
-code/7: null
-code/8: null
-code/9: null
 coinbaseretail: null
 com.apple.safari.searchhelper/: null
 com.audials.paid/: null
@@ -374,7 +352,6 @@ com.google.android.youtube: null
 com.google.googlemobile: null
 com.google.googleplus: null
 com.google.ios.youtube: null
-google.drive: null
 com.jio.media.jiobeats: null
 com.meecel.feedreader.rssdemonad: null
 com.meevii.biblekjv: null
@@ -386,7 +363,6 @@ com.theepochtimes.mobile/: null
 com.tinyspeck.chatlyio: null
 com.topbuzz.videoen/: null
 com.toysinboxes.echo: null
-'com.twipemobile.nrc ': null
 com.zhiliaoapp.musically: null
 coolerfm/: null
 copied/0: null
@@ -426,28 +402,10 @@ de telegraaf: null
 de.danoeh.antennapod: null
 deepl/: null
 defiwallet/: null
-devcasts/0: null
-devcasts/1: null
-devcasts/2: null
-devcasts/3: null
-devcasts/4: null
-devcasts/5: null
-devcasts/6: null
-devcasts/7: null
-devcasts/8: null
-devcasts/9: null
+devcasts/: null
 deviantart/: null
-dingtalk/.: null
-dingtalk/0: null
-dingtalk/1: null
-dingtalk/2: null
-dingtalk/3: null
-dingtalk/4: null
-dingtalk/5: null
-dingtalk/6: null
-dingtalk/7: null
-dingtalk/8: null
-dingtalk/9: null
+device/apple: null
+dingtalk/: null
 discord-updater/: null
 discord/: null
 dmanager/: null
@@ -456,10 +414,8 @@ doubletwist cloudplayer: null
 doughnut/: null
 downcast/: null
 downie/: null
-downloader/: null
 ds podcast/: null
 edmodoandroid/: null
-'emaudioplayer ': null
 embytheater/: null
 empresas/: null
 epicgameslauncher/: null
@@ -472,33 +428,9 @@ facebook/: null
 fathom/: null
 fban/: null
 fbav: null
-fbav .: null
-fbav 0: null
-fbav 1: null
-fbav 2: null
-fbav 3: null
-fbav 4: null
-fbav 5: null
-fbav 6: null
-fbav 7: null
-fbav 8: null
-fbav 9: null
-fbav/.: null
-fbav/0: null
-fbav/1: null
-fbav/2: null
-fbav/3: null
-fbav/4: null
-fbav/5: null
-fbav/6: null
-fbav/7: null
-fbav/8: null
-fbav/9: null
 fbbv/: null
 fbid/: null
 fbsv/: null
-feedr: null
-feedr/.: null
 feedr/0: null
 feedr/1: null
 feedr/2: null
@@ -531,7 +463,6 @@ fountain/: null
 fountainapp/: null
 freesafeip: null
 freespoke/: null
-'fscdcsafe ': null
 fscdcsafe/: null
 gaana-ios: null
 gaana/: null
@@ -539,7 +470,7 @@ gaanaandroid-: null
 garmin fenix 5x plus/: null
 garmin forerunner: null
 gbwhatsapp: null
-'getpodcast ': null
+genspark: null
 getpodcast/: null
 git/0: null
 git/1: null
@@ -577,6 +508,7 @@ goodreader/: null
 goodreader4/: null
 goodreaderipad/: null
 google update: null
+google.drive: null
 google/: null
 googleapp/: null
 googlelens/: null
@@ -585,17 +517,6 @@ googlesoftwareupdate/: null
 googletagmanager/: null
 groupme/: null
 gsa/: null
-gsa/.: null
-gsa/0: null
-gsa/1: null
-gsa/2: null
-gsa/3: null
-gsa/4: null
-gsa/5: null
-gsa/6: null
-gsa/7: null
-gsa/8: null
-gsa/9: null
 guacamole/: null
 hammel/: null
 handbrake win upd: null
@@ -615,99 +536,17 @@ himalaya_test/: null
 hisearch/: null
 histhumbnail: null
 historyhound/: null
-'hmscore ': null
-'hmscore/': null
 hp smart/: null
 httprequestmaker: null
+hulu/: null
 hypercatcher/: null
-'icatcher ': null
-icatcher!: null
-icatcher": null
-icatcher#: null
-icatcher$: null
-icatcher%: null
-icatcher&: null
-icatcher': null
-icatcher(: null
-icatcher): null
-icatcher*: null
-icatcher+: null
-icatcher,: null
-icatcher-: null
-icatcher.: null
-icatcher/: null
-'icatcher:': null
-icatcher;: null
-icatcher<: null
-icatcher=: null
-icatcher>: null
-icatcher?: null
-icatcher@: null
-icatcherA: null
-icatcherB: null
-icatcherC: null
-icatcherD: null
-icatcherE: null
-icatcherF: null
-icatcherG: null
-icatcherH: null
-icatcherI: null
-icatcherJ: null
-icatcherK: null
-icatcherL: null
-icatcherM: null
-icatcherN: null
-icatcherO: null
-icatcherP: null
-icatcherQ: null
-icatcherR: null
-icatcherS: null
-icatcherT: null
-icatcherU: null
-icatcherV: null
-icatcherW: null
-icatcherX: null
-icatcherY: null
-icatcherZ: null
-icatcher[: null
-icatcher\: null
-icatcher]: null
-icatcher^: null
-icatcher_: null
-icatcher`: null
-icatchera: null
-icatcherb: null
-icatcherc: null
-icatcherd: null
-icatchere: null
-icatcherf: null
-icatcherg: null
-icatcherh: null
-icatcheri: null
-icatcherj: null
-icatcherk: null
-icatcherl: null
-icatcherm: null
-icatchern: null
-icatchero: null
-icatcherp: null
-icatcherq: null
-icatcherr: null
-icatchers: null
-icatchert: null
-icatcheru: null
-icatcherv: null
-icatcherw: null
-icatcherx: null
-icatchery: null
-icatcherz: null
+icatcher: null
 iheartpodcasts/: null
 iheartradio/: null
 imoandroid/: null
 instabridge: null
 instacast/: null
 instacasthd: null
-'instagram ': null
 instagram/: null
 instapaper/: null
 iosaudiobooks/: null
@@ -728,16 +567,14 @@ jpameblo;: null
 jungle disk workgroup http: null
 kajabimobileapp: null
 kajabipodcast: null
-'kakaotalk ': null
-'kakaotalk/': null
 keeper/: null
 kids listen/: null
 kidspodmobileclient/: null
 kik/: null
+kimi/: null
 kkbox/: null
 klara/: null
 klarna/: null
-'kpn_veilig ': null
 kpn_veilig/: null
 kwai/: null
 kwai_pro/: null
@@ -755,100 +592,13 @@ lark/9: null
 lat-native-app: null
 lazada_android: null
 lbc/: null
-'lg player ': null
-line .: null
-line 0: null
-line 1: null
-line 2: null
-line 3: null
-line 4: null
-line 5: null
-line 6: null
-line 7: null
-line 8: null
-line 9: null
-line/.: null
-line/0: null
-line/1: null
-line/2: null
-line/3: null
-line/4: null
-line/5: null
-line/6: null
-line/7: null
-line/8: null
-line/9: null
 linkedin: null
 listen app/: null
 listen/: null
-'listen5 ': null
 listen5/: null
-listnr./: null
-listnr0/: null
-listnr1/: null
-listnr2/: null
-listnr3/: null
-listnr4/: null
-listnr5/: null
-listnr6/: null
-listnr7/: null
-listnr8/: null
-listnr9/: null
-listnrA/: null
-listnrB/: null
-listnrC/: null
-listnrD/: null
-listnrE/: null
-listnrF/: null
-listnrG/: null
-listnrH/: null
-listnrI/: null
-listnrJ/: null
-listnrK/: null
-listnrL/: null
-listnrM/: null
-listnrN/: null
-listnrO/: null
-listnrP/: null
-listnrQ/: null
-listnrR/: null
-listnrS/: null
-listnrT/: null
-listnrU/: null
-listnrV/: null
-listnrW/: null
-listnrX/: null
-listnrY/: null
-listnrZ/: null
-listnr_/: null
-listnra/: null
-listnrb/: null
-listnrc/: null
-listnrd/: null
-listnre/: null
-listnrf/: null
-listnrg/: null
-listnrh/: null
-listnri/: null
-listnrj/: null
-listnrk/: null
-listnrl/: null
-listnrm/: null
-listnrn/: null
-listnro/: null
-listnrp/: null
-listnrq/: null
-listnrr/: null
-listnrs/: null
-listnrt/: null
-listnru/: null
-listnrv/: null
-listnrw/: null
-listnrx/: null
-listnry/: null
-listnrz/: null
 liulo/: null
 logioptionsplus/: null
+lookr/: null
 loseit!/: null
 luminary.next/: null
 luminary/: null
@@ -865,6 +615,7 @@ maglev/7: null
 maglev/8: null
 maglev/9: null
 mailmaster: null
+maple 5: null
 mbolsa: null
 megaphone.fm: null
 mempresas: null
@@ -881,18 +632,14 @@ metatrader 5 terminal/: null
 micromessenger/: null
 microsoft bits/: null
 microsoft edge update/: null
-'microsoft lync ': null
-microsoft office: null
 microsoft office existence discovery: null
-'microsoft office mobile ': null
 microsoft office mobile/: null
-'microsoft office syncproc ': null
+microsoft office: null
 microsoft-cryptoapi/: null
 microsoft-delivery-optimization: null
 microsoft-webdav-miniredir: null
 microsoft-wns/: null
 microsoft.data.mashup: null
-'millennium ': null
 millennium corp: null
 millennium empresas: null
 millennium/: null
@@ -921,12 +668,11 @@ musically_go app_version/: null
 mxplayer/: null
 my bentley/: null
 my bentley: null
-mytuner: null
 mytuner radio app: null
+mytuner: null
 mytuner_podcasts_androidplayer/: null
 mytunerios free/: null
 mywatchparty/: null
-'nate_app;appver:': null
 naver(: null
 naver/: null
 net.mede: null
@@ -940,6 +686,16 @@ netflix/6: null
 netflix/7: null
 netflix/8: null
 netflix/9: null
+#news 0: null
+#news 1: null
+#news 2: null
+#news 3: null
+#news 4: null
+#news 5: null
+#news 6: null
+#news 7: null
+#news 8: null
+#news 9: null
 news/0: null
 news/1: null
 news/2: null
@@ -950,34 +706,11 @@ news/6: null
 news/7: null
 news/8: null
 news/9: null
-news 0: null
-news 1: null
-news 2: null
-news 3: null
-news 4: null
-news 5: null
-news 6: null
-news 7: null
-news 8: null
-news 9: null
 newsarticle/: null
-newsarticle/.: null
-newsarticle/0: null
-newsarticle/1: null
-newsarticle/2: null
-newsarticle/3: null
-newsarticle/4: null
-newsarticle/5: null
-newsarticle/6: null
-newsarticle/7: null
-newsarticle/8: null
-newsarticle/9: null
 newsly: null
 newssapphire/: null
 nextcloud-android/: null
 ngl client/: null
-'nl.nrc.nrcapp ': null
-npr one/.: null
 npr one/0: null
 npr one/1: null
 npr one/2: null
@@ -1011,9 +744,7 @@ obs/7: null
 obs/8: null
 obs/9: null
 obsidian/: null
-skype for business: null
 offerup/: null
-'officemobile ': null
 officemobile/: null
 okandroid/: null
 okios/: null
@@ -1021,7 +752,6 @@ onedriveiosapp/: null
 onesearch/: null
 opa/: null
 opal/: null
-'openvas-vt ': null
 opera autoupdate agent: null
 opera news/0: null
 opera news/1: null
@@ -1038,17 +768,7 @@ orangeradio/: null
 outcast: null
 overcast : null
 overcast/: null
-alco mp3/: null
-pan globalprotect/0: null
-pan globalprotect/1: null
-pan globalprotect/2: null
-pan globalprotect/3: null
-pan globalprotect/4: null
-pan globalprotect/5: null
-pan globalprotect/6: null
-pan globalprotect/7: null
-pan globalprotect/8: null
-pan globalprotect/9: null
+pan globalprotect/: null
 pandora audio: null
 pandora/0: null
 pandora/1: null
@@ -1083,58 +803,25 @@ podcast addict: null
 podcast overhaul/: null
 podcast player/: null
 podcast/: null
-podcast/.: null
-podcast/0: null
-podcast/1: null
-podcast/2: null
-podcast/3: null
-podcast/4: null
-podcast/5: null
-podcast/6: null
-podcast/7: null
-podcast/8: null
-podcast/9: null
 podcastaddict/: null
 podcaster/: null
-'podcastguru ': null
 podcastguru/: null
 podcasti/: null
 podcastit/: null
 podcastly: null
 podcastok/: null
+podcaston: null
 podcastrepublic/: null
 podcasts/: null
 podcasturi/: null
 podcasty/: null
-"podcast\u2019ler/": null
-podcat 2/0 cfnetwork: null
-podcat 2/1 cfnetwork: null
-podcat 2/2 cfnetwork: null
-podcat 2/3 cfnetwork: null
-podcat 2/4 cfnetwork: null
-podcat 2/5 cfnetwork: null
-podcat 2/6 cfnetwork: null
-podcat 2/7 cfnetwork: null
-podcat 2/8 cfnetwork: null
-podcat 2/9 cfnetwork: null
+podcat 2/: null
 podcat/: null
-podcat/0 cfnetwork: null
-podcat/1 cfnetwork: null
-podcat/2 cfnetwork: null
-podcat/3 cfnetwork: null
-podcat/4 cfnetwork: null
-podcat/5 cfnetwork: null
-podcat/6 cfnetwork: null
-podcat/7 cfnetwork: null
-podcat/8 cfnetwork: null
-podcat/9 cfnetwork: null
 podcatcher deluxe: null
-'podchaser ': null
 podchaser-parser: null
 podclipper/: null
 podcruncher/: null
 podeo/: null
-'podfriend ': null
 podfriend/: null
 podhero alpha/: null
 podhero/: null
@@ -1146,11 +833,9 @@ podkicker/: null
 podlp/: null
 podme android app: null
 podme/: null
-'podmn/android ': null
-'podmn/ios ': null
 podnl/: null
-podopolo: null
 podopolo/: null
+podopolo: null
 podplay/: null
 pods/: null
 podtrapper: null
@@ -1160,18 +845,8 @@ podverse/: null
 podvine/: null
 podyssey: null
 procast: null
-'pugpigbolt ': null
 qbittorrent/: null
 qmunicate: null
-qq/1: null
-qq/2: null
-qq/3: null
-qq/4: null
-qq/5: null
-qq/6: null
-qq/7: null
-qq/8: null
-qq/9: null
 qqmusic/: null
 qqtheme: null
 quickcast: null
@@ -1206,7 +881,6 @@ radioappfree: null
 radioline: null
 radiopublic android: null
 radiopublic ios: null
-'radiopublic/android ': null
 radiopublic/android-: null
 radiopublic/ios-: null
 ravesocial/: null
@@ -1234,18 +908,6 @@ rutubetvblackandroid: null
 saavn: null
 sachnoi.app/: null
 sachnoiapp/: null
-'safari quora ': null
-safari/.snapchat: null
-safari/0snapchat: null
-safari/1snapchat: null
-safari/2snapchat: null
-safari/3snapchat: null
-safari/4snapchat: null
-safari/5snapchat: null
-safari/6snapchat: null
-safari/7snapchat: null
-safari/8snapchat: null
-safari/9snapchat: null
 sapphire/: null
 satoshi: null
 searchcraft/: null
@@ -1269,16 +931,24 @@ showme/: null
 simple podcast player/: null
 siri/1: null
 siriusxm/: null
-'skyeng ': null
-skyeng teachers/: null
 skyeng app: null
+skyeng teachers/: null
 skyeng teachers: null
-skype: null
+skype for business: null
 skype/: null
+skype: null
 slack/: null
-'smzdm ': null
-snapchat: null
 snapchat/: null
+snapchat0: null
+snapchat1: null
+snapchat2: null
+snapchat3: null
+snapchat4: null
+snapchat5: null
+snapchat6: null
+snapchat7: null
+snapchat8: null
+snapchat9: null
 snipd/: null
 sodes/: null
 sofi_app_version=: null
@@ -1306,7 +976,6 @@ strimio-desktop/: null
 surfshark/: null
 surfsharkandroid/: null
 swinsian/: null
-'swoot ': null
 swoot/: null
 sxm-android/: null
 sxm-apple/: null
@@ -1346,7 +1015,6 @@ thunder/7: null
 thunder/8: null
 thunder/9: null
 tieba/: null
-'tiktok ': null
 tiktok/: null
 tim/0: null
 tim/1: null
@@ -1410,13 +1078,7 @@ viber: null
 victorreader stream: null
 victorreader_: null
 vidjuiceunitube/: null
-"virgin\tradio/": null
-"virgin\vradio/": null
-"virgin\fradio/": null
-? "virgin\rradio/"
-: null
 virgin radio/: null
-'vishaapp ': null
 vodacast/: null
 vscode 0: null
 vscode 1: null
@@ -1431,11 +1093,12 @@ vscode 9: null
 vuhuv/: null
 waipu/: null
 wallanews/: null
+wallet: null
 waste my time! extension/: null
 watchfree/: null
 wattpad/: null
-wayback machine: null
 wayback machine extension: null
+wayback machine: null
 webexteams: null
 webscraping: null
 wechat/: null
@@ -1445,27 +1108,14 @@ wh questions/: null
 whatplay: null
 whatsapp: null
 whisper/: null
-'windows antivirus ': null
 windows-update-agent: null
 windowspowershell/: null
 windowsstoresdk: null
 wireshark/: null
 wirtschaftswoche-ios-: null
-wnyc: null
 wnyc app: null
 wnyc.: null
 wnyc/: null
-wnyc/.: null
-wnyc/0: null
-wnyc/1: null
-wnyc/2: null
-wnyc/3: null
-wnyc/4: null
-wnyc/5: null
-wnyc/6: null
-wnyc/7: null
-wnyc/8: null
-wnyc/9: null
 wnyc0: null
 wnyc1: null
 wnyc2: null
@@ -1476,6 +1126,7 @@ wnyc6: null
 wnyc7: null
 wnyc8: null
 wnyc9: null
+wnyc: null
 word/: null
 wordcookies/: null
 wpsmoffice/: null
@@ -1514,7 +1165,6 @@ yowhatsapp2plus: null
 yoyowhatsapp: null
 zalo android: null
 zalo ios: null
-zalo/.: null
 zalo/0: null
 zalo/1: null
 zalo/2: null
@@ -1528,8 +1178,8 @@ zalo/9: null
 zenkit/: null
 zepeto_global/: null
 zite/: null
-zoho: null
 zoho chat/: null
+zoho: null
 zonapp/android/: null
 zonapp/ios/: null
 zune/: null

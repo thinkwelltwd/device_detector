@@ -258,10 +258,10 @@
   version: '$1'
   url: 'https://github.com/scalaj/scalaj-http'
 
-- regex: 'REST:Client/(\d+)'
-  name: 'Perl REST:Client'
+- regex: 'REST::Client/(\d+)'
+  name: 'Perl REST::Client'
   version: '$1'
-  url: 'https://metacpan.org/pod/REST:Client'
+  url: 'https://metacpan.org/pod/REST::Client'
 
 - regex: 'node-fetch/?(\d+[.\d]+)?'
   name: 'Node Fetch'
@@ -709,3 +709,8 @@
   name: 'Lodestone PHP Parser'
   version: ''
   url: 'https://github.com/Simbiat/lodestone-parser'
+
+- regex: '^Hubot/(\d+[.\d]+)'
+  name: 'Hubot'
+  version: '$1'
+  url: 'https://github.com/hubotio/hubot'

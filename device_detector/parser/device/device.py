@@ -24,7 +24,7 @@ ANDROID_TABLET_FRAGMENT = RegexLazy(
     BOUNDED_REGEX.format(r'Android( [.0-9]+)?; Tablet;|Tablet(?! PC)|.*\-tablet$')
 )
 ANDROID_TV_FRAGMENT = RegexLazyIgnore(
-    BOUNDED_REGEX.format(r'Andr0id|(?:Android(?: UHD)?|Google) TV|\(lite\) TV|BRAVIA|Firebolt| TV$')
+    r'Andr0id|(?:Android(?: UHD)?|Google) TV|\(lite\) TV|BRAVIA|Firebolt| TV$'
 )
 TOUCH_FRAGMENT = RegexLazy(BOUNDED_REGEX.format('Touch'))
 GENERAL_TABLET_FRAGMENT = RegexLazy(BOUNDED_REGEX.format('HTC|Kindle'))
@@ -43,6 +43,9 @@ OPERA_TABLET_FRAGMENT = RegexLazy(BOUNDED_REGEX.format('Opera Tablet'))
 OPERA_TV_FRAGMENT = RegexLazy(BOUNDED_REGEX.format('Opera TV Store| OMI/'))
 
 ENDSWITH_FIREFOX = RegexLazyIgnore(r'(Firefox|Iceweasel|Phoenix)/(?:\d+[.\d]+)$')
+UA_CLIENT_HINTS_FRAGEMENT = RegexLazyIgnore(
+    r'~Android (?:10[.\d]*; K(?: Build/|[;)])|1[1-5]\)) AppleWebKit~i'
+)
 
 
 class Device(BaseDeviceParser):
@@ -60,15 +63,21 @@ class Device(BaseDeviceParser):
         'upstream/device/mobiles.yml',
     ]
 
-    def check_all_regexes(self) -> bool:
+    def check_all_regexes(self) -> bool | list:
         # Match relatively generic UAs like:
         # UCWEB/2.0 (MIDP-2.0; U; zh-CN; IQ4406) U2/1.0.0 UCBrowser/3.4.3.532 U2/1.0.0 Mobile
         # UCWEB/2.0 (Linux; U; Opera Mini/7.1.32052/30.3697; en-US; LG-E405) U2/1.0.0 UCBrowser/8.8.1.359 Mobile
         if self.user_agent_lower.endswith(' mobile'):
             return True
 
-        if super().check_all_regexes():
-            return True
+        if self.client_hints:
+            if self.client_hints.model:
+                return True
+            if UA_CLIENT_HINTS_FRAGEMENT.search(self.user_agent):
+                return False
+
+        if ac_match := super().check_all_regexes():
+            return ac_match
 
         if self.user_agent_lower.startswith('iphone'):
             return IPHONE_ONLY_UA.match(self.user_agent) is not None
@@ -86,18 +95,18 @@ class Device(BaseDeviceParser):
         Loop through all brands of all device types trying to find
         a model. Returns the first device with model info.
         """
-        ch_model = self.client_hints and self.client_hints.model
-        user_agent = self.user_agent
-        ac_matched = self.check_all_regexes()
-        if not ac_matched:
+        if not (ac_matched := self.check_all_regexes()):  # noqa
             return
+
+        ch = self.client_hints
+        ch_model = ch.model if ch else None
 
         # ------------------------------------------------
         # Complete copy of the superclass _parse method
         for ua_data in self.regex_list:
             if self.known:
                 break
-            if matched := ua_data['regex'].search(user_agent):
+            if matched := ua_data['regex'].search(self.user_agent):
                 self.matched_regex = matched
                 self.ua_data |= {k: v for k, v in ua_data.items() if k != 'regex'}
                 self.known = True
@@ -108,7 +117,7 @@ class Device(BaseDeviceParser):
                         if self.known:
                             break
                         model_fixture_dtype = model_data.get('device', main_fixture_dtype)
-                        if model_fixture_dtype != self.DEVICE_TYPE:
+                        if not compatible_device_type(model_fixture_dtype, self.DEVICE_TYPE):
                             continue
                         matched = model_data['regex'].search(ch_model)
                         if matched:
@@ -129,13 +138,12 @@ class Device(BaseDeviceParser):
                     self.known = True
         # ------------------------------------------------
 
-        if not self.ua_data:
-            if ch := self.client_hints:
-                self.ua_data |= {
-                    'type': ch.device_type(),
-                    'model': ch.model,
-                    'brand': 'Apple' if ch.platform == 'Mac' else '',
-                }
+        if not self.ua_data and ch:
+            self.ua_data |= {
+                'type': ch.device_type(),
+                'model': ch_model,
+                'brand': 'Apple' if ch.platform == 'Mac' else '',
+            }
 
         if not self.ua_data.get('brand'):
             # If no brand info was found, check known fragments
@@ -150,7 +158,8 @@ class Device(BaseDeviceParser):
         if device_type := self.dtype():
             self.ua_data['type'] = device_type
 
-        # if ac_matched and not isinstance(ac_matched, bool) and not self.ua_data:
+        # Uncomment lines for debugging.
+        # if ac_matched and not isinstance(ac_matched, bool):
         #     print(f'{self.cache_name}: Unwanted AC Match is {ac_matched}')
 
     def is_tablet(self) -> bool:
@@ -261,7 +270,7 @@ class Device(BaseDeviceParser):
             return True
 
         # All devices running Tizen TV or SmartTV are assumed to be a tv
-        if not self.matched_regex and TIZEN_TV_FRAGMENT.search(self.user_agent) is not None:
+        if TIZEN_TV_FRAGMENT.search(self.user_agent) is not None:
             return True
 
         # All devices containing TV fragment are assumed to be a tv
@@ -316,9 +325,9 @@ class Device(BaseDeviceParser):
         default_dtype = super().dtype()
         fixture_dtype = self.device_type_from_fixture()
 
-        os_name = self.os_details.get('name') or ''
-        os_family = self.os_details.get('family') or ''
-        os_version = self.os_details.get('version') or ''
+        os_name = self.os_details.get('name', '')
+        os_family = self.os_details.get('family', '')
+        os_version = self.os_details.get('version', '')
 
         if self.device_runs_feature_phone_os(os_name):
             return DeviceType.FeaturePhone
@@ -359,6 +368,20 @@ class Device(BaseDeviceParser):
 
     def __str__(self) -> str:
         return f'{self.model()} {self.dtype()}'
+
+
+def compatible_device_type(actual: str, target: str) -> bool:
+    """
+    When iterating over model regexes, we need to skip regexes
+    where the device type isn't compatible with the class being checked.
+    """
+    if actual == target:
+        return True
+
+    if target == DeviceType.Smartphone:
+        return actual == DeviceType.Tablet or actual == DeviceType.Phablet
+
+    return False
 
 
 __all__ = [

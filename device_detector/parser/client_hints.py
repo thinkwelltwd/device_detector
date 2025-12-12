@@ -8,6 +8,12 @@ from .settings import CLIENT_HINT_TO_APP_MAP, FAMILY_FROM_OS, BROWSER_TO_ABBREV
 
 CH_UA = RegexLazyIgnore(r'^"([^"]+)"; ?v="([^"]+)"(?:, )?')
 TV_APP = RegexLazyIgnore(r'tv\.?(browser|firefox|search|web)')
+CHROMIUM_BASED_BROWSERS = frozenset((
+    'Chromium',
+    'Chrome Webview',
+    'Microsoft Edge',
+    'Microsoft Edge Simulate',
+))
 
 
 class ClientHintsHeader(TypedDict):
@@ -66,6 +72,7 @@ class ClientHints:
         'app',
         'headers',
         'client_hints_map',
+        '_browser_data',
         '_client_data',
         '_client_name',
         'app_pretty_names',
@@ -101,6 +108,7 @@ class ClientHints:
         self.headers: dict[str, str] = {}
         self.client_hints_map: dict[str, str] = {}
 
+        self._browser_data: dict | None = None
         self._client_data: dict | None = None
         self._client_name = ''
         self.app_pretty_names = app_pretty_names_types_data()
@@ -249,33 +257,23 @@ class ClientHints:
         "Not;A=Brand";v="99", "Brave";v="139", "Chromium";v="139"
         """
         if not self._client_name:
-            if self.app and (app_pretty_name := self.app_pretty_names.get(self.app)):
-                self._client_name = app_pretty_name['name']
-                self._calculated_app_type = cast(AppType, app_pretty_name['type'])
-                return self._client_name
+            if client_name := self._get_pretty_name(self.app):
+                return client_name
 
-            name = ''
-            hints_count = len(self.client_hints_map)
-            for key in self.client_hints_map:
-                # Don't overwrite a more specific name with a generic name.
-                if hints_count > 1 and key == 'Chromium':
-                    continue
-
-                name = key
+            name = extract_name_from_hints(self.client_hints_map)
 
             # If the name has a "pretty name" override defined
             # use that name & type.
-            if not self._calculated_app_type and (
-                pretty_name := self.app_pretty_names.get(name.lower().replace(' ', ''))
-            ):
-                self._client_name = pretty_name['name']
-                self._calculated_app_type = cast(AppType, pretty_name['type'])
-                return self._client_name
+            if not self._calculated_app_type:
+                if pretty_name := self._get_pretty_name(name.lower().replace(' ', '')):
+                    return pretty_name
 
-            # Strip "Browser" suffix from browsers such as "Brave Browser"
-            # and "CCleaner Browser" per their official name
             name_lower = name.lower()
-            if name_lower not in BROWSER_TO_ABBREV:
+            if name_lower in BROWSER_TO_ABBREV:
+                self._calculated_app_type = AppType.Browser
+            else:
+                # Strip "Browser" suffix from browsers such as "Brave Browser"
+                # and "CCleaner Browser" per their official name
                 if name.endswith(' Browser'):
                     if name_lower[:-8] in BROWSER_TO_ABBREV:
                         name = name[:-8]
@@ -287,6 +285,17 @@ class ClientHints:
             self._client_name = name
 
         return self._client_name
+
+    def _get_pretty_name(self, app_name: str) -> str:
+        """
+        If a fixture defines a "pretty name" for this brand name,
+        then set that name and app type.
+        """
+        if app_name and (app_pretty_name := self.app_pretty_names.get(app_name)):
+            self._client_name = app_pretty_name['name']
+            self._calculated_app_type = cast(AppType, app_pretty_name['type'])
+            return self._client_name
+        return ''
 
     def client_version(self) -> str:
         return self.client_hints_map.get(self.client_name(), '')
@@ -412,3 +421,23 @@ def from_ch_list(ch: list) -> dict:
         ch_map[dd_name] = header['version']
 
     return ch_map
+
+
+def extract_name_from_hints(hints: dict) -> str:
+    """
+    Extract most specific name from client hints.
+    """
+
+    for client_name in hints:
+        # If we detected a brand, that is not Chromium, we will use it,
+        # otherwise we will look further
+        if client_name not in CHROMIUM_BASED_BROWSERS:
+            return client_name
+
+    name = ''
+    for client_name in hints:
+        name = client_name
+        if client_name != 'Chromium':
+            break
+
+    return name

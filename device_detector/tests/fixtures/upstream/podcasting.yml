@@ -2967,38 +2967,38 @@
     model: ""
   os_family: iOS
   browser_family: Unknown
-#-
-#  user_agent: capsule.fm/1 CFNetwork/976 Darwin/18.2.0
-#  os:
-#    name: iOS
-#    version: "12.1"
-#    platform: ""
-#  client:
-#    type: mobile app
-#    name: capsule.fm
-#    version: "1"
-#  device:
-#    type: ""
-#    brand: Apple
-#    model: ""
-#  os_family: iOS
-#  browser_family: Unknown
-#-
-#  user_agent: capsule-android
-#  os:
-#    name: Android
-#    version: ""
-#    platform: ""
-#  client:
-#    type: mobile app
-#    name: capsule.fm
-#    version: ""
-#  device:
-#    type: ""
-#    brand: ""
-#    model: ""
-#  os_family: Android
-#  browser_family: Unknown
+-
+  user_agent: capsule.fm/1 CFNetwork/976 Darwin/18.2.0
+  os:
+    name: iOS
+    version: "12.1"
+    platform: ""
+  client:
+    type: mobile app
+    name: capsule.fm
+    version: "1"
+  device:
+    type: ""
+    brand: Apple
+    model: ""
+  os_family: iOS
+  browser_family: Unknown
+-
+  user_agent: capsule-android
+  os:
+    name: Android
+    version: ""
+    platform: ""
+  client:
+    type: mobile app
+    name: capsule.fm
+    version: ""
+  device:
+    type: ""
+    brand: ""
+    model: ""
+  os_family: Android
+  browser_family: Unknown
 -
   user_agent: Castamatic/3847 CFNetwork/1240.0.4 Darwin/20.6.0
   os:
@@ -7742,7 +7742,7 @@
     platform: ""
   client:
     type: mobile app
-    name: YouTube Music
+    name: Youtube Music
     version: "62354340"
   device:
     type: smartphone
@@ -7758,7 +7758,7 @@
     platform: ""
   client:
     type: mobile app
-    name: YouTube Music
+    name: Youtube Music
     version: 20231020.1.1
   device:
     type: ""
@@ -7774,7 +7774,7 @@
     platform: ""
   client:
     type: mobile app
-    name: YouTube Music
+    name: Youtube Music
     version: 6.29.2
   device:
     type: ""

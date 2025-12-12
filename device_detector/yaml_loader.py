@@ -1,10 +1,13 @@
 from collections import defaultdict
 from typing import TypedDict
 import yaml
-import exrex
 import ahocorasick_rs
 from pathlib import Path
-from typing import Self
+
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 
 try:
     from yaml import CSafeLoader as SafeLoader, CSafeDumper as SafeDumper
@@ -23,10 +26,6 @@ class RegexLoader:
 
     # Constant used as value for unknown browser / os
     UNKNOWN = 'UNK'
-
-    # If User Agent regex endswith these suffixes,
-    # remove before calculating regex alternations.
-    STRIP_EXTRA_SUFFIXES: tuple[str, ...] = ()
 
     @property
     def cache_name(self) -> str:
@@ -150,11 +149,12 @@ class RegexLoader:
         Extract word variations from regex, if it expands
         to a comparatively small number of variants.
         """
+        try:
+            import exrex
+        except ImportError:
+            print('Install exrex to extract regex variants from fixtures')
+            return []
         r = self.pre_process_regex_for_corasick(pattern['regex'])
-
-        for suffix in self.STRIP_EXTRA_SUFFIXES:
-            if r.endswith(suffix):
-                r = r.removesuffix(suffix)
 
         # Match single trailing integer instead of all possible variations
         for suffix, replacement in (
@@ -191,13 +191,10 @@ class RegexLoader:
             r'(?:HTML/(\d+\.[.\d]+))?',
             r'(?:/(\d+[.\d]+))?',
             r'(?:/([\w\.]+))?',
-            # r'?(\d+[.\d]+|V\d+))?',   # BREAKS!
             r'([a-z\d]+\.[a-z.\d]+)?',
             r'(?:[/ ]?(\d+[.\d]+))?',
             r'(?:[ /](\d+[.\d]+))?',
             r'(?: v(\d+[.\d]+))?',
-            # r'(\d+[.\d]+))?',  # BREAKS!
-            # r'(\d+[.\d]*))?',
             r'(?:[);/ ]|$)',
             r'(\d[.\d]*)?',
             r'(\d+[.\d]*)?',

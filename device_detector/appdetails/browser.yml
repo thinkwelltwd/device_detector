@@ -41,6 +41,12 @@
 - uaname: herond
   name: Herond Browser
 
+- uaname: hola
+  name: hola! Browser
+
+- uaname: huaweibrowser
+  name: Huawei Browser
+
 - uaname: yabrowser
   name: Yandex Browser
 
@@ -61,6 +67,9 @@
 
 - uaname: com.opera.mini.native
   name: "Opera Mini: Fast Web Browser"
+
+- uaname: sznprohlizec
+  name: Seznam Browser
 
 - uaname: com.ucmobile.intl
   name: UC Browser-Safe, Fast, Private

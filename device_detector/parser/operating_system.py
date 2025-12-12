@@ -45,27 +45,6 @@ class OS(Parser):
     OS_FAMILIES = OS_FAMILIES
     FAMILY_FROM_OS = FAMILY_FROM_OS
 
-    STRIP_EXTRA_SUFFIXES = (
-        r'.+bliss_maple',
-        r'.+-c9$',
-        r'.+aws',
-        r'.+.fc(\d+)',
-        r'.+ipad',
-        r'.+Apple/iPad',
-        r'.*FBSV/ ?(\d+[.\d]+);',
-        r'.+(?:iPhone|iPod)',
-        r'.+\(ICRU_',
-        r' ((?:9|1[0-9]|26)[_.]\d+(?:[_.]\d+)*)',
-        r'.+; Linux (\d+[.\d]+)',
-        r'.+NokiaBrowser/7\.3',
-        r'.+NokiaBrowser/7\.4',
-        r'.+RokuOS (\d+.[\d.]+)',
-        r'.*iPad.*; (\d(?:[\d.]*))[)]$',
-        r'.*iPhone.*; (\d(?:[\d.]*))[)]$',
-        r'.*; (\d(?:[\d.]*))\)$',
-        r'.*;MAUI',
-    )
-
     def is_desktop(self) -> bool:
         if self.client_hints and self.client_hints.mobile:
             return self.client_hints.is_desktop()
@@ -82,9 +61,9 @@ class OS(Parser):
             return False
         return super().is_known()
 
-    def check_all_regexes(self) -> bool:
-        if super().check_all_regexes():
-            return True
+    def check_all_regexes(self) -> bool | list:
+        if check_all := super().check_all_regexes():
+            return check_all
         return self.is_ios_fragment()
 
     def platform(self) -> str:

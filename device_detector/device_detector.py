@@ -1,4 +1,9 @@
-from typing import Self, TYPE_CHECKING
+from typing import TYPE_CHECKING
+
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 from .lazy_regex import RegexLazy
 from .enums import DeviceType
 
@@ -13,10 +18,10 @@ from .parser import (
     CarBrowser,
     Console,
     Device,
-    # HbbTv,
+    HbbTv,
     PortableMediaPlayer,
     Notebook,
-    # ShellTv,
+    ShellTv,
     MOBILE_DEVICE_TYPES,
     # Clients
     AdobeCC,
@@ -83,10 +88,8 @@ class DeviceDetector:
     # The order needs to be the same as the order of device
     # parser classes used in the matomo project
     DEVICE_PARSERS = (
-        # TV detection not needed currently.
-        # PRs passing tests in test_televisions.txt are welcome.
-        # HbbTv,
-        # ShellTv,
+        HbbTv,
+        ShellTv,
         Console,
         CarBrowser,
         Camera,
@@ -382,13 +385,10 @@ class DeviceDetector:
             if parser.ua_data:
                 self.device = parser
                 self.all_details['device'] = parser.ua_data
-                if (
-                    self.all_details['device'] != DeviceType.Desktop
-                    and DESKTOP_FRAGMENT.search(self.user_agent) is not None
-                ):
-                    self.all_details['device']['device'] = DeviceType.Desktop
+
+                if self.is_television():
+                    self.all_details['device']['type'] = DeviceType.TV
                 return
-        # print(f'\nWELL, NO device extractable from {self.user_agent}. OS Details: {os_details}')
 
     def parse_bot(self) -> None:
         """

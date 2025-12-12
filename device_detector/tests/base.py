@@ -7,7 +7,10 @@ Run individual test class by:
 
 python3 -m unittest device_detector.tests.parser.test_bot
 """
-from enum import StrEnum
+try:
+    from enum import StrEnum
+except ImportError:
+    from backports.strenum import StrEnum
 from urllib.parse import unquote
 import unittest
 import yaml
@@ -169,8 +172,6 @@ class DetectorBaseTest(Base):
             self.user_agent = unquote(fixture.pop('user_agent'))
             device = DeviceDetector(self.user_agent, headers=fixture.get('headers', {}))
             device.parse()
-
-            # print(f'XXX DP: {device.all_details}')
 
             # OS properties
             self.assertEqual(

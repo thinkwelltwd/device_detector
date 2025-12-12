@@ -1,7 +1,5 @@
-from ...lazy_regex import RegexLazyIgnore
 from ..parser import Parser
 from device_detector.parser.extractors import ModelExtractor
-from ...settings import BOUNDED_REGEX
 from device_detector.enums import DeviceType
 
 MOBILE_DEVICE_TYPES = {
@@ -62,6 +60,7 @@ DEVICE_BRANDS = {
     '85': 'Aiuto',
     'U7': 'AIDATA',
     'AL1': 'AileTV',
+    'AL2': 'AI+',
     'AK': 'Akai',
     'Q3': 'AKIRA',
     '1A': 'Alba',
@@ -172,6 +171,7 @@ DEVICE_BRANDS = {
     'XU': 'AUX',
     'BAC': 'Backcell',
     'BFF': 'BAFF',
+    'BNC': 'BNCF',
     'BO': 'BangOlufsen',
     'BN': 'Barnes & Noble',
     'BAR': 'BARTEC',
@@ -487,6 +487,7 @@ DEVICE_BRANDS = {
     'ZZ': 'ecom',
     'ECS': 'EcoStar',
     'EDE': 'Edenwood',
+    'EDX': 'Edanix',
     'E6': 'EE',
     'GW': 'EGL',
     'EGO': 'EGOTEK',
@@ -635,6 +636,7 @@ DEVICE_BRANDS = {
     'FXT': 'Fxtec',
     'GT': 'G-TiDE',
     'G9': 'G-Touch',
+    'GTB': 'G-Tab',
     'GFO': 'Gfone',
     'GTM': 'GTMEDIA',
     'GTX': 'GTX',
@@ -652,6 +654,7 @@ DEVICE_BRANDS = {
     'GEN': 'Geant',
     'GD': 'Gemini',
     'GN': 'General Mobile',
+    'GD1': 'Genius Devices',
     '2G': 'Genesis',
     'GEP': 'Geo Phone',
     'G2': 'GEOFOX',
@@ -783,6 +786,7 @@ DEVICE_BRANDS = {
     'JH': 'HOTREALS',
     'HW': 'How',
     'WH': 'Honeywell',
+    'HNR': 'Honor',
     'HON': 'HongTop',
     'HOG': 'HONKUAHG',
     'HP': 'HP',
@@ -1674,6 +1678,7 @@ DEVICE_BRANDS = {
     '69': 'Stylo',
     'STI': 'Stilevs',
     '9S': 'Sugar',
+    'SUA': 'SUAAT',
     'SUR': 'Surge',
     'SUF': 'Surfans',
     '06': 'Subor',
@@ -1823,6 +1828,7 @@ DEVICE_BRANDS = {
     'TUV': 'Tuvio',
     'TUC': 'TUCSON',
     '2U': 'Türk Telekom',
+    'TUR': 'Türksat',
     'TV': 'TVC',
     'TVP': 'TV+',
     'TW': 'TWM',
@@ -1953,6 +1959,7 @@ DEVICE_BRANDS = {
     'VOR': 'Vormor',
     'V1': 'Voto',
     'Z7': 'VOX',
+    'VOI': 'VOIX',
     'VO': 'Voxtel',
     'VY': 'Voyo',
     'VOL': 'Völfen',
@@ -2113,14 +2120,8 @@ DEVICE_BRANDS = {
     'WB': 'Web TV',
     'XX': 'Unknown',
 }
-
 # flip Abbrev / Brand for fast membership testing
 BRAND_TO_ABBREV = {brand.lower(): abbrev for abbrev, brand in DEVICE_BRANDS.items()}
-
-HBBTV_FRAGMENT = RegexLazyIgnore(
-    BOUNDED_REGEX.format(r'(?:HbbTV|SmartTvA)/([1-9]{1}(?:\.[0-9]{1}){1,2})')
-)
-SHELL_TV_FRAGMENT = RegexLazyIgnore(BOUNDED_REGEX.format(r'[a-z]+[ _]Shell[ _]\w{6}'))
 
 
 class BaseDeviceParser(Parser):
@@ -2128,32 +2129,7 @@ class BaseDeviceParser(Parser):
     DEVICE_BRANDS = DEVICE_BRANDS
     BRAND_TO_ABBREV = BRAND_TO_ABBREV
 
-    __slots__ = (
-        '_is_hbbtv',
-        '_is_shell_tv',
-    )
-
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-
-        self._is_hbbtv: bool | None = None
-        self._is_shell_tv: bool | None = None
-
-    def is_hbbtv(self) -> bool:
-        """
-        HbbTV UA strings are only parsed by the televisions.yml file
-        """
-        if not self._is_hbbtv:
-            self._is_hbbtv = HBBTV_FRAGMENT.search(self.user_agent) is not None
-        return self._is_hbbtv
-
-    def is_shell_tv(self) -> bool:
-        """
-        Shell UA strings are only parsed by the shell_tv.yml file
-        """
-        if not self._is_shell_tv:
-            self._is_shell_tv = SHELL_TV_FRAGMENT.search(self.user_agent) is not None
-        return self._is_shell_tv
+    __slots__ = ()
 
     # -----------------------------------------------------------------------------
     # UA parsing methods

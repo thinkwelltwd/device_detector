@@ -9,6 +9,7 @@ class TestClientHints(ParserBaseTest):
 
     fixture_files = [
         'tests/fixtures/upstream/clienthints.yml',
+        'tests/fixtures/upstream/clienthints-app.yml',
     ]
 
     def test_parsing(self):

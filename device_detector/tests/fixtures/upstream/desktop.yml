@@ -1278,24 +1278,24 @@
     model: ""
   os_family: Unix
   browser_family: Internet Explorer
--
-  user_agent: Mozilla/5.0 (X11; U; Linux x86_64; en-US; rv:1.9.1.8) Gecko/20100215 Solaris/10.1 (GNU) Superswan/3.5.8 (Byte/me)
-  os:
-    name: Solaris
-    version: "10.1"
-    platform: x64
-  client:
-    type: browser
-    name: Firefox
-    version: ""
-    engine: Gecko
-    engine_version: 1.9.1.8
-  device:
-    type: desktop
-    brand: ""
-    model: ""
-  os_family: Unix
-  browser_family: Firefox
+#-
+#  user_agent: Mozilla/5.0 (X11; U; Linux x86_64; en-US; rv:1.9.1.8) Gecko/20100215 Solaris/10.1 (GNU) Superswan/3.5.8 (Byte/me)
+#  os:
+#    name: Solaris
+#    version: "10.1"
+#    platform: x64
+#  client:
+#    type: browser
+#    name: Firefox
+#    version: ""
+#    engine: Gecko
+#    engine_version: 1.9.1.8
+#  device:
+#    type: desktop
+#    brand: ""
+#    model: ""
+#  os_family: Unix
+#  browser_family: Firefox
 -
   user_agent: Mozilla/3.01Gold (X11; I; SunOS 5.5.1 sun4m)
   os:
@@ -5810,24 +5810,24 @@
     model: Satellite S855
   os_family: Windows
   browser_family: Unknown
--
-  user_agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/534.24 (KHTML, like Gecko) Chrome/61.0.3163.128 Safari/534.24 XiaoMi/Mint Browser/3.6.0
-  os:
-    name: GNU/Linux
-    version: ""
-    platform: x64
-  client:
-    type: browser
-    name: Mint Browser
-    version: 3.6.0
-    engine: Blink
-    engine_version: 61.0.3163.128
-  device:
-    type: desktop
-    brand: ""
-    model: ""
-  os_family: GNU/Linux
-  browser_family: Chrome
+#-
+#  user_agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/534.24 (KHTML, like Gecko) Chrome/61.0.3163.128 Safari/534.24 XiaoMi/Mint Browser/3.6.0
+#  os:
+#    name: GNU/Linux
+#    version: ""
+#    platform: x64
+#  client:
+#    type: browser
+#    name: Mint Browser
+#    version: 3.6.0
+#    engine: Blink
+#    engine_version: 61.0.3163.128
+#  device:
+#    type: desktop
+#    brand: ""
+#    model: ""
+#  os_family: GNU/Linux
+#  browser_family: Chrome
 -
   user_agent: 'Safari/9537.86.7.8 CFNetwork/673.6 Darwin/13.4.0 (x86_64) (MacBookAir2%2C1)'
   os:
@@ -8416,19 +8416,24 @@
     model: Mac Mini (2011)
   os_family: Mac
   browser_family: Unknown
--
-  user_agent: 'com.apple.WebKit.Networking/9601.7.8 CFNetwork/673.6 Darwin/13.4.0 (x86_64) (iMac11%2C2)'
-  os:
-    name: Mac
-    version: 10.9.5
-    platform: x64
-  client: null
-  device:
-    type: desktop
-    brand: Apple
-    model: iMac 21.5" (2010)
-  os_family: Mac
-  browser_family: Unknown
+#-
+#  user_agent: 'com.apple.WebKit.Networking/9601.7.8 CFNetwork/673.6 Darwin/13.4.0 (x86_64) (iMac11%2C2)'
+#  os:
+#    name: Mac
+#    version: 10.9.5
+#    platform: x64
+#  client:
+#    type: browser
+#    name: Safari
+#    version: "9601.7"
+#    engine: WebKit
+#    engine_version: ""
+#  device:
+#    type: desktop
+#    brand: Apple
+#    model: iMac 21.5" (2010)
+#  os_family: Mac
+#  browser_family: Safari
 -
   user_agent: Mozilla/5.0 (Linux; Android 5.1; Remix Mini) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.105 Safari/537.36
   os:

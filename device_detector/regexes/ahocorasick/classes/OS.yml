@@ -6,6 +6,7 @@ Words:
 - '(ipad; '
 - '(iphone; '
 - '(macos; '
+- '; adr '
 - (x11; u; en)
 - /ipad/
 - /iphone/
@@ -14,7 +15,6 @@ Words:
 - /samsung/
 - ; fa-ir)
 - ; fa-ir;
-- '; adr '
 - adr 1
 - adr 2
 - adr 4
@@ -115,6 +115,7 @@ Words:
 - mandriva linux/
 - mandriva/
 - mocordroid
+- nook browser
 - oculusbrowser
 - okhttp
 - os=apple-ios
@@ -126,7 +127,7 @@ Words:
 - portalgo
 - red hat
 - rokubrowser/
-- rokuos
+- rokuos/
 - solaris/
 - sonos/
 - standalone hmd
@@ -137,6 +138,6 @@ Words:
 - webos/
 - webos;
 - whatsapp/
+- x11; u; mac osx
 - xiino
 - 붉은별
-- x11; u; mac osx

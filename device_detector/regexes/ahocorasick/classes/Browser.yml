@@ -1,13 +1,6 @@
-ScrubWords:
-- iphone
-- android
-- ipad
-- chrome
-- fennec
-- firefox
-- safari
 Words:
 - ' abrowse'
+- ' browser/1'
 - ' browser;'
 - ' edge/'
 - ' edgw/'
@@ -21,17 +14,12 @@ Words:
 - ' opr/7'
 - ' opr/8'
 - ' opr/9'
-- ; fa-ir)
-- ; fa-ir;
-- ' browser/1'
-- browser/applewebkit
-- browser/applelwebkit
-- browser/wap2
 - -browser/
 - .browser/
+- ; fa-ir)
+- ; fa-ir;
+- smarthublink
 - _browser/
-- browse/
-- browser/dorado
 - aftlft962x3
 - airwatchbrowser
 - alohabrowser
@@ -60,6 +48,11 @@ Words:
 - beonex/
 - blackberry
 - briskbard
+- browse/
+- browser/applelwebkit
+- browser/applewebkit
+- browser/dorado
+- browser/wap2
 - build/a
 - build/b
 - build/c
@@ -89,6 +82,7 @@ Words:
 - bunjalloo/
 - carbrowser
 - chromebook
+- com.apple.webkit
 - cpu iphone os
 - cybrowser/
 - eastbrowser
@@ -199,8 +193,8 @@ Words:
 - nintendo
 - noxbrowser/
 - opera gx/
-- opera touch/
 - opera mobi
+- opera touch/
 - opera/
 - operagx/
 - palemoon
@@ -238,7 +232,6 @@ Words:
 - turbobrowser
 - ucbrowser/
 - uckai
-- wap browser
 - wap browser
 - wap-browser
 - wapbrowser

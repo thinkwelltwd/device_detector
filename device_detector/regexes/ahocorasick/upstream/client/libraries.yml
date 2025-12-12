@@ -1,4 +1,7 @@
 !!set
+'fdm ': null
+'gstreamer souphttpsrc': null
+'stealer ': null
 aiohttp: null
 akka-http/: null
 android.lvldm: null
@@ -14,7 +17,6 @@ azure-data-factory: null
 babashka.http-client: null
 bic tracker: null
 boto3: null
-bsrpc .: null
 bsrpc 0: null
 bsrpc 1: null
 bsrpc 2: null
@@ -36,7 +38,6 @@ containers/: null
 cpanel-http-client: null
 cpp-httplib: null
 cpprestsdk.: null
-cri-o/.: null
 cri-o/0: null
 cri-o/1: null
 cri-o/2: null
@@ -71,7 +72,6 @@ dart/8: null
 dart/9: null
 definitely-not-requests: null
 deno/: null
-docker/.: null
 docker/0: null
 docker/1: null
 docker/2: null
@@ -83,13 +83,12 @@ docker/7: null
 docker/8: null
 docker/9: null
 down/: null
-electron-fetch: null
 electron-fetch/: null
+electron-fetch: null
 embarcadero uri client/: null
 esp32 http client/: null
 faraday: null
 fasthttp: null
-'fdm ': null
 fdm/: null
 filedownloader/: null
 fuzz faster u fool v: null
@@ -104,13 +103,11 @@ got (: null
 got/: null
 grequests: null
 grpc-java-okhttp/: null
-'gstreamer souphttpsrc': null
 guzzle: null
 guzzlehttp: null
 gvfs/: null
 hackney/: null
 harbor-registry-client: null
-helm/.: null
 helm/0: null
 helm/1: null
 helm/2: null
@@ -161,43 +158,14 @@ java6: null
 java7: null
 java8: null
 java9: null
-jsdom/.: null
-jsdom/0: null
-jsdom/1: null
-jsdom/2: null
-jsdom/3: null
-jsdom/4: null
-jsdom/5: null
-jsdom/6: null
-jsdom/7: null
-jsdom/8: null
-jsdom/9: null
+jsdom/: null
 kaios downloader: null
 kiwi-tcms/: null
 lavf/: null
 libcurl: null
 libdnf: null
-libhttp/0: null
-libhttp/1: null
-libhttp/2: null
-libhttp/3: null
-libhttp/4: null
-libhttp/5: null
-libhttp/6: null
-libhttp/7: null
-libhttp/8: null
-libhttp/9: null
-libpod/.: null
-libpod/0: null
-libpod/1: null
-libpod/2: null
-libpod/3: null
-libpod/4: null
-libpod/5: null
-libpod/6: null
-libpod/7: null
-libpod/8: null
-libpod/9: null
+libhttp/: null
+libpod/: null
 libsoup/: null
 libsyn4-download: null
 libsyn4-peek: null
@@ -212,13 +180,12 @@ mechanize: null
 mikrotik/: null
 msray-plus: null
 network-okhttp3/: null
-node-fetch: null
 node-fetch/: null
+node-fetch: null
 node-superagent: null
 okdownload/: null
 okhttp/: null
 okhttp3-: null
-pa11y/.: null
 pa11y/0: null
 pa11y/1: null
 pa11y/2: null
@@ -258,25 +225,15 @@ prdownloader: null
 python-httplib2: null
 python-httpx: null
 python-requests: null
-python-urllib: null
 python-urllib3: null
+python-urllib: null
 python-xmlrpc: null
 qbhttp: null
 quic-go http/3: null
 quic-go-http/3: null
 r-curl: null
 reactornetty/: null
-req/v.: null
-req/v0: null
-req/v1: null
-req/v2: null
-req/v3: null
-req/v4: null
-req/v5: null
-req/v6: null
-req/v7: null
-req/v8: null
-req/v9: null
+req/v: null
 request.js: null
 reqwest/: null
 rest:client/: null
@@ -285,21 +242,10 @@ resty-requests: null
 ruby: null
 safariviewservice/: null
 scalaj-http/: null
-skopeo/.: null
-skopeo/0: null
-skopeo/1: null
-skopeo/2: null
-skopeo/3: null
-skopeo/4: null
-skopeo/5: null
-skopeo/6: null
-skopeo/7: null
-skopeo/8: null
-skopeo/9: null
+skopeo/: null
 slim framework: null
 slimerjs: null
 sqlmap: null
-'stealer ': null
 symfony httpclient/: null
 tcms-api/: null
 trafilatura: null
@@ -314,6 +260,6 @@ utorrent/: null
 vimeo.php: null
 webchk v: null
 wget: null
-winhttp: null
 winhttp.winhttprequest: null
+winhttp: null
 www-mechanize: null

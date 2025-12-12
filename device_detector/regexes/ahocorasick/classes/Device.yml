@@ -13,6 +13,7 @@ Words:
 - ' freebsd'
 - ' gentoo '
 - ' gt-s'
+- ' hbbtv'
 - ' htc-'
 - ' htc;'
 - ' htc_'
@@ -50,19 +51,32 @@ Words:
 - ' sm-r9'
 - ' smartphone;'
 - ' staros'
+- ' stb'
 - ' sunos'
 - ' suse'
 - ' tablet;'
+- ' tivo,'
+- ' tivo-'
 - ' toshiba-'
 - ' touch; rv:'
 - ' touch;'
+- ' tpm1'
 - ' ubuntu'
+- ' viera'
+- ' vizio '
 - ' win10 x64'
 - ' win7 x64'
+- ' wired)'
+- ' wireless)'
 - '(ipad; '
 - '(iphone; '
 - '(macos; '
+- '(vizio'
+- ',wired)'
+- '-dtv'
 - '; winnt '
+- ';viera'
+- ';wired)'
 - 'haiku '
 - 'haiku)'
 - 'iphone os '
@@ -76,6 +90,8 @@ Words:
 - 'zte '
 - 'zte-'
 - 'zte_'
+- (akai,
+- (astro;
 - (beos
 - (debian)
 - (fuchsia)
@@ -90,18 +106,34 @@ Words:
 - (linux; 7
 - (linux; 8
 - (linux; 9
+- (sky,
+- (tv0
+- (tv1
+- (tv2
+- (tv3
+- (tv4
+- (tv5
+- (tv6
+- (tv7
+- (tv8
+- (tv9
 - (win64)
 - (x11; fuchsia)
 - (x11; u; en)
 - /ans/
+- /dvp-
 - /ios/
 - /mac/
 - /midp-2.0
+- 4k tv
 - ; a101
 - ; a5
 - ; c1505
+- ; fa-ir)
+- ; fa-ir;
 - ; gt-p
 - ; lc
+- ; pl-pl;
 - ; smartphone
 - ; smarttab
 - ; spv'
@@ -113,6 +145,17 @@ Words:
 - ;quadra
 - ;smartphone;
 - _sc-
+- _tv0
+- _tv1
+- _tv2
+- _tv3
+- _tv4
+- _tv5
+- _tv6
+- _tv7
+- _tv8
+- _tv9
+- _tv_
 - a5x max
 - acer-
 - adr 1
@@ -130,6 +173,7 @@ Words:
 - amiga-web
 - amigaos
 - amoi-
+- andr0id
 - android 0
 - android 1
 - android 2
@@ -155,11 +199,14 @@ Words:
 - android; 7
 - android; 8
 - android; 9
+- apple tv
 - apple watch
 - apple-ipad
 - apple-iphone
 - apple/imac
 - apple/mac
+- appletv
+- aquos-as
 - arch linux
 - archlinux
 - archos 10
@@ -169,7 +216,9 @@ Words:
 - arm; lumia
 - arm; touch;
 - asus;galaxy
+- avui/tv
 - axonfon
+- bdplayer;
 - bdspark/
 - benq-
 - beonex/
@@ -178,6 +227,7 @@ Words:
 - blackberry9
 - blackberry;
 - brew mp
+- brightsign/
 - browser/wap2
 - build/0
 - build/1
@@ -207,6 +257,7 @@ Words:
 - cpu=ia32
 - cpu=ppc
 - cricket-
+- crkey
 - cygwin
 - debian-
 - debian/
@@ -217,6 +268,7 @@ Words:
 - device/ipad
 - device/iphone
 - docomo
+- dtv;
 - dv(iph
 - echo/0
 - echo/1
@@ -230,14 +282,22 @@ Words:
 - echo/9
 - electron/
 - enterprise linux
+- escape
+- espial/
 - fbcr/
 - fedora/
+- firetv
 - fly-
 - garmin-asus
+- gfibertv
+- gftv
 - gigabyte
 - gog galaxy
+- googletv
 - granparadiso
+- gtv1
 - handbrake win upd
+- hgtv-
 - hgtv-led
 - hp-tablet
 - hpipaq
@@ -245,6 +305,7 @@ Words:
 - htc_pg
 - htc_touch
 - huawei
+- humax;
 - iceape/
 - ios iphone
 - ios/0
@@ -375,6 +436,7 @@ Words:
 - iphone; ios 2
 - iphone; ios 3
 - iphone; u; cpu os
+- it-it;
 - itunes-ipad/
 - itunes-iphone/
 - jig browser
@@ -386,6 +448,7 @@ Words:
 - kddi-
 - kgt/2.0
 - kindle/
+- kreatv
 - lavie tab
 - lge; gvc-
 - librem 5
@@ -404,6 +467,7 @@ Words:
 - linux 8.
 - linux 9.
 - linux zbov
+- longtv
 - mac os x version
 - mac os x; darwin
 - mac_powerpc
@@ -428,6 +492,7 @@ Words:
 - macos/9
 - maemo rx
 - mageia
+- maple 5
 - masstel
 - masstel_
 - maui browser
@@ -457,7 +522,10 @@ Words:
 - nec
 - nec-
 - nec_
+- netcast.media
+- netcast.tv
 - netscape
+- nettv
 - nexiannx
 - ngm
 - ngm_
@@ -486,13 +554,20 @@ Words:
 - nokian7
 - nokian8
 - nokian9
+- nook browser
+- olleh tv
+- opera tv store/
+- opera tv/
 - ordissimo/
 - ov-steelcore
+- ozonehd
 - palm os
 - palm treo
 - palmos
 - palmscape/
 - palmsource/
+- panasonic.bd
+- panatv
 - pantech
 - pendoo
 - pndp60l10blk
@@ -503,6 +578,7 @@ Words:
 - portalmmm/
 - power macintosh
 - powermac
+- puffin/
 - qc-1
 - qc-2
 - qc-3
@@ -521,12 +597,19 @@ Words:
 - qc7
 - qc8
 - qc9
+- qtembedded;
 - r1x browser
 - rekonq
 - rim tablet
+- roku/
+- roku/dvp
+- roku; ap;
+- roku; ui;
+- rokuos/
 - rx-51 n900
 - sabayon
 - sagem-my
+- sagemcom
 - sam-r560
 - samsung gt-
 - samsung sam-
@@ -556,10 +639,14 @@ Words:
 - shiretoko
 - sie-
 - silk-accelerated
+- sky_worth
+- skyworth
 - slackware/
 - smadl
 - smadl_
+- smart-tv
 - smartfren
+- smarttv
 - snowshoe/
 - sonim xp
 - sonim-xp
@@ -581,12 +668,16 @@ Words:
 - spicem5
 - spotify_android-tablet
 - spotify_other-mobile
+- sprinter.
+- sprinter6
+- sprinter7
 - staraddict
 - starshine
 - startab
 - startrail
 - suse/
 - swiftfox
+- swtv
 - syllable)
 - t-mobile_
 - tcl-
@@ -598,10 +689,15 @@ Words:
 - touch ii
 - tpapi
 - treo8
+- tv build
+- tv store/
+- tvbrowser/
 - ubuntu)
 - ubuntu-
 - ubuntu/
+- ugoos
 - url/emacs emacs/
+- vestel/
 - vk-vk
 - vr safari
 - walton_
@@ -614,7 +710,7 @@ Words:
 - watch2,
 - watch3,
 - watch4,
-- watch5,
+- watch5,s
 - watch6,
 - watch7,
 - watch8,
@@ -622,6 +718,7 @@ Words:
 - watchos
 - webissimo3/
 - webos/
+- webtv/
 - wget/
 - windows 20
 - windows 95
@@ -650,8 +747,3 @@ Words:
 - xda comet
 - xiino/
 - xoom
-- ; fa-ir)
-- ; fa-ir;
-- ; pl-pl;
-- it-it;
-- puffin/

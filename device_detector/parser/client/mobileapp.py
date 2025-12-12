@@ -12,18 +12,13 @@ class MobileApp(BaseClientParser):
         'upstream/client/mobile_apps.yml',
     ]
 
-    STRIP_EXTRA_SUFFIXES = (
-        '.*Android',
-        '.*CFNetwork',
-    )
-
-    def check_all_regexes(self) -> bool:
+    def check_all_regexes(self) -> bool | list:
         # Don't check ahocorasick for user agents like:
         # R/3.6.0 (ubuntu-16.04) R (3.6.0 x86_64-pc-linux-gnu x86_64 linux-gnu)
         if self.user_agent.lower().startswith("r/"):
             return True
-        if super().check_all_regexes():
-            return True
+        if check_all := super().check_all_regexes():
+            return check_all
         if ENDSWITH_DARWIN.search(self.user_agent.lower()):
             return True
         return False

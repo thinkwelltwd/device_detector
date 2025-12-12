@@ -57,8 +57,8 @@ class ParserClientBase(ParserBaseTest):
 class TestBrowser(ParserClientBase):
 
     fixture_files = [
-        'tests/parser/fixtures/local/client/browser.yml',
         'tests/parser/fixtures/upstream/client/browser.yml',
+        'tests/parser/fixtures/local/client/browser.yml',
     ]
     fields = ('name', 'type')
     Parser = Browser
