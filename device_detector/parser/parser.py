@@ -3,7 +3,6 @@ try:
 except ImportError:
     from typing_extensions import Self
 
-from ..settings import DDCache
 from ..lazy_regex import RegexLazyIgnore
 from .client_hints import ClientHints
 from .extractors import (
@@ -106,10 +105,9 @@ class Parser(RegexLoader):
         return self._is_ios_fragment
 
     def check_all_regexes(self) -> bool | list:
-        if not (corasick := DDCache['corasick'].get(self.cache_name)):
+        if not (corasick := self.load_ahocorasick_patterns()):
             return True
-        matched = corasick.find_matches_as_strings(self.user_agent_lower)
-        return matched
+        return corasick.find_matches_as_strings(self.user_agent_lower)
 
     def _parse(self) -> None:
         """Override on subclasses if custom parsing is required"""

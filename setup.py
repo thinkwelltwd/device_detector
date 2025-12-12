@@ -42,8 +42,8 @@ setup(
         'ahocorasick-rs',
         'pyyaml',
         'regex',
-        'backports.strenum; python_version <= 3.10',
-        'typing_extensions; python_version <= 3.10',
+        'backports.strenum; python_version <= "3.10"',
+        'typing_extensions; python_version <= "3.10"',
     ],
     classifiers=[
         'Environment :: Web Environment',
@@ -56,6 +56,8 @@ setup(
         'Programming Language :: Python :: 3.10',
         'Programming Language :: Python :: 3.11',
         'Programming Language :: Python :: 3.12',
+        'Programming Language :: Python :: 3.13',
+        'Programming Language :: Python :: 3.14',
         'Programming Language :: Python :: Implementation :: CPython',
     ],
 )
