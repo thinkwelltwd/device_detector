@@ -21,5 +21,5 @@ clean-pyc: ## Remove Python file artifacts
 test: ## Run the tests
 	$(PYTHON) -m unittest
 
-sdist: clean ## Package new release
-	$(PYTHON) setup.py sdist
+packages: clean ## Package new release
+	$(PYTHON) -m build
