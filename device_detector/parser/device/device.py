@@ -43,9 +43,10 @@ OPERA_TABLET_FRAGMENT = RegexLazy(BOUNDED_REGEX.format('Opera Tablet'))
 OPERA_TV_FRAGMENT = RegexLazy(BOUNDED_REGEX.format('Opera TV Store| OMI/'))
 
 ENDSWITH_FIREFOX = RegexLazyIgnore(r'(Firefox|Iceweasel|Phoenix)/(?:\d+[.\d]+)$')
-UA_CLIENT_HINTS_FRAGEMENT = RegexLazyIgnore(
-    r'~Android (?:10[.\d]*; K(?: Build/|[;)])|1[1-5]\)) AppleWebKit~i'
+UA_CLIENT_HINTS_FRAGMENT = RegexLazyIgnore(
+    r'Android (?:1[0-6][.\d]*; K(?: Build/|[;)])|1[0-6]\)) AppleWebKit'
 )
+TELEGRAM_ANDROID = RegexLazy('Telegram-Android/')
 
 
 class Device(BaseDeviceParser):
@@ -73,7 +74,7 @@ class Device(BaseDeviceParser):
         if self.client_hints:
             if self.client_hints.model:
                 return True
-            if UA_CLIENT_HINTS_FRAGEMENT.search(self.user_agent):
+            if self.has_user_agent_client_hints_fragment():
                 return False
 
         if ac_match := super().check_all_regexes():
@@ -89,6 +90,12 @@ class Device(BaseDeviceParser):
             return True
 
         return self.user_agent_lower == 'msdw'
+
+    def has_user_agent_client_hints_fragment(self):
+        if UA_CLIENT_HINTS_FRAGMENT.search(self.user_agent):
+            if not TELEGRAM_ANDROID.search(self.user_agent):
+                return True
+        return False
 
     def _parse(self) -> None:
         """
