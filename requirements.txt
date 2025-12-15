@@ -1,3 +1,0 @@
-ahocorasick-rs
-pyyaml
-regex
