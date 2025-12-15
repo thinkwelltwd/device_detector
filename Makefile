@@ -5,7 +5,7 @@ PYTHON=python3.11
 help:
 	@perl -nle'print $& if m{^[a-zA-Z_-]+:.*?## .*$$}' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-25s\033[0m %s\n", $$1, $$2}'
 
-clean: clean-build clean-pyc format scan
+clean: clean-build clean-pyc format scan type-check
 
 clean-build: ## Remove build artifacts
 	rm -fr build/
@@ -24,6 +24,9 @@ format: ## Run code formatting
 
 scan: ## Run code scanning checks
 	bandit device_detector -r -c pyproject.toml
+
+type-check: ## Run type checker
+	mypy device_detector
 
 test: ## Run the tests
 	$(PYTHON) -m unittest
