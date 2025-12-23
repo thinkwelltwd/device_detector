@@ -187,8 +187,13 @@
   version: ''
   type: desktop app
 
-- regex: 'Adobe Photoshop Elements (\d{1,4})(?: editor)?/([\d\.]+)'
+- regex: 'Adobe Photoshop Elements (\d{1,4})(?: editor)?/(\d+[\.\d]+)'
   name: Adobe Photoshop Elements
+  version: '$2'
+  type: desktop app
+
+- regex: Photoshop (\d{1,4})/(\d+[\.\d]+)
+  name: Adobe Photoshop
   version: '$2'
   type: desktop app
 
@@ -197,11 +202,7 @@
   version: '$1'
   type: desktop app
 
-- regex: 'WeatherKit_Weather(?:poster|widget|d)?_(?:ipados|ios|ipados|macos)_Version ([\d\.]+)'
-  name: Apple Weather
-  version: '$1'
-  type: desktop app
-- regex: 'WeatherWidgets?Extension/([\d\.]+)'
-  name: Apple Weather
+- regex: QuickBooks/(\d+[\.\d]+)
+  name: QuickBooks
   version: '$1'
   type: desktop app

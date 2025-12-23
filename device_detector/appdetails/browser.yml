@@ -18,6 +18,7 @@
   name: DuckDuckGo Privacy Browser
 
 - uaname: com.google.android.webview
+  suffixes: .beta|.canary|.dev
   name: Android System WebView
 
 - uaname: com.google.android.apps.bard
@@ -27,6 +28,9 @@
   name: Google Chrome
 - uaname: com.google.chrome.ios
   suffixes: .chromeframework
+  name: Google Chrome
+- uaname: com.chrome
+  suffixes: .beta|.canary|.dev
   name: Google Chrome
 
 - uaname: com.opera.browser

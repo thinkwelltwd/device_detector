@@ -227,7 +227,7 @@ class Browser(BaseClientParser):
         }
 
         if 'engine' not in self.ua_data:
-            engine = Engine(self.user_agent, self.ua_spaceless, self.client_hints).parse().ua_data
+            engine = Engine(self.user_agent, self.client_hints).parse().ua_data
             self.ua_data['engine'] = engine
             return
 
@@ -263,11 +263,7 @@ class Browser(BaseClientParser):
         """
         Update secondary_client dict with any data from specified extractor
         """
-        parsed = extractor(
-            ua=self.user_agent,
-            ua_spaceless=self.ua_spaceless,
-            client_hints=self.client_hints,
-        ).parse()
+        parsed = extractor(ua=self.user_agent, client_hints=self.client_hints).parse()
 
         if parsed.ua_data:
             self.secondary_client = parsed.ua_data

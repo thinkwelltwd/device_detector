@@ -137,6 +137,9 @@
 
 - uaname: foxnews
   name: Fox News
+- uaname: com.foxnews.foxnews
+  name: Fox News
+
 - uaname: com.superfeedtech.conservativenews
   name: Conservative News America
 
@@ -220,9 +223,6 @@
 - uaname: autotrader
   name: AutoTrader
 
-- uaname: audible
-  name: Audible
-
 - uaname: biblegateway
   name: Zondervan Bible Gateway
 - uaname: com.sirma.mobile.bible.android
@@ -244,9 +244,6 @@
   name: Tim Hortons
 
 - uaname: ebay
-  name: eBay
-
-- uaname: ebaynotificationserviceextension
   name: eBay
 
 - uaname: expediabookings
@@ -467,14 +464,9 @@
 - uaname: AESMService
   name: AESM Service
 
-- uaname: agenda-widgetextension
-  name: Agenda Widget Extension
-
 - uaname: agworld
   name: Ag World
 
-- uaname: airbnbnotificationserviceappextension
-  name: Airbnb
 - uaname: com.airbnb
   suffixes: .android|.app
   name: Airbnb
@@ -719,6 +711,9 @@
 - uaname: cabelas
   name: Cabelas
 
+- uaname: com.basspro.store
+  name: Bass Pro
+
 - uaname: calcbot
   name: Calcbot
 
@@ -850,7 +845,7 @@
 - uaname: colorledflashlightpro
   name: Color LED Flashlight Pro
 
-- uaname: com.agilebits.onepassword-ios.extension
+- uaname: com.agilebits.onepassword-ios
   name: 1Password
 
 - uaname: agingbooth
@@ -1129,7 +1124,6 @@
   name: Duolingo Mobile
 
 - uaname: eBay
-  suffixes: NotificationServiceExtension
   name: eBay
 
 - uaname: ecatalog
@@ -1185,6 +1179,8 @@
   name: 'Hotwire: Hotel Deals & Travel'
 - uaname: com.travelocity.android
   name: Travelocity Hotels & Flights
+- uaname: com.hopper.flights
+  name: Hopper Flights, Hotels & Cars
 
 - uaname: facebook
   name: Facebook
@@ -1449,6 +1445,11 @@
 
 - uaname: google update
   name: Google Update
+
+- uaname: com.google.android.GoogleCamera
+  name: Google Camera
+- uaname: com.google.android.apps.camera.services
+  name: Google Camera
 
 - uaname: gopayment
   name: GoPayment
@@ -1725,7 +1726,6 @@
   name: Kodak Moments
 
 - uaname: "kohl's"
-  suffixes: "notification service extension"
   name: "Kohl's"
 
 - uaname: kroger
@@ -1833,7 +1833,7 @@
 - uaname: matthew henry & strong's concordance with kjv bible
   name: Matthew Henry & Strong's Concordance with KJV Bible
 
-- uaname: mcdonald's
+- uaname: ca.mcdonalds.McDonalds
   name: McDonald's
 
 - uaname: mcmaster-carr-app
@@ -2064,10 +2064,6 @@
 - uaname: notificationhubs
   name: Notification Hubs
 
-- uaname: notificationservice
-  suffixes: extension
-  name: Notification Service
-
 - uaname: ns imessage app
   name: NS iMessage App
 
@@ -2162,9 +2158,6 @@
 - uaname: perfectserve
   name: PerfectServe
 
-- uaname: photon
-  name: Photon
-
 - uaname: photopills
   name: Photo Pills
 
@@ -2237,9 +2230,6 @@
 - uaname: puppr
   name: Puppr
 
-- uaname: pushnotificationserviceextension
-  name: Push Notification Service Extension
-
 - uaname: pyrogusto.speedometer
   name: Pyrogusto Speedometer
 
@@ -2252,12 +2242,6 @@
 
 - uaname: qr scanner
   name: QR Scanner
-
-- uaname: quickbooks
-  name: QuickBooks
-
-- uaname: quickbooks payroll
-  name: QuickBooks Payroll
 
 - uaname: quicken
   name: Quicken
@@ -2437,9 +2421,6 @@
 - uaname: share
   name: Share
 
-- uaname: shareextension
-  name: Share Extension
-
 - uaname: shazam
   name: Shazam
 
@@ -2522,7 +2503,7 @@
   name: Sound Meter X
 
 - uaname: soundwaves
-  name: Soundwaves
+  name: SoundWaves
 
 - uaname: spanishdict
   name: SpanishDict
@@ -2579,7 +2560,6 @@
   name: Storm
 
 - uaname: strava
-  suffixes: notification service extension
   name: Strava
 
 - uaname: street invoice
@@ -2723,9 +2703,6 @@
 
 - uaname: tips & tricks
   name: Tips & Tricks
-
-- uaname: tipswidgetextension
-  name: Tips Widget Extension
 
 - uaname: tiresizer
   name: TireSizer
@@ -3027,6 +3004,8 @@
   name: "Google Pay: Save and Pay"
 - uaname: com.google.paisa
   name: "Google Pay: Save and Pay"
+- uaname: com.google.android.apps.photos.scanner
+  name: Google Photos
 - uaname: com.google.photos
   name: Google Photos
 - uaname: com.google.photosscanner
@@ -3052,7 +3031,7 @@
 - uaname: com.google.drive
   name: Google Drive
 - uaname: com.google.googlemobile
-  name: GoogleMobile
+  name: Google Search App
 - uaname: com.google.hangouts_ios
   name: Google Hangouts
 - uaname: com.google.b612
@@ -3067,10 +3046,16 @@
   name: Google One
 - uaname: com.google.android.apps.kids.familylink
   name: Google Family Link
+- uaname: com.google.android.apps.cloudconsole
+  name: Google Cloud
+- uaname: com.google.enterprise.topaz.mobile.android
+  name: Google Cloud Search
 - uaname: com.google.android.apps.docs.editors.docs
   name: Google Docs
 - uaname: com.google.android.apps.healthdata
   name: Health Connect
+- uaname: com.google.android.wearable.healthservices
+  name: Health Services
 - uaname: com.google.android.apps.nbu.files
   name: Files by Google
 - uaname: com.google.ar.lens
@@ -3081,16 +3066,24 @@
   name: Google Keep - Notes and lists
 - uaname: com.google.android.projection.gearhead
   name: Android Auto
+- uaname: com.google.android.embedded.projection
+  name: Android Auto
+- uaname: com.google.android.apps.work.clouddpc
+  name: Android Device Policy
+- uaname: com.google.android.apps.restore
+  name: Android Switch
+- uaname: com.google.android.wearable.assistant
+  name: Android Assistant
+- uaname: com.google.android.apps.blogger
+  name: Blogger
 - uaname: com.google.android.apps.books
   name: Google Play Books & Audiobooks
 - uaname: com.google.GoogleBooks
   name: Google Play Books
 - uaname: com.google.android.apps.wellbeing
   name: Digital Wellbeing
-- uaname: com.google.android.apps.tachyon
-  name: Google Meet
-- uaname: com.google.android.apps.photosgo
-  name: Google Gallery
+- uaname: com.google.android.apps.kids.familylinkhelper
+  name: Family Link Parental Controls
 - uaname: com.google.android.apps.magazines
   name: Google News - Daily Headlines
 - uaname: com.google.android.googlequicksearchbox
@@ -3103,9 +3096,13 @@
   name: Google Drive
 - uaname: com.google.android.apps.googleassistant
   name: Google Assistant
+- uaname: com.google.android.apps.assistant
+  name: Google Assistant
 - uaname: com.google.android.apps.docs.editors.slides
   name: Google Slides
 - uaname: com.google.android.apps.photos
+  name: Google Photos
+- uaname: com.google.android.apps.photosgo
   name: Google Photos
 - uaname: com.google.android.apps.docs.editors.sheets
   name: Google Sheets
@@ -3651,6 +3648,9 @@
   name: Samsung Security Policy Update
 - uaname: us.zoom.videomeetings
   name: Zoom Workplace
+- uaname: zoom
+  suffixes: .ipad|.iphone|.mac|.win
+  name: Zoom Workplace
 - uaname: com.sec.app.samsungprintservice
   name: Samsung Print Service Plugin
 - uaname: com.mi.android.globalfileexplorer
@@ -3677,10 +3677,6 @@
   name: Among Us
 - uaname: com.sec.android.app.popupcalculator
   name: Samsung Calculator
-- uaname: com.whatsapp
-  name: WhatsApp Messenger
-- uaname: com.whatsapp.w4b
-  name: WhatsApp Business
 - uaname: com.mi.globalminusscreen
   name: App Vault
 - uaname: com.tocaboca.tocalifeworld
@@ -3956,6 +3952,8 @@
   name: 'Zillow: Homes for Sale & Rent'
 - uaname: com.yandex.mobile.metrica.sdk
   name: Yandex Browser
+- uaname: xfinity
+  name: Xfinity Home
 - uaname: com.xfinity.digitalhome
   name: Xfinity Home
 - uaname: com.wellspan.wellspan-iphone
@@ -4117,3 +4115,18 @@
   name: Tape MeasureTM
 - uaname: net.gordonedwards.Scanner-Radio-Deluxe
   name: Police Scanner Radio & Fire
+- uaname: com.google.android.apps.googlevoice
+  name: Google Voice
+- uaname: com.google.gvdialer
+  name: Google Voice
+- uaname: com.google.android.wearable.weather
+  name: Google Weather
+- uaname: com.apple.weather
+  name: Apple Weather
+  suffixes: kitservice|kit.authservice
+- uaname: com.apple.nanoweatherprefsd
+  name: Apple Weather
+- uaname: weatherd
+  name: Apple Weather
+- uaname: gov.nps.mobileapp
+  name: National Park Service

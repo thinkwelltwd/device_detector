@@ -130,12 +130,6 @@
 - uaname: com.apple.trustd
   name: trustd
 
-- uaname: com.apple.weather
-  name: Apple Weather
-  suffixes: kitservice|kit.authservice
-- uaname: com.apple.nanoweatherprefsd
-  name: Apple Weather
-
 - uaname: com.apple.webkit.networking
   name: Apple Networking Webkit
 
@@ -304,9 +298,6 @@
 - uaname: restsharp
   name: RestSharp
 
-- uaname: compose-shareextension
-  name: compose-shareextension
-
 - uaname: CrashRpt
   name: CrashRpt
 
@@ -466,9 +457,6 @@
 
 - uaname: selfupdateservice
   name: Self Update Service
-
-- uaname: sentry-cocoa
-  name: Sentry Cocoa
 
 - uaname: sfguniversalproductionrichpush
   name: SFG Universal Production Rich Push

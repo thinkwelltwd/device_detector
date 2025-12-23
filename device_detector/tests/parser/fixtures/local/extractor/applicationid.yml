@@ -111,7 +111,7 @@
 -
   user_agent: com.apple.mobilenotes.SharingExtension/1127.50 CFNetwork/808.3 Darwin/16.3.0
   client:
-    app_id: com.apple.mobilenotes.SharingExtension
+    app_id: com.apple.mobilenotes
     pretty_name: Apple Notes
 -
   user_agent: com.apple.mobilesafari

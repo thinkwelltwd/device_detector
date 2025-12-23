@@ -13,7 +13,14 @@
   name: AWS Amplify
   version: '$2'
 
-
 - regex: 'FB(Android|iOS)SDK\.(\d+[\.\d]+)'
   name: 'Facebook SDK for $1'
   version: '$2'
+
+- regex: okta[a-z-]+/(\d+[\.\d]+)
+  name: Okta Auth Platform
+  version: '$1'
+
+- regex: sentry\.[a-z\.-]+/(\d+[\.\d]+)
+  name: Sentry SDK
+  version: '$1'

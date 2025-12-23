@@ -184,6 +184,8 @@ cp $upstream/Tests/Parser/Client/fixtures/* $pdd/device_detector/tests/parser/fi
 cp $upstream/Tests/Parser/Device/fixtures/* $pdd/device_detector/tests/parser/fixtures/upstream/device/
 ```
 
+After copying the fixtures, review the diffs and restore changes that were made, especially for app types, so tests pass.
+
 ### Aho Corasick pattern pre-checks
 Parser classes have a `check_all_regexes` method that performs a pattern pre-check using the
 Aho Corasick algorithm to determine whether the parser has a possible match or not.

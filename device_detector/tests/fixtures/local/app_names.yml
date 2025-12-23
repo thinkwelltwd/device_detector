@@ -117,7 +117,27 @@
   user_agent: <com.apple.NewDeviceOutreach/12.3.1/iPad8,3>
   client:
     name: Apple New Device Outreach
-    version: ''
+    version: 12.3.1
+-
+  user_agent: <com.apple.ndoagent.outreach/15.4.1/Mac15,6>
+  client:
+    name: Apple New Device Outreach
+    version: 15.4.1
+-
+  user_agent: <com.apple.ndoagent.osupgrade/14.7.2/Mac14,2>
+  client:
+    name: Apple New Device Outreach
+    version: 14.7.2
+-
+  user_agent: <com.apple.ndoagent.followuppost/17.5.1/iPad14,2>
+  client:
+    name: Apple New Device Outreach
+    version: 17.5.1
+-
+  user_agent: <com.apple.ndoagent.conversionoutreach/18.2.1/iPhone14,6>
+  client:
+    name: Apple New Device Outreach
+    version: 18.2.1
 -
   user_agent: com.applicatsia.iroofing/3.4.7 GMS-SDK/2.5.30219.0 iPad/12.1.1 hw/iPad5_4 (gzip)
   client:
@@ -146,7 +166,7 @@
 -
   user_agent: com.google.GoogleMobile.TrendsTodayExtension/72.0.0 iPhone/12.2 hw/iPhone11_2
   client:
-    name: GoogleMobile
+    name: Google Search App
     version: 72.0.0
 -
   user_agent: com.google.calendar.TodayExtension/2.90.0 iSL/3.3 iPhone/12.2 hw/iPhone8_4 (gzip)
@@ -263,7 +283,7 @@
   user_agent: com.google.GoogleMobile.NotificationExtension/368.0 iSL/3.4 iPhone/18.4 hw/iPhone15_5 (gzip)
   client:
     type: mobile app
-    name: GoogleMobile
+    name: Google Search App
     version: 368.0
 -
   user_agent: com.google.Maps.HomeTrafficWidgetExtension/25.17.0 iSL/3.4 iPhone/17.5.1 hw/iPhone12_1 (gzip)
@@ -295,6 +315,12 @@
     type: mobile app
     name: 'AccuWeather: Weather Radar'
     version: 1.0
+-
+  user_agent: AccuWeather 13.0.0 (iPhone; iOS 12.4; UALib 10.2.1; v03zMklOSs21b-FaC8eG6A; en_CA)
+  client:
+    type: mobile app
+    name: 'AccuWeather: Weather Radar'
+    version: 13.0.0
 -
   user_agent: AccuWeatherWidget/1 CFNetwork/1568.200.51 Darwin/24.1.0
   client:
@@ -341,13 +367,13 @@
   user_agent: Audible, iPhone, 1813 (4.55.1), iPhone 13 Pro Max iPhone14,3, iOS, 26.0.1, 3G/Edge
   client:
     type: mediaplayer
-    name: Audible Music Player
+    name: Audible
     version: 1813
 -
   user_agent: AudibleNotificationServiceExtension/1538 CFNetwork/3826.500.111.2.2 Darwin/24.4.0
   client:
     type: mediaplayer
-    name: Audible Music Player
+    name: Audible
     version: 1538
 -
   user_agent: ALDI iOS App US 9.2513.0 43
@@ -404,11 +430,47 @@
     name: Booking App
     version: 51.7.1
 -
+  user_agent: com.apple.weatherkit.authservice/1 CFNetwork/3826.400.101 Darwin/24.3.0
+  client:
+    type: mobile app
+    name: Apple Weather
+    version: 1
+-
+  user_agent: weatherd/808 CFNetwork/1568.300.101 Darwin/24.2.0
+  client:
+    type: mobile app
+    name: Apple Weather
+    version: 808
+-
+  user_agent: weatherd_iOS_Version 18.2.1 (Build 22C161)
+  client:
+    type: mobile app
+    name: Apple Weather
+    version: 18.2.1
+-
   user_agent: WeatherKit_WeatherWidget_iPadOS_Version 18.2 (Build 22C152)
   client:
-    type: desktop app
+    type: mobile app
     name: Apple Weather
     version: 18.2
+-
+  user_agent: WeatherKit_destinationd_iOS_Version 18.2 (Build 22C152)
+  client:
+    type: mobile app
+    name: Apple Weather
+    version: 18.2
+-
+  user_agent: WeatherKit_InStride_iOS_Version 18.1.1 (Build 22B91)
+  client:
+    type: mobile app
+    name: Apple Weather
+    version: 18.1.1
+-
+  user_agent: Weather_macOS_Version 15.4.1 (Build 24E263)
+  client:
+    type: mobile app
+    name: Apple Weather
+    version: 15.4.1
 -
   user_agent: ChatBox_AI/1.70.597.0 (iPhone 14_7; iPhone OS 18_4_1) genius.chat/1.70.597.0 (bundle 0855461153.5422564354) CFNetwork/3826.500.111.2.2 Darwin/24.4.0
   client:
@@ -477,6 +539,165 @@
   user_agent: mShop::Amazon_iPhone_17.22.2::iPhone::iPhone_OS_15.8.4
   client:
     name: Amazon Shopping
+-
+  user_agent: itunesstored/1.0 iOS/15.4 model/iPhone14,6 hwp/t8110 build/19E241 (6; dt:269)
+  client:
+    name: Apple iTunes
+    version: 1.0
+-
+  user_agent: SignalR.Client.NetStandard/2.4.3.0 (Microsoft Windows NT 10.0.26100.0)
+  client:
+    name: SignalR
+    version: 2.4.3.0
+-
+  user_agent: WindowsStoreSDK/26100.1.amd64fre.ge_release.240331-1435-4652 5319275A.WhatsAppDesktop_2.2527.2.0
+  client:
+    name: WhatsApp
+-
+  user_agent: WhatsApp/794299312 CFNetwork/3826.500.111.2.2 Darwin/24.4.0
+  client:
+    name: WhatsApp
+    version: 794299312
+-
+  user_agent: WhatsApp Business/711804668 CFNetwork/3826.500.111.2.2 Darwin/24.4.0
+  client:
+    name: WhatsApp
+-
+  user_agent: WatchsApp for Whatsapp/154 CFNetwork/3826.600.41 Darwin/24.6.0
+  client:
+    name: WhatsApp
+    version: 154
+-
+  user_agent: Messenger for WhatsApp/1 CFNetwork/3826.500.131 Darwin/24.5.0
+  client:
+    name: WhatsApp
+    version: 1
+-
+  user_agent: Dual WhatsApp/3 CFNetwork/1568.200.51 Darwin/24.1.0
+  client:
+    name: WhatsApp
+    version: 3
+-
+  user_agent: Mozilla/5.0 (compatible; WAChat/1.2; http://www.whatsapp.com/contact)
+  client:
+    name: WhatsApp
+-
+  user_agent: WhatsAppTee
+  client:
+    name: WhatsApp
+-
+  user_agent: Signal-iOS/7.51.0.681 iOS/18.1
+  client:
+    name: Signal Private Messenger
+    version: 7.51.0.681
+-
+  user_agent: TelegramTool/1.1 (com.telegrammer; build:1.1.0; iOS 18.5.0) Alamofire/5.10.2
+  client:
+    name: Telegram Messenger
+    version: 1.1
+-
+  user_agent: TelegramTool/1.1.0 CFNetwork/3826.500.131 Darwin/24.5.0
+  client:
+    name: Telegram Messenger
+    version: 1.1.0
+-
+  user_agent: TelegramLite/1.1 (iPhone; iOS 18.5; Scale/3.00)
+  client:
+    name: Telegram Messenger
+    version: 1.1
+-
+  user_agent: ios-telegram/1 CFNetwork/3826.500.131 Darwin/24.5.0
+  client:
+    name: Telegram Messenger
+    version: 1
+-
+  user_agent: Mozilla/5.0 (ZOOM.Mac 11.7.10 x86)
+  client:
+    name: Zoom Workplace
+-
+  user_agent: android Mozilla/5.0 (Linux; Android 13; Pixel 6a Build/TQ3A.230901.001; wv) temu_android_version/3.95.0 temu_android_build/1759028873899 temu_android_channel/google pversion/0
+  client:
+    name: Temu
+    version: 3.95.0
+-
+  user_agent: Mozilla/5.0 (iPhone; CPU iPhone OS 16_7_11 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 temu_ios_version/3.92.0 temu_ios_build/1757940884590 pversion/0 wh_webview_id/12aa69200
+  client:
+    name: Temu
+    version: 3.92.0
+-
+  user_agent: weatherbug Notification Service Extension/16 CFNetwork/1494.0.7 Darwin/23.4.0
+  client:
+    name: 'WeatherBug: Weather Forecast'
+    version: 16
+-
+  user_agent: WeatherBug/27 CFNetwork/3826.600.41 Darwin/24.6.0
+  client:
+    name: 'WeatherBug: Weather Forecast'
+    version: 27
+-
+  user_agent: WeatherbugWidgetExtension/17 CFNetwork/1568.300.101 Darwin/24.2.0
+  client:
+    name: 'WeatherBug: Weather Forecast'
+    version: 17
+-
+  user_agent: WeatherBug Elite/5.97.0 (iPhone; iOS 18.1.1; Scale/2.00)
+  client:
+    name: 'WeatherBug: Weather Forecast'
+    version: 5.97.0
+-
+  user_agent: Android NHL:15.10.1 BlazeSDK:1.9.3
+  client:
+    name: National Hockey League
+    type: mobile app
+    version: 15.10.1
+-
+  user_agent: mShop:::Telly_iPhone_23.22.2:::iPad:::iPhone_OS_26.1
+  client:
+    name: Telly - The Smartest TV
+    type: mobile app
+    version: 23.22.2
+-
+  user_agent: Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; rv:11.0;QuickBooks/31.0/R17/PRO) like Gecko
+  client:
+    name: QuickBooks
+    type: desktop app
+    version: 31.0
+-
+  user_agent: okta-authfoundation-swift/1.8.0 iOS/26.1 Device/iPhone12,8
+  client:
+    name: Okta Auth Platform
+    type: library
+    version: 1.8.0
+-
+  user_agent: okta-oidc-ios/3.11.7 iOS/Version 26.2 (Build 23C55) Device/iPhone16,1
+  client:
+    name: Okta Auth Platform
+    type: library
+    version: 3.11.7
+-
+  user_agent: Photoshop 2025/26.11.1 CFNetwork/3860.200.71 Darwin/25.1.0
+  client:
+    name: Adobe Photoshop
+    type: desktop app
+    version: 26.11.1
+-
+  user_agent: Photoshop 2026/27.0.0 CFNetwork/3860.200.71 Darwin/25.1.0
+  client:
+    name: Adobe Photoshop
+    type: desktop app
+    version: 27.0.0
+-
+  user_agent: sentry.java.android.react-native/7.11.0
+  client:
+    name: Sentry SDK
+    type: library
+    version: 7.11.0
+-
+  user_agent: sentry.cocoa.capacitor/8.56.2
+  client:
+    name: Sentry SDK
+    type: library
+    version: 8.56.2
 # --------------------------------------------------------------------------------
 # UA Strings with no interesting pairs should fall back to browser details
 -

@@ -72,13 +72,11 @@
   name: Google Calendar
 
 - uaname: com.google.android.gm
+  suffixes: .lite
   name: Gmail
 
 - uaname: com.google.android.apps.messaging
   name: Google Messages
-
-- uaname: com.google.android.gm.lite
-  name: Gmail Go
 
 - uaname: com.ernieware.directmail
   name: Direct Mail

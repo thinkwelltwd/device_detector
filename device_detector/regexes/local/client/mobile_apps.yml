@@ -13,6 +13,10 @@
   name: Baby Center
   version: $1
 
+- regex: 'Android NHL:(\d+[\.\d]+) BlazeSDK'
+  name: National Hockey League
+  version: '$1'
+
 - regex: 'Booking\.?App/([\d\.]+)'
   name: Booking App
   version: $1
@@ -48,4 +52,37 @@
 
 - regex: mShop::Amazon_iPhone_(\d+[\.\d]+)
   name: Amazon Shopping
+  version: '$1'
+
+- regex: mShop:{1,5}Telly_iPhone_(\d+[\.\d]+)
+  name: Telly - The Smartest TV
+  version: '$1'
+
+- regex: temu_\w+_version/(?P<version>[\.\d]+)
+  name: Temu
+  version: '$1'
+
+- regex: 'WeatherWidgets?Extension/([\d\.]+)'
+  name: Apple Weather
+  version: '$1'
+  type: desktop app
+
+- regex: weather(kit)?_\w+_version ([\.\d]+)
+  name: Apple Weather
+  version: '$2'
+
+- regex: weatherd_\w+_version ([\.\d]+)
+  name: Apple Weather
+  version: '$1'
+
+- regex: Weatherbug(?:(?:\ |\w)+)?/(\d+[\.\d]+)
+  name: 'WeatherBug: Weather Forecast'
+  version: '$1'
+
+- regex: AccuWeather ([\.\d]+)
+  name: 'AccuWeather: Weather Radar'
+  version: '$1'
+
+- regex: Weatherbug(?:(?:\ |\w)+)?/(\d+[\.\d]+)
+  name: 'WeatherBug: Weather Forecast'
   version: '$1'

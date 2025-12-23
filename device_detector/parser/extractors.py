@@ -1,9 +1,9 @@
 from ..lazy_regex import RegexLazyIgnore
 from ..yaml_loader import RegexLoader, app_pretty_names_types_data
 from device_detector.enums import AppType
+from device_detector.utils import normalize_app_name
 
 APP_ID = RegexLazyIgnore(r'\b([a-z]{2,5}\.[\w\d\.\-]+)')
-GOOGLE_APPS = RegexLazyIgnore(r'(com\.google\.\w+)\.\w+$')
 
 # 6H4HRTU5E3.com.avast.osx.secureline.avastsecurelinehelper/47978 CFNetwork/976 Darwin/18.2.0 (x86_64)
 # YMobile/1.0(com.kitkatandroid.keyboard/4.3.2;Android/6.0.1;lv1;LGE;LG-M153;;792x480
@@ -145,17 +145,18 @@ class ApplicationIDExtractor(RegexLoader):
 
         pretty_names = self._app_id_pretty_names
         for app_id, version in app_ids:
-            if pretty_name := pretty_name_from_app_id(app_id.lower(), pretty_names):
+            normalized_app_id = normalize_app_name(app_id)
+            if pretty_name := pretty_names.get(normalized_app_id.lower()):
                 self.details = {
                     'name': pretty_name['name'],
-                    'app_id': app_id,
+                    'app_id': normalized_app_id,
                     'version': version,
                     'type': pretty_name['type'],
                 }
                 break
         else:
             self.details = {
-                'app_id': app_ids[0][0],
+                'app_id': normalize_app_name(app_ids[0][0]),
                 'version': app_ids[0][1],
                 'type': AppType.Generic,
             }
@@ -166,6 +167,10 @@ class ApplicationIDExtractor(RegexLoader):
         """
         Extract App IDs from the user agent.
         """
+        # Skip UAs like sentry.java.android.react-native
+        if self.user_agent.startswith('sentry.'):
+            return []
+
         if app_ids := LONG_PREFIX_APP_ID_VERSION.findall(self.user_agent):
             return app_ids
 
@@ -188,23 +193,6 @@ class ApplicationIDExtractor(RegexLoader):
 
     def __repr__(self) -> str:
         return f'{self.__class__.__name__}({self.user_agent!r})'
-
-
-def pretty_name_from_app_id(app_id: str, pretty_names: dict) -> dict:
-    """
-    Normalize app id before looking up the value, to avoid
-    storing variations for values like:
-
-    com.google.Drive.ExtensionFramework
-    com.google.Drive.ShareExtension
-    com.google.Drive.FileProviderExtension
-    com.google.photos.ModuleFramework
-    """
-    if matched := GOOGLE_APPS.match(app_id):
-        if pn := pretty_names.get(matched.group(1)):
-            return pn
-
-    return pretty_names.get(app_id) or {}
 
 
 class NameExtractor(DataExtractor):

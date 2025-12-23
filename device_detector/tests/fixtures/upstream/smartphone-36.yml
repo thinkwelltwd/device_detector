@@ -4704,7 +4704,7 @@
     version: "12"
     platform: ""
   client:
-    type: mobile app
+    type: mediaplayer
     name: Pandora
     version: 2303.2.1
   device:
@@ -4720,7 +4720,7 @@
     version: 8.0.0
     platform: ""
   client:
-    type: mobile app
+    type: mediaplayer
     name: Pandora
     version: "2204.1"
   device:
@@ -4736,7 +4736,7 @@
     version: "10"
     platform: ""
   client:
-    type: mobile app
+    type: mediaplayer
     name: Pandora
     version: "2106.1"
   device:
@@ -4753,7 +4753,7 @@
     platform: ""
   client:
     type: mobile app
-    name: LoseIt!
+    name: Lose It!
     version: 14.2.400
   device:
     type: smartphone

@@ -4,15 +4,16 @@ ScrubWords:
 - hmscore
 - hmscore 6
 Words:
-- '(com.'
-- ' net.'
 - ' bnc/'
+- ' net.'
 - ' news/'
 - ' weibo'
+- '(com.'
 - 'applenews/'
 - (fuchsia)
 - (x11; fuchsia)
 - android app
+- android nhl
 - android.app
 - appname/
 - audible
@@ -63,14 +64,21 @@ Words:
 - radioappfree
 - reddit/
 - satoshi
+- sdk_gphone64
 - shibetoshi
 - skyeng
 - skype
 - sogousearch
 - spotlight
 - telegram/
+- telly
+- temu_
 - tinytap/
 - wayback machine
+- weather_mac
+- weatherbug
+- weatherd
+- weatherkit
 - webscraping
 - weread
 - wh questions/
@@ -78,4 +86,3 @@ Words:
 - xmoonvidget
 - youtube/
 - zoho
-- sdk_gphone64

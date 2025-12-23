@@ -104,3 +104,50 @@
 # Chrome/71.0.3578.89 CFNetwork/811.5.4 Darwin
 - regex: '^([\w\d \.]+)/[\d\.]+ CFNetwork/[\d\.]+ Darwin$'
   groups: '\g<1> for iOS/macOS'
+
+# NGL Client/1.42.0.5 (MAC/13.7.8) [2025-12-15T18:03:20.330-0500]
+# Acrobat/25.1.20756.6 NGL Client/1.41.0.11 (WINDOWS_64/10.0.19045.1) [2025-11-07T18:43:38.494-0500]
+- regex: '^(.*) \[\d{4}-\d{2}-\d{2}T.*\]$'
+  groups: '\g<1>'
+
+# (UALib 17.6.1; n67sD2NiSxal68Fyd7GZmQ)
+# (UALib 17.9.0; N8PAcVorRNeDC1YkyOPRaA)
+- regex: '^\((UALib (?:\d+[\.\d]+)); \w{22}\)$'
+  groups: '\g<1>'
+
+# (UrbanAirshipLib-android/18.4.2; v2eBPSOLTuWKZKMbP728xA)
+# (UrbanAirshipLib-android/18.6.0; v2eBPSOLTuWKZKMbP728xA)
+- regex: '^\((UrbanAirshipLib(?:-\w+)?/(?:\d+[\.\d]+)); \w{22}\)$'
+  groups: '\g<1>'
+
+# McAfee Mosaic API V1 transmitter_{0FF22259-6698-44C5-8B97-7C0142D4F756}
+# McAfee Mosaic API V1 transmitter_{8C81BB84-AFC2-4650-A5D6-32210944726B}
+- regex: '^(.*)[_\b]\{[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\}$'
+  groups: '\g<1>'
+
+# BlueStacks 5/5.21.300.1070/b79d8f43-7556-4215-b0d9-41e7544ac204 gzip
+- regex: '^(.*)/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12} gzip$'
+  groups: '\g<1>'
+
+# Mozilla/5.0 (iPhone; CPU iPhone OS 17_6_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 Nextdoor v6.169.4 ndact:3cb88f4d-7bb9-4c7f-8873-b8650cb4d2c4 ndactsource:email
+# Mozilla/5.0 (iPhone; CPU iPhone OS 17_6_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 Nextdoor v6.171.4 ndact:a0ae26a9-ebcf-450a-bda9-58f63fba58c7 ndactsource:email
+- regex: '^(.*) ndact:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12} ndactsource:\w+$'
+  groups: '\g<1>'
+
+# Servicing/1.0.27 (5afeb5b9-22e5-4084-bbfc-5ab0f031ca15) [4.8.9290.0;533325]
+# Overmind/1.0.27_(5afeb5b9-22e5-4084-bbfc-5ab0f031ca15)
+# Syncro/1.0.185 (c77d4cce-6714-497e-a2d5-b6a7151eb342)
+- regex: '^(.*)[/ _]\([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\)(?: \[.*\])?$'
+  groups: '\g<1>'
+
+# Robinhood/2024.47.1 (com.robinhood.release.Robinhood; build:70057; iOS 18.1.1) Titan/1.0 user:24cec9e1-ad89-4fa9-8653-0bc0d72c40e1
+- regex: '^(.*) user:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$'
+  groups: '\g<1>'
+
+# DSADownloadBootstrapper/24.6.49.8 (//24.5.40.11/e40709c2-0c40-42db-93a7-3e12a85214b6)
+- regex: '^(.*) \(.*/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\)$'
+  groups: '\g<1>'
+
+# VMware/EUC/Analytics/SDK/6.1.2 platform/iOS appId/52fb9395558d6a6d1b000006 deviceId/90ade8b8-4a09-466d-bf97-ef3dce82255d appVersion/7.22.0
+- regex: '^(.*) deviceId/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12} (.*)$'
+  groups: '\g<1> \g<2>'

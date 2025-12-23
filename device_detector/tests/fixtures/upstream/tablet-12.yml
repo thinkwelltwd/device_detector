@@ -5474,7 +5474,7 @@
     version: "18.5"
     platform: ""
   client:
-    type: mobile app
+    type: mediaplayer
     name: YouTube
     version: 20.30.5
   device:

@@ -28,7 +28,7 @@ class Bot(BaseDeviceParser):
     def check_all_regexes(self) -> bool | list:
         if check_all := super().check_all_regexes():
             return check_all
-        return self.user_agent.lower() in GENERIC_BOT_UAS
+        return self.user_agent_lower in GENERIC_BOT_UAS
 
     def is_bot(self) -> bool:
         return self.matched_regex is not None

@@ -27,10 +27,9 @@ class TestOSFragment(ParserBaseTest):
 
         for fixture in fixtures:
             self.user_agent = unquote(fixture.pop('user_agent'))
-            spaceless = self.user_agent.lower().replace(' ', '')
             expect = fixture['name']
             ch = ClientHints.new(fixture.get('headers', {}))
-            parsed = OSFragment(self.user_agent, spaceless, client_hints=ch).parse()
+            parsed = OSFragment(self.user_agent, client_hints=ch).parse()
 
             self.assertEqual(expect, parsed.ua_data['name'])
 

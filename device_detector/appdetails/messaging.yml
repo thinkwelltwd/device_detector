@@ -44,8 +44,55 @@
 - uaname: com.messengerx
   name: MessengerX
 
+# Signal
+- uaname: signal
+  name: Signal Private Messenger
+- uaname: signal-ios
+  name: Signal Private Messenger
+- uaname: org.thoughtcrime.securesms
+  name: Signal Private Messenger
+
+# Telegram
+- uaname: com.tele.messanger
+  name: Telegram Messenger
+- uaname: org.telegram.messenger
+  name: Telegram Messenger
+- uaname: com.telegrammer
+  name: Telegram Messenger
+- uaname: TelegramTool
+  name: Telegram Messenger
+- uaname: Telegram
+  name: Telegram Messenger
+- uaname: TelegramLite
+  name: Telegram Messenger
+- uaname: ios-telegram
+  name: Telegram Messenger
+- uaname: TelegramChannelHub
+  name: Telegram Channel Hub
+
 # WhatsApp
+- uaname: com.whatsapp
+  suffixes: .w4b
+  name: WhatsApp
 - uaname: WhatsApp
+  name: WhatsApp
+- uaname: WhatsAppDesktop
+  name: WhatsApp
+- uaname: Messenger for WhatsApp
+  name: WhatsApp
+- uaname: WatchsApp for WhatsApp
+  name: WhatsApp
+- uaname: WhatsApp Business
+  name: WhatsApp
+- uaname: WAChat
+  name: WhatsApp
+- uaname: WAChat
+  name: WhatsApp
+- uaname: WatchsApp for Whatsapp
+  name: WhatsApp
+- uaname: Dual Whatsapp
+  name: WhatsApp
+- uaname: WhatsAppTee
   name: WhatsApp
 - uaname: Chat for WhatsApp
   name: WhatsApp

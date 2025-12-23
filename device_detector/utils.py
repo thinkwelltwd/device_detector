@@ -11,6 +11,35 @@ punctuation_tbl = str.maketrans(dict.fromkeys(' /.', ''))
 number_table = str.maketrans(dict.fromkeys('0123456789', ''))
 REPEATED_CHARACTERS = RegexLazy(r'(.)(\1{11,})')
 
+TRIM_LONG_COMBO_EXTENSIONS = RegexLazyIgnore(
+    r'^(?P<name>.{4,})\.?(Notification-?Service-?Extension|Push-?Preview|Trends-?Today-?Extension|HomeTrafficWidgetExtension|NotificationServiceAppExtension|NotiService)$'
+)
+TRIM_FRAMEWORK_SUFFIXES = RegexLazyIgnore(
+    r'^(?P<name>.{4,})\.?((AppAndExtensions|Extension|Module|Voice)Framework)$'
+)
+TRIM_NOTIFICATION_EXTENSION = RegexLazyIgnore(
+    r'^(?P<name>.{4,})\.?(notifications?(?:service)?-?(extension|service|content)$)'
+)
+TRIM_KIT_SERVICE = RegexLazyIgnore(r'(?P<name>.{4,})\.?kitservice')
+TRIM_NOTIFICATION_AGENT = RegexLazyIgnore(r'(?P<name>.{4,})\.?NotificationAgent$')
+TRIM_VARIOUS_EXTENSIONS = RegexLazyIgnore(
+    r'^(?P<name>.{4,})\.?(about|intents?|message|share|sharing|service|today|widgets?)-?extension$'
+)
+TRIM_SHORT_EXTENSIONS = RegexLazyIgnore(r'^(?P<name>.{4,})\.?(extension|widgets?)$')
+TRIM_FILE_PROVIDER = RegexLazyIgnore(r'^(?P<name>.{4,})\.?(fileprovider-?(extension)?)')
+
+TRIM_SUFFIX_PATTERNS = (
+    TRIM_LONG_COMBO_EXTENSIONS,
+    TRIM_FRAMEWORK_SUFFIXES,
+    TRIM_NOTIFICATION_EXTENSION,
+    TRIM_FILE_PROVIDER,
+    TRIM_KIT_SERVICE,
+    TRIM_NOTIFICATION_AGENT,
+    TRIM_VARIOUS_EXTENSIONS,
+    TRIM_SHORT_EXTENSIONS,
+)
+
+
 # Safari often appends a meaningless alphanumeric string enclosed in parens.
 # Otherwise, the UAs are identical so strip that suffix
 # Mozilla/5.0 (iPhone; CPU iPhone OS 12_1_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/16C101 (5836419392)  # noqa
@@ -411,6 +440,42 @@ def calculate_dtype(app_name: str) -> AppType:
     return AppType.Generic
 
 
+def normalize_app_name(app_name: str) -> str:
+    """
+    Remove suffixes such as:
+
+    com.costco.costco.notification-extension
+    BarcelonaNotificationExtension
+    OneDriveNotificationServiceExtension
+    TWorldNotificationService
+    SpyPoint.notificationsContent
+    RampNotificationServiceExtension
+
+    com.google.Drive.ModuleFramework
+    com.google.Drive.ExtensionFramework
+    """
+    # endswith check is almost free when a regex will match,
+    # and 100x faster when no match will be found.
+    if not app_name.lower().endswith((
+        'agent',
+        'content',
+        'extension',
+        'extensions',
+        'framework',
+        'preview',
+        'provider',
+        'service',
+        'widget',
+        'widgets',
+    )):
+        return app_name
+
+    for pattern in TRIM_SUFFIX_PATTERNS:
+        if matched := pattern.match(app_name):
+            return matched.group('name').strip('.')
+    return app_name
+
+
 __all__ = (
     'calculate_dtype',
     'ua_hash',
@@ -421,4 +486,5 @@ __all__ = (
     'mostly_repeating_characters',
     'random_alphanumeric_string',
     'uuid_like_name',
+    'normalize_app_name',
 )

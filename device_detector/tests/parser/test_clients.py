@@ -25,11 +25,9 @@ class ParserClientBase(ParserBaseTest):
 
         for fixture in fixtures:
             self.user_agent = unquote(fixture.pop('user_agent'))
-            spaceless = self.user_agent.lower().replace(' ', '')
             expect = fixture[self.fixture_key]
             parsed = self.Parser(
                 self.user_agent,
-                spaceless,
                 client_hints=ClientHints.new(fixture.get('headers', {})),
             ).clear_cache().parse()  # clear cache because fixture files may contain duplicate UAs
             data = parsed.ua_data
@@ -160,7 +158,7 @@ class TestWholeNameExtractor(GenericParserTest):
             'Chrome/138.0.7204.156 iPad/18.6.2 hw/iPad14_',
         )
         for ua in user_agents:
-            wn = WholeNameExtractor(ua, ua.replace(' ', ''), client_hints=None).parse()
+            wn = WholeNameExtractor(ua, client_hints=None).parse()
             self.assertEqual(wn.name(), '')
 
 
@@ -179,7 +177,7 @@ class TestWholeNameExtractor(GenericParserTest):
 #             ua = fixture.pop('user_agent')
 #
 #             for extractor in extractors:
-#                 parsed = extractor(ua, ua_hash(ua), ua.lower().replace(' ', '')).parse()
+#                 parsed = extractor(ua, ua_hash(ua)).parse()
 #
 #                 for field in fields:
 #                     self.assertNotIn(field, parsed.ua_data)

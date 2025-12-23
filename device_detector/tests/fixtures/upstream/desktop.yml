@@ -7505,7 +7505,7 @@
     version: 4.0.3
     platform: ""
   client:
-    type: mobile app
+    type: mediaplayer
     name: YouTube
     version: 5.3.32
   device:
@@ -9253,7 +9253,7 @@
     version: ""
     platform: ""
   client:
-    type: mobile app
+    type: mediaplayer
     name: Spotify
     version: "120800923"
   device:

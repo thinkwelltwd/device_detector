@@ -11,8 +11,7 @@ class TestDeviceBase(ParserBaseTest):
         for fixture in fixtures:
             self.user_agent = unquote(fixture.pop('user_agent'))
             expect = fixture['device']
-            spaceless = self.user_agent.lower().replace(' ', '')
-            parsed = self.Parser(self.user_agent, spaceless, None).parse()
+            parsed = self.Parser(self.user_agent, None).parse()
 
             data = parsed.ua_data
 

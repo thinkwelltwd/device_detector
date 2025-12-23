@@ -220,7 +220,7 @@
 
 # WhatsApp Business
 - regex: 'WhatsApp/([\d.]+).+CloudAPI'
-  name: 'WhatsApp Business'
+  name: 'WhatsApp'
   version: '$1'
 
 # WhatsApp

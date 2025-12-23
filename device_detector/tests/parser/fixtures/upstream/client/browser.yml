@@ -2351,7 +2351,7 @@
 -
   user_agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36 CCleaner/75.1.103.145
   client:
-    type: browser
+    type: av
     name: CCleaner
     version: 75.1.103.145
     engine: Blink
@@ -5186,7 +5186,7 @@
 -
   user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.51 Safari/537.36
   client:
-    type: browser
+    type: av
     name: CCleaner
     version: 99.0.4844.51
     engine: Blink
@@ -6062,7 +6062,7 @@
 -
   user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.74 Safari/537.36
   client:
-    type: browser
+    type: av
     name: CCleaner
     version: 99.0.15185.77
     engine: Blink

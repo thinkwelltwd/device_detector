@@ -7,40 +7,35 @@
 
 - regex: McAfee \w+ Transmitter
   name: McAfee
-  version: 
-  type: av
+  version:
+
+- regex: McAfee Mosaic API
+  name: McAfee
 
 - regex: ^cis_([\d\.]+)_
   name: Comodo Internet Security
   version: '$1'
-  type: av
 
 - regex: AV/,,ffl$
   name: Avast
   version: ''
-  type: av
 
 - regex: Avast!? (Antivirus|curl|SimpleHttp|NCC|Emergency|TUNEUP)
   name: Avast
   version:
-  type: av
 
 - regex: AV/(\d+[\.\d]+)
   name: Avast
   version: '$1'
-  type: av
 
 - regex: CCleaner, ?(\d+[\.\d]+)
   name: CCleaner
   version: '$1'
-  type: av
 
 - regex: panda ?security ?nano
   name: Panda Security Nano
   version: ''
-  type: av
 
 - regex: sophos autoupdate
   name: Sophos Autoupdate
   version: ''
-  type: av

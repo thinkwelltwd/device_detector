@@ -25,6 +25,12 @@
   name: Google Translate
 - uaname: com.google.sheets
   name: Google Sheets
+- uaname: com.google.android.apps.tasks
+  name: Google Tasks
+- uaname: com.google.Docs
+  name: Google Docs
+- uaname: com.google.Slides
+  name: Google Slides
 - uaname: com.apple.keynote
   name: Apple iWork Keynote
 - uaname: com.apple.pages
@@ -36,7 +42,6 @@
 - uaname: com.apple.notes
   name: Apple Notes
 - uaname: com.apple.mobilenotes
-  suffixes: .sharingextension
   name: Apple Notes
 - uaname: com.apple.numbers
   name: Apple iWork Numbers
@@ -83,6 +88,8 @@
   type: apputility
 - uaname: onenote
   name: Microsoft OneNote
+- uaname: quickbooksonline
+  name: QuickBooks Online
 - uaname: com.apple.iclouddriveapp
   name: iCloud Drive
 - uaname: com.microsoft.office.word

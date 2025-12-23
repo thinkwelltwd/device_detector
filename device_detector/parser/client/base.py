@@ -59,6 +59,9 @@ class BaseClientParser(Parser):
         if self.known and not self.ua_data.get('type'):
             self.ua_data['type'] = self.dtype()
 
+        if custom_app_details := self.appdetails_data.get(self.name().lower()):
+            self.ua_data |= custom_app_details
+
 
 class GenericClientParser(BaseClientParser):
     APP_TYPE = AppType.Generic

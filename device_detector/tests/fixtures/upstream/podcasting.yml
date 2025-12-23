@@ -206,7 +206,7 @@
   user_agent: BTWebClient/1870(43938)
   os: [ ]
   client:
-    type: library
+    type: p2p
     name: uTorrent
     version: ""
   device:
@@ -219,7 +219,7 @@
   user_agent: uTorrent/2210(25110)
   os: [ ]
   client:
-    type: library
+    type: p2p
     name: uTorrent
     version: ""
   device:
@@ -1210,7 +1210,7 @@
   user_agent: spotify_other-mobile
   os: [ ]
   client:
-    type: mobile app
+    type: mediaplayer
     name: Spotify
     version: ""
   device:
@@ -1226,7 +1226,7 @@
     version: ""
     platform: ""
   client:
-    type: mobile app
+    type: mediaplayer
     name: Spotify
     version: ""
   device:
@@ -1242,7 +1242,7 @@
     version: ""
     platform: ""
   client:
-    type: mobile app
+    type: mediaplayer
     name: Spotify
     version: "120800923"
   device:
@@ -5022,7 +5022,7 @@
     platform: ""
   client:
     type: mobile app
-    name: MobileSMS
+    name: Mobile SMS
     version: "1.0"
   device:
     type: ""
@@ -5038,7 +5038,7 @@
     platform: ""
   client:
     type: mobile app
-    name: MobileSMS
+    name: Mobile SMS
     version: "6000"
   device:
     type: ""

@@ -6,8 +6,7 @@ class TestBot(ParserBaseTest):
 
     def test_get_info_from_ua_bot(self):
         ua = 'Googlebot/2.1 (http://www.googlebot.com/bot.html)'
-        spaceless = ua.lower().replace(' ', '')
-        bot = Bot(ua=ua, ua_spaceless=spaceless, client_hints=None)
+        bot = Bot(ua=ua, client_hints=None)
         expected = {
             'name': 'Googlebot',
             'category': 'Search bot',
@@ -24,8 +23,7 @@ class TestBot(ParserBaseTest):
 
     def test_parse_no_bot(self):
         ua = 'Mozilla/4.0 (compatible; MSIE 9.0; Windows NT 6.1; SV1; SE 2.x)'
-        spaceless = ua.lower().replace(' ', '')
-        bot = Bot(ua=ua, ua_spaceless=spaceless, client_hints=None)
+        bot = Bot(ua=ua, client_hints=None)
         bot.parse()
         self.assertEqual(bot.ua_data, {})
 

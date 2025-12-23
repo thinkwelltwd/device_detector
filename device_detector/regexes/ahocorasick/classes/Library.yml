@@ -4,7 +4,9 @@ Words:
 - go 1.
 - hubot
 - lua-resty-http
+- okta-
 - quic-go
 - rest::client
 - restsdk
+- sentry
 - slimerjs

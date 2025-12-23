@@ -636,7 +636,7 @@
     version: 12.5.7
     platform: ""
   client:
-    type: mobile app
+    type: mediaplayer
     name: YouTube
     version: 17.39.4
   device:

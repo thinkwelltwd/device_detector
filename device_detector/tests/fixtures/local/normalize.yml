@@ -251,3 +251,45 @@
 -
   user_agent: 3.2.4moat
   normalized: moat
+-
+  user_agent: NGL Client/1.42.0.5 (MAC/13.7.8) [2025-12-15T21:12:32.104-0500]
+  normalized: NGL Client/1.42.0.5 (MAC/13.7.8)
+-
+  user_agent: Acrobat/25.1.20756.6 NGL Client/1.41.0.11 (WINDOWS_64/10.0.19045.1) [2025-11-07T18:43:38.494-0500]
+  normalized: Acrobat/25.1.20756.6 NGL Client/1.41.0.11 (WINDOWS_64/10.0.19045.1)
+-
+  user_agent: (UALib 17.6.1; n67sD2NiSxal68Fyd7GZmQ)
+  normalized: UALib 17.6.1
+-
+  user_agent: McAfee Mosaic API V1 transmitter_{0F87998D-317E-4E0B-BCA3-52C53F20C366}
+  normalized: McAfee Mosaic API V1 transmitter
+-
+  user_agent: (UrbanAirshipLib-android/18.6.0; v2eBPSOLTuWKZKMbP728xA)
+  normalized: UrbanAirshipLib-android/18.6.0
+-
+  user_agent: Mozilla/5.0 (iPhone; CPU iPhone OS 17_6_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 Nextdoor v6.171.4 ndact:d16649c2-ab9c-4345-9517-0b8ef4208100 ndactsource:email
+  normalized: Mozilla/5.0 (iPhone; CPU iPhone OS 17_6_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 Nextdoor v6.171.4
+-
+  user_agent: Syncro/1.0.185 (c77d4cce-6714-497e-a2d5-b6a7151eb342)
+  normalized: Syncro/1.0.185
+-
+  user_agent: Overmind/1.0.27 (5afeb5b9-22e5-4084-bbfc-5ab0f031ca15)
+  normalized: Overmind/1.0.27
+-
+  user_agent: Servicing/1.0.28 (6868b7f2-6b03-4365-8390-3312a3ed704a) [4.8.9310.0;533320]
+  normalized: Servicing/1.0.28
+-
+  user_agent: Robinhood/2025.21.0 (com.robinhood.release.Robinhood; build:80304; iOS 18.4.1) Titan/1.0 user:d928cbf0-7e18-4604-85ea-221ef9fa3216
+  normalized: Robinhood/2025.21.0 (com.robinhood.release.Robinhood; build:80304; iOS 18.4.1) Titan/1.0
+-
+  user_agent: DSADownloadBootstrapper/25.1.9.6 (//24.6.49.8/96d97b9c-762b-4ad2-b0d4-e868e8929184)
+  normalized: DSADownloadBootstrapper/25.1.9.6
+-
+  user_agent: DSAService/24.6.49.8 (//24.6.49.8/96d97b9c-762b-4ad2-b0d4-e868e8929184)
+  normalized: DSAService/24.6.49.8
+-
+  user_agent: VMware/EUC/Analytics/SDK/6.1.2 platform/iOS appId/52fb9395558d6a6d1b000006 deviceId/90ade8b8-4a09-466d-bf97-ef3dce82255d appVersion/7.22.0
+  normalized: VMware/EUC/Analytics/SDK/6.1.2 platform/iOS appId/52fb9395558d6a6d1b000006 appVersion/7.22.0
+-
+  user_agent: VMware/EUC/Analytics/SDK/6.1.2 platform/iOS appId/51811d705f72165330000004 deviceId/6bcd58c5-3829-4d63-97bb-d3084a820707 appVersion/6.2.1
+  normalized: VMware/EUC/Analytics/SDK/6.1.2 platform/iOS appId/51811d705f72165330000004 appVersion/6.2.1

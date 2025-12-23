@@ -33,8 +33,9 @@
   suffixes: .authenticationservicesagent
   name: Apple Support
 - uaname: com.apple.SystemProfiler
-  suffixes: .AboutExtension
   name: Apple System Profiler
+- uaname: com.apple.printkit.printertool
+  name: Apple Print Kit
 
 - uaname: apsdaemon
   suffixes: .exe
@@ -81,18 +82,26 @@
 - uaname: com.apple.adlib
   name: Apple Ad Tracking & Privacy
 - uaname: com.apple.ndoagent
-  suffixes: .intervalevent|.paireddevices
-  name: Apple NDO Agent
+  suffixes: .intervalevent|.paireddevices|.followuppost|.osupgrade|.outreach|.conversionoutreach
+  name: Apple New Device Outreach
+- uaname: com.apple.ap.promotedcontentd
+  name: Apple Promoted Content (Ads)
+- uaname: com.apple.suggestd
+  name: Apple Suggestions
 
 # Google
 - uaname: com.google.android.inputmethod.latin
+  name: Gboard - the Google Keyboard
+- uaname: com.google.keyboard
   name: Gboard - the Google Keyboard
 - uaname: com.google.android.dialer
   name: Phone by Google
 - uaname: com.google.android.apps.restore
   name: Android Switch
 - uaname: com.google.android.gms
-  name: Google Play services
+  name: Google Play Services
+- uaname: com.google.ar.core
+  name: Google Play Services
 - uaname: com.android.vending
   name: Google Play Store
 - uaname: com.google.android.apps.wallpaper

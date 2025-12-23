@@ -10,11 +10,11 @@
   version: '$1'
 
 - regex: 'Amazon Music, iphone, ([\d\.]+)'
-  name: Audible Music Player
+  name: Audible
   version: '$1'
 
 - regex: 'Audible, iphone, ([\d\.]+)'
-  name: Audible Music Player
+  name: Audible
   version: '$1'
 
 - regex: 'YouTubeUnplugged/([\d\.]+)'

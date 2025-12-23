@@ -105,7 +105,6 @@ class DeviceDetector:
         'user_agent_lower',
         'user_agent',
         'ua_hash',
-        '_ua_spaceless',
         'bot',
         'os',
         'skip_bot_detection',
@@ -156,7 +155,6 @@ class DeviceDetector:
         self.user_agent_lower = user_agent.lower()
         self.user_agent = clean_ua(user_agent, self.user_agent_lower)
         self.ua_hash = ua_hash(self.user_agent_lower, headers)
-        self._ua_spaceless = ''
         self.os: OS | None = None
         self.client: BaseClientParser | None = None
         self.device: BaseDeviceParser | None = None
@@ -180,12 +178,6 @@ class DeviceDetector:
     @property
     def class_name(self) -> str:
         return self.__class__.__name__
-
-    @property
-    def ua_spaceless(self) -> str:
-        if not self._ua_spaceless:
-            self._ua_spaceless = self.user_agent.lower().replace(' ', '')
-        return self._ua_spaceless
 
     # -----------------------------------------------------------------------------
     # UA parsing methods
@@ -227,13 +219,13 @@ class DeviceDetector:
         """
         Check for frequently occurring patterns of meaninglessness
         """
-        if mostly_repeating_characters(self.user_agent):
+        if mostly_repeating_characters(self.user_agent_lower):
             return True
 
         if random_alphanumeric_string(self.user_agent_lower):
             return True
 
-        return long_ua_no_punctuation(self.user_agent)
+        return long_ua_no_punctuation(self.user_agent_lower)
 
     def normalize(self) -> str:
         """
@@ -334,7 +326,6 @@ class DeviceDetector:
         for Parser in self.CLIENT_PARSERS:
             parser = Parser(
                 self.user_agent,
-                self.ua_spaceless,
                 self.client_hints,
                 os_details=os_details,
             ).parse()
@@ -378,7 +369,6 @@ class DeviceDetector:
         for Parser in self.DEVICE_PARSERS:
             parser = Parser(
                 self.user_agent,
-                self.ua_spaceless,
                 self.client_hints,
                 os_details=os_details,
             ).parse()
@@ -395,7 +385,7 @@ class DeviceDetector:
         Parses the UA for bot information using the Bot parser
         """
         if not self.skip_bot_detection and not self.bot:
-            self.bot = Bot(self.user_agent, self.ua_spaceless, self.client_hints).parse()
+            self.bot = Bot(self.user_agent, self.client_hints).parse()
             self.all_details['bot'] = self.bot.ua_data
 
     def parse_os(self) -> None:
@@ -403,7 +393,7 @@ class DeviceDetector:
         Parses the UA for Operating System information using the OS parser
         """
         if not self.os:
-            os = OS(self.user_agent, self.ua_spaceless, self.client_hints).parse()
+            os = OS(self.user_agent, self.client_hints).parse()
             if os:
                 self.os = os
                 self.all_details['os'] = os.ua_data
@@ -488,7 +478,8 @@ class DeviceDetector:
         2ndLine/4.8.1 (com.second.phonenumber; build:1.5; iOS 16.7.12) Alamofire/5.4.4
         AcuityApp/5.14.0 (com.acuityscheduling.app.ios; build:1686757700; iPhone; iOS 17.1.1) SquarespaceMobileiOS
         """
-        return self.all_details.get('client', {}).get('app_id', '')
+        client = self.all_details.get('client', {})
+        return client.get('app_id', '') or client.get('secondary_client', {}).get('app_id', '')
 
     def client_type(self) -> str:
         return self.all_details.get('client', {}).get('type', '')
@@ -510,7 +501,7 @@ class DeviceDetector:
         If Secondary app can be extracted, prefer those app details
         as being more specific.
         """
-        return self.secondary_client_name() or self.client_name()
+        return self.secondary_client_name() or self.client_name() or self.client_application_id()
 
     def preferred_client_version(self) -> str:
         return self.secondary_client_version() or self.client_version()

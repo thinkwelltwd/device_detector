@@ -524,7 +524,7 @@
 -
   user_agent: Pandora Audio/2101.1 (Linux;Android 10) ExoPlayerLib/2.9.6
   client:
-    type: mobile app
+    type: mediaplayer
     name: Pandora
     version: ""
 -
@@ -866,7 +866,7 @@
 -
   user_agent: Mozilla/5.0 (iPhone; CPU iPhone OS 14_4_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 Pandora/2108.1.1
   client:
-    type: mobile app
+    type: mediaplayer
     name: Pandora
     version: 2108.1.1
 -
@@ -1430,7 +1430,7 @@
 -
   user_agent: Spotify/8.7.70 iOS/16.0 (iPhone15,2)
   client:
-    type: mobile app
+    type: mediaplayer
     name: Spotify
     version: 8.7.70
 -
@@ -1478,19 +1478,19 @@
 -
   user_agent: com.audible.playersdk.player/3.13.0 (Linux;Android 11) ExoPlayerLib/2.12.1
   client:
-    type: mobile app
+    type: mediaplayer
     name: Audible
     version: 3.13.0
 -
   user_agent: Audible, Android, 3.42.0, samsung, SM-S908E, b0qxxx, 13, 1.0, WIFI
   client:
-    type: mobile app
+    type: mediaplayer
     name: Audible
     version: 3.42.0
 -
   user_agent: Audible/659 CFNetwork/1220.1 Darwin/20.3.0
   client:
-    type: mobile app
+    type: mediaplayer
     name: Audible
     version: ""
 -
@@ -1562,7 +1562,7 @@
 -
   user_agent: Spotify/120800923 OSX/0 (MacBookPro6,2)
   client:
-    type: mobile app
+    type: mediaplayer
     name: Spotify
     version: "120800923"
 -
@@ -1676,7 +1676,7 @@
 -
   user_agent: WhatsApp/2.22.9.76 i
   client:
-    type: mobile app
+    type: messaging
     name: WhatsApp
     version: 2.22.9.76
 -
@@ -1700,38 +1700,38 @@
 -
   user_agent: WhatsApp
   client:
-    type: mobile app
-    name: Signal
+    type: messaging
+    name: Signal Private Messenger
     version: ""
 -
   user_agent: WhatsApp/2
   client:
-    type: mobile app
-    name: Signal
+    type: messaging
+    name: Signal Private Messenger
     version: ""
 -
   user_agent: Mozilla/5.0 (Windows NT 6.2) AppleWebKit/537.36 (KHTML, like Gecko) WhatsAppElectron/1.0.3 Chrome/108.0.5359.215 Electron/22.3.27 Safari/537.36
   client:
-    type: mobile app
+    type: messaging
     name: WhatsApp
     version: 1.0.3
 -
   user_agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) whatsapp-linux-app/1.0.0 Chrome/120.0.6099.216 Electron/28.1.4 Safari/537.36
   client:
-    type: mobile app
+    type: messaging
     name: WhatsApp
     version: 1.0.0
 -
   user_agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) whatsapp-app/1.0.1 Chrome/91.0.4472.124 Electron/13.1.6 Safari/537.36
   client:
-    type: mobile app
+    type: messaging
     name: WhatsApp
     version: 1.0.1
 -
   user_agent: WhatsApp/2.22.2 CloudAPI/99.99.99 Device/x86_64
   client:
-    type: mobile app
-    name: WhatsApp Business
+    type: messaging
+    name: WhatsApp
     version: 2.22.2
 -
   user_agent: Mozilla/5.0 (Android 13; Mobile; rv:109.0) Gecko/112.0 Firefox/112.0 Freespoke/2.0.0
@@ -2330,13 +2330,13 @@
 -
   user_agent: Mozilla/5.0 (Mobile; LYF/F10Q/LYF-F10Q-000-01-31-071119; Android; rv:48.0) Gecko/48.0 Firefox/48.0 KAIOS/2.5 YouTube/1.92.52.J
   client:
-    type: mobile app
+    type: mediaplayer
     name: YouTube
     version: 1.92.52
 -
   user_agent: Mozilla/5.0 (Mobile; ALCATEL A406DL; rv:48.0) Gecko/48.0 Firefox/48.0 KAIOS/2.5.4 YouTube/1.92.52.K
   client:
-    type: mobile app
+    type: mediaplayer
     name: YouTube
     version: 1.92.52
 -
@@ -2348,8 +2348,8 @@
 -
   user_agent: Telegram/29835 CFNetwork/1333.0.4 Darwin/21.5.0
   client:
-    type: mobile app
-    name: Telegram
+    type: messaging
+    name: Telegram Messenger
     version: ""
 -
   user_agent: 'Mozilla/5.0 [en] (X11, U; OpenVAS-VT 9.0.3)'
@@ -2378,7 +2378,7 @@
 -
   user_agent: com.google.ios.youtube/17.39.4 (iPad4,2; U; CPU iOS 12_5_7 like Mac OS X; zh-Hans_US)
   client:
-    type: mobile app
+    type: mediaplayer
     name: YouTube
     version: 17.39.4
 -

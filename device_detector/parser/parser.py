@@ -55,7 +55,6 @@ class Parser(RegexLoader):
         'user_agent',
         'user_agent_lower',
         'ua',
-        'ua_spaceless',
         'ua_data',
         'app_name',
         'app_name_no_punctuation',
@@ -74,7 +73,6 @@ class Parser(RegexLoader):
     def __init__(
         self,
         ua: str,
-        ua_spaceless: str,
         client_hints: ClientHints | None,
         os_details: dict | None = None,
     ) -> None:
@@ -82,7 +80,6 @@ class Parser(RegexLoader):
 
         self.user_agent = ua
         self.user_agent_lower = ua.lower()
-        self.ua_spaceless = ua_spaceless
         self.ua_data: dict = {}
         self.app_name = ''
         self.app_name_no_punctuation = ''
@@ -198,7 +195,7 @@ class Parser(RegexLoader):
 
     def __repr__(self) -> str:
         klass = self.__class__.__name__
-        return f'{klass}({self.user_agent!r}, {self.ua_data!r}, {self.ua_spaceless!r})'
+        return f'{klass}({self.user_agent!r}, {self.ua_data!r})'
 
 
 __all__ = (

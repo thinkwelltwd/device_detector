@@ -19,8 +19,10 @@
   name: Mapulator
 - uaname: mapwidget
   name: Map Widget
+- uaname: com.google.android.apps.navlite
+  name: Google Maps
 - uaname: com.google.android.apps.mapslite
-  name: Google Maps Go
+  name: Google Maps
 - uaname: com.google.android.apps.searchlite
   name: Google Go Search
 - uaname: com.google.android.apps.maps

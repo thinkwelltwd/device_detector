@@ -154,11 +154,7 @@ class Device(BaseDeviceParser):
 
         if not self.ua_data.get('brand'):
             # If no brand info was found, check known fragments
-            vendor_fragment = (
-                VendorFragment(self.user_agent, self.ua_spaceless, self.client_hints)
-                .parse()
-                .ua_data
-            )
+            vendor_fragment = VendorFragment(self.user_agent, self.client_hints).parse().ua_data
             if vendor_fragment:
                 self.ua_data |= vendor_fragment
 

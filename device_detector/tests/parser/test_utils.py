@@ -6,7 +6,52 @@ from device_detector.utils import (
     mostly_numerals,
     random_alphanumeric_string,
     uuid_like_name,
+    normalize_app_name,
 )
+
+
+# -----------------------------------------------------------------------
+class TestTrimSuffixes(TestCase):
+
+    def test_trim_suffixes(self):
+        for full_name, trimmed_name in (
+            ('AirbnbNotificationServiceAppExtension', 'Airbnb'),
+            ('NetworkingExtension', 'Networking'),
+            ('OneDriveMessageExtension', 'OneDrive'),
+            ('OneDriveShareExtension', 'OneDrive'),
+            ('OneSignalNotificationServiceExtension', 'OneSignal'),
+            ('RampNotificationServiceExtension', 'Ramp'),
+            ('RampWidgetExtension', 'Ramp'),
+            ('SafariNotificationAgent', 'Safari'),
+            ('SafewayServiceExtension', 'Safeway'),
+            ('SouthwestPushPreview', 'Southwest'),
+            ('SouthwestWidgetExtension', 'Southwest'),
+            ('SouthwestWidgetExtension', 'Southwest'),
+            ('StocksKitService', 'Stocks'),
+            ('StocksWidget', 'Stocks'),
+            ('TWorldNotificationService', 'TWorld'),
+            ('TeamSpace.Share-Extension', 'TeamSpace'),
+            ('TeamSpaceShareExtension', 'TeamSpace'),
+            ('VerseWidgetExtension', 'Verse'),
+            ('WalmartWidgets', 'Walmart'),
+            ('WyzeNotiService', 'Wyze'),
+            ('com.agilebits.onepassword-ios.extension', 'com.agilebits.onepassword-ios'),
+            ('com.apple.NewDeviceOutreach.Extension', 'com.apple.NewDeviceOutreach'),
+            ('com.apple.SystemProfiler.AboutExtension', 'com.apple.SystemProfiler'),
+            ('com.apple.SystemProfiler.IntentExtension', 'com.apple.SystemProfiler'),
+            ('com.apple.SystemProfiler.VoiceFramework', 'com.apple.SystemProfiler'),
+            ('com.apple.mobilenotes.SharingExtension', 'com.apple.mobilenotes'),
+            ('com.costco.costco.notification-extension', 'com.costco.costco'),
+            ('com.google.Drive.ExtensionFramework', 'com.google.Drive'),
+            ('com.google.Drive.FileProviderExtension', 'com.google.Drive'),
+            ('com.google.Gmail.AppAndExtensionsFramework', 'com.google.Gmail'),
+            ('com.google.GoogleMobile.TrendsTodayExtension', 'com.google.GoogleMobile'),
+            ('com.google.Maps.HomeTrafficWidgetExtension', 'com.google.Maps'),
+            ('com.google.calendar.TodayExtension', 'com.google.calendar'),
+            ('com.google.photos.ModuleFramework', 'com.google.photos'),
+            ('onedrivefileprovider', 'onedrive'),
+        ):
+            self.assertEqual(normalize_app_name(full_name), trimmed_name)
 
 
 # -----------------------------------------------------------------------

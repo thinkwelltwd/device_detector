@@ -105,11 +105,7 @@ class OS(Parser):
     def _parse(self) -> None:
         super()._parse()
         if not self.ua_data:
-            OSFragment(
-                self.user_agent,
-                self.ua_spaceless,
-                self.client_hints,
-            ).parse()
+            OSFragment(self.user_agent, self.client_hints).parse()
 
     def set_details(self) -> None:
         super().set_details()

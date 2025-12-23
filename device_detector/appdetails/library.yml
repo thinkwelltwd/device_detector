@@ -26,3 +26,16 @@
 - uaname: com.foursquare.pilgrimsdk
   suffixes: .android|.ios
   name: Foursquare SDK
+
+- uaname: signalr.client
+  suffixes: .netstandard|.ios|.winuap
+  name: SignalR
+- uaname: microsoft signalr client
+  name: SignalR
+- uaname: microsoft signalr
+  name: SignalR
+
+- uaname: sentry-cocoa
+  name: Sentry Cocoa
+- uaname: sentry.cocoa
+  name: Sentry Cocoa

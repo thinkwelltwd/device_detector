@@ -134,8 +134,7 @@ class TestClientHints(ParserBaseTest):
             expect = fixture['os']
 
             ch = ClientHints.new(fixture['headers'])
-            spaceless = self.user_agent.lower().replace(' ', '')
-            parsed = OS(self.user_agent, spaceless, ch).parse()
+            parsed = OS(self.user_agent, ch).parse()
 
             data = parsed.ua_data
 
