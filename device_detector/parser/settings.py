@@ -786,6 +786,7 @@ AVAILABLE_BROWSERS = {
     'NS': 'Netscape',
     'WR': 'NextWord Browser',
     'N8': 'Ninesky',
+    '3N': 'Nintendo Browser',
     'NT': 'NTENT Browser',
     'NU': 'Nuanti Meta',
     'NI': 'Nuviu',
@@ -1141,7 +1142,7 @@ BROWSER_FAMILIES = {
     ),
     'Internet Explorer': ('IE', 'CZ', 'BZ', 'IM', 'PS', '3A', '4A', 'RN', '2E'),
     'Konqueror': ('KO',),
-    'NetFront': ('NF',),
+    'NetFront': ('NF', '3N'),
     'NetSurf': ('NE',),
     'Nokia Browser': ('DO', 'NB', 'NO', 'NV'),
     'Opera': (

@@ -401,6 +401,7 @@ daumapps/: null
 de telegraaf: null
 de.danoeh.antennapod: null
 deepl/: null
+deepseek: null
 defiwallet/: null
 devcasts/: null
 deviantart/: null
@@ -564,6 +565,7 @@ jitsi-meet/: null
 jp.co.yahoo.android.yjtop/: null
 jp.co.yahoo.ipn.appli/: null
 jpameblo;: null
+jointbridge;: null
 jungle disk workgroup http: null
 kajabimobileapp: null
 kajabipodcast: null
@@ -686,16 +688,6 @@ netflix/6: null
 netflix/7: null
 netflix/8: null
 netflix/9: null
-#news 0: null
-#news 1: null
-#news 2: null
-#news 3: null
-#news 4: null
-#news 5: null
-#news 6: null
-#news 7: null
-#news 8: null
-#news 9: null
 news/0: null
 news/1: null
 news/2: null
@@ -711,16 +703,7 @@ newsly: null
 newssapphire/: null
 nextcloud-android/: null
 ngl client/: null
-npr one/0: null
-npr one/1: null
-npr one/2: null
-npr one/3: null
-npr one/4: null
-npr one/5: null
-npr one/6: null
-npr one/7: null
-npr one/8: null
-npr one/9: null
+npr one/: null
 nprone_android/: null
 nproneandroid: null
 nrc audio/: null
@@ -733,6 +716,7 @@ nyt_android/: null
 nytaudio-ios/: null
 nytaudio/: null
 nytios/: null
+nstnwv: null
 obs/0: null
 obs/1: null
 obs/2: null
@@ -753,16 +737,7 @@ onesearch/: null
 opa/: null
 opal/: null
 opera autoupdate agent: null
-opera news/0: null
-opera news/1: null
-opera news/2: null
-opera news/3: null
-opera news/4: null
-opera news/5: null
-opera news/6: null
-opera news/7: null
-opera news/8: null
-opera news/9: null
+opera news/: null
 opgg-electron-app/: null
 orangeradio/: null
 outcast: null
@@ -879,10 +854,8 @@ radio.y: null
 radio.z: null
 radioappfree: null
 radioline: null
-radiopublic android: null
-radiopublic ios: null
-radiopublic/android-: null
-radiopublic/ios-: null
+'radiopublic ': null
+'radiopublic/': null
 ravesocial/: null
 razer central pc: null
 rddocuments/: null
@@ -932,23 +905,10 @@ simple podcast player/: null
 siri/1: null
 siriusxm/: null
 skyeng app: null
-skyeng teachers/: null
 skyeng teachers: null
-skype for business: null
-skype/: null
 skype: null
 slack/: null
-snapchat/: null
-snapchat0: null
-snapchat1: null
-snapchat2: null
-snapchat3: null
-snapchat4: null
-snapchat5: null
-snapchat6: null
-snapchat7: null
-snapchat8: null
-snapchat9: null
+snapchat: null
 snipd/: null
 sodes/: null
 sofi_app_version=: null
@@ -994,6 +954,7 @@ teamsmobile-: null
 telegram/: null
 tencentdocs/: null
 thepodcastapp/: null
+terabox/: null
 theyub v0: null
 theyub v1: null
 theyub v2: null
@@ -1094,10 +1055,9 @@ vuhuv/: null
 waipu/: null
 wallanews/: null
 wallet: null
-waste my time! extension/: null
+waste my time!: null
 watchfree/: null
 wattpad/: null
-wayback machine extension: null
 wayback machine: null
 webexteams: null
 webscraping: null
@@ -1113,19 +1073,6 @@ windowspowershell/: null
 windowsstoresdk: null
 wireshark/: null
 wirtschaftswoche-ios-: null
-wnyc app: null
-wnyc.: null
-wnyc/: null
-wnyc0: null
-wnyc1: null
-wnyc2: null
-wnyc3: null
-wnyc4: null
-wnyc5: null
-wnyc6: null
-wnyc7: null
-wnyc8: null
-wnyc9: null
 wnyc: null
 word/: null
 wordcookies/: null
@@ -1163,23 +1110,11 @@ youtubemusic/: null
 youtubemusicdev/: null
 yowhatsapp2plus: null
 yoyowhatsapp: null
-zalo android: null
-zalo ios: null
-zalo/0: null
-zalo/1: null
-zalo/2: null
-zalo/3: null
-zalo/4: null
-zalo/5: null
-zalo/6: null
-zalo/7: null
-zalo/8: null
-zalo/9: null
+'zalo ': null
+'zalo/': null
 zenkit/: null
 zepeto_global/: null
 zite/: null
-zoho chat/: null
 zoho: null
-zonapp/android/: null
-zonapp/ios/: null
+zonapp/: null
 zune/: null
