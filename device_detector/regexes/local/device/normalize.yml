@@ -110,6 +110,11 @@
 - regex: '^(.*) \[\d{4}-\d{2}-\d{2}T.*\]$'
   groups: '\g<1>'
 
+# McAfee Mosaic API V1 transmitter_{0FF22259-6698-44C5-8B97-7C0142D4F756}
+# McAfee Mosaic API V1 transmitter_{8C81BB84-AFC2-4650-A5D6-32210944726B}
+- regex: '^(.*)[_\b]\{[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\}$'
+  groups: '\g<1>'
+
 # (UALib 17.6.1; n67sD2NiSxal68Fyd7GZmQ)
 # (UALib 17.9.0; N8PAcVorRNeDC1YkyOPRaA)
 - regex: '^\((UALib (?:\d+[\.\d]+)); \w{22}\)$'
@@ -117,17 +122,24 @@
 
 # (UrbanAirshipLib-android/18.4.2; v2eBPSOLTuWKZKMbP728xA)
 # (UrbanAirshipLib-android/18.6.0; v2eBPSOLTuWKZKMbP728xA)
-- regex: '^\((UrbanAirshipLib(?:-\w+)?/(?:\d+[\.\d]+)); \w{22}\)$'
+- regex: '^\((UrbanAirshipLib(?:-\w+)?/(?:\d+[\.\d]+)); [\w-]{22}\)$'
   groups: '\g<1>'
 
-# McAfee Mosaic API V1 transmitter_{0FF22259-6698-44C5-8B97-7C0142D4F756}
-# McAfee Mosaic API V1 transmitter_{8C81BB84-AFC2-4650-A5D6-32210944726B}
-- regex: '^(.*)[_\b]\{[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\}$'
+# Mozilla/5.0 (iPhone; CPU iPhone OS 18_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148##ad-x-identifier##D93722AE-A9C9-4BDA-A510-8B8D20FC6C00##max-request-count##100
+- regex: '^(.{0,})##ad-x-identifier.*'
   groups: '\g<1>'
 
-# BlueStacks 5/5.21.300.1070/b79d8f43-7556-4215-b0d9-41e7544ac204 gzip
-- regex: '^(.*)/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12} gzip$'
-  groups: '\g<1>'
+# EveryDollar 2022.04.28 (iPhone; iOS 18.0; UALib 14.4.1; RyMhyeRnTai0-hQLGVTwQg; en_CA)
+# ZillowMap 16.2.0 (iPad; iPadOS 17.1.2; UALib 13.5.6; d0EakHoDShSInIDUFOk7Kg; en_US)
+- regex: '^(.{0,} UALib (?:\d+[\.\d]+)); [\w-]{22};(.*)'
+  groups: '\g<1> \g<2>'
+
+# THDConsumer/7.51.2.2 (iPhone;iOS 18.6.2) DID:F5D7F6ED-FEED-48B9-BD9D-4FF08B6B5586
+# StateFarm/10.138.0 (iOS; 18.5; iPhone13,2; en-US; sf-native; uid:66F64303-DB01-4FCE-A5DC-093C8E112A39)
+# Robinhood/2025.10.0 (com.robinhood.release.Robinhood; build:75258; iOS 18.3.1) Titan/1.0 user:aa4c643b-c506-4b95-8018-f15670aaaf0b
+# POF 25.50.491; (iPad14,2; iPadOS 17.5.1; en-US; g=ON; p=OFF; r=WWAN) C1D09C7D-CE56-4160-A7E5-EAA8F09D2BC5;
+- regex: '^(.{0,})[:/ #\({](?:\w{4,8}-)(?:\w{4,8}-)+(?:\w{4,12})(?: ;|\)|})?'
+  groups: '\g<1> uuid'
 
 # Mozilla/5.0 (iPhone; CPU iPhone OS 17_6_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 Nextdoor v6.169.4 ndact:3cb88f4d-7bb9-4c7f-8873-b8650cb4d2c4 ndactsource:email
 # Mozilla/5.0 (iPhone; CPU iPhone OS 17_6_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 Nextdoor v6.171.4 ndact:a0ae26a9-ebcf-450a-bda9-58f63fba58c7 ndactsource:email

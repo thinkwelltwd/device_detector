@@ -115,7 +115,7 @@
   normalized: Gibberish
 -
   user_agent: Boxcars/22.10.0.85 {00000000-0000-0000-0000-000000000000}
-  normalized: Boxcars/22.10.0.85 {00000000-0000-0000-0000-000000000000}
+  normalized: Boxcars/22.10.0.85  uuid
 -
   user_agent: '@0ji-uFfHoaGvxwqY8DTh'
   normalized: Gibberish
@@ -268,28 +268,58 @@
   normalized: UrbanAirshipLib-android/18.6.0
 -
   user_agent: Mozilla/5.0 (iPhone; CPU iPhone OS 17_6_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 Nextdoor v6.171.4 ndact:d16649c2-ab9c-4345-9517-0b8ef4208100 ndactsource:email
-  normalized: Mozilla/5.0 (iPhone; CPU iPhone OS 17_6_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 Nextdoor v6.171.4
+  normalized: Mozilla/5.0 (iPhone; CPU iPhone OS 17_6_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 Nextdoor v6.171.4 ndact uuid ndactsource:email
 -
   user_agent: Syncro/1.0.185 (c77d4cce-6714-497e-a2d5-b6a7151eb342)
-  normalized: Syncro/1.0.185
+  normalized: Syncro/1.0.185  uuid
 -
   user_agent: Overmind/1.0.27 (5afeb5b9-22e5-4084-bbfc-5ab0f031ca15)
-  normalized: Overmind/1.0.27
+  normalized: Overmind/1.0.27  uuid
 -
   user_agent: Servicing/1.0.28 (6868b7f2-6b03-4365-8390-3312a3ed704a) [4.8.9310.0;533320]
-  normalized: Servicing/1.0.28
+  normalized: Servicing/1.0.28  uuid [4.8.9310.0;533320]
 -
   user_agent: Robinhood/2025.21.0 (com.robinhood.release.Robinhood; build:80304; iOS 18.4.1) Titan/1.0 user:d928cbf0-7e18-4604-85ea-221ef9fa3216
-  normalized: Robinhood/2025.21.0 (com.robinhood.release.Robinhood; build:80304; iOS 18.4.1) Titan/1.0
+  normalized: Robinhood/2025.21.0 (com.robinhood.release.Robinhood; build:80304; iOS 18.4.1) Titan/1.0 user uuid
 -
   user_agent: DSADownloadBootstrapper/25.1.9.6 (//24.6.49.8/96d97b9c-762b-4ad2-b0d4-e868e8929184)
-  normalized: DSADownloadBootstrapper/25.1.9.6
+  normalized: DSADownloadBootstrapper/25.1.9.6 (//24.6.49.8 uuid
 -
   user_agent: DSAService/24.6.49.8 (//24.6.49.8/96d97b9c-762b-4ad2-b0d4-e868e8929184)
-  normalized: DSAService/24.6.49.8
+  normalized: DSAService/24.6.49.8 (//24.6.49.8 uuid
 -
   user_agent: VMware/EUC/Analytics/SDK/6.1.2 platform/iOS appId/52fb9395558d6a6d1b000006 deviceId/90ade8b8-4a09-466d-bf97-ef3dce82255d appVersion/7.22.0
-  normalized: VMware/EUC/Analytics/SDK/6.1.2 platform/iOS appId/52fb9395558d6a6d1b000006 appVersion/7.22.0
+  normalized: VMware/EUC/Analytics/SDK/6.1.2 platform/iOS appId/52fb9395558d6a6d1b000006 deviceId uuid appVersion/7.22.0
 -
   user_agent: VMware/EUC/Analytics/SDK/6.1.2 platform/iOS appId/51811d705f72165330000004 deviceId/6bcd58c5-3829-4d63-97bb-d3084a820707 appVersion/6.2.1
-  normalized: VMware/EUC/Analytics/SDK/6.1.2 platform/iOS appId/51811d705f72165330000004 appVersion/6.2.1
+  normalized: VMware/EUC/Analytics/SDK/6.1.2 platform/iOS appId/51811d705f72165330000004 deviceId uuid appVersion/6.2.1
+-
+  user_agent: ZillowMap 16.2.0 (iPhone; iOS 18.4; UALib 13.5.6; d0EakHoDShSInIDUFOk7Kg; en_US)
+  normalized: ZillowMap 16.2.0 (iPhone; iOS 18.4; UALib 13.5.6  en_US)
+-
+  user_agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148##ad-x-identifier##D93722AE-A9C9-4BDA-A510-8B8D20FC6C00##max-request-count##100
+  normalized: Mozilla/5.0 (iPhone; CPU iPhone OS 18_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148
+-
+  user_agent: Mozilla/5.0 (iPad; CPU OS 18_6_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 THDConsumer/7.54.0.6 (iPad;iPadOS 18.6.2)DID:1BC7C5AA-C607-43A9-ADE7-5985D132E265
+  normalized: Mozilla/5.0 (iPad; CPU OS 18_6_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 THDConsumer/7.54.0.6 (iPad;iPadOS 18.6.2)DID uuid
+-
+  user_agent: THDConsumer/7.51.2.2 (iPhone;iOS 18.6.2) DID:F5D7F6ED-FEED-48B9-BD9D-4FF08B6B5586
+  normalized: THDConsumer/7.51.2.2 (iPhone;iOS 18.6.2) DID uuid
+-
+  user_agent: Robinhood/2025.10.0 (com.robinhood.release.Robinhood; build:75258; iOS 18.3.1) Titan/1.0 user:aa4c643b-c506-4b95-8018-f15670aaaf0b
+  normalized: Robinhood/2025.10.0 (com.robinhood.release.Robinhood; build:75258; iOS 18.3.1) Titan/1.0 user uuid
+-
+  user_agent: POF 25.50.491; (iPad14,2; iPadOS 17.5.1; en-US; g=ON; p=OFF; r=WWAN) C1D09C7D-CE56-4160-A7E5-EAA8F09D2BC5;
+  normalized: POF 25.50.491; (iPad14,2; iPadOS 17.5.1; en-US; g=ON; p=OFF; r=WWAN) uuid;
+-
+  user_agent: Mozilla/5.0 (iPad; CPU OS 8_0_2 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) CriOS/31.0.1650.18 Mobile/12A405 Safari/8536.25 (6F7425DA-D6EA-49CA-8C25-5CE364276ECE)
+  normalized: Mozilla/5.0 (iPad; CPU OS 8_0_2 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) CriOS/31.0.1650.18 Mobile/12A405 Safari/8536.25  uuid
+-
+  user_agent: Digital Home/Apple iPhone/iOS 18.4.1/92647B35-4ADB-4E32-BB4E-FA943135EAC5
+  normalized: Digital Home/Apple iPhone/iOS 18.4.1 uuid
+-
+  user_agent: com.yourcompany.PPClient/8.80.0/8.80.0/EF0D2831-C0BE-49EB-867B-F3F89CC13F43/iOS
+  normalized: com.yourcompany.PPClient/8.80.0/8.80.0 uuid/iOS
+-
+  user_agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_1) AppleWebKit/601.2.4 (KHTML, like Gecko) Version/9.0.1 Safari/601.2.4 facebookexternalhit/1.1 Facebot Twitterbot/1.0 BytedanceWebview/d8a21c6 FalconTag/023C02A8-2531-4EF6-BF47-BE876AB202F5 TTP_H5_URLPROTOCOL
+  normalized: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_1) AppleWebKit/601.2.4 (KHTML, like Gecko) Version/9.0.1 Safari/601.2.4 facebookexternalhit/1.1 Facebot Twitterbot/1.0 BytedanceWebview/d8a21c6 FalconTag uuid TTP_H5_URLPROTOCOL

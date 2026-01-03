@@ -41,7 +41,8 @@ NAME_VERSION_REGEXES = (
     # Ensure that User Agents like:
     # Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/Version/25.7.0 Hunt/1398
     # match "Hunt/1398" rather than "25.7.0 Hunt/1398"
-    RegexLazyIgnore(r'^(?P<name>[\w\d\.\-_\'!®\?, \+\&]+)[ /](?P<version>[\d\.]+)'),
+    # OneDrive-25.209.1026.0002
+    RegexLazyIgnore(r'^(?P<name>[\w\d\.\-_\'!®\?, \+\&]+)[ /-](?P<version>[\d\.]+)'),
 
     # Extract "Opera Mobi/ADR-25672775" in User Agents like:
     # Opera/9.62 (Android 4.1.2; Linux; Opera Mobi/ADR-25672775) Presto/2.520.13 Version/12.520
