@@ -7,82 +7,82 @@
 
 - regex: 'ALDI (?:ios|android) App US ([\d\.]+)'
   name: ALDI
-  version: '$1'
+  version: '\g<1>'
 
 - regex: 'BabyCenterApp iOSMPBT/([\d\.]+)'
   name: Baby Center
-  version: $1
+  version: \g<1>
 
 - regex: 'Android NHL:(\d+[\.\d]+) BlazeSDK'
   name: National Hockey League
-  version: '$1'
+  version: '\g<1>'
 
 - regex: 'Booking\.?App/([\d\.]+)'
   name: Booking App
-  version: $1
+  version: \g<1>
 
 - regex: 'ChatBox(?:_(ios|ai))?/([\d\.]+)'
   name: 'ChatGenius: Smart AI Assistant'
-  version: '$2'
+  version: '\g<2>'
   type: ai
 
 - regex: 'UPSMobile(?:\.widgetsextension)?/([\d\.]+)'
   name: UPS Mobile
-  version: '$1'
+  version: '\g<1>'
 
 - regex: 'VeryFit(?:Pro)?/([\d\.]+)'
   name: Very Fit
-  version: '$1'
+  version: '\g<1>'
 
 - regex: 'Walmart(?:Widgets|NotificationService)/([\d\.]+)'
   name: 'Walmart: Shopping & Savings'
-  version: '$1'
+  version: '\g<1>'
 
 - regex: 'SupportAssist(?:Client|ClientOnTheBox|Consumer)/([\d\.]+)'
   name: SupportAssist
-  version: '$1'
+  version: '\g<1>'
 
 - regex: 'Southwest(?:WidgetExtension|RichMediaPushExtension|PushPreview|IMessage|Android)/([\d\.]+)'
   name: Southwest Airlines
-  version: '$1'
+  version: '\g<1>'
 
 - regex: 'GroupMe-iOS(-share-ext)?/(\d+[\.\d]+)'
   name: GroupMe
-  version: '$1'
+  version: '\g<1>'
 
 - regex: mShop::Amazon_iPhone_(\d+[\.\d]+)
   name: Amazon Shopping
-  version: '$1'
+  version: '\g<1>'
 
 - regex: mShop:{1,5}Telly_iPhone_(\d+[\.\d]+)
   name: Telly - The Smartest TV
-  version: '$1'
+  version: '\g<1>'
 
 - regex: temu_\w+_version/(?P<version>[\.\d]+)
   name: Temu
-  version: '$1'
+  version: '\g<1>'
 
 - regex: 'WeatherWidgets?Extension/([\d\.]+)'
   name: Apple Weather
-  version: '$1'
+  version: '\g<1>'
   type: desktop app
 
 - regex: weather(kit)?_\w+_version ([\.\d]+)
   name: Apple Weather
-  version: '$2'
+  version: '\g<2>'
 
 - regex: weatherd_\w+_version ([\.\d]+)
   name: Apple Weather
-  version: '$1'
+  version: '\g<1>'
 
 - regex: Weatherbug(?:(?:\ |\w)+)?/(\d+[\.\d]+)
   name: 'WeatherBug: Weather Forecast'
-  version: '$1'
+  version: '\g<1>'
 
 - regex: AccuWeather ([\.\d]+)
   name: 'AccuWeather: Weather Radar'
-  version: '$1'
+  version: '\g<1>'
 
 - regex: Weatherbug(?:(?:\ |\w)+)?/(\d+[\.\d]+)
   name: 'WeatherBug: Weather Forecast'
-  version: '$1'
+  version: '\g<1>'

@@ -50,7 +50,7 @@ Alienware:
     - regex: 'Area-51m;'
       model: 'Area-51m'
     - regex: 'Aurora (R[0-9]+)'
-      model: 'Aurora $1'
+      model: 'Aurora \g<1>'
 
 Dell:
   regex: 'FBMD/(?:Latitude E4300|Inspiron 3541|XPS 15 95[35]0);'
@@ -78,9 +78,9 @@ HP:
     - regex: 'HP ENVY x360 Convertible 15-bp0xx'
       model: 'ENVY x360 Convertible PC'
     - regex: 'HP EliteBook (25[67]0p)'
-      model: 'EliteBook $1'
+      model: 'EliteBook \g<1>'
     - regex: 'HP ProBook (440 G5|6[35]60b)'
-      model: 'ProBook $1'
+      model: 'ProBook \g<1>'
     - regex: 'HP Pavilion dv6 Notebook PC'
       model: 'Pavilion dv6'
     - regex: 'HP Pavilion Notebook'
@@ -122,6 +122,6 @@ Toshiba:
   device: 'desktop'
   models:
     - regex: 'Satellite (A[25]00|C650|C855|L650|S855)'
-      model: 'Satellite $1'
+      model: 'Satellite \g<1>'
     - regex: 'Satellite ([^;\)]+);'
-      model: 'Satellite $1'
+      model: 'Satellite \g<1>'

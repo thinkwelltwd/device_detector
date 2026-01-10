@@ -14,7 +14,7 @@
 
 - regex: ^cis_([\d\.]+)_
   name: Comodo Internet Security
-  version: '$1'
+  version: '\g<1>'
 
 - regex: AV/,,ffl$
   name: Avast
@@ -26,11 +26,11 @@
 
 - regex: AV/(\d+[\.\d]+)
   name: Avast
-  version: '$1'
+  version: '\g<1>'
 
 - regex: CCleaner, ?(\d+[\.\d]+)
   name: CCleaner
-  version: '$1'
+  version: '\g<1>'
 
 - regex: panda ?security ?nano
   name: Panda Security Nano

@@ -8,102 +8,102 @@
 
 - regex: aioremote_[a-z]*\/([\d\.]+)
   name: AiO Remote
-  version: '$1'
+  version: '\g<1>'
   type: desktop app
 
 - regex: akamai netsession interface.+;([\d\.]+)
   name: Akamai NetSession Interface
-  version: '$1'
+  version: '\g<1>'
   type: desktop app
 
 
 - regex: Apple Configurator [\w\d]/([\d\.]+)
   name: Apple Configurator
-  version: '$1'
+  version: '\g<1>'
   type: desktop app
 
 - regex: com\.apple\.configurator\.xpc\.[a-z]+\/([\d\.]+)
   name: Apple Configurator
-  version: '$1'
+  version: '\g<1>'
   type: desktop app
 
 - regex: ^Drive/(\d+[\.\d]+)
   name: Drive
-  version: '$1'
+  version: '\g<1>'
 
 - regex: lastpass(ext)?\/([\d\.]+)
   name: LastPass
-  version: '$2'
+  version: '\g<2>'
   type: desktop app
 
 - regex: mac[ +]os[ +]x\/.+\) addressbook\/([\d\.]+)
   name: Mac OS X Address Book
-  version: '$1'
+  version: '\g<1>'
   type: desktop app
 
 - regex: mac[ +]os[ +]x\/.+\) calendaragent\/([\d\.]+)
   name: Mac OS X Calendar Agent
-  version: '$1'
+  version: '\g<1>'
   type: desktop app
 
 - regex: nikon message center (\d)\/([\d\.]+)
-  name: Nikon Message Center $1
-  version: '$2'
+  name: Nikon Message Center \g<1>
+  version: '\g<2>'
   type: desktop app
 
 - regex: nvidia (gfe|update) v([\d\.]+)
   name: NVIDIA
-  version: '$2'
+  version: '\g<2>'
   type: desktop app
 
 - regex: pinnaclenoti[tf]icationservice\/([\d\.]+)
   name: Pinnacle Notification Service
-  version: '$1'
+  version: '\g<1>'
   type: desktop app
 
 - regex: panda devices agent *([\d\.]+)
   name: Panda Devices Agent
-  version: '$1'
+  version: '\g<1>'
   type: desktop app
 
 - regex: pandasoftware\.informacionproactiva\.([\d\.]+)
   name: Panda Software
-  version: '$1'
+  version: '\g<1>'
   type: desktop app
 
 - regex: bingmap(s\.3dcontrol)?\/([\d\.]+)
   name: Bing Maps
-  version: '$2'
+  version: '\g<2>'
   type: desktop app
 
 - regex: bingfinance.+\/([\d\.]+)
   name: Bing Finance
-  version: '$1'
+  version: '\g<1>'
   type: desktop app
 
 - regex: binghealthandfitness.+\/([\d\.]+)
   name: Bing Health and Fitness
-  version: '$1'
+  version: '\g<1>'
   type: desktop app
 
 - regex: bingnews.+\/([\d\.]+)
   name: Bing News
-  version: '$1'
+  version: '\g<1>'
   type: desktop app
 
 - regex: bingsports.+\/([\d\.]+)
   name: Bing Sports
-  version: '$1'
+  version: '\g<1>'
   type: desktop app
 
 - regex: bingweather.+\/([\d\.]+)
   name: Bing Weather
-  version: '$1'
+  version: '\g<1>'
   type: desktop app
 
 - regex: (mbam.*) - base:([\d\.]+)
-  name: '$1'
-  version: '$2'
+  name: '\g<1>'
+  version: '\g<2>'
   type: desktop app
 
 - regex: ms-office
@@ -113,68 +113,68 @@
 
 - regex: Microsoft (?:Office )?Access(?:[\/ ](\d+[\.\d]+))?
   name: Microsoft Office Access
-  version: '$1'
+  version: '\g<1>'
   type: productivity
 
 - regex: Microsoft (?:Office )?Excel(?:[\/ ](\d+[\.\d]+))?
   name: Microsoft Office Excel
-  version: '$1'
+  version: '\g<1>'
   type: productivity
 
 - regex: Microsoft (?:Office )?Lync(?:[\/ ](\d+[\.\d]+))?
   name: Microsoft Office Lync
-  version: '$1'
+  version: '\g<1>'
   type: productivity
 
 - regex: Microsoft (?:Office )?Powerpoint(?:[\/ ](\d+[\.\d]+))?
   name: Microsoft Office PowerPoint
-  version: '$1'
+  version: '\g<1>'
   type: productivity
 
 - regex: Microsoft (?:Office )?Visio(?:[\/ ](\d+[\.\d]+))?
   name: Microsoft Office Visio
-  version: '$1'
+  version: '\g<1>'
   type: productivity
 
 - regex: Microsoft (?:Office )?Word(?:[\/ ](\d+[\.\d]+))?
   name: Microsoft Office Word
-  version: '$1'
+  version: '\g<1>'
   type: productivity
 
 - regex: word/(\d+[\.\d]+)
   name: Microsoft Office Word
-  version: '$1'
+  version: '\g<1>'
   type: productivity
 
 - regex: Microsoft Office SyncProc(?:[\/ ](\d+[\.\d]+))?
   name: Microsoft Office SyncProc
-  version: '$1'
+  version: '\g<1>'
   type: apputility
 
 - regex: Microsoft (?:Office )?Upload Center(?:[\/ ](\d+[\.\d]+))?
   name: Microsoft Upload Center
-  version: '$1'
+  version: '\g<1>'
   type: apputility
 
 # Match last after other Office apps - Microsoft Office 2014 & Microsoft Office/2014
 - regex: Microsoft Office
   name: Microsoft Office
-  version: '$1'
+  version: '\g<1>'
   type: productivity
 
 - regex: xblwin([\d\.]+)
   name: xBox Live Windows
-  version: '$1'
+  version: '\g<1>'
   type: desktop app
 
 - regex: dell sonicwall anti-spam desktop([\d\.]+)
   name: Dell SonicWall
-  version: '$1'
+  version: '\g<1>'
   type: desktop app
 
 - regex: sendamessageapi; ([\d\.]+)
   name: Send A Message API
-  version: '$1'
+  version: '\g<1>'
   type: desktop app
 
 - regex: ^server-bag
@@ -189,20 +189,20 @@
 
 - regex: 'Adobe Photoshop Elements (\d{1,4})(?: editor)?/(\d+[\.\d]+)'
   name: Adobe Photoshop Elements
-  version: '$2'
+  version: '\g<2>'
   type: desktop app
 
 - regex: Photoshop (\d{1,4})/(\d+[\.\d]+)
   name: Adobe Photoshop
-  version: '$2'
+  version: '\g<2>'
   type: desktop app
 
 - regex: 'Adobe CCXProcess-([\d\.-]+)/'
   name: Adobe Creative Cloud
-  version: '$1'
+  version: '\g<1>'
   type: desktop app
 
 - regex: QuickBooks/(\d+[\.\d]+)
   name: QuickBooks
-  version: '$1'
+  version: '\g<1>'
   type: desktop app

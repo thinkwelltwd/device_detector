@@ -7,20 +7,20 @@
 
 - regex: 'aws-sdk(-[a-z\d]+)+\/(\d+[\.\d]+)'
   name: Amazon Web Services SDK
-  version: '$2'
+  version: '\g<2>'
 
 - regex: 'amplify(-[a-z\d]+)+[\/:](\d+[\.\d]+)'
   name: AWS Amplify
-  version: '$2'
+  version: '\g<2>'
 
 - regex: 'FB(Android|iOS)SDK\.(\d+[\.\d]+)'
-  name: 'Facebook SDK for $1'
-  version: '$2'
+  name: 'Facebook SDK for \g<1>'
+  version: '\g<2>'
 
 - regex: okta[a-z-]+/(\d+[\.\d]+)
   name: Okta Auth Platform
-  version: '$1'
+  version: '\g<1>'
 
 - regex: sentry\.[a-z\.-]+/(\d+[\.\d]+)
   name: Sentry SDK
-  version: '$1'
+  version: '\g<1>'

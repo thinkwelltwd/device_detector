@@ -8,7 +8,7 @@
 Archos:
   regex: 'Archos.*GAMEPAD([2]?)'
   device: 'console'
-  model: 'Gamepad $1'
+  model: 'Gamepad \g<1>'
 
 Microsoft:
   regex: 'Xbox'
@@ -28,7 +28,7 @@ Microsoft:
 Nintendo:
   regex: 'Nintendo (([3]?DS[i]?)|Wii[U]?|Switch|GameBoy)'
   device: 'console'
-  model: '$1'
+  model: '\g<1>'
 
 OUYA:
   regex: 'OUYA'
@@ -65,7 +65,7 @@ Sony:
     - regex: '\(PS3\)'
       model: 'PlayStation 3'
     - regex: 'PlayStation ?(4 Pro|[2-5]|Portable|Vita)'
-      model: 'PlayStation $1'
+      model: 'PlayStation \g<1>'
 
 # Retroid Pocket (www.goretroid.com)
 Retroid Pocket:
@@ -73,8 +73,8 @@ Retroid Pocket:
   device: 'console'
   models:
     - regex: 'Pocket ([23]) ?(?:Plus|\+)'
-      model: '$1 Plus'
+      model: '\g<1> Plus'
     - regex: 'Pocket 4 Pro'
       model: '4 Pro'
     - regex: 'Pocket ([235])'
-      model: '$1'
+      model: '\g<1>'

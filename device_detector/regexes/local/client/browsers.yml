@@ -8,12 +8,12 @@
 # Avastium Browser - Avast browser based on Chrome
 - regex: 'Avastium Chrome(?:\/(\d+[\.\d]+))'
   name: 'Avast SafeZone'
-  version: '$1'
+  version: '\g<1>'
   engine:
     default: 'WebKit'
 
 - regex: 'avastium[ \/]\(?(\d+[\.\d]+)'
   name: 'Avast SafeZone'
-  version: '$1'
+  version: '\g<1>'
   engine:
     default: 'WebKit'

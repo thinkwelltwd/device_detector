@@ -25,4 +25,4 @@ Samsung:
     - regex: 'EK-GC200'
       model: 'Galaxy Camera 2'
     - regex: 'EK-GC([0-9]{3})'
-      model: 'Galaxy Camera $1'
+      model: 'Galaxy Camera \g<1>'

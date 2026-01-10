@@ -7,20 +7,20 @@
 
 - regex: 'Amazon Music, iphone, ([\d\.]+)'
   name: Amazon Music
-  version: '$1'
+  version: '\g<1>'
 
 - regex: 'Amazon Music, iphone, ([\d\.]+)'
   name: Audible
-  version: '$1'
+  version: '\g<1>'
 
 - regex: 'Audible, iphone, ([\d\.]+)'
   name: Audible
-  version: '$1'
+  version: '\g<1>'
 
 - regex: 'YouTubeUnplugged/([\d\.]+)'
   name: YouTube
-  version: '$1'
+  version: '\g<1>'
 
 - regex: 'YouTubeMusicWidgetKitExtension/([\d\.]+)'
   name: YouTube Music
-  version: '$1'
+  version: '\g<1>'

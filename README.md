@@ -182,6 +182,8 @@ cp $upstream/regexes/*.yml $pdd/device_detector/regexes/upstream/
 cp $upstream/Tests/fixtures/* $pdd/device_detector/tests/fixtures/upstream/
 cp $upstream/Tests/Parser/Client/fixtures/* $pdd/device_detector/tests/parser/fixtures/upstream/client/
 cp $upstream/Tests/Parser/Device/fixtures/* $pdd/device_detector/tests/parser/fixtures/upstream/device/
+
+./configure_regex_interpolators.sh
 ```
 
 After copying the fixtures, review the diffs and restore changes that were made, especially for app types, so tests pass.

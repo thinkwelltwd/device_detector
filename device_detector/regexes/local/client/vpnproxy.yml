@@ -7,4 +7,4 @@
 
 - regex: '^Tor[\w\d]+/([\d\.]+)'
   name: 'The Onion Router (TOR)'
-  version: '$1'
+  version: '\g<1>'

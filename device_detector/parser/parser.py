@@ -3,12 +3,9 @@ try:
 except ImportError:
     from typing_extensions import Self
 
+from regex._regex_core import error as RegexError
 from ..lazy_regex import RegexLazyIgnore
 from .client_hints import ClientHints
-from .extractors import (
-    NameExtractor,
-    VersionExtractor,
-)
 from ..yaml_loader import RegexLoader, app_pretty_names_types_data
 
 # Match regexes that ONLY values like:
@@ -137,11 +134,15 @@ class Parser(RegexLoader):
         Extract the version if UA Yaml files specify version regexes.
         See oss.yml for example file structure.
         """
-
+        user_agent = self.user_agent
         for version in self.ua_data.pop('versions', []):
-            if version['regex'].search(self.user_agent):
-                self.ua_data['version'] = version['version']
+            if version_regex_match := version['regex'].search(user_agent):
+                self.ua_data['version'] = perform_substitutions(
+                    version['version'], version_regex_match, '.'
+                )
                 return
+
+        self._set_data_from_field('version', '.')
 
     def set_details(self) -> None:
         """
@@ -149,17 +150,23 @@ class Parser(RegexLoader):
 
         Update fields with interpolated values from regex data
         """
-        groups = self.matched_regex and self.matched_regex.groups() or None
-        if groups:
-            if 'name' in self.ua_data:
-                self.ua_data['name'] = NameExtractor(self.ua_data, groups).extract()
-
-            if 'version' in self.ua_data:
-                self.ua_data['version'] = VersionExtractor(self.ua_data, groups).extract()
+        if self.matched_regex:
+            self._set_data_from_field('name', '.')
 
         # no version should be considered valid if the name can't be parsed
         if not self.ua_data.get('name') and self.ua_data.get('version'):
             self.ua_data['version'] = ''
+
+    def _set_data_from_field(self, field: str, separator: str):
+        """
+        Check specified field value to see if it has a regex separator,
+        and if so, update the value to include the regex capture details.
+        """
+        if substring := self.ua_data.get(field, ''):
+            if "\\g<" in substring:
+                self.ua_data[field] = perform_substitutions(
+                    substring, self.matched_regex, separator
+                )
 
     def name(self) -> str:
         return self.ua_data.get('name', '')
@@ -198,8 +205,24 @@ class Parser(RegexLoader):
         return f'{klass}({self.user_agent!r}, {self.ua_data!r})'
 
 
+def perform_substitutions(substring: str, regex_match, separator: str) -> str:
+    """
+    Substitute the captured value from the regex for the regex placeholder.
+    """
+    regex_pattern = regex_match.re
+    capture = regex_match.captures()[0]
+    try:
+        value = regex_pattern.sub(substring, capture)
+        if value.endswith(('\\g<1>', '\\g<2>')):
+            value = value[: value.rfind('\\g<')]
+        return value.replace('_', separator).strip(' .')
+    except RegexError:
+        return substring
+
+
 __all__ = (
     'Parser',
+    'perform_substitutions',
     'IPHONE_ONLY_UA',
     'ENDSWITH_DARWIN',
 )

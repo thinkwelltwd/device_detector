@@ -29,7 +29,7 @@ Apple:
 Cowon:
   regex: 'COWON ([^;/]+) Build'
   device: 'portable media player'
-  model: '$1'
+  model: '\g<1>'
 
 # FiiO (https://www.fiio.com/)
 FiiO:
@@ -39,7 +39,7 @@ FiiO:
     - regex: 'M11 Plus LTD'
       model: 'M11 Plus LTD'
     - regex: 'FiiO M(11S|1[157]|6)'
-      model: 'M$1'
+      model: 'M\g<1>'
 
 Microsoft:
   regex: 'Microsoft ZuneHD'
@@ -49,7 +49,7 @@ Microsoft:
 Panasonic:
   regex: '(SV-MV100)'
   device: 'portable media player'
-  model: '$1'
+  model: '\g<1>'
 
 Samsung:
   regex: 'YP-(G[SIPB]?1|G[57]0|GB70D)'
@@ -73,7 +73,7 @@ Samsung:
 Wizz:
   regex: '(DV-PTB1080)(?:[);/ ]|$)'
   device: 'portable media player'
-  model: '$1'
+  model: '\g<1>'
 
 # Shanling
 Shanling:
@@ -81,25 +81,25 @@ Shanling:
   device: 'portable media player'
   models:
     - regex: 'Shanling (M6\(21\))'
-      model: '$1'
+      model: '\g<1>'
 
 # Sylvania
 Sylvania:
   regex: '(SLTDVD102[34])'
   device: 'portable media player'
-  model: '$1'
+  model: '\g<1>'
 
 # KuGou
 KuGou:
   regex: 'KuGou[_ -](P5)'
   device: 'portable media player'
-  model: '$1'
+  model: '\g<1>'
 
 # Surfans
 Surfans:
   regex: '(Y57A)(?:[);/ ]|$)'
   device: 'portable media player'
-  model: '$1'
+  model: '\g<1>'
 
 # Oilsky (oilsky.com.cn)
 Oilsky:
@@ -109,13 +109,13 @@ Oilsky:
     - regex: 'M303-Pro'
       model: 'M303 Pro'
     - regex: '(M501|M303)'
-      model: '$1'
+      model: '\g<1>'
 
 # Diofox
 Diofox:
   regex: 'Diofox[ _](M8|M10|M508)(?:[);/ ]|$)'
   device: 'portable media player'
-  model: '$1'
+  model: '\g<1>'
 
 # MECHEN (mechen.com.cn)
 MECHEN:
@@ -123,9 +123,9 @@ MECHEN:
   device: 'portable media player'
   models:
     - regex: 'MECHEN[- _]([^;/)]+)[- _]Pro(?: Build|[);])'
-      model: '$1 Pro'
+      model: '\g<1> Pro'
     - regex: 'MECHEN[- _]([^;/)]+)(?: Build|[);])'
-      model: '$1'
+      model: '\g<1>'
 
 # Fanvace
 Fanvace:
@@ -133,4 +133,4 @@ Fanvace:
   device: 'portable media player'
   models:
     - regex: 'Fanvace[- _]([^;/)]+)(?: Build|[);])'
-      model: '$1'
+      model: '\g<1>'

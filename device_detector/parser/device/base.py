@@ -1,5 +1,4 @@
-from ..parser import Parser
-from device_detector.parser.extractors import ModelExtractor
+from ..parser import Parser, perform_substitutions
 from device_detector.enums import DeviceType
 
 MOBILE_DEVICE_TYPES = {
@@ -2140,24 +2139,16 @@ class BaseDeviceParser(Parser):
         """
         user_agent = self.user_agent
         for model in self.ua_data.pop('models', []):
-            if not (matched := model['regex'].search(user_agent)):
-                continue
+            if model_matched := model['regex'].search(user_agent):
+                self.ua_data |= {k: v.strip() for k, v in model.items() if k != 'regex'}
+                self.ua_data['model'] = perform_model_substitutions(
+                    model['model'], model_matched, ' '
+                )
+                return
 
-            self.matched_regex = matched
-            self.ua_data |= {
-                k: v.strip().replace('_', ' ') for k, v in model.items() if k != 'regex'
-            }
-
-            # Must return after first match! Later patterns could match
-            # again and clobber the earlier, correct, values.
-            # i.e. Sony Ericsson should override Sony
-            break
-
-        if 'model' in self.ua_data and self.matched_regex:
-            if groups := self.matched_regex.groups():
-                self.ua_data['model'] = ModelExtractor(self.ua_data, groups).extract()
-
-        return None
+        if name := self.ua_data.get('model', ''):
+            if "\\g<" in name:
+                self.ua_data['model'] = perform_model_substitutions(name, self.matched_regex, ' ')
 
     def dtype(self) -> DeviceType | str:
         return self.DEVICE_TYPE
@@ -2173,7 +2164,7 @@ class BaseDeviceParser(Parser):
         """
         Set device data from UA or Client Hints.
         """
-        if self.matched_regex:
+        if self.ua_data:
             self.extract_model()
 
             self.ua_data |= {
@@ -2182,6 +2173,25 @@ class BaseDeviceParser(Parser):
             }
 
             return super().set_details()
+
+
+def perform_model_substitutions(substring: str, regex_match, underscore_substitute: str) -> str:
+    """
+    Perform several normalizations after default regex substitution
+    """
+    value = perform_substitutions(substring, regex_match, underscore_substitute)
+    if not value or value == 'Build':
+        return ''
+
+    # normalize D510_TD / ETON-T730D_TD
+    # Tbook 16 Power(M5F8) Build
+    for suffix in (' TD', ' Build'):
+        value = value.removesuffix(suffix)
+
+    if value.endswith('))'):
+        return value[:-1]
+
+    return value
 
 
 __all__ = (
