@@ -28,9 +28,6 @@ WINDOWS_REGEX = RegexLazyIgnore(
     BOUNDED_REGEX.format('64-?bit|WOW64|(?:Intel)?x64|WINDOWS_64|win64|.*amd64|.*x86_?64')
 )
 x86_REGEX = RegexLazyIgnore(BOUNDED_REGEX.format('.*32bit|.*win32|(?:i[0-9]|x)86|i86pc'))
-CORASICK_COVERED_PLATFORMS = RegexLazyIgnore(
-    r'RazoDroiD|MildWild|CyanogenMod|gNewSense|Coolita OS QJY|ClearPHONE|RokuBrowser|centos|playstation'
-)
 
 
 class OS(Parser):
@@ -69,16 +66,16 @@ class OS(Parser):
     def platform(self) -> str:
         if ch := self.client_hints:
             ch_architecture = self.client_hints.architecture.lower()
-            if 'arm' in ch_architecture:
-                return 'ARM'
-            if 'loongarch64' in ch_architecture:
-                return 'LoongArch64'
-            if 'mips' in ch_architecture:
-                return 'MIPS'
-            if 'sh4' in ch_architecture:
-                return 'SuperH'
-            if 'sparc64' in ch_architecture:
-                return 'SPARC64'
+            for fragment, code in (
+                ('arm', 'ARM'),
+                ('loongarch64', 'LoongArch64'),
+                ('mips', 'MIPS'),
+                ('sh4', 'SuperH'),
+                ('sparc64', 'SPARC64'),
+            ):
+                if fragment in ch_architecture:
+                    return code
+
             if 'x64' in ch_architecture or (ch.bitness == '64' and 'x86' in ch_architecture):
                 return 'x64'
             if ch_architecture == 'x86':
@@ -86,20 +83,18 @@ class OS(Parser):
             return ch_architecture
 
         user_agent = self.user_agent
-        if ARM_REGEX.search(user_agent):
-            return 'ARM'
-        if LOONGARCH_REGEX.search(user_agent):
-            return 'LoongArch64'
-        if MIPS_REGEX.search(user_agent):
-            return 'MIPS'
-        if SUPERH_REGEX.search(user_agent):
-            return 'SuperH'
-        if SPARK_REGEX.search(user_agent):
-            return 'SPARC64'
-        if WINDOWS_REGEX.search(user_agent):
-            return 'x64'
-        if x86_REGEX.search(user_agent):
-            return 'x86'
+        for platform_regex, code in (
+            (ARM_REGEX, 'ARM'),
+            (LOONGARCH_REGEX, 'LoongArch64'),
+            (MIPS_REGEX, 'MIPS'),
+            (SUPERH_REGEX, 'SuperH'),
+            (SPARK_REGEX, 'SPARC64'),
+            (WINDOWS_REGEX, 'x64'),
+            (x86_REGEX, 'x86'),
+        ):
+            if platform_regex.search(user_agent):
+                return code
+
         return ''
 
     def _parse(self) -> None:

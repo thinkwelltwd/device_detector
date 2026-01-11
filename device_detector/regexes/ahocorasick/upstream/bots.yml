@@ -22,7 +22,6 @@
 2ip bot: null
 3-lighthouse: null
 360jk yunjiankong: null
-360spider: null
 4-lighthouse: null
 5-lighthouse: null
 6-lighthouse: null
@@ -40,7 +39,6 @@ acme.sectigo.com: null
 acoonbot: null
 adauth: null
 adbeat: null
-addsearchbot: null
 addthis.com: null
 adidxbot: null
 admantx: null
@@ -50,8 +48,6 @@ adsbot-google: null
 adsbot-naver: null
 adsbot: null
 adscanner: null
-adstxtcrawler/: null
-adstxtcrawlertp: null
 adstxtlab.com: null
 adwords-displayads: null
 adwords-express: null
@@ -67,17 +63,20 @@ alittle client: null
 altavista: null
 amazon route 53: null
 amazon route53: null
+amazon-kendra: null
 amazon-route-53: null
 amazon-route53: null
 amazonadbot: null
 amazonbot: null
-amorankspider: null
+amazonbuyforme: null
 analyzer: null
 anarchy99: null
 ant.com beta: null
 antbot: null
 anthropic-ai: null
+anthropic-claude: null
 antoine: null
+apache: null
 apachebench: null
 apis-google-mobile: null
 apis-google: null
@@ -89,22 +88,18 @@ archive: null
 archivebox: null
 archiver: null
 archiveteam archivebot: null
-arquivo-web-crawler: null
 asana: null
 ask jeeves/teoma: null
+askbot: null
 aspiegelbot: null
-automattic analytics crawler: null
 awariobot: null
 awariorssbot: null
 awariosmartbot: null
 b-lighthouse: null
 b3astmode: null
 backlink-check.de: null
-backlinkcrawler: null
 backlinksextendedbot: null
 backupland: null
-baidu.com/search/spider:
-baiduspider: null
 bang2013: null
 barkrowler: null
 barracuda sentinel: null
@@ -119,11 +114,11 @@ bigsur.ai: null
 bingadsbot: null
 bingbot: null
 bingpreview: null
-birdcrawlerbot: null
 bitdiscovery: null
 bitlybot: null
 bitsightbot: null
 bl.uk_ldfc_bot: null
+blackboardally: null
 blackbox exporter: null
 blekkobot: null
 blexbot: null
@@ -141,13 +136,11 @@ bountiibot: null
 brandverity: null
 bravebot: null
 brightbot: null
-brightedge crawler: null
 browsershots: null
 bubing: null
 buck: null
 builtwith: null
 bw/: null
-bytespider: null
 c-lighthouse: null
 careerbot: null
 castopod: null
@@ -159,6 +152,7 @@ censysinspect: null
 centuryb.o.t9: null
 charlotte: null
 chat-proxy: null
+chatgpt-browser: null
 chatgpt-user: null
 chatwork linkpreview: null
 check_http/v: null
@@ -170,6 +164,8 @@ chrome privacy preserving prefetch proxy: null
 cincraw: null
 cispa web analyzer: null
 classla: null
+claude-user: null
+claude-web: null
 claudebot: null
 clickagy: null
 cliqzbot: null
@@ -183,7 +179,6 @@ cloudflare-ssldetector: null
 cloudflare-traffic-manager: null
 cloudflarediagnostics: null
 cloudflareobservatory: null
-cloudservermarketspider: null
 cms-experiment: null
 coccoc.com: null
 cocolyzebot: null
@@ -207,15 +202,11 @@ crawladebot: null
 crawldad: null
 crawler: null
 crawlson: null
-crawlyprojectcrawler: null
 criteobot/: null
 crowdtanglebot: null
 crystalsemanticsbot: null
-css certificate spider: null
 csscheck: null
 curious george: null
-cyberfind crawler: null
-cyberfindcrawler: null
 cyberscan.io: null
 cypex.ai: null
 d-lighthouse: null
@@ -237,18 +228,16 @@ deepcrawl.com: null
 deepnoc: null
 depspid: null
 detectify: null
+devin: null
 diffbot: null
 discobot: null
 discordbot: null
-disqusadstxtcrawler: null
 dmbrowser: null
-dnsresearchbot: null
 dnt-policy@eff.org: null
 domain re-animator bot: null
 domain research project: null
 domainappender: null
 domaincodex.com: null
-domaincrawler/: null
 domains project: null
 domainstatsbot: null
 domcopbot: null
@@ -263,20 +252,17 @@ ducks.party: null
 duplexweb-google: null
 dynatracesynthetic: null
 e-lighthouse: null
-easouspider: null
 easybib autocite: null
 ecairn-grabber: null
+ecairn: null
 elastic/synthetics: null
 elb-healthchecker: null
 email exractor: null
 emailwolf: null
 embedly: null
 entferbot: null
-ev-crawler: null
 evc-batch: null
-everyfeed-spider: null
 exabot: null
-exactseek crawler: null
 exaleadcloudview: null
 example3: null
 exchange check: null
@@ -293,7 +279,6 @@ facebookexternalhit: null
 facebookexternalua: null
 facebookplatform: null
 facebookscraper: null
-fast-webcrawler: null
 faveeo.com: null
 fedilist agent/: null
 feed finder: null
@@ -303,13 +288,11 @@ feedbin: null
 feedburner: null
 feedly: null
 feedspot: null
-femtosearchbot: null
 fetch proxy: null
 fetch: null
 fetcher: null
 fever/: null
 fhms-its-research-scanner: null
-finder-crawler: null
 findlinks: null
 findxbot: null
 firecrawlagent: null
@@ -329,17 +312,15 @@ geckotrail: null
 geedobot: null
 geedoproductsearch: null
 genieo: null
-genomecrawlerd: null
 getodin.com: null
 ghost inspector: null
 gigablastopensource: null
 gigabot: null
-gitcrawlerbot: null
 github-camo: null
 githubcopilotchat: null
 globalwebsearch: null
-gluten free crawler: null
 gobuster: null
+gochitchat: null
 golfe: null
 gomeza: null
 google favicon: null
@@ -364,6 +345,7 @@ google-hoteladsverifier: null
 google-inspectiontool: null
 google-lens: null
 google-pagerenderer: null
+google-pinpoint: null
 google-publisher plugin: null
 google-publisher-plugin: null
 google-read-aloud: null
@@ -394,7 +376,6 @@ gozlebot: null
 gptbot: null
 grafana/: null
 grammarly: null
-grapeshotcrawler: null
 gregarius: null
 groq-bot: null
 grub-client: null
@@ -427,7 +408,6 @@ hybridbot: null
 i-lighthouse: null
 ia_archiver: null
 iboubot: null
-icc-crawler: null
 ichiro/mobile goo: null
 ichiro: null
 idbte4m code87: null
@@ -440,6 +420,7 @@ iisbot: null
 image proxy: null
 imageproxy: null
 imagesift: null
+img2dataset: null
 indexer: null
 inetdex-bot: null
 infotigerbot: null
@@ -452,6 +433,7 @@ insytfulbot: null
 intelx.io_bot: null
 internaetboten: null
 internetmeasurement: null
+intuitionsbot: null
 ioncrawl: null
 ip-guide.com: null
 iplabel: null
@@ -491,10 +473,9 @@ larbin: null
 last-modified.com: null
 leak.info: null
 let's encrypt validation server: null
-letsearchbot: null
 libredtail: null
-lightspeedsystemscrawler: null
-linespider: null
+linerbot: null
+linkbloom: null
 linkchain: null
 linkdex.com: null
 linkdexbot: null
@@ -514,18 +495,17 @@ m-lighthouse: null
 macocu: null
 madbbot: null
 magellan: null
-magpie-crawler: null
 magpierss: null
 mail.ru: null
 mailproxy: null
 makemerrybot: null
+manus-user: null
 mariadb-mysql-kbs-bot: null
 masjesu: null
 masscan-ng: null
 masscan: null
 mastodon/: null
 matomo/: null
-mbcrawler: null
 meanpathbot: null
 mediapartners-google-mobile: null
 mediapartners-google: null
@@ -554,6 +534,7 @@ monitor: null
 monsidobot: null
 montastic-monitor: null
 moodlebot-linkchecker: null
+moosara.com: null
 morningscore: null
 mozilliqa: null
 msnbot-newsblogs: null
@@ -574,7 +555,6 @@ neevabot: null
 netcraft ssl server survey: null
 netcraft web server survey: null
 netcraftsurveyagent: null
-netestate ne crawler: null
 netlyzer fastprobe: null
 netpeakcheckerbot: null
 netresearch: null
@@ -582,18 +562,17 @@ netsystemsresearch: null
 nettrack: null
 netvibes: null
 netzzappen: null
-new-sogou-spider: null
 newsgatoronline: null
 newslitbot: null
 newspaper: null
-nicecrawler: null
 niggaballs: null
 niki-bot: null
 nimbostratus-bot: null
-nlcrawler: null
 nmap scripting engine: null
 nodeping: null
+notebooklm: null
 notifyninja: null
+novaact: null
 npbot: null
 nrsbot: null
 nuhk: null
@@ -602,7 +581,6 @@ nuzzel: null
 nvd0rz: null
 nvdorz: null
 o-lighthouse: null
-oai-searchbot: null
 obot: null
 odklbot: null
 oegp: null
@@ -614,8 +592,6 @@ online-webceo-bot: null
 onlineornot.com_bot: null
 onlyscans: null
 opengraph.io: null
-openindexspider: null
-openwebspider: null
 orangebot: null
 osalphaxcrawl: null
 oszkbot: null
@@ -629,14 +605,13 @@ pagepeeker: null
 pagething.com: null
 paloaltonetworks.com: null
 pandalytics: null
+pangubot: null
 panscient.com: null
 paperlibot: null
 paqlebot: null
 parse.ly scraper: null
-pathspider: null
 paypal ipn: null
 pdrl.fm: null
-peer39_crawler: null
 perplexity-user: null
 perplexitybot: null
 petalbot: null
@@ -656,6 +631,7 @@ plukkie: null
 pocketimagecache: null
 pocketparser: null
 poduptime/: null
+poggio: null
 pompos: null
 prerender: null
 prittorrent: null
@@ -664,14 +640,15 @@ project: null
 project_patchwatch: null
 project`: null
 prometheus: null
+prorata: null
 proximic;: null
 prtg network monitor: null
 psbot: null
 ptst/: null
 punkmap: null
 q-lighthouse: null
+qualifiedbot: null
 quantcastbot: null
-queryseekerspider: null
 quora link preview: null
 quora-bot: null
 qwantbot: null
@@ -680,7 +657,6 @@ r-lighthouse: null
 r00ts3c-owned-you: null
 rainmeter: null
 ramblermail: null
-ravencrawler: null
 re-re studio: null
 read later: null
 redditbot: null
@@ -708,7 +684,6 @@ ryowlengine: null
 s-lighthouse: null
 sabsimbot: null
 safednsbot: null
-sandobacrawler: null
 sbider: null
 scamadviserexternalhit: null
 scan@aegis: null
@@ -717,18 +692,18 @@ scooter: null
 scoutjet: null
 scraper: null
 scrapy: null
-screaming frog seo spider: null
 screenerbot: null
 scrubby: null
 search.marginalia.nu: null
+searchbot: null
 searcher: null
 searchexpress: null
 searchsight: null
 sectigo dcv: null
 secureurl: null
 seekport: null
-sellers.guide crawler by primis: null
 semaltbot: null
+semantic-visions: null
 semanticdiscovery: null
 semanticscholarbot: null
 semrushbot: null
@@ -751,6 +726,7 @@ seznam-zbozi-robot: null
 seznambot: null
 seznamemailproxy: null
 sffeedreader: null
+shapbot: null
 shareaholic: null
 shareaholicbot: null
 shopalike: null
@@ -760,14 +736,11 @@ silverreader: null
 simbiat software: null
 simplepie: null
 sirdatabot: null
-sistrix crawler: null
 site24x7: null
 siteauditbot: null
 sitebulb: null
-sitecheckerbotcrawler: null
 siteimprove: null
 sitemapparser-vipnytt: null
-siteone-crawler: null
 sitescorebot: null
 sitesucker: null
 sixy.ch: null
@@ -781,39 +754,12 @@ snap url preview service: null
 snapchatads: null
 snappy: null
 snoopsecinspect: null
-sogou head spider: null
-sogou head-spider: null
-sogou inst spider: null
-sogou inst-spider: null
-sogou orion spider: null
-sogou orion-spider: null
-sogou pic spider: null
-sogou pic-spider: null
-sogou test spider: null
-sogou test-spider: null
-sogou web spider: null
-sogou web-spider: null
-sogou-head spider: null
-sogou-head-spider: null
-sogou-inst spider: null
-sogou-inst-spider: null
-sogou-orion spider: null
-sogou-orion-spider: null
-sogou-pic spider: null
-sogou-pic-spider: null
-sogou-test spider: null
-sogou-test-spider: null
-sogou-web spider: null
-sogou-web-spider: null
-sosoimagespider: null
-sosospider: null
 spark commit: null
 sparkler: null
 spawning-ai: null
 spbot: null
 special_archiver: null
-speedy spider: null
-spiderling: null
+spider: null
 spinn3r: null
 splitsignalbot: null
 spotify/: null
@@ -855,7 +801,6 @@ telegrambot: null
 teoma: null
 terracotta: null
 test certificate info: null
-testcrawler: null
 the knowledge ai: null
 theinternetsearchx: null
 theoldreader.com: null
@@ -867,7 +812,6 @@ thinkbot/: null
 thinkchaos/: null
 thousandeyes: null
 tigerbot: null
-tiktokspider: null
 timpibot: null
 tineye-bot: null
 tineye: null
@@ -909,7 +853,6 @@ v-lighthouse: null
 vagabondo: null
 validator: null
 validbot: null
-velenpublicwebcrawler: null
 vercelbot: null
 verifybot: null
 verity/: null
@@ -920,7 +863,6 @@ viberurldownloader: null
 vkrobot: null
 voilabot: null
 vortex/: null
-vsmcrawler: null
 vu-server-health-scanner: null
 vuhuvbot: null
 vuhuvrbt: null
@@ -933,16 +875,15 @@ w3c_validator: null
 wappalyzer: null
 wdg_validator: null
 webauthn adoption: null
-webbcrawler: null
 webdatastats: null
 webmon: null
 webprosbot: null
+webscan: null
 website-info.net: null
-websitepulse checker: null
-websitepulse+checker: null
+websitepulse: null
 webthumbnail: null
-webtru_crawler: null
 webwikibot: null
+webzio: null
 wellknownbot: null
 wesee: null
 wevikabot: null
@@ -952,8 +893,8 @@ wheregoes.com redirect checker: null
 who.is: null
 wibybot: null
 wikido: null
-willow internet crawler: null
 wirereaderbot: null
+wombles: null
 woobot: null
 woorankreview: null
 wordpress.com mshots: null
@@ -982,7 +923,6 @@ yacybot: null
 yahoo ad monitoring: null
 yahoo link preview: null
 yahoo! slurp: null
-yahoo!-adcrawler: null
 yahoo:linkexpander:slingstone: null
 yahoocachesystem: null
 yahoomailproxy: null
@@ -990,7 +930,6 @@ yak/: null
 yandex.gazeta bot: null
 yandexaccessibilitybot: null
 yandexadditional: null
-yandexadditionalbot: null
 yandexadnet: null
 yandexantivirus: null
 yandexblogs: null
@@ -1002,17 +941,13 @@ yandexdialogs: null
 yandexdirect: null
 yandexfavicons: null
 yandexfordomain: null
-yandeximageresizer: null
-yandeximages: null
+yandeximage: null
 yandexmarket: null
 yandexmedia: null
 yandexmetrika: null
-yandexmobilebot: null
-yandexmobilescreenshotbot: null
+yandexmobile: null
 yandexnews: null
-yandexnewslinks: null
-yandexontodb: null
-yandexontodbapi: null
+yandexonto: null
 yandexpagechecker: null
 yandexpartner: null
 yandexrca: null
@@ -1033,10 +968,8 @@ yottaamonitor: null
 youbot: null
 youdaobot: null
 yourls: null
-yrspider: null
-yyspider: null
 z-lighthouse: null
-zaldamosearchbot: null
+zanistabot: null
 zao/: null
 zelist.ro feed parser: null
 zeno: null

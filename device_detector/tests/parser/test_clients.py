@@ -47,7 +47,7 @@ class ParserClientBase(ParserBaseTest):
                 self.assertIn(
                     field,
                     data,
-                    msg=f'Error parsing {self.user_agent}. Parsed data does not have {field!r} key.'
+                    msg=f'Error parsing {self.user_agent!r}. Parsed data missing {field!r} key.'
                 )
                 self.assertEqual(expected, extracted, field=field)
 

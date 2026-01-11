@@ -627,6 +627,7 @@ firefox 3: null
 firefox 4: null
 firefox 5: null
 firefox/: null
+firesend: null
 fireweb: null
 fireweb navigator: null
 flashbrowser/: null
@@ -651,16 +652,6 @@ floorp/6: null
 floorp/7: null
 floorp/8: null
 floorp/9: null
-#flow/0: null
-#flow/1: null
-#flow/2: null
-#flow/3: null
-#flow/4: null
-#flow/5: null
-#flow/6: null
-#flow/7: null
-#flow/8: null
-#flow/9: null
 fluid: null
 'flyflow ': null
 'flyflow/': null
@@ -749,31 +740,10 @@ hpwos/9: null
 huaweibrowser: null
 ibrowse: null
 ibrowser/: null
-#icab: null
 icabmobile: null
 icecat: null
 icedragon: null
 iceweasel: null
-#ie 0: null
-#ie 1: null
-#ie 2: null
-#ie 3: null
-#ie 4: null
-#ie 5: null
-#ie 6: null
-#ie 7: null
-#ie 8: null
-#ie 9: null
-#ie/0: null
-#ie/1: null
-#ie/2: null
-#ie/3: null
-#ie/4: null
-#ie/5: null
-#ie/6: null
-#ie/7: null
-#ie/8: null
-#ie/9: null
 'iemobile ': null
 'iemobile/': null
 ilunascape: null
@@ -781,7 +751,6 @@ impervious: null
 inet browser: null
 inspectbrowser: null
 iostruelocationbrowser/: null
-#ipod: null
 iridium: null
 iron/0: null
 iron/1: null
@@ -1002,7 +971,6 @@ light/7: null
 light/8: null
 light/9: null
 lilo/: null
-#links: null
 links (0: null
 links (1: null
 links (2: null

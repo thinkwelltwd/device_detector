@@ -3,7 +3,7 @@ from ..yaml_loader import RegexLoader, app_pretty_names_types_data
 from device_detector.enums import AppType
 from device_detector.utils import normalize_app_name
 
-APP_ID = RegexLazyIgnore(r'\b([a-z]{2,5}\.[\w\d\.\-]+)')
+APP_ID_SANS_VERSION = RegexLazyIgnore(r'\b([a-z][a-z_]+(?:\.[a-z0-9_-]+){2,})')
 
 # 6H4HRTU5E3.com.avast.osx.secureline.avastsecurelinehelper/47978 CFNetwork/976 Darwin/18.2.0 (x86_64)
 # YMobile/1.0(com.kitkatandroid.keyboard/4.3.2;Android/6.0.1;lv1;LGE;LG-M153;;792x480
@@ -88,7 +88,7 @@ class ApplicationIDExtractor(RegexLoader):
         if app_ids := APP_ID_VERSION.findall(self.user_agent):
             return app_ids
 
-        if app_ids := [(app_id, '') for app_id in APP_ID.findall(self.user_agent)]:
+        if app_ids := [(app_id, '') for app_id in APP_ID_SANS_VERSION.findall(self.user_agent)]:
             return app_ids
 
         return []

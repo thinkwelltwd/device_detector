@@ -30,6 +30,7 @@ OS_CLIENT_HINT_MAPPING = {
 # Operating system families that are known as desktop only
 DESKTOP_OS = {
     'AmigaOS', 'IBM', 'GNU/Linux', 'Mac', 'Unix', 'Windows', 'BeOS', 'Chrome OS', 'Chromium OS',
+    'OpenVMS',
 }
 
 # Sub-list of Desktop OS that never falsely appear in UAs
@@ -48,6 +49,9 @@ APPLE_OS_NAMES = {
 
 # Fire OS version mapping
 FIREOS_VERSION_MAPPING = {
+    '14'   : '14',
+    '13'   : '14',
+    '12'   : '14',
     '11'   : '8',
     '10'   : '8',
     '9'    : '7',
@@ -259,6 +263,7 @@ OPERATING_SYSTEMS = {
     'SY3': 'Symbian^3',
     'TEN': 'TencentOS',
     'TDX': 'ThreadX',
+    'TIT': 'Titan OS',
     'TIZ': 'Tizen',
     'TIV': 'TiVo OS',
     'TOS': 'TmaxOS',
@@ -336,7 +341,7 @@ OS_FAMILIES = {
     'WebTV': ('WTV',),
     'Windows': ('WIN',),
     'Windows Mobile': ('WPH', 'WMO', 'WCE', 'WRT', 'WIO', 'KIN'),
-    'Other Smart TV': ('WHS',),
+    'Other Smart TV': ('WHS', 'TIT'),
     'Unknown': ('UNK',),
 }
 # fmt: on
@@ -477,6 +482,7 @@ AVAILABLE_BROWSERS = {
     '9B': 'BizBrowser',
     'BC': 'Black Browser',
     'BH': 'BlackHawk',
+    'Z1': 'Blazer',
     'B0': 'Bloket',
     'BJ': 'Bunjalloo',
     'BL': 'B-Line',
@@ -507,6 +513,7 @@ AVAILABLE_BROWSERS = {
     'C6': 'Chedot',
     'C9': 'Cherry Browser',
     'C0': 'Centaury',
+    'ZC': 'Clario Browser',
     '9C': 'Clear TV Browser',
     'CQ': 'Cliqz',
     'CC': 'Coc Coc',
@@ -514,6 +521,7 @@ AVAILABLE_BROWSERS = {
     'C2': 'Colibri',
     '6C': 'Columbus Browser',
     'CD': 'Comodo Dragon',
+    'XC': 'Comet',
     'C1': 'Coast',
     'CX': 'Charon',
     'G0': 'ChatGPT Atlas',
@@ -609,6 +617,7 @@ AVAILABLE_BROWSERS = {
     'FO': 'Flow',
     'F2': 'Flow Browser',
     'FM': 'Firefox Mobile',
+    '3F': 'FireSend Browser',
     'FW': 'Fireweb',
     'FN': 'Fireweb Navigator',
     'FH': 'Flash Browser',
@@ -1131,6 +1140,7 @@ BROWSER_FAMILIES = {
         'W2', 'ZB', 'HN', 'Q6', 'Q7', 'G0', '00', 'R6', 'D8',
         'PQ', 'LM', 'T5', '2N', 'SJ', 'X6', 'SM', 'AY', 'BQ',
         'BC', 'NQ', 'VQ', '9C', 'KA', 'YS', 'D4', 'PZ', '0I',
+        '3F', 'Z1', 'XC', 'ZC',
     ),
     'Firefox': (
         'FF', 'BI', 'BF', 'BH', 'BN', 'C0', 'CU', 'EI', 'F1',
@@ -1192,6 +1202,7 @@ TV_CLIENTS = {
     'Kylo', 'Espial TV Browser', 'LUJO TV Browser', 'LogicUI TV Browser', 'Open TV Browser',
     'Seraphic Sraf', 'Opera Devices', 'Crow Browser', 'Vewd Browser', 'TiviMate',
     'Quick Search TV', 'QJY TV Browser', 'TV Bro',
+    'Redline',
 }
 
 # Taken from ChromeOS regex in oss.yml
