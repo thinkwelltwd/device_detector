@@ -1,3 +1,5 @@
+import regex
+
 try:
     from typing import Self
 except ImportError:
@@ -157,7 +159,7 @@ class Parser(RegexLoader):
         if not self.ua_data.get('name') and self.ua_data.get('version'):
             self.ua_data['version'] = ''
 
-    def _set_data_from_field(self, field: str, separator: str):
+    def _set_data_from_field(self, field: str, separator: str) -> None:
         """
         Check specified field value to see if it has a regex separator,
         and if so, update the value to include the regex capture details.
@@ -205,7 +207,7 @@ class Parser(RegexLoader):
         return f'{klass}({self.user_agent!r}, {self.ua_data!r})'
 
 
-def perform_substitutions(substring: str, regex_match, separator: str) -> str:
+def perform_substitutions(substring: str, regex_match: regex.Match, separator: str) -> str:
     """
     Substitute the captured value from the regex for the regex placeholder.
     """

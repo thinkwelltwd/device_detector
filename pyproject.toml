@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "device_detector"
-version = "6.0.0"
+version = "6.1.0"
 description="Python3 port of matomo's Device Detector"
 readme = "README.md"
 license = {file = "device_detector/LICENSE.md"}

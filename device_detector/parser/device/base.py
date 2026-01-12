@@ -1,3 +1,5 @@
+import regex
+
 from ..parser import Parser, perform_substitutions
 from device_detector.enums import DeviceType
 
@@ -2183,7 +2185,9 @@ class BaseDeviceParser(Parser):
             return super().set_details()
 
 
-def perform_model_substitutions(substring: str, regex_match, underscore_substitute: str) -> str:
+def perform_model_substitutions(
+    substring: str, regex_match: regex.Match, underscore_substitute: str
+) -> str:
     """
     Perform several normalizations after default regex substitution
     """
