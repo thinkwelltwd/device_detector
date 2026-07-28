@@ -62,6 +62,15 @@ class TestBrowser(ParserClientBase):
     Parser = Browser
 
 
+class TestChrome(ParserClientBase):
+
+    fixture_files = [
+        'tests/parser/fixtures/local/client/chrome.yml',
+    ]
+    fields = ('name', 'type', 'version')
+    Parser = Browser
+
+
 class TestAdobeCC(ParserClientBase):
 
     fixture_files = [

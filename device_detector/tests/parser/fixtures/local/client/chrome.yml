@@ -1,0 +1,30 @@
+###############
+# Supplemental regexes for Device Detector - The Universal Device Detection library for parsing User Agents
+#
+# Copyright (c) 2026 Dave Burkholder, Thinkwell Designs
+# @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
+###############
+-
+  user_agent: Chrome/138.0.7204.119 iPhone/26.1 hw/iPhone17_4
+  client:
+    type: browser
+    name: Chrome
+    version: 138.0.7204.119
+-
+  user_agent: Chrome/147.0.7727.47 iSL/3.4 iPad/18.3.1 hw/iPad13_19 (gzip)
+  client:
+    type: browser
+    name: Chrome
+    version: 147.0.7727.47
+-
+  user_agent: Chrome/130.0.6723.37 CFNetwork/3826.500.111.2.2 Darwin/24.4.0
+  client:
+    type: browser
+    name: Chrome
+    version: 130.0.6723.37
+-
+  user_agent: Chrome/120.0.6099.119 CFNetwork/3860.600.12 Darwin/25.5.0
+  client:
+    type: browser
+    name: Chrome
+    version: 120.0.6099.119

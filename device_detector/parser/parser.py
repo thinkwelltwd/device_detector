@@ -16,7 +16,7 @@ from ..yaml_loader import RegexLoader, app_pretty_names_types_data
 # iPhone8
 # iPhone6s
 IPHONE_ONLY_UA = RegexLazyIgnore(r'iPhone(\d{1,2})?(s?$|mini|SE|XR|XS)')
-
+CHROME_ON_APPLE = RegexLazyIgnore(r'^Chrome/[\d\.]+ CFNetwork')
 ENDSWITH_DARWIN = RegexLazyIgnore(r'Darwin/(?:\d+[.\d]+)(?: \(x86_64\))?$')
 
 
@@ -98,7 +98,12 @@ class Parser(RegexLoader):
         Check if UserAgent consists of iOS-related hardware.
         """
         if self._is_ios_fragment is None:
-            self._is_ios_fragment = IPHONE_ONLY_UA.match(self.user_agent_lower) is not None
+            for rgx in (IPHONE_ONLY_UA, CHROME_ON_APPLE):
+                if rgx.match(self.user_agent_lower) is not None:
+                    self._is_ios_fragment = True
+                    break
+            else:
+                self._is_ios_fragment = False
         return self._is_ios_fragment
 
     def check_all_regexes(self) -> bool | list[str]:
