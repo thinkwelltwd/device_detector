@@ -31,6 +31,9 @@ VERSION_NAME_REGEXES = (
     RegexLazyIgnore(r'(?P<name>[a-zA-Z]+)\|[a-z\:]+(?P<version>[\d\.]+)'),
 )
 
+UNICODE_CATEGORIES = r'\p{Geometric_Shapes}\p{Extended_Pictographic}\p{Other_Symbol}'
+NAME_PATTERN = rf'[\w\d{UNICODE_CATEGORIES}\.\-_\'!®\?, \+\&‘’]+'
+
 # Extra name / version from UAs
 NAME_VERSION_REGEXES = (
 
@@ -42,20 +45,20 @@ NAME_VERSION_REGEXES = (
     # Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/Version/25.7.0 Hunt/1398
     # match "Hunt/1398" rather than "25.7.0 Hunt/1398"
     # OneDrive-25.209.1026.0002
-    RegexLazyIgnore(r'^(?P<name>[\w\d\.\-_\'!®\?, \+\&]+)[ /-](?P<version>[\d\.]+)'),
+    RegexLazyIgnore(rf'^(?P<name>{NAME_PATTERN})[ /-](?P<version>[\d\.]+)'),
 
     # Extract "Opera Mobi/ADR-25672775" in User Agents like:
     # Opera/9.62 (Android 4.1.2; Linux; Opera Mobi/ADR-25672775) Presto/2.520.13 Version/12.520
     RegexLazyIgnore(r'\b(?P<name>[a-zA-Z\. \-_\'!®\?,\+\&]+)/(?P<version>[\d\.\w-]+)'),
 
     # Get ALL <key>/<value> pairs from the regex
-    RegexLazyIgnore(r'(?P<name>[\w\d\.\-_\'!®\?,\+\&]+)/(?P<version>[\d\.\-\w\&\?]+)\b'),
+    RegexLazyIgnore(rf'(?P<name>{NAME_PATTERN})/(?P<version>[\d\.\-\w\&\?]+)\b'),
 
     # <name><space><version> - anchored at the beginning
     # CarboniteDownloader 6.3.2 build 7466 (Sep-07-2017)
     # libreoffice 5.4.3.2 (92a7159f7e4af62137622921e809f8546db437e5; windows; x86;)
     # openoffice.org 3.2 (320m18(build:9502); windows; x86; bundledlanguages=en-us)
-    RegexLazyIgnore(r'^(?P<name>[\w\._\&\'!®\?,\+\&]+) [rv]?(?P<version>[\d\.\-\&\?]+)\b'),
+    RegexLazyIgnore(rf'^(?P<name>{NAME_PATTERN}) [rv]?(?P<version>[\d\.\-\&\?]+)\b'),
 
     # <name><sep><version> - anywhere in string
     # Microsoft Office Access 2013 (15.0.4693) Windows NT 6.2, where version == 15.0.4693
@@ -65,16 +68,16 @@ NAME_VERSION_REGEXES = (
     # DigiCal (v1.8.2b; http://digibites.nl/digical)
     # iPad; 10.3.3; autotrader.com; 3.0.10
     RegexLazyIgnore(
-        r'(?P<name>[\w\d\.\-_\&\'!®\?, \+]+) ?[(\-;] ?[vr]?(?P<version>[\d\.]+)(?:\b|\w|$)'
+        rf'(?P<name>[\w\d\p{UNICODE_CATEGORIES}\.\-_\&\'!®\?, \+\&’]+) ?[(\-;] ?[vr]?(?P<version>[\d\.]+)(?:\b|\w|$)'
     ),
 
     # <name><space><version> - anywhere in remainder of string
     # Mozilla/5.0 AppleWebKit/537.36 Mobile Safari/537.36 Android SermonAudio.com 1.9.8, wanting "SermonAudio.com 1.9.8"
-    RegexLazyIgnore(r'(?P<name>[\w\._\&\'!®\?,\+\& ]+) [rv]?(?P<version>[\d\.\-\&\?]+)\b'),
+    RegexLazyIgnore(rf'(?P<name>{NAME_PATTERN}) [rv]?(?P<version>[\d\.\-\&\?]+)\b'),
 
     # Get <key><value> pair from beginning of regex, when name & version are not delimited
     # BlueApron2.47.0 (iPhone; iOS 12.1.3; Scale/2.0)
-    RegexLazyIgnore(r'^(?P<name>[a-zA-Z\-_\'!®\?, \+\&]+)(?P<version>[\d\.]+)\b'),
+    RegexLazyIgnore(rf'^(?P<name>[a-zA-Z\p{UNICODE_CATEGORIES}\-_\'!®\?, \+\&’]+)(?P<version>[\d\.]+)\b'),
 )
 
 # <name>/<version> pairs with names matching these

@@ -232,3 +232,117 @@
     type: productivity
     name: Microsoft OneDrive
     version: 25.209.1026.0002
+-
+  user_agent: Carter’s/9.12.2.11514 Darwin/25
+  client:
+    type: generic
+    name: Carter’s
+    version: 9.12.2.11514
+-
+  user_agent: Arby's/15877 Darwin/24
+  client:
+    type: generic
+    name: Arby's
+    version: 15877
+-
+  user_agent: BoxCar /2.6.0.1 Darwin/18
+  client:
+    type: generic
+    name: BoxCar
+    version: 2.6.0.1
+-
+  user_agent: Émoji/16.3.0.28 Darwin/25
+  client:
+    type: generic
+    name: Émoji
+    version: 16.3.0.28
+-
+  user_agent: émoji2/16.3.0.28 Darwin/25
+  client:
+    type: generic
+    name: émoji2
+    version: 16.3.0.28
+-
+  user_agent: Emoji+ 😘/16.3.0.28 Darwin/25
+  client:
+    type: generic
+    name: Emoji+ 😘
+    version: 16.3.0.28
+-
+  user_agent: Emoji+ 😘 - 6.01.9782
+  client:
+    type: generic
+    name: Emoji+ 😘
+    version: 6.01.9782
+-
+  user_agent: ▻Sudoku - 6.01.9782
+  client:
+    type: generic
+    name:  ▻Sudoku
+    version: 6.01.9782
+-
+  user_agent: ▻Sudoku 2/438 CFNetwork/3826.600.41 Darwin/24.6.0
+  client:
+    type: generic
+    name: ▻Sudoku 2
+    version: 438
+-
+  user_agent: Bible+/2854 Darwin/25
+  client:
+    type: generic
+    name: Bible+
+    version: 2854
+-
+  user_agent: JustPerfect✅ - 6.01.9782
+  client:
+    type: generic
+    name:  JustPerfect✅
+    version: 6.01.9782
+-
+  user_agent: 999Flowers❦ - 6.01.9782
+  client:
+    type: generic
+    name:  999Flowers❦
+    version: 6.01.9782
+-
+  user_agent: 999Flowers❦/6.01.9782
+  client:
+    type: generic
+    name:  999Flowers❦
+    version: 6.01.9782
+-
+  user_agent: 999Flowers ❦/6.01.9782
+  client:
+    type: generic
+    name:  999Flowers ❦
+    version: 6.01.9782
+-
+  user_agent: BlueApron👖2.47.0 (iPhone; iOS 12.1.3; Scale/2.0)
+  client:
+    type: generic
+    name:  BlueApron👖
+    version: 2.47.0
+-
+  user_agent: Calculator‘/3360 Darwin/24
+  client:
+    type: generic
+    name:  Calculator‘
+    version: 3360
+-
+  user_agent: Huck’s/1757687172 Darwin/25
+  client:
+    type: generic
+    name:  Huck’s
+    version: 1757687172
+-
+  user_agent: Rutter’s/1766100984 Darwin/24
+  client:
+    type: generic
+    name:  Rutter’s
+    version: 1766100984
+-
+  user_agent: Weather Live°/1000015 Darwin/25
+  client:
+    type: generic
+    name:  Weather Live°
+    version: 1000015
