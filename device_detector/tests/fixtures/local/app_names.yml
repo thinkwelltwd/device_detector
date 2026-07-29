@@ -625,6 +625,16 @@
     name: Temu
     version: 3.92.0
 -
+  user_agent: weatherbug Notification Service Extension/5 CFNetwork/3860.200.71 Darwin/25.1.0
+  client:
+    name: 'WeatherBug: Weather Forecast'
+    version: 5
+-
+  user_agent: weatherbug Notification Service Extension/5.5 CFNetwork/3860.200.71 Darwin/25.1.0
+  client:
+    name: 'WeatherBug: Weather Forecast'
+    version: 5.5
+-
   user_agent: weatherbug Notification Service Extension/16 CFNetwork/1494.0.7 Darwin/23.4.0
   client:
     name: 'WeatherBug: Weather Forecast'

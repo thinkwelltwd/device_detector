@@ -16,12 +16,15 @@ class TestTrimSuffixes(TestCase):
     def test_trim_suffixes(self):
         for full_name, trimmed_name in (
             ('AirbnbNotificationServiceAppExtension', 'Airbnb'),
+            ('Messages Extension', 'Messages'),
+            ('MessagesExtension', 'Messages'),
             ('NetworkingExtension', 'Networking'),
             ('OneDriveMessageExtension', 'OneDrive'),
             ('OneDriveShareExtension', 'OneDrive'),
             ('OneSignalNotificationServiceExtension', 'OneSignal'),
             ('RampNotificationServiceExtension', 'Ramp'),
             ('RampWidgetExtension', 'Ramp'),
+            ('RedfinWidgetsExtension', 'Redfin'),
             ('SafariNotificationAgent', 'Safari'),
             ('SafewayServiceExtension', 'Safeway'),
             ('SouthwestPushPreview', 'Southwest'),
@@ -35,6 +38,7 @@ class TestTrimSuffixes(TestCase):
             ('VerseWidgetExtension', 'Verse'),
             ('WalmartWidgets', 'Walmart'),
             ('WyzeNotiService', 'Wyze'),
+            ('BatteryCam_liveactivityExtension', 'BatteryCam'),
             ('com.agilebits.onepassword-ios.extension', 'com.agilebits.onepassword-ios'),
             ('com.apple.NewDeviceOutreach.Extension', 'com.apple.NewDeviceOutreach'),
             ('com.apple.SystemProfiler.AboutExtension', 'com.apple.SystemProfiler'),
@@ -49,7 +53,10 @@ class TestTrimSuffixes(TestCase):
             ('com.google.Maps.HomeTrafficWidgetExtension', 'com.google.Maps'),
             ('com.google.calendar.TodayExtension', 'com.google.calendar'),
             ('com.google.photos.ModuleFramework', 'com.google.photos'),
+            ('com.google.Chromecast.QuickActionsExtension', 'com.google.Chromecast'),
             ('onedrivefileprovider', 'onedrive'),
+            ('WordPressSaveActionExtension', 'WordPress'),
+            ('WordPressDraftActionExtension', 'WordPress'),
         ):
             self.assertEqual(normalize_app_name(full_name), trimmed_name)
 

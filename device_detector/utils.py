@@ -12,7 +12,16 @@ number_table = str.maketrans(dict.fromkeys('0123456789', ''))
 REPEATED_CHARACTERS = RegexLazy(r'(.)(\1{11,})')
 
 TRIM_LONG_COMBO_EXTENSIONS = RegexLazyIgnore(
-    r'^(?P<name>.{4,})\.?(Notification-?Service-?Extension|Push-?Preview|Trends-?Today-?Extension|HomeTrafficWidgetExtension|NotificationServiceAppExtension|NotiService)$'
+    r'^(?P<name>.{4,})\.?(Notification-?Service-?Extension'
+    r'|Push-?Preview'
+    r'|Trends-?Today-?Extension'
+    r'|HomeTrafficWidgetExtension'
+    r'|NotificationServiceAppExtension'
+    r'|NotiService'
+    r'|(Save|Draft)ActionExtension'
+    r'|QuickActionsExtension'
+    r'|liveactivityExtension'
+    r')$'
 )
 TRIM_FRAMEWORK_SUFFIXES = RegexLazyIgnore(
     r'^(?P<name>.{4,})\.?((AppAndExtensions|Extension|Module|Voice)Framework)$'
@@ -472,7 +481,7 @@ def normalize_app_name(app_name: str) -> str:
 
     for pattern in TRIM_SUFFIX_PATTERNS:
         if matched := pattern.match(app_name):
-            return matched.group('name').strip('.')
+            return matched.group('name').strip('.').strip('_').strip()
     return app_name
 
 

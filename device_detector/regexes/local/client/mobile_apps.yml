@@ -75,7 +75,7 @@
   name: Apple Weather
   version: '\g<1>'
 
-- regex: Weatherbug(?:(?:\ |\w)+)?/(\d+[\.\d]+)
+- regex: Weatherbug(?:(?:\ |\w)+)?/([\d\.]+)
   name: 'WeatherBug: Weather Forecast'
   version: '\g<1>'
 
