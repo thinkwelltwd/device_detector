@@ -50,7 +50,7 @@
   name: GroupMe
   version: '\g<1>'
 
-- regex: mShop::Amazon_iPhone_(\d+[\.\d]+)
+- regex: mShop:::?Amazon_iPhone_(\d+[\.\d]+)
   name: Amazon Shopping
   version: '\g<1>'
 
@@ -86,3 +86,29 @@
 - regex: Weatherbug(?:(?:\ |\w)+)?/(\d+[\.\d]+)
   name: 'WeatherBug: Weather Forecast'
   version: '\g<1>'
+
+- regex: Microsoft ?Store/([\.\d]+)
+  name: Microsoft Store
+  version: '\g<1>'
+
+- regex: Acrobat ?Services/([\.\d]+)
+  name: Adobe Acrobat Reader
+  version: '\g<1>'
+
+- regex: Foxit ?(Reader|PhantomPDF)/([\.\d]+)
+  name: Foxit PDF
+  version: '\g<2>'
+
+- regex: VeniceAI/([\.\d]+)
+  name: VeniceAI
+  version: '\g<1>'
+  type: ai
+
+- regex: Claude/([\.\d]+)
+  name: Claude by Anthropic
+  version: '\g<1>'
+  type: ai
+- regex: claude-(cli|code)/([\.\d]+)
+  name: Claude by Anthropic
+  version: '\g<2>'
+  type: ai

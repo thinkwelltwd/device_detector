@@ -149,8 +149,9 @@
 
 # Google Assistant (https://assistant.google.com/)
 - regex: 'OPA/([\d.]+)'
-  name: 'Google Assistant'
+  name: 'Google Gemini'
   version: '\g<1>'
+  type: 'ai'
 
 # Google Maps (https://maps.google.com/)
 - regex: 'com\.google\.Maps/([\d.]+)'
@@ -2571,6 +2572,7 @@
 - regex: 'Perplexity'
   name: 'Perplexity'
   version: ''
+  type: 'ai'
 
 # XShare
 - regex: 'XShare'
@@ -2761,11 +2763,13 @@
 - regex: 'DeepSeek Chat/([\d.]+)'
   name: 'DeepSeek'
   version: '\g<1>'
+  type: 'ai'
 
 # ChatGPT (https://apps.apple.com/us/app/chatgpt/id6448311069)
 - regex: 'ChatGPT/([\d.]+)'
   name: 'ChatGPT'
   version: '\g<1>'
+  type: 'ai'
 
 # Redline (https://redline.com.tr/)
 - regex: 'REDLINECLIENT.+V([\d.]+)'

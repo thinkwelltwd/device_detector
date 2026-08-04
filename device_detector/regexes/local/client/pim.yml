@@ -1,0 +1,13 @@
+###############
+# Supplemental regexes for Device Detector - The Universal Device Detection library for parsing User Agents
+#
+# Copyright (c) 2026 Dave Burkholder, Thinkwell Designs
+# @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
+###############
+- regex: OneOutlook/(\d+[.\d]+)
+  name: Microsoft Outlook
+  version: '\g<1>'
+
+- regex: OutlookWebHost/(\d+[.\d]+)
+  name: Microsoft Outlook
+  version: '\g<1>'

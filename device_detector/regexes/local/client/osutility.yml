@@ -13,3 +13,7 @@
   name: 'HP-Inkjet-WebUpdate'
   version: '\g<1>'
   type: osutility
+
+- regex: LenovoVantage/(\d+[.\d]+)
+  name: Lenovo Vantage
+  version: '\g<1>'

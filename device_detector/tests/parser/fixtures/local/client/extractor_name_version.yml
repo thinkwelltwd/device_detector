@@ -346,3 +346,27 @@
     type: generic
     name:  Weather Live°
     version: 1000015
+-
+  user_agent: Hertz(iOS)/4.74.2 iOS/26iPhone18 Darwin/25
+  client:
+    type: generic
+    name:  Hertz
+    version: 4.74.2
+-
+  user_agent: Hertz+ (iPhone)/4.74.2 iOS/26 iPhone18 Darwin/25
+  client:
+    type: generic
+    name:  Hertz+
+    version: 4.74.2
+-
+  user_agent: Hertz+ (iPhone)/4.74.2 iOS/26 iPhone18 Darwin/25
+  client:
+    type: generic
+    name:  Hertz+
+    version: 4.74.2
+-
+  user_agent: Tank ✓/200571 Darwin/25
+  client:
+    type: generic
+    name:  Tank ✓
+    version: 200571

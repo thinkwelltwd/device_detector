@@ -259,7 +259,7 @@
   name: ForeFlight
 
 - uaname: foxitmobilepdf
-  name: Foxit Mobile PDF
+  name: Foxit PDF
 
 - uaname: gasbuddy
   name: Gas Buddy
@@ -395,7 +395,7 @@
   name: Abbyy
 
 - uaname: acrobat viewer
-  name: Acrobat Viewer
+  name: Adobe Acrobat Reader
 
 - uaname: Active911
   name: Active 911
@@ -1330,16 +1330,16 @@
   name: FORTE 9 Free
 
 - uaname: Foxit PhantomPDF
-  name: Foxit PhantomPDF
+  name: Foxit PDF
 
 - uaname: FoxitPhantomPDFUpdater
   name: Foxit PhantomPDF Updater
 
 - uaname: Foxit Reader
-  name: Foxit Reader
+  name: Foxit PDF
 
 - uaname: FoxitReaderUpdater
-  name: Foxit Reader Updater
+  name: Foxit PDF
 
 - uaname: fractioncalculatorplusfree
   name: Fraction Calculator Plus Free

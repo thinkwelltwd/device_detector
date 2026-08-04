@@ -6,12 +6,16 @@
 ###############
 - uaname: ai.replika.app
   name: 'Replika: My AI Friend'
+- uaname: com.anthropic.claude
+  name: Claude by Anthropic
 - uaname: com.openai.chatgpt
   name: ChatGPT
 - uaname: com.aichatbotgpt4.neural
   name: ChatGPT
 - uaname: co.appnation.babygenerator
   name: AI Baby Generator
+- uaname: com.google.gemini
+  name: Google Gemini
 - uaname: com.vyro.chatly
   name: Chatly AI
 - uaname: com.tinyspeck.chatlyio

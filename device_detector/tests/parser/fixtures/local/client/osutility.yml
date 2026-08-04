@@ -1,0 +1,13 @@
+---
+-
+  user_agent: Mozilla/5 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103 Safari/537.36 Edg/146.0.3856.84 LenovoVantage/10.2501.20.0
+  client:
+    type: osutility
+    name: Lenovo Vantage
+    version: 10.2501.20.0
+-
+  user_agent: Mozilla/5 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103 Safari/537.36 Edg/138.0.3351.121 LenovoVantage/20.2506.39.0
+  client:
+    type: osutility
+    name: Lenovo Vantage
+    version: 20.2506.39.0

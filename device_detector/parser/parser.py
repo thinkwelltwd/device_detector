@@ -16,7 +16,7 @@ from ..yaml_loader import RegexLoader, app_pretty_names_types_data, load_ahocora
 # iPhone8
 # iPhone6s
 IPHONE_ONLY_UA = RegexLazyIgnore(r'iPhone(\d{1,2})?(s?$|mini|SE|XR|XS)')
-CHROME_ON_APPLE = RegexLazyIgnore(r'^Chrome/[\d\.]+ CFNetwork')
+CHROME_ON_APPLE = RegexLazyIgnore(r'^Chrome/[\d\.]+ (CFNetwork|Darwin)')
 ENDSWITH_DARWIN = RegexLazyIgnore(r'Darwin/(?:\d+[.\d]+)(?: \(x86_64\))?$')
 
 

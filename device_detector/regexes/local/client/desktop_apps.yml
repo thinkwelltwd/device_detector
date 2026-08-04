@@ -206,3 +206,13 @@
   name: QuickBooks
   version: '\g<1>'
   type: desktop app
+
+- regex: Zoom(DocsClient|HubClient|VoiceRecorder)/(\d+[\.\d]+)
+  name: Zoom Workplace
+  version: '\g<2>'
+  type: productivity
+
+- regex: Zoom (\d+[\.\d]+)
+  name: Zoom Workplace
+  version: '\g<1>'
+  type: productivity

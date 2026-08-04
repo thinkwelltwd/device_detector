@@ -1,0 +1,25 @@
+---
+-
+  user_agent: Mozilla/5 (Windows NT 10.0; Win64; x64) AppleWebKit/537 (KHTML, like Gecko) Chrome/146 Safari/537 Edg/146.0.0.0 ZoomVoiceRecorder/1.0.0
+  client:
+    type: productivity
+    name: Zoom Workplace
+    version: 1.0.0
+-
+  user_agent: Mozilla/5 (Windows NT 10.0; Win64; x64) AppleWebKit/537 (KHTML, like Gecko) Chrome/146 Safari/537 Edg/146.0.0.0 ZoomVoiceRecorder/1.0.0
+  client:
+    type: productivity
+    name: Zoom Workplace
+    version: 1.0.0
+-
+  user_agent: Mozilla/4 (compatible; MSIE 7.0; Windows NT 10.0; WOW64; Trident/7.0; .NET4.0C; .NET4.0E; .NET CLR 2.0.50727; .NET CLR 3.0.30729; .NET CLR 3.5.30729; Tablet PC 2.0; IPH 1.1.21.4019; Zoom 3.6.0)
+  client:
+    type: productivity
+    name: Zoom Workplace
+    version: 3.6.0
+-
+  user_agent: ozilla/4 (compatible; MSIE 7.0; Windows NT 10.0; Win64; x64; Trident/7.0; .NET4.0C; .NET4.0E; Tablet PC 2.0; HCTE; Zoom 3.6.0)
+  client:
+    type: productivity
+    name: Zoom Workplace
+    version: 3.6.0

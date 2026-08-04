@@ -131,7 +131,7 @@
   user_agent: Acrobat viewer
   client:
     type: mobile app
-    name: Acrobat Viewer
+    name: Adobe Acrobat Reader
     version:
 -
   user_agent: Abbyy.Internet
@@ -260,3 +260,15 @@
     type: generic
     name: 'UBT'
     version: ''
+-
+  user_agent: PeriodTracker (iOS)
+  client:
+    type: generic
+    name:  PeriodTracker
+    version: ""
+-
+  user_agent: Emoji+ 😘 (iOS)
+  client:
+    type: generic
+    name:  Emoji+ 😘
+    version: ""

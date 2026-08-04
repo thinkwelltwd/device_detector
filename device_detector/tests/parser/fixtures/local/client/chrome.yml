@@ -28,3 +28,9 @@
     type: browser
     name: Chrome
     version: 120.0.6099.119
+-
+  user_agent: Chrome/143 Darwin/24
+  client:
+    type: browser
+    name: Chrome
+    version: 143

@@ -1,0 +1,73 @@
+---
+-
+  user_agent: Mozilla/5 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103 Safari/537.36 Edg/103.0.1264.77 MicrosoftStore/22511.1401.5.0
+  client:
+    type: mobile app
+    name: Microsoft Store
+    version: 22511.1401.5.0
+-
+  user_agent: Mozilla/5 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103 Safari/537.36 Edg/103.0.1264.77 Microsoft Store/22512.1401.1101.0
+  client:
+    type: mobile app
+    name: Microsoft Store
+    version: 22512.1401.1101.0
+-
+  user_agent: Mozilla/5 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138 Safari/537.36 Edg/138.0.0.0 WebView/AcrobatServices/25.1.21111
+  client:
+    type: mobile app
+    name: Adobe Acrobat Reader
+    version: 25.1.21111
+-
+  user_agent: Mozilla/5 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144 Safari/537.36 Edg/144.0.0.0 Foxit Reader/2025.3.0.35737
+  client:
+    type: mobile app
+    name: Foxit PDF
+    version: 2025.3.0.35737
+-
+  user_agent: Mozilla/5 (Windows NT 10.0; Win64; x64) AppleWebKit/537 (KHTML, like Gecko) Chrome/146 Safari/537 Edg/146.0.0.0 Foxit PhantomPDF/13.2.4.24048
+  client:
+    type: mobile app
+    name: Foxit PDF
+    version: 13.2.4.24048
+-
+  user_agent: VeniceAI/1 (iPhone; iOS 18; Scale/3.00)
+  client:
+    type: ai
+    name: VeniceAI
+    version: 1
+-
+  user_agent: VeniceAI/185 Darwin/24
+  client:
+    type: ai
+    name: VeniceAI
+    version: 185
+-
+  user_agent: VeniceAI/1.18286.0 Darwin/24
+  client:
+    type: ai
+    name: VeniceAI
+    version: 1.18286.0
+-
+  user_agent: Claude/29525055992 Darwin/24
+  client:
+    type: ai
+    name: Claude by Anthropic
+    version: 29525055992
+-
+  user_agent: claude-cli/2 (external, local-agent, agent-sdk/0.3.219)
+  client:
+    type: ai
+    name: Claude by Anthropic
+    version: 2
+-
+  user_agent: Mozilla/5 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537 (KHTML, like Gecko) Claude/1.18286.0 Chrome/148 Electron/42 Safari/537
+  client:
+    type: ai
+    name: Claude by Anthropic
+    version: 1.18286.0
+-
+  user_agent: claude-code/2
+  client:
+    type: ai
+    name: Claude by Anthropic
+    version: 2

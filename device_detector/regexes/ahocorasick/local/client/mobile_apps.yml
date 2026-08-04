@@ -3,6 +3,7 @@
 ' weibo ': null
 'millennium ': null
 'skyeng ': null
+acrobatservices: null
 aldi android app us: null
 aldi ios app us: null
 appname/: null
@@ -14,12 +15,14 @@ bookingapp/: null
 chatbox/: null
 chatbox_ai/: null
 chatbox_ios/: null
+claude: null
 citrix viewer/: null
 coaf smart citizen: null
 covenant eyes/: null
 d-stream air/: null
 downcast/: null
 empresas/: null
+foxit: null
 google/: null
 groupme-ios-share-ext/: null
 groupme-ios/: null
@@ -30,6 +33,8 @@ italiane/: null
 kik/: null
 mailmaster: null
 microsoft office: null
+microsoftstore: null
+microsoft store: null
 millennium/: null
 mshop::amazon_iphone_: null
 my bentley/: null
@@ -38,6 +43,7 @@ overcast: null
 qmunicate: null
 qqtheme: null
 radioappfree: null
+readerservices: null
 reddit/: null
 satoshi: null
 shibetoshi: null
@@ -56,6 +62,7 @@ telegram/: null
 tinytap/: null
 upsmobile.widgetsextension/: null
 upsmobile/: null
+venice: null
 veryfit/: null
 veryfitpro/: null
 walmartnotificationservice/: null

@@ -1,0 +1,19 @@
+---
+-
+  user_agent: Mozilla/5 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133 Safari/537.36 Edg/133.0.0.0 OneOutlook/1.2025.916.400
+  client:
+    type: pim
+    name: Microsoft Outlook
+    version: 1.2025.916.400
+-
+  user_agent: Mozilla/5 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143 Safari/537.36 Edg/143.0.0.0 OneOutlook/1.2025.1007.400
+  client:
+    type: pim
+    name: Microsoft Outlook
+    version: 1.2025.1007.400
+-
+  user_agent: Mozilla/5 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144 Safari/537.36 Edg/144.0.0.0 OutlookWebHost/1.26.108.1
+  client:
+    type: pim
+    name: Microsoft Outlook
+    version: 1.26.108.1

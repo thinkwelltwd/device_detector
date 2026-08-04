@@ -4,6 +4,8 @@ from typing import NamedTuple
 from ..lazy_regex import RegexLazyIgnore
 from .settings import SKIP_PREFIXES
 
+UNICODE_CATEGORIES = r'\p{Geometric_Shapes}\p{Extended_Pictographic}\p{Other_Symbol}'
+NAME_PATTERN = rf'[\w\d{UNICODE_CATEGORIES}\.\-_\'!®\?, \+\&‘’]+'
 CONTAINS_URL = RegexLazyIgnore(
     r'https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)',
 )
@@ -29,10 +31,11 @@ VERSION_NAME_REGEXES = (
 
     # EmarsysPredictSDK|osversion:15.3|platform:ios
     RegexLazyIgnore(r'(?P<name>[a-zA-Z]+)\|[a-z\:]+(?P<version>[\d\.]+)'),
-)
 
-UNICODE_CATEGORIES = r'\p{Geometric_Shapes}\p{Extended_Pictographic}\p{Other_Symbol}'
-NAME_PATTERN = rf'[\w\d{UNICODE_CATEGORIES}\.\-_\'!®\?, \+\&‘’]+'
+    # Hertz(iOS)/4.74.2 iOS/26iPhone18 Darwin/25
+    # Hertz (ipad)/4.74.2 iOS/26iPhone18 Darwin/25
+    RegexLazyIgnore(rf'(?P<name>{NAME_PATTERN})\((?:ios|ipados|ipad|iphone)\)/(?P<version>[\d\.\-\w\&\?]+)'),
+)
 
 # Extra name / version from UAs
 NAME_VERSION_REGEXES = (

@@ -5,11 +5,13 @@ from ..base import GenericParserTest, ParserBaseTest
 from ...parser import (
     AdobeCC,
     Browser,
+    DesktopApp,
     DictUA,
     FeedReader,
     Library,
     MediaPlayer,
     MobileApp,
+    OsUtility,
     PIM,
     NameVersionExtractor,
     WholeNameExtractor,
@@ -83,6 +85,15 @@ class TestAdobeCC(ParserClientBase):
     Parser = AdobeCC
 
 
+class TestDesktopApp(ParserClientBase):
+
+    fixture_files = [
+        'tests/parser/fixtures/local/client/desktop_app.yml',
+    ]
+    fields = ('name', 'version')
+    Parser = DesktopApp
+
+
 class TestDictUA(ParserClientBase):
 
     fixture_files = [
@@ -123,15 +134,26 @@ class TestMediaPlayer(ParserClientBase):
 class TestMobileApp(ParserClientBase):
 
     fixture_files = [
+        'tests/parser/fixtures/local/client/mobile_app.yml',
         'tests/parser/fixtures/upstream/client/mobile_app.yml',
     ]
     fields = ('name', 'type', 'version')
     Parser = MobileApp
 
 
+class TestOsUtility(ParserClientBase):
+
+    fixture_files = [
+        'tests/parser/fixtures/local/client/osutility.yml',
+    ]
+    fields = ('name', 'type', 'version')
+    Parser = OsUtility
+
+
 class TestPIM(ParserClientBase):
 
     fixture_files = [
+        'tests/parser/fixtures/local/client/pim.yml',
         'tests/parser/fixtures/upstream/client/pim.yml',
     ]
     fields = ('name', 'type', 'version')

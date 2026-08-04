@@ -8,6 +8,10 @@ from ..settings import SKIP_PREFIXES
 # fmt: off
 # Regexes that we use to parse UAs with a similar structure
 parse_generic_regex = [
+    # PeriodTracker (iOS)
+    # Emoji+ 😘 (iOS)
+    (RegexLazyIgnore(r'^([\w\d\+\& \p{Geometric_Shapes}\p{Extended_Pictographic}\p{Other_Symbol}]+)\((?:ios|macos|android|apple)\)$'), 1),
+
     # Weather_WeatherFoundation[1]_15E302
     # SpringBoard_WeatherFoundation[1]_16A
     (RegexLazyIgnore(r'(^(?:\w+)_WeatherFoundation).*'), 1),
