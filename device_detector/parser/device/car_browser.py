@@ -6,9 +6,7 @@ class CarBrowser(BaseDeviceParser):
     __slots__ = ()
     DEVICE_TYPE = DeviceType.CarBrowser
 
-    fixture_files = [
-        'upstream/device/car_browsers.yml',
-    ]
+    fixture_files = ('upstream/device/car_browsers.yml',)
 
 
 __all__ = [

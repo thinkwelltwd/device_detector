@@ -1,5 +1,5 @@
 from ..lazy_regex import RegexLazyIgnore
-from ..yaml_loader import RegexLoader, app_pretty_names_types_data
+from ..yaml_loader import app_pretty_names_types_data
 from device_detector.enums import AppType
 from device_detector.utils import normalize_app_name
 
@@ -21,7 +21,7 @@ LONG_PREFIX_APP_ID_VERSION = RegexLazyIgnore(
 )
 
 
-class ApplicationIDExtractor(RegexLoader):
+class ApplicationIDExtractor:
     """
     Extract App Store IDs such as:
 

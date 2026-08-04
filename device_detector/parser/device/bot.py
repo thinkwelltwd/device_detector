@@ -21,9 +21,7 @@ class Bot(BaseDeviceParser):
     __slots__ = ()
     DEVICE_TYPE = DeviceType.Unknown
 
-    fixture_files = [
-        'upstream/bots.yml',
-    ]
+    fixture_files = ('upstream/bots.yml',)
 
     def check_all_regexes(self) -> bool | list[str]:
         if check_all := super().check_all_regexes():

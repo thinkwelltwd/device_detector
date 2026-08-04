@@ -6,10 +6,10 @@ class Library(BaseClientParser):
     __slots__ = ()
     APP_TYPE = AppType.Library
 
-    fixture_files = [
+    fixture_files = (
         'local/client/libraries.yml',
         'upstream/client/libraries.yml',
-    ]
+    )
 
 
 __all__ = [

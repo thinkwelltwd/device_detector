@@ -60,9 +60,7 @@ class Device(BaseDeviceParser):
 
     DEVICE_TYPE = DeviceType.Smartphone
 
-    fixture_files = [
-        'upstream/device/mobiles.yml',
-    ]
+    fixture_files = ('upstream/device/mobiles.yml',)
 
     def check_all_regexes(self) -> bool | list[str]:
         # Match relatively generic UAs like:

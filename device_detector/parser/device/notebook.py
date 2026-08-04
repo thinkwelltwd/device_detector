@@ -10,9 +10,7 @@ class Notebook(BaseDeviceParser):
     __slots__ = ()
     DEVICE_TYPE = DeviceType.Desktop
 
-    fixture_files = [
-        'upstream/device/notebooks.yml',
-    ]
+    fixture_files = ('upstream/device/notebooks.yml',)
 
     def _parse(self) -> None:
         if FACEBOOK_NOTEBOOK_FRAGMENT.search(self.user_agent):

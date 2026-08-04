@@ -1,11 +1,36 @@
 from collections import OrderedDict
-from copy import deepcopy
 import os
 from typing import Any
 
 # Only match if useragent begins with given regex or there is no letter before it
 BOUNDED_REGEX = r'(?:^|[^A-Z0-9_-]|[^A-Z0-9-]_|sprd-|MZ-)(?:{})'
 MAX_CACHE_SIZE = 1024
+
+
+class HashHints(dict):
+    """
+    Implements a hashable dict by:
+       * hashing keys
+       * String or int values
+
+    This should be sufficient to uniquely
+    identify Client Hints associated with
+    a User Agent.
+    """
+
+    def __key(self) -> tuple[tuple[Any, ...], tuple[Any, ...]]:
+        values = []
+        for value in self.values():
+            if isinstance(value, (int, str)):
+                values.append(value)
+
+        return tuple(sorted(self.keys())), tuple(sorted(values))
+
+    def __hash__(self) -> int:
+        return hash(self.__key())
+
+    def __eq__(self, other: Any) -> bool:
+        return self.__key() == other.__key()
 
 
 class LRUDict(OrderedDict):  # type: ignore[type-arg]
@@ -50,29 +75,7 @@ class LRUDict(OrderedDict):  # type: ignore[type-arg]
         self.purge()
 
 
-class Cache(dict):  # type: ignore[type-arg]
-    base: dict = {  # type: ignore[type-arg]
-        'app_details': {},
-        'regexes': {},
-        'corasick': {},
-        'normalize_regexes': [],
-        'appids_ignored': set(),
-        'appids_secondary': set(),
-        'appids_normalized': {},
-        'user_agents': LRUDict(),
-    }
-
-    def __init__(self, *args: Any, **kwargs: Any) -> None:
-        kwargs.update(deepcopy(self.base))
-        super().__init__(*args, **kwargs)
-
-    def clear_user_agents(self) -> None:
-        self['user_agents'] = LRUDict()
-
-
 ROOT = os.path.dirname(os.path.abspath(__file__))
-
-DDCache = Cache()
 
 WORTHLESS_UA_TYPES = {
     'UUID',
@@ -82,7 +85,7 @@ WORTHLESS_UA_TYPES = {
 
 __all__ = (
     'BOUNDED_REGEX',
-    'DDCache',
+    'HashHints',
     'LRUDict',
     'ROOT',
     'WORTHLESS_UA_TYPES',

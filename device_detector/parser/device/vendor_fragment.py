@@ -1,37 +1,16 @@
+import functools
 from typing import Any
+from device_detector.yaml_loader import _load_from_yaml
 from . import BaseDeviceParser
 from ...lazy_regex import RegexLazyIgnore
 
 
 class VendorFragment(BaseDeviceParser):
     __slots__ = ()
-    fixture_files = [
-        'upstream/vendorfragments.yml',
-    ]
-
-    def yaml_to_list(self, yfile: str) -> list[dict[str, Any]]:
-        """
-        List of dicts like so:
-
-        {'brand': 'Dell', 'regexes': ['MDDR(JS)?', 'MDDC(JS)?', 'MDDS(JS)?']}
-        """
-        new_regexes = self.load_from_yaml(yfile)
-        if isinstance(new_regexes, list):
-            return new_regexes
-
-        reg_list = []
-
-        for brand, regexes in new_regexes.items():
-            reg_list.append({
-                'brand': brand,
-                'regexes': [RegexLazyIgnore(r) for r in regexes],
-            })
-
-        return reg_list
 
     def _parse(self) -> None:
         user_agent = self.user_agent
-        for ua_data in self.regex_list:
+        for ua_data in vendor_regex_list():
             for vendor in ua_data['regexes']:
                 if matched := vendor.search(user_agent):
                     self.matched_regex = matched
@@ -39,6 +18,23 @@ class VendorFragment(BaseDeviceParser):
                     self.known = True
 
                     return
+
+
+@functools.cache
+def vendor_regex_list() -> list[dict[str, Any]]:
+    fixture_files = ('upstream/vendorfragments.yml',)
+
+    all_regexes = []
+    for fixture in fixture_files:
+        regexes = _load_from_yaml(f'regexes/{fixture}')
+
+        for brand, regexes in regexes.items():
+            all_regexes.append({
+                'brand': brand,
+                'regexes': [RegexLazyIgnore(r) for r in regexes],
+            })
+
+    return all_regexes
 
 
 __all__ = [

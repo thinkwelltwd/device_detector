@@ -6,9 +6,7 @@ class VPNProxy(BaseClientParser):
     __slots__ = ()
     APP_TYPE = AppType.VpnProxy
 
-    fixture_files = [
-        'local/client/vpnproxy.yml',
-    ]
+    fixture_files = ('local/client/vpnproxy.yml',)
 
 
 __all__ = [

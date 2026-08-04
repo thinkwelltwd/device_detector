@@ -46,9 +46,7 @@ class Engine(BaseClientParser):
     __slots__ = ()
     AVAILABLE_ENGINES = AVAILABLE_ENGINES
 
-    fixture_files = [
-        'upstream/client/browser_engine.yml',
-    ]
+    fixture_files = ('upstream/client/browser_engine.yml',)
 
     def _parse(self) -> None:
         super()._parse()
@@ -64,10 +62,10 @@ class Browser(BaseClientParser):
     __slots__ = ()
     APP_TYPE = AppType.Browser
 
-    fixture_files = [
+    fixture_files = (
         'local/client/browsers.yml',
         'upstream/client/browsers.yml',
-    ]
+    )
 
     AVAILABLE_ENGINES = AVAILABLE_ENGINES
     AVAILABLE_BROWSERS = AVAILABLE_BROWSERS

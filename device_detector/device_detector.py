@@ -1,3 +1,4 @@
+import functools
 from typing import TYPE_CHECKING
 
 try:
@@ -43,7 +44,7 @@ from .parser import (  # type: ignore[attr-defined]
     WholeNameExtractor,
 )
 from .parser.settings import APPLE_OS_NAMES, TV_CLIENTS
-from .settings import BOUNDED_REGEX, DDCache, WORTHLESS_UA_TYPES
+from .settings import BOUNDED_REGEX, HashHints, WORTHLESS_UA_TYPES
 from .utils import (
     clean_ua,
     long_ua_no_punctuation,
@@ -52,7 +53,6 @@ from .utils import (
     only_numerals_and_punctuation,
     random_alphanumeric_string,
     uuid_like_name,
-    ua_hash_key,
 )
 from .yaml_loader import normalized_regex_list
 
@@ -62,10 +62,6 @@ DESKTOP_FRAGMENT = RegexLazy(BOUNDED_REGEX.format(r'(?:Windows (?:NT|IoT)|X11; L
 class DeviceDetector:
     if TYPE_CHECKING:
         parsed: bool
-
-    fixture_files = [
-        'local/device/normalize.yml',
-    ]
 
     CLIENT_PARSERS = (
         AdobeCC,
@@ -104,7 +100,6 @@ class DeviceDetector:
         'model',
         'user_agent_lower',
         'user_agent',
-        'ua_hash',
         'bot',
         'os',
         'skip_bot_detection',
@@ -122,16 +117,16 @@ class DeviceDetector:
         skip_bot_detection: bool = False,
         skip_device_detection: bool = False,
         headers: dict[str, str] | None = None,
+        check_cache: bool = True,
     ) -> 'DeviceDetector':
-        ua_key = f'{user_agent.lower()}-{skip_bot_detection}-{skip_device_detection}'
-        uah = ua_hash_key(ua_key, headers)
-        if cached := DDCache['user_agents'].get(uah):
-            cached.parsed = True
-            return cached
-
-        res = super().__new__(cls)
-        res.ua_hash = uah
-        return res
+        if check_cache:
+            return lookup_user_agent(
+                user_agent,
+                skip_bot_detection,
+                skip_device_detection,
+                HashHints(headers) if headers else None,
+            )
+        return super().__new__(cls)
 
     def __init__(
         self,
@@ -139,6 +134,7 @@ class DeviceDetector:
         skip_bot_detection: bool = False,
         skip_device_detection: bool = False,
         headers: dict[str, str] | None = None,
+        check_cache: bool = True,
     ) -> None:
         """
 
@@ -148,15 +144,9 @@ class DeviceDetector:
             skip_device_detection: Skip device brand and model lookup.
             headers: Client Hint headers from the request
         """
-        # Prevent reinitialization of memoized classes
-        if getattr(self, 'parsed', False):
-            return
-
         # Holds the useragent that should be parsed
         self.user_agent_lower = user_agent.lower()
         self.user_agent = clean_ua(user_agent, self.user_agent_lower)
-        ua_key = f'{self.user_agent_lower}-{skip_bot_detection}-{skip_device_detection}'
-        self.ua_hash = ua_hash_key(ua_key, headers)
         self.os: OS | None = None
         self.client: BaseClientParser | None = None
         self.device: BaseDeviceParser | None = None
@@ -175,7 +165,7 @@ class DeviceDetector:
         self.all_details: dict = {'normalized': ''}  # type: ignore[type-arg]
         self.headers = headers or {}
         self.client_hints = ClientHints.new(headers) if headers else None
-        self._normalized_regex_list = normalized_regex_list(self.fixture_files)
+        self._normalized_regex_list = normalized_regex_list('local/device/normalize.yml')
 
     @property
     def class_name(self) -> str:
@@ -271,9 +261,6 @@ class DeviceDetector:
         return self.all_details['normalized'] in WORTHLESS_UA_TYPES
 
     def parse(self) -> Self:
-        if cached := DDCache['user_agents'].get(self.ua_hash):
-            return cached
-
         if not self.user_agent and not self.headers:
             return self
 
@@ -300,8 +287,6 @@ class DeviceDetector:
                 except KeyError:
                     self.all_details['device'] = device_data
 
-        self.parsed = True
-        DDCache['user_agents'][self.ua_hash] = self
         return self
 
     def supplement_secondary_client_data(self, app_idx: ApplicationIDExtractor) -> None:
@@ -585,7 +570,26 @@ class SoftwareDetector(DeviceDetector):
         )
 
 
+@functools.lru_cache(1024)
+def lookup_user_agent(
+    user_agent: str,
+    skip_bot_detection: bool = False,
+    skip_device_detection: bool = False,
+    headers: dict[str, str] | None = None,
+) -> DeviceDetector:
+    kls = SoftwareDetector if skip_bot_detection and skip_device_detection else DeviceDetector
+
+    return kls(
+        user_agent,
+        skip_bot_detection,
+        skip_device_detection,
+        headers,
+        False,
+    )
+
+
 __all__ = (
     'DeviceDetector',
     'SoftwareDetector',
+    'lookup_user_agent',
 )

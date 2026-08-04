@@ -1,124 +1,23 @@
 from collections import defaultdict
+import functools
 from typing import Any, TypedDict
 import ahocorasick_rs
 from pathlib import Path
 import yaml_rs
 
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
-
 import device_detector
 from .lazy_regex import RegexLazyIgnore
-from .settings import BOUNDED_REGEX, DDCache, ROOT
+from .settings import BOUNDED_REGEX, ROOT
 from .enums import AppType
 
 
 class RegexLoader:
     # Paths to yml files of regexes
-    fixture_files: list[str] | tuple[str, ...] = ()
-
-    # Constant used as value for unknown browser / os
-    UNKNOWN = 'UNK'
-
-    @property
-    def cache_name(self) -> str:
-        """Class name, used for cache key"""
-        return self.__class__.__name__
-
-    @staticmethod
-    def load_from_yaml(yfile: str) -> dict[str, Any] | list[dict[str, Any]]:
-        """
-        Load yaml from regexes directory, or extract from the egg
-        """
-        yml_file_path = f'{ROOT}/{yfile}'
-        if Path(yml_file_path).exists():
-            with open(yml_file_path, 'r', encoding="utf-8") as yf:
-                return yaml_rs.loads(yf.read())
-
-        try:
-            yfile = f'device_detector/{yfile}'
-            return yaml_rs.loads(device_detector.__loader__.get_data(yfile))  # type: ignore[union-attr]
-        except OSError:
-            return []
-
-    def yaml_to_list(self, yfile: str) -> list[dict[str, Any]]:
-        """
-        Override method on subclasses if yaml format varies.
-
-        Load yaml file to list of dicts
-        """
-        regexes = self.load_from_yaml(yfile)
-        if isinstance(regexes, list):
-            return regexes
-
-        reg_list = []
-        for entry, regex in regexes.items():
-            regexes[entry]['brand'] = entry
-            reg_list.append(regex)
-
-        return reg_list
+    fixture_files: tuple[str, ...] = ()
 
     @property
     def regex_list(self) -> list[dict[str, Any]]:
-        if (regexes := DDCache['regexes'].get(self.cache_name)) is not None:
-            return regexes
-
-        all_regexes = []
-        for fixture in self.fixture_files:
-            regexes = self.yaml_to_list(f'regexes/{fixture}')
-
-            for regex in regexes:
-                if 'regex' in regex:
-                    regex['regex'] = RegexLazyIgnore(BOUNDED_REGEX.format(regex['regex']))
-                for model in regex.get('models', []):
-                    model['regex'] = RegexLazyIgnore(BOUNDED_REGEX.format(model['regex']))
-                for version in regex.get('versions', []):
-                    version['regex'] = RegexLazyIgnore(BOUNDED_REGEX.format(version['regex']))
-
-            all_regexes.extend(regexes)
-
-        DDCache['regexes'][self.cache_name] = all_regexes
-
-        return all_regexes
-
-    def load_ahocorasick_patterns(self) -> ahocorasick_rs.AhoCorasick | None:
-        """
-        Load AhoCorasick words from file, or expand from regexes.
-        """
-        try:
-            return DDCache['corasick'][self.cache_name]
-        except KeyError:
-            pass
-
-        all_corasick_words: set[str] = set()
-        for fixture in self.fixture_files:
-            ac_fixture = f'regexes/ahocorasick/{fixture}'
-            manual = self.load_manually_defined_words()
-            all_corasick_words.update(set(manual.get('Words') or set()))
-
-            if words := set(self.load_from_yaml(ac_fixture)):
-                all_corasick_words.update(words)  # type: ignore[arg-type]
-
-        ac = ahocorasick_rs.AhoCorasick(all_corasick_words) if all_corasick_words else None
-        DDCache['corasick'][self.cache_name] = ac
-
-        return ac
-
-    def load_manually_defined_words(self) -> dict[str, list[str]]:
-        """
-        Every Parser or Detector class can have a set of words
-        and Word exclusions that are manually defined.
-        """
-        return self.load_from_yaml(f'regexes/ahocorasick/classes/{self.cache_name}.yml') or {}  # type: ignore[return-value]
-
-    def clear_cache(self) -> Self:
-        """
-        Helper method to clear cache on tests.
-        """
-        DDCache.clear_user_agents()
-        return self
+        return regex_list(self.fixture_files)
 
 
 class AppNameType(TypedDict):
@@ -126,6 +25,7 @@ class AppNameType(TypedDict):
     type: AppType | str
 
 
+@functools.cache
 def app_pretty_names_types_data() -> dict[str, AppNameType]:
     """
     Load App Details data into dictionary.
@@ -135,12 +35,7 @@ def app_pretty_names_types_data() -> dict[str, AppNameType]:
     contained in the relevant appdetails.yml file. Much faster than writing
     individual regexes for each app.
     """
-    cache_key = 'app_details'
-    appdetails = DDCache.get(cache_key) or {}
-    if appdetails:
-        return appdetails
 
-    regex_loader = RegexLoader()
     all_app_details = {}
     for fixture, dtype in (
         ('appdetails/ai.yml', AppType.ArtificialIntelligence),
@@ -159,7 +54,7 @@ def app_pretty_names_types_data() -> dict[str, AppNameType]:
         ('appdetails/productivity.yml', AppType.Productivity),
         ('appdetails/vpnproxy.yml', AppType.VpnProxy),
     ):
-        all_app_details[dtype] = regex_loader.yaml_to_list(fixture)
+        all_app_details[dtype] = _load_from_yaml(fixture)
 
     # convert uaname value to dict key and remove spaces and add that key as well.
     generalized_details: dict = defaultdict(dict)  # type: ignore[type-arg]
@@ -185,30 +80,82 @@ def app_pretty_names_types_data() -> dict[str, AppNameType]:
         ('regexes/upstream/client/hints/browsers.yml', AppType.Browser),
         ('regexes/upstream/client/hints/apps.yml', AppType.MobileApp),
     ):
-        for app_id, pretty_name in regex_loader.load_from_yaml(fixture).items():  # type: ignore[union-attr]
+        for app_id, pretty_name in _load_from_yaml(fixture).items():  # type: ignore[union-attr]
             generalized_details[app_id] = {
                 'name': pretty_name,
                 'type': dtype,
             }
 
-    DDCache[cache_key] = generalized_details
-
     return generalized_details
 
 
-def normalized_regex_list(fixture_files: list[str]) -> list[dict[str, Any]]:
-    cache_key = 'normalize_regexes'
-    regexes = DDCache.get(cache_key) or []
-    if regexes:
-        return regexes
-
-    regex_loader = RegexLoader()
+@functools.cache
+def regex_list(fixture_files: tuple[str, ...]) -> list[dict[str, Any]]:
+    """
+    Load regexes from fixture files
+    """
+    all_regexes = []
     for fixture in fixture_files:
-        regexes.extend(regex_loader.yaml_to_list(f'regexes/{fixture}'))
+        regexes = _load_from_yaml(f'regexes/{fixture}')
+        if isinstance(regexes, list):
+            all_regexes.extend(regexes)
+            continue
+        for entry, regex in regexes.items():
+            regexes[entry]['brand'] = entry
+            all_regexes.append(regex)
+
+    for regex in all_regexes:
+        if 'regex' in regex:
+            regex['regex'] = RegexLazyIgnore(BOUNDED_REGEX.format(regex['regex']))
+        for model in regex.get('models', []):
+            model['regex'] = RegexLazyIgnore(BOUNDED_REGEX.format(model['regex']))
+        for version in regex.get('versions', []):
+            version['regex'] = RegexLazyIgnore(BOUNDED_REGEX.format(version['regex']))
+
+    return all_regexes
+
+
+@functools.cache
+def normalized_regex_list(fixture: str) -> list[dict[str, Any]]:
+    regexes: list[dict[str, Any]] = _load_from_yaml(f'regexes/{fixture}')
 
     for regex in regexes:
         regex['regex'] = RegexLazyIgnore(regex['regex'])
 
-    DDCache[cache_key] = regexes
-
     return regexes
+
+
+@functools.lru_cache(256)
+def load_ahocorasick_patterns(
+    name: str,
+    fixture_files: tuple[str, ...],
+) -> ahocorasick_rs.AhoCorasick | None:
+    """
+    Load AhoCorasick words from file, whether manually assigned, or expanded from regexes.
+    """
+    # Every Parser or Detector class can have a set of words
+    # and Word exclusions that are manually defined.
+    manual = _load_from_yaml(f'regexes/ahocorasick/classes/{name}.yml') or {}
+    all_corasick_words: set[str] = set(manual.get('Words', {})) or set()
+
+    for fixture in fixture_files:
+        if words := set(_load_from_yaml(f'regexes/ahocorasick/{fixture}')):
+            all_corasick_words.update(words)  # type: ignore[arg-type]
+
+    return ahocorasick_rs.AhoCorasick(all_corasick_words) if all_corasick_words else None
+
+
+def _load_from_yaml(yml_file: str) -> dict[str, Any] | list[dict[str, Any]] | list[dict[str, Any]]:
+    """
+    Load yaml from regexes directory, or extract from the egg
+    """
+    yml_file_path = f'{ROOT}/{yml_file}'
+    if Path(yml_file_path).exists():
+        with open(yml_file_path, 'r', encoding="utf-8") as yf:
+            return yaml_rs.loads(yf.read())
+
+    try:
+        yml_file = f'device_detector/{yml_file}'
+        return yaml_rs.loads(device_detector.__loader__.get_data(yml_file))  # type: ignore[union-attr]
+    except OSError:
+        return []

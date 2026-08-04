@@ -7,10 +7,10 @@ class MobileApp(BaseClientParser):
     __slots__ = ()
     APP_TYPE = AppType.MobileApp
 
-    fixture_files = [
+    fixture_files = (
         'local/client/mobile_apps.yml',
         'upstream/client/mobile_apps.yml',
-    ]
+    )
 
     def check_all_regexes(self) -> bool | list[str]:
         # Don't check ahocorasick for user agents like:

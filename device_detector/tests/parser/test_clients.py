@@ -1,5 +1,6 @@
 from urllib.parse import unquote
 from device_detector.parser import ClientHints
+from device_detector.device_detector import lookup_user_agent
 from ..base import GenericParserTest, ParserBaseTest
 from ...parser import (
     AdobeCC,
@@ -26,10 +27,12 @@ class ParserClientBase(ParserBaseTest):
         for fixture in fixtures:
             self.user_agent = unquote(fixture.pop('user_agent'))
             expect = fixture[self.fixture_key]
+            # clear cache because fixture files may contain duplicate UAs
+            lookup_user_agent.cache_clear()
             parsed = self.Parser(
                 self.user_agent,
                 client_hints=ClientHints.new(fixture.get('headers', {})),
-            ).clear_cache().parse()  # clear cache because fixture files may contain duplicate UAs
+            ).parse()
             data = parsed.ua_data
 
             for field in self.fields:

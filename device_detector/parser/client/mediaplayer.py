@@ -6,10 +6,10 @@ class MediaPlayer(BaseClientParser):
     __slots__ = ()
     APP_TYPE = AppType.MediaPlayer
 
-    fixture_files = [
+    fixture_files = (
         'local/client/mediaplayers.yml',
         'upstream/client/mediaplayers.yml',
-    ]
+    )
 
 
 __all__ = [

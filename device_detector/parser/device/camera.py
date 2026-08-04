@@ -6,9 +6,7 @@ class Camera(BaseDeviceParser):
     __slots__ = ()
     DEVICE_TYPE = DeviceType.Camera
 
-    fixture_files = [
-        'upstream/device/cameras.yml',
-    ]
+    fixture_files = ('upstream/device/cameras.yml',)
 
 
 __all__ = [
