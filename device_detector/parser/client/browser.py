@@ -1,3 +1,4 @@
+import re
 import regex
 from device_detector.enums import AppType
 from device_detector.lazy_regex import RegexLazy
@@ -18,6 +19,8 @@ from .extractor_name_version import NameVersionExtractor
 from .extractor_whole_name import WholeNameExtractor
 
 DATE_VERSION = RegexLazy(r'^202[0-5]')
+JS_BROWSER = re.compile(r'Cypress|PhantomJS', re.IGNORECASE)
+CHROME_BLINK = re.compile(r'Chrome/.+ Safari/537\.36', re.IGNORECASE)
 
 
 class EngineVersion:
@@ -29,7 +32,7 @@ class EngineVersion:
             return ''
 
         engine_regex = BOUNDED_REGEX.format(
-            r"{engine}\s*\/?\s*((?=\d+\.\d)\d+[.\d]*|\d{{1,7}}(?=(?:\D|$)))".format(engine=engine)
+            r'{engine}\s*\/?\s*((?=\d+\.\d)\d+[.\d]*|\d{{1,7}}(?=(?:\D|$)))'.format(engine=engine)
         )
         match = regex.search(engine_regex, self.user_agent, regex.IGNORECASE)
         if match:
@@ -97,54 +100,6 @@ class Browser(BaseClientParser):
         super().set_details()
         self.set_engine()
         self.check_secondary_client_data()
-        self.refine_ua_data()
-
-    def refine_ua_data(self) -> None:
-        """
-        Assemble data from client hints and user agents,
-        based on various properties.
-        """
-        name = self.ua_data.get('name') or ''
-        version = self.ua_data.get('version') or ''
-        engine = self.ua_data.get('engine') or ''
-        engine_version = self.ua_data.get('engine_version') or ''
-
-        # https://bbs.360.cn/thread-16096544-1-1.html
-        if version.startswith('114') and engine_version.startswith('15'):
-            self.ua_data['version'] = engine_version
-            self.ua_data['name'] = '360 Secure Browser'
-            self.ua_data['short_name'] = '3B'
-            return
-
-        # exclude Blink engine version for Flow browsers
-        if engine == 'Blink' and name == 'Flow Browser':
-            self.ua_data['engine_version'] = ''
-            return
-
-        # the browser simulate ua for Android OS
-        if name == 'Every Browser':
-            self.ua_data |= {
-                'family': 'Chrome',
-                'engine': 'Blink',
-                'engine_version': '',
-            }
-            return
-
-        # This browser simulates user-agent of Firefox
-        if name == 'TV-Browser Internet' and engine == 'Gecko':
-            self.ua_data |= {
-                'family': 'Chrome',
-                'engine': 'Blink',
-                'engine_version': '',
-            }
-            return
-
-        if engine == 'Blink' and name in ('Yaani Browser', 'Wolvic'):
-            self.ua_data['family'] = 'Chrome'
-            return
-
-        if engine == 'Gecko' and name in ('Yaani Browser', 'Wolvic'):
-            self.ua_data['family'] = 'Firefox'
 
     def set_data_from_client_hints(self) -> None:
         """
@@ -155,52 +110,139 @@ class Browser(BaseClientParser):
             return
 
         if not self.ua_data and ch.client_is_browser():
-            super().set_data_from_client_hints()
-            return
+            return super().set_data_from_client_hints()
 
         ch_data = self.ch_client_data
-        if ch_data.get('app_id'):
-            super().set_data_from_client_hints()
-            return
+        ua_data = self.ua_data
+
+        ua_name = ua_data.get('name', '')
+        ua_short_hame = ua_data.get('short_name') or BROWSER_TO_ABBREV.get(ua_name.lower(), '')
+        base_ch_name = self.ch_client_data.get('name', '')
+
+        # Use client hints in favor of user agent data if possible
+        if (name := ch_data.get('name')) and (version := ch_data.get('version')):
+            short_name = ch_data.get('short_name', '')
+            engine = ch_data.get('engine', '')
+            engine_version = ch_data.get('engine_version', '')
+
+            # If the version reported from the client hints is YYYY or YYYY.MM (e.g., 2022 or 2022.04),
+            # then it is the Iridium browser
+            # https://iridiumbrowser.de/news/
+            if re.match(r'^202[0-4]', version):
+                name = base_ch_name = 'Iridium'
+                short_name = 'I1'
+
+            # https://bbs.360.cn/thread-16096544-1-1.html
+            if version.startswith('15') and ua_data.get('version', '').startswith('114'):
+                name = base_ch_name = '360 Secure Browser'
+                short_name = '3B'
+                engine = ua_data.get('engine', '')
+                engine_version = ua_data.get('engine_version', '')
+
+            # If client hints report the following browsers, we use the version from useragent
+            if ua_data.get('version') and short_name in {
+                'A0',
+                'AL',
+                'HP',
+                'JR',
+                'MU',
+                'OM',
+                'OP',
+                'VR',
+            }:
+                version = ua_data['version']
+
+            if name == 'Vewd Browser':
+                engine = ua_data.get('engine', '')
+                engine_version = ua_data.get('engine_version', '')
+
+            # If client hints report Chromium, but user agent detects
+            # a Chromium based browser, we favor this instead
+            if (
+                name in {'Chromium', 'Chrome Webview'}
+                and ua_name
+                and ua_short_hame not in {'CR', 'CV', 'AN', 'CM'}
+            ):
+                name = base_ch_name = ua_data.get('name', '')
+                short_name = ua_data.get('short_name', '')
+
+            # If user agent detects another browser, but the family
+            # matches, we use the detected engine from user agent
+            if name != ua_data.get('name') and get_browser_family(name) == get_browser_family(
+                ua_data.get('name', '')
+            ):
+                engine = ua_data.get('engine', '')
+                engine_version = ua_data.get('engine_version', '')
+
+            if name == ua_data.get('name'):
+                engine = ua_data.get('engine', '')
+                engine_version = ua_data.get('engine_version', '')
+
+        else:
+            name = ua_data.get('name', '')
+            version = ua_data.get('version', '')
+            short_name = ua_data.get('short_name', '')
+            engine = ua_data.get('engine', '')
+            engine_version = ua_data.get('engine_version', '')
 
         ch_name = ch_data.get('name', '')
-        ch_version = ch_data.get('version', '')
-        ua_name = self.ua_data.get('name', '')
-        ua_short_name = self.ua_data.get('short_name', '')
-
-        if ua_name in ('Chrome', 'Chrome Mobile') and ch_name == 'Chrome Webview':
-            super().set_data_from_client_hints()
-            return
-
-        if ch_name == 'DuckDuckGo Privacy Browser':
-            super().set_data_from_client_hints()
-            self.ua_data['version'] = ''
-            self.ua_data['engine_version'] = ch_version
-            return
-
-        # If client hints report Chromium, but user agent
-        # detects a Chromium based browser, don't add the
-        # data from the client hints
-        if ua_name and ch_name in ('Chromium', 'Chrome Webview'):
-            # If the version reported from the client hints is YYYY or YYYY.MM,
-            # then it is the Iridium browser, based on Chromium
-            if DATE_VERSION.search(ch_version):
-                self.ua_data['name'] = 'Iridium'
-                self.ua_data['short_name'] = 'I1'
-                return
-
-            if ua_short_name not in ('CR', 'CV', 'AN', 'CM'):
-                self.ua_data['name'] = ua_name
-                self.ua_data['version'] = self.ua_data.get('version', '')
-                self.ua_data['short_name'] = ua_short_name
-                return
-
-        super().set_data_from_client_hints()
+        ch_short_name = ch_data.get('short_name', '')
+        family = FAMILY_FROM_ABBREV.get(ch_short_name, '')
 
         # Fix mobile browser names e.g. Chrome => Chrome Mobile
-        if f'{ch_name} Mobile' == ua_name:
-            self.ua_data['name'] = ua_name
-            self.ua_data['short_name'] = ua_short_name
+        if f'{ch_name} Mobile' == ua_data.get('name'):
+            name = base_ch_name = ua_data.get('name', '')
+            short_name = ua_data.get('short_name', '')
+
+        if ch_name and name != base_ch_name:
+            name = ch_name
+            version = ''
+            short_name = ch_short_name
+
+            if CHROME_BLINK.search(self.user_agent):
+                engine = 'Blink'
+                family = get_browser_family(name) or 'Chrome'
+
+            if short_name is None:
+                raise ValueError(
+                    f'Detected browser name {name!r} was not found. '
+                    f'Tried to parse user agent: {self.user_agent!r}'
+                )
+
+        if not name or JS_BROWSER.search(self.user_agent):
+            return
+
+        # Browser-specific fixes
+        if engine == 'Blink' and name == 'Flow Browser':
+            engine_version = ''
+
+        # The browser simulate ua for Android OS
+        if name == 'Every Browser':
+            family = 'Chrome'
+            engine = 'Blink'
+            engine_version = ''
+
+        # This browser simulates user-agent of Firefox
+        if name == 'TV-Browser Internet' and engine == 'Gecko':
+            family = 'Chrome'
+            engine = 'Blink'
+            engine_version = ''
+
+        if name in {'Yaani Browser', 'Wolvic'}:
+            if engine == 'Blink':
+                family = 'Chrome'
+            elif engine == 'Gecko':
+                family = 'Firefox'
+
+        self.ua_data |= {
+            'type': 'browser',
+            'name': name,
+            'short_name': short_name,
+            'version': version,
+            'engine': engine,
+            'engine_version': engine_version,
+            'family': family,
+        }
 
     def short_name(self) -> str:
         return self.ua_data.get('short_name') or ''
@@ -231,7 +273,10 @@ class Browser(BaseClientParser):
 
         client_version = self.ch_client_data.get('version', '') or self.ua_data.get('version', '')
         engine = self.ua_data.get('engine') or {}
-        for _, name in engine.get('versions', {}).items():
+        if isinstance(engine, str):
+            return
+
+        for name in engine.get('versions', {}).values():
             self.ua_data |= {
                 'engine': name,
                 'engine_version': client_version,
@@ -268,6 +313,16 @@ class Browser(BaseClientParser):
             self.ua_data['secondary_client'] = parsed.ua_data
         else:
             self.secondary_client = {}
+
+
+def get_browser_family(name: str) -> str:
+    """
+    Get browser family from name
+    """
+    try:
+        return FAMILY_FROM_ABBREV[BROWSER_TO_ABBREV[name.lower()]]
+    except KeyError:
+        return name
 
 
 __all__ = (

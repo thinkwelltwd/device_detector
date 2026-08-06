@@ -1,10 +1,12 @@
 Words:
 - '-sdk-'
+- clientcurl
 - downloader
 - go 1.
 - hubot
 - lua-resty-http
 - okta-
+- php-soap
 - quic-go
 - rest::client
 - restsdk

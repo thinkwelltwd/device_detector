@@ -15,7 +15,7 @@ class TestDeviceBase(ParserBaseTest):
 
             data = parsed.ua_data
 
-            for field in ('type', 'brand', 'model'):
+            for field in {'type', 'brand', 'model'}:
                 if field not in data:
                     continue
                 self.assertEqual(

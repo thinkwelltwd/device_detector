@@ -2507,3 +2507,141 @@
     type: mobile app
     name: Google
     version: ""
+-
+  user_agent: GM-Android/15.25.4 (253450400; M:samsung SM-A546V; O:36; D:5712bac6077ec511) ObsoleteUrlFactory/1.0 OkHttp/4.11.0
+  client:
+    type: mobile app
+    name: General Motors
+    version: 15.25.4
+-
+  user_agent: Amazon AFTCA002 Kepler/1.1 espn/2026.3.1 NativeClientPlatform/2025.09.10
+  client:
+    type: mobile app
+    name: ESPN
+    version: 2026.3.1
+-
+  user_agent: Mozilla/5.0 (Linux, Android 13, SM-N986U Build/TP1A.220624.014, ) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/138.0.7204.176 Mobile Safari/537.36 MetaIAB
+  client:
+    type: mobile app
+    name: Facebook
+    version: ""
+-
+  user_agent: Mozilla/5.0 (Linux; Android 12; Mi Note 10 Lite Build/SKQ1.210908.001; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/142.0.7444.212 Mobile Safari/537.36 MetaIAB Facebook
+  client:
+    type: mobile app
+    name: Facebook
+    version: ""
+-
+  user_agent: PrimeVideo/2.9.1 (AppleTV6,2; tvOS 26.4; Scale/2.0)
+  client:
+    type: mobile app
+    name: Amazon Prime Video
+    version: 2.9.1
+-
+  user_agent: CitrixReceiver/18.12.0.65534 (X11; Linux x86_64) Warthog/9.0.8024 (Release) X1Class CWACapable
+  client:
+    type: mobile app
+    name: Citrix Workspace
+    version: 18.12.0.65534
+-
+  user_agent: CitrixReceiver WTOS/1.0
+  client:
+    type: mobile app
+    name: Citrix Workspace
+    version: ""
+-
+  user_agent: Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; rv:11.0) like Gecko, CWAWEBVIEW/21.3.1.65534
+  client:
+    type: mobile app
+    name: Citrix Workspace
+    version: 21.3.1.65534
+-
+  user_agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Citrix Workspace/23.05.0.36 MacOSX/13.4.0 com.citrix.receiver.nomas X1Class CWACapable
+  client:
+    type: mobile app
+    name: Citrix Workspace
+    version: 23.05.0.36
+-
+  user_agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Safari CWA/23.05.0.18 MacOSX/13.4.0
+  client:
+    type: mobile app
+    name: Citrix Workspace
+    version: 23.05.0.18
+-
+  user_agent: CitrixReceiver/CitrixVPN 2.4.16 (105) Android/9 VpnCapable AuthV3Capable NAC/1.0
+  client:
+    type: mobile app
+    name: Citrix VPN
+    version: 2.4.16
+-
+  user_agent: Mozilla/5.0 (iPhone; CPU iPhone OS 14_5_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 CitrixSSO-1.3.7 VpnCapable NAC/1.0
+  client:
+    type: mobile app
+    name: Citrix VPN
+    version: 1.3.7
+-
+  user_agent: Mozilla/5.0 (Linux; U; Android 2.0; en-us;) AppleWebKit/538.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/538.1 (Kobo Touch 0390/4.45.23697)
+  client:
+    type: mobile app
+    name: Kobo eReader
+    version: 4.45.23697
+-
+  user_agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_7_8 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.7.8 Mobile/15E148 Safari/604.1 GrokApp/1.3.92
+  client:
+    type: ai
+    name: Grok
+    version: 1.3.92
+-
+  user_agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 YaBrowser/26.4.3.680.10 YaApp_iOS/2604.3 YaApp_iOS_Browser/2604.3 YazekaApp/2604.3 Safari/604.1 SA/3 SAPublic/0 Version/26.5
+  client:
+    type: ai
+    name: Yandex AI
+    version: 26.4.3.680.10
+-
+  user_agent: Latina/2.4.7 (Android 16; HONOR MTN-NX3) VideoPlayer/APPandroid UUID/5cd6bbed426e41afb1d2ddef351f6106 SID/2f0407f35557471d89fd24c67ef8877c PLATFORM/Latina-android
+  client:
+    type: mobile app
+    name: Latina
+    version: 2.4.7
+-
+  user_agent: Mozilla/5.0 (Linux; Android 11; SM-A715F Build/RP1A.200720.012) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/92.0.4515.131 Mobile Safari/537.36 GNews Android/2022011568
+  client:
+    type: mobile app
+    name: Google News
+    version: "2022011568"
+-
+  user_agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 Safari/605.1.15 GNews iOS/5.104.2200
+  client:
+    type: mobile app
+    name: Google News
+    version: 5.104.2200
+-
+  user_agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 HuffPost/ios/2025.6.0
+  client:
+    type: mobile app
+    name: HuffPost
+    version: 2025.6.0
+-
+  user_agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 Phantom/ios/25.17.0.33491
+  client:
+    type: mobile app
+    name: Phantom
+    version: 25.17.0.33491
+-
+  user_agent: Ardene/2848 (iPhone; iOS/16.6.1) CFNetwork/1410.0.3 Darwin/22.6.0 poq.ios/21.1.9
+  client:
+    type: mobile app
+    name: poq
+    version: 21.1.9
+-
+  user_agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 YuanBao/2.77.0 app_version/2.77.0.41 app_lang/zh-CN app_theme/light app_font_size_level/2 web_sdk/1
+  client:
+    type: mobile app
+    name: YuanBao
+    version: 2.77.0.41
+-
+  user_agent: Mozilla/5.0 (Linux; Android 16; SM-S908B Build/BP2A.250605.031.A3; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/150.0.7871.181 Mobile Safari/537.36 YahooSearch/10.4.0
+  client:
+    type: mobile app
+    name: Yahoo Search
+    version: 10.4.0

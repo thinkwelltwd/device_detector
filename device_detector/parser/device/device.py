@@ -44,7 +44,7 @@ OPERA_TV_FRAGMENT = RegexLazy(BOUNDED_REGEX.format('Opera TV Store| OMI/'))
 
 ENDSWITH_FIREFOX = RegexLazyIgnore(r'(Firefox|Iceweasel|Phoenix)/(?:\d+[.\d]+)$')
 UA_CLIENT_HINTS_FRAGMENT = RegexLazyIgnore(
-    r'Android (?:1[0-6][.\d]*; K(?: Build/|[;)])|1[0-6]\)) AppleWebKit'
+    r'Android (?:1[0-7][.\d]*; K(?: Build/|[;)])|1[0-7]\)) AppleWebKit'
 )
 TELEGRAM_ANDROID = RegexLazy('Telegram-Android/')
 
@@ -151,10 +151,15 @@ class Device(BaseDeviceParser):
             }
 
         if not self.ua_data.get('brand'):
-            # If no brand info was found, check known fragments
-            vendor_fragment = VendorFragment(self.user_agent, self.client_hints).parse().ua_data
-            if vendor_fragment:
-                self.ua_data |= vendor_fragment
+            if self.os_details.get('name', '') == 'ThinOS':
+                self.ua_data['brand'] = 'Dell'
+            elif ch_model == 'Surface Pro':
+                self.ua_data['brand'] = 'Microsoft'
+            else:
+                # If no brand info was found, check known fragments
+                vendor_fragment = VendorFragment(self.user_agent, self.client_hints).parse().ua_data
+                if vendor_fragment:
+                    self.ua_data |= vendor_fragment
 
         if device_type := self.dtype():
             self.ua_data['type'] = device_type
@@ -180,7 +185,7 @@ class Device(BaseDeviceParser):
         If it is present the device should be a smartphone, otherwise it's a tablet
         See https://developer.chrome.com/multidevice/user-agent#chrome_for_android_user_agent
         """
-        if os_name not in ('Android', 'MocorDroid'):
+        if os_name not in {'Android', 'MocorDroid'}:
             return None
 
         # All detected feature phones running Android are more likely a smartphone
@@ -259,22 +264,22 @@ class Device(BaseDeviceParser):
         """
         Check all the ways a device might be a television.
         """
-        # All devices running Coolita OS are assumed to be a tv
+        # All devices running Coolita OS are assumed to be a TV
         if os_name == 'Coolita OS':
             return True
 
-        # All devices running Opera TV Store are assumed to be a tv
+        # All devices running Opera TV Store are assumed to be a TV
         if OPERA_TV_FRAGMENT.search(self.user_agent) is not None:
             return True
 
         if ANDROID_TV_FRAGMENT.search(self.user_agent) is not None:
             return True
 
-        # All devices running Tizen TV or SmartTV are assumed to be a tv
+        # All devices running Tizen TV or SmartTV are assumed to be a TV
         if TIZEN_TV_FRAGMENT.search(self.user_agent) is not None:
             return True
 
-        # All devices containing TV fragment are assumed to be a tv
+        # All devices containing TV fragment are assumed to be a TV
         if TV_MINI_FRAGMENT.search(self.user_agent) is not None:
             return True
 
@@ -329,6 +334,9 @@ class Device(BaseDeviceParser):
         os_name = self.os_details.get('name', '')
         os_family = self.os_details.get('family', '')
         os_version = self.os_details.get('version', '')
+
+        if fixture_dtype == DeviceType.Wearable:
+            return fixture_dtype
 
         if self.device_runs_feature_phone_os(os_name):
             return DeviceType.FeaturePhone

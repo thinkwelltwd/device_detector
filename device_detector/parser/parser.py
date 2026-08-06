@@ -104,7 +104,7 @@ class Parser(RegexLoader):
                     break
             else:
                 self._is_ios_fragment = False
-        return self._is_ios_fragment
+        return bool(self._is_ios_fragment)
 
     def check_all_regexes(self) -> bool | list[str]:
         name = self.__class__.__name__
@@ -142,7 +142,7 @@ class Parser(RegexLoader):
 
     def extract_version(self) -> None:
         """
-        Extract the version if UA Yaml files specify version regexes.
+        Extract the version if user agent YAML files specify version regexes.
         See oss.yml for example file structure.
         """
         user_agent = self.user_agent

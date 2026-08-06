@@ -11,7 +11,6 @@ from .enums import DeviceType
 from .parser import (  # type: ignore[attr-defined]
     BaseClientParser,
     BaseDeviceParser,
-    ClientHints,
     OS,
     # Device extractors
     Bot,
@@ -43,6 +42,7 @@ from .parser import (  # type: ignore[attr-defined]
     NameVersionExtractor,
     WholeNameExtractor,
 )
+from .parser.client_hints import ClientHints
 from .parser.settings import APPLE_OS_NAMES, TV_CLIENTS
 from .settings import BOUNDED_REGEX, HashHints, WORTHLESS_UA_TYPES
 from .utils import (
@@ -229,7 +229,7 @@ class DeviceDetector:
         that is of no use outside the application itself. Remove such information to present a
         cleaner UA string with fewer duplicates
         """
-        if normalized := self.all_details.get('normalized'):
+        if normalized := self.all_details.get('normalized', ''):
             return normalized
 
         if self.is_digit():
@@ -276,7 +276,7 @@ class DeviceDetector:
 
         if not self.skip_device_detection:
             self.parse_device()
-            # All devices running Coolita OS are assumed to be a tv
+            # All devices running Coolita OS are assumed to be a TV
             if self.os_name() == 'Coolita OS':
                 device_data = {
                     'brand': 'coocaa',
@@ -321,7 +321,7 @@ class DeviceDetector:
                 self.all_details['client'] = parser.ua_data
                 break
 
-        return self.extract_app_id()
+        self.extract_app_id()
 
     def extract_app_id(self) -> None:
         """
@@ -366,13 +366,21 @@ class DeviceDetector:
                     self.all_details['device']['type'] = DeviceType.TV
                 return
 
+        if self.is_television():
+            self.all_details['device'] = {
+                'type': DeviceType.TV,
+                'brand': '',
+                'model': '',
+            }
+
     def parse_bot(self) -> None:
         """
         Parses the UA for bot information using the Bot parser
         """
         if not self.skip_bot_detection and not self.bot:
-            self.bot = Bot(self.user_agent, self.client_hints).parse()
-            self.all_details['bot'] = self.bot.ua_data
+            if bot := Bot(self.user_agent, self.client_hints).parse():
+                self.bot = bot
+                self.all_details['bot'] = bot.ua_data
 
     def parse_os(self) -> None:
         """
@@ -400,11 +408,11 @@ class DeviceDetector:
         """
         Detect devices that are likely TVs.
 
-        All devices that contain Andr0id in string are assumed to be a tv
-        All devices running Tizen TV or SmartTV are assumed to be a tv
-        Devices running known tv clients are assumed to be a TV
-        All devices containing TV fragment are assumed to be a tv
-        All devices running Coolita OS are assumed to be a tv
+        All devices that contain Andr0id in string are assumed to be a TV.
+        All devices running Tizen TV or SmartTV are assumed to be a TV.
+        Devices running known `tv` clients are assumed to be a TV.
+        All devices containing TV fragment are assumed to be a TV.
+        All devices running Coolita OS are assumed to be a TV.
         """
         if self.client_name() in TV_CLIENTS:
             return True
@@ -508,7 +516,7 @@ class DeviceDetector:
         """
         Detect model from UserAgent, and fall back to checking Client Hints
         """
-        client_hints_model = self.client_hints and self.client_hints.model or ''
+        client_hints_model = self.client_hints.model if self.client_hints else ''
         if self.skip_device_detection:
             return client_hints_model
         return self.all_details.get('device', {}).get('model') or client_hints_model

@@ -7,7 +7,7 @@ BOUNDED_REGEX = r'(?:^|[^A-Z0-9_-]|[^A-Z0-9-]_|sprd-|MZ-)(?:{})'
 MAX_CACHE_SIZE = 1024
 
 
-class HashHints(dict):
+class HashHints(dict):  # type: ignore[type-arg]
     """
     Implements a hashable dict by:
        * hashing keys
@@ -26,7 +26,7 @@ class HashHints(dict):
 
         return tuple(sorted(self.keys())), tuple(sorted(values))
 
-    def __hash__(self) -> int:
+    def __hash__(self) -> int:  # type: ignore[override]
         return hash(self.__key())
 
     def __eq__(self, other: Any) -> bool:

@@ -1,4 +1,5 @@
 !!set
+ardene/: null
 "podcast\u2019ler/": null
 ' bnc/': null
 ' code/0': null
@@ -26,7 +27,6 @@
 'anghami android ': null
 'audible, android, ': null
 'azureus ': null
-'barcelona ': null
 'bonprix mobile app ': null
 'com.twipemobile.nrc ': null
 'emaudioplayer ': null
@@ -121,16 +121,7 @@ allhitmusicradio/: null
 allyoucanbooks/: null
 allyoucanbooksapp: null
 alpha playerfm/: null
-amazon.com/0: null
-amazon.com/1: null
-amazon.com/2: null
-amazon.com/3: null
-amazon.com/4: null
-amazon.com/5: null
-amazon.com/6: null
-amazon.com/7: null
-amazon.com/8: null
-amazon.com/9: null
+amazon.com/: null
 amazon;aft: null
 amazonmusic: null
 anchor/: null
@@ -140,27 +131,7 @@ androiddownloadmanager: null
 anghami/: null
 anonymisiert durch almisoft: null
 anonymized by abelssoft: null
-antenna/0: null
-antenna/1: null
-antenna/2: null
-antenna/3: null
-antenna/4: null
-antenna/5: null
-antenna/6: null
-antenna/7: null
-antenna/8: null
-antenna/9: null
 antenna/: null
-antennapod/0: null
-antennapod/1: null
-antennapod/2: null
-antennapod/3: null
-antennapod/4: null
-antennapod/5: null
-antennapod/6: null
-antennapod/7: null
-antennapod/8: null
-antennapod/9: null
 antennapod/: null
 anwhatsapp: null
 anybox/: null
@@ -170,27 +141,13 @@ apkxdl: null
 apollo/: null
 app/yym-hago-and: null
 appdb/: null
-applenews/0: null
-applenews/1: null
-applenews/2: null
-applenews/3: null
-applenews/4: null
-applenews/5: null
-applenews/6: null
-applenews/7: null
-applenews/8: null
-applenews/9: null
+applenews/: null
 appletv.client: null
 appletv: null
 appname/: null
-appname/hidex: null
-appname/musical_ly app_version/: null
-appname/playit: null
-appname/trill app_version/: null
 arvocast/: null
 asus update/: null
 at&t tv: null
-audible/: null
 audible: null
 audio/: null
 autopliuslt: null
@@ -202,29 +159,10 @@ baiduboxapp/: null
 baiduinput/: null
 balados/: null
 ballz/: null
-barcelona .: null
-barcelona 0: null
-barcelona 1: null
-barcelona 2: null
-barcelona 3: null
-barcelona 4: null
-barcelona 5: null
-barcelona 6: null
-barcelona 7: null
-barcelona 8: null
-barcelona 9: null
+'barcelona ': null
 barcelona/: null
 basecamp: null
-battle.net/0: null
-battle.net/1: null
-battle.net/2: null
-battle.net/3: null
-battle.net/4: null
-battle.net/5: null
-battle.net/6: null
-battle.net/7: null
-battle.net/8: null
-battle.net/9: null
+battle.net/: null
 bb2c 0: null
 bb2c 1: null
 bb2c 2: null
@@ -242,16 +180,7 @@ bear/: null
 betbull/: null
 beyondpod: null
 bible/: null
-binance/0: null
-binance/1: null
-binance/2: null
-binance/3: null
-binance/4: null
-binance/5: null
-binance/6: null
-binance/7: null
-binance/8: null
-binance/9: null
+binance/: null
 bingipadclient: null
 bingsapphire/: null
 bingweb: null
@@ -477,21 +406,13 @@ git/9: null
 github desktop/: null
 githubdesktop/: null
 globalprotect: null
+gnews: null
 goeuroandroid/: null
 goeuroios /: null
 gold/: null
 goldenpod/: null
 goloud/: null
-gonativeios/0: null
-gonativeios/1: null
-gonativeios/2: null
-gonativeios/3: null
-gonativeios/4: null
-gonativeios/5: null
-gonativeios/6: null
-gonativeios/7: null
-gonativeios/8: null
-gonativeios/9: null
+gonativeios/: null
 goodpods /: null
 goodpods.android: null
 goodpods.ios: null
@@ -530,6 +451,7 @@ histhumbnail: null
 historyhound/: null
 hp smart/: null
 httprequestmaker: null
+huffpost: null
 hulu/: null
 hypercatcher/: null
 icatcher: null
@@ -583,6 +505,7 @@ lark/7: null
 lark/8: null
 lark/9: null
 lat-native-app: null
+latina: null
 lazada_android: null
 lbc/: null
 linkedin: null
@@ -628,6 +551,7 @@ microsoft edge update/: null
 microsoft office existence discovery: null
 microsoft office mobile/: null
 microsoft office: null
+msoffice: null
 microsoft-cryptoapi/: null
 microsoft-delivery-optimization: null
 microsoft-webdav-miniredir: null
@@ -654,7 +578,6 @@ momowebview/: null
 moon fm/: null
 moonfm/: null
 mowpod/: null
-mozilla/4.0 (compatible; ms-office; msoffice: null
 msdw: null
 musical_ly_: null
 musically_go app_version/: null
@@ -669,16 +592,7 @@ mywatchparty/: null
 naver(: null
 naver/: null
 net.mede: null
-netflix/0: null
-netflix/1: null
-netflix/2: null
-netflix/3: null
-netflix/4: null
-netflix/5: null
-netflix/6: null
-netflix/7: null
-netflix/8: null
-netflix/9: null
+netflix/: null
 news/0: null
 news/1: null
 news/2: null
@@ -736,29 +650,12 @@ overcast : null
 overcast/: null
 pan globalprotect/: null
 pandora audio: null
-pandora/0: null
-pandora/1: null
-pandora/2: null
-pandora/3: null
-pandora/4: null
-pandora/5: null
-pandora/6: null
-pandora/7: null
-pandora/8: null
-pandora/9: null
-papers/0: null
-papers/1: null
-papers/2: null
-papers/3: null
-papers/4: null
-papers/5: null
-papers/6: null
-papers/7: null
-papers/8: null
-papers/9: null
+pandora/: null
+papers/: null
 peacast/: null
 perplexity: null
 petalsearch/: null
+phantom/: null
 pic collage/: null
 pinterest: null
 player fm: null
@@ -947,26 +844,8 @@ telegram/: null
 tencentdocs/: null
 thepodcastapp/: null
 terabox/: null
-theyub v0: null
-theyub v1: null
-theyub v2: null
-theyub v3: null
-theyub v4: null
-theyub v5: null
-theyub v6: null
-theyub v7: null
-theyub v8: null
-theyub v9: null
-thunder/0: null
-thunder/1: null
-thunder/2: null
-thunder/3: null
-thunder/4: null
-thunder/5: null
-thunder/6: null
-thunder/7: null
-thunder/8: null
-thunder/9: null
+theyub v: null
+thunder/: null
 tieba/: null
 tiktok/: null
 tim/0: null
@@ -1071,16 +950,7 @@ wordcookies/: null
 wpsmoffice/: null
 wpsoffice/: null
 wsj/: null
-wxwork/0: null
-wxwork/1: null
-wxwork/2: null
-wxwork/3: null
-wxwork/4: null
-wxwork/5: null
-wxwork/6: null
-wxwork/7: null
-wxwork/8: null
-wxwork/9: null
+wxwork/: null
 wynkmusic/: null
 xiaoyuzhou/: null
 xing-iphone/: null
@@ -1090,6 +960,7 @@ xshare: null
 xsplitbroadcaster/: null
 y8-browser/: null
 ya.music/: null
+yahoosearch/: null
 yakyak/: null
 yandex.music/: null
 yandex/: null
@@ -1097,6 +968,7 @@ yapa/: null
 yelpapp/: null
 yofmwhatsapp: null
 yogbwhatsapp: null
+yuanbao/: null
 youtube/: null
 youtubemusic/: null
 youtubemusicdev/: null

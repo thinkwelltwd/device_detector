@@ -127,6 +127,9 @@ class OS(Parser):
             if name == 'Windows' and version and version[0] == '0':
                 version = '' if version_from_ua == '10' else version_from_ua
 
+            if name == 'Puffin OS':
+                version = version_from_ua
+
             # If the OS name detected from client hints matches the OS family from user agent
             # but the os name is another, use the one from user agent, as it might be more detailed
             if name == family_from_ua and name != name_from_ua:

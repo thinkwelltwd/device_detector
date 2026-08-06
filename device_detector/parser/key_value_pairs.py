@@ -59,7 +59,7 @@ NAME_VERSION_REGEXES = (
 
     # <name><space><version> - anchored at the beginning
     # CarboniteDownloader 6.3.2 build 7466 (Sep-07-2017)
-    # libreoffice 5.4.3.2 (92a7159f7e4af62137622921e809f8546db437e5; windows; x86;)
+    # LibreOffice 5.4.3.2 (92a7159f7e4af62137622921e809f8546db437e5; windows; x86;)
     # openoffice.org 3.2 (320m18(build:9502); windows; x86; bundledlanguages=en-us)
     RegexLazyIgnore(rf'^(?P<name>{NAME_PATTERN}) [rv]?(?P<version>[\d\.\-\&\?]+)\b'),
 
@@ -89,7 +89,7 @@ SKIP_NAME_REGEXES = [
     # Android; samsung-SAMSUNG-SM-T377A; 6.0.1; AutoTrader.com; 2.6.4.3.236
     RegexLazyIgnore(r'samsung[- ]sm'),
 
-    # Mozilla/5.0 (iPhone; iPhone103; 12.1.4) MLN/4.30.450041483 (0f3d913a35528d98b8793f4d7aa0539e)"
+    # Mozilla/5.0 (iPhone; iPhone103; 12.1.4) MLN/4.30.450041483 (0f3d913a35528d98b8793f4d7aa0539e)
     RegexLazyIgnore(r'^(iphone|ipad)\d'),
 ]
 # fmt: on

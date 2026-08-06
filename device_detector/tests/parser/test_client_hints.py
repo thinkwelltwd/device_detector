@@ -25,7 +25,7 @@ class TestClientHints(ParserBaseTest):
                 extracted = parsed_data.get(section) or {}
 
                 for k, expected_value in expected.items():
-                    if k in ('engine', 'version', 'engine_version'):
+                    if k in {'engine', 'version', 'engine_version'}:
                         continue
 
                     extracted_value = None if extracted.get(k) == 'Unknown' else extracted.get(k)

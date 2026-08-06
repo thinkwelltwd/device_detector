@@ -6,13 +6,13 @@ from regex import IGNORECASE
 # When one of these attributes is called, compile the regex
 REGEX_ATTRS = {
     'match',
-    'fullmatch',
+    'fullmatch',  # noqa
     'search',
     'sub',
-    'subf',
-    'subfn',
+    'subf',  # noqa
+    'subfn',  # noqa
     'split',
-    'splititer',
+    'splititer',  # noqa
     'findall',
     'finditer',
     'purge',

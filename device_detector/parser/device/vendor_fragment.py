@@ -28,7 +28,7 @@ def vendor_regex_list() -> list[dict[str, Any]]:
     for fixture in fixture_files:
         regexes = _load_from_yaml(f'regexes/{fixture}')
 
-        for brand, regexes in regexes.items():
+        for brand, regexes in regexes.items():  # type: ignore[union-attr]
             all_regexes.append({
                 'brand': brand,
                 'regexes': [RegexLazyIgnore(r) for r in regexes],

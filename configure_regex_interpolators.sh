@@ -9,7 +9,7 @@ done
 
 MALFORMED=$(grep -rl --include=*.yml "eZee'Tab\\\g<1>" device_detector/regexes)
 
-if [ $MALFORMED ]; then
+if [[ $MALFORMED ]]; then
    echo "Invalid yaml value found in '${MALFORMED}'"
-   echo "Manually convert 'eZee'Tab\g<1>' to 'eZee'Tab\\\g<1>"
+   printf "Manually convert 'eZee'Tab\g<1>' to 'eZee'Tab\\\g<1>"
 fi

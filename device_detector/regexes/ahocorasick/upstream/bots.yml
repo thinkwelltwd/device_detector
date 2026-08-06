@@ -180,6 +180,7 @@ cloudflare-traffic-manager: null
 cloudflarediagnostics: null
 cloudflareobservatory: null
 cms-experiment: null
+cmslookup: null
 coccoc.com: null
 cocolyzebot: null
 cohere-ai: null
@@ -189,16 +190,19 @@ collectd: null
 collection@infegy.com: null
 collector: null
 colly: null
+com_bot: null
 commafeed: null
 comodo dcv: null
 compatible; optimizer: null
 compatible; sistrix optimizer: null
+contentkingapp: null
 convertify: null
 cookiebot: null
 cortex: null
 cotoyogi: null
 crawl: null
 crowdtanglebot: null
+crusader: null
 crystalsemanticsbot: null
 csscheck: null
 curious george: null
@@ -231,12 +235,7 @@ discobot: null
 discordbot: null
 dmbrowser: null
 dnt-policy@eff.org: null
-domain re-animator bot: null
-domain research project: null
-domainappender: null
-domaincodex.com: null
-domains project: null
-domainstatsbot: null
+domain: null
 domcopbot: null
 dormouse: null
 dotbot: null
@@ -290,8 +289,10 @@ fetch proxy: null
 fetch: null
 fetcher: null
 fever/: null
+findergo: null
 findlinks: null
 findxbot: null
+fingerprint: null
 firebase: null
 flipboardproxy: null
 flipboardrss: null
@@ -375,6 +376,7 @@ gozlebot: null
 gptbot: null
 grafana/: null
 grammarly: null
+greedyhand: null
 gregarius: null
 groq-bot: null
 grub-client: null
@@ -396,12 +398,9 @@ honeygain: null
 hosting: null
 htdig: null
 htmlyse: null
-http banner detection (https://security.ipip.net): null
+http banner detection: null
 http client: null
 httpmon: null
-https://developers.cloudflare.com/security-center/: null
-https://securitytxt-scan.cs.hm.edu/: null
-https://whatis.contentkingapp.com: null
 httpx: null
 huaweiwebcatbot: null
 hubpages: null
@@ -422,7 +421,6 @@ image proxy: null
 imageproxy: null
 imagesift: null
 img2dataset: null
-importdomain: null
 indexer: null
 inetdex-bot: null
 infotigerbot: null
@@ -432,10 +430,11 @@ insomania: null
 inspector: null
 inspici: null
 insytfulbot: null
-intelx.io_bot: null
+intently: null
 internaetboten: null
 internetmeasurement: null
 intuitionsbot: null
+io_bot: null
 ip-guide.com: null
 iplabel: null
 ips-agent: null
@@ -449,6 +448,7 @@ junglekeythumbnail: null
 k-lighthouse: null
 k6/: null
 kadobot: null
+karnoprospect: null
 kaspersky lab cfr link resolver: null
 keybasebot: null
 keycdn-tools/: null
@@ -472,9 +472,12 @@ lac_iaharvester: null
 laravel reaver: null
 larbin: null
 last-modified.com: null
+leaddiscover: null
 leadgen: null
+leadradar: null
 leak.info: null
 let's encrypt validation server: null
+letrixlab: null
 libredtail: null
 linerbot: null
 link sleuth: null
@@ -505,6 +508,7 @@ mailproxy: null
 makemerrybot: null
 manus-user: null
 mariadb-mysql-kbs-bot: null
+marketgoo: null
 masjesu: null
 masscan-ng: null
 masscan: null
@@ -557,8 +561,6 @@ netcraft ssl server survey: null
 netcraft web server survey: null
 netcraftsurveyagent: null
 netlyzer fastprobe: null
-netresearch: null
-netsystemsresearch: null
 nettrack: null
 netvibes: null
 netzzappen: null
@@ -590,7 +592,6 @@ omgili: null
 omtrbot: null
 onalyticabot: null
 online-webceo-bot: null
-onlineornot.com_bot: null
 onlyscans: null
 opengraph.io: null
 orangebot: null
@@ -627,7 +628,8 @@ pingdomtms: null
 pinterest-: null
 pinterest/: null
 piplbot: null
-plesk screenshot bot: null
+placeholder-filter: null
+playstore: null
 plukkie: null
 pocketimagecache: null
 pocketparser: null
@@ -637,6 +639,7 @@ pompos: null
 prerender: null
 prittorrent: null
 probely: null
+productfinder: null
 project: null
 project_patchwatch: null
 project`: null
@@ -660,6 +663,7 @@ rainmeter: null
 ramblermail: null
 re-re studio: null
 read later: null
+recon-engine: null
 redditbot: null
 redekenbot: null
 renovatebot: null
@@ -678,6 +682,7 @@ rocketmonitorbot: null
 rogerbot: null
 roi hunter: null
 root slut: null
+rootevidence: null
 rsiteauditor: null
 rssradio: null
 ruby, twurly v: null
@@ -695,6 +700,7 @@ scoutjet: null
 scraper: null
 scrapy: null
 screenerbot: null
+screenshot bot: null
 scrubby: null
 search.marginalia.nu: null
 searchbot: null
@@ -704,7 +710,9 @@ searchmonkey: null
 searchsight: null
 sectigo dcv: null
 secureurl: null
+security-: null
 securityheaders: null
+securitytxt: null
 secweb: null
 seekport: null
 semaltbot: null
@@ -732,6 +740,7 @@ sffeedreader: null
 shapbot: null
 shareaholic: null
 shareaholicbot: null
+shodan: null
 shopalike: null
 shopify-partner-homepage-scraper: null
 shopwiki: null
@@ -773,7 +782,6 @@ sputnikimagebot: null
 ssl labs: null
 sslshed: null
 startmebot: null
-statista.com: null
 statonlinerubot: null
 statuscake: null
 steamchaturllookup: null
@@ -784,7 +792,6 @@ sublinq: null
 substackcontentfetch: null
 suggestbot: null
 superfeedr bot: null
-support@domainreanimator.com: null
 surdotlybot: null
 survey-security-dot-txt: null
 surveybot: null
@@ -863,6 +870,7 @@ veryhip: null
 via ggpht.com googleimageproxy: null
 via secureurl.fwdcdn.com: null
 viberurldownloader: null
+visionheight: null
 voilabot: null
 vortex/: null
 vuhuvbot: null
@@ -941,7 +949,6 @@ yandexcombot: null
 yandexdialogs: null
 yandexdirect: null
 yandexfavicons: null
-yandexfordomain: null
 yandeximage: null
 yandexmarket: null
 yandexmedia: null

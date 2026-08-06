@@ -29,7 +29,7 @@ class BaseTvParser(BaseDeviceParser):
         """
         if not self._is_hbbtv:
             self._is_hbbtv = HBBTV_FRAGMENT.search(self.user_agent) is not None
-        return self._is_hbbtv
+        return bool(self._is_hbbtv)
 
     def is_shell_tv(self) -> bool:
         """
@@ -37,11 +37,11 @@ class BaseTvParser(BaseDeviceParser):
         """
         if not self._is_shell_tv:
             self._is_shell_tv = SHELL_TV_FRAGMENT.search(self.user_agent) is not None
-        return self._is_shell_tv
+        return bool(self._is_shell_tv)
 
     def set_device_type(self) -> None:
         """
-        Set device type, at least,since we know this is a TV.
+        Set device type, at least, since we know this is a TV.
         """
         if not self.ua_data:
             self.ua_data = {
@@ -61,7 +61,7 @@ class HbbTv(BaseTvParser):
     def _parse(self) -> None:
         if self.is_hbbtv():
             super()._parse()
-            return self.set_device_type()
+            self.set_device_type()
 
 
 class ShellTv(BaseTvParser):
@@ -71,7 +71,7 @@ class ShellTv(BaseTvParser):
     def _parse(self) -> None:
         if self.is_shell_tv():
             super()._parse()
-            return self.set_device_type()
+            self.set_device_type()
 
 
 @functools.cache
@@ -81,7 +81,7 @@ def _regex_list() -> list[dict[str, Any]]:
         return []
 
     reg_list = []
-    for brand, stats in regexes.items():
+    for brand, stats in regexes.items():  # type: ignore[union-attr]
         brand_data = {
             'brand': brand,
             'regex': RegexLazyIgnore(BOUNDED_REGEX.format(stats['regex'])),

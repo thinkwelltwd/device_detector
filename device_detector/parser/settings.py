@@ -10,6 +10,7 @@ APP_TO_CLIENT_HINT_MAPPING = {
     'Norton Private Browser'    : ['Norton Secure Browser'],
     'Opera GX'                  : ['Opera GX Android'],
     'Opera Mini'                : ['Opera Mini Android'],
+    'Puffin Cloud Browser'      : ['Puffin'],
     'Vewd Browser'              : ['Vewd Core'],
     'Yandex Browser'            : ['YaSearchBrowser'],
 }
@@ -24,7 +25,8 @@ for dd_app_name, ch_app_names in APP_TO_CLIENT_HINT_MAPPING.items():
 # Mappings from OS names we use to known client hint values
 OS_CLIENT_HINT_MAPPING = {
     'GNU/Linux': ['Linux'],
-    'Mac'      : ['MacOS', 'macOS'],
+    'Mac'      : ['MacOS', 'macOS', 'Mac OS X', 'MacIntel'],
+    'Puffin OS': ['Cloud Phone 2.4'],
 }
 
 # Operating system families that are known as desktop only
@@ -49,6 +51,8 @@ APPLE_OS_NAMES = {
 
 # Fire OS version mapping
 FIREOS_VERSION_MAPPING = {
+    '16'   : '16',
+    '15'   : '15',
     '14'   : '14',
     '13'   : '14',
     '12'   : '14',
@@ -105,6 +109,7 @@ ANDROID_APPS = {
 OPERATING_SYSTEMS = {
     'AIX': 'AIX',
     'AND': 'Android',
+    'AGO': 'Android Go',
     'ADR': 'Android TV',
     'ALP': 'Alpine Linux',
     'AMZ': 'Amazon Linux',
@@ -167,8 +172,10 @@ OPERATING_SYSTEMS = {
     'HAI': 'Haiku OS',
     'IPA': 'iPadOS',
     'HAR': 'HarmonyOS',
+    'HNX': 'HarmonyOS NEXT',
     'HAS': 'HasCodingOS',
     'HEL': 'HELIX OS',
+    'HYP': 'HyperOS',
     'IRI': 'IRIX',
     'INF': 'Inferno',
     'JME': 'Java ME',
@@ -177,6 +184,7 @@ OPERATING_SYSTEMS = {
     'KAL': 'Kali',
     'KAN': 'Kanotix',
     'KIN': 'KIN OS',
+    'KOB': 'KoboOS',
     'KOL': 'KolibriOS',
     'KNO': 'Knoppix',
     'KTV': 'KreaTV',
@@ -274,6 +282,7 @@ OPERATING_SYSTEMS = {
     'S60': 'Symbian OS Series 60',
     'SY3': 'Symbian^3',
     'TEN': 'TencentOS',
+    'THN': 'ThinOS',
     'TDX': 'ThreadX',
     'TIT': 'Titan OS',
     'TIZ': 'Tizen',
@@ -283,6 +292,7 @@ OPERATING_SYSTEMS = {
     'UBT': 'Ubuntu',
     'ULT': 'ULTRIX',
     'UOS': 'UOS',
+    'VEG': 'Vega OS',
     'VID': 'VIDAA',
     'VIZ': 'ViziOS',
     'WAS': 'watchOS',
@@ -316,7 +326,7 @@ OS_FAMILIES = {
     'Android': [
         'AND', 'CYN', 'FIR', 'REM', 'RZD', 'MLD', 'MCD', 'YNS', 'GRI', 'HAR',
         'ADR', 'CLR', 'BOS', 'REV', 'LEN', 'SIR', 'RRS', 'WER', 'PIC', 'ARM',
-        'HEL', 'BYI', 'RIS', 'PUF', 'LEA', 'MET', 'OHS', 'SMA',
+        'HEL', 'BYI', 'RIS', 'PUF', 'LEA', 'MET', 'SMA', 'AGO',
     ],
     'AmigaOS': ('AMG', 'MOR', 'ARO'),
     'BlackBerry': ('BLB', 'QNX'),
@@ -339,9 +349,11 @@ OS_FAMILIES = {
         'UOS', 'PIO', 'FRI', 'LIR', 'WEB', 'SER', 'ASP', 'AOS', 'LOO', 'EUL',
         'SCI', 'ALP', 'CLO', 'ROC', 'OVZ', 'PVE', 'RST', 'EZX', 'GNS', 'JOL',
         'TUR', 'QTP', 'WPO', 'PAN', 'VIZ', 'AZU', 'COL', 'OSS', 'ELM', 'LPU',
+        'KOB',
     ),
     'Mac': ('MAC',),
     'Mobile Gaming Console': ('PSP', 'NDS', 'XBX'),
+    'OpenHarmony': ('OHS', 'HNX'),
     'OpenVMS': ('OVS',),
     'Other Mobile': ('WOS', 'POS', 'SBA', 'TIZ', 'SMG', 'MAE', 'LUN', 'GEO', 'CON'),
     'Real-time OS': ('MTK', 'TDX', 'MRE', 'JME', 'REX', 'RXT', 'KOL', 'MOS', 'NTX'),
@@ -349,12 +361,12 @@ OS_FAMILIES = {
     'Unix': (
         'SOS', 'AIX', 'HPX', 'BSD', 'NBS', 'OBS', 'DFB', 'SYL', 'IRI', 'T64',
         'INF', 'ELE', 'GNX', 'ULT', 'NWS', 'NXT', 'SBL', 'BS1', 'GHO', 'PLN',
-        'MNX',
+        'MNX', 'THN',
     ),
     'WebTV': ('WTV',),
     'Windows': ('WIN',),
     'Windows Mobile': ('WPH', 'WMO', 'WCE', 'WRT', 'WIO', 'KIN'),
-    'Other Smart TV': ('WHS', 'TIT', 'ORS'),
+    'Other Smart TV': ('WHS', 'TIT', 'ORS', 'VEG'),
     'Unknown': ('UNK',),
 }
 # fmt: on
@@ -390,6 +402,7 @@ AVAILABLE_ENGINES = {
     'Arachne',
     'LibWeb',
     'Maple',
+    'ArkWeb',
 }
 AVAILABLE_ENGINES_LOWER_CASE = {engine.lower(): engine for engine in AVAILABLE_ENGINES}
 
@@ -542,6 +555,7 @@ AVAILABLE_BROWSERS = {
     'C7': 'CM Mini',
     'CF': 'Chrome Frame',
     'HC': 'Headless Chrome',
+    'H0': 'Headless Edge',
     'CH': 'Chrome',
     'CI': 'Chrome Mobile iOS',
     'CK': 'Conkeror',
@@ -683,6 +697,7 @@ AVAILABLE_BROWSERS = {
     'I6': 'iDesktop PC Browser',
     'IC': 'iCab',
     'I2': 'iCab Mobile',
+    'I0': 'iTop Private Browser',
     '0I': 'Ifbrowser',
     '4I': 'iNet Browser',
     'I1': 'Iridium',
@@ -705,6 +720,7 @@ AVAILABLE_BROWSERS = {
     'IG': 'Involta Go',
     'IM': 'IE Mobile',
     'IR': 'Iron',
+    'IL': 'Island',
     'JB': 'Japan Browser',
     'JS': 'Jasmine',
     'JA': 'JavaFX',
@@ -741,6 +757,7 @@ AVAILABLE_BROWSERS = {
     'LF': 'LieBaoFast',
     'LG': 'LG Browser',
     'LH': 'Light',
+    'LP': 'Lightpanda',
     'L4': 'Lightning Browser Plus',
     'L1': 'Lilo',
     'LI': 'Links',
@@ -785,6 +802,7 @@ AVAILABLE_BROWSERS = {
     'MM': 'Mmx Browser',
     'NM': 'MxNitro',
     'MY': 'Mypal',
+    'M0': 'Mysudo',
     'MR': 'Monument Browser',
     'MW': 'MAUI WAP Browser',
     'N7': 'Naenara Browser',
@@ -895,6 +913,7 @@ AVAILABLE_BROWSERS = {
     'P4': 'Privacy Explorer Fast Safe',
     'X5': 'Cloak Private Browser',
     'P3': 'Private Internet Browser',
+    'PG': 'PrivateBrowsing',
     'P5': 'Proxy Browser',
     '7P': 'Proxyium',
     '6P': 'Proxynet',
@@ -910,6 +929,7 @@ AVAILABLE_BROWSERS = {
     'QI': 'Qiyu',
     'QJ': 'QJY TV Browser',
     'Q3': 'Qmamu',
+    'Q8': 'Quiche Browser',
     'Q4': 'Quick Search TV',
     'Q2': 'QQ Browser Lite',
     'Q1': 'QQ Browser Mini',
@@ -946,6 +966,7 @@ AVAILABLE_BROWSERS = {
     'SF': 'Safari',
     'PV': 'Safari Technology Preview',
     'S5': 'Safe Exam Browser',
+    'D5': 'SafeBrowser',
     'SW': 'SalamWeb',
     'VN': 'Savannah Browser',
     'SD': 'SavySoda',
@@ -992,6 +1013,7 @@ AVAILABLE_BROWSERS = {
     '4S': 'Surf Browser',
     'RY': 'Surfy Browser',
     'SG': 'Stargon',
+    'T6': 'Startpage',
     'S0': 'START Internet Browser',
     'YS': 'Stay Browser',
     '5A': 'Stealth Browser',
@@ -1049,6 +1071,7 @@ AVAILABLE_BROWSERS = {
     'N0': 'Nova Video Downloader Pro',
     'VS': 'Viasat Browser',
     'VI': 'Vivaldi',
+    'V7': 'Vivaldi Mobile Browser',
     'VV': 'vivo Browser',
     'V2': 'Vivid Browser Mini',
     'VB': 'Vision Mobile Browser',
@@ -1153,7 +1176,8 @@ BROWSER_FAMILIES = {
         'W2', 'ZB', 'HN', 'Q6', 'Q7', 'G0', '00', 'R6', 'D8',
         'PQ', 'LM', 'T5', '2N', 'SJ', 'X6', 'SM', 'AY', 'BQ',
         'BC', 'NQ', 'VQ', '9C', 'KA', 'YS', 'D4', 'PZ', '0I',
-        '3F', 'Z1', 'XC', 'ZC',
+        '3F', 'Z1', 'XC', 'ZC', 'V7', 'H0', 'IL', 'PG', 'I0',
+        'T6',
     ),
     'Firefox': (
         'FF', 'BI', 'BF', 'BH', 'BN', 'C0', 'CU', 'EI', 'F1',
@@ -1207,7 +1231,7 @@ MOBILE_ONLY_BROWSERS = {
     '2M', 'K7', '1N', '8A', 'H7', 'X3', 'X4', '5O', '6I',
     '7I', 'X5', '3P', '2E', 'T5', '2N', 'SJ', 'X6', 'SM',
     'AY', 'BQ', 'BC', 'NQ', 'VQ', 'KA', 'YS', 'D4', 'PZ',
-    '0I',
+    'V7', 'D5', 'M0', 'Q8', 'T6',
 }
 # fmt: off
 
@@ -1215,7 +1239,7 @@ TV_CLIENTS = {
     'Kylo', 'Espial TV Browser', 'LUJO TV Browser', 'LogicUI TV Browser', 'Open TV Browser',
     'Seraphic Sraf', 'Opera Devices', 'Crow Browser', 'Vewd Browser', 'TiviMate',
     'Quick Search TV', 'QJY TV Browser', 'TV Bro',
-    'Redline',
+    'Redline', 'Odin',
 }
 
 # Taken from ChromeOS regex in oss.yml

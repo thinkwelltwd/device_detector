@@ -300,3 +300,9 @@ class TestDetectSmartPhone42(DetectorBaseTest):
     fixture_files = [
         'tests/fixtures/upstream/smartphone-42.yml',
     ]
+
+class TestDetectSmartPhone43(DetectorBaseTest):
+
+    fixture_files = [
+        'tests/fixtures/upstream/smartphone-43.yml',
+    ]

@@ -28,6 +28,8 @@
 - uaname: com.amazon.mp3
   name: Amazon Music
 
+- uaname: iTunes-AppleTV
+  name: Apple iTunes
 - uaname: com.apple.imovie
   name: Apple iMovie
 - uaname: itunesstored

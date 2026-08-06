@@ -6,9 +6,9 @@ from .enums import AppType
 from .lazy_regex import RegexLazy, RegexLazyIgnore
 
 PUNC_SPACE = f'{punctuation} '
-trans_tbl = str.maketrans(dict.fromkeys(PUNC_SPACE, ''))
-punctuation_tbl = str.maketrans(dict.fromkeys(' /.', ''))
-number_table = str.maketrans(dict.fromkeys('0123456789', ''))
+trans_tbl = str.maketrans(dict.fromkeys(PUNC_SPACE, ''))  # type: ignore[arg-type]
+punctuation_tbl = str.maketrans(dict.fromkeys(' /.', ''))  # type: ignore[arg-type]
+number_table = str.maketrans(dict.fromkeys('0123456789', ''))  # type: ignore[arg-type]
 REPEATED_CHARACTERS = RegexLazy(r'(.)(\1{11,})')
 
 TRIM_LONG_COMBO_EXTENSIONS = RegexLazyIgnore(

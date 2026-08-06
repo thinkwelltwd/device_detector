@@ -6,7 +6,7 @@ from ..parser import Parser
 from ...utils import calculate_dtype
 
 keep = frozenset(['!', '@', '+'])
-table = str.maketrans(dict.fromkeys(''.join(c for c in string.punctuation if c not in keep)))
+table = str.maketrans(dict.fromkeys(''.join(c for c in string.punctuation if c not in keep)))  # type: ignore[arg-type]
 
 # fmt: off
 UNWANTED_UA_STRINGS = [

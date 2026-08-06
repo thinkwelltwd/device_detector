@@ -8,12 +8,13 @@ from .settings import CLIENT_HINT_TO_APP_MAP, FAMILY_FROM_OS, BROWSER_TO_ABBREV
 
 CH_UA = RegexLazyIgnore(r'^"([^"]+)"; ?v="([^"]+)"(?:, )?')
 TV_APP = RegexLazyIgnore(r'tv\.?(browser|firefox|search|web)')
-CHROMIUM_BASED_BROWSERS = frozenset((
+CHROMIUM_BASED_BROWSERS = {
+    'Chrome',
     'Chromium',
     'Chrome Webview',
     'Microsoft Edge',
     'Microsoft Edge Simulate',
-))
+}
 
 
 class ClientHintsHeader(TypedDict):
@@ -29,7 +30,7 @@ class ClientHintsHeader(TypedDict):
     app: str
 
 
-# "Chromium";v="106", "Brave";v="106", "Not;A=Brand";v="99"
+# "Chromium";v="106", "Brave";v="106", "Not;A=Brand";v="99"  # noqa
 # "Not_A Brand";v="8.0.0.0", "Chromium";v="120.0.6099.115", "Google Chrome";v="120.0.6099.115"
 # NOT_A_BRAND = {
 #     'not;a=brand',
@@ -118,10 +119,12 @@ class ClientHints:
         self._calculated_app_type = AppType.Unknown
 
     def __str__(self) -> str:
+        architecture = f'{self.architecture} ({self.bitness})' if self.architecture else ''
         return (
             f'Client: {self.client_name()} '
             f'Platform: {self.platform} ({self.platform_version}) '
-            f'Architecture: {self.architecture} ({self.bitness})'
+            f'Architecture: {architecture} '
+            f'Model: {self.model}'
         )
 
     @classmethod
@@ -175,7 +178,7 @@ class ClientHints:
                 ):
                     params['model'] = value.strip('"')
 
-                # "Brave";v="139"
+                # "Brave";v="139"  # noqa
                 case (
                     'sec-ch-ua-full-version'
                     | 'http-sec-ch-ua-full-version'
@@ -299,7 +302,7 @@ class ClientHints:
         return ''
 
     def client_version(self) -> str:
-        return self.client_hints_map.get(self.client_name(), '')
+        return self.full_version or self.client_hints_map.get(self.client_name(), '')
 
     def client_is_browser(self) -> bool:
         return self.client_data().get('type') == AppType.Browser

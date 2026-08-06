@@ -60,16 +60,16 @@ def app_pretty_names_types_data() -> dict[str, AppNameType]:
     generalized_details: dict = defaultdict(dict)  # type: ignore[type-arg]
     for dtype, entries in all_app_details.items():
         for entry in entries:
-            name = entry['name']
-            key = entry['uaname'].lower().replace(' ', '')
+            name = entry['name']  # type: ignore[call-overload]
+            key = entry['uaname'].lower().replace(' ', '')  # type: ignore[call-overload]
             data = {
                 'name': name,
-                'type': entry.get('type', dtype),
+                'type': entry.get('type', dtype),  # type: ignore[union-attr]
             }
             generalized_details[key] = data
 
             # Match airmail, airmail-android, airmail-iphone
-            suffixes = str(entry.get('suffixes', '')).lower().replace(' ', '')
+            suffixes = str(entry.get('suffixes', '')).lower().replace(' ', '')  # type: ignore[union-attr]
             for suffix in suffixes.split('|'):
                 if suffix:
                     generalized_details[f'{key}{suffix}'] = data
@@ -117,7 +117,7 @@ def regex_list(fixture_files: tuple[str, ...]) -> list[dict[str, Any]]:
 
 @functools.cache
 def normalized_regex_list(fixture: str) -> list[dict[str, Any]]:
-    regexes: list[dict[str, Any]] = _load_from_yaml(f'regexes/{fixture}')
+    regexes: list[dict[str, Any]] = _load_from_yaml(f'regexes/{fixture}')  # type: ignore[assignment]
 
     for regex in regexes:
         regex['regex'] = RegexLazyIgnore(regex['regex'])
@@ -136,10 +136,10 @@ def load_ahocorasick_patterns(
     # Every Parser or Detector class can have a set of words
     # and Word exclusions that are manually defined.
     manual = _load_from_yaml(f'regexes/ahocorasick/classes/{name}.yml') or {}
-    all_corasick_words: set[str] = set(manual.get('Words', {})) or set()
+    all_corasick_words: set[str] = set(manual.get('Words', set())) or set()  # type: ignore[union-attr]
 
     for fixture in fixture_files:
-        if words := set(_load_from_yaml(f'regexes/ahocorasick/{fixture}')):
+        if words := set(_load_from_yaml(f'regexes/ahocorasick/{fixture}')):  # noqa
             all_corasick_words.update(words)  # type: ignore[arg-type]
 
     return ahocorasick_rs.AhoCorasick(all_corasick_words) if all_corasick_words else None
@@ -147,7 +147,7 @@ def load_ahocorasick_patterns(
 
 def _load_from_yaml(yml_file: str) -> dict[str, Any] | list[dict[str, Any]] | list[dict[str, Any]]:
     """
-    Load yaml from regexes directory, or extract from the egg
+    Load YAML from regexes directory, or extract from the egg
     """
     yml_file_path = f'{ROOT}/{yml_file}'
     if Path(yml_file_path).exists():

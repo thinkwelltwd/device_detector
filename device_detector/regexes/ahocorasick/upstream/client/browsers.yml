@@ -69,10 +69,8 @@ airwatch browser v: null
 airwatchbrowser: null
 aloha/: null
 alohabrowser: null
-alohabrowserapp: null
 alohalite: null
 altibrowser: null
-altibrowser/: null
 alva/: null
 amaya: null
 amaya/: null
@@ -124,7 +122,6 @@ bang/7: null
 bang/8: null
 bang/9: null
 banglabrowser: null
-banglabrowser/: null
 basilisk: null
 bb10: null
 bdbrowser: null
@@ -150,84 +147,29 @@ bluefy/: null
 'bonecho ': null
 'bonecho/': null
 bonsai-browser/: null
-borealis/0: null
-borealis/1: null
-borealis/2: null
-borealis/3: null
-borealis/4: null
-borealis/5: null
-borealis/6: null
-borealis/7: null
-borealis/8: null
-borealis/9: null
+borealis/: null
 brave: null
 brave chrome: null
 briskbard: null
 browlser/: null
 browser/netfont: null
 browser/nf: null
-browser/phantom/v: null
+browser/phantom: null
 browserng: null
-browsex (0: null
-browsex (1: null
-browsex (2: null
-browsex (3: null
-browsex (4: null
-browsex (5: null
-browsex (6: null
-browsex (7: null
-browsex (8: null
-browsex (9: null
+browsex (: null
 browzar: null
 bunjalloo: null
-bunjalloo/: null
-byffox/0: null
-byffox/1: null
-byffox/2: null
-byffox/3: null
-byffox/4: null
-byffox/5: null
-byffox/6: null
-byffox/7: null
-byffox/8: null
-byffox/9: null
+byffox/: null
 camino: null
 catalyst: null
 ccleaner: null
 centaury: null
 chanjetcloud/: null
 charon: null
-chedot/0: null
-chedot/1: null
-chedot/2: null
-chedot/3: null
-chedot/4: null
-chedot/5: null
-chedot/6: null
-chedot/7: null
-chedot/8: null
-chedot/9: null
+chedot/: null
 cheshire: null
-chimlac/0: null
-chimlac/1: null
-chimlac/2: null
-chimlac/3: null
-chimlac/4: null
-chimlac/5: null
-chimlac/6: null
-chimlac/7: null
-chimlac/8: null
-chimlac/9: null
-chimlac_browser/0: null
-chimlac_browser/1: null
-chimlac_browser/2: null
-chimlac_browser/3: null
-chimlac_browser/4: null
-chimlac_browser/5: null
-chimlac_browser/6: null
-chimlac_browser/7: null
-chimlac_browser/8: null
-chimlac_browser/9: null
+chimlac/: null
+chimlac_browser/: null
 chrome mobile: null
 chrome/0. mobile: null
 chrome/00 mobile: null
@@ -342,125 +284,14 @@ chrome/99 mobile: null
 chromeframe: null
 chromeplus: null
 chromium: null
-chromium_0.: null
-chromium_00: null
-chromium_01: null
-chromium_02: null
-chromium_03: null
-chromium_04: null
-chromium_05: null
-chromium_06: null
-chromium_07: null
-chromium_08: null
-chromium_09: null
-chromium_1.: null
-chromium_10: null
-chromium_11: null
-chromium_12: null
-chromium_13: null
-chromium_14: null
-chromium_15: null
-chromium_16: null
-chromium_17: null
-chromium_18: null
-chromium_19: null
-chromium_2.: null
-chromium_20: null
-chromium_21: null
-chromium_22: null
-chromium_23: null
-chromium_24: null
-chromium_25: null
-chromium_26: null
-chromium_27: null
-chromium_28: null
-chromium_29: null
-chromium_3.: null
-chromium_30: null
-chromium_31: null
-chromium_32: null
-chromium_33: null
-chromium_34: null
-chromium_35: null
-chromium_36: null
-chromium_37: null
-chromium_38: null
-chromium_39: null
-chromium_4.: null
-chromium_40: null
-chromium_41: null
-chromium_42: null
-chromium_43: null
-chromium_44: null
-chromium_45: null
-chromium_46: null
-chromium_47: null
-chromium_48: null
-chromium_49: null
-chromium_5.: null
-chromium_50: null
-chromium_51: null
-chromium_52: null
-chromium_53: null
-chromium_54: null
-chromium_55: null
-chromium_56: null
-chromium_57: null
-chromium_58: null
-chromium_59: null
-chromium_6.: null
-chromium_60: null
-chromium_61: null
-chromium_62: null
-chromium_63: null
-chromium_64: null
-chromium_65: null
-chromium_66: null
-chromium_67: null
-chromium_68: null
-chromium_69: null
-chromium_7.: null
-chromium_70: null
-chromium_71: null
-chromium_72: null
-chromium_73: null
-chromium_74: null
-chromium_75: null
-chromium_76: null
-chromium_77: null
-chromium_78: null
-chromium_79: null
-chromium_8.: null
-chromium_80: null
-chromium_81: null
-chromium_82: null
-chromium_83: null
-chromium_84: null
-chromium_85: null
-chromium_86: null
-chromium_87: null
-chromium_88: null
-chromium_89: null
-chromium_9.: null
-chromium_90: null
-chromium_91: null
-chromium_92: null
-chromium_93: null
-chromium_94: null
-chromium_95: null
-chromium_96: null
-chromium_97: null
-chromium_98: null
-chromium_99: null
 classilla/: null
 cliqz: null
 coast: null
 coc_coc_browser: null
 coccoc: null
-coccocbrowser: null
 colibri/: null
 columbus/: null
-com.airfind.browser/: null
+com.airfind.browser: null
 com.airfind.deltabrowser: null
 com.browser.tssomas: null
 com.tcl.browser: null
@@ -519,7 +350,6 @@ dragon/: null
 dt-browser/dtb: null
 duckduckgo/: null
 eastbrowser: null
-eastbrowser/: null
 ecosia android@: null
 ecosia ios@: null
 edg 0: null
@@ -584,16 +414,7 @@ edge/8: null
 edge/9: null
 'edgios ': null
 'edgios/': null
-ekioh/0: null
-ekioh/1: null
-ekioh/2: null
-ekioh/3: null
-ekioh/4: null
-ekioh/5: null
-ekioh/6: null
-ekioh/7: null
-ekioh/8: null
-ekioh/9: null
+ekioh/: null
 element browser: null
 elements browser/: null
 elinks/0: null
@@ -629,7 +450,6 @@ firefox 5: null
 firefox/: null
 firesend: null
 fireweb: null
-fireweb navigator: null
 flashbrowser/: null
 flast/0: null
 flast/1: null
@@ -642,16 +462,7 @@ flast/7: null
 flast/8: null
 flast/9: null
 flock: null
-floorp/0: null
-floorp/1: null
-floorp/2: null
-floorp/3: null
-floorp/4: null
-floorp/5: null
-floorp/6: null
-floorp/7: null
-floorp/8: null
-floorp/9: null
+floorp/: null
 fluid: null
 'flyflow ': null
 'flyflow/': null
@@ -684,16 +495,7 @@ ginxdroidbrowser/: null
 glassbrowser/: null
 gobrowser: null
 goggalaxyclient/: null
-goku-ios/0: null
-goku-ios/1: null
-goku-ios/2: null
-goku-ios/3: null
-goku-ios/4: null
-goku-ios/5: null
-goku-ios/6: null
-goku-ios/7: null
-goku-ios/8: null
-goku-ios/9: null
+goku-ios/: null
 google earth: null
 googleearth/: null
 'granparadiso ': null
@@ -765,18 +567,9 @@ iron/9: null
 isivioo: null
 japan browser: null
 jasmine: null
-javafx/0: null
-javafx/1: null
-javafx/2: null
-javafx/3: null
-javafx/4: null
-javafx/5: null
-javafx/6: null
-javafx/7: null
-javafx/8: null
-javafx/9: null
+javafx/: null
 jig browser: null
-jigbrowserplus/: null
+jigbrowser: null
 jiobrowser: null
 jiopages: null
 jiosphere: null
@@ -810,128 +603,9 @@ klar/7: null
 klar/8: null
 klar/9: null
 kode/: null
-kode/0.: null
-kode/00: null
-kode/01: null
-kode/02: null
-kode/03: null
-kode/04: null
-kode/05: null
-kode/06: null
-kode/07: null
-kode/08: null
-kode/09: null
-kode/1.: null
-kode/10: null
-kode/11: null
-kode/12: null
-kode/13: null
-kode/14: null
-kode/15: null
-kode/16: null
-kode/17: null
-kode/18: null
-kode/19: null
-kode/2.: null
-kode/20: null
-kode/21: null
-kode/22: null
-kode/23: null
-kode/24: null
-kode/25: null
-kode/26: null
-kode/27: null
-kode/28: null
-kode/29: null
-kode/3.: null
-kode/30: null
-kode/31: null
-kode/32: null
-kode/33: null
-kode/34: null
-kode/35: null
-kode/36: null
-kode/37: null
-kode/38: null
-kode/39: null
-kode/4.: null
-kode/40: null
-kode/41: null
-kode/42: null
-kode/43: null
-kode/44: null
-kode/45: null
-kode/46: null
-kode/47: null
-kode/48: null
-kode/49: null
-kode/5.: null
-kode/50: null
-kode/51: null
-kode/52: null
-kode/53: null
-kode/54: null
-kode/55: null
-kode/56: null
-kode/57: null
-kode/58: null
-kode/59: null
-kode/6.: null
-kode/60: null
-kode/61: null
-kode/62: null
-kode/63: null
-kode/64: null
-kode/65: null
-kode/66: null
-kode/67: null
-kode/68: null
-kode/69: null
-kode/7.: null
-kode/70: null
-kode/71: null
-kode/72: null
-kode/73: null
-kode/74: null
-kode/75: null
-kode/76: null
-kode/77: null
-kode/78: null
-kode/79: null
-kode/8.: null
-kode/80: null
-kode/81: null
-kode/82: null
-kode/83: null
-kode/84: null
-kode/85: null
-kode/86: null
-kode/87: null
-kode/88: null
-kode/89: null
-kode/9.: null
-kode/90: null
-kode/91: null
-kode/92: null
-kode/93: null
-kode/94: null
-kode/95: null
-kode/96: null
-kode/97: null
-kode/98: null
-kode/99: null
 kodeios/: null
 konqueror: null
-kuaiso/0: null
-kuaiso/1: null
-kuaiso/2: null
-kuaiso/3: null
-kuaiso/4: null
-kuaiso/5: null
-kuaiso/6: null
-kuaiso/7: null
-kuaiso/8: null
-kuaiso/9: null
+kuaiso/: null
 kun/0: null
 kun/1: null
 kun/2: null
@@ -971,16 +645,7 @@ light/7: null
 light/8: null
 light/9: null
 lilo/: null
-links (0: null
-links (1: null
-links (2: null
-links (3: null
-links (4: null
-links (5: null
-links (6: null
-links (7: null
-links (8: null
-links (9: null
+links (: null
 liri/: null
 locationbrowser: null
 lolifox/: null
@@ -1007,9 +672,7 @@ maemo browser: null
 managedbrowser: null
 mandarin browser/: null
 maxbrowser: null
-maxbrowser/: null
-'maxthon browser ': null
-maxthon browser/: null
+maxthon browser: null
 maxthon/: null
 mb2345browser/: null
 mcent: null
@@ -1055,30 +718,9 @@ msie 6: null
 msie 7: null
 msie 8: null
 msie 9: null
-mspie 0: null
-mspie 1: null
-mspie 2: null
-mspie 3: null
-mspie 4: null
-mspie 5: null
-mspie 6: null
-mspie 7: null
-mspie 8: null
-mspie 9: null
-mspie/0: null
-mspie/1: null
-mspie/2: null
-mspie/3: null
-mspie/4: null
-mspie/5: null
-mspie/6: null
-mspie/7: null
-mspie/8: null
-mspie/9: null
-'mxbrowser-inhouse ': null
-mxbrowser-inhouse/: null
-'mxbrowser-iphone ': null
-mxbrowser-iphone/: null
+'mspie ': null
+mspie/: null
+mxbrowser-: null
 mxbrowser/: null
 'mxios ': null
 mxios/: null
@@ -1117,33 +759,14 @@ nokia7: null
 nokia8: null
 nokia9: null
 nokiabrowser: null
-nokiae0: null
-nokiae1: null
-nokiae2: null
-nokiae3: null
-nokiae4: null
-nokiae5: null
-nokiae6: null
-nokiae7: null
-nokiae8: null
-nokiae9: null
-nokian0: null
-nokian1: null
-nokian2: null
-nokian3: null
-nokian4: null
-nokian5: null
-nokian6: null
-nokian7: null
-nokian8: null
-nokian9: null
+nokiae: null
+nokian: null
 nook browser: null
 normalized ipad (ios safari): null
 normalized iphone (ios safari): null
 norton/: null
 novarra-vision: null
 noxbrowser: null
-noxbrowser/: null
 ntentbrowser: null
 nuanti/: null
 nuantimeta/: null
@@ -1151,9 +774,8 @@ nuviu/: null
 browser/obigo: null
 obigo/: null
 obigo browser: null
-obigo internetbrowser: null
+internetbrowser: null
 obigobrowser: null
-obigointernetbrowser: null
 oceanhero/: null
 oculusbrowser: null
 odd/: null
@@ -1183,16 +805,7 @@ omi/9: null
 omniweb: null
 onbrowserlite: null
 onebrowser: null
-openfin/0: null
-openfin/1: null
-openfin/2: null
-openfin/3: null
-openfin/4: null
-openfin/5: null
-openfin/6: null
-openfin/7: null
-openfin/8: null
-openfin/9: null
+openfin/: null
 openwave: null
 opera gx/: null
 opera mini/: null
@@ -1200,16 +813,7 @@ opera touch/: null
 opera/: null
 operagx/: null
 operamini/: null
-opios/0: null
-opios/1: null
-opios/2: null
-opios/3: null
-opios/4: null
-opios/5: null
-opios/6: null
-opios/7: null
-opios/8: null
-opios/9: null
+opios/: null
 oppobrowser: null
 oprgx: null
 opt/0: null
@@ -1223,16 +827,7 @@ opt/7: null
 opt/8: null
 opt/9: null
 opx: null
-orca/0: null
-orca/1: null
-orca/2: null
-orca/3: null
-orca/4: null
-orca/5: null
-orca/6: null
-orca/7: null
-orca/8: null
-orca/9: null
+orca/: null
 ordissimo: null
 oreganmediabrowser: null
 oregano: null
@@ -1268,10 +863,9 @@ phoenix: null
 phx/: null
 pibrowser: null
 picobrowser: null
-picobrowser/: null
 playbook: null
 playfreebrowser/: null
-pocket internet explorer: null
+internet explorer: null
 pocketbook/: null
 polaris: null
 polarity: null
@@ -1298,51 +892,22 @@ psi-secure-browser/: null
 puffin/: null
 qazweb/: null
 qihoobrowserhd/: null
-qihu 360ee: null
-qihu 360se: null
+qihu 360: null
 qiyu/: null
 qqbrowser: null
 "qq\u6D4F\u89C8\u5668": null
-qtweb internet browser: null
-qtwebengine/0: null
-qtwebengine/1: null
-qtwebengine/2: null
-qtwebengine/3: null
-qtwebengine/4: null
-qtwebengine/5: null
-qtwebengine/6: null
-qtwebengine/7: null
-qtwebengine/8: null
-qtwebengine/9: null
+internet browser: null
+qtwebengine/: null
 quark: null
 quick search tv: null
 quickbrowser: null
 qupzilla: null
 qutebrowser: null
-qwant/0: null
-qwant/1: null
-qwant/2: null
-qwant/3: null
-qwant/4: null
-qwant/5: null
-qwant/6: null
-qwant/7: null
-qwant/8: null
-qwant/9: null
-qwantios/0: null
-qwantios/1: null
-qwantios/2: null
-qwantios/3: null
-qwantios/4: null
-qwantios/5: null
-qwantios/6: null
-qwantios/7: null
-qwantios/8: null
-qwantios/9: null
+qwant/: null
+qwantios/: null
 qwantmobile: null
 rakutenbrowser: null
 rakutenwebsearch: null
-raspbian chromium/: null
 rcatorexplorer: null
 realmebrowser: null
 rekonq: null
@@ -1360,19 +925,15 @@ rocket/8: null
 rocket/9: null
 rockmelt: null
 rokubrowser: null
-rokubrowser/: null
-s40ovibrowser/: null
-safari technology preview/: null
+s40ovibrowser: null
+'safari ': null
 safari/: null
-safari/537.36 browser: null
-safari/537.36 navegador: null
 safer: null
 sailfishbrowser: null
 salamweb: null
 samsung browser: null
 samsungbrowser: null
 sberbrowser: null
-sberbrowser/: null
 se 0: null
 se 1: null
 se 2: null
@@ -1386,7 +947,6 @@ se 9: null
 seb/: null
 secure/: null
 securebrowser: null
-seewobrowser/: null
 semc-browser: null
 series60/: null
 servo/: null
@@ -1401,130 +961,10 @@ sfb/7: null
 sfb/8: null
 sfb/9: null
 sfbrowser/: null
-sfive_ios/0: null
-sfive_ios/1: null
-sfive_ios/2: null
-sfive_ios/3: null
-sfive_ios/4: null
-sfive_ios/5: null
-sfive_ios/6: null
-sfive_ios/7: null
-sfive_ios/8: null
-sfive_ios/9: null
+sfive_ios/: null
 shiira: null
-'shiretoko ': null
-'shiretoko/': null
-silk: null
-silk/0. like chrome: null
-silk/00 like chrome: null
-silk/01 like chrome: null
-silk/02 like chrome: null
-silk/03 like chrome: null
-silk/04 like chrome: null
-silk/05 like chrome: null
-silk/06 like chrome: null
-silk/07 like chrome: null
-silk/08 like chrome: null
-silk/09 like chrome: null
-silk/1. like chrome: null
-silk/10 like chrome: null
-silk/11 like chrome: null
-silk/12 like chrome: null
-silk/13 like chrome: null
-silk/14 like chrome: null
-silk/15 like chrome: null
-silk/16 like chrome: null
-silk/17 like chrome: null
-silk/18 like chrome: null
-silk/19 like chrome: null
-silk/2. like chrome: null
-silk/20 like chrome: null
-silk/21 like chrome: null
-silk/22 like chrome: null
-silk/23 like chrome: null
-silk/24 like chrome: null
-silk/25 like chrome: null
-silk/26 like chrome: null
-silk/27 like chrome: null
-silk/28 like chrome: null
-silk/29 like chrome: null
-silk/3. like chrome: null
-silk/30 like chrome: null
-silk/31 like chrome: null
-silk/32 like chrome: null
-silk/33 like chrome: null
-silk/34 like chrome: null
-silk/35 like chrome: null
-silk/36 like chrome: null
-silk/37 like chrome: null
-silk/38 like chrome: null
-silk/39 like chrome: null
-silk/4. like chrome: null
-silk/40 like chrome: null
-silk/41 like chrome: null
-silk/42 like chrome: null
-silk/43 like chrome: null
-silk/44 like chrome: null
-silk/45 like chrome: null
-silk/46 like chrome: null
-silk/47 like chrome: null
-silk/48 like chrome: null
-silk/49 like chrome: null
-silk/5. like chrome: null
-silk/50 like chrome: null
-silk/51 like chrome: null
-silk/52 like chrome: null
-silk/53 like chrome: null
-silk/54 like chrome: null
-silk/55 like chrome: null
-silk/56 like chrome: null
-silk/57 like chrome: null
-silk/58 like chrome: null
-silk/59 like chrome: null
-silk/6. like chrome: null
-silk/60 like chrome: null
-silk/61 like chrome: null
-silk/62 like chrome: null
-silk/63 like chrome: null
-silk/64 like chrome: null
-silk/65 like chrome: null
-silk/66 like chrome: null
-silk/67 like chrome: null
-silk/68 like chrome: null
-silk/69 like chrome: null
-silk/7. like chrome: null
-silk/70 like chrome: null
-silk/71 like chrome: null
-silk/72 like chrome: null
-silk/73 like chrome: null
-silk/74 like chrome: null
-silk/75 like chrome: null
-silk/76 like chrome: null
-silk/77 like chrome: null
-silk/78 like chrome: null
-silk/79 like chrome: null
-silk/8. like chrome: null
-silk/80 like chrome: null
-silk/81 like chrome: null
-silk/82 like chrome: null
-silk/83 like chrome: null
-silk/84 like chrome: null
-silk/85 like chrome: null
-silk/86 like chrome: null
-silk/87 like chrome: null
-silk/88 like chrome: null
-silk/89 like chrome: null
-silk/9. like chrome: null
-silk/90 like chrome: null
-silk/91 like chrome: null
-silk/92 like chrome: null
-silk/93 like chrome: null
-silk/94 like chrome: null
-silk/95 like chrome: null
-silk/96 like chrome: null
-silk/97 like chrome: null
-silk/98 like chrome: null
-silk/99 like chrome: null
+shiretoko: null
+like chrome: null
 simplebrowser: null
 singlebox/: null
 'sitekiosk ': null
@@ -1533,26 +973,15 @@ skye/: null
 skyfire: null
 skyleap/: null
 slbrowser: null
-slbrowser/: null
 sleipnir: null
 slimboat/: null
 slimerjs: null
 slimjet/: null
 slp browser: null
 slpbrowser: null
-smooz/0: null
-smooz/1: null
-smooz/2: null
-smooz/3: null
-smooz/4: null
-smooz/5: null
-smooz/6: null
-smooz/7: null
-smooz/8: null
-smooz/9: null
+smooz/: null
 snowshoe: null
 sogoumobilebrowser/: null
-soul: null
 soul/: null
 soulbrowser: null
 sp browser/: null
@@ -1566,36 +995,9 @@ spark 6: null
 spark 7: null
 spark 8: null
 spark 9: null
-spark/0: null
-spark/1: null
-spark/2: null
-spark/3: null
-spark/4: null
-spark/5: null
-spark/6: null
-spark/7: null
-spark/8: null
-spark/9: null
-sparksafe 0: null
-sparksafe 1: null
-sparksafe 2: null
-sparksafe 3: null
-sparksafe 4: null
-sparksafe 5: null
-sparksafe 6: null
-sparksafe 7: null
-sparksafe 8: null
-sparksafe 9: null
-sparksafe/0: null
-sparksafe/1: null
-sparksafe/2: null
-sparksafe/3: null
-sparksafe/4: null
-sparksafe/5: null
-sparksafe/6: null
-sparksafe/7: null
-sparksafe/8: null
-sparksafe/9: null
+spark/: null
+'sparksafe ': null
+sparksafe/: null
 sparrow/: null
 spectre-browser/: null
 splash version: null
@@ -1726,7 +1128,6 @@ t+browser/: null
 tablet browser: null
 tansodl: null
 taobrowser: null
-tapbrowser/ybrowser/oculusbrowser: null
 tararia/: null
 tbrowser/: null
 teleca: null
@@ -1735,29 +1136,17 @@ tenta/: null
 teslabrowser: null
 tizen browser: null
 tizenbrowser: null
-tizenbrowser/: null
 tnsbrowser: null
-to-browser/tob: null
+to-browser/: null
 togate/: null
 ' torrent/': null
 tqbrowser: null
 trident/: null
-trident/7.0: null
-trident/8.0: null
 truelocationbrowser/: null
 tungstenbrowser/: null
 turbobrowser: null
 turkcell-yaanibrowser: null
-tusk/0: null
-tusk/1: null
-tusk/2: null
-tusk/3: null
-tusk/4: null
-tusk/5: null
-tusk/6: null
-tusk/7: null
-tusk/8: null
-tusk/9: null
+tusk/: null
 tv bro/: null
 tweakstyle: null
 u browser: null
@@ -1809,16 +1198,7 @@ viv/6: null
 viv/7: null
 viv/8: null
 viv/9: null
-vivaldi/0: null
-vivaldi/1: null
-vivaldi/2: null
-vivaldi/3: null
-vivaldi/4: null
-vivaldi/5: null
-vivaldi/6: null
-vivaldi/7: null
-vivaldi/8: null
-vivaldi/9: null
+vivaldi/: null
 vivobrowser: null
 vms_mosaic: null
 vonkeror: null
@@ -1838,31 +1218,13 @@ web browser: null
 webdiscover/: null
 webianshell/: null
 webissimo3: null
-webos/0: null
-webos/1: null
-webos/2: null
-webos/3: null
-webos/4: null
-webos/5: null
-webos/6: null
-webos/7: null
-webos/8: null
-webos/9: null
+webos/: null
 webpositive: null
 webpro: null
 weltweitimnetzbrowser: null
 wetab-browser: null
 wexond: null
-whale/0: null
-whale/1: null
-whale/2: null
-whale/3: null
-whale/4: null
-whale/5: null
-whale/6: null
-whale/7: null
-whale/8: null
-whale/9: null
+whale/: null
 whalebrowser: null
 wib: null
 wicked: null
@@ -1877,13 +1239,11 @@ xxxandroidapp: null
 yaanibrowser: null
 yabrowser/: null
 yagi/: null
-yandexsearchbrowser/: null
-yasearchbrowser/: null
+searchbrowser/: null
 ybrowser/: null
-yixia.browser/com.donerbrowser.app/: null
+yixia.browser/: null
 yolobrowser/: null
 youbrowser: null
-youbrowser/: null
 youcare-android-app: null
 youcare-ios-app: null
 zetakey/: null

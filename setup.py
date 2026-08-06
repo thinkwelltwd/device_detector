@@ -6,9 +6,9 @@ from setuptools import setup, find_packages
 
 
 def get_version():
-    with open('device_detector/__init__.py', 'r') as f:
-        line = f.readline()
-        match = re.match(r'__version__ = \'([\d\.]+)\'', line)
+    with open('device_detector/__init__.py', 'r') as vf:
+        line = vf.readline()
+        match = re.match(r'__version__ = \'([\d.]+)\'', line)
 
         if not match:
             raise ImportError("Can't read the version of device_detector")
@@ -24,7 +24,7 @@ with io.open(os.path.join(here, 'README.md'), encoding='utf-8') as f:
 setup(
     name='device_detector',
     version=get_version(),
-    description="Python3 port of matomo's Device Detector",
+    description="Python3 port of the Matomo Device Detector",
     long_description=long_description,
     long_description_content_type='text/markdown',
     author='Dave Burkholder',

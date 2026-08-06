@@ -40,6 +40,7 @@ Words:
 - aphone browser
 - applewebkit [hs/
 - applewebkit [pb/
+- authenticationservice
 - atomicbrowser
 - banglabrowser
 - bdbrowser/
@@ -94,6 +95,8 @@ Words:
 - firefox/
 - google earth
 - googleearth
+- headless
+- hmos.browser
 - ios iphone
 - ios; u; ios
 - ios; u; iph os
@@ -164,6 +167,7 @@ Words:
 - lebrowser
 - leganbrowser
 - lilo/
+- lightpanda
 - linux; android
 - linux; u; android
 - locationbrowser
@@ -187,6 +191,7 @@ Words:
 - mot-x
 - motorolawebkit
 - mxbrowser
+- mysudo
 - naenarabrowser
 - ncbrowser/
 - networkingextension/
@@ -207,6 +212,7 @@ Words:
 - presto/
 - privacybrowser
 - quickbrowser
+- quiche
 - qutebrowser
 - qwantmobile
 - rakutenbrowser
@@ -214,6 +220,7 @@ Words:
 - safari technology preview/
 - safari/
 - safari55
+- safebrowser
 - samsungbrowser
 - sberbrowser
 - securebrowser
