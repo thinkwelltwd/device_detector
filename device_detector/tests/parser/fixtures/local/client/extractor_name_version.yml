@@ -370,3 +370,33 @@
     type: generic
     name:  Tank ✓
     version: 200571
+-
+  user_agent: (UALib 16.12.2; 50qSnrSkSjKBW-di6KtsoA)
+  client:
+    type: generic
+    name:  UALib
+    version: 16.12.2
+-
+  user_agent: (UALib 17.10.0; d0EakHoDShSInIDUFOk7Kg)
+  client:
+    type: generic
+    name:  UALib
+    version: 17.10.0
+-
+  user_agent: UALib 16.11.3
+  client:
+    type: generic
+    name:  UALib
+    version: 16.11.3
+-
+  user_agent: LibreOffice 24.2.3.2 (433d9c2ded56988e8a90e6b2e771ee4e6a5ab2ba; Windows; X86_64; )
+  client:
+    type: productivity
+    name: LibreOffice
+    version: 24.2.3.2
+-
+  user_agent: LibreOffice 25.2.5.2 denylistedbackend
+  client:
+    type: productivity
+    name: LibreOffice
+    version: 25.2.5.2

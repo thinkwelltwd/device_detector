@@ -12,6 +12,24 @@
     name: Microsoft Store
     version: 22512.1401.1101.0
 -
+  user_agent: Meevii--IOS-_780_1688_iPhone_iPhone13,3_26.0.1_3.62.0_324
+  client:
+    type: mobile app
+    name: Meevii
+    version: 780
+-
+  user_agent: Flow|production|1.30.6|187|iPhone|iPhone 16 Pro|iOS|
+  client:
+    type: mobile app
+    name: Flow Production
+    version: 1.30.6
+-
+  user_agent: HERE-SDK-4.25.4.0/navigate
+  client:
+    type: navigation
+    name: HERE WeGo
+    version: 4.25.4.0
+-
   user_agent: Mozilla/5 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138 Safari/537.36 Edg/138.0.0.0 WebView/AcrobatServices/25.1.21111
   client:
     type: mobile app
@@ -71,3 +89,30 @@
     type: ai
     name: Claude by Anthropic
     version: 2
+
+-
+  user_agent: Overseer.211.502
+  client:
+    type: mobile app
+    name: Overseer
+    version: 211.502
+
+-
+  user_agent: Prove SDK;version=3.0.0;os=Android 14;device=Google Pixel 7a
+  client:
+    type: sdk
+    name: Prove SDK
+    version: 3.0.0
+-
+  user_agent: Prove SDK;version=3.0.0;os=iOS 26.5.2;device=iPhone13
+  client:
+    type: sdk
+    name: Prove SDK
+    version: 3.0.0
+
+-
+  user_agent: Mozilla/4 (compatible; Win32; NDES client 10.0.26100.8655/ge_release_svc_prod1)
+  client:
+    type: osutility
+    name: Intune Device Management
+    version: 10.0.26100.8655

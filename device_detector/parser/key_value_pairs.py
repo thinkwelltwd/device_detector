@@ -63,6 +63,10 @@ NAME_VERSION_REGEXES = (
     # openoffice.org 3.2 (320m18(build:9502); windows; x86; bundledlanguages=en-us)
     RegexLazyIgnore(rf'^(?P<name>{NAME_PATTERN}) [rv]?(?P<version>[\d\.\-\&\?]+)\b'),
 
+    # <name><space><version> - anywhere in remainder of string
+    # Mozilla/5.0 AppleWebKit/537.36 Mobile Safari/537.36 Android SermonAudio.com 1.9.8, wanting "SermonAudio.com 1.9.8"
+    RegexLazyIgnore(rf'(?P<name>{NAME_PATTERN}) [rv]?(?P<version>[\d\.\-\&\?]+)\b'),
+
     # <name><sep><version> - anywhere in string
     # Microsoft Office Access 2013 (15.0.4693) Windows NT 6.2, where version == 15.0.4693
     # Microsoft.VisualStudio.Help (2.3)
@@ -73,10 +77,6 @@ NAME_VERSION_REGEXES = (
     RegexLazyIgnore(
         rf'(?P<name>[\w\d\p{UNICODE_CATEGORIES}\.\-_\&\'!®\?, \+\&’]+) ?[(\-;] ?[vr]?(?P<version>[\d\.]+)(?:\b|\w|$)'
     ),
-
-    # <name><space><version> - anywhere in remainder of string
-    # Mozilla/5.0 AppleWebKit/537.36 Mobile Safari/537.36 Android SermonAudio.com 1.9.8, wanting "SermonAudio.com 1.9.8"
-    RegexLazyIgnore(rf'(?P<name>{NAME_PATTERN}) [rv]?(?P<version>[\d\.\-\&\?]+)\b'),
 
     # Get <key><value> pair from beginning of regex, when name & version are not delimited
     # BlueApron2.47.0 (iPhone; iOS 12.1.3; Scale/2.0)
@@ -125,7 +125,7 @@ def scrub_name_version_pairs(matches: list[NameVersion]) -> list[CodeNameVersion
     """
     pairs = []
     for name, version in matches:
-        name = name.strip(' -,')
+        name = name.strip(' -,:')
         if not name:
             continue
 

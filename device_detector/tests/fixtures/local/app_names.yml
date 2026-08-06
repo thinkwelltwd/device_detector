@@ -708,6 +708,16 @@
     name: Sentry SDK
     type: library
     version: 8.56.2
+-
+  user_agent: 'iOS PGA TOUR:2026.2.11(6345) BlazeSDK'
+  client:
+    name: iOS PGA TOUR
+    version: 2026.2.11
+-
+  user_agent: 'iOS NASCAR:16.1.1(22495) BlazeSDK'
+  client:
+    name: iOS NASCAR
+    version: 16.1.1
 # --------------------------------------------------------------------------------
 # UA Strings with no interesting pairs should fall back to browser details
 -

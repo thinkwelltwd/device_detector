@@ -87,6 +87,10 @@
   name: 'WeatherBug: Weather Forecast'
   version: '\g<1>'
 
+- regex: Meevii--[a-zA-Z\-_]+(?P<version>[\d]+)
+  name: Meevii
+  version: '\g<1>'
+
 - regex: Microsoft ?Store/([\.\d]+)
   name: Microsoft Store
   version: '\g<1>'
@@ -112,3 +116,26 @@
   name: Claude by Anthropic
   version: '\g<2>'
   type: ai
+
+- regex: here-sdk-([\d\.]+)
+  name: HERE WeGo
+  version: '\g<1>'
+  type: navigation
+
+- regex: flow\|production\|([\d\.]+)
+  name: Flow Production
+  version: '\g<1>'
+
+- regex: overseer\.([\d\.]+)
+  name: Overseer
+  version: '\g<1>'
+
+- regex: Prove SDK;version=([\d\.]+)
+  name: Prove SDK
+  version: '\g<1>'
+  type: sdk
+
+- regex: NDES client ([\d\.]+)
+  name: Intune Device Management
+  version: '\g<1>'
+  type: osutility

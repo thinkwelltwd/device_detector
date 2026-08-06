@@ -17,3 +17,9 @@
   version: '\g<1>'
   engine:
     default: 'WebKit'
+
+- regex: Chrome WIN (\d+[\.\d]+)
+  name: Chrome
+  version: '\g<1>'
+  engine:
+    default: 'WebKit'

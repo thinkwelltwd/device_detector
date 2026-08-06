@@ -20,3 +20,10 @@
     name: Avast SafeZone
     short_name: "AZ"
     version: "17.8.2527"
+-
+  user_agent: Chrome WIN 131.0.2903.70
+  client:
+    type: browser
+    name: Chrome
+    short_name: "CR"
+    version: "131.0.2903.70"

@@ -141,7 +141,7 @@ class WholeNameExtractor(GenericClientParser):
             match = regex.search(self.app_name)
             if match:
                 self.app_version = match.group().strip()
-                self.app_name = self.user_agent[: match.start()].strip(' /-')
+                self.app_name = self.user_agent[: match.start()].strip(' /-:')
                 return self.app_version
         return None
 
