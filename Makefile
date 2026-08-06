@@ -26,7 +26,7 @@ scan: ## Run code scanning checks
 	bandit device_detector -r -c pyproject.toml
 
 type-check: ## Run type checker
-	mypy device_detector
+	zmypy device_detector
 
 test: ## Run the tests
 	$(PYTHON) -m unittest
