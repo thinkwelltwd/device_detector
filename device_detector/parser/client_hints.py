@@ -2,7 +2,7 @@ import regex
 from typing import cast, TypedDict
 from device_detector.enums import DeviceType, AppType
 from ..lazy_regex import RegexLazyIgnore
-from ..yaml_loader import app_pretty_names_types_data
+from ..yaml_loader import app_custom_details
 from .settings import CLIENT_HINT_TO_APP_MAP, FAMILY_FROM_OS, BROWSER_TO_ABBREV
 
 
@@ -112,7 +112,6 @@ class ClientHints:
         self._browser_data: dict[str, str] | None = None
         self._client_data: dict[str, str] | None = None
         self._client_name = ''
-        self.app_pretty_names = app_pretty_names_types_data()
 
         # Set from pretty name fixtures, or other Header / UA attributes
         # If this value isn't set, then
@@ -295,9 +294,9 @@ class ClientHints:
         If a fixture defines a "pretty name" for this brand name,
         then set that name and app type.
         """
-        if app_name and (app_pretty_name := self.app_pretty_names.get(app_name)):
-            self._client_name = app_pretty_name['name']
-            self._calculated_app_type = cast(AppType, app_pretty_name['type'])
+        if app_name and (custom_details := app_custom_details().get(app_name)):
+            self._client_name = custom_details['name']
+            self._calculated_app_type = cast(AppType, custom_details['type'])
             return self._client_name
         return ''
 

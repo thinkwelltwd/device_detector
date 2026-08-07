@@ -144,3 +144,20 @@ class TestClientHints(ParserBaseTest):
                     str(data.get(key)),
                     field=key,
                 )
+
+    def test_secondary_client_data(self):
+        headers = {
+            'Sec-Ch-Ua-Mobile': '?1',
+            'X-Requested-With': 'co.heretofore.unknown.application.id',
+        }
+        ua = 'Mozilla/5.0 (Linux; Android 13; Pixel 6a Build/TQ3A.230901.001; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/131.0.6778.200 Mobile Safari/537.36 (Mobile; afma-sdk-a-v260480999.252530000.1)'
+
+        dd = DeviceDetector(ua, headers=headers).parse()
+
+        self.assertEqual(dd.all_details['client']['name'], 'Chrome Webview')
+
+        self.assertEqual(
+            dd.preferred_client_name(),
+            headers['X-Requested-With'],
+            msg='App ID should override generic browser name',
+        )

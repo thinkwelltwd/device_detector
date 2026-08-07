@@ -1326,6 +1326,7 @@ CHECK_PAIRS = {
     'Android Browser',
     'Mobile Safari',
     'Chrome Mobile',
+    'Chrome Webview',
     'Chrome',
 }
 

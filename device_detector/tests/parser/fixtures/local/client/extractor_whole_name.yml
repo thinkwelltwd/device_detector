@@ -272,3 +272,12 @@
     type: generic
     name:  Emoji+ 😘
     version: ""
+-
+  user_agent: Windy_Map_and_Weather_Forecast
+  client:
+    type: mobile app
+    name: Windy Map & Weather Forecast
+    version: ''
+  headers:
+    Sec-Ch-Ua-Mobile: '?1'
+    X-Requested-With: co.windyapp.android

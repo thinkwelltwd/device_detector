@@ -9,7 +9,7 @@ except ImportError:
 from regex._regex_core import error as RegexError
 from ..lazy_regex import RegexLazyIgnore
 from .client_hints import ClientHints
-from ..yaml_loader import RegexLoader, app_pretty_names_types_data, load_ahocorasick_patterns
+from ..yaml_loader import RegexLoader, app_custom_details, load_ahocorasick_patterns
 
 # Match regexes that ONLY values like:
 # iPhone12mini
@@ -65,7 +65,7 @@ class Parser(RegexLoader):
         'client_hints',
         'ch_client_data',
         'os_details',
-        'appdetails_data',
+        'app_custom_data',
         'corasick',
         '_is_ios_fragment',
     )
@@ -90,7 +90,7 @@ class Parser(RegexLoader):
         self.client_hints = client_hints
         self.ch_client_data = client_hints.client_data() if client_hints else {}
         self.os_details = os_details or {}
-        self.appdetails_data = app_pretty_names_types_data()
+        self.app_custom_data = app_custom_details()
         self._is_ios_fragment: bool | None = None
 
     def is_ios_fragment(self) -> bool:

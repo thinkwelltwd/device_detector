@@ -473,7 +473,11 @@ class DeviceDetector:
         AcuityApp/5.14.0 (com.acuityscheduling.app.ios; build:1686757700; iPhone; iOS 17.1.1) SquarespaceMobileiOS
         """
         client = self.all_details.get('client', {})
-        return client.get('app_id', '') or client.get('secondary_client', {}).get('app_id') or ''
+        app_id = client.get('app_id', '') or client.get('secondary_client', {}).get('app_id', '')
+        if app_id:
+            return app_id
+
+        return self.client_hints.app_type() if self.client_hints else ''
 
     def client_type(self) -> str:
         return self.all_details.get('client', {}).get('type') or ''

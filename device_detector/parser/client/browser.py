@@ -114,6 +114,7 @@ class Browser(BaseClientParser):
 
         ch_data = self.ch_client_data
         ua_data = self.ua_data
+        ch_app_type = ch_data.get('type', '')
 
         ua_name = ua_data.get('name', '')
         ua_short_hame = ua_data.get('short_name') or BROWSER_TO_ABBREV.get(ua_name.lower(), '')
@@ -235,7 +236,7 @@ class Browser(BaseClientParser):
                 family = 'Firefox'
 
         self.ua_data |= {
-            'type': 'browser',
+            'type': ch_app_type if ch_app_type and ch_app_type != 'browser' else 'browser',
             'name': name,
             'short_name': short_name,
             'version': version,
@@ -294,6 +295,17 @@ class Browser(BaseClientParser):
         # Call these extractors here, since this regex matching as
         # browser means no further Client Parsers would be run.
         if self.ua_data.get('name', '') in CHECK_PAIRS:
+            # Prefer client hints since hints tend to be the most precise.
+            ch_app_id = self.ch_client_data.get('app_id', '')
+            ch_name = self.ch_client_data.get('name', ch_app_id)
+            if ch_name:
+                self.ua_data['secondary_client'] = {
+                    'name': ch_name,
+                    'app_id': ch_app_id,
+                    'version': self.ch_client_data.get('version', ''),
+                }
+                return
+
             if self.has_interesting_pair():
                 self.get_secondary_client_data(extractor=NameVersionExtractor)
             else:

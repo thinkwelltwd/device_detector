@@ -26,7 +26,7 @@ class AppNameType(TypedDict):
 
 
 @functools.cache
-def app_pretty_names_types_data() -> dict[str, AppNameType]:
+def app_custom_details() -> dict[str, AppNameType]:
     """
     Load App Details data into dictionary.
 

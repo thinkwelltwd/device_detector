@@ -77,9 +77,6 @@ class WholeNameExtractor(GenericClientParser):
 
     # -------------------------------------------------------------------
     def _parse(self) -> None:
-        if self.ch_client_data:
-            return
-
         self.clean_name()
 
         if self.discard_name() or not self.is_name_length_valid():
@@ -93,18 +90,17 @@ class WholeNameExtractor(GenericClientParser):
         if self.app_name.lower() in SKIP_PREFIXES:
             return
 
-        app_details = self.appdetails_data
         code = self.app_name.lower().replace(' ', '')
 
         try:
-            self.app_name = app_details[code]['name']
+            self.app_name = self.app_custom_data[code]['name']
         except KeyError:
             pass
 
         self.ua_data = {
             'name': self.app_name,
             'version': self.app_version,
-            'type': app_details[code].get('type', ''),
+            'type': self.app_custom_data[code].get('type', ''),
         }
 
         self.known = True

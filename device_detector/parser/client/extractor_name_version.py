@@ -1,6 +1,6 @@
 from . import GenericClientParser
-from ...lazy_regex import RegexLazyIgnore
 from ...parser.key_value_pairs import key_value_pairs
+from ...utils import normalize_app_name
 from ..settings import METADATA_NAMES
 
 
@@ -23,7 +23,7 @@ class NameVersionExtractor(GenericClientParser):
         """
         Check all name/version pairs for most interesting values
         """
-        app_details = self.appdetails_data
+        app_details = self.app_custom_data
         app_type = ''
         app_name = ''
 
@@ -57,7 +57,7 @@ class NameVersionExtractor(GenericClientParser):
 
         # Chrome WIN 138.0.3351.83 (16e2a7bef3208e592c2c1a00548d2736a0d23ec7) channel(stable)
         # A rather localized override :-(
-        self.app_name = 'Chrome' if app_name == 'Chrome WIN' else strip_unwanted_suffixes(app_name)
+        self.app_name = 'Chrome' if app_name == 'Chrome WIN' else normalize_app_name(app_name)
         return {
             'name': self.app_name,
             'version': self.app_version if self.version_contains_numbers() else '',
@@ -78,9 +78,6 @@ class NameVersionExtractor(GenericClientParser):
         return False
 
     def _parse(self) -> None:
-        if self.ch_client_data:
-            return
-
         app_data = self.parse_name_version_pairs()
 
         if not self.app_name:
@@ -92,20 +89,6 @@ class NameVersionExtractor(GenericClientParser):
         self.ua_data = app_data
 
         self.known = True
-
-
-EXTRACT_SUFFIXES = RegexLazyIgnore(
-    r'^(\w+)\.?(?:ShareExtension|Widgets?Extension|HomeWidget|Notifications?(Service|Content))'
-)
-
-
-def strip_unwanted_suffixes(name: str) -> str:
-    """
-    Remove unwanted suffixes, such as "ShareExtension" or "WidgetExtension".
-    """
-    if matched := EXTRACT_SUFFIXES.match(name):
-        return str(matched.group(1))
-    return name
 
 
 __all__ = [

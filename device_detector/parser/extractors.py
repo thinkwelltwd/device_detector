@@ -1,5 +1,5 @@
 from ..lazy_regex import RegexLazyIgnore
-from ..yaml_loader import app_pretty_names_types_data
+from ..yaml_loader import app_custom_details
 from device_detector.enums import AppType
 from device_detector.utils import normalize_app_name
 
@@ -36,7 +36,6 @@ class ApplicationIDExtractor:
     def __init__(self, user_agent: str) -> None:
         self.user_agent = user_agent
         self.details: dict[str, str] = {}
-        self._app_id_pretty_names = app_pretty_names_types_data()
 
     def extract(self) -> 'ApplicationIDExtractor':
         """
@@ -54,15 +53,15 @@ class ApplicationIDExtractor:
         if not (app_ids := self.match_regexes()):
             return self
 
-        pretty_names = self._app_id_pretty_names
+        _app_custom_details = app_custom_details()
         for app_id, version in app_ids:
             normalized_app_id = normalize_app_name(app_id)
-            if pretty_name := pretty_names.get(normalized_app_id.lower()):
+            if custom_data := _app_custom_details.get(normalized_app_id.lower()):
                 self.details = {
-                    'name': pretty_name['name'],
+                    'name': custom_data['name'],
                     'app_id': normalized_app_id,
                     'version': version,
-                    'type': pretty_name['type'],
+                    'type': custom_data['type'],
                 }
                 break
         else:

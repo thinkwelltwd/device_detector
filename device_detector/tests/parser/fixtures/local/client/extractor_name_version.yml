@@ -400,3 +400,12 @@
     type: productivity
     name: LibreOffice
     version: 25.2.5.2
+-
+  user_agent: Phone-Clean/2025.09.02
+  client:
+    type: mobile app
+    name: Super Cleaner
+    version: 2025.09.02
+  headers:
+    Sec-Ch-Ua-Mobile: '?1'
+    X-Requested-With: phone.cleaner.antivirus.speed.booster
