@@ -8,3 +8,7 @@
 - regex: 'Win10PC'
   name: 'Windows'
   version: '10'
+
+- regex: 'iOS:(\d[\d.]+)'
+  name: 'iOS'
+  version: '\g<1>'

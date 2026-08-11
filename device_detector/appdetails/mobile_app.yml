@@ -3968,6 +3968,8 @@
   name: Lyft
 - uaname: me.lyft.android
   name: Lyft
+- uaname: com.zimride.instant
+  name: Lyft
 - uaname: com.ubercab
   suffixes: .uberclient|.eats|.ubereats|.driver
   name: Uber Rides & Eats
