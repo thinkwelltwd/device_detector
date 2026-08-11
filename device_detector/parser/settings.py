@@ -72,6 +72,7 @@ FIREOS_VERSION_MAPPING = {
 
 # Lineage OS version mapping
 LINEAGEOS_VERSION_MAPPING = {
+    '17'   : '24',
     '16'   : '23',
     '15'   : '22',
     '14'   : '21',
@@ -326,7 +327,7 @@ OS_FAMILIES = {
     'Android': [
         'AND', 'CYN', 'FIR', 'REM', 'RZD', 'MLD', 'MCD', 'YNS', 'GRI', 'HAR',
         'ADR', 'CLR', 'BOS', 'REV', 'LEN', 'SIR', 'RRS', 'WER', 'PIC', 'ARM',
-        'HEL', 'BYI', 'RIS', 'PUF', 'LEA', 'MET', 'SMA', 'AGO',
+        'HEL', 'BYI', 'RIS', 'PUF', 'LEA', 'MET', 'SMA', 'AGO', 'HYP',
     ],
     'AmigaOS': ('AMG', 'MOR', 'ARO'),
     'BlackBerry': ('BLB', 'QNX'),

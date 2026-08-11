@@ -29,10 +29,10 @@ Nintendo:
   regex: 'Nintendo (([3]?DS[i]?)|Wii[U]?|Switch|GameBoy)|Switch(?: Lite| OLED)?\)'
   device: 'console'
   models:
-    - regex: 'Nintendo (([3]?DS[i]?)|Wii[U]?|Switch|GameBoy)'
+    - regex: 'Nintendo (([3]?DS[i]?)|Wii[U]?|Switch(?: Lite| OLED)|GameBoy)'
       model: '\g<1>'
     - regex: '(Switch(?: Lite| OLED)?)'
-      model: 'Nintendo \g<1>'
+      model: '\g<1>'
 
 OUYA:
   regex: 'OUYA'
