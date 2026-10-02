@@ -1,3 +1,10 @@
+from string import punctuation as full_punctuation
+
+STRIP_PUNCTUATION = (
+    full_punctuation.replace('!', '').replace('+', '').replace('$', '').replace('?', '')
+)
+
+
 # Mappings from Browser names we use to known client hint values
 # fmt: off
 APP_TO_CLIENT_HINT_MAPPING = {
@@ -1286,6 +1293,9 @@ CRUFT_NAMES = {
     'android mozilla',
     'mobile',
     'ios',
+    'iosapp',
+    'ios app',
+    'ios_app',
     'android',
     'ipad',
     'iphone',
@@ -1379,5 +1389,6 @@ __all__ = (
     'MOBILE_ONLY_BROWSERS',
     'TV_CLIENTS',
     'SKIP_PREFIXES',
+    'STRIP_PUNCTUATION',
     'normalized_name',
 )

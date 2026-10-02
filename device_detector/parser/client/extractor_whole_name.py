@@ -1,7 +1,7 @@
 from . import GenericClientParser
 
 from ...lazy_regex import RegexLazyIgnore
-from ..settings import SKIP_PREFIXES
+from ..settings import SKIP_PREFIXES, STRIP_PUNCTUATION
 
 
 # -------------------------------------------------------------------
@@ -137,7 +137,7 @@ class WholeNameExtractor(GenericClientParser):
             match = regex.search(self.app_name)
             if match:
                 self.app_version = match.group().strip()
-                self.app_name = self.user_agent[: match.start()].strip(' /-:')
+                self.app_name = self.user_agent[: match.start()].strip(STRIP_PUNCTUATION).strip()
                 return self.app_version
         return None
 

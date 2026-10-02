@@ -24,6 +24,14 @@ class TestApplicationIDExtractor(ParserBaseTest):
             parsed = app_id.pretty_name()
             self.assertEqual(expected, parsed, msg=error.format(self.user_agent, parsed, expected))
 
+    def test_no_appid(self):
+        for ua in (
+            'RCAppMobile/26 (RingCentral; iPhone 14; iOS/26; build.1090; rev.dc64d57511a)',
+        ):
+            app_id = ApplicationIDExtractor(ua).extract()
+            self.assertIsNone(app_id.details.get('app_id'), msg=f'No found AppID in {ua!r}')
+
+
 __all__ = [
     'TestApplicationIDExtractor',
 ]

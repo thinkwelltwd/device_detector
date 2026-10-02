@@ -174,6 +174,15 @@ class TestNameVersionExtractor(ParserClientBase):
         'ISUA11.00MP',
     )
 
+    def test_no_client_name(self):
+        for ua in (
+            'iOS App/33210 Darwin/25',
+            'iOS_App/1 Darwin/25',
+            'ios_3.1.2',
+        ):
+            nv = NameVersionExtractor(ua, client_hints=None).parse()
+            self.assertEqual(nv.name(), '', msg=f'No meaningful name can be extracted from {ua}')
+
 
 class TestWholeNameExtractor(GenericParserTest):
 
@@ -194,6 +203,11 @@ class TestWholeNameExtractor(GenericParserTest):
         for ua in user_agents:
             wn = WholeNameExtractor(ua, client_hints=None).parse()
             self.assertEqual(wn.name(), '')
+
+    def test_no_client_name(self):
+        ua = 'iOS=26.7.0;Version=26.36.0;BuildType=Production'
+        wn = WholeNameExtractor(ua, client_hints=None).parse()
+        self.assertEqual(wn.name(), '', msg=f'No meaningful name can be extracted from {ua}')
 
 
 __all__ = (

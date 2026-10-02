@@ -2,7 +2,7 @@ import regex
 from typing import NamedTuple
 
 from ..lazy_regex import RegexLazyIgnore
-from .settings import SKIP_PREFIXES
+from .settings import SKIP_PREFIXES, STRIP_PUNCTUATION
 
 UNICODE_CATEGORIES = r'\p{Geometric_Shapes}\p{Extended_Pictographic}\p{Other_Symbol}'
 NAME_PATTERN = rf'[\w\d{UNICODE_CATEGORIES}\.\-_\'!®\?, \+\&‘’]+'
@@ -125,12 +125,12 @@ def scrub_name_version_pairs(matches: list[NameVersion]) -> list[CodeNameVersion
     """
     pairs = []
     for name, version in matches:
-        name = name.strip(' -,:')
-        if not name:
-            continue
-
         # does this look like base64 encoded data?
         if name.endswith('=='):
+            continue
+
+        name = name.strip(STRIP_PUNCTUATION).strip()
+        if not name or len(name) < 2:
             continue
 
         name_lower = name.lower()
