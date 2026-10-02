@@ -41,3 +41,9 @@ class TestDetectTV5(DetectorBaseTest):
     fixture_files = [
         'tests/fixtures/upstream/tv-5.yml',
     ]
+
+class TestDetectTV6(DetectorBaseTest):
+
+    fixture_files = [
+        'tests/fixtures/upstream/tv-6.yml',
+    ]

@@ -8,7 +8,7 @@ android.lvldm: null
 anyevent-http: null
 apache-httpclient: null
 apidog/: null
-applecoremedia/1.0.0: null
+applecoremedia: null
 aria2: null
 artifactory/: null
 axios: null
@@ -183,6 +183,7 @@ network-okhttp3/: null
 node-fetch/: null
 node-fetch: null
 node-superagent: null
+ocaml-cohttp: null
 okdownload/: null
 okhttp/: null
 okhttp3-: null

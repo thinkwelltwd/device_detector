@@ -150,11 +150,16 @@ class Device(BaseDeviceParser):
                 'brand': 'Apple' if ch.platform == 'Mac' else '',
             }
 
+        if ch_model == 'Surface Pro':
+            self.ua_data |= {
+                'model': ch_model,
+                'brand': 'Microsoft',
+            }
+
         if not self.ua_data.get('brand'):
+            # Assume all devices running ThinOS are from Dell
             if self.os_details.get('name', '') == 'ThinOS':
                 self.ua_data['brand'] = 'Dell'
-            elif ch_model == 'Surface Pro':
-                self.ua_data['brand'] = 'Microsoft'
             else:
                 # If no brand info was found, check known fragments
                 vendor_fragment = VendorFragment(self.user_agent, self.client_hints).parse().ua_data
@@ -388,7 +393,12 @@ def compatible_device_type(actual: str, target: str) -> bool:
         return True
 
     if target == DeviceType.Smartphone:
-        return actual == DeviceType.Tablet or actual == DeviceType.Phablet
+        return (
+            actual == DeviceType.Tablet
+            or actual == DeviceType.Phablet
+            or actual == DeviceType.CarBrowser
+            or actual == DeviceType.SmartSpeaker
+        )
 
     return False
 

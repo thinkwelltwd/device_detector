@@ -1,47 +1,13 @@
 !!set
-'amiga-web': null
-'(beos': null
-' beos': null
-' cros ': null
-centos/: null
-debian/: null
-debian-: null
-(debian): null
-fedora/: null
-ubuntu/: null
-' freebsd': null
-' gentoo': null
-midori/: null
-libwww/: null
-netscape: null
-haiku : null
-haiku): null
-linux zbov: null
-mageia: null
-conkeror: null
-rekonq: null
-lightning/: null
-seamonkey/: null
-symbian/: null
-symbianos/: null
-iceape/: null
-thunderbird/: null
-minefield: null
-charon; inferno: null
-swiftfox: null
-snowshoe/: null
-granparadiso: null
-applemac: null
-shiretoko: null
-amigaos: null
-archlinux: null
-arch linux: null
-'links (': null
 ' (bb10; ': null
 ' acer; ': null
 ' acer_': null
+' beos': null
 ' cpu os ': null
+' cros ': null
 ' dw-': null
+' freebsd': null
+' gentoo': null
 ' gt-s': null
 ' htc-': null
 ' htc; ': null
@@ -70,20 +36,38 @@ arch linux: null
 ' toshiba-': null
 ' touch; ': null
 ' touch; rv:': null
+'(beos': null
+'; spv ': null
+'; transformer ': null
+';cpu os ': null
+';quadra ': null
+'amiga-web': null
+'cpu ios ': null
+'k-touch ': null
+'karbonn ': null
+'links (': null
+'masstel ': null
+'nec ': null
+'ngm ': null
+'nokia; ': null
+'smadl ': null
+'tiphone ': null
+'videocon ': null
+'windows ce ': null
+'windows nt ': null
+'zte ': null
+(debian): null
 /ans/: null
 /ios/: null
+43fsv22: null
 ; a101: null
 ; a5: null
 ; c1505: null
 ; gt-p: null
 ; lc: null
 ; smarttab: null
-'; spv ': null
-'; transformer ': null
-';cpu os ': null
 ;huawei;: null
 ;lg-: null
-';quadra ': null
 ;smartphone;: null
 _sc-: null
 a5x max: null
@@ -98,6 +82,9 @@ adr 8: null
 adr 9: null
 adr910l: null
 alcatel: null
+airplay: null
+aeohp: null
+amigaos: null
 android 0: null
 android 1: null
 android 2: null
@@ -125,6 +112,9 @@ android; 8: null
 android; 9: null
 apple-ipad: null
 apple-iphone: null
+applemac: null
+arch linux: null
+archlinux: null
 archos 10: null
 archos 70: null
 archos 79: null
@@ -153,15 +143,22 @@ build/i: null
 build/j: null
 build/v: null
 celkon: null
+centos/: null
+charon; inferno: null
 cloud phone: null
 cocoon/: null
+conkeror: null
 cosmote: null
-'cpu ios ': null
+debian: null
 dell; venue: null
 dv(iph: null
 fbcr/: null
+fedora/: null
 garmin-asus: null
 gigabyte: null
+granparadiso: null
+haiku : null
+haiku): null
 hgtv-led: null
 hp-tablet: null
 hpipaq: null
@@ -172,6 +169,7 @@ huawei-: null
 huawei_: null
 huaweig: null
 huaweil: null
+iceape/: null
 ios iphone: null
 ios; u; ios: null
 ios; u; iph os: null
@@ -183,32 +181,38 @@ iphone; u; cpu os: null
 itunes-ipad/: null
 itunes-iphone/: null
 junipers/: null
-'k-touch ': null
 k-touch_: null
-'karbonn ': null
 karbonn_: null
 kepler: null
 kgt/2.0: null
 kindle/: null
+lab-lx1: null
+lab-lx2: null
+lab-lx3: null
 lavie tab: null
 lge; gvc-: null
 librem 5: null
+libwww/: null
 lifetabplus: null
+lightning/: null
+linux zbov: null
 maemo rx: null
-'masstel ': null
+mageia: null
 masstel_: null
 megafon: null
 micromax: null
 microsoft rm-: null
 microsoft; lumia: null
 microsoft; rm-: null
+midori/: null
+minefield: null
 mocor/w1: null
 navipad tm: null
-'nec ': null
+nc-65t4k-smart: null
 nec-: null
 nec_: null
+netscape: null
 nexiannx: null
-'ngm ': null
 ngm_: null
 nokia 2: null
 nokia 3: null
@@ -226,7 +230,6 @@ nokia6: null
 nokia7: null
 nokia8: null
 nokia9: null
-'nokia; ': null
 nokia; lumia: null
 nokia; rm-: null
 nokiaa: null
@@ -265,6 +268,7 @@ qc6: null
 qc7: null
 qc8: null
 qc9: null
+rekonq: null
 rim tablet: null
 rx-51 n900: null
 sam-r560: null
@@ -287,27 +291,21 @@ samsung; sgh-: null
 samsung; sm-: null
 sanyo/: null
 sanyo;: null
+seamonkey/: null
 sencor element: null
 sencor_element: null
 sharp-4: null
 sharp-a: null
 sharp-s: null
+shiretoko: null
 silk-accelerated: null
-'smadl ': null
 smadl_: null
 smartfren: null
+snowshoe/: null
 sonos/: null
 sonos;: null
 sony tablet: null
-sonyericssonc: null
-sonyericssong: null
-sonyericssonj: null
-sonyericssonk: null
-sonyericssonm: null
-sonyericssonp: null
-sonyericssont: null
-sonyericssonw: null
-sonyericssonz: null
+sonyericsson: null
 spice m5: null
 spice mi: null
 spicem5: null
@@ -315,27 +313,30 @@ staraddict: null
 starshine: null
 startab: null
 startrail: null
+swiftfox: null
+symbian/: null
+symbianos/: null
 t-mobile_: null
 tcl-: null
 tecnot: null
 thinkpad: null
-'tiphone ': null
+thunderbird/: null
 touch ii: null
 treo8: null
-'videocon ': null
+tvtokhf32wb: null
+tz50wf1: null
+ubuntu/: null
+vel55usvw: null
 videocon-: null
 videocon_: null
 walton_: null
 webos/: null
-'windows ce ': null
 windows ce;: null
-'windows nt ': null
 windows nt;: null
 winmax: null
 wpdesktop; lumia: null
 xda comet: null
 xiino/: null
 xoom: null
-'zte ': null
 zte-: null
 zte_: null

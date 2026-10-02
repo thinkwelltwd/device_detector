@@ -40,8 +40,9 @@ Words:
 - aphone browser
 - applewebkit [hs/
 - applewebkit [pb/
-- authenticationservice
+- atlas
 - atomicbrowser
+- authenticationservice
 - banglabrowser
 - bdbrowser/
 - bdhonorbrowser/
@@ -93,6 +94,7 @@ Words:
 - firefox 4
 - firefox 5
 - firefox/
+- fulldivebrowser
 - google earth
 - googleearth
 - headless
@@ -166,8 +168,8 @@ Words:
 - ladybird/
 - lebrowser
 - leganbrowser
-- lilo/
 - lightpanda
+- lilo/
 - linux; android
 - linux; u; android
 - locationbrowser
@@ -190,6 +192,7 @@ Words:
 - mot-v
 - mot-x
 - motorolawebkit
+- mullvadbrowser
 - mxbrowser
 - mysudo
 - naenarabrowser
@@ -211,8 +214,8 @@ Words:
 - polestar
 - presto/
 - privacybrowser
-- quickbrowser
 - quiche
+- quickbrowser
 - qutebrowser
 - qwantmobile
 - rakutenbrowser
@@ -228,6 +231,7 @@ Words:
 - slbrowser
 - smarthublink
 - sparrow/
+- stadium
 - surfbrowser
 - surfybrowser
 - system/android
@@ -240,6 +244,7 @@ Words:
 - turbobrowser
 - ucbrowser/
 - uckai
+- valve steam game
 - wap browser
 - wap-browser
 - wapbrowser

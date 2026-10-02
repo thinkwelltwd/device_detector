@@ -7,6 +7,7 @@ Words:
 - '(iphone; '
 - '(macos; '
 - '; adr '
+- 'ios:'
 - (x11; u; en)
 - /ipad/
 - /iphone/
@@ -44,13 +45,14 @@ Words:
 - cyanogenmod
 - doggcatcher
 - fedora/
+- fortigate
+- fortios
 - gnewsense/
 - hpwos/
 - intelx64 mac os x
 - ios iphone
 - ios; u; ios
 - ios; u; iph os
-- 'ios:'
 - ipad app
 - ipad app
 - ipad1,
@@ -116,6 +118,7 @@ Words:
 - mandriva linux/
 - mandriva/
 - mocordroid
+- myos
 - nook browser
 - oculusbrowser
 - okhttp
@@ -127,6 +130,7 @@ Words:
 - podkicker
 - portalgo
 - red hat
+- res102
 - rokubrowser/
 - rokuos/
 - solaris/
@@ -136,11 +140,13 @@ Words:
 - system/android
 - tbrowser/2.0
 - twitterandroid
+- valve steam game
 - warthog/
-- wtos/
 - webos/
 - webos;
 - whatsapp/
+- wtos/
 - x11; u; mac osx
 - xiino
+- yndx-
 - 붉은별

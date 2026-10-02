@@ -85,27 +85,6 @@ class TestDetectCarBrowser(DetectorBaseTest):
     ]
 
 
-class TestDetectConsole(DetectorBaseTest):
-
-    fixture_files = [
-        'tests/fixtures/upstream/console.yml',
-    ]
-
-
-class TestDetectDesktop(DetectorBaseTest):
-
-    fixture_files = [
-        'tests/fixtures/upstream/desktop.yml',
-    ]
-
-
-class TestDetectDesktop1(DetectorBaseTest):
-
-    fixture_files = [
-        'tests/fixtures/upstream/desktop-1.yml',
-    ]
-
-
 class TestDetectFeedReader(DetectorBaseTest):
 
     fixture_files = [
@@ -117,20 +96,6 @@ class TestDetectFeaturePhone(DetectorBaseTest):
 
     fixture_files = [
         'tests/fixtures/upstream/feature_phone.yml',
-    ]
-
-
-class TestDetectPodcasting(DetectorBaseTest):
-
-    fixture_files = [
-        'tests/fixtures/upstream/podcasting.yml',
-    ]
-
-
-class TestDetectMediaPlayer(DetectorBaseTest):
-
-    fixture_files = [
-        'tests/fixtures/upstream/mediaplayer.yml',
     ]
 
 

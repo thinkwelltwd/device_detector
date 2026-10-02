@@ -196,6 +196,9 @@ class OS(Parser):
                     or ''
                 )
 
+        if not name and family == name_from_ua:
+            name = name_from_ua
+
         self.ua_data |= {
             'name': name,
             'short_name': short,
