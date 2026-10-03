@@ -55,8 +55,12 @@ TRIM_SUFFIX_PATTERNS = (
 # Mozilla/5.0 (iPhone; CPU iPhone OS 12_1_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/16D57 baidumap_IPHO (10793838272)  # noqa
 STRIP_NUM_SUFFIX = RegexLazyIgnore(r'(\([0-9]+\))$')
 COMMON_BIGRAMS = RegexLazyIgnore(
-    r'th|he|in|er|an|ar|re|on|at|en|nd|ti|es|or|te|of|ed|is|it|al|ar|st|to|nt|ng|se|'
-    r'ha|as|ou|io|le|ve|co|me|de|hi|ri|ro|ic|ne|ea|ee|oo|ra|ce|li|ch|ll|be|ma|si|om|ur'
+    r'ha|he|hi|ho|'
+    r'th|in|er|an|ar|au|re|on|at|en|nd|ti|es|or|te|of|ed|is|it|al|ar|st|to|nt|ng|'
+    r'ha|as|ou|le|ve|co|me|de|ri|ro|ie|io|ic|ne|ea|ee|ra|ca|ce|ch|ll|be|ma|se|si|'
+    r'la|le|li|lo|'
+    r'om|oo|'
+    r'ul|ur'
 )
 ILLEGAL_BIGRAMS = RegexLazyIgnore(r'[a-z0-9](jq|qg|qk|qy|qz|wq|wz)')
 LEGAL_BIGRAMS = RegexLazyIgnore(
@@ -85,9 +89,9 @@ LEGAL_BIGRAMS = RegexLazyIgnore(
 )
 COMMON_TRIGRAMS = RegexLazyIgnore(
     r'(the|and|ing|her|hat|his|tha|ere|for|lab|ent|ion|ter|was|you|ith|ver|all|wit|thi|tio|p2p|dev|'
-    r'ink|jet|ios|mac|win|dos|rss|med|fun|sun|fax|app|api|bot|cam|cpu|lab|hue|rgb|sdk|web|oku|pad|'
+    r'ink|jet|ios|mac|win|dos|rss|med|fun|sun|fax|app|api|ali|bot|cam|cpu|lab|hue|rgb|sdk|web|oku|'
     r'art|bea|boa|cat|law|mes|new|not|vpn|zig|4x4|gun|sim|mp3|wma|mov|pic|pix|vid|war|key|sho|syn|'
-    r'bit|boy|cli|dri|han|log|man|mot|rad|oil|sip|nom|gen|per|sig|tim|tun|wor)'
+    r'bit|boy|cli|coc|dri|han|log|man|mot|rad|oil|pad|sip|nom|gen|per|sig|tie|tim|tun|wor)'
 )
 COMMON_QUADRIGRAMS = RegexLazyIgnore(
     '(clou|ipod|ipad|that|ther|with|tion|here|ould|ight|have|hich|whic|this|thin|they|atio|ever|'
