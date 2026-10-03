@@ -100,13 +100,13 @@
 -
   user_agent: Prove SDK;version=3.0.0;os=Android 14;device=Google Pixel 7a
   client:
-    type: sdk
+    type: library
     name: Prove SDK
     version: 3.0.0
 -
   user_agent: Prove SDK;version=3.0.0;os=iOS 26.5.2;device=iPhone13
   client:
-    type: sdk
+    type: library
     name: Prove SDK
     version: 3.0.0
 

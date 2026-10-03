@@ -133,7 +133,7 @@
 - regex: Prove SDK;version=([\d\.]+)
   name: Prove SDK
   version: '\g<1>'
-  type: sdk
+  type: library
 
 - regex: NDES client ([\d\.]+)
   name: Intune Device Management
