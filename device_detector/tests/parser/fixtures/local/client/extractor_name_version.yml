@@ -409,3 +409,15 @@
   headers:
     Sec-Ch-Ua-Mobile: '?1'
     X-Requested-With: phone.cleaner.antivirus.speed.booster
+-
+  user_agent: ADOBE_IAL_CLIENT_WIN_1.0
+  client:
+    type: productivity
+    name: Adobe Creative Cloud
+    version: 1.0
+-
+  user_agent: ddg_win/0 (Windows 11 25H2)
+  client:
+    type: browser
+    name: DuckDuckGo Privacy Browser
+    version: 0

@@ -16,6 +16,8 @@
   name: DuckDuckGo Privacy Browser
 - uaname: com.duckduckgo.mobile.ios
   name: DuckDuckGo Privacy Browser
+- uaname: ddg_win
+  name: DuckDuckGo Privacy Browser
 
 - uaname: com.google.android.webview
   suffixes: .beta|.canary|.dev

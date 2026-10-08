@@ -93,10 +93,14 @@
 - uaname: com.apple.iclouddriveapp
   name: iCloud Drive
 - uaname: com.microsoft.office.word
-  name: "Microsoft Word: Edit Documents"
+  name: Microsoft Office Word
 - uaname: com.microsoft.office.powerpoint
   name: Microsoft PowerPoint
 - uaname: com.microsoft.office.onenote
-  name: "Microsoft OneNote: Save Notes"
+  name: Microsoft Office OneNote
 - uaname: com.microsoft.office.excel
-  name: "Microsoft Excel: Spreadsheets"
+  name: Microsoft Office Excel
+- uaname: Creative Cloud
+  name: Adobe Creative Cloud
+- uaname: ADOBE_IAL_CLIENT_WIN
+  name: Adobe Creative Cloud

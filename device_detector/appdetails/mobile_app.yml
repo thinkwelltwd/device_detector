@@ -8,10 +8,6 @@
 # The "uaname" values will be converted to lowercase,
 # so consider
 
-# Line
-- uaname: Line
-  name: Line
-
 - uaname: com.apple.news
   name: Apple News
 
@@ -502,7 +498,7 @@
   name: Altimeter Pro A.C.T
 
 - uaname: amazon
-  name: Amazon
+  name: Amazon Shopping
 
 - uaname: amazoncloudplayer
   name: Amazon Cloud Player
@@ -1123,9 +1119,6 @@
 - uaname: duolingomobile
   name: Duolingo Mobile
 
-- uaname: eBay
-  name: eBay
-
 - uaname: ecatalog
   name: eCatalog
 
@@ -1135,17 +1128,11 @@
 - uaname: eeba
   name: EEBA
 
-- uaname: eero
-  name: eero
-
 - uaname: efaxmobile
   name: eFaxMobile
 
 - uaname: egginc
   name: Egg, Inc.
-
-- uaname: eliveroom
-  name: eliveroom
 
 - uaname: eloquent
   name: Eloquent
@@ -1202,9 +1189,6 @@
 
 - uaname: farmlogs
   name: Farm Logs
-
-- uaname: farms.com
-  name: farms.com
 
 - uaname: farmworks
   name: FarmWorks
@@ -1316,9 +1300,6 @@
 
 - uaname: floriani
   name: Floriani
-
-- uaname: flux
-  name: flux
 
 - uaname: flyplane
   name: Fly Plane
@@ -1551,9 +1532,6 @@
 - uaname: house-flip
   name: House Flip
 
-- uaname: houzz
-  name: houzz
-
 - uaname: hughesnet-prod-store
   name: HughesNet
 
@@ -1745,9 +1723,6 @@
 
 - uaname: lastminutetakeoff
   name: Last Minute Takeoff
-
-- uaname: letgo
-  name: letgo
 
 - uaname: lexie
   name: Lexie
@@ -2208,9 +2183,6 @@
 
 - uaname: powerplay
   name: PowerPlay
-
-- uaname: priceline.com
-  name: priceline.com
 
 - uaname: principal/nutritionist dashboard
   name: Principal Nutrionist Dashboard
@@ -2882,16 +2854,13 @@
   name: Waze
 
 - uaname: weatherapptodaywidget_weatherfoundation
-  name: Weather App Today Widget
+  name: Weather App Today
 
 - uaname: weathernow
   name: Weather Now
 
 - uaname: weathertwo
   name: Weather Two
-
-- uaname: weatherwidget
-  name: Weather Widget
 
 - uaname: wells_fargo_mobile_banking
   suffixes: iphone|android
@@ -3336,6 +3305,8 @@
 - uaname: com.bradesco
   name: "Bradesco: Conta, Cartão e Pix!"
 - uaname: com.amazon.mshop.android.shopping
+  name: Amazon Shopping
+- uaname: mShop:::Amazon
   name: Amazon Shopping
 - uaname: com.application.zomato
   name: "Zomato: Food Delivery & Dining"

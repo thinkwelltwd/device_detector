@@ -281,3 +281,9 @@
   headers:
     Sec-Ch-Ua-Mobile: '?1'
     X-Requested-With: co.windyapp.android
+-
+  user_agent: mShop:::Amazon_iPhone_25.13.0:::iPhone:::iPhone_OS_18.7.8
+  client:
+    type: mobile app
+    name: Amazon Shopping
+    version: 25.13.0

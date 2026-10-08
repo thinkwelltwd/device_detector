@@ -301,9 +301,6 @@
 - uaname: CrashRpt
   name: CrashRpt
 
-- uaname: Creative Cloud
-  name: Creative Cloud
-
 - uaname: CRWindowsClient
   name: CRWindowsClient
 
