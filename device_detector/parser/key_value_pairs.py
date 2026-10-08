@@ -63,6 +63,10 @@ NAME_VERSION_REGEXES = (
     # openoffice.org 3.2 (320m18(build:9502); windows; x86; bundledlanguages=en-us)
     RegexLazyIgnore(rf'^(?P<name>{NAME_PATTERN}) [rv]?(?P<version>[\d\.\-\&\?]+)\b'),
 
+    # <name><colon><space><version> - anchored at the beginning
+    # CoreSync: 7.10.0.1 And Windows 10.0.26200 (Wow32on64)
+    RegexLazyIgnore(rf'^(?P<name>{NAME_PATTERN}): (?P<version>[\d\.\-\&\?]+)'),
+
     # <name><space><version> - anywhere in remainder of string
     # Mozilla/5.0 AppleWebKit/537.36 Mobile Safari/537.36 Android SermonAudio.com 1.9.8, wanting "SermonAudio.com 1.9.8"
     RegexLazyIgnore(rf'(?P<name>{NAME_PATTERN}) [rv]?(?P<version>[\d\.\-\&\?]+)\b'),

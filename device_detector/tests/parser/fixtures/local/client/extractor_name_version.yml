@@ -421,3 +421,9 @@
     type: browser
     name: DuckDuckGo Privacy Browser
     version: 0
+-
+  user_agent: 'CoreSync: 7.8.10.1 And Windows 10.0.26200 (Wow32on64)'
+  client:
+    type: desktop app
+    name: CoreSync
+    version: 7.8.10.1
