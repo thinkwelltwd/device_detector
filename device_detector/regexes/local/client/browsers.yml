@@ -5,6 +5,12 @@
 # @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
 ###############
 
+# Mozilla/5 (iPad; CPU OS 18 like Mac OS X) AppleWebKit/605 (KHTML, like Gecko) Mobile/15E148 [FBAB/com.itwcalculator.calculatorforipadfree]
+- regex: '\[FBA[BN]/([\w\.]+\b)\]'
+  name: '\g<1>'
+  type: mobile app
+  version: ''
+
 # Avastium Browser - Avast browser based on Chrome
 - regex: 'Avastium Chrome(?:\/(\d+[\.\d]+))'
   name: 'Avast SafeZone'

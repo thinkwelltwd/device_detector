@@ -1171,6 +1171,8 @@
 
 - uaname: facebook
   name: Facebook
+- uaname: FBIOS
+  name: Facebook
 
 - uaname: facefoto
   name: FaceFoto

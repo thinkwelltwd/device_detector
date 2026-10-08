@@ -139,3 +139,8 @@
   name: Intune Device Management
   version: '\g<1>'
   type: osutility
+
+- regex: '\[FBA[BN]/([\w\.]+\b)\]$'
+  name: '\g<1>'
+  type: mobile app
+  version: ''
