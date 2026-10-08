@@ -16,7 +16,15 @@
   name: DuckDuckGo Privacy Browser
 - uaname: com.duckduckgo.mobile.ios
   name: DuckDuckGo Privacy Browser
+- uaname: ddg_android
+  name: DuckDuckGo Privacy Browser
+- uaname: ddg_ios
+  name: DuckDuckGo Privacy Browser
 - uaname: ddg_win
+  name: DuckDuckGo Privacy Browser
+- uaname: ddg_macos
+  name: DuckDuckGo Privacy Browser
+- uaname: DuckDuckGo Personal Information Removal
   name: DuckDuckGo Privacy Browser
 
 - uaname: com.google.android.webview

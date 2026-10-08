@@ -38,13 +38,15 @@
   name: Mail
 
 - uaname: outlook
-  name: Microsoft Outlook
+  name: Microsoft Office Outlook
 - uaname: com.microsoft.office.outlook
-  name: Microsoft Outlook
+  name: Microsoft Office Outlook
 - uaname: Outlook shim services
-  name: Microsoft Outlook
+  name: Microsoft Office Outlook
 - uaname: OutlookSocialConnector
-  name: Microsoft Outlook
+  name: Microsoft Office Outlook
+- uaname: Outlook-Android
+  name: Microsoft Office Outlook
 - uaname: outlook-express
   name: Outlook Express
 

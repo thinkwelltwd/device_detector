@@ -927,6 +927,10 @@
 - uaname: com.kohls.mcommerce.opal
   suffixes: opal|iphone
   name: "Kohl's Shopping & More"
+- uaname: Kohls
+  name: "Kohl's Shopping & More"
+- uaname: Kohl's
+  name: "Kohl's Shopping & More"
 
 - uaname: com.menards.mobile
   name: Menards
@@ -2067,6 +2071,13 @@
 
 - uaname: oneweather
   name: OneWeather
+
+- uaname: Weather_iPadOS_Version
+  name: Weather
+- uaname: Weather_iOS_Version
+  name: Weather
+- uaname: Weather_Android_Version
+  name: Weather
 
 - uaname: ontime ifta
   name: Ontime Ifta

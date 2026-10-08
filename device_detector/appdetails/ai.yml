@@ -36,3 +36,9 @@
   name: Hailuo AI Video Generator
 - uaname: ai.character.app
   name: 'Character AI: Chat, Talk, Text'
+- uaname: Claude-Desktop
+  name: Claude Desktop
+- uaname: CopilotNative
+  name: Copilot Native
+- uaname: Copilot
+  name: Copilot
