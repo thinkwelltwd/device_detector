@@ -1,11 +1,5 @@
 import regex
-from typing import Any
-
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
-
+from typing import Any, Self
 from regex._regex_core import error as RegexError
 from ..lazy_regex import RegexLazyIgnore
 from .client_hints import ClientHints

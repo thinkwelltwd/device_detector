@@ -38,13 +38,6 @@ setup(
     package_data={
         '': ['*.yml'],
     },
-    install_requires=[
-        'ahocorasick-rs>=1.0.3',
-        'regex>=2026.5.9',
-        'yaml-rs>=0.1.0',
-        'backports.strenum>=1.3.1; python_version <= "3.10"',
-        'typing_extensions>=4.15.0; python_version <= "3.10"',
-    ],
     classifiers=[
         'Environment :: Web Environment',
         'Intended Audience :: Developers',
@@ -53,7 +46,6 @@ setup(
         'Programming Language :: Python',
         'Topic :: Internet :: WWW/HTTP',
         'Topic :: Software Development :: Libraries :: Python Modules',
-        'Programming Language :: Python :: 3.10',
         'Programming Language :: Python :: 3.11',
         'Programming Language :: Python :: 3.12',
         'Programming Language :: Python :: 3.13',

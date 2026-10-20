@@ -1,10 +1,6 @@
 import functools
-from typing import TYPE_CHECKING
+from typing import Self, TYPE_CHECKING
 
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
 from .lazy_regex import RegexLazy
 from .enums import DeviceType
 

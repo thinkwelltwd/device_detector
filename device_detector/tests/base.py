@@ -7,10 +7,7 @@ Run individual test class by:
 
 python3 -m unittest device_detector.tests.parser.test_bot
 """
-try:
-    from enum import StrEnum
-except ImportError:
-    from backports.strenum import StrEnum
+from enum import StrEnum
 from urllib.parse import unquote
 import unittest
 import yaml_rs

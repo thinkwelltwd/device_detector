@@ -1,7 +1,4 @@
-try:
-    from enum import StrEnum
-except ImportError:
-    from backports.strenum import StrEnum  # type: ignore[no-redef]
+from enum import StrEnum
 
 
 class AppType(StrEnum):
